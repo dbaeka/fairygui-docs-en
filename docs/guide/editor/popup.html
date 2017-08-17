@@ -1,0 +1,334 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Popup Manage — FairyGUI</title>
+        <meta charset="utf-8">
+        <meta name="description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="Popup Manage — FairyGUI">
+        <meta property="og:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Popup Manage — FairyGUI">
+        <meta name="twitter:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+
+
+        <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'>
+
+        <!-- main page styles -->
+        <link rel="stylesheet" href="/css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script src="/js/vue.min.js"></script>
+        <script>window.PAGE_TYPE = "guide_editor"</script>
+    </head>
+    <body class="docs">        <div id="mobile-bar"  data-bg-text="FairyGUI" >
+            <a class="menu-button"></a>
+            <a class="logo" href="https://github.com/fairygui/FairyGUI-unity"></a>
+        </div>
+        <div id="bg"> <!--end tag in the `index.ejs`-->
+
+<div id="header">
+  <a id="logo" href="https://github.com/fairygui/">
+    <img src="/images/github-white.png">
+  </a>
+  <ul id="nav">
+    
+
+	<li><a href="/" class="nav-link">Home</a></li>
+
+<li><a href="/product/" class="nav-link">Product</a></li>
+<li><a href="/guide/" class="nav-link current">Tutorials</a></li>
+<li><a href="http://ask.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
+<li><a href="/examples/" class="nav-link">Demo</a></li>
+<li><a href="/showcase/" class="nav-link">Showcase</a></li>
+<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">Q&A</a></li>
+<li><a href="/about/" class="nav-link">About</a></li>
+<li><a href="http://www.fairygui.com/" target="_self"  class="nav-link">中文</a> / English</li>
+  </ul>
+</div>
+
+        
+            <div id="main" class="fix-sidebar">
+                
+                    
+    <div class="sidebar">
+    <ul class="main-menu">
+        
+
+	<li><a href="/" class="nav-link">Home</a></li>
+
+<li><a href="/product/" class="nav-link">Product</a></li>
+<li><a href="/guide/" class="nav-link current">Tutorials</a></li>
+<li><a href="http://ask.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
+<li><a href="/examples/" class="nav-link">Demo</a></li>
+<li><a href="/showcase/" class="nav-link">Showcase</a></li>
+<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">Q&A</a></li>
+<li><a href="/about/" class="nav-link">About</a></li>
+<li><a href="http://www.fairygui.com/" target="_self"  class="nav-link">中文</a> / English</li>
+    </ul>
+    <div class="list">
+		<a class="become-backer" href="/about/donate.html">
+            Donate
+        </a>
+        <h2>
+            Guide
+            <!--<select class="version-select">
+                <option value="SELF" selected>editor</option>
+            </select>-->
+ 		 
+		  
+		
+        </h2>
+        <ul class="menu-root">
+            
+
+	 			
+	                
+	                <li>
+	                    <a href="/guide/index.html" class="sidebar-link">Introduction</a>
+	                </li>
+	            
+	
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/object.html" class="sidebar-link">Object</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/image.html" class="sidebar-link">Image</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/movieclip.html" class="sidebar-link">MovieClip</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/graph.html" class="sidebar-link">Graph</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/loader.html" class="sidebar-link">Loader</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/text.html" class="sidebar-link">Text</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/richtext.html" class="sidebar-link">RichText</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/group.html" class="sidebar-link">Group</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/component.html" class="sidebar-link">Component</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/controller.html" class="sidebar-link">Controller</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/relation.html" class="sidebar-link">Relation System</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/label.html" class="sidebar-link">Label</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/button.html" class="sidebar-link">Button</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/combobox.html" class="sidebar-link">ComboBox</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/progressbar.html" class="sidebar-link">ProgressBar</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/slider.html" class="sidebar-link">Slider</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollbar.html" class="sidebar-link">ScrollBar</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/list.html" class="sidebar-link">List</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/window.html" class="sidebar-link">Window</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/popup.html" class="sidebar-link current">Popup Manage</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/transition.html" class="sidebar-link">Transition</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/adaptation.html" class="sidebar-link">Adaptation</a>
+	                </li>
+	            
+	
+	            
+	                
+	                
+	                <li><h3>Unity</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/unity/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/atlas.html" class="sidebar-link">Atlas</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/font.html" class="sidebar-link">Font handling</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/input.html" class="sidebar-link">Input processing</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/event.html" class="sidebar-link">Event System</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/insert3d.html" class="sidebar-link">Interspersed with 3D objects</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/uipainter.html" class="sidebar-link">Curved UI</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall optimization</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/lua.html" class="sidebar-link">Used in Lua</a>
+	                </li>
+	            
+
+	            
+	                
+	                
+	                <li><h3>LayaAir</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/laya/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+	
+	            
+	                
+	                
+	                <li><h3>Egret</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/egret/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+
+	            
+
+	            
+
+            
+        </ul>
+    </div>
+</div>
+
+
+<div class="content guide_editor with-sidebar ">
+    
+      <h1>Popup Manage</h1>
+    
+    <p>在UI系统中我们经常需要弹出一些组件，这些组件在用户点击空白地方的情况下就会自动消失。GRoot提供了几个API实现这类Popup行为。</p>
+<ul>
+<li><code>ShowPopup</code> 弹出一个组件，如果指定了目标，则会调整弹出的位置到目标的下方，形成一个下拉的效果。同时提供了参数可以用来指定是向上弹出或者向下弹出。FairyGUI会根据组件的大小自动计算弹出位置，以确保组件显示不会超出屏幕。例如：</li>
+</ul>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//弹出在当前鼠标位置</span></div><div class="line">GRoot.inst.ShowPopup(aComponent);</div><div class="line"></div><div class="line"><span class="comment">//弹出在aButton的下方</span></div><div class="line">GRoot.inst.ShowPopup(aComponent, aButton);</div><div class="line"></div><div class="line"><span class="comment">//弹出在自定义的位置</span></div><div class="line">GRoot.inst.ShowPopup(aComponent);</div><div class="line">aComponent.SetXY(<span class="number">100</span>, <span class="number">100</span>);</div></pre></td></tr></table></figure>
+<p>窗口也可以通过ShowPopup弹出，这样弹出的窗口也具有了点击空白关闭的特性：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Window aWindow;</div><div class="line">GRoot.inst.ShowPopup(aWindow);</div></pre></td></tr></table></figure>
+<ul>
+<li><code>HidePopup</code> 默认情况下，用户点击空白地方就会自动关闭弹出的组件。也可以调用此API手工关闭。不指定参数时，所有当前的弹出都关闭。</li>
+</ul>
+
+    
+    <div class="footer">
+      found mistake? Want to participate in editing?
+      <a href="https://github.com/fairygui/en.fairygui.io/tree/master/src/guide/editor/popup.md" target="_blank">
+        Edit this page on Github!
+      </a>
+    </div>
+</div>
+
+                
+            </div>
+            <script src="/js/smooth-scroll.min.js"></script>
+        
+
+        <!-- main custom script for sidebars, version selects etc. -->        
+        <script src="/js/css.escape.js"></script>
+        <script src="/js/common.js"></script>
+    </body>
+</html>

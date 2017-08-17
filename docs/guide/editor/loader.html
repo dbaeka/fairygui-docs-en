@@ -1,0 +1,369 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Loader — FairyGUI</title>
+        <meta charset="utf-8">
+        <meta name="description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="Loader — FairyGUI">
+        <meta property="og:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Loader — FairyGUI">
+        <meta name="twitter:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+
+
+        <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'>
+
+        <!-- main page styles -->
+        <link rel="stylesheet" href="/css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script src="/js/vue.min.js"></script>
+        <script>window.PAGE_TYPE = "guide_editor"</script>
+    </head>
+    <body class="docs">        <div id="mobile-bar"  data-bg-text="FairyGUI" >
+            <a class="menu-button"></a>
+            <a class="logo" href="https://github.com/fairygui/FairyGUI-unity"></a>
+        </div>
+        <div id="bg"> <!--end tag in the `index.ejs`-->
+
+<div id="header">
+  <a id="logo" href="https://github.com/fairygui/">
+    <img src="/images/github-white.png">
+  </a>
+  <ul id="nav">
+    
+
+	<li><a href="/" class="nav-link">Home</a></li>
+
+<li><a href="/product/" class="nav-link">Product</a></li>
+<li><a href="/guide/" class="nav-link current">Tutorials</a></li>
+<li><a href="http://ask.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
+<li><a href="/examples/" class="nav-link">Demo</a></li>
+<li><a href="/showcase/" class="nav-link">Showcase</a></li>
+<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">Q&A</a></li>
+<li><a href="/about/" class="nav-link">About</a></li>
+<li><a href="http://www.fairygui.com/" target="_self"  class="nav-link">中文</a> / English</li>
+  </ul>
+</div>
+
+        
+            <div id="main" class="fix-sidebar">
+                
+                    
+    <div class="sidebar">
+    <ul class="main-menu">
+        
+
+	<li><a href="/" class="nav-link">Home</a></li>
+
+<li><a href="/product/" class="nav-link">Product</a></li>
+<li><a href="/guide/" class="nav-link current">Tutorials</a></li>
+<li><a href="http://ask.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
+<li><a href="/examples/" class="nav-link">Demo</a></li>
+<li><a href="/showcase/" class="nav-link">Showcase</a></li>
+<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">Q&A</a></li>
+<li><a href="/about/" class="nav-link">About</a></li>
+<li><a href="http://www.fairygui.com/" target="_self"  class="nav-link">中文</a> / English</li>
+    </ul>
+    <div class="list">
+		<a class="become-backer" href="/about/donate.html">
+            Donate
+        </a>
+        <h2>
+            Guide
+            <!--<select class="version-select">
+                <option value="SELF" selected>editor</option>
+            </select>-->
+ 		 
+		  
+		
+        </h2>
+        <ul class="menu-root">
+            
+
+	 			
+	                
+	                <li>
+	                    <a href="/guide/index.html" class="sidebar-link">Introduction</a>
+	                </li>
+	            
+	
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/object.html" class="sidebar-link">Object</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/image.html" class="sidebar-link">Image</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/movieclip.html" class="sidebar-link">MovieClip</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/graph.html" class="sidebar-link">Graph</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/loader.html" class="sidebar-link current">Loader</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/text.html" class="sidebar-link">Text</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/richtext.html" class="sidebar-link">RichText</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/group.html" class="sidebar-link">Group</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/component.html" class="sidebar-link">Component</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/controller.html" class="sidebar-link">Controller</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/relation.html" class="sidebar-link">Relation System</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/label.html" class="sidebar-link">Label</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/button.html" class="sidebar-link">Button</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/combobox.html" class="sidebar-link">ComboBox</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/progressbar.html" class="sidebar-link">ProgressBar</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/slider.html" class="sidebar-link">Slider</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollbar.html" class="sidebar-link">ScrollBar</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/list.html" class="sidebar-link">List</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/window.html" class="sidebar-link">Window</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup Manage</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/transition.html" class="sidebar-link">Transition</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/adaptation.html" class="sidebar-link">Adaptation</a>
+	                </li>
+	            
+	
+	            
+	                
+	                
+	                <li><h3>Unity</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/unity/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/atlas.html" class="sidebar-link">Atlas</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/font.html" class="sidebar-link">Font handling</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/input.html" class="sidebar-link">Input processing</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/event.html" class="sidebar-link">Event System</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/insert3d.html" class="sidebar-link">Interspersed with 3D objects</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/uipainter.html" class="sidebar-link">Curved UI</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall optimization</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/lua.html" class="sidebar-link">Used in Lua</a>
+	                </li>
+	            
+
+	            
+	                
+	                
+	                <li><h3>LayaAir</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/laya/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+	
+	            
+	                
+	                
+	                <li><h3>Egret</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/egret/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+
+	            
+
+	            
+
+            
+        </ul>
+    </div>
+</div>
+
+
+<div class="content guide_editor with-sidebar ">
+    
+      <h1>Loader</h1>
+    
+    <p>装载器的用途是动态载入图片或动画。点击主工具栏中的<img src="../../images/20170728201500.png" alt="">按钮，生成一个装载器。</p>
+<h2 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h2><p><img src="../../images/20170728201606.png" alt=""></p>
+<ul>
+<li><p><code>URL</code> URL指向的资源可以是图片或者动画。</p>
+</li>
+<li><p><code>自动大小</code> 设置装载器是否根据内容的大小自动调整自身的大小。例如，如果图片的大小是100x100，则装载器的大小自动变成100x100。</p>
+</li>
+<li><p><code>填充处理</code> 当需要显示的图片或动画与装载器大小不相同时使用的缩放策略。注意如果你设置了自动大小，那这个填充处理就无意义了。因为这个选项只是当装载器大小与内容大小不一致时的处理方式。</p>
+</li>
+<li><p><code>对齐</code> 设置装载器内容的对齐方式。</p>
+</li>
+<li><p><code>帧</code> 如果内容是动画，可以设置动画的当前帧。如果内容是图片，这个设置无意义。</p>
+</li>
+<li><p><code>播放</code> 如果内容是动画，可以设置动画是播放还是停止，如果内容是图片，这个设置无意义。</p>
+</li>
+<li><p><code>颜色</code> 修改动画各个颜色通道的值，使动画产生变色的效果。<em>（注：Egret、Laya版本目前是通过滤镜实现的，效率较低，不推荐使用此功能）。</em></p>
+</li>
+<li><p><code>亮度</code> 调整动画的明暗。这个实际是通过修改<code>颜色</code>属性实现的，和设置颜色为灰阶颜色一样的效果。</p>
+</li>
+<li><p><code>填充方法</code> 设置填充方法可以实现图片的一些裁剪效果。详细说明请参考图片的<a href="image.html#实例属性">填充方法</a>。<em>（注：仅Starling、Unity版本支持）</em></p>
+</li>
+</ul>
+<h2 id="GLoader"><a href="#GLoader" class="headerlink" title="GLoader"></a>GLoader</h2><p>装载器支持动态创建，动态创建图形一定要设置图形的大小，否则显示不出来。例如：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GLoader aLoader = <span class="keyword">new</span> GLoader();</div><div class="line">aLoader.SetSize(<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">aLoader.url = <span class="string">"ui://包名/图片名"</span>;</div></pre></td></tr></table></figure>
+<p>GLoader可以载入图片和动画，但不能是组件或其他类型的元件。如果是UI包里的资源，那么通过“ui://包名/图片名”这种格式的地址就可以载入。但实际项目中，可能我们还需要载入和显示一些不在UI包里的，我们称之为“外部”的图片。默认的GLoader具有有限度的的加载外部资源的能力，它们是：</p>
+<ul>
+<li>AS3 使用flash.display.Loader加载的外部资源。</li>
+<li>Starling 使用flash.display.Loader加载的位图资源。加载后转化为Texture。</li>
+<li>Egret 使用egret.RES.getResAsync加载的外部位图资源。</li>
+<li>Layabox 使用Laya.loader.load加载的外部资源。</li>
+<li>Unity 使用Resources.Load加载的外部贴图资源。</li>
+</ul>
+<p>例如：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//AS3，加载一个网络图片</span></div><div class="line">aLoader.url = “http:<span class="comment">//www.fairygui.com/logo.png”;</span></div><div class="line"></div><div class="line"><span class="comment">//Egret，这里demoRes是resources.json里定义的一个资源</span></div><div class="line">aLoader.url = “demoRes”;</div><div class="line"></div><div class="line"><span class="comment">//Unity, 这里加载的是路径为Assets/Resources/demo/aimage的一个贴图</span></div><div class="line">aLoader.url = “demo/aimage”;</div></pre></td></tr></table></figure>
+<p>如果这些默认的外部加载机制不能满足你的需求，例如，你希望从AssetBundle中获取资源，或者你需要加入缓存机制（这是有必要的，如果需要重复加载，建议做缓存），或者需要控制素材的生命期（这也是必要的，因为GLoader不会销毁外部载入的资源），那么你需要扩展GLoader。</p>
+<ol>
+<li><p>首先编写你的Loader类，有两个重点方法需要重写：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">class</span> <span class="title">MyGLoader</span>  : <span class="title">GLoader</span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">override</span> <span class="keyword">protected</span> function <span class="title">LoadExternal</span>(<span class="params"></span>)</span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        <span class="comment">/*</span></div><div class="line"><span class="comment">        开始外部载入，地址在url属性</span></div><div class="line"><span class="comment">        载入完成后调用OnExternalLoadSuccess</span></div><div class="line"><span class="comment">        载入失败调用OnExternalLoadFailed</span></div><div class="line"><span class="comment"></span></div><div class="line"><span class="comment">        注意：如果是外部载入，在载入结束后，调用OnExternalLoadSuccess或OnExternalLoadFailed前，</span></div><div class="line"><span class="comment">        比较严谨的做法是先检查url属性是否已经和这个载入的内容不相符。</span></div><div class="line"><span class="comment">        如果不相符，表示loader已经被修改了。</span></div><div class="line"><span class="comment">        这种情况下应该放弃调用OnExternalLoadSuccess或OnExternalLoadFailed。</span></div><div class="line"><span class="comment">        */</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">override</span> <span class="keyword">protected</span> function <span class="title">FreeExternal</span>(<span class="params">NTexture texture</span>)</span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        <span class="comment">//释放外部载入的资源</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>注册我们要使用的Loader类。注册完成后，游戏中<strong>所有装载器</strong>都变成由MyGLoader实例化产生。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">UIObjectFactory.SetLoaderExtension(<span class="keyword">typeof</span>(MyGLoader));</div></pre></td></tr></table></figure>
+<p>在Unity平台中，如果在某些特殊场合需要将Texture2D对象赋予给GLoader，例如一个视频贴图，那么可以这样做：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//必须注意GLoader不管理外部对象的生命周期，不会主动销毁your_Texture2D</span></div><div class="line">aLoader.texture = <span class="keyword">new</span> NTexture(your_Texture2D);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+
+    
+    <div class="footer">
+      found mistake? Want to participate in editing?
+      <a href="https://github.com/fairygui/en.fairygui.io/tree/master/src/guide/editor/loader.md" target="_blank">
+        Edit this page on Github!
+      </a>
+    </div>
+</div>
+
+                
+            </div>
+            <script src="/js/smooth-scroll.min.js"></script>
+        
+
+        <!-- main custom script for sidebars, version selects etc. -->        
+        <script src="/js/css.escape.js"></script>
+        <script src="/js/common.js"></script>
+    </body>
+</html>

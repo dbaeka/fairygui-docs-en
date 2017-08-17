@@ -1,0 +1,348 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Graph — FairyGUI</title>
+        <meta charset="utf-8">
+        <meta name="description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="Graph — FairyGUI">
+        <meta property="og:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Graph — FairyGUI">
+        <meta name="twitter:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+
+
+        <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'>
+
+        <!-- main page styles -->
+        <link rel="stylesheet" href="/css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script src="/js/vue.min.js"></script>
+        <script>window.PAGE_TYPE = "guide_editor"</script>
+    </head>
+    <body class="docs">        <div id="mobile-bar"  data-bg-text="FairyGUI" >
+            <a class="menu-button"></a>
+            <a class="logo" href="https://github.com/fairygui/FairyGUI-unity"></a>
+        </div>
+        <div id="bg"> <!--end tag in the `index.ejs`-->
+
+<div id="header">
+  <a id="logo" href="https://github.com/fairygui/">
+    <img src="/images/github-white.png">
+  </a>
+  <ul id="nav">
+    
+
+	<li><a href="/" class="nav-link">Home</a></li>
+
+<li><a href="/product/" class="nav-link">Product</a></li>
+<li><a href="/guide/" class="nav-link current">Tutorials</a></li>
+<li><a href="http://ask.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
+<li><a href="/examples/" class="nav-link">Demo</a></li>
+<li><a href="/showcase/" class="nav-link">Showcase</a></li>
+<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">Q&A</a></li>
+<li><a href="/about/" class="nav-link">About</a></li>
+<li><a href="http://www.fairygui.com/" target="_self"  class="nav-link">中文</a> / English</li>
+  </ul>
+</div>
+
+        
+            <div id="main" class="fix-sidebar">
+                
+                    
+    <div class="sidebar">
+    <ul class="main-menu">
+        
+
+	<li><a href="/" class="nav-link">Home</a></li>
+
+<li><a href="/product/" class="nav-link">Product</a></li>
+<li><a href="/guide/" class="nav-link current">Tutorials</a></li>
+<li><a href="http://ask.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
+<li><a href="/examples/" class="nav-link">Demo</a></li>
+<li><a href="/showcase/" class="nav-link">Showcase</a></li>
+<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">Q&A</a></li>
+<li><a href="/about/" class="nav-link">About</a></li>
+<li><a href="http://www.fairygui.com/" target="_self"  class="nav-link">中文</a> / English</li>
+    </ul>
+    <div class="list">
+		<a class="become-backer" href="/about/donate.html">
+            Donate
+        </a>
+        <h2>
+            Guide
+            <!--<select class="version-select">
+                <option value="SELF" selected>editor</option>
+            </select>-->
+ 		 
+		  
+		
+        </h2>
+        <ul class="menu-root">
+            
+
+	 			
+	                
+	                <li>
+	                    <a href="/guide/index.html" class="sidebar-link">Introduction</a>
+	                </li>
+	            
+	
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/object.html" class="sidebar-link">Object</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/image.html" class="sidebar-link">Image</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/movieclip.html" class="sidebar-link">MovieClip</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/graph.html" class="sidebar-link current">Graph</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/loader.html" class="sidebar-link">Loader</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/text.html" class="sidebar-link">Text</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/richtext.html" class="sidebar-link">RichText</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/group.html" class="sidebar-link">Group</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/component.html" class="sidebar-link">Component</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/controller.html" class="sidebar-link">Controller</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/relation.html" class="sidebar-link">Relation System</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/label.html" class="sidebar-link">Label</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/button.html" class="sidebar-link">Button</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/combobox.html" class="sidebar-link">ComboBox</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/progressbar.html" class="sidebar-link">ProgressBar</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/slider.html" class="sidebar-link">Slider</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollbar.html" class="sidebar-link">ScrollBar</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/list.html" class="sidebar-link">List</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/window.html" class="sidebar-link">Window</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup Manage</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/transition.html" class="sidebar-link">Transition</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/adaptation.html" class="sidebar-link">Adaptation</a>
+	                </li>
+	            
+	
+	            
+	                
+	                
+	                <li><h3>Unity</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/unity/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/atlas.html" class="sidebar-link">Atlas</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/font.html" class="sidebar-link">Font handling</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/input.html" class="sidebar-link">Input processing</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/event.html" class="sidebar-link">Event System</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/insert3d.html" class="sidebar-link">Interspersed with 3D objects</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/uipainter.html" class="sidebar-link">Curved UI</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall optimization</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/lua.html" class="sidebar-link">Used in Lua</a>
+	                </li>
+	            
+
+	            
+	                
+	                
+	                <li><h3>LayaAir</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/laya/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+	
+	            
+	                
+	                
+	                <li><h3>Egret</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/egret/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+
+	            
+
+	            
+
+            
+        </ul>
+    </div>
+</div>
+
+
+<div class="content guide_editor with-sidebar ">
+    
+      <h1>Graph</h1>
+    
+    <p>FairyGUI支持生成简单的图形。 点击侧工具栏的<img src="../../images/20170728164112.png" alt="">按钮生成一个图形。</p>
+<h2 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h2><p><img src="../../images/20170728164159.png" alt=""></p>
+<ul>
+<li><p><code>图形</code> 选择形状为矩形、圆形或者“无”。“无”表示这是一个空的图形，他不消耗任何显示资源，通常用作一个占位的用途。详细可见下面的介绍。</p>
+</li>
+<li><p><code>线条大小</code> 形状的描边大小。0则表示不描边。</p>
+</li>
+<li><p><code>线条颜色</code> 形状的描边颜色。</p>
+</li>
+<li><p><code>填充颜色</code> 形状的填充颜色。如果你希望绘制中空的图形，那把填充颜色的透明度设置为0即可。</p>
+</li>
+<li><p><code>圆角</code> 一个整数或者4个用逗号分隔的整数。例如“4”，表示矩形的四个角均为半径为4的圆角。例如“2,1,1,4”，则指定了每个角的半径。<em>Unity、Starling版本不支持圆角的设置，如果你仍然希望使用圆角矩形，可以在右键菜单里点击“转换为位图”</em></p>
+</li>
+</ul>
+<h2 id="GGraph"><a href="#GGraph" class="headerlink" title="GGraph"></a>GGraph</h2><p>图形支持动态创建，动态创建图形需要注意一定要设置图形的大小，否则显示不出来。例如：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GGraph holder = <span class="keyword">new</span> GGraph();</div><div class="line">holder.SetSize(<span class="number">100</span>, <span class="number">100</span>);</div><div class="line">holder.DrawRect(...);</div><div class="line">aComponent.AddChild(holder);</div></pre></td></tr></table></figure>
+<p>前面提到，空白的图形可以用作一个占位的用途，运行中可能用其他对象替换这个空白图形。FairyGUI的显示对象与原生显示对象混合使用时就需要用到这种空白的图形。</p>
+<p>举例：现在要在UI中放置入一个原生的对象aSprite，则可以在适当位置放入一个空白的图形，假设对象为holder，那么代码里可以这样写：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">holder.SetNativeObject(aSprite);</div></pre></td></tr></table></figure>
+<p>这样就把aSprite放到了holder所在的位置和深度上。 通过这样的办法，任何原生显示对象都可以轻松插入到FairyGUI的显示列表中。</p>
+<p>如果SetNativeObject被重复调用，则前一个设置对象被销毁，插入新的对象。</p>
+<p>通过GGraph.shape属性可以获得原生矢量绘制的接口类。特别说明的是，Unity平台没有矢量绘制引擎，因此目前只提供了绘制矩形、圆形和多边形。以下是Unity里运用GGraph对象的一些技巧：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//传入多边形的各个顶点绘制多边形</span></div><div class="line">aGraph.shape.DrawPolygon(<span class="keyword">new</span> Vector2[] &#123; ...&#125; &#125;, <span class="keyword">new</span> Color[] &#123; ... &#125;;</div><div class="line"></div><div class="line"><span class="comment">//绘制一个渐变色的矩形</span></div><div class="line">aGraph.shape.DrawRect(<span class="number">0</span>, <span class="keyword">new</span> Color[] &#123; ... &#125;);</div></pre></td></tr></table></figure>
+<p>再次提醒，如果图形是动态创建的，记得设置图形的大小。</p>
+
+    
+    <div class="footer">
+      found mistake? Want to participate in editing?
+      <a href="https://github.com/fairygui/en.fairygui.io/tree/master/src/guide/editor/graph.md" target="_blank">
+        Edit this page on Github!
+      </a>
+    </div>
+</div>
+
+                
+            </div>
+            <script src="/js/smooth-scroll.min.js"></script>
+        
+
+        <!-- main custom script for sidebars, version selects etc. -->        
+        <script src="/js/css.escape.js"></script>
+        <script src="/js/common.js"></script>
+    </body>
+</html>

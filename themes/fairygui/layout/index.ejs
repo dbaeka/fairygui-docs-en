@@ -1,0 +1,79 @@
+<div class="sidebar">
+  <ul class="main-menu">
+    <%- partial('partials/main_menu', { context: 'sidebar' }) %>
+  </ul>
+</div>
+
+<div id="hero">
+  <div class="inner">
+    <div class="right">
+      <br/>
+      <h1>
+        FairyGUI<sup>3</sup>
+      </h1>
+      <br/><br/><br/>
+        Professional UI editor, cross-platform UI solution
+      <br/><br/>
+        Unity、Starling、Egret、LayaAir、Haxe、Pixi、LibGDX and more……
+      <br/>
+      <p>
+        <a class="button" href="<%- url_for("/product/") %>">Download</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+  </br></br></br></br>
+  <div class="software">
+    <img src="<%- url_for("/images/software.png") %>">
+  </div>
+
+</div>
+
+<div id="highlights">
+  <div class="inner">
+    <div class="box big">
+      <div class="left">
+        <img src="<%- url_for("/images/guzhu.png") %>">
+      </div>
+      <div class="right">
+        <p>
+          Redefine the UI production process, full visualization, zero code, is a suitable for programmers, designers and game planner UI production tools. <br>
+With FairyGUI-SDK, each game engine can be highly efficient rendering performance, unique FairyBatching technology can automatically optimize the complex interface of the DC number.
+        </p>
+      </div>
+    </div><br>
+  </div>
+</div>
+
+<div id="bottom-download">
+  UI production of a new experience, download only five seconds! Come and experience!
+  <p>
+    <a class="button" href="<%- url_for("/product/") %>">Download</a>
+  </p>
+</div>
+
+<div id="footer">
+
+  <ul class="main-menu">
+    <%- partial('partials/main_menu', { context: 'sidebar' }) %>
+  </ul>
+  <br/><br/><br/>
+
+  QQ group: Group 1: 434866637(Full) Group 2: 614444599<br>
+  &copy; FairyGUI.com 2014-<%- new Date().getFullYear() %> <a href='http://www.miitbeian.gov.cn/'>粤ICP备15041112号</a> <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256364934'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1256364934%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+<br/>
+</div>
+
+<script>
+var topScrolled = false
+window.addEventListener('scroll', function () {
+  if (window.pageYOffset > 165 && !topScrolled) {
+    topScrolled = true
+    document.getElementById('mobile-bar').classList.remove('top')
+  } else if (window.pageYOffset <= 165 && topScrolled) {
+    topScrolled = false
+    document.getElementById('mobile-bar').classList.add('top')
+  }
+})
+</script>

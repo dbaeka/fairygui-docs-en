@@ -1,0 +1,472 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Text — FairyGUI</title>
+        <meta charset="utf-8">
+        <meta name="description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="Text — FairyGUI">
+        <meta property="og:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Text — FairyGUI">
+        <meta name="twitter:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+
+
+        <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'>
+
+        <!-- main page styles -->
+        <link rel="stylesheet" href="/css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script src="/js/vue.min.js"></script>
+        <script>window.PAGE_TYPE = "guide_editor"</script>
+    </head>
+    <body class="docs">        <div id="mobile-bar"  data-bg-text="FairyGUI" >
+            <a class="menu-button"></a>
+            <a class="logo" href="https://github.com/fairygui/FairyGUI-unity"></a>
+        </div>
+        <div id="bg"> <!--end tag in the `index.ejs`-->
+
+<div id="header">
+  <a id="logo" href="https://github.com/fairygui/">
+    <img src="/images/github-white.png">
+  </a>
+  <ul id="nav">
+    
+
+	<li><a href="/" class="nav-link">Home</a></li>
+
+<li><a href="/product/" class="nav-link">Product</a></li>
+<li><a href="/guide/" class="nav-link current">Tutorials</a></li>
+<li><a href="http://ask.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
+<li><a href="/examples/" class="nav-link">Demo</a></li>
+<li><a href="/showcase/" class="nav-link">Showcase</a></li>
+<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">Q&A</a></li>
+<li><a href="/about/" class="nav-link">About</a></li>
+<li><a href="http://www.fairygui.com/" target="_self"  class="nav-link">中文</a> / English</li>
+  </ul>
+</div>
+
+        
+            <div id="main" class="fix-sidebar">
+                
+                    
+    <div class="sidebar">
+    <ul class="main-menu">
+        
+
+	<li><a href="/" class="nav-link">Home</a></li>
+
+<li><a href="/product/" class="nav-link">Product</a></li>
+<li><a href="/guide/" class="nav-link current">Tutorials</a></li>
+<li><a href="http://ask.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
+<li><a href="/examples/" class="nav-link">Demo</a></li>
+<li><a href="/showcase/" class="nav-link">Showcase</a></li>
+<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">Q&A</a></li>
+<li><a href="/about/" class="nav-link">About</a></li>
+<li><a href="http://www.fairygui.com/" target="_self"  class="nav-link">中文</a> / English</li>
+    </ul>
+    <div class="list">
+		<a class="become-backer" href="/about/donate.html">
+            Donate
+        </a>
+        <h2>
+            Guide
+            <!--<select class="version-select">
+                <option value="SELF" selected>editor</option>
+            </select>-->
+ 		 
+		  
+		
+        </h2>
+        <ul class="menu-root">
+            
+
+	 			
+	                
+	                <li>
+	                    <a href="/guide/index.html" class="sidebar-link">Introduction</a>
+	                </li>
+	            
+	
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/object.html" class="sidebar-link">Object</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/image.html" class="sidebar-link">Image</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/movieclip.html" class="sidebar-link">MovieClip</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/graph.html" class="sidebar-link">Graph</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/loader.html" class="sidebar-link">Loader</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/text.html" class="sidebar-link current">Text</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/richtext.html" class="sidebar-link">RichText</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/group.html" class="sidebar-link">Group</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/component.html" class="sidebar-link">Component</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/controller.html" class="sidebar-link">Controller</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/relation.html" class="sidebar-link">Relation System</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/label.html" class="sidebar-link">Label</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/button.html" class="sidebar-link">Button</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/combobox.html" class="sidebar-link">ComboBox</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/progressbar.html" class="sidebar-link">ProgressBar</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/slider.html" class="sidebar-link">Slider</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollbar.html" class="sidebar-link">ScrollBar</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/list.html" class="sidebar-link">List</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/window.html" class="sidebar-link">Window</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup Manage</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/transition.html" class="sidebar-link">Transition</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/adaptation.html" class="sidebar-link">Adaptation</a>
+	                </li>
+	            
+	
+	            
+	                
+	                
+	                <li><h3>Unity</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/unity/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/atlas.html" class="sidebar-link">Atlas</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/font.html" class="sidebar-link">Font handling</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/input.html" class="sidebar-link">Input processing</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/event.html" class="sidebar-link">Event System</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/insert3d.html" class="sidebar-link">Interspersed with 3D objects</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/uipainter.html" class="sidebar-link">Curved UI</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall optimization</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/lua.html" class="sidebar-link">Used in Lua</a>
+	                </li>
+	            
+
+	            
+	                
+	                
+	                <li><h3>LayaAir</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/laya/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+	
+	            
+	                
+	                
+	                <li><h3>Egret</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/egret/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+
+	            
+
+	            
+
+            
+        </ul>
+    </div>
+</div>
+
+
+<div class="content guide_editor with-sidebar ">
+    
+      <h1>Text</h1>
+    
+    <p>文本是FairyGUI的一种基础控件。</p>
+<h2 id="动态字体"><a href="#动态字体" class="headerlink" title="动态字体"></a>动态字体</h2><p>动态字体(Dynamic Font)是指直接使用ttf字体渲染文字。ttf字体文件可能存在于系统中，也可能打包在游戏中。</p>
+<p>FairyGUI编辑器运行的环境，与应用实际运行的环境是不相同的。比如你在PC上制作界面，最终界面可能运行在手机上。在编辑界面时，动态字体是使用FairyGUI使用编辑器所在的系统环境的字体，在运行时，则是由实际的运行环境，例如Android系统等提供的字体。设计时的字体可以与运行时的字体不同，但建议选取效果较为相近的。</p>
+<p>设置编辑器使用的字体可以在项目属性里设置。运行时的字体则需要由代码设置：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Droid Sans Fallback是安卓上支持中文的默认字体</span></div><div class="line">UIConfig.defaultFont = <span class="string">'Droid Sans Fallback'</span>;</div></pre></td></tr></table></figure>
+<p>设置运行时使用的字体需保证该字体在目标平台上也存在，否则达不到想要的效果。</p>
+<h2 id="位图字体"><a href="#位图字体" class="headerlink" title="位图字体"></a>位图字体</h2><p>在游戏中经常有这样的设计：一些表达特别元素的字符，使用了图片来制作，例如：</p>
+<p><img src="../../images/20170801102632.png" alt=""></p>
+<p>FairyGUI编辑器支持位图字体。首先，我们创建一种字体。点击菜单“编辑”-&gt;“创建位图字体”，然后，弹出了字体编辑窗口，我们从资源库里把制作好的数字图片拖入到窗口，并设置每个图片对应的字符，点击保存，这样我们的字体就设置好了。如果要修改每个字符对应的图片，将图片重新拖入即可。</p>
+<p>使用图片代替字符的办法，对于少量文本，这是非常方便的，但如果需要嵌入成百上千字，为每个字制作为图片，然后再每个设置对应字符，这工作量就有点大了。FairyGUI编辑器支持外部的位图字体制作工具BMFont、ShoeBox等，这些工具的使用方法请自行参考网络资料。使用外部工具最后会导出一个fnt文件<strong>（注意1：文件格式应该选择fnt格式，不支持xml或者json）</strong>，在编辑器点击导入素材，然后选择这个fnt文件，就可以把字体导入到编辑器里了。</p>
+<p>以下是推荐的BMFont导出设置：</p>
+<p><img src="../../images/20170801103821.png" alt=""></p>
+<p>以下介绍位图字体设置界面的功能：</p>
+<p><img src="../../images/20170801102803.png" alt=""></p>
+<ul>
+<li><p><code>图片</code> 资源库里一张图片的名字。如果是由BMFont导入的字体，则此栏为空。</p>
+</li>
+<li><p><code>字符</code> 该图片对应的字符。</p>
+</li>
+<li><p><code>偏移X</code> 在水平方向上该字符的偏移。</p>
+</li>
+<li><p><code>偏移Y</code> 在垂直方向上该字符的偏移。负数表示字符上移，整数表示字符下移，但因为文字排版都是基线对齐，下移的结果可能是整行都发生下移。</p>
+</li>
+<li><p><code>占位</code> 一般来说，一个字符的水平占位宽度是由字符图片的宽度决定的。如果这里的数值不为0，则使用该值作为字符的水平占位宽度。</p>
+</li>
+<li><p><code>字体大小</code> 位图字体的字号。在勾选“允许动态改变字号”后有效。</p>
+</li>
+<li><p><code>默认占位</code> 统一设置所有字符的默认水平占位宽度。</p>
+</li>
+<li><p><code>允许动态改变字号</code> 勾选后，使用这个字体的文本可以设置字体大小使字符图片缩放。例如，先设置位图字体的“字体大小”为12，然后文本设置里设置字号为24，那么最终位图字体将放大一倍显示。如果这里不勾选，那么无论文本设置里字号为多少，位图字体都保持原样，不进行缩放。</p>
+</li>
+<li><p><code>允许动态改变颜色</code> 勾选后，使用这个字体的文本可以设置字符图片的颜色。这个改变颜色类似于改变图片元件颜色的功能。<em>（注：Egret、Laya版本目前不支持该特性）。</em> 如果不勾选，那么无论文本设置里文本的颜色是什么，位图字体都保持原来的颜色。</p>
+</li>
+<li><p><code>纹理集</code> 如果字体是从BMFont导入的，那么字符图片都在一张贴图上，这里对应的是贴图资源。仅作展示，不可修改。如果你要设置该字体最终发布到哪张纹理集上，那么应该进入这个贴图图片的设置窗口设置。</p>
+</li>
+</ul>
+<h2 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h2><p>点击主工具栏中的<img src="../../images/20170801092548.png" alt="">按钮，生成一个文本元件。</p>
+<p><img src="../../images/20170801092638.png" alt=""></p>
+<ul>
+<li><p><code>文本</code> 设置文本内容。当需要换行时，在编辑器里可以直接按回车。运行时需要换行可以用“\n”，尽量避免使用“\r\n”。</p>
+</li>
+<li><p><code>字体</code> 设置文字使用的字体。你不需要每个文本设置一次字体。在项目属性里可以设置项目中所有文本默认使用的字体。运行时则通过UIConfig.defaultFont统一设置。如果某些文本确实需要指定特别的字体，可以点击右边的A按钮，选择其他字体，或者直接输入字体名称。如果需要使用位图字体，可以从资源库中把字体资源拖动到这里。</p>
+</li>
+<li><p><code>字体大小</code> 设置文字使用的字号。如果使用的是位图字体，你需要对位图字体设置“允许动态改变字号”，这里的选项才有效。</p>
+</li>
+<li><p><code>颜色</code> 设置文字颜色。如果使用的是位图字体，你需要对位图字体设置“允许动态改变颜色”，这里的选项才有效。</p>
+</li>
+<li><p><code>行距</code> 每行的像素间距。</p>
+</li>
+<li><p><code>字距</code> 每个字符的像素间距。</p>
+</li>
+<li><p><code>自动大小</code> </p>
+<ul>
+<li><code>自动宽度和高度</code> 文本不会自动换行，宽度和高度都增长到容纳全部文本。</li>
+<li><code>自动高度</code> 文本使用固定宽度排版，到达宽度后自动换行，高度增长到容纳全部文本。</li>
+<li><code>自动收缩</code> 文本使用固定宽度排版，到达宽度后文本自动缩小，使所有文本依然全部显示。如果内容宽度小于文本宽度，则不做任何处理。</li>
+<li><code>无</code> 文本使用固定宽度和高度排版，不会自动换行。超出文本框范围的被剪裁。<em>（Laya、Egret、Unity平台没有开启此剪裁功能，也就是超出范围的依然会显示）</em></li>
+</ul>
+</li>
+<li><p><code>对齐</code> 设置文本的对齐。</p>
+</li>
+<li><p><code>粗体</code> 设置文本为粗体。</p>
+</li>
+<li><p><code>斜体</code> 设置文本为斜体。</p>
+</li>
+<li><p><code>下划线</code> 设置文本为下划线。<em>（Laya平台不支持下划线）</em></p>
+</li>
+<li><p><code>单行</code> 设置文本为单行。单行文本不会自动换行，换行符也被忽略。</p>
+</li>
+<li><p><code>描边</code> 设置文本的描边效果。描边效果在各个引擎实现方式不相同：</p>
+<ul>
+<li>AS3/Starling 使用滤镜的方式实现；</li>
+<li>Egret/Laya 使用H5引擎自身提供的功能；</li>
+<li>Unity 使用额外的Mesh模拟描边效果。一般一个字符的Mesh含有4个顶点（两个三角形），使用描边效果后则增加到20个顶点（十个三角形）。</li>
+</ul>
+</li>
+<li><p><code>投影</code> 设置文本的投影效果。投影效果可以看做是简化的描边效果，描边是所有方向，投影只有一个方向。</p>
+</li>
+<li><p><code>UBB</code> 设置文本支持UBB语法。使用UBB语法可以使单个文本包含多种样式，例如字体大小，颜色等。请参考<a href="#UBB语法">UBB语法</a>。<em>（Laya版本不支持普通文本里包含多种样式，如果有这个需求，请改用富文本）</em></p>
+</li>
+<li><p><code>输入</code> 设置文本用于输入。勾选后，点击选项旁边的<img src="../../images/20170801144514.png" alt="">按钮弹出输入类型文本的详细设置：</p>
+</li>
+</ul>
+<center><br><img src="../../images/20170801144624.png" alt=""><br></center>
+
+<ul>
+<li><p><code>最大长度</code> 允许输入的最大字符数量。0表示不限制。</p>
+</li>
+<li><p><code>密码</code> 勾选后，输入的字符将显示成“*”号。</p>
+</li>
+<li><p><code>输入限制</code> 限制用户输入的字符。一般只用在PC上。这里，不同平台的语法不一致。</p>
+<ul>
+<li><code>AS3/Starling</code> 参考资料 <a href="http://help.adobe.com/zh_CN/FlashPlatform/reference/actionscript/3/flash/text/TextField.html#restrict" target="_blank" rel="external">TextField.restrict</a>。</li>
+<li><code>Egret</code> 参考资料 <a href="http://developer.egret.com/cn/apidoc/index/name/egret.TextField#restrict" target="_blank" rel="external">TextField.restrict</a>。</li>
+<li><code>Laya</code> 参考资料 <a href="https://layaair.ldc.layabox.com/api/?category=Core&amp;class=laya.display.Input#restrict" target="_blank" rel="external">Input.restrict</a>。</li>
+<li><code>Unity</code> 参考资料 <a href="https://msdn.microsoft.com/zh-cn/library/az24scfc.aspx" target="_blank" rel="external">正则表达式语法</a>。例如限制只能输入数字的表达式是：“[0-9]”。</li>
+</ul>
+</li>
+<li><p><code>键盘类型</code> 设置在手机上输入时，弹出的手机键盘的类型。</p>
+</li>
+<li><p><code>提示文字</code> 设置输入文本内容为空时的显示内容，一般用来提示用户这里应该输入什么。这个提示文字可以设置单独的颜色或其他样式，方法是使用UBB语法，例如“[color=#CCCCCC]提示文字[/color]”。<em>（Egret和Laya版本不支持提示文字使用UBB语法）</em></p>
+</li>
+</ul>
+<h2 id="GTextField"><a href="#GTextField" class="headerlink" title="GTextField"></a>GTextField</h2><p>文本支持动态创建，例如：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GTextField aTextField = <span class="keyword">new</span> GTextField();</div><div class="line">aTextField.SetSize(<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">aTextField.text = <span class="string">"Hello World"</span>;</div></pre></td></tr></table></figure>
+<p>在Unity平台中，如果你需要改变文本的样式，请使用以下的方式：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">TextFormat tf = aTextField.textFormat;</div><div class="line">tf.color = ...;</div><div class="line">tf.size = ...;</div><div class="line">aTextField.textFormat = tf;</div></pre></td></tr></table></figure>
+<h2 id="GTextInput"><a href="#GTextInput" class="headerlink" title="GTextInput"></a>GTextInput</h2><p>如果文本勾选为“输入”，则运行中的实例对象为GTextInput。</p>
+<p>可以通过UIConfig.inputHighlightColor和UIConfig.inputCaretSize修改光标的颜色和大小。注意，输入光标的大小会自动根据屏幕缩放选择最合适的宽度，一般情况下你不需要修改。</p>
+<p>输入文本在文本改变时有通知事件：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity</span></div><div class="line">aTextField.onChanged.Add(onChanged);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">aTextField.addEventListener(Event.CHANGE, onChanged);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">aTextField.addEventListener(Event.CHANGE, <span class="keyword">this</span>.onChanged, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya</span></div><div class="line">aTextField.<span class="keyword">on</span>(laya.events.Event.INPUT, <span class="keyword">this</span>, <span class="keyword">this</span>.onChanged);</div></pre></td></tr></table></figure>
+<p>在获得焦点和失去焦点时有通知事件：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity</span></div><div class="line">aTextField.onFocusIn.Add(onFocusIn);</div><div class="line">aTextField.onFocusOut.Add(onFocusOut);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">aTextField.addEventListener(FocusEvent.FOCUS_IN, onFocusIn);</div><div class="line">aTextField.addEventListener(FocusEvent.FOCUS_OUT, onFocusOut);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">aTextField.addEventListener(FocusEvent.FOCUS_IN, <span class="keyword">this</span>.onFocusIn, <span class="keyword">this</span>);</div><div class="line">aTextField.addEventListener(FocusEvent.FOCUS_OUT, <span class="keyword">this</span>.onFocusOut, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya</span></div><div class="line">aTextField.<span class="keyword">on</span>(laya.events.Event.FOCUS, <span class="keyword">this</span>, <span class="keyword">this</span>.onFocusIn);</div><div class="line">aTextField.<span class="keyword">on</span>(laya.events.Event.BLUR, <span class="keyword">this</span>, <span class="keyword">this</span>.onFocusOut);</div></pre></td></tr></table></figure>
+<p>如果要主动设置输入文本焦点，可以用</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aTextField.RequestFocus();</div></pre></td></tr></table></figure>
+<h2 id="UBB语法"><a href="#UBB语法" class="headerlink" title="UBB语法"></a>UBB语法</h2><p>FairyGUI支持的UBB语法有：</p>
+<ul>
+<li><p><code>[img]image_url[/img]</code> 显示一个图片。这里的image_url可以是”ui://包名/图片名”的内部url格式，也可以是一个外部资源的url。图片最终是通过GLoader显示的，支持外部资源的能力可以参阅GLoader的文档。在这里，你无法设置图片大小。如果需要需要设置图片大小，改用HTML语法。</p>
+</li>
+<li><p><code>[url=link_href]text[/url]</code> 显示一个超级链接。其中link_href可以在链接点击后触发的事件里获得。</p>
+</li>
+<li><p><code>[b]text[/b]</code> 设置文本为粗体。</p>
+</li>
+<li><p><code>[i]text[/i]</code> 设置文件为斜体。</p>
+</li>
+<li><p><code>[u]text[/u]</code> 设置文本为下划线。</p>
+</li>
+<li><p><code>[sup]text[/sup]</code> 设置文本为上标。<em>（仅Unity平台支持，且在编辑器暂时无法预览）</em></p>
+</li>
+<li><p><code>[sub]text[/sub]</code> 设置文本为下标。<em>（仅Unity平台支持，且在编辑器暂时无法预览）</em></p>
+</li>
+<li><p><code>[color=#FFFFFF]text[/color]</code> 设置文本颜色。注意一定要用十六进制颜色代码，像red、blue这种颜色名称是不支持的。使用color语法还可以设置文本颜色为渐变色<em>（仅Unity平台支持，且在编辑器暂时无法预览）</em>，例如：</p>
+</li>
+</ul>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//指定两个颜色表示上下过渡</span></div><div class="line">[<span class="meta">color=#FFFFFF,#000000</span>]文字[/color]</div><div class="line"></div><div class="line"><span class="comment">//指定四个颜色可以做左右过渡或者双方向过渡</span></div><div class="line">[<span class="meta">color=#FFFFFF,#CCCCCC,#000000,#FFFF00</span>]文字[/color]</div></pre></td></tr></table></figure>
+<ul>
+<li><p><code>[font=font_face]text[/font]</code> 设置文本的字体。</p>
+</li>
+<li><p><code>[size=10]text[/size]</code> 设置文本的字体大小。</p>
+</li>
+<li><p><code>[align=left/center/right]text[/align]</code> 设置文本的水平对齐。<em>（仅Unity平台支持，且在编辑器暂时无法预览）</em></p>
+</li>
+</ul>
+<p>标签之间支持嵌套，但不支持交叉嵌套。例如：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//允许</span></div><div class="line">[<span class="meta">color=#FFFFFF</span>][size=<span class="number">20</span>]text[/size][/color]</div><div class="line"></div><div class="line"><span class="comment">//不允许</span></div><div class="line">[<span class="meta">color=#FFFFFF</span>][size=<span class="number">20</span>]text[/color][/size]</div></pre></td></tr></table></figure>
+<p>对不支持的标签，例如“[tag]text[/tag]”，FairyGUI不做解析，这部分内容原样输出。当需要使用不成对的“[”或“]”字符时，可以使用HTML代码“&amp;#x5b;”或“&amp;#x5d;”代替。</p>
+<p>普通文本不支持语法中的img、url标签，因为普通文本是不可以图文混排的。要支持图文混排，改为使用富文本。</p>
+<p>FairyGUI也提供了扩展UBB解析器的方法。继承UBBParser类，注册自己的TagHandler即可。具体实现方法请阅读UBBParser的源码或参考demo。</p>
+
+    
+    <div class="footer">
+      found mistake? Want to participate in editing?
+      <a href="https://github.com/fairygui/en.fairygui.io/tree/master/src/guide/editor/text.md" target="_blank">
+        Edit this page on Github!
+      </a>
+    </div>
+</div>
+
+                
+            </div>
+            <script src="/js/smooth-scroll.min.js"></script>
+        
+
+        <!-- main custom script for sidebars, version selects etc. -->        
+        <script src="/js/css.escape.js"></script>
+        <script src="/js/common.js"></script>
+    </body>
+</html>

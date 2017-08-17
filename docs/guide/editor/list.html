@@ -1,0 +1,455 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>List — FairyGUI</title>
+        <meta charset="utf-8">
+        <meta name="description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="List — FairyGUI">
+        <meta property="og:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="List — FairyGUI">
+        <meta name="twitter:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+
+
+        <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'>
+
+        <!-- main page styles -->
+        <link rel="stylesheet" href="/css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script src="/js/vue.min.js"></script>
+        <script>window.PAGE_TYPE = "guide_editor"</script>
+    </head>
+    <body class="docs">        <div id="mobile-bar"  data-bg-text="FairyGUI" >
+            <a class="menu-button"></a>
+            <a class="logo" href="https://github.com/fairygui/FairyGUI-unity"></a>
+        </div>
+        <div id="bg"> <!--end tag in the `index.ejs`-->
+
+<div id="header">
+  <a id="logo" href="https://github.com/fairygui/">
+    <img src="/images/github-white.png">
+  </a>
+  <ul id="nav">
+    
+
+	<li><a href="/" class="nav-link">Home</a></li>
+
+<li><a href="/product/" class="nav-link">Product</a></li>
+<li><a href="/guide/" class="nav-link current">Tutorials</a></li>
+<li><a href="http://ask.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
+<li><a href="/examples/" class="nav-link">Demo</a></li>
+<li><a href="/showcase/" class="nav-link">Showcase</a></li>
+<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">Q&A</a></li>
+<li><a href="/about/" class="nav-link">About</a></li>
+<li><a href="http://www.fairygui.com/" target="_self"  class="nav-link">中文</a> / English</li>
+  </ul>
+</div>
+
+        
+            <div id="main" class="fix-sidebar">
+                
+                    
+    <div class="sidebar">
+    <ul class="main-menu">
+        
+
+	<li><a href="/" class="nav-link">Home</a></li>
+
+<li><a href="/product/" class="nav-link">Product</a></li>
+<li><a href="/guide/" class="nav-link current">Tutorials</a></li>
+<li><a href="http://ask.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
+<li><a href="/examples/" class="nav-link">Demo</a></li>
+<li><a href="/showcase/" class="nav-link">Showcase</a></li>
+<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">Q&A</a></li>
+<li><a href="/about/" class="nav-link">About</a></li>
+<li><a href="http://www.fairygui.com/" target="_self"  class="nav-link">中文</a> / English</li>
+    </ul>
+    <div class="list">
+		<a class="become-backer" href="/about/donate.html">
+            Donate
+        </a>
+        <h2>
+            Guide
+            <!--<select class="version-select">
+                <option value="SELF" selected>editor</option>
+            </select>-->
+ 		 
+		  
+		
+        </h2>
+        <ul class="menu-root">
+            
+
+	 			
+	                
+	                <li>
+	                    <a href="/guide/index.html" class="sidebar-link">Introduction</a>
+	                </li>
+	            
+	
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/object.html" class="sidebar-link">Object</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/image.html" class="sidebar-link">Image</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/movieclip.html" class="sidebar-link">MovieClip</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/graph.html" class="sidebar-link">Graph</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/loader.html" class="sidebar-link">Loader</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/text.html" class="sidebar-link">Text</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/richtext.html" class="sidebar-link">RichText</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/group.html" class="sidebar-link">Group</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/component.html" class="sidebar-link">Component</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/controller.html" class="sidebar-link">Controller</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/relation.html" class="sidebar-link">Relation System</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/label.html" class="sidebar-link">Label</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/button.html" class="sidebar-link">Button</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/combobox.html" class="sidebar-link">ComboBox</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/progressbar.html" class="sidebar-link">ProgressBar</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/slider.html" class="sidebar-link">Slider</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollbar.html" class="sidebar-link">ScrollBar</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/list.html" class="sidebar-link current">List</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/window.html" class="sidebar-link">Window</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup Manage</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/transition.html" class="sidebar-link">Transition</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/adaptation.html" class="sidebar-link">Adaptation</a>
+	                </li>
+	            
+	
+	            
+	                
+	                
+	                <li><h3>Unity</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/unity/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/atlas.html" class="sidebar-link">Atlas</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/font.html" class="sidebar-link">Font handling</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/input.html" class="sidebar-link">Input processing</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/event.html" class="sidebar-link">Event System</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/insert3d.html" class="sidebar-link">Interspersed with 3D objects</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/uipainter.html" class="sidebar-link">Curved UI</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall optimization</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/lua.html" class="sidebar-link">Used in Lua</a>
+	                </li>
+	            
+
+	            
+	                
+	                
+	                <li><h3>LayaAir</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/laya/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+	
+	            
+	                
+	                
+	                <li><h3>Egret</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/egret/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+
+	            
+
+	            
+
+            
+        </ul>
+    </div>
+</div>
+
+
+<div class="content guide_editor with-sidebar ">
+    
+      <h1>List</h1>
+    
+    <p>列表是组件的一种特殊扩展。点击侧工具栏的<img src="../../images/20170803150926.png" alt="">按钮生成一个列表。</p>
+<h2 id="列表属性"><a href="#列表属性" class="headerlink" title="列表属性"></a>列表属性</h2><p>在舞台上点中一个列表，右边属性栏显示的是列表的属性：</p>
+<p><img src="../../images/20170803151004.png" alt=""></p>
+<ul>
+<li><p><code>列表布局</code> 目前支持的列表有五种。</p>
+<ul>
+<li><code>单列</code> 每行一个item，竖向排列。</li>
+<li><code>单行</code> 每列一个item，横向排列。</li>
+<li><code>横向流动</code> item横向依次排列，到底视口右侧边缘或到达指定的列数，自动换行继续排列。</li>
+<li><code>竖向流动</code> item竖向依次排列，到底视口底部边缘或到达指定的行数，返回顶部开启新的一列继续排列。</li>
+<li><code>分页</code> 视口宽度x视口高度作为单页大小，横向排列各个页面。每页中，item横向依次排列，到底视口右侧边缘或到达指定的列数，自动换行继续排列。当新的一行超出视口高度或到达指定的行数，则进入下一页。注意，分页只是列表的排列方式，不代表列表就是按页滚动。分页滚动需要在滚动属性里设置。</li>
+</ul>
+</li>
+<li><p><code>自动调整列表项目大小</code> 如果勾选:</p>
+<ol>
+<li>列表布局为单列，则列表项目的宽度自动设置为列表显示区域的宽度；</li>
+<li>列表布局为单行，则列表项目的高度自动设置为列表显示区域的高度；</li>
+<li>列表布局为水平流动，且设置了列数时，则每行内的列表项目的宽度自动调整使行宽与列表显示区域的宽度相等；</li>
+<li>列表布局为垂直流动，且设置了行数时，则每列内的项目的高度自动调整使行高与列表显示区域的高度相等；</li>
+<li>列表布局为分页，则3、4规则均适用。</li>
+</ol>
+</li>
+<li><p><code>行数</code> <code>列数</code> 这个选项只对横向流动、竖向流动和分页的布局有效。如果不指定（设置为0），则一直排到边缘才换行，否则，必须每行的数量到达设定的值才换行。</p>
+</li>
+<li><p><code>行距</code> <code>列距</code> 每行/每列之间的距离。可以为负数。</p>
+</li>
+<li><p><code>对齐</code> 列表在横向和纵向上的对齐方式。注意，对齐方式的应用有前置条件。例如，如果列表是单列布局，并且设置了“自动调整列表项目大小”，那么在横向上item总是自动填满列表宽度的，那么横向上的对齐就没有作用了。</p>
+</li>
+<li><p><code>溢出处理</code> 表示超出列表矩形区域的内容的处理方式。</p>
+<ul>
+<li><code>可见</code> 表示超出列表矩形区域的内容保持可见。</li>
+<li><code>隐藏</code> 表示超出列表矩形区域的内容不可见，相当于对列表应用了一个矩形遮罩。</li>
+<li><code>垂直滚动</code> <code>水平滚动</code> <code>自由滚动</code> 详细说明在<a href="component.html#滚动设置">滚动设置</a>。注意：列表的“布局”和“溢出处理”是独立的设置，如果两者不匹配可能达不到预期的效果。例如，对于一个单行排列的列表，如果选择“垂直滚动”，那滚动是没有效果的。</li>
+</ul>
+</li>
+<li><p><code>渲染顺序</code> 定义item的显示顺序与它的列表中的顺序的关系。</p>
+<ul>
+<li><code>升序</code> 这是默认行为。item索引越大，显示在越前面。</li>
+<li><code>降序</code> item索引越小，显示在越前面。</li>
+<li><code>拱形</code> 自定义一个显示在最前的索引，例如2，则第三个项目显示在最前面，排列在它前面的和后面的item依次显示在后面。</li>
+</ul>
+</li>
+<li><p><code>选择模式</code> 支持四种选择模式：无，单选，多选（使用shift键），多选（单击选择）。item要参与到单选有一个前提，是必须为单选按钮，如果不是单选按钮，则不会参与到选择模式中。单选是指同一时间只能有一个item被选中；多选则允许有多个，多选的操作方式有两种，一种是使用shift键进行多选，不过这需要键盘的支持，不适合移动设备；另一种是每个item单击即选中，再单击就取消选中的方式，不需要键盘的支持。</p>
+</li>
+<li><p><code>选择控制</code> 可以绑定一个控制器。这样当列表选中项目发生改变时，控制器也同时跳转到相同索引的页面。反之亦然，如果控制器跳转到某个页面，那么列表也同时选定相同索引的项目。</p>
+</li>
+<li><p><code>分页控制</code> 可以绑定一个控制器。当列表发生翻页滚动时（溢出处理必须为三种滚动之一，滚动必须勾选为页面模式），控制器也同时跳转到相同索引（页码）的页面。反之亦然，如果控制器跳转到某个页面，那么列表也同时滚动到相同索引（页码）的页面。</p>
+</li>
+<li><p><code>边缘</code> 设定列表四周的留空。一般用在“溢出处理”为“隐藏”或者“滚动”的情况。<code>边缘虚化</code>目前只有在Unity平台支持。如果列表发生了对内容的剪裁，则可以在边缘产生虚化的效果，增强用户体验。这个值应该比较大才能看出效果，例如50。</p>
+</li>
+<li><p><code>项目资源</code> 这里设置列表默认使用的item类型。但FairyGUI的列表可以支持多种资源混排，并不是只支持单一的item类型。</p>
+</li>
+<li><p><code>编辑列表数据</code> 为列表增删项目。</p>
+</li>
+</ul>
+<p><img src="../../images/20170807144559.png" alt=""></p>
+<p>点击增加，将增加一个由”项目资源“指定的项目，你也可以直接从库中直接拖动一个组件到界面中。如果item是一个标签或按钮，那么可以在这里设置它的文本和图标。</p>
+<h2 id="GList"><a href="#GList" class="headerlink" title="GList"></a>GList</h2><p><strong>管理列表内容</strong></p>
+<p>列表对应的类型是GList。在FairyGUI中，列表的本质就是一个组件，GList也是从GComponent派生来的，所以你可以用GComponent的API直接访问列表内的内容，例如可以用GetChild或者GetChildAt访问列表内的项目；也可以用AddChild添加一个item。这部分的API可以参考GComponent的<a href="component.html#GComponent">显示列表管理</a>。</p>
+<p>当你对列表增删改后，列表是自动排列和刷新的，不需要调用任何API。这个刷新发生在本帧绘制之前。刷新时将按照列表的布局调整各个子元件的坐标。如果你希望立刻访问item的正确坐标，那么可以调用<code>EnsureBoundsCorrect</code>通知GList立刻重排。EnsureBoundsCorrect是一个友好的函数，你不用担心重复调用会有额外性能消耗。</p>
+<p>在实际应用中，列表的内容通常被频繁的更新。典型的用法就是当接收到后台数据时，将列表清空，然后再重新添加所有项目。如果每次都创建和销毁UI对象，将消耗很大的CPU和内存。因此，GList内建了对象池。</p>
+<p>使用对象池后的显示列表管理方法：</p>
+<ul>
+<li><p><code>AddItemFromPool</code> 从池里取出（如果有）或者新建一个对象，添加到列表中。如果不使用参数，则使用列表的“项目资源”的设置；也可以指定一个URL，创建指定的对象。</p>
+</li>
+<li><p><code>GetFromPool</code>从池里取出（如果有）或者新建一个对象。</p>
+</li>
+<li><p><code>ReturnToPool</code> 将对象返回池里。</p>
+</li>
+<li><p><code>RemoveChildToPool</code> 删除一个item，并将对象返回池里。</p>
+</li>
+<li><p><code>RemoveChildToPoolAt</code> 删除一个指定位置的item，并将对象返回池里。</p>
+</li>
+<li><p><code>RemoveChildrenToPool</code> 删除一个范围内的item，或者全部删除，并将删除的对象都返回池里</p>
+</li>
+</ul>
+<p>聪明的你应该能知道，AddItemFromPool = GetFromPool + AddChild  ， RemoveChildToPool = RemoveChild + ReturnToPool。</p>
+<p>当应用到池时，我们就应该非常小心，一个不停增长的池那将是游戏的灾难，但如果不使用池，对游戏性能也会有影响。<br>以下是几种错误用法的举例：</p>
+<p>错误示例1：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GObject obj = UIPackage.CreateObject(...);</div><div class="line">aList.AddChild(obj);</div><div class="line"></div><div class="line">aList.RemoveChildrenToPool();</div></pre></td></tr></table></figure>
+<p>添加对象时不使用池，但最后清除列表时却放到池里。这段代码持续运行，对象池将不断增大，可能造成内存溢出。<br>正确的做法：应从池中创建对象。将AddChild改成AddItemFromPool。</p>
+<p>错误示例2：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</div><div class="line">    aList.AddItemFromPool();</div><div class="line"></div><div class="line">aList.RemoveChildren();</div></pre></td></tr></table></figure>
+<p>这里添加了10个item，但移除时并没有保存他们的引用，也没有放回到池里，这样就造成了内存泄漏。将aList.RemoveChildren改成aList.RemoveChildrenToPool();</p>
+<p><strong>使用回调函数修改列表</strong></p>
+<p>当添加大量item时，除了用循环方式AddItemFromPool外，还可以使用另一种回调的方式。首先为列表定义一个回调函数，例如</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">RenderListItem</span>(<span class="params"><span class="keyword">int</span> index, GObject obj</span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    GButton button = obj.asButton;</div><div class="line">    button.title = <span class="string">""</span>+index;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后设置这个函数为列表的渲染函数：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity</span></div><div class="line">aList.itemRenderer = RenderListItem;</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">aList.itemRenderer = RenderListItem;</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">aList.itemRenderer = RenderListItem;</div><div class="line">aList.callbackThisObj = <span class="keyword">this</span>;</div><div class="line"></div><div class="line"><span class="comment">//Laya</span></div><div class="line">aList.itemRenderer = Handler.create(<span class="keyword">this</span>, <span class="keyword">this</span>.RenderListItem);</div></pre></td></tr></table></figure>
+<p>最后直接设置列表中的项目总数，这样列表就会调整当前列表容器的对象数量，然后调用回调函数渲染item。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//创建100个对象，注意这里不能使用numChildren，numChildren是只读的。</span></div><div class="line"></div><div class="line">aList.numItems = <span class="number">10</span>;</div></pre></td></tr></table></figure>
+<p>如果新设置的项目数小于当前的项目数，那么多出来的item将放回池里。</p>
+<p>使用这种方式生成的列表，如果你需要更新某个item，自行调用RenderListItem(索引，GetChildAt(索引))就可以了。</p>
+<p><strong>事件</strong></p>
+<p>点击列表内的某一个item触发事件：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity, EventContext.data就是当前被点击的item对象</span></div><div class="line">list.onClickItem.Add(onClickItem);</div><div class="line"></div><div class="line"><span class="comment">//AS3, ItemEvent.itemObject就是当前被点击的对象</span></div><div class="line">list.addEventListener(ItemEvent.CLICK, onClickItem);</div><div class="line"></div><div class="line"><span class="comment">//Egret，ItemEvent.itemObject就是当前被点击的对象</span></div><div class="line">list.addEventListener(ItemEvent.CLICK, <span class="keyword">this</span>.onClickItem, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya, onClickItem方法的第一个参数就是当前被点击的对象</span></div><div class="line">list.<span class="keyword">on</span>(fairygui.Events.CLICK_ITEM, <span class="keyword">this</span>, <span class="keyword">this</span>.onClickItem);</div></pre></td></tr></table></figure>
+<p>从上面的代码可以看出，事件回调里都可以方便的获得当前点击的对象。如果要获得索引，那么可以使用GetChildIndex。</p>
+<h2 id="虚拟列表"><a href="#虚拟列表" class="headerlink" title="虚拟列表"></a>虚拟列表</h2><p>如果列表的item数量特别多时，例如几百上千，为每一条项目创建实体的显示对象将非常消耗时间和资源。FairyGUI的列表内置了虚拟机制，也就是它只为显示范围内的item创建实体对象，并通过动态设置数据的方式实现大容量列表。</p>
+<p>启用虚拟列表有几个条件：</p>
+<ul>
+<li>需要定义itemRenderer。</li>
+<li>需要开启滚动。溢出处理不是滚动的列表不能开启虚拟。</li>
+<li>需要设置好列表的“项目资源”。可以在编辑器内设置，也可以调用GList.defaultItem设置。</li>
+</ul>
+<p>满足条件后可以开启列表的虚拟功能：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aList.SetVirtual();</div></pre></td></tr></table></figure>
+<p>提示：虚拟功能只能开启，不能关闭。</p>
+<p>在虚拟列表中，显示对象和item的数量在数量上和顺序上是不一致的，item的数量可以通过numItems获得，而显示对象的数量可以由组件的API numChildren获得。</p>
+<p>在虚拟列表中，需要注意item索引和显示对象索引的区分。通过selectedIndex获得的值是item的索引，而非显示对象的索引。AddSelection/RemoveSelection等API同样需要的是item的索引。项目索引和对象索引的转换可以通过以下两个方法完成：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//转换项目索引为显示对象索引。</span></div><div class="line"><span class="keyword">int</span> childIndex = aList.ItemIndexToChildIndex(<span class="number">1</span>);</div><div class="line"></div><div class="line"><span class="comment">//转换显示对象索引为项目索引。</span></div><div class="line"><span class="keyword">int</span> itemIndex = aList.ChildIndexToItemIndex(<span class="number">1</span>);</div></pre></td></tr></table></figure>
+<p>使用虚拟列表时，我们很少会需要访问屏外对象。如果你确实需要获得列表中指定索引的某一个项目的显示对象，例如第500个，因为当前这个item是不在视口的，对于虚拟列表，不在视口的对象是没有对应的显示对象的，那么你需要先让列表滚动到目标位置。例如：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//这里要注意，因为我们要立即访问新滚动位置的对象，所以第二个参数scrollItToView不能为true，即不使用动画效果</span></div><div class="line">aList.ScrollToView(<span class="number">500</span>);</div><div class="line"></div><div class="line"><span class="comment">//转换到显示对象索引</span></div><div class="line"><span class="keyword">int</span> index = aList.ItemIndexToChildIndex(<span class="number">500</span>);</div><div class="line"></div><div class="line"><span class="comment">//这就是你要的第500个对象</span></div><div class="line">GObject obj = aList.GetChildAt(index);</div></pre></td></tr></table></figure>
+<p>如果某个item需要更新，刷新虚拟列表的方式有两种：</p>
+<ul>
+<li>使用numItems重新设置数量。</li>
+<li>GList.RefreshVirtualList。</li>
+</ul>
+<p><strong>不允许使用AddChild或RemoveChild对虚拟列表增删对象。如果要清空列表，必须要通过设置numItems=0，而不是RemoveChildren。</strong></p>
+<p>虚拟列表支持可变大小的item，可以通过两种方式动态改变item的大小：</p>
+<ul>
+<li>在itemRenderer的内部使用width、height或SetSize改变item的大小。</li>
+<li>item建立对内部元件的关联，例如item建立了一个对内部某个可变高度文本的高高关联，这样当文本改变时，item的高度自动改变。</li>
+</ul>
+<p><strong>除这两种方式外，不可以通过其他方式改变item大小，否则虚拟列表排列会错乱。</strong></p>
+<p>虚拟列表支持不同类型的item混合。首先为列表定义一个回调函数，例如</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">   <span class="comment">//根据索引的不同，返回不同的资源URL</span></div><div class="line"><span class="function"><span class="keyword">string</span> <span class="title">GetListItemResource</span>(<span class="params"><span class="keyword">int</span> index</span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">       Message msg = _messages[index];</div><div class="line">       <span class="keyword">if</span> (msg.fromMe)</div><div class="line">           <span class="keyword">return</span> <span class="string">"ui://Emoji/chatRight"</span>;</div><div class="line">       <span class="keyword">else</span></div><div class="line">           <span class="keyword">return</span> <span class="string">"ui://Emoji/chatLeft"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后设置这个函数为列表的item提供者：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity</span></div><div class="line">aList.itemProvider = GetListItemResource;</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">   aList.itemProvider = GetListItemResource;</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">aList.itemProvider = GetListItemResource;</div><div class="line">aList.callbackThisObj = <span class="keyword">this</span>;</div><div class="line"></div><div class="line"><span class="comment">//Laya</span></div><div class="line">aList.itemProvider = Handler.create(<span class="keyword">this</span>, <span class="keyword">this</span>.GetListItemResource);</div></pre></td></tr></table></figure>
+<h2 id="循环列表"><a href="#循环列表" class="headerlink" title="循环列表"></a>循环列表</h2><p>循环列表是指首尾相连的列表，循环列表必须是虚拟列表。启用循环列表的方法为:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aList.SetVirtualAndLoop()。</div></pre></td></tr></table></figure>
+<p>循环列表只支持单行或者单列的布局，不支持流动布局和分页布局。<br>循环列表的特性与虚拟列表一致，在此不再赘述。</p>
+
+    
+    <div class="footer">
+      found mistake? Want to participate in editing?
+      <a href="https://github.com/fairygui/en.fairygui.io/tree/master/src/guide/editor/list.md" target="_blank">
+        Edit this page on Github!
+      </a>
+    </div>
+</div>
+
+                
+            </div>
+            <script src="/js/smooth-scroll.min.js"></script>
+        
+
+        <!-- main custom script for sidebars, version selects etc. -->        
+        <script src="/js/css.escape.js"></script>
+        <script src="/js/common.js"></script>
+    </body>
+</html>

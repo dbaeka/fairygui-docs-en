@@ -1,0 +1,356 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Font handling — FairyGUI</title>
+        <meta charset="utf-8">
+        <meta name="description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="Font handling — FairyGUI">
+        <meta property="og:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Font handling — FairyGUI">
+        <meta name="twitter:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+
+
+        <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'>
+
+        <!-- main page styles -->
+        <link rel="stylesheet" href="/css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script src="/js/vue.min.js"></script>
+        <script>window.PAGE_TYPE = "guide_unity"</script>
+    </head>
+    <body class="docs">        <div id="mobile-bar"  data-bg-text="FairyGUI" >
+            <a class="menu-button"></a>
+            <a class="logo" href="https://github.com/fairygui/FairyGUI-unity"></a>
+        </div>
+        <div id="bg"> <!--end tag in the `index.ejs`-->
+
+<div id="header">
+  <a id="logo" href="https://github.com/fairygui/">
+    <img src="/images/github-white.png">
+  </a>
+  <ul id="nav">
+    
+
+	<li><a href="/" class="nav-link">Home</a></li>
+
+<li><a href="/product/" class="nav-link">Product</a></li>
+<li><a href="/guide/" class="nav-link current">Tutorials</a></li>
+<li><a href="http://ask.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
+<li><a href="/examples/" class="nav-link">Demo</a></li>
+<li><a href="/showcase/" class="nav-link">Showcase</a></li>
+<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">Q&A</a></li>
+<li><a href="/about/" class="nav-link">About</a></li>
+<li><a href="http://www.fairygui.com/" target="_self"  class="nav-link">中文</a> / English</li>
+  </ul>
+</div>
+
+        
+            <div id="main" class="fix-sidebar">
+                
+                    
+    <div class="sidebar">
+    <ul class="main-menu">
+        
+
+	<li><a href="/" class="nav-link">Home</a></li>
+
+<li><a href="/product/" class="nav-link">Product</a></li>
+<li><a href="/guide/" class="nav-link current">Tutorials</a></li>
+<li><a href="http://ask.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
+<li><a href="/examples/" class="nav-link">Demo</a></li>
+<li><a href="/showcase/" class="nav-link">Showcase</a></li>
+<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">Q&A</a></li>
+<li><a href="/about/" class="nav-link">About</a></li>
+<li><a href="http://www.fairygui.com/" target="_self"  class="nav-link">中文</a> / English</li>
+    </ul>
+    <div class="list">
+		<a class="become-backer" href="/about/donate.html">
+            Donate
+        </a>
+        <h2>
+            Guide
+            <!--<select class="version-select">
+                <option value="SELF" selected>unity</option>
+            </select>-->
+ 		 
+		  
+		
+        </h2>
+        <ul class="menu-root">
+            
+
+	 			
+	                
+	                <li>
+	                    <a href="/guide/index.html" class="sidebar-link">Introduction</a>
+	                </li>
+	            
+	
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/object.html" class="sidebar-link">Object</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/image.html" class="sidebar-link">Image</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/movieclip.html" class="sidebar-link">MovieClip</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/graph.html" class="sidebar-link">Graph</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/loader.html" class="sidebar-link">Loader</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/text.html" class="sidebar-link">Text</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/richtext.html" class="sidebar-link">RichText</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/group.html" class="sidebar-link">Group</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/component.html" class="sidebar-link">Component</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/controller.html" class="sidebar-link">Controller</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/relation.html" class="sidebar-link">Relation System</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/label.html" class="sidebar-link">Label</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/button.html" class="sidebar-link">Button</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/combobox.html" class="sidebar-link">ComboBox</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/progressbar.html" class="sidebar-link">ProgressBar</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/slider.html" class="sidebar-link">Slider</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollbar.html" class="sidebar-link">ScrollBar</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/list.html" class="sidebar-link">List</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/window.html" class="sidebar-link">Window</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup Manage</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/transition.html" class="sidebar-link">Transition</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/adaptation.html" class="sidebar-link">Adaptation</a>
+	                </li>
+	            
+	
+	            
+	                
+	                
+	                <li><h3>Unity</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/unity/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/atlas.html" class="sidebar-link">Atlas</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/font.html" class="sidebar-link current">Font handling</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/input.html" class="sidebar-link">Input processing</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/event.html" class="sidebar-link">Event System</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/insert3d.html" class="sidebar-link">Interspersed with 3D objects</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/uipainter.html" class="sidebar-link">Curved UI</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall optimization</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/lua.html" class="sidebar-link">Used in Lua</a>
+	                </li>
+	            
+
+	            
+	                
+	                
+	                <li><h3>LayaAir</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/laya/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+	
+	            
+	                
+	                
+	                <li><h3>Egret</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/egret/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+
+	            
+
+	            
+
+            
+        </ul>
+    </div>
+</div>
+
+
+<div class="content guide_unity with-sidebar ">
+    
+      <h1>Font handling</h1>
+    
+    <h2 id="使用动态字体"><a href="#使用动态字体" class="headerlink" title="使用动态字体"></a>使用动态字体</h2><p>FairyGUI使用Unity的动态字体技术渲染文字。只需以下几个简单的步骤就可以完成设置：</p>
+<ol>
+<li><p>拷贝一个字体文件到项目的Resources目录或Resources/Fonts目录。字体文件可以随意使用一个，例如arial.ttf，或simhei.ttf等，这个ttf是什么字体并不影响最终显示字体的选择。</p>
+</li>
+<li><p>在Unity中点击字体文件，在inspector中修改字体属性：</p>
+<p><img src="../../images/2015-10-21_164556.png" alt=""></p>
+<p>注意在Font Names中填写的是字体名称，标准的字体名称可以从这里找到：<a href="https://wenku.baidu.com/view/598e5aec19e8b8f67c1cb915.html" target="_blank" rel="external">中文字体的英文名称对照表</a>。例如Droid Sans Fallback是Android平台支持中文的内置默认字体之一。多个字体用逗号隔开，Unity会使用第一个在系统中能找到的字体。</p>
+</li>
+<li><p>设置UIConfig.defaultFont=”字体文件名称”即可，注意这里使用的是文件名称，也就是说，如果放置在Resources目录的是arial.ttf，则UIConfig.defaultFont=”arial”，不需要带.ttf后缀。</p>
+<p>因为我们没有勾选Include Font Data，所以无论这个字体文件有多大，最终并不会包含在我们的发布包中，也就是说不会增大发行包的体积。Unity会在实际运行的系统中查找与Font Names匹配的第一个字体，并使用此字体进行动态渲染。但这要求玩家的运行系统环境中有你设定的字体，如果没有，实际使用的字体可能并不是你想要的效果。</p>
+<p>从Unity5.0开始，Unity引入了新的字体管理API，也可以不放置字体文件到Resources目录，你只需要直接设置UIConfig.defaultFont=”字体名称”即可，同样，多个字体名称用逗号隔开。例如：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">UIConfig.defaultFont = <span class="string">"Droid Sans Fallback, LTHYSZK, Helvetica-Bold, Microsoft YaHei, SimHei"</span>;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="多种字体的处理"><a href="#多种字体的处理" class="headerlink" title="多种字体的处理"></a>多种字体的处理</h2><p>如果你的界面使用了多种字体，比如对单独的文字设置了字体：</p>
+<p><img src="../../images/2016-07-06_143622.png" alt=""></p>
+<p>这里用到了”黑体”这个名字的字体，这是与UIConfig.defaultFont设不同的字体，那么我们需要注册这种字体。方法是，首先做好上面第一步1和第2步，假如字体文件名称是HeiTi.ttf，然后：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">FontManager.RegisterFont(FontManager.GetFont(<span class="string">"HeiTi"</span>), <span class="string">"黑体"</span>);</div></pre></td></tr></table></figure>
+<p>RegisterFont的第二个参数对应编辑器里使用的字体名称；第一个参数，是Unity中放入的字体文件资源。如果文件带路径，这也需要把路径填上。</p>
+<p>要查看你定义的字体是不是生效，可以在Project视图，点击并展开字体文件，如果字体被正确使用，那么可以看到Font Texture以及Texture会有你用到的文字。</p>
+<p><img src="../../images/20170808230450.png" alt=""></p>
+<h2 id="自定义粗体"><a href="#自定义粗体" class="headerlink" title="自定义粗体"></a>自定义粗体</h2><p>当你使用部分字体的粗体效果时，你会发现粗体的效果在Unity中的显示不正确，这是因为有些字体不带粗体效果的，这时候Unity就会用拉宽来实现，就像变扁了。FairyGUI可以用额外的mesh来解决粗体的显示。方法是：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">FontManager.GetFont(“字体路径”).customFold = <span class="literal">true</span>;</div></pre></td></tr></table></figure>
+<p>这里字体路径与UIConfig.defaultFont里设置的内容应该完全一样。</p>
+<p>某些字体，Unity渲染有粗体效果，但当设置成斜体时，粗体效果又丢失（例如雅黑）。FairyGUI在这种情况可以取消Unity默认渲染粗体的效果，改为增加额外的面渲染粗体。激活这个功能的方法是</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">FontManager.GetFont(“字体路径”).customBoldAndItalic = <span class="literal">true</span>;</div></pre></td></tr></table></figure>
+<p>如果已经设置了customBold，不需要再设置customBoldAndItalic。</p>
+<h2 id="增强字体效果"><a href="#增强字体效果" class="headerlink" title="增强字体效果"></a>增强字体效果</h2><p>在实际游戏制作过程中发现在桌面平台下Unity对中文字体的渲染稍显模糊和暗淡，因此FairyGUI使用了特制的着色器解决了这个问题。以下是Unity默认的字体渲染效果和FairyGUI的字体渲染效果的比较：</p>
+<p><img src="../../images/2015-10-21_172001.png" alt=""></p>
+<p>可以看见经过FairyGUI的特殊处理，中文文字更清晰更亮。</p>
+<p>只有在桌面平台下FairyGUI才会开启这种技术，移动平台永远不会开启，因为在高DPI情况下，字体默认的渲染效果已经非常漂亮。</p>
+<p>另外，如果你不喜欢这种显示效果，或者你使用的是全英文的文字，也可以手动把这种技术关闭：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">UIConfig.renderingTextBrighterOnDesktop = <span class="literal">false</span>;</div></pre></td></tr></table></figure>
+    
+    <div class="footer">
+      found mistake? Want to participate in editing?
+      <a href="https://github.com/fairygui/en.fairygui.io/tree/master/src/guide/unity/font.md" target="_blank">
+        Edit this page on Github!
+      </a>
+    </div>
+</div>
+
+                
+            </div>
+            <script src="/js/smooth-scroll.min.js"></script>
+        
+
+        <!-- main custom script for sidebars, version selects etc. -->        
+        <script src="/js/css.escape.js"></script>
+        <script src="/js/common.js"></script>
+    </body>
+</html>

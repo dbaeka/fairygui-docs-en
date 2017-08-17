@@ -1,0 +1,51 @@
+<% var isIndex = page.path === 'index.html' %>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title><%- page.title ? page.title + ' — ' : '' %>FairyGUI</title>
+        <meta charset="utf-8">
+        <meta name="description" content="<%- theme.site_description %>">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="<%- page.title ? page.title + ' — ' : '' %>FairyGUI">
+        <meta property="og:description" content="<%- theme.site_description %>">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="<%- page.title ? page.title + ' — ' : '' %>FairyGUI">
+        <meta name="twitter:description" content="<%- theme.site_description %>">
+
+
+        <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'>
+
+        <!-- main page styles -->
+        <%- css(isIndex ? 'css/index' : 'css/page') %>
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script src="<%- url_for("/js/vue.min.js") %>"></script>
+        <script>window.PAGE_TYPE = "<%- page.type %>"</script>
+    </head>
+    <body class="<%- isIndex ? '' : 'docs' -%>">
+        <div id="mobile-bar"  data-bg-text="FairyGUI" <%- isIndex ? 'class="top"' : '' %>>
+            <a class="menu-button"></a>
+            <a class="logo" href="https://github.com/fairygui/FairyGUI-unity"></a>
+        </div>
+        <%- partial('partials/header') %>
+        <% if (!isIndex) { %>
+            <div id="main" class="fix-sidebar">
+                <% if (page.blog_index) { %>
+                    <%- partial('partials/blog') %>
+                <% } else { %>
+                    <%- body %>
+                <% } %>
+            </div>
+            <script src="<%- url_for("/js/smooth-scroll.min.js") %>"></script>
+        <% } else { %>
+            <%- body %>
+        <% } %>
+
+        <!-- main custom script for sidebars, version selects etc. -->        
+        <script src="<%- url_for("/js/css.escape.js") %>"></script>
+        <script src="<%- url_for("/js/common.js") %>"></script>
+    </body>
+</html>

@@ -1,0 +1,416 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Object — FairyGUI</title>
+        <meta charset="utf-8">
+        <meta name="description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="Object — FairyGUI">
+        <meta property="og:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Object — FairyGUI">
+        <meta name="twitter:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+
+
+        <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'>
+
+        <!-- main page styles -->
+        <link rel="stylesheet" href="/css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script src="/js/vue.min.js"></script>
+        <script>window.PAGE_TYPE = "guide_editor"</script>
+    </head>
+    <body class="docs">        <div id="mobile-bar"  data-bg-text="FairyGUI" >
+            <a class="menu-button"></a>
+            <a class="logo" href="https://github.com/fairygui/FairyGUI-unity"></a>
+        </div>
+        <div id="bg"> <!--end tag in the `index.ejs`-->
+
+<div id="header">
+  <a id="logo" href="https://github.com/fairygui/">
+    <img src="/images/github-white.png">
+  </a>
+  <ul id="nav">
+    
+
+	<li><a href="/" class="nav-link">Home</a></li>
+
+<li><a href="/product/" class="nav-link">Product</a></li>
+<li><a href="/guide/" class="nav-link current">Tutorials</a></li>
+<li><a href="http://ask.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
+<li><a href="/examples/" class="nav-link">Demo</a></li>
+<li><a href="/showcase/" class="nav-link">Showcase</a></li>
+<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">Q&A</a></li>
+<li><a href="/about/" class="nav-link">About</a></li>
+<li><a href="http://www.fairygui.com/" target="_self"  class="nav-link">中文</a> / English</li>
+  </ul>
+</div>
+
+        
+            <div id="main" class="fix-sidebar">
+                
+                    
+    <div class="sidebar">
+    <ul class="main-menu">
+        
+
+	<li><a href="/" class="nav-link">Home</a></li>
+
+<li><a href="/product/" class="nav-link">Product</a></li>
+<li><a href="/guide/" class="nav-link current">Tutorials</a></li>
+<li><a href="http://ask.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
+<li><a href="/examples/" class="nav-link">Demo</a></li>
+<li><a href="/showcase/" class="nav-link">Showcase</a></li>
+<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">Q&A</a></li>
+<li><a href="/about/" class="nav-link">About</a></li>
+<li><a href="http://www.fairygui.com/" target="_self"  class="nav-link">中文</a> / English</li>
+    </ul>
+    <div class="list">
+		<a class="become-backer" href="/about/donate.html">
+            Donate
+        </a>
+        <h2>
+            Guide
+            <!--<select class="version-select">
+                <option value="SELF" selected>editor</option>
+            </select>-->
+ 		 
+		  
+		
+        </h2>
+        <ul class="menu-root">
+            
+
+	 			
+	                
+	                <li>
+	                    <a href="/guide/index.html" class="sidebar-link">Introduction</a>
+	                </li>
+	            
+	
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/object.html" class="sidebar-link current">Object</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/image.html" class="sidebar-link">Image</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/movieclip.html" class="sidebar-link">MovieClip</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/graph.html" class="sidebar-link">Graph</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/loader.html" class="sidebar-link">Loader</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/text.html" class="sidebar-link">Text</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/richtext.html" class="sidebar-link">RichText</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/group.html" class="sidebar-link">Group</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/component.html" class="sidebar-link">Component</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/controller.html" class="sidebar-link">Controller</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/relation.html" class="sidebar-link">Relation System</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/label.html" class="sidebar-link">Label</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/button.html" class="sidebar-link">Button</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/combobox.html" class="sidebar-link">ComboBox</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/progressbar.html" class="sidebar-link">ProgressBar</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/slider.html" class="sidebar-link">Slider</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollbar.html" class="sidebar-link">ScrollBar</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/list.html" class="sidebar-link">List</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/window.html" class="sidebar-link">Window</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup Manage</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/transition.html" class="sidebar-link">Transition</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/adaptation.html" class="sidebar-link">Adaptation</a>
+	                </li>
+	            
+	
+	            
+	                
+	                
+	                <li><h3>Unity</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/unity/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/atlas.html" class="sidebar-link">Atlas</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/font.html" class="sidebar-link">Font handling</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/input.html" class="sidebar-link">Input processing</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/event.html" class="sidebar-link">Event System</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/insert3d.html" class="sidebar-link">Interspersed with 3D objects</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/uipainter.html" class="sidebar-link">Curved UI</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall optimization</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/lua.html" class="sidebar-link">Used in Lua</a>
+	                </li>
+	            
+
+	            
+	                
+	                
+	                <li><h3>LayaAir</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/laya/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+	
+	            
+	                
+	                
+	                <li><h3>Egret</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/egret/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+
+	            
+
+	            
+
+            
+        </ul>
+    </div>
+</div>
+
+
+<div class="content guide_editor with-sidebar ">
+    
+      <h1>Object</h1>
+    
+    <p>每个舞台中的组成元素我们称之为元件，元件的类型有很多，他们是：</p>
+<ul>
+<li><code>基础元件</code> 图片、图形、动画、装载器、文本、富文本、组、组件。</li>
+<li><code>组合型元件</code> 标签、按钮、下拉框、滚动条、滑动条、进度条。</li>
+<li><code>特殊元件</code> 列表。</li>
+</ul>
+<p>在舞台上选中任意一个元件，右边的属性栏出现共同的属性设置面板有:</p>
+<h2 id="基础属性"><a href="#基础属性" class="headerlink" title="基础属性"></a>基础属性</h2><p><img src="../../images/20170726161112.png" alt=""></p>
+<ul>
+<li><p><code>名称</code> 设置元件的名称。运行时可以通过GetChild(名称)获得这个元件。元件允许重名。如果有重名情况出现，在工具栏会出现一个提示。<img src="../../images/20170802092514.png" alt=""></p>
+</li>
+<li><p><code>宽</code> <code>高</code> 设置元件的宽度和高度。</p>
+</li>
+<li><p><code>原大小</code> 勾选原大小可以使元件大小恢复到素材的原始大小。当素材被外部修改后，例如一张图片素材，被设计师从50x50变成100x100，如果这里勾选着原大小，则元件的宽高也自动变成100x100；如果这里没有勾选，则元件的宽高将保持50x50，图片发生缩放。</p>
+</li>
+<li><p><code>宽度和高度限制</code>：左边为最小值，右边为最大值，0表示不限制。注意：修改宽高限制不会修改当前的宽高，即使当前的宽高值不符合限制。</p>
+</li>
+<li><p><code>ScaleX</code> <code>ScaleY</code> Scale与宽高都同样可以改变元件的显示大小，他们的不同之处在于：</p>
+<ol>
+<li><p>Scale是整体直接缩放，而宽高是改变元件的包围大小。例如，一个设置了九宫格的图片，如果改变它的Scale值，九宫格不会起作用，如果改变图片的宽高，则九宫格起作用。又例如，一个组件，如果改变它的Scale值，则组件作为一个整体放大或缩小，它里面的关联关系不会发生作用；如果改变组件的宽高，则只是组件的矩形范围增大或缩小，他里面的内容并不会自动增大或缩小，要依靠关联功能进行调整。</p>
+</li>
+<li><p>关联系统只对元件的宽高有效，不计入Scale的影响。</p>
+</li>
+</ol>
+</li>
+<li><p><code>倾斜X</code> <code>倾斜Y</code> 设置元件的倾斜值。 </p>
+</li>
+<li><p><code>轴心X</code> <code>轴心Y</code> 旋转、缩放、倾斜这些变换时的轴心点。取值范围是0~1。例如X=0.5，Y=0.5表示中心位置。点击右边的小三角形可以快速设置一些常用的值，比如中心，左下角，右下角等。</p>
+</li>
+<li><p><code>同时作为锚点</code> 勾选这个选项后，元件的原点位置将设置为轴心所在的位置。默认情况下，每个元件的(0,0)都是在左上角；勾选了轴心同时作为锚点后，则元件的(0,0)在轴心的位置。注意，关联系统是不计入这个选项的影响的，所以勾选了锚点后的元件，再使用宽高类的关联，可能表现不正常。</p>
+</li>
+<li><p><code>透明度</code> 设置元件的透明度。0表示全透明，100表示全不透明。</p>
+</li>
+<li><p><code>旋转</code> 设置元件的旋转角度，单位是度（degree）。正数表示顺时针旋转，负数表示逆时针旋转。</p>
+</li>
+<li><p><code>不可见</code> 使元件处于不可见状态。在编辑状态下，即使勾选了，元件依然是可见的，只有预览状态和运行状态，才生效。</p>
+</li>
+<li><p><code>变灰</code> 使元件呈现一个灰度的效果。默认情况下，FairyGUI会使用一个颜色滤镜为其生成灰度效果。但对于组件，除了使用颜色滤镜使其整体改变灰度，还可以自定义效果。例如，一个按钮组件，由底图和上面的图片文字组成。左边是正常状态，中间是设置了“变灰”后的效果。如果我们只是希望处于变灰状态时，只要图片文字变灰，不希望底图变灰，那么可以像右图那样，在组件里定义一个名称为“grayed”的控制器，由这个控制器去控制具体变灰的状态。定义了这个名称的控制器后，默认的整体变灰效果消失。</p>
+</li>
+</ul>
+<p><img src="../../images/20170727093435.png" alt=""></p>
+<ul>
+<li><code>不可触摸</code> 使元件处于不可交互的状态。鼠标点击和触摸屏触摸都不会有任何事件产生。注意：图片、普通文本（不包括输入文本和富文本）、动画是永远不可触摸的。如果要对他们侦听点击事件，请转换为组件，或者使用装载器(GLoader)。</li>
+</ul>
+<h2 id="效果属性"><a href="#效果属性" class="headerlink" title="效果属性"></a>效果属性</h2><p><img src="../../images/20170726161142.png" alt=""></p>
+<ul>
+<li><code>BlendMode</code> 这个提供了一部分的混合选项设置。对于Unity平台，对图片、动画、文字，你可以放心地修改它们的BlendMode。但对于组件，请谨慎使用。组件的BlendMode需要使用到FairyGUI提供的PaintMode技术，目标组件会转化为RenderTexture，再使用混合选项。这里面会有一定的内存消耗。但实现细节无需开发者介入。对组件使用BlendMode会使场景里出现CaptureCamera对象，这是正常的。</li>
+</ul>
+<p>Unity的Blend效果与编辑器中的预览可能会有差别。开发者可以通过使用以下代码重定义混合效果。注意：设置了特别BlendMode的显示对象无法与其他显示对象合并Draw Call。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">BlendModeUtils.Override(BlendMode.Add,</div><div class="line">    UnityEngine.Rendering.BlendMode.XX, UnityEngine.Rendering.BlendMode.XX);</div></pre></td></tr></table></figure>
+<ul>
+<li><code>滤镜</code> 目前编辑器支持两种滤镜的定义，颜色滤镜和模糊滤镜。对于H5类平台，请谨慎使用滤镜，因为会带来一定的消耗；对于Unity平台，你可以放心地对图片、动画、装载器使用颜色滤镜，这几乎不会带来额外消耗，但对于其他类型的元件，例如组件，请谨慎使用。组件的滤镜需要使用到FairyGUI提供的PaintMode技术，目标组件会转化为RenderTexture，再使用滤镜。这里面会有一定的内存消耗。但实现细节无需开发者介入。对组件使用滤镜会使场景里出现CaptureCamera对象，这是正常的。</li>
+</ul>
+<p>注意：设置了滤镜的显示对象无法与其他显示对象合并Draw Call。</p>
+<h2 id="TIPS属性"><a href="#TIPS属性" class="headerlink" title="TIPS属性"></a>TIPS属性</h2><p><img src="../../images/20170726161155.png" alt=""></p>
+<p>当鼠标移到元件范围内时，显示这里可以定义的文本。用户需要提供一个组件作为显示。这个组件一般扩展为标签，以便底层将TIPS文本设置到“标题”中。打开主菜单“文件”-&gt;“项目设置”，然后在弹出的对话框里选择“预览设置”，右边面板会出现一个“TIPS组件”的设置，将你制作好的标签组件拖入即可。这里的设置仅适用于编辑器预览，运行时需要用代码再次设置，例如：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">UIConfig.tooltipsWin = <span class="string">"ui://包名/组件名"</span>;</div></pre></td></tr></table></figure>
+<h2 id="GObject"><a href="#GObject" class="headerlink" title="GObject"></a>GObject</h2><ul>
+<li><p><code>设置坐标</code> SetXY或者单独设置x、y。</p>
+</li>
+<li><p><code>设置大小</code> SetSize或者单独设置width、height。SetSize还可以带第三个参数：</p>
+</li>
+</ul>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//忽略轴心的影响，即在设置了轴心的情况下，改变大小也不会同时改变坐标。</span></div><div class="line">aObject.SetSize(<span class="number">100</span>,<span class="number">100</span>,<span class="literal">true</span>);</div></pre></td></tr></table></figure>
+<ul>
+<li><p><code>设置大小限制</code> minWidth、maxWidth、minHeight、maxHeight。</p>
+</li>
+<li><p><code>设置Scale</code> SetScale或者单独设置scaleX、scaleY。</p>
+</li>
+<li><p><code>设置轴心</code> SetPivot。</p>
+</li>
+</ul>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aObject.SetPivot(<span class="number">0.5</span>f, <span class="number">0.5</span>f); <span class="comment">//设置轴心</span></div><div class="line">aObject.SetPivot(<span class="number">0.5</span>f, <span class="number">0.5</span>f, <span class="literal">true</span>); <span class="comment">//设置轴心，并同时作为锚点</span></div></pre></td></tr></table></figure>
+<ul>
+<li><p><code>设置可见</code> visible = true/false。</p>
+</li>
+<li><p><code>设置交互</code> touchable = true/false。</p>
+</li>
+<li><p><code>设置变灰</code> grayed = true/false。</p>
+</li>
+<li><p><code>设置激活</code> enabled = true/false。 元件的激活状态其实是由变灰+不可触摸共同组成。</p>
+</li>
+</ul>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//等同于调用GObject.grayed = true + GObject.touchable = false</span></div><div class="line">aObject.enabled = <span class="literal">false</span>;</div></pre></td></tr></table></figure>
+<ul>
+<li><code>设置旋转</code> rotation。Unity版本还支持rotationX和rotationY。2D UI由正交相机渲染，设置rotationX或rotationY可以有旋转效果，但无透视效果。FairyGUI提供了透视模拟的功能。例如：</li>
+</ul>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//设置对象实用透视模拟</span></div><div class="line">aObject.displayObject.perspective = <span class="literal">true</span>;</div><div class="line"><span class="comment">//可以设置相机距离</span></div><div class="line">aObject.displayObject.focalLength = <span class="number">2000</span>;</div><div class="line"></div><div class="line"><span class="comment">//此时旋转X轴或Y轴可以有透视效果。</span></div><div class="line">aObject.rotaionX = <span class="number">30</span>;</div></pre></td></tr></table></figure>
+<ul>
+<li><code>获得原生对象</code> displayObject。例如：</li>
+</ul>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//获取原生对象</span></div><div class="line">DisplayObject displayObject = aObject.displayObject;</div><div class="line"></div><div class="line"><span class="comment">//Unity版本获取GameObject</span></div><div class="line">GameObject go = displayObject.gameObject;</div></pre></td></tr></table></figure>
+
+    
+    <div class="footer">
+      found mistake? Want to participate in editing?
+      <a href="https://github.com/fairygui/en.fairygui.io/tree/master/src/guide/editor/object.md" target="_blank">
+        Edit this page on Github!
+      </a>
+    </div>
+</div>
+
+                
+            </div>
+            <script src="/js/smooth-scroll.min.js"></script>
+        
+
+        <!-- main custom script for sidebars, version selects etc. -->        
+        <script src="/js/css.escape.js"></script>
+        <script src="/js/common.js"></script>
+    </body>
+</html>

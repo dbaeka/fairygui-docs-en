@@ -1,0 +1,370 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Interspersed with 3D objects — FairyGUI</title>
+        <meta charset="utf-8">
+        <meta name="description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="Interspersed with 3D objects — FairyGUI">
+        <meta property="og:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Interspersed with 3D objects — FairyGUI">
+        <meta name="twitter:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+
+
+        <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'>
+
+        <!-- main page styles -->
+        <link rel="stylesheet" href="/css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script src="/js/vue.min.js"></script>
+        <script>window.PAGE_TYPE = "guide_unity"</script>
+    </head>
+    <body class="docs">        <div id="mobile-bar"  data-bg-text="FairyGUI" >
+            <a class="menu-button"></a>
+            <a class="logo" href="https://github.com/fairygui/FairyGUI-unity"></a>
+        </div>
+        <div id="bg"> <!--end tag in the `index.ejs`-->
+
+<div id="header">
+  <a id="logo" href="https://github.com/fairygui/">
+    <img src="/images/github-white.png">
+  </a>
+  <ul id="nav">
+    
+
+	<li><a href="/" class="nav-link">Home</a></li>
+
+<li><a href="/product/" class="nav-link">Product</a></li>
+<li><a href="/guide/" class="nav-link current">Tutorials</a></li>
+<li><a href="http://ask.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
+<li><a href="/examples/" class="nav-link">Demo</a></li>
+<li><a href="/showcase/" class="nav-link">Showcase</a></li>
+<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">Q&A</a></li>
+<li><a href="/about/" class="nav-link">About</a></li>
+<li><a href="http://www.fairygui.com/" target="_self"  class="nav-link">中文</a> / English</li>
+  </ul>
+</div>
+
+        
+            <div id="main" class="fix-sidebar">
+                
+                    
+    <div class="sidebar">
+    <ul class="main-menu">
+        
+
+	<li><a href="/" class="nav-link">Home</a></li>
+
+<li><a href="/product/" class="nav-link">Product</a></li>
+<li><a href="/guide/" class="nav-link current">Tutorials</a></li>
+<li><a href="http://ask.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
+<li><a href="/examples/" class="nav-link">Demo</a></li>
+<li><a href="/showcase/" class="nav-link">Showcase</a></li>
+<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">Q&A</a></li>
+<li><a href="/about/" class="nav-link">About</a></li>
+<li><a href="http://www.fairygui.com/" target="_self"  class="nav-link">中文</a> / English</li>
+    </ul>
+    <div class="list">
+		<a class="become-backer" href="/about/donate.html">
+            Donate
+        </a>
+        <h2>
+            Guide
+            <!--<select class="version-select">
+                <option value="SELF" selected>unity</option>
+            </select>-->
+ 		 
+		  
+		
+        </h2>
+        <ul class="menu-root">
+            
+
+	 			
+	                
+	                <li>
+	                    <a href="/guide/index.html" class="sidebar-link">Introduction</a>
+	                </li>
+	            
+	
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/object.html" class="sidebar-link">Object</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/image.html" class="sidebar-link">Image</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/movieclip.html" class="sidebar-link">MovieClip</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/graph.html" class="sidebar-link">Graph</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/loader.html" class="sidebar-link">Loader</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/text.html" class="sidebar-link">Text</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/richtext.html" class="sidebar-link">RichText</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/group.html" class="sidebar-link">Group</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/component.html" class="sidebar-link">Component</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/controller.html" class="sidebar-link">Controller</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/relation.html" class="sidebar-link">Relation System</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/label.html" class="sidebar-link">Label</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/button.html" class="sidebar-link">Button</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/combobox.html" class="sidebar-link">ComboBox</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/progressbar.html" class="sidebar-link">ProgressBar</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/slider.html" class="sidebar-link">Slider</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollbar.html" class="sidebar-link">ScrollBar</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/list.html" class="sidebar-link">List</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/window.html" class="sidebar-link">Window</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup Manage</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/transition.html" class="sidebar-link">Transition</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/adaptation.html" class="sidebar-link">Adaptation</a>
+	                </li>
+	            
+	
+	            
+	                
+	                
+	                <li><h3>Unity</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/unity/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/atlas.html" class="sidebar-link">Atlas</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/font.html" class="sidebar-link">Font handling</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/input.html" class="sidebar-link">Input processing</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/event.html" class="sidebar-link">Event System</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/insert3d.html" class="sidebar-link current">Interspersed with 3D objects</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/uipainter.html" class="sidebar-link">Curved UI</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall optimization</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/lua.html" class="sidebar-link">Used in Lua</a>
+	                </li>
+	            
+
+	            
+	                
+	                
+	                <li><h3>LayaAir</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/laya/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+	
+	            
+	                
+	                
+	                <li><h3>Egret</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/egret/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+
+	            
+
+	            
+
+            
+        </ul>
+    </div>
+</div>
+
+
+<div class="content guide_unity with-sidebar ">
+    
+      <h1>Interspersed with 3D objects</h1>
+    
+    <p>FairyGUI提供了非常完整的解决方案解决模型、粒子、骨骼动画等3D对象与UI穿插的问题。有两种方案：</p>
+<h2 id="直接放入3D对象"><a href="#直接放入3D对象" class="headerlink" title="直接放入3D对象"></a>直接放入3D对象</h2><p>这种方式是直接用UI相机渲染3D对象，相比RenderTexture的方案，使用简单且节省内存，缺点是在UI相机下3D对象没有透视。</p>
+<p>在UI中插入3D对象需要用到一个图形占位和<code>GoWrapper</code>对象。</p>
+<ol>
+<li><p>实例化你的3D对象，例如:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Object prefab = Resources.Load(<span class="string">"Role/npc"</span>);</div><div class="line">GameObject go = (GameObject)Object.Instantiate(prefab);</div></pre></td></tr></table></figure>
+</li>
+<li><p>给3D对象设置合适的位置、缩放和旋转。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">go.transform.localPosition = <span class="keyword">new</span> Vector3(<span class="number">61</span>, <span class="number">-89</span>, <span class="number">1000</span>); </div><div class="line">go.transform.localScale = <span class="keyword">new</span> Vector3(<span class="number">180</span>, <span class="number">180</span>, <span class="number">180</span>);</div><div class="line">go.transform.localEulerAngles = <span class="keyword">new</span> Vector3(<span class="number">0</span>, <span class="number">100</span>, <span class="number">0</span>);</div></pre></td></tr></table></figure>
+<p>注意：对于模型这种有“厚度”的对象（在z轴有一定范围），localPosition的z值不应该为0，可以设置一个较大的正数值（正数表示远离摄像机）。因为Shader是开启了ZTest的，如果模型在z轴的坐标为0，和UI的z值相同，那么他的前端就可能与他上一层的UI重叠。</p>
+<p>模型的缩放可以根据这个公式计算：缩放倍数 = 显示大小（单位像素）/ 模型大小（单位米）。例如如果一个模型是1米高，最终需要显示400像素高，那么需要放大400倍。</p>
+</li>
+<li><p>在UI中需要放置3D对象中放置一个空白的图形，假设名称为“holder”。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GGraph holder = view.GetChild(<span class="string">"holder"</span>).asGraph;</div></pre></td></tr></table></figure>
+</li>
+<li><p>构建GoWrapper对象，放入到holder中。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GoWrapper wrapper = <span class="keyword">new</span> GoWrapper(go);</div><div class="line">holder.SetNativeObject(wrapper);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>点击处理</strong></p>
+<p>GoWrapper默认是没有大小的，所有不能处理点击事件。如果需要对3D对象显示区域的点击事件，可以在holder上再放置一个图形（透明度设置为0）作为点击区域，或者一个空组件也行。</p>
+<p><strong>调试方式</strong></p>
+<p>使用这种方式插入3D对象，需要使用代码，并在运行时才能看到效果，对设置GameObject的位置、旋转、缩放等都不太直观。FairyGUI提供了直观的方法。可以把3D对象直接挂到UIPanel对象下，<strong>并设置3D对象的Layer为UI</strong>，然后勾选UIPanel的“Set Native Children Order”。如下：</p>
+<p><img src="../../images/20170809140223.png" alt=""></p>
+<p>但这种方法GameObject并不会随着UIPanel的移动而移动，因此只能用作调试用途。例如制作UI上用的粒子时，可以用这种方法测试。</p>
+<p><strong>更新GameObject</strong></p>
+<p>GoWrapper会在构造函数里查询你的GameObject里所有的Renderer并保存。如果你的GameObject后续发生了改变，需要告知GoWrapper重新查询和保存，否则显示不正确。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">wrapper.CacheRenderers();</div></pre></td></tr></table></figure>
+<p><strong>更换GameObject</strong></p>
+<p>如果要修改GoWrapper包装的对象，可以使用：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">wrapper.wrapTarget = anotherGameObject;</div></pre></td></tr></table></figure>
+<p>设置新的包装对象后，原来的包装对象只会被删除引用，但不会被销毁。如果你要销毁原来的GameObject，可以这样：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Object.Destroy(wrapper.wrapTarget);</div><div class="line">wrapper.wrapTarget = anotherGameObject;</div></pre></td></tr></table></figure>
+<p><strong>剪裁</strong></p>
+<p>如果需要对3D对象进行剪裁，可以利用自定义遮罩。自定义遮罩的使用方法参考：<a href="../editor/component.html#遮罩">组件的遮罩</a>。</p>
+<p>例如如果需要在一个列表内的item显示模型，并希望模型在列表滚动时被正确隐藏，这时仅通过列表自身的溢出滚动功能是无法实现的。这时需要将列表转换为一个组件，在组件内拖入一个矩形图形覆盖列表的视口，然后将这个图形设置为组件的自定义遮罩。</p>
+<p>模型的着色器也必须做出相应的修改，把以下代码添加到模型的着色器的Properties段（可参考FairyGUI-Image.shader）：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">_StencilComp (<span class="string">"Stencil Comparison"</span>, Float) = <span class="number">8</span></div><div class="line">_Stencil (<span class="string">"Stencil ID"</span>, Float) = <span class="number">0</span></div><div class="line">_StencilOp (<span class="string">"Stencil Operation"</span>, Float) = <span class="number">0</span></div><div class="line">_StencilWriteMask (<span class="string">"Stencil Write Mask"</span>, Float) = <span class="number">255</span></div><div class="line">_StencilReadMask (<span class="string">"Stencil Read Mask"</span>, Float) = <span class="number">255</span></div></pre></td></tr></table></figure>
+<p>把以下代码加到模型的着色器的SubShader段（可参考FairyGUI-Image.shader）：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Stencil</div><div class="line">&#123;</div><div class="line">	Ref [_Stencil]</div><div class="line">	Comp [_StencilComp]</div><div class="line">	Pass [_StencilOp] </div><div class="line">	ReadMask [_StencilReadMask]</div><div class="line">	WriteMask [_StencilWriteMask]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>最后，设置GoWrapper支持自定义遮罩：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">wrapper.supportStencil = <span class="literal">true</span>;</div></pre></td></tr></table></figure>
+<h2 id="使用RenderTexture"><a href="#使用RenderTexture" class="headerlink" title="使用RenderTexture"></a>使用RenderTexture</h2><p>在UI上展现3D内容的另一种方式是使用RenderTexture。使用RenderTexture的步骤比较复杂，需要另外新建相机渲染目标对象，然后把该相机的输出定向到一张RenderTexture。有了RenderTexture后，我们将它赋值到Image.texture即可。详细的代码可以参考<a href="https://github.com/fairygui/FairyGUI-unity/blob/master/Examples.Unity5/Assets/FairyGUI/Examples/RenderTexture/RenderImage.cs" target="_blank" rel="external">RenderImage</a>。</p>
+<p>RenderTexture可以设置背景颜色为透明，方便和UI混合。但如果渲染的内容包含有透明贴图，那么和UI混合时就会出现透明部分的显示错误。在RenderImage这个例子中，FairyGUI提供了一个方案，将RenderTexture所在位置的背景图片影射到RenderTexture渲染相机的背景上，这样就不用担心透贴的问题。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SetBackground</span>(<span class="params">GObject image</span>)</span>;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SetBackground</span>(<span class="params">GObject image1, GObject image2</span>)</span>;</div></pre></td></tr></table></figure>
+<p>可以看到，最多可以设置两个图片。如果RenderTexture的背后有超过两个图片的叠加，就无法处理了。这两个图片不需要和RenderTexture在同一个容器里，它们可以在UI的任何层次。</p>
+
+    
+    <div class="footer">
+      found mistake? Want to participate in editing?
+      <a href="https://github.com/fairygui/en.fairygui.io/tree/master/src/guide/unity/insert3d.md" target="_blank">
+        Edit this page on Github!
+      </a>
+    </div>
+</div>
+
+                
+            </div>
+            <script src="/js/smooth-scroll.min.js"></script>
+        
+
+        <!-- main custom script for sidebars, version selects etc. -->        
+        <script src="/js/css.escape.js"></script>
+        <script src="/js/common.js"></script>
+    </body>
+</html>

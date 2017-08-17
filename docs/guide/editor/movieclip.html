@@ -1,0 +1,378 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>MovieClip — FairyGUI</title>
+        <meta charset="utf-8">
+        <meta name="description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="MovieClip — FairyGUI">
+        <meta property="og:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="MovieClip — FairyGUI">
+        <meta name="twitter:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+
+
+        <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'>
+
+        <!-- main page styles -->
+        <link rel="stylesheet" href="/css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script src="/js/vue.min.js"></script>
+        <script>window.PAGE_TYPE = "guide_editor"</script>
+    </head>
+    <body class="docs">        <div id="mobile-bar"  data-bg-text="FairyGUI" >
+            <a class="menu-button"></a>
+            <a class="logo" href="https://github.com/fairygui/FairyGUI-unity"></a>
+        </div>
+        <div id="bg"> <!--end tag in the `index.ejs`-->
+
+<div id="header">
+  <a id="logo" href="https://github.com/fairygui/">
+    <img src="/images/github-white.png">
+  </a>
+  <ul id="nav">
+    
+
+	<li><a href="/" class="nav-link">Home</a></li>
+
+<li><a href="/product/" class="nav-link">Product</a></li>
+<li><a href="/guide/" class="nav-link current">Tutorials</a></li>
+<li><a href="http://ask.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
+<li><a href="/examples/" class="nav-link">Demo</a></li>
+<li><a href="/showcase/" class="nav-link">Showcase</a></li>
+<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">Q&A</a></li>
+<li><a href="/about/" class="nav-link">About</a></li>
+<li><a href="http://www.fairygui.com/" target="_self"  class="nav-link">中文</a> / English</li>
+  </ul>
+</div>
+
+        
+            <div id="main" class="fix-sidebar">
+                
+                    
+    <div class="sidebar">
+    <ul class="main-menu">
+        
+
+	<li><a href="/" class="nav-link">Home</a></li>
+
+<li><a href="/product/" class="nav-link">Product</a></li>
+<li><a href="/guide/" class="nav-link current">Tutorials</a></li>
+<li><a href="http://ask.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
+<li><a href="/examples/" class="nav-link">Demo</a></li>
+<li><a href="/showcase/" class="nav-link">Showcase</a></li>
+<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">Q&A</a></li>
+<li><a href="/about/" class="nav-link">About</a></li>
+<li><a href="http://www.fairygui.com/" target="_self"  class="nav-link">中文</a> / English</li>
+    </ul>
+    <div class="list">
+		<a class="become-backer" href="/about/donate.html">
+            Donate
+        </a>
+        <h2>
+            Guide
+            <!--<select class="version-select">
+                <option value="SELF" selected>editor</option>
+            </select>-->
+ 		 
+		  
+		
+        </h2>
+        <ul class="menu-root">
+            
+
+	 			
+	                
+	                <li>
+	                    <a href="/guide/index.html" class="sidebar-link">Introduction</a>
+	                </li>
+	            
+	
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/object.html" class="sidebar-link">Object</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/image.html" class="sidebar-link">Image</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/movieclip.html" class="sidebar-link current">MovieClip</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/graph.html" class="sidebar-link">Graph</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/loader.html" class="sidebar-link">Loader</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/text.html" class="sidebar-link">Text</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/richtext.html" class="sidebar-link">RichText</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/group.html" class="sidebar-link">Group</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/component.html" class="sidebar-link">Component</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/controller.html" class="sidebar-link">Controller</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/relation.html" class="sidebar-link">Relation System</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/label.html" class="sidebar-link">Label</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/button.html" class="sidebar-link">Button</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/combobox.html" class="sidebar-link">ComboBox</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/progressbar.html" class="sidebar-link">ProgressBar</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/slider.html" class="sidebar-link">Slider</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollbar.html" class="sidebar-link">ScrollBar</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/list.html" class="sidebar-link">List</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/window.html" class="sidebar-link">Window</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup Manage</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/transition.html" class="sidebar-link">Transition</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/adaptation.html" class="sidebar-link">Adaptation</a>
+	                </li>
+	            
+	
+	            
+	                
+	                
+	                <li><h3>Unity</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/unity/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/atlas.html" class="sidebar-link">Atlas</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/font.html" class="sidebar-link">Font handling</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/input.html" class="sidebar-link">Input processing</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/event.html" class="sidebar-link">Event System</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/insert3d.html" class="sidebar-link">Interspersed with 3D objects</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/uipainter.html" class="sidebar-link">Curved UI</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall optimization</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/lua.html" class="sidebar-link">Used in Lua</a>
+	                </li>
+	            
+
+	            
+	                
+	                
+	                <li><h3>LayaAir</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/laya/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+	
+	            
+	                
+	                
+	                <li><h3>Egret</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/egret/index.html" class="sidebar-link">Instructions</a>
+	                </li>
+	            
+
+	            
+
+	            
+
+            
+        </ul>
+    </div>
+</div>
+
+
+<div class="content guide_editor with-sidebar ">
+    
+      <h1>MovieClip</h1>
+    
+    <h2 id="创建动画"><a href="#创建动画" class="headerlink" title="创建动画"></a>创建动画</h2><p>编辑器支持创建、编辑和使用序列帧动画。创建序列帧动画的方式有：</p>
+<ol>
+<li><p>使用Adobe Animate CC/Flash等动画编辑工具制作好动画，导出带plist或eas扩展名的描述文件以及相关的贴图（应放置在相同目录），然后将描述文件（仅描述文件，不是贴图）拖入编辑器即可生成动画素材。</p>
+</li>
+<li><p>点击菜单“资源”-&gt;”新建动画”，或者点击主工具栏<img src="../../images/20170728151207.png" alt="">按钮，可以创建一个新的空白动画。然后在动画编辑界面点击“导入图片序列”，导入多张图片。</p>
+</li>
+<li><p>直接拖入一个GIF文件到编辑器，GIF会自动转换为序列帧动画。</p>
+</li>
+<li><p>Flash项目支持直接导入和使用SWF文件。</p>
+</li>
+</ol>
+<p>无论从何种方式创建的动画，在编辑器里，动画素材都是以一个单一文件存在（扩展名为jta）。也就是说，无论动画是从库里的图片文件创建的，还是从外面导进来的，都不会再有对单个图片的依赖。例如，如果你是从资源库里拖图片进入动画编辑器创建动画的，创建完成后，这些图片与动画再没有任何关系。如果你要设置动画所在的纹理集，在动画编辑器里对动画进行设置，对那些图片设置是无效的。</p>
+<h2 id="编辑动画"><a href="#编辑动画" class="headerlink" title="编辑动画"></a>编辑动画</h2><p>在资源库中，或者舞台上，双击动画，进入动画属性设置对话框：</p>
+<p><img src="../../images/20170728151408.png" alt=""></p>
+<ul>
+<li><code>帧频</code> 可选24、30和60。可根据源动画的设定进行修改。</li>
+<li></li>
+<li><p><code>播放间隔</code> 每隔多少帧播放一张图片。增大或减少这个值可以降低或者增加动画播放的速度。</p>
+</li>
+<li><p><code>循环延迟</code> 当动画播放结束后，停留多少帧再重新开始播放。</p>
+</li>
+<li><p><code>本帧延迟</code> 播放当前帧后停留多少帧再继续播放。</p>
+</li>
+<li><p><code>摆动式播放</code> 默认的播放形式是从第一帧播放到最后一帧，然后下个循环又从第一帧播放到最后一帧。如果勾选了摆动式播放，则先从第一帧播放到最后一帧，再从最后一帧倒序播放回第一帧，依此循环。</p>
+</li>
+<li><p><code>纹理集</code> 设置改动画发布到哪一张纹理集。<strong>动画不支持纹理分页，也就是说，当纹理设置了自动分页时，如果动画被分布到不同的纹理集页面，就会出现显示错误。这时你可以安排动画单独纹理集，或者和其他动画放在一个纹理集上。</strong></p>
+</li>
+<li><p><code>导入图片序列</code> 从序列图片中更新动画。</p>
+</li>
+<li><p><code>导入Sprite表</code> 导入Adobe Animate CC或者其他动画工具导出的动画文件。</p>
+</li>
+</ul>
+<h2 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h2><p>在舞台上选中一个动画，右边的属性面板列表出现：</p>
+<p><img src="../../images/20170728155510.png" alt=""></p>
+<ul>
+<li><p><code>帧</code> 设置当前帧。</p>
+</li>
+<li><p><code>播放</code> 设置动画是否处于播放状态。</p>
+</li>
+<li><p><code>颜色</code> 修改动画各个颜色通道的值，使动画产生变色的效果。<em>（注：Egret、Laya版本目前是通过滤镜实现的，效率较低，不推荐使用此功能）。</em></p>
+</li>
+<li><p><code>亮度</code> 调整动画的明暗。这个实际是通过修改<code>颜色</code>属性实现的，和设置颜色为灰阶颜色一样的效果。</p>
+</li>
+</ul>
+<h2 id="GMovieClip"><a href="#GMovieClip" class="headerlink" title="GMovieClip"></a>GMovieClip</h2><p>动画我们一般不直接使用new来创建，也很少有需要单独创建动画的需求。它一般直接放置在其他组件中作为组成元素。如果确实需要实例化一个动画，可以使用以下方法：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GMovieClip aMovie = UIPackage.CreateObject(<span class="string">"包名"</span>,<span class="string">"动画名"</span>).asMovieClip;</div></pre></td></tr></table></figure>
+<p>常用的API有：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aMovie.playing = <span class="literal">false</span>; <span class="comment">//切换播放和停止状态</span></div><div class="line">aMovie.frame = <span class="number">5</span>; <span class="comment">//如果动画处于停止状态，可以设置停止在第几帧</span></div></pre></td></tr></table></figure>
+<p>对动画进行循环播放的设置，例如从第几帧播放到第几帧，循环播放多少次等：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aMovie.SetPlaySettings(<span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">-1</span>);</div></pre></td></tr></table></figure>
+<p>对动画播放过程的控制，可以使用PlayState对象：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//返回播放头部</span></div><div class="line">((MovieClip)aMovie.displayObject).playState.reset();</div></pre></td></tr></table></figure>
+<p>动画播放完成可以获得一个回调通知：（如果是循环播放，则所有循环结束后才算播放完成）</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity</span></div><div class="line">aMovie.onPlayEnd.Add(...);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">aMovie.setPlaySettings(..., callback);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">aMovie.setPlaySettings(..., callback, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya</span></div><div class="line">aMovie.setPlaySettings(..., Handler.create(callback, <span class="keyword">this</span>));</div></pre></td></tr></table></figure>
+
+    
+    <div class="footer">
+      found mistake? Want to participate in editing?
+      <a href="https://github.com/fairygui/en.fairygui.io/tree/master/src/guide/editor/movieclip.md" target="_blank">
+        Edit this page on Github!
+      </a>
+    </div>
+</div>
+
+                
+            </div>
+            <script src="/js/smooth-scroll.min.js"></script>
+        
+
+        <!-- main custom script for sidebars, version selects etc. -->        
+        <script src="/js/css.escape.js"></script>
+        <script src="/js/common.js"></script>
+    </body>
+</html>
