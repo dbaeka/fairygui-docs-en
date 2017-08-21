@@ -4,9 +4,9 @@
 <% } %>
 <li><a href="<%- url_for("/product/")%>" class="nav-link<%- page.path.match(/product/) ? ' current' : '' %>">Product</a></li>
 <li><a href="<%- url_for("/guide/") %>" class="nav-link<%- page.path.match(/guide\//) ? ' current' : '' %>">Tutorials</a></li>
-<li><a href="<%- url_for("http://ask.fairygui.com/api/")%>" target="_blank"  class="nav-link">API</a></li>
+<li><a href="<%- url_for("http://www.fairygui.com/api/")%>" target="_blank"  class="nav-link">API</a></li>
 <li><a href="<%- url_for("/examples/") %>" class="nav-link<%- page.path.match(/examples/) ? ' current' : '' %>">Demo</a></li>
 <li><a href="<%- url_for("/showcase/") %>" class="nav-link<%- page.path.match(/showcase/) ? ' current' : '' %>">Showcase</a></li>
-<li><a href="<%- url_for("http://www.fairygui.com/")%>" target="_blank" class="nav-link">Q&A</a></li>
+<li><a href="<%- url_for("http://ask.fairygui.com/")%>" target="_blank" class="nav-link">Q&A</a></li>
 <li><a href="<%- url_for("/about/") %>" class="nav-link<%- page.path.match(/about/) ? ' current' : '' %>">About</a></li>
 <li><a href="<%- url_for("http://www.fairygui.com/")%>" target="_self"  class="nav-link">中文</a><a class="nav-link"> / English</a></li>
