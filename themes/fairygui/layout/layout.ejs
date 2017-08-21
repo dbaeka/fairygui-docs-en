@@ -2,9 +2,15 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title><%- page.title ? page.title + ' — ' : '' %>FairyGUI</title>
+    <% if (isIndex) { %>
+        <title>FairyGUI - <%- theme.site_index_description %></title>
+    <% } else { %>
+        <title>FairyGUI<%- page.title ? ' - ' + page.title : '' %></title>
+    <% } %>
         <meta charset="utf-8">
         <meta name="description" content="<%- theme.site_description %>">
+        <meta name="keywords" content="<%- theme.site_keywords %>">
+        
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
