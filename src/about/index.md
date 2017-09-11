@@ -14,6 +14,8 @@ FairyGUI Editor is produced using FairyGUI. GitHub has UI tools for all interfac
 
 The Haxe SDK is provided by [Rakuten](https://github.com/rakuten).
 
+The Pixi SDK is provided by [jcyuan](https://github.com/jcyuan).
+
 ## Website production contribution
 
 [喵喵大人](http://catlib.io)，[Ou Changkun](https://changkun.us/about/)， [Duke Chiang](http://dukechiang.com)， [Blank](http://alianhome.com/)

@@ -55,6 +55,14 @@ Source: [https://github.com/fairygui/FairyGUI-starling](https://github.com/fairy
 
 [Examples](http://res.fairygui.com/FairyGUI-starling-demo20170726.zip)
 
+## Pixi SDK
+
+Source: [https://github.com/jcyuan/FairyGUI-PixiJS/releases](https://github.com/jcyuan/FairyGUI-PixiJS/releases)
+
+<img src="https://img.shields.io/github/stars/jcyuan/FairyGUI-PIXI.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/jcyuan/FairyGUI-PIXI.svg" alt="forks">
+
+[Examples](https://github.com/jcyuan/FairyGUI-PixiJS-Example/releases)
+
 ## Haxe SDK
 
 Source: [https://github.com/rakuten/FairyGUI-haxe](https://github.com/rakuten/FairyGUI-haxe)
