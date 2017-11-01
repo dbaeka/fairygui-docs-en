@@ -6,12 +6,12 @@ order: 0
 
 ## FairyGUI Editor 
 
->Current version 3.4.0
+>Current version 3.4.1
 
 <div id="downloads">
-<a class="button" href="http://res.fairygui.com/FairyGUI-Editor_3_4_0.zip" target="_self">Windows</a><span class="light info">Support Simplified Chinese, Traditional Chinese and English</span>
+<a class="button" href="http://res.fairygui.com/FairyGUI-Editor_3_4_1.zip" target="_self">Windows</a><span class="light info">Support Simplified Chinese, Traditional Chinese and English</span>
 
-<a class="button" href="http://res.fairygui.com/FairyGUI-Editor_Mac_3_4_0.zip" target="_self">OSX</a><span class="light info">Support Simplified Chinese, Traditional Chinese and English</span>
+<a class="button" href="http://res.fairygui.com/FairyGUI-Editor_Mac_3_4_1.zip" target="_self">OSX</a><span class="light info">Support Simplified Chinese, Traditional Chinese and English</span>
 </div>
 
 FairyGUI Editor is green software, decompression can be used directly, no need to install. Recommended to extract to non-Chinese directory.
@@ -30,6 +30,12 @@ Source: [https://github.com/fairygui/FairyGUI-unity](https://github.com/fairygui
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-unity.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-unity.svg" alt="forks">
 
 [Examples](https://github.com/fairygui/FairyGUI-unity/releases)
+
+## Cocos2dx SDK
+
+源码: [https://github.com/fairygui/FairyGUI-cocos2dx](https://github.com/fairygui/FairyGUI-cocos2dx)
+
+<img src="https://img.shields.io/github/stars/fairygui/FairyGUI-cocos2dx.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-cocos2dx.svg" alt="forks">
 
 ## LayaAir SDK
 
