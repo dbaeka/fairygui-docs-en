@@ -7,7 +7,7 @@
     
         <meta charset="utf-8">
         <meta name="description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
-        <meta name="keywords" content="FairyGUI,FGUI,UI Editor,Unity GUI,Pixi GUI,Haxe GUI,Starling GUI">
+        <meta name="keywords" content="FairyGUI,FGUI,UI Editor,Unity GUI,Pixi GUI,Haxe GUI,Starling GUI,CryEngine UI,Havok Vision,Project Anarchy,C++ UI">
         
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -110,7 +110,34 @@
     
       <h1>Release Notes</h1>
     
-    <h2 id="3-4-0"><a href="#3-4-0" class="headerlink" title="3.4.0"></a>3.4.0</h2><p>编辑器界面增加了对高DPI显示屏的适配。这个功能需要更新整包才能生效，不能从在线更新获得。请从官网重新下载安装。<br>如果后续有新版本，不会对3.4.0版本之前推送更新。</p>
+    <h2 id="3-5-0"><a href="#3-5-0" class="headerlink" title="3.5.0"></a>3.5.0</h2><ol>
+<li><p>增加了自定义数据。可以在两个地方输入自定义的数据：<br><img src="../../images/20180105004522.png" alt=""> <img src="../../images/20180105004541.png" alt=""></p>
+<p>第一种定义方式在运行时可以通过两种方式获得：<br>a. 通过GComponent.packageItem.componentData.GetAttribute(“customData”)读取；<br>b. 在组件的扩展类里，重写ConstructXML(xml)方法，然后xml.GetAttribute(“customData”)读取。</p>
+<p>第二种定义方式在运行时直接读取GObject.data即可。</p>
+</li>
+<li><p>Laya和Egret项目增加了一个发布选项，通过此选项可以控制发布的描述文件是否压缩。默认是压缩的。如果你已经使用了web服务器的gzip压缩功能，又或者打包时会另外压缩，那可以选择不压缩的格式。<br><img src="../../images/20180105005321.png" alt=""></p>
+</li>
+<li><p>增加了大文本输入对话框。在任意文本输入的地方，按快捷键Ctrl+Enter，就可以弹出一个对话框用于输入，解决原来在属性面板录入长度较大文本的不方便的问题。</p>
+</li>
+</ol>
+<h2 id="3-4-3"><a href="#3-4-3" class="headerlink" title="3.4.3"></a>3.4.3</h2><ol>
+<li>修正了编辑器里文本“自动缩小”功能对位图字体无效的问题。</li>
+<li>Laya项目重新加回了导出代码语言的选择，可以选择AS或TS。</li>
+<li>修正了Cocos2dx项目导出代码的错误。（C++还玩导出代码，嫌编译太快了吗）。</li>
+<li>修正了Pixi版本导出代码的一些问题。</li>
+</ol>
+<h2 id="3-4-2"><a href="#3-4-2" class="headerlink" title="3.4.2"></a>3.4.2</h2><ol>
+<li>修正了3.4.1引入的文本对齐问题。</li>
+<li>修正了Pixi版本导出代码后缀为“as”的问题。</li>
+</ol>
+<h2 id="3-4-1"><a href="#3-4-1" class="headerlink" title="3.4.1"></a>3.4.1</h2><ol>
+<li>增加了Cocos2dx项目类型，增加了Cocos2dx的发布支持。</li>
+<li>原来代码模板是根据代码语言匹配，现在改成根据项目类型进行匹配。现在template目录下按项目类型名称建立子目录，并使用里面的模板。</li>
+<li>修正了在显示列表里拖拽改变元件顺序，有时会出现层级错误的问题。</li>
+<li>修正了按钮或标签中的标题文本缩小到很小再恢复后对齐不正确的bug。</li>
+</ol>
+<p>注意：3.4.0以下版本不能在线更新到3.4.1，请从官网重新下载安装。</p>
+<h2 id="3-4-0"><a href="#3-4-0" class="headerlink" title="3.4.0"></a>3.4.0</h2><p>编辑器界面增加了对高DPI显示屏的适配。这个功能需要更新整包才能生效，不能从在线更新获得。请从官网重新下载安装。<br>如果后续有新版本，不会对3.4.0版本之前推送更新。</p>
 <h2 id="3-3-6"><a href="#3-3-6" class="headerlink" title="3.3.6"></a>3.3.6</h2><ol>
 <li>交换元件操作现在支持多选后批量交换。</li>
 <li>在动效测试时不再重置所有控制器，改为保留当前控制器的活动页面。</li>
