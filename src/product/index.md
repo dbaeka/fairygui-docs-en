@@ -91,12 +91,10 @@ Demo: [https://github.com/fairygui/FairyGUI-cryengine](https://github.com/fairyg
 
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-cryengine.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-cryengine.svg" alt="forks">
 
-License is required for this SDK.
-
 ## Havok Vision SDK
 
 Demo: [https://github.com/fairygui/FairyGUI-vision](https://github.com/fairygui/FairyGUI-vision)
 
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-vision.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-vision.svg" alt="forks">
 
-License is required for this SDK.
+[Examples](http://res.fairygui.com/FairyGUI-vision-demo20180109.zip)
