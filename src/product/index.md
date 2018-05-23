@@ -43,7 +43,7 @@ Source: [https://github.com/fairygui/FairyGUI-layabox](https://github.com/fairyg
 
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-layabox.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-layabox.svg" alt="forks">
 
-[Examples](http://res.fairygui.com/FairyGUI-layabox-demo171128.zip)
+[Examples](http://res.fairygui.com/FairyGUI-layabox-demo180523.zip)
 
 ## Egret SDK
 
@@ -51,7 +51,7 @@ Source: [https://github.com/fairygui/FairyGUI-egret](https://github.com/fairygui
 
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-egret.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-egret.svg" alt="forks">
 
-[Examples](http://res.fairygui.com/FairyGUI-egret-demo171128.zip)
+[Examples](http://res.fairygui.com/FairyGUI-egret-demo180523.zip)
 
 ## Starling SDK
 
@@ -59,7 +59,7 @@ Source: [https://github.com/fairygui/FairyGUI-starling](https://github.com/fairy
 
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-starling.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-starling.svg" alt="forks">
 
-[Examples](http://res.fairygui.com/FairyGUI-starling-demo171128.zip)
+[Examples](http://res.fairygui.com/FairyGUI-starling-demo180523.zip)
 
 ## Pixi SDK
 
@@ -83,7 +83,7 @@ Source: [https://github.com/fairygui/FairyGUI-as3](https://github.com/fairygui/F
 
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-as3.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-as3.svg" alt="forks">
 
-[Examples](http://res.fairygui.com/FairyGUI-as3-demo171128.zip)
+[Examples](http://res.fairygui.com/FairyGUI-as3-demo180523.zip)
 
 ## Cry Engine SDK
 
@@ -91,10 +91,12 @@ Demo: [https://github.com/fairygui/FairyGUI-cryengine](https://github.com/fairyg
 
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-cryengine.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-cryengine.svg" alt="forks">
 
+[Examples](https://github.com/fairygui/FairyGUI-cryengine-examples)
+
 ## Havok Vision SDK
 
 Demo: [https://github.com/fairygui/FairyGUI-vision](https://github.com/fairygui/FairyGUI-vision)
 
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-vision.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-vision.svg" alt="forks">
 
-[Examples](http://res.fairygui.com/FairyGUI-vision-demo20180109.zip)
+[Examples](https://github.com/fairygui/FairyGUI-vision-examples)
