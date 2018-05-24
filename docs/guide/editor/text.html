@@ -100,7 +100,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">Editor Start</a>
 	                </li>
 	            
 	                
@@ -146,6 +146,11 @@
 	                
 	                <li>
 	                    <a href="/guide/editor/component.html" class="sidebar-link">Component</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollpane.html" class="sidebar-link">ScrollPane</a>
 	                </li>
 	            
 	                
@@ -200,7 +205,12 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup Manage</a>
+	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/dragdrop.html" class="sidebar-link">Drag&Drop</a>
 	                </li>
 	            
 	                
@@ -220,7 +230,13 @@
 	                <li><h3>Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/unity/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/unity/index.html" class="sidebar-link">Unity Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/transform.html" class="sidebar-link">Unity Coordinate</a>
 	                </li>
 	            
 	                
@@ -232,7 +248,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/font.html" class="sidebar-link">Font handling</a>
+	                    <a href="/guide/unity/font.html" class="sidebar-link">Font Handling</a>
 	                </li>
 	            
 	                
@@ -262,7 +278,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall optimization</a>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall Optimization</a>
 	                </li>
 	            
 	                
@@ -271,14 +287,64 @@
 	                    <a href="/guide/unity/lua.html" class="sidebar-link">Used in Lua</a>
 	                </li>
 	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/special.html" class="sidebar-link">Unity Features</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/faq.html" class="sidebar-link">Unity FAQ</a>
+	                </li>
+	            
 
+	            
+	                
+	                
+	                <li><h3>Cocos2dx</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cocos2dx/index.html" class="sidebar-link">Cocos2dx Start</a>
+	                </li>
+	            
+	            
+	            
+	                
+	                
+	                <li><h3>CryEngine</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cry/index.html" class="sidebar-link">Cry Engine Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/transform.html" class="sidebar-link">Cry-Coordinate</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/input.html" class="sidebar-link">Cry-Input Processing</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/event.html" class="sidebar-link">Cry-Event System</a>
+	                </li>
+	            
+	            
 	            
 	                
 	                
 	                <li><h3>LayaAir</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/laya/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/laya/index.html" class="sidebar-link">LayaAir Start</a>
 	                </li>
 	            
 	
@@ -288,7 +354,7 @@
 	                <li><h3>Egret</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/egret/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/egret/index.html" class="sidebar-link">Egret Start</a>
 	                </li>
 	            
 
@@ -311,7 +377,8 @@
 <p>FairyGUI编辑器运行的环境，与应用实际运行的环境是不相同的。比如你在PC上制作界面，最终界面可能运行在手机上。在编辑界面时，动态字体是使用FairyGUI使用编辑器所在的系统环境的字体，在运行时，则是由实际的运行环境，例如Android系统等提供的字体。设计时的字体可以与运行时的字体不同，但建议选取效果较为相近的。</p>
 <p>设置编辑器使用的字体可以在项目属性里设置。运行时的字体则需要由代码设置：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Droid Sans Fallback是安卓上支持中文的默认字体</span></div><div class="line">UIConfig.defaultFont = <span class="string">'Droid Sans Fallback'</span>;</div></pre></td></tr></table></figure>
-<p>设置运行时使用的字体需保证该字体在目标平台上也存在，否则达不到想要的效果。</p>
+<p>设置运行时使用的字体需保证该字体在目标平台上也存在，否则达不到想要的效果。如果你想打包字体到目标平台，那么需要查询引擎提供的支持，比如Unity，可以这样做：<a href="../unity/font.html" title="使用字体">../unity/font.html</a></p>
+<p>如果要在编辑器里使用ttf字体，请双击ttf文件，确认安装到系统，这样重启编辑器后就可以在字体列表里看到这种字体了。</p>
 <h2 id="位图字体"><a href="#位图字体" class="headerlink" title="位图字体"></a>位图字体</h2><p>在游戏中经常有这样的设计：一些表达特别元素的字符，使用了图片来制作，例如：</p>
 <p><img src="../../images/20170801102632.png" alt=""></p>
 <p>FairyGUI编辑器支持位图字体。首先，我们创建一种字体。点击菜单“编辑”-&gt;“创建位图字体”，然后，弹出了字体编辑窗口，我们从资源库里把制作好的数字图片拖入到窗口，并设置每个图片对应的字符，点击保存，这样我们的字体就设置好了。如果要修改每个字符对应的图片，将图片重新拖入即可。</p>
@@ -345,9 +412,9 @@
 <h2 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h2><p>点击主工具栏中的<img src="../../images/20170801092548.png" alt="">按钮，生成一个文本元件。</p>
 <p><img src="../../images/20170801092638.png" alt=""></p>
 <ul>
-<li><p><code>文本</code> 设置文本内容。当需要换行时，在编辑器里可以直接按回车。运行时需要换行可以用“\n”，尽量避免使用“\r\n”。</p>
+<li><p><code>文本</code> 设置文本内容。当需要换行时，在编辑器里可以<strong>直接按回车</strong>。用代码赋值时需要换行可以用“\n”。<br>这里的输入框比较小，如果要输入大文本，则可以在输入激活时，按CTRL+ENTER，然后会弹出一个专门用于输入文本的窗口。</p>
 </li>
-<li><p><code>字体</code> 设置文字使用的字体。你不需要每个文本设置一次字体。在项目属性里可以设置项目中所有文本默认使用的字体。运行时则通过UIConfig.defaultFont统一设置。如果某些文本确实需要指定特别的字体，可以点击右边的A按钮，选择其他字体，或者直接输入字体名称。如果需要使用位图字体，可以从资源库中把字体资源拖动到这里。</p>
+<li><p><code>字体</code> 设置文字使用的字体。你不需要每个文本设置一次字体。在项目属性里可以设置项目中所有文本默认使用的字体。运行时则通过UIConfig.defaultFont统一设置。如果需要使用位图字体，可以从资源库中把字体资源拖动到这里。如果使用TTF字体，那么你需要将字体安装到操作系统，然后再在这里输入字体名称。如果设置了字体名称后，发现字体效果不对，那么你提供的字体名称可能不对。<strong>对于部分字体，编辑器能识别的字体名称不一定是字体的中文名称</strong>。查看准确的系统字体名称，你可以下载FontCreator软件，查看字体的Font Family属性。</p>
 </li>
 <li><p><code>字体大小</code> 设置文字使用的字号。如果使用的是位图字体，你需要对位图字体设置“允许动态改变字号”，这里的选项才有效。</p>
 </li>
@@ -355,13 +422,13 @@
 </li>
 <li><p><code>行距</code> 每行的像素间距。</p>
 </li>
-<li><p><code>字距</code> 每个字符的像素间距。</p>
+<li><p><code>字距</code> 每个字符的像素间距。<em>（Unity、AS3、Starling支持，其他引擎均不支持）</em></p>
 </li>
 <li><p><code>自动大小</code> </p>
 <ul>
 <li><code>自动宽度和高度</code> 文本不会自动换行，宽度和高度都增长到容纳全部文本。</li>
 <li><code>自动高度</code> 文本使用固定宽度排版，到达宽度后自动换行，高度增长到容纳全部文本。</li>
-<li><code>自动收缩</code> 文本使用固定宽度排版，到达宽度后文本自动缩小，使所有文本依然全部显示。如果内容宽度小于文本宽度，则不做任何处理。</li>
+<li><code>自动收缩</code> 文本使用固定宽度排版，到达宽度后文本自动缩小，使所有文本依然全部显示。如果内容宽度小于文本宽度，则不做任何处理。<em>(位图字体要在字体属性里勾选’允许改变字号’才能使用自动收缩特性)</em></li>
 <li><code>无</code> 文本使用固定宽度和高度排版，不会自动换行。超出文本框范围的被剪裁。<em>（Laya、Egret、Unity平台没有开启此剪裁功能，也就是超出范围的依然会显示）</em></li>
 </ul>
 </li>
@@ -411,16 +478,19 @@
 </ul>
 <h2 id="GTextField"><a href="#GTextField" class="headerlink" title="GTextField"></a>GTextField</h2><p>文本支持动态创建，例如：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GTextField aTextField = <span class="keyword">new</span> GTextField();</div><div class="line">aTextField.SetSize(<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">aTextField.text = <span class="string">"Hello World"</span>;</div></pre></td></tr></table></figure>
-<p>在Unity平台中，如果你需要改变文本的样式，请使用以下的方式：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">TextFormat tf = aTextField.textFormat;</div><div class="line">tf.color = ...;</div><div class="line">tf.size = ...;</div><div class="line">aTextField.textFormat = tf;</div></pre></td></tr></table></figure>
+<p>动态改变文本的样式（字体大小、颜色等），在不同的平台，方式略有差别：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry</span></div><div class="line">TextFormat tf = aTextField.textFormat;</div><div class="line">tf.color = ...;</div><div class="line">tf.size = ...;</div><div class="line">aTextField.textFormat = tf;</div><div class="line"></div><div class="line"><span class="comment">//Cocos2dx</span></div><div class="line">TextFormat* tf = aTextField-&gt;getTextFormat();</div><div class="line">tf-&gt;color = ...;</div><div class="line">tf-&gt;size  ...;</div><div class="line">aTextField-&gt;applyTextFormat();</div><div class="line"></div><div class="line"><span class="comment">//其他平台</span></div><div class="line">aTextField.color = ...;</div><div class="line">aTextField.fontSize = ...;</div></pre></td></tr></table></figure>
+<p>如果要设置文本的字体为位图字体，字体名称直接使用字体的url就可以了，例如‘ui://包名/字体名’。</p>
 <h2 id="GTextInput"><a href="#GTextInput" class="headerlink" title="GTextInput"></a>GTextInput</h2><p>如果文本勾选为“输入”，则运行中的实例对象为GTextInput。</p>
 <p>可以通过UIConfig.inputHighlightColor和UIConfig.inputCaretSize修改光标的颜色和大小。注意，输入光标的大小会自动根据屏幕缩放选择最合适的宽度，一般情况下你不需要修改。</p>
 <p>输入文本在文本改变时有通知事件：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity</span></div><div class="line">aTextField.onChanged.Add(onChanged);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">aTextField.addEventListener(Event.CHANGE, onChanged);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">aTextField.addEventListener(Event.CHANGE, <span class="keyword">this</span>.onChanged, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya</span></div><div class="line">aTextField.<span class="keyword">on</span>(laya.events.Event.INPUT, <span class="keyword">this</span>, <span class="keyword">this</span>.onChanged);</div></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry</span></div><div class="line">aTextInput.onChanged.Add(onChanged);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">aTextInput.addEventListener(Event.CHANGE, onChanged);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">aTextInput.addEventListener(Event.CHANGE, <span class="keyword">this</span>.onChanged, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya</span></div><div class="line">aTextInput.<span class="keyword">on</span>(laya.events.Event.INPUT, <span class="keyword">this</span>, <span class="keyword">this</span>.onChanged);</div></pre></td></tr></table></figure>
 <p>在获得焦点和失去焦点时有通知事件：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity</span></div><div class="line">aTextField.onFocusIn.Add(onFocusIn);</div><div class="line">aTextField.onFocusOut.Add(onFocusOut);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">aTextField.addEventListener(FocusEvent.FOCUS_IN, onFocusIn);</div><div class="line">aTextField.addEventListener(FocusEvent.FOCUS_OUT, onFocusOut);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">aTextField.addEventListener(FocusEvent.FOCUS_IN, <span class="keyword">this</span>.onFocusIn, <span class="keyword">this</span>);</div><div class="line">aTextField.addEventListener(FocusEvent.FOCUS_OUT, <span class="keyword">this</span>.onFocusOut, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya</span></div><div class="line">aTextField.<span class="keyword">on</span>(laya.events.Event.FOCUS, <span class="keyword">this</span>, <span class="keyword">this</span>.onFocusIn);</div><div class="line">aTextField.<span class="keyword">on</span>(laya.events.Event.BLUR, <span class="keyword">this</span>, <span class="keyword">this</span>.onFocusOut);</div></pre></td></tr></table></figure>
-<p>如果要主动设置输入文本焦点，可以用</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aTextField.RequestFocus();</div></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity</span></div><div class="line">aTextInput.onFocusIn.Add(onFocusIn);</div><div class="line">aTextInput.onFocusOut.Add(onFocusOut);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">aTextInput.addEventListener(FocusEvent.FOCUS_IN, onFocusIn);</div><div class="line">aTextInput.addEventListener(FocusEvent.FOCUS_OUT, onFocusOut);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">aTextInput.addEventListener(FocusEvent.FOCUS_IN, <span class="keyword">this</span>.onFocusIn, <span class="keyword">this</span>);</div><div class="line">aTextInput.addEventListener(FocusEvent.FOCUS_OUT, <span class="keyword">this</span>.onFocusOut, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya</span></div><div class="line">aTextInput.<span class="keyword">on</span>(laya.events.Event.FOCUS, <span class="keyword">this</span>, <span class="keyword">this</span>.onFocusIn);</div><div class="line">aTextInput.<span class="keyword">on</span>(laya.events.Event.BLUR, <span class="keyword">this</span>, <span class="keyword">this</span>.onFocusOut);</div></pre></td></tr></table></figure>
+<p>如果要主动设置焦点，可以用</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aTextInput.RequestFocus();</div></pre></td></tr></table></figure>
+<p>如果输入文本设置了单行，则当按用户回车时会派发一个事件：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity</span></div><div class="line">aTextInput.onSubmit.Add(onSubmit);</div></pre></td></tr></table></figure>
 <h2 id="UBB语法"><a href="#UBB语法" class="headerlink" title="UBB语法"></a>UBB语法</h2><p>FairyGUI支持的UBB语法有：</p>
 <ul>
 <li><p><code>[img]image_url[/img]</code> 显示一个图片。这里的image_url可以是”ui://包名/图片名”的内部url格式，也可以是一个外部资源的url。图片最终是通过GLoader显示的，支持外部资源的能力可以参阅GLoader的文档。在这里，你无法设置图片大小。如果需要需要设置图片大小，改用HTML语法。</p>

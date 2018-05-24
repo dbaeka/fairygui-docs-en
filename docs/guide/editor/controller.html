@@ -100,7 +100,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">Editor Start</a>
 	                </li>
 	            
 	                
@@ -146,6 +146,11 @@
 	                
 	                <li>
 	                    <a href="/guide/editor/component.html" class="sidebar-link">Component</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollpane.html" class="sidebar-link">ScrollPane</a>
 	                </li>
 	            
 	                
@@ -200,7 +205,12 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup Manage</a>
+	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/dragdrop.html" class="sidebar-link">Drag&Drop</a>
 	                </li>
 	            
 	                
@@ -220,7 +230,13 @@
 	                <li><h3>Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/unity/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/unity/index.html" class="sidebar-link">Unity Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/transform.html" class="sidebar-link">Unity Coordinate</a>
 	                </li>
 	            
 	                
@@ -232,7 +248,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/font.html" class="sidebar-link">Font handling</a>
+	                    <a href="/guide/unity/font.html" class="sidebar-link">Font Handling</a>
 	                </li>
 	            
 	                
@@ -262,7 +278,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall optimization</a>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall Optimization</a>
 	                </li>
 	            
 	                
@@ -271,14 +287,64 @@
 	                    <a href="/guide/unity/lua.html" class="sidebar-link">Used in Lua</a>
 	                </li>
 	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/special.html" class="sidebar-link">Unity Features</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/faq.html" class="sidebar-link">Unity FAQ</a>
+	                </li>
+	            
 
+	            
+	                
+	                
+	                <li><h3>Cocos2dx</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cocos2dx/index.html" class="sidebar-link">Cocos2dx Start</a>
+	                </li>
+	            
+	            
+	            
+	                
+	                
+	                <li><h3>CryEngine</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cry/index.html" class="sidebar-link">Cry Engine Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/transform.html" class="sidebar-link">Cry-Coordinate</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/input.html" class="sidebar-link">Cry-Input Processing</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/event.html" class="sidebar-link">Cry-Event System</a>
+	                </li>
+	            
+	            
 	            
 	                
 	                
 	                <li><h3>LayaAir</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/laya/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/laya/index.html" class="sidebar-link">LayaAir Start</a>
 	                </li>
 	            
 	
@@ -288,7 +354,7 @@
 	                <li><h3>Egret</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/egret/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/egret/index.html" class="sidebar-link">Egret Start</a>
 	                </li>
 	            
 
@@ -316,7 +382,7 @@
 </li>
 </ul>
 <h2 id="控制器设计"><a href="#控制器设计" class="headerlink" title="控制器设计"></a>控制器设计</h2><p>每个组件都可以创建一个或多个控制器，如下图所示：</p>
-<p><img src="../../images/20170726162538.png" alt=""></p>
+<p><img src="../../images/20170802225854.png" alt=""></p>
 <p>点击创建控制器或修改控制器，弹出以下页面：</p>
 <p><img src="../../images/20170802230721.png" alt=""></p>
 <ul>
@@ -378,7 +444,7 @@
 <ul>
 <li><code>持续时间</code> 整个缓动过程持续的时间，单位秒。</li>
 <li><code>延迟时间</code> 控制器页面切换后，延迟一定时间再开始缓动。单位秒。</li>
-<li><code>缓动函数</code> 时间/速度曲线。详细请参考 <a href="../../images/20170802000005.png">图解</a> <a href="https://greensock.com/ease-visualizer" target="_blank" rel="external">示例</a>。</li>
+<li><code>缓动函数</code> 时间/速度曲线。详细请参考 <a href="../../images/20170802000005.jpg">图解</a> <a href="https://greensock.com/ease-visualizer" target="_blank" rel="external">示例</a>。</li>
 </ul>
 <h3 id="大小控制"><a href="#大小控制" class="headerlink" title="大小控制"></a>大小控制</h3><p>大小控制是指该元件在不同控制器页面中可以具有不同的宽和高以及Scale值。</p>
 <p>在属性控制面板中点击<img src="../../images/20170803102646.png" alt="">按钮，然后在弹出的菜单中点击“大小控制”。然后设置目标控制器即可。</p>
@@ -450,8 +516,10 @@
 <h2 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h2><p>运行时，控制器常用的API有：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Controller c1 = aComponent.GetController(<span class="string">"c1"</span>);</div><div class="line"></div><div class="line"><span class="comment">//通过索引设置控制器的活动页面</span></div><div class="line">c1.selectedIndex = <span class="number">1</span>;</div><div class="line"></div><div class="line"><span class="comment">//如果希望改变控制器时不触发Change事件</span></div><div class="line">c1.setSelectedIndex(<span class="number">1</span>);</div><div class="line"></div><div class="line"><span class="comment">//也可以使用页面的名称设置</span></div><div class="line">c1.selectedPage = <span class="string">"page_name"</span>;</div><div class="line"></div><div class="line"><span class="comment">//获得控制器当前的活动页面</span></div><div class="line">Debug.Log(c1.selectedIndex);</div></pre></td></tr></table></figure>
 <p>控制器改变时有通知事件：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity</span></div><div class="line">c1.onChanged.Add(onChanged);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">c1.addEventListener(StateChangeEvent.CHANGED, onChanged);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">c1.addEventListener(StateChangeEvent.CHANGED, <span class="keyword">this</span>.onChanged, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya</span></div><div class="line">c1.<span class="keyword">on</span>(fairygui.Events.STATE_CHANGED, <span class="keyword">this</span>, <span class="keyword">this</span>.onChanged);</div></pre></td></tr></table></figure>
-<p>改变控制器页面时，与之连接的属性控制可能带有缓动，如果你正在做界面的初始化，可能不希望出现缓动。可以这样做：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry</span></div><div class="line">c1.onChanged.Add(onChanged);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">c1.addEventListener(StateChangeEvent.CHANGED, onChanged);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">c1.addEventListener(StateChangeEvent.CHANGED, <span class="keyword">this</span>.onChanged, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya</span></div><div class="line">c1.<span class="keyword">on</span>(fairygui.Events.STATE_CHANGED, <span class="keyword">this</span>, <span class="keyword">this</span>.onChanged);</div><div class="line"></div><div class="line"><span class="comment">//Cocos2dx</span></div><div class="line">c1-&gt;addEventListener(UIEventType::Changed, CC_CALLBACK_1(AClass::onChanged, this));</div></pre></td></tr></table></figure>
+<p>改变控制器页面时，与之连接的属性控制可能带有缓动，如果你要获得缓动结束的通知，可以侦听GearStop事件：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry</span></div><div class="line">aObject.OnGearStop.Add(OnGearStop);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">c1.addEventListener(GObject.GEAR_STOP, <span class="keyword">this</span>.OnGearStop, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya</span></div><div class="line">c1.<span class="keyword">on</span>(fairygui.Events.GEAR_STOP, <span class="keyword">this</span>, <span class="keyword">this</span>.OnGearStop);</div><div class="line"></div><div class="line"><span class="comment">//Cocos2dx</span></div><div class="line">c1-&gt;addEventListener(UIEventType::GearStop, CC_CALLBACK_1(AClass::OnGearStop, this));</div></pre></td></tr></table></figure>
+<p>如果你正在做界面的初始化，可能不希望出现缓动。可以这样做：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//禁止所有控制器引起的缓动</span></div><div class="line">GearBase.disableAllTweenEffect = <span class="literal">true</span>; </div><div class="line">c1.selectedIndex = <span class="number">1</span>;</div><div class="line"><span class="comment">//记住要复原</span></div><div class="line">GearBase.disableAllTweenEffect = <span class="literal">false</span>;</div></pre></td></tr></table></figure>
 <p>可以用代码设置属性控制，但一般不建议这样做，应该尽量在编辑器里完成。</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//GearXXX对象是控制器和属性之间的连接。0-显示控制，1-位置控制，2-大小控制，</span></div><div class="line"><span class="comment">// 3-外观控制，4-颜色控制，5-动画控制，6-文字控制，7-图标控制</span></div><div class="line">GearDisplay gearDisplay = obj.GetGear(<span class="number">0</span>);</div><div class="line"></div><div class="line">gearDisplay.controller = obj.parent.GetControler(<span class="string">"c1"</span>);</div><div class="line"><span class="comment">//注意这里是页面的id，不是索引或者名称。可以通过Controller.GetPageIdByName转换。</span></div><div class="line">gearDisplay.pages = <span class="keyword">new</span> <span class="keyword">string</span>[] &#123; ... &#125;; </div><div class="line"></div><div class="line">GearXY gearXY = obj.GetGear(<span class="number">1</span>);</div><div class="line">gearXY.tweenTime = <span class="number">0.5</span>f;</div></pre></td></tr></table></figure>

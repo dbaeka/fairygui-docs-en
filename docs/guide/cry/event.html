@@ -1,0 +1,454 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    
+        <title>FairyGUI - Cry-Event System</title>
+    
+        <meta charset="utf-8">
+        <meta name="description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+        <meta name="keywords" content="FairyGUI,FGUI,UI Editor,Unity GUI,Pixi GUI,Haxe GUI,Starling GUI,CryEngine UI,Havok Vision,Project Anarchy,C++ UI">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="Cry-Event System — FairyGUI">
+        <meta property="og:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Cry-Event System — FairyGUI">
+        <meta name="twitter:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+
+
+        <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'>
+
+        <!-- main page styles -->
+        <link rel="stylesheet" href="/css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script src="/js/vue.min.js"></script>
+        <script>window.PAGE_TYPE = "guide_cry"</script>
+    </head>
+    <body class="docs">        <div id="mobile-bar"  data-bg-text="FairyGUI" >
+            <a class="menu-button"></a>
+            <a class="logo" href="https://github.com/fairygui/FairyGUI-unity"></a>
+        </div>
+        <div id="bg"> <!--end tag in the `index.ejs`-->
+
+<div id="header">
+  <a id="logo" href="https://github.com/fairygui/">
+    <img src="/images/github-white.png">
+  </a>
+  <ul id="nav">
+    
+
+	<li><a href="/" class="nav-link">Home</a></li>
+
+<li><a href="/product/" class="nav-link">Product</a></li>
+<li><a href="/guide/" class="nav-link current">Tutorials</a></li>
+<li><a href="http://www.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
+<li><a href="/examples/" class="nav-link">Demo</a></li>
+<li><a href="/showcase/" class="nav-link">Showcase</a></li>
+<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">Q&A</a></li>
+<li><a href="/about/" class="nav-link">About</a></li>
+<li><a href="http://www.fairygui.com/" target="_self"  class="nav-link">中文</a><a class="nav-link"> / English</a></li>
+  </ul>
+</div>
+
+        
+            <div id="main" class="fix-sidebar">
+                
+                    
+    <div class="sidebar">
+    <ul class="main-menu">
+        
+
+	<li><a href="/" class="nav-link">Home</a></li>
+
+<li><a href="/product/" class="nav-link">Product</a></li>
+<li><a href="/guide/" class="nav-link current">Tutorials</a></li>
+<li><a href="http://www.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
+<li><a href="/examples/" class="nav-link">Demo</a></li>
+<li><a href="/showcase/" class="nav-link">Showcase</a></li>
+<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">Q&A</a></li>
+<li><a href="/about/" class="nav-link">About</a></li>
+<li><a href="http://www.fairygui.com/" target="_self"  class="nav-link">中文</a><a class="nav-link"> / English</a></li>
+    </ul>
+    <div class="list">
+		<a class="become-backer" href="/about/donate.html">
+            Donate
+        </a>
+        <h2>
+            Guide
+            <!--<select class="version-select">
+                <option value="SELF" selected>cry</option>
+            </select>-->
+ 		 
+		  
+		
+        </h2>
+        <ul class="menu-root">
+            
+
+	 			
+	                
+	                <li>
+	                    <a href="/guide/index.html" class="sidebar-link">Introduction</a>
+	                </li>
+	            
+	
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">Editor Start</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/object.html" class="sidebar-link">Object</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/image.html" class="sidebar-link">Image</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/movieclip.html" class="sidebar-link">MovieClip</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/graph.html" class="sidebar-link">Graph</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/loader.html" class="sidebar-link">Loader</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/text.html" class="sidebar-link">Text</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/richtext.html" class="sidebar-link">RichText</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/group.html" class="sidebar-link">Group</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/component.html" class="sidebar-link">Component</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollpane.html" class="sidebar-link">ScrollPane</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/controller.html" class="sidebar-link">Controller</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/relation.html" class="sidebar-link">Relation System</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/label.html" class="sidebar-link">Label</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/button.html" class="sidebar-link">Button</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/combobox.html" class="sidebar-link">ComboBox</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/progressbar.html" class="sidebar-link">ProgressBar</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/slider.html" class="sidebar-link">Slider</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollbar.html" class="sidebar-link">ScrollBar</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/list.html" class="sidebar-link">List</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/window.html" class="sidebar-link">Window</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/dragdrop.html" class="sidebar-link">Drag&Drop</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/transition.html" class="sidebar-link">Transition</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/adaptation.html" class="sidebar-link">Adaptation</a>
+	                </li>
+	            
+	
+	            
+	                
+	                
+	                <li><h3>Unity</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/unity/index.html" class="sidebar-link">Unity Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/transform.html" class="sidebar-link">Unity Coordinate</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/atlas.html" class="sidebar-link">Atlas</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/font.html" class="sidebar-link">Font Handling</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/input.html" class="sidebar-link">Input processing</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/event.html" class="sidebar-link">Event System</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/insert3d.html" class="sidebar-link">Interspersed with 3D objects</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/uipainter.html" class="sidebar-link">Curved UI</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall Optimization</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/lua.html" class="sidebar-link">Used in Lua</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/special.html" class="sidebar-link">Unity Features</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/faq.html" class="sidebar-link">Unity FAQ</a>
+	                </li>
+	            
+
+	            
+	                
+	                
+	                <li><h3>Cocos2dx</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cocos2dx/index.html" class="sidebar-link">Cocos2dx Start</a>
+	                </li>
+	            
+	            
+	            
+	                
+	                
+	                <li><h3>CryEngine</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cry/index.html" class="sidebar-link">Cry Engine Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/transform.html" class="sidebar-link">Cry-Coordinate</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/input.html" class="sidebar-link">Cry-Input Processing</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/event.html" class="sidebar-link current">Cry-Event System</a>
+	                </li>
+	            
+	            
+	            
+	                
+	                
+	                <li><h3>LayaAir</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/laya/index.html" class="sidebar-link">LayaAir Start</a>
+	                </li>
+	            
+	
+	            
+	                
+	                
+	                <li><h3>Egret</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/egret/index.html" class="sidebar-link">Egret Start</a>
+	                </li>
+	            
+
+	            
+
+	            
+
+            
+        </ul>
+    </div>
+</div>
+
+
+<div class="content guide_cry with-sidebar ">
+    
+      <h1>Cry-Event System</h1>
+    
+    <p><code>EventDispatcher</code>是事件分发的中心，GObject就是一个EventDispatcher。每个事件类型都对应一个<code>EventListener</code>，接收事件并调用处理函数。</p>
+<p>例如，编写某个元件单击的处理逻辑：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aObject.onClick.Add(aCallback);</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">aCallback</span>(<span class="params"></span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="comment">//some logic</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="冒泡和捕获"><a href="#冒泡和捕获" class="headerlink" title="冒泡和捕获"></a>冒泡和捕获</h2><p>一些特殊的事件，比如鼠标/触摸事件，具备向父组件传递的特性，这个传递过程叫做冒泡。例如当手指接触A元件时，A元件触发TouchBegin事件，然后A元件的父组件B触发TouchBegin事件，然后B的父组件C也触发TouchBegin事件，以此类推，直到舞台根部。这个设计保证了所有相关的显示对象都有机会处理触摸事件，而不只是最顶端的显示对象。</p>
+<p>冒泡过程可以被打断，通过调用EventContext.StopPropagation()可以使冒泡停止向父组件推进。</p>
+<p>从上面的冒泡过程可以看出，事件处理的顺序应该是：A’s listeners-&gt;B’s listeners-&gt;C’s listeners，这里还有一种机制可以让链路上任意一个对象可以提前处理事件，这就是事件捕获。事件捕获是反向的，例如在上面的例子中，就是C先捕获事件，然后是B，再到A。所以所有事件处理的完整顺序应该是：</p>
+<p>C’s capture listeners-&gt;B’s capture listeners-&gt;A’s capture listeners-&gt;A’s listeners-&gt;B’s listeners-&gt;C’s listeners</p>
+<p>捕获传递链是不能中止的，冒泡传递链可以通过StopPropagation中止。<br>事件捕获的设计可以使父元件优于子元件和孙子元件检查事件。</p>
+<p>并非所有事件都有冒泡设计，在非冒泡事件中，capture的回调优于普通回调，仅此而已，可以作为一个优先级特性来使用。</p>
+<h2 id="事件回调函数"><a href="#事件回调函数" class="headerlink" title="事件回调函数"></a>事件回调函数</h2><p>每个事件可以注册一个或多个回调函数。函数原型为：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">EventCallback0</span>(<span class="params"></span>)</span>;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">EventCallback1</span>(<span class="params">EventContext context</span>)</span>;</div></pre></td></tr></table></figure>
+<p>两种形式的使用方法都是相同的，差别在于不带参数或带一个参数,只是为了方便在不需要用到EventContext时少写一点而已。</p>
+<p>没有直接传递自定义参数进回调函数的办法。但可以通过三种方式间接实现：</p>
+<ol>
+<li>通过全局或者模块变量；</li>
+<li><p>使用lamba表达式，例如：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">a.onClick.Add(()=&gt;&#123; ... &#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>将变量放到显示对象的data属性里。例如:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">a.data = ...;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">aCallback</span>(<span class="params">EventContext context</span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    Debug.Log(context.sender.data)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="EventListener"><a href="#EventListener" class="headerlink" title="EventListener"></a>EventListener</h2><ul>
+<li><code>Add</code> <code>Remove</code> 添加或删除一个回调。</li>
+<li><code>AddCapture</code> <code>RemoveCapture</code> 添加或删除一个捕获期回调。</li>
+</ul>
+<h2 id="EventContext"><a href="#EventContext" class="headerlink" title="EventContext"></a>EventContext</h2><p>EventContext是回调函数的参数类型。</p>
+<ul>
+<li><p><code>sender</code> 获得事件的分发者。</p>
+</li>
+<li><p><code>initiator</code> 获得事件的发起者。一般来说，事件的分发者和发起者是相同的，但如果事件已发生冒泡，则可能不相同。参考下面冒泡的描述。</p>
+</li>
+<li><p><code>type</code> 事件类型。</p>
+</li>
+<li><p><code>inputEvent</code> 如果事件是键盘/触摸/鼠标事件，通过访问inputEvent对象可以获得这类事件的相关数据。</p>
+</li>
+<li><p><code>data</code> 事件的数据。根据事件不同，可以有不同的含义。</p>
+</li>
+<li><p><code>StopPropagation</code> 点击子节点的区域，父节点也能收到触摸事件，这就是事件冒泡的特性。如果你不想再向父节点传递，可以调用这个方法。</p>
+</li>
+<li><p><code>CaptureTouch</code> 当鼠标左键释放或者手指抬起时，如果鼠标或者触摸位置已经不在组件范围内了，那么组件的TouchEnd事件是不会触发的。如果确实需要，可以请求捕获。在TouchBegin事件处理函数内，你可以调用context.CaptureTouch()，这样，无论鼠标在哪里释放（即使不在对象区域内），对象的onTouchEnd都会被调用。注意仅生效一次。<br>在1.9.1SDK后，如果调用了CaptureTouch，那么GObject.onTouchMove事件将在手指（或鼠标左键）抬起前一直触发（无论手指或指针位置是不是在该对象上方），直到鼠标左键释放或者手指抬起。</p>
+</li>
+<li><p><code>UncaptureTouch</code> 取消CaptureTouch发起的触摸事件捕获。</p>
+</li>
+</ul>
+<h2 id="InputEvent"><a href="#InputEvent" class="headerlink" title="InputEvent"></a>InputEvent</h2><p>对键盘事件和鼠标/触摸事件，可以通过EventContext.inputEvent获得此类事件的相关数据。</p>
+<ul>
+<li><p><code>x</code> <code>y</code> 鼠标或手指的位置；这是舞台坐标，因为UI可能因为自适配发生了缩放，所以如果要转成UI元件中的坐标，要使用GObject.GlobalToLocal转换。</p>
+</li>
+<li><p><code>keyCode</code> 按键代码；</p>
+</li>
+<li><p><code>modifiers</code> 参考UnityEngine.EventModifiers。</p>
+</li>
+<li><p><code>mouseWheelDelta</code> 鼠标滚轮滚动值。</p>
+</li>
+<li><p><code>touchId</code> 当前事件相关的手指ID；在PC平台，该值为0，没有意义。</p>
+</li>
+<li><p><code>isDoubleClick</code> 是否双击。</p>
+</li>
+</ul>
+
+    
+    <div class="footer">
+      found mistake? Want to participate in editing?
+      <a href="https://github.com/fairygui/en.fairygui.io/tree/master/src/guide/cry/event.md" target="_blank">
+        Edit this page on Github!
+      </a>
+    </div>
+</div>
+
+                
+            </div>
+            <script src="/js/smooth-scroll.min.js"></script>
+        
+
+        <!-- main custom script for sidebars, version selects etc. -->        
+        <script src="/js/css.escape.js"></script>
+        <script src="/js/common.js"></script>
+    </body>
+</html>

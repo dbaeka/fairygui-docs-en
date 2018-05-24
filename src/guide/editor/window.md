@@ -27,9 +27,9 @@ order: 190
 内容组件制作好后，运行时就可以使用以下的方式创建和使用窗口：
 
 ```csharp
-	Window win = new Window();
-	win.contentPane = UIPackage.CreateObject("包名", "内容组件名").asCom;
-	win.Show();
+    Window win = new Window();
+    win.contentPane = UIPackage.CreateObject("包名", "内容组件名").asCom;
+    win.Show();
 ```
 
 另外，FairyGUI还提供了一套机制用于窗口动态创建。动态创建是指初始时仅指定窗口需要使用的资源，等窗口需要显示时才实际开始构建窗口的内容。首先需要在窗口的构造函数中调用`AddUISource`。这个方法需要一个`IUISource`类型的参数，而IUISource是一个接口，用户需要自行实现载入相关UI包的逻辑。当窗口第一次显示之前，IUISource的加载方法将会被调用，并等待载入完成后才返回执行`OnInit`，然后窗口才会显示。
@@ -54,15 +54,15 @@ order: 190
 
 - `Hide` 隐藏窗口。窗口并不会销毁，只是隐藏。
 
-- `modal` 设置窗口是否模式窗口。模式窗口将阻止用户点击任何模式窗口后面的内容。当模式窗口显示时，模式窗口后可以自动覆盖一层灰色的颜色，这个颜色在这里定义：
+- `modal` 设置窗口是否模态窗口。模态窗口将阻止用户点击任何模态窗口后面的内容。当模态窗口显示时，模态窗口背后可以自动覆盖一层灰色的颜色，这个颜色可以自定义：
 
 ```csharp
     //Unity
     UIConfig.modalLayerColor = new Color(0f, 0f, 0f, 0.4f);
-
+    
     //AS3
     UIConfig.modalLayerColor = 0x333333;
-	UIConfig.modalLayerAlpha = 0.2;
+    UIConfig.modalLayerAlpha = 0.2;
 ```
 
 如果你不需要这个灰色效果，那么把透明度设置为0即可。
@@ -82,7 +82,7 @@ order: 190
 默认情况下，Window是具有点击自动排序功能的，也就是说，你点击一个窗口，系统会自动把窗口提到所有窗口的最前面，这也是所有窗口系统的规范。但你可以关闭这个功能：
 
 ```csharp
-	UIConfig.bringWindowToFrontOnClick = false;
+    UIConfig.bringWindowToFrontOnClick = false;
 ```
 
 **直接加组件到GRoot，和使用Window有什么区别？**

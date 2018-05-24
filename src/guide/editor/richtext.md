@@ -16,7 +16,8 @@ order: 70
 
 ![](../../images/20170801164910.png)
 
-- `文本` 设置文本内容。富文本可直接使用HTML语法。例如<img src='ui://包名/图片名' width='20' height='20'/>。注意，img标签需要使用“/>”结束，而不是“>”。当需要换行时，在编辑器里可以直接按回车，或者使用html标签“<br/>”亦可。运行时需要换行可以用“\n”，尽量避免使用“\r\n”。
+- `文本` 设置文本内容。富文本可直接使用HTML语法。例如<img src='ui://包名/图片名' width='20' height='20'/>。注意，img标签需要使用“/>”结束，而不是“>”。当需要换行时，在编辑器里可以**直接按回车**，或者使用html标签“<br/>”亦可。代码赋值需要换行可以用“\n”。某些引擎，例如LayaAir，可能不支持回车符换行，可以使用<br/>试试。
+  这里的输入框比较小，如果要输入大文本，则可以在输入激活时，按CTRL+ENTER，然后会弹出一个专门用于输入文本的窗口。
 
 - `字体` 设置文字使用的字体。你不需要每个文本设置一次字体。在项目属性里可以设置项目中所有文本默认使用的字体。运行时则通过UIConfig.defaultFont统一设置。如果某些文本确实需要指定特别的字体，可以点击右边的A按钮，选择其他字体，或者直接输入字体名称。如果需要使用位图字体，可以从资源库中把字体资源拖动到这里。
 
@@ -63,11 +64,11 @@ order: 70
     aRichTextField.text = "<a href='xxx'>Hello World</a>";
 ```
 
-侦听富文本中链接点击的方法是：
+侦听富文本中链接点击的方法是（这个事件是冒泡的，也就是你可以不在富文本上侦听，在它的父元件或者祖父元件上侦听都是可以的）：
 
 ```csharp
-    //Unity, EventContext里的data就是href值。
-    aRichTextField.onClinkLink.Add(onClickLink);
+    //Unity/Cry, EventContext里的data就是href值。
+    aRichTextField.onClickLink.Add(onClickLink);
 
     //AS3/Egret，TextEvent.text就是href值。
     aRichTextField.addEventListener(TextEvent.LINK, onClickLink);
@@ -77,6 +78,9 @@ order: 70
 
     //Laya, onClickLink的参数就是href值。
     aRichTextField.on(laya.events.Event.LINK,this,this.onClickLink);
+
+    //Cocos2dx，EventContext.getDataValue().asString()就是href的值。
+    aRichTextField->addEventListener(UIEventType::ClickLink, CC_CALLBACK_1(AClass::onClickLink, this));
 ```
 
 富文本最重要的功能是支持HTML解析和渲染。普通的文本样式标签，例如`FONT`、`B`、`I`、`U`这些一般都能很好的支持。其他一些对象标签，例如`A`、`IMG`等在各个引擎中支持的力度有所不同：
@@ -222,18 +226,18 @@ Unity版本对HTML解析有比较完整的支持。
 又例如，如果要制作鼠标移到链接上显示信息的效果：
 
 ```csharp
-	int cnt = richText.htmlObjectCount;
-	for(int i=0;i<cnt;i++) 
-	{
-		IHtmlObject obj = richText.GetHtmlObjectAt(i);
-		if(obj is HtmlLink) 
-		{
-			((HtmlLink)obj).shape.onRollOver.Add(onLinkRollOver);
-			((HtmlLink)obj).shape.onRollOut.Add(onLinkRollOut);
-		}
-	}
+    int cnt = richText.htmlObjectCount;
+    for(int i=0;i<cnt;i++) 
+    {
+        IHtmlObject obj = richText.GetHtmlObjectAt(i);
+        if(obj is HtmlLink) 
+        {
+            ((HtmlLink)obj).shape.onRollOver.Add(onLinkRollOver);
+            ((HtmlLink)obj).shape.onRollOut.Add(onLinkRollOut);
+        }
+    }
 
-	//你可以在RollOver和RollOut的处理里调用GRoot.inst.ShowPopup、GRoot.inst.ShowTooltips或者其他处理。
+    //你可以在RollOver和RollOut的处理里调用GRoot.inst.ShowPopup、GRoot.inst.ShowTooltips或者其他处理。
 ```
 
 你也可以扩展实现自己的IHtmlObject。你需要自己实现一个IHtmlPageContext接口，然后赋值给RichTextField的htmlPageContext属性。详细可阅读源码。

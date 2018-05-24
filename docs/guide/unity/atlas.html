@@ -100,7 +100,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">Editor Start</a>
 	                </li>
 	            
 	                
@@ -146,6 +146,11 @@
 	                
 	                <li>
 	                    <a href="/guide/editor/component.html" class="sidebar-link">Component</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollpane.html" class="sidebar-link">ScrollPane</a>
 	                </li>
 	            
 	                
@@ -200,7 +205,12 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup Manage</a>
+	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/dragdrop.html" class="sidebar-link">Drag&Drop</a>
 	                </li>
 	            
 	                
@@ -220,7 +230,13 @@
 	                <li><h3>Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/unity/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/unity/index.html" class="sidebar-link">Unity Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/transform.html" class="sidebar-link">Unity Coordinate</a>
 	                </li>
 	            
 	                
@@ -232,7 +248,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/font.html" class="sidebar-link">Font handling</a>
+	                    <a href="/guide/unity/font.html" class="sidebar-link">Font Handling</a>
 	                </li>
 	            
 	                
@@ -262,7 +278,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall optimization</a>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall Optimization</a>
 	                </li>
 	            
 	                
@@ -271,14 +287,64 @@
 	                    <a href="/guide/unity/lua.html" class="sidebar-link">Used in Lua</a>
 	                </li>
 	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/special.html" class="sidebar-link">Unity Features</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/faq.html" class="sidebar-link">Unity FAQ</a>
+	                </li>
+	            
 
+	            
+	                
+	                
+	                <li><h3>Cocos2dx</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cocos2dx/index.html" class="sidebar-link">Cocos2dx Start</a>
+	                </li>
+	            
+	            
+	            
+	                
+	                
+	                <li><h3>CryEngine</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cry/index.html" class="sidebar-link">Cry Engine Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/transform.html" class="sidebar-link">Cry-Coordinate</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/input.html" class="sidebar-link">Cry-Input Processing</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/event.html" class="sidebar-link">Cry-Event System</a>
+	                </li>
+	            
+	            
 	            
 	                
 	                
 	                <li><h3>LayaAir</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/laya/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/laya/index.html" class="sidebar-link">LayaAir Start</a>
 	                </li>
 	            
 	
@@ -288,7 +354,7 @@
 	                <li><h3>Egret</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/egret/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/egret/index.html" class="sidebar-link">Egret Start</a>
 	                </li>
 	            
 
@@ -310,7 +376,9 @@
 <p><img src="../../images/2015-10-21_230257.png" alt=""></p>
 <p>纹理集是由UI编辑器自动生成的，但在Unity里可以改变纹理集的属性，常用的设置有：</p>
 <ul>
-<li><p><code>Texture Shape</code> 一定要选择为2D。<strong>这个选项从5.5版本开始出现。如果不是2D，则出现UI图片都显示白色方块的问题。</strong></p>
+<li><p><code>Texture Type</code> 设置为Advanced(5.5前版本)或者Default(5.5后版本）。<strong>不需要设置为Sprite。</strong></p>
+</li>
+<li><p><code>Texture Shape</code> 一定要选择2D。<strong>这个选项从5.5版本开始出现。如果不是2D，则出现UI图片都显示白色方块的问题。</strong></p>
 </li>
 <li><p><code>Generate Mip Maps</code> 不勾选。UI不使用Mip Maps功能。</p>
 </li>

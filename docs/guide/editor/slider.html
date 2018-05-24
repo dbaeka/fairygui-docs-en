@@ -100,7 +100,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">Editor Start</a>
 	                </li>
 	            
 	                
@@ -146,6 +146,11 @@
 	                
 	                <li>
 	                    <a href="/guide/editor/component.html" class="sidebar-link">Component</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollpane.html" class="sidebar-link">ScrollPane</a>
 	                </li>
 	            
 	                
@@ -200,7 +205,12 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup Manage</a>
+	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/dragdrop.html" class="sidebar-link">Drag&Drop</a>
 	                </li>
 	            
 	                
@@ -220,7 +230,13 @@
 	                <li><h3>Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/unity/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/unity/index.html" class="sidebar-link">Unity Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/transform.html" class="sidebar-link">Unity Coordinate</a>
 	                </li>
 	            
 	                
@@ -232,7 +248,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/font.html" class="sidebar-link">Font handling</a>
+	                    <a href="/guide/unity/font.html" class="sidebar-link">Font Handling</a>
 	                </li>
 	            
 	                
@@ -262,7 +278,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall optimization</a>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall Optimization</a>
 	                </li>
 	            
 	                
@@ -271,14 +287,64 @@
 	                    <a href="/guide/unity/lua.html" class="sidebar-link">Used in Lua</a>
 	                </li>
 	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/special.html" class="sidebar-link">Unity Features</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/faq.html" class="sidebar-link">Unity FAQ</a>
+	                </li>
+	            
 
+	            
+	                
+	                
+	                <li><h3>Cocos2dx</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cocos2dx/index.html" class="sidebar-link">Cocos2dx Start</a>
+	                </li>
+	            
+	            
+	            
+	                
+	                
+	                <li><h3>CryEngine</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cry/index.html" class="sidebar-link">Cry Engine Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/transform.html" class="sidebar-link">Cry-Coordinate</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/input.html" class="sidebar-link">Cry-Input Processing</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/event.html" class="sidebar-link">Cry-Event System</a>
+	                </li>
+	            
+	            
 	            
 	                
 	                
 	                <li><h3>LayaAir</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/laya/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/laya/index.html" class="sidebar-link">LayaAir Start</a>
 	                </li>
 	            
 	
@@ -288,7 +354,7 @@
 	                <li><h3>Egret</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/egret/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/egret/index.html" class="sidebar-link">Egret Start</a>
 	                </li>
 	            
 
@@ -340,7 +406,7 @@
 </ul>
 <p>“bar_v”元件可以是任何类型，不限制于图片。</p>
 <ul>
-<li><p><code>grip</code> 用于拖动的按钮。注意：grip按钮应该与bar对象建立一个关联，并放置在进度条处于最大值时的位置。</p>
+<li><p><code>grip</code> 用于拖动的按钮。注意：grip按钮应该与bar对象建立一个关联，并放置在进度条处于最大值时的位置。这个关联是：<br>正向：grip左左关联到bar或者顶顶关联到bar_v；<br>反向：grip顶顶关联到bar或者底底关联到bar_v。</p>
 </li>
 <li><p><code>title</code> 可以是装载器，也可以是标签、按钮。用于显示进度的标题。显示的内容由“标题类型”决定。</p>
 </li>
@@ -355,7 +421,7 @@
 </ul>
 <h2 id="GSlider"><a href="#GSlider" class="headerlink" title="GSlider"></a>GSlider</h2><figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GSlider slider = gcom.GetChild(<span class="string">"n1"</span>).asSlider;</div><div class="line">slider.<span class="keyword">value</span> = <span class="number">50</span>;</div><div class="line"></div><div class="line"><span class="comment">//默认情况下除了拖动grip改变进度外，还可以直接点击滑动条任意位置改变进度。</span></div><div class="line"><span class="comment">//如果不需要，可以用下面的API关闭</span></div><div class="line">slider.changeOnClick = <span class="literal">false</span>;</div></pre></td></tr></table></figure>
 <p>滑动条进度改变时有通知事件：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity</span></div><div class="line">slider.onChanged.Add(onChanged);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">slider.addEventListener(StateChangeEvent.CHANGED, onChanged);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">slider.addEventListener(StateChangeEvent.CHANGED, <span class="keyword">this</span>.onChanged, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya</span></div><div class="line">slider.<span class="keyword">on</span>(fairygui.Events.STATE_CHANGED, <span class="keyword">this</span>, <span class="keyword">this</span>.onChanged);</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry</span></div><div class="line">slider.onChanged.Add(onChanged);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">slider.addEventListener(StateChangeEvent.CHANGED, onChanged);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">slider.addEventListener(StateChangeEvent.CHANGED, <span class="keyword">this</span>.onChanged, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya</span></div><div class="line">slider.<span class="keyword">on</span>(fairygui.Events.STATE_CHANGED, <span class="keyword">this</span>, <span class="keyword">this</span>.onChanged);</div><div class="line"></div><div class="line"><span class="comment">//Cocos2dx</span></div><div class="line">slider-&gt;addEventListener(UIEventType::Changed, CC_CALLBACK_1(AClass::onChanged, this));</div></pre></td></tr></table></figure>
     
     <div class="footer">
       found mistake? Want to participate in editing?

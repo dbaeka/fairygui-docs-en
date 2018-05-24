@@ -4,7 +4,9 @@ type: guide
 order: 0
 ---
 
-FairyGUI Editor is a professional Game UI Editor, easy to use, no need to write code and write any configuration files, you can build a variety of complex game interface, support `Unity`、`Egret`、`LayaAir`、`Haxe`、`Pixi`、`Flash`、`Starling`，and `Cocos2d-x`、`UE4`、`LibGDX` in the future.
+FairyGUI is a Cross Platform UI Editor & UI framework.
+
+By using FairyGUI Editor, you can build a variety of complex game interface without writing code or any configuration files. Support `Unity`、`Cocos2dx`、`Cry Engine`、 `Havok Vision/Project Anarchy`、`Egret`、`LayaAir`、`Haxe`、`Pixi`、`Flash`、`Starling`，and `Unreal`、`LibGDX`、`Three.js` in the future.<br>
 
 ## Features
 
@@ -57,11 +59,3 @@ FairyGUI Editor is a professional Game UI Editor, easy to use, no need to write
 * Provide plug-in mechanism, according to the needs of the project for the editor to add personality features.
 
 * Support design function, directly to the design shown in the background, easy to control the precise splicing.
-
-## Getting Started
-
-1. Download the FairyGUI editor.
-2. Download the FairyGUI SDK that corresponds to your development platform.
-3. Compare all official website tutorials or [video tutorials](http://www.taikr.com/course/446) against the examples in the SDK (including the UI design in the editor and the runtime code).
-4. Happy start your UI making tour.
-

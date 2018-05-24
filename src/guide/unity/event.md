@@ -4,16 +4,16 @@ type: guide_unity
 order: 40
 ---
 
-Unity平台参考了Flash的事件机制，设计了自己独特的事件机制。`EventDispatcher`是事件分发的中心，GObject就是一个EventDispatcher。每个事件类型都对应一个`EventListener`，接收事件并调用处理函数。
+`EventDispatcher`是事件分发的中心，GObject就是一个EventDispatcher。每个事件类型都对应一个`EventListener`，接收事件并调用处理函数。
 
 例如，编写某个元件单击的处理逻辑：
 
 ```csharp
-	aObject.onClick.Add(aCallback);
-	void aCallback()
-	{
-		//some logic
-	}
+    aObject.onClick.Add(aCallback);
+    void aCallback()
+    {
+        //some logic
+    }
 ```
 
 ## 冒泡和捕获
@@ -36,8 +36,8 @@ C’s capture listeners->B’s capture listeners->A’s capture listeners->A’s
 每个事件可以注册一个或多个回调函数。函数原型为：
 
 ```csharp
-	public delegate void EventCallback0();
-	public delegate void EventCallback1(EventContext context);
+    public delegate void EventCallback0();
+    public delegate void EventCallback1(EventContext context);
 ```
 
 两种形式的使用方法都是相同的，差别在于不带参数或带一个参数,只是为了方便在不需要用到EventContext时少写一点而已。
@@ -48,18 +48,18 @@ C’s capture listeners->B’s capture listeners->A’s capture listeners->A’s
 2. 使用lamba表达式，例如：
 
   ```csharp
-	a.onClick.Add(()=>{ ... });
+    a.onClick.Add(()=>{ ... });
   ```
 
 3. 将变量放到显示对象的data属性里。例如:
 
   ```csharp
-	a.data = ...;
+    a.data = ...;
 
-	void aCallback(EventContext context)
-	{
-		Debug.Log(context.sender.data)
-	}
+    void aCallback(EventContext context)
+    {
+        Debug.Log(((GObject)context.sender).data)
+    }
   ```
 
 ## EventListener
@@ -83,7 +83,10 @@ EventContext是回调函数的参数类型。
 
 - `StopPropagation` 点击子节点的区域，父节点也能收到触摸事件，这就是事件冒泡的特性。如果你不想再向父节点传递，可以调用这个方法。
 
-- `CaptureTouch` 当释放鼠标左键或者手指抬起时，如果鼠标或者触摸位置已经不在组件范围内了，那么组件的TouchEnd事件是不会触发的。如果确实需要，可以请求捕获。在TouchBegin事件处理函数内，你可以调用context.CaptureTouch()，这样，无论鼠标在哪里释放（即使不在对象区域内），对象的onTouchEnd都会被调用。注意仅生效一次。
+- `CaptureTouch` 当鼠标左键释放或者手指抬起时，如果鼠标或者触摸位置已经不在组件范围内了，那么组件的TouchEnd事件是不会触发的。如果确实需要，可以请求捕获。在TouchBegin事件处理函数内，你可以调用context.CaptureTouch()，这样，无论鼠标在哪里释放（即使不在对象区域内），对象的onTouchEnd都会被调用。注意仅生效一次。
+  在1.9.1SDK后，如果调用了CaptureTouch，那么GObject.onTouchMove事件将在手指（或鼠标左键）抬起前一直触发（无论手指或指针位置是不是在该对象上方），直到鼠标左键释放或者手指抬起。
+
+- `UncaptureTouch` 取消CaptureTouch发起的触摸事件捕获。
 
 ## InputEvent
 

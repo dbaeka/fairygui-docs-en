@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    
+        <title>FairyGUI - SDK Release Notes</title>
+    
+        <meta charset="utf-8">
+        <meta name="description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+        <meta name="keywords" content="FairyGUI,FGUI,UI Editor,Unity GUI,Pixi GUI,Haxe GUI,Starling GUI,CryEngine UI,Havok Vision,Project Anarchy,C++ UI">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="SDK Release Notes — FairyGUI">
+        <meta property="og:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="SDK Release Notes — FairyGUI">
+        <meta name="twitter:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+
+
+        <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'>
+
+        <!-- main page styles -->
+        <link rel="stylesheet" href="/css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script src="/js/vue.min.js"></script>
+        <script>window.PAGE_TYPE = "product"</script>
+    </head>
+    <body class="docs">        <div id="mobile-bar"  data-bg-text="FairyGUI" >
+            <a class="menu-button"></a>
+            <a class="logo" href="https://github.com/fairygui/FairyGUI-unity"></a>
+        </div>
+        <div id="bg"> <!--end tag in the `index.ejs`-->
+
+<div id="header">
+  <a id="logo" href="https://github.com/fairygui/">
+    <img src="/images/github-white.png">
+  </a>
+  <ul id="nav">
+    
+
+	<li><a href="/" class="nav-link">Home</a></li>
+
+<li><a href="/product/" class="nav-link current">Product</a></li>
+<li><a href="/guide/" class="nav-link">Tutorials</a></li>
+<li><a href="http://www.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
+<li><a href="/examples/" class="nav-link">Demo</a></li>
+<li><a href="/showcase/" class="nav-link">Showcase</a></li>
+<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">Q&A</a></li>
+<li><a href="/about/" class="nav-link">About</a></li>
+<li><a href="http://www.fairygui.com/" target="_self"  class="nav-link">中文</a><a class="nav-link"> / English</a></li>
+  </ul>
+</div>
+
+        
+            <div id="main" class="fix-sidebar">
+                
+                    
+    <div class="sidebar">
+    <ul class="main-menu">
+        
+
+	<li><a href="/" class="nav-link">Home</a></li>
+
+<li><a href="/product/" class="nav-link current">Product</a></li>
+<li><a href="/guide/" class="nav-link">Tutorials</a></li>
+<li><a href="http://www.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
+<li><a href="/examples/" class="nav-link">Demo</a></li>
+<li><a href="/showcase/" class="nav-link">Showcase</a></li>
+<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">Q&A</a></li>
+<li><a href="/about/" class="nav-link">About</a></li>
+<li><a href="http://www.fairygui.com/" target="_self"  class="nav-link">中文</a><a class="nav-link"> / English</a></li>
+    </ul>
+    <div class="list">
+		<a class="become-backer" href="/about/donate.html">
+            Donate
+        </a>
+        <h2>
+            Product
+            <!--<select class="version-select">
+                <option value="SELF" selected></option>
+            </select>-->
+ 		
+        </h2>
+        <ul class="menu-root">
+            
+
+	            
+	                
+	                <li>
+	                    <a href="/product/index.html" class="sidebar-link">Product</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/product/release_notes.html" class="sidebar-link">Release Notes</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/product/sdk_release_notes.html" class="sidebar-link current">SDK Release Notes</a>
+	                </li>
+	            
+
+            
+        </ul>
+    </div>
+</div>
+
+
+<div class="content product with-sidebar ">
+    
+      <h1>SDK Release Notes</h1>
+    
+    <h2 id="2018-5-23"><a href="#2018-5-23" class="headerlink" title="2018/5/23"></a>2018/5/23</h2><ol>
+<li>[All] 修正了当元件有设置轴心或锚点，部分关联关系工作不正常的问题。</li>
+<li>[All] 修正了进度条max设置为0时，进度显示不正确的bug。</li>
+<li>[Laya] 增加了UIConfig.packageFileExtension，配合编辑器改发布文件扩展名的功能（小程序需要）。</li>
+<li>[Cocos2dx] Cocos2dx发布了1.3版本。</li>
+<li>[Cocos2dx] 修正了一个致命的引用计数问题。</li>
+<li>[Cocos2dx] 修正了像素点击测试不准确的问题。</li>
+<li>[Unity] Unity发布了2.2.0版本。</li>
+<li>[Unity] 增加了对线性颜色空间的支持。</li>
+<li>[Unity] 消除了动效播放过程中可能产生的GC。</li>
+<li>[Unity] 修正了Blend Mode为Multiply或者Screen时，显示不正确的bug。</li>
+<li>[Unity] 修正了UIPackage里延时卸载AB的bug。</li>
+<li>[Unity] 修正了滚动容器的虚化边缘没有在边缘回弹时显示的bug。</li>
+<li>[Unity] 修正了显示对象修改visible属性时，可能出现fairyBatching不正确的bug。</li>
+<li>[Unity] 修正了当文本宽度为0，仍然显示1个字符的bug。</li>
+</ol>
+<h2 id="2018-3-30"><a href="#2018-3-30" class="headerlink" title="2018/3/30"></a>2018/3/30</h2><ol>
+<li>[All] 增加了对GLoader新填充类型的支持。</li>
+<li>[All] 修改了虚拟列表滚动时在某些特殊情况下不再响应滚动的bug。</li>
+<li>[Unity] Unity发布了2.1.0版本。</li>
+<li>[Unity] 现在支持图形中的圆角。</li>
+<li>[Unity] 修正了共享材质系统中的一个bug。</li>
+</ol>
+<h2 id="2018-3-19"><a href="#2018-3-19" class="headerlink" title="2018/3/19"></a>2018/3/19</h2><ol>
+<li>[All] GRoot.ShowPopup里现在会自动检查sortingOrder，保证popup的东西一定在目标前面。</li>
+<li>[Unity] Unity发布了2.0.0版本。</li>
+<li>[Unity] 增加了对阿拉伯语言显示的支持。如果需要打开此功能，使用源码版本的，需要在Unity Player Settings的Scripting Define Symbols里增加RTL_TEXT_SUPPORT；使用DLL版本的，请自行编译包含这个功能的DLL，或者向谷主索取。</li>
+<li>[Unity] 增加了UIConfig.depthSupportForPaitingMode.如果你要对使用了自定义遮罩的组件进行设置倾斜、设置BlendMode，设置滤镜，又或者曲面UI中含有自定义遮罩的组件时，需要设置这个开关为true才能显示正常。</li>
+<li>[Unity] 修正了轴心不为中心或左上角时，倾斜显示不正确的bug。</li>
+</ol>
+<h2 id="2018-3-5"><a href="#2018-3-5" class="headerlink" title="2018/3/5"></a>2018/3/5</h2><ol>
+<li>[Laya/Egret/Starling/Flash] 重构ScrollPane，支持了Header和Footer，也就是下拉刷新和上拉刷新功能的支持。（其他SDK早已支持，这次是对这几个SDK的填坑。）。功能演示可以在产品页面下载最新的Demo，里面包含了PullToRefresh这个Demo。</li>
+<li>[Laya] 适配最新引擎1.7.16。</li>
+<li>[Egret] 适配最新引擎5.1.5。</li>
+</ol>
+<h2 id="2018-1-4"><a href="#2018-1-4" class="headerlink" title="2018/1/4"></a>2018/1/4</h2><ol>
+<li>[All] 增加了对编辑器自定义数据的支持。</li>
+<li>[Egret/Laya] UIPackage.addPackage增加了一个可选参数，现在你可以直接传入描述文件数据。</li>
+<li>[Egret/Laya] 增加了对编辑器输出非压缩格式的支持。</li>
+<li>[Egret] 适配最新引擎5.1.2。</li>
+</ol>
+<h2 id="2017-12-15"><a href="#2017-12-15" class="headerlink" title="2017/12/15"></a>2017/12/15</h2><ol>
+<li>[Unity] Unity发布了1.9.3版本。</li>
+<li>[Unity] 如果UIPackage.AddPackage方法用于AssetBundle，现在增加了一个参数unloadBundleAfterLoaded，可以控制是否由FairyGUI释放AB。默认是true（和旧版本行为一致）。</li>
+<li>[Unity] 修正了触摸输入处理的一个bug。</li>
+<li>[Unity] 修正了1.9.2办法引入的一个bug，可能导致窗口无法拖动。</li>
+<li>[Cocos2dx] Cocos2dx发布了1.1版本。</li>
+<li>[Cocos2dx] 修正了loadComponentChildren的bug。</li>
+<li>[Cocos2dx] 修正了析构函数没有加virtual修饰符的问题。</li>
+<li>[Cocos2dx] 修正了剪裁容器外面的元素也能响应点击的bug。</li>
+</ol>
+<h2 id="2017-11-28"><a href="#2017-11-28" class="headerlink" title="2017/11/28"></a>2017/11/28</h2><ol>
+<li>[All] GObject.visible修改了底层的实现方式，以前visible=false时是将原生对象移出显示列表的，现在改成不移出，仅仅是设置原生对象的visible=false。</li>
+<li>[Laya] 更新了例子，使用LayaAir 1.7.12。</li>
+<li>[Egret] 更新了例子，使用EgretEngine 5.0.13。</li>
+<li>[Laya] 修正了Base64编码的bug。（影响像素点击测试功能）</li>
+<li>[Cocos2dx] 正式版发布。</li>
+<li>[Unity] Unity发布了1.9.2版本。</li>
+<li>[Unity] 修正了如果UIPanel中有使用倾斜功能。则在编辑模式会报错的bug。</li>
+<li>[Unity] 修正了如果位图字体有重名时报错的bug。</li>
+<li>[Unity] 增加了onTouchMove事件。调用context.CaptureTouch后，对象可以收到这个事件（无论鼠标是否在对象上），直到touchEnd。</li>
+<li>[Unity] 改进了GoWrapper，现在会复制对象的材质，避免造成原始材质的变化。</li>
+<li>[Unity] 修正了有时当对象销毁后，自动合批出现不正确的bug。</li>
+<li>[Unity] 增加了对HTML语法的支持，支持设置图片的宽度或高度为百分比，例如width=’50%’ height=’50%’。</li>
+<li>[Unity] 增加了GTextInput.SetSelection，可以选定输入框中的文字。</li>
+<li>[Unity] 修正了滚动容器关闭滚动惯性后，item贴近或分页滚动没有正确处理的bug。</li>
+</ol>
+<h2 id="2017-9-24"><a href="#2017-9-24" class="headerlink" title="2017/9/24"></a>2017/9/24</h2><ol>
+<li>[All] 修正了虚拟列表滚动后丢失ITEM选中状态的问题。</li>
+<li>[All] 修正了滚动容器的一个bug，对于设置了贴近ITEM的滚动容器，当滚动时，如果点击停止，停止后没有回到贴近ITEM的正确位置。</li>
+<li>[Flash/Starling/Egret] 增加了MovieClip的平滑设置支持。</li>
+<li>[Egret] 修正了富文本点击链接触发两次的问题。</li>
+<li>[Unity] Unity发布了1.9.0版本。</li>
+<li>[Unity] 移动平台现在也支持RollOver和RollOut事件了。</li>
+<li>[Unity] GoWrapper现在可以包装UGUI的Canvas，实现FairyGUI中嵌入UGUI的需求。<a href="../guide/unity/insert3d.html#插入Canvas">使用方法</a></li>
+<li>[Unity] 如果手势是全屏的，也就是没有具体对象的，现在可以直接建立在GRoot上。<a href="../guide/unity/input.html#手势">使用方法</a></li>
+<li>[Unity] 修正了部分输入法，以及在Mac下无法输入中文的bug。</li>
+<li>[Unity] 修正了字体贴图重建时，没有销毁材质，可能造成内存泄漏的bug。</li>
+<li>[Unity] GoWapper增加了对sharedMaterial是否为空的判断。</li>
+<li>[Unity] 如果使用源码版本，不再为移动平台屏蔽OnGUI函数，这会造成不响应按键事件。</li>
+<li>[Unity] Stage.touchScreen不再只读，现在可以手工改变。</li>
+<li>[Unity] 对于设置为使用Raycast进行点击测试的UIPanel，现在你可以使用HitTestContext.layerMask排除掉一些不关心的层。</li>
+</ol>
+
+    
+    <div class="footer">
+      found mistake? Want to participate in editing?
+      <a href="https://github.com/fairygui/en.fairygui.io/tree/master/src/product/sdk_release_notes.md" target="_blank">
+        Edit this page on Github!
+      </a>
+    </div>
+</div>
+
+                
+            </div>
+            <script src="/js/smooth-scroll.min.js"></script>
+        
+
+        <!-- main custom script for sidebars, version selects etc. -->        
+        <script src="/js/css.escape.js"></script>
+        <script src="/js/common.js"></script>
+    </body>
+</html>

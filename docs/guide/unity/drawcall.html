@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
     
-        <title>FairyGUI - DrawCall optimization</title>
+        <title>FairyGUI - DrawCall Optimization</title>
     
         <meta charset="utf-8">
         <meta name="description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
@@ -12,11 +12,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="DrawCall optimization — FairyGUI">
+        <meta property="og:title" content="DrawCall Optimization — FairyGUI">
         <meta property="og:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="DrawCall optimization — FairyGUI">
+        <meta name="twitter:title" content="DrawCall Optimization — FairyGUI">
         <meta name="twitter:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
 
 
@@ -100,7 +100,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">Editor Start</a>
 	                </li>
 	            
 	                
@@ -146,6 +146,11 @@
 	                
 	                <li>
 	                    <a href="/guide/editor/component.html" class="sidebar-link">Component</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollpane.html" class="sidebar-link">ScrollPane</a>
 	                </li>
 	            
 	                
@@ -200,7 +205,12 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup Manage</a>
+	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/dragdrop.html" class="sidebar-link">Drag&Drop</a>
 	                </li>
 	            
 	                
@@ -220,7 +230,13 @@
 	                <li><h3>Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/unity/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/unity/index.html" class="sidebar-link">Unity Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/transform.html" class="sidebar-link">Unity Coordinate</a>
 	                </li>
 	            
 	                
@@ -232,7 +248,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/font.html" class="sidebar-link">Font handling</a>
+	                    <a href="/guide/unity/font.html" class="sidebar-link">Font Handling</a>
 	                </li>
 	            
 	                
@@ -262,7 +278,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/drawcall.html" class="sidebar-link current">DrawCall optimization</a>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link current">DrawCall Optimization</a>
 	                </li>
 	            
 	                
@@ -271,14 +287,64 @@
 	                    <a href="/guide/unity/lua.html" class="sidebar-link">Used in Lua</a>
 	                </li>
 	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/special.html" class="sidebar-link">Unity Features</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/faq.html" class="sidebar-link">Unity FAQ</a>
+	                </li>
+	            
 
+	            
+	                
+	                
+	                <li><h3>Cocos2dx</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cocos2dx/index.html" class="sidebar-link">Cocos2dx Start</a>
+	                </li>
+	            
+	            
+	            
+	                
+	                
+	                <li><h3>CryEngine</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cry/index.html" class="sidebar-link">Cry Engine Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/transform.html" class="sidebar-link">Cry-Coordinate</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/input.html" class="sidebar-link">Cry-Input Processing</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/event.html" class="sidebar-link">Cry-Event System</a>
+	                </li>
+	            
+	            
 	            
 	                
 	                
 	                <li><h3>LayaAir</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/laya/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/laya/index.html" class="sidebar-link">LayaAir Start</a>
 	                </li>
 	            
 	
@@ -288,7 +354,7 @@
 	                <li><h3>Egret</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/egret/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/egret/index.html" class="sidebar-link">Egret Start</a>
 	                </li>
 	            
 
@@ -304,7 +370,7 @@
 
 <div class="content guide_unity with-sidebar ">
     
-      <h1>DrawCall optimization</h1>
+      <h1>DrawCall Optimization</h1>
     
     <p>在Unity中，每次引擎准备数据并通知GPU的过程称为一次Draw Call（DC）。Draw Call次数是一项非常重要的性能指标。UI系统一般包含数量众多的物体，有效控制DC是衡量一个UI系统是否实用的关键因素，特别是在移动设备上。</p>
 <p>我们先来看看NGUI是怎么做的，NGUI把UIPanel中的Widget按depth排序，然后将相同材质的Widget进行Mesh合并，例如使用相同图集的图片，或者文字。Mesh合并的优点是合并后这些Widget就只产生一个DC。但这个合并过程需要计算所有Widget坐标相对于Panel的变换，而且如果Widget行为改变，例如平移，缩放等，都会触发Mesh重新合并，这会带来一定的CPU消耗，这就需要开发者谨慎组织UI元素到各个UIPanel，并且对深度需要细致安排，否则达不到减少DC效果的同时更可能带来比较大的CPU消耗。</p>
@@ -324,14 +390,14 @@
 <p>FairyGUI提供了一个开关控制组件是否启用深度调整，它就是<code>fairyBatching</code>，例如</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aComponent.fairyBatching = <span class="literal">true</span>;</div></pre></td></tr></table></figure>
 <p>如果某个组件设置了fairyBatching，那么无需在子组件和孙子组件再启用fairyBatching。一般只在顶层组件打开这个功能，例如主界面，加载界面等。注意，Window这个类已经自动打开了fairyBatching，这符合我们的使用习惯，因为一般我们都是以窗口为单位安排功能的。如果界面不复杂，Draw Call本来就不高的情况下，开发者也可以忽略这个功能，从10个DC优化到8个DC并没有什么意义。</p>
-<p>对于打开了fairyBatching的组件，当开发者动态改变子元件或者孙子元件的位置或大小时，并不会自动触发深度调整，例如一个图片原来显示在一个窗口里的顶层，你用Tween将它从原来的位置移到另外一个位置，这个图片就有可能被窗口里的其他元素遮挡。这时开发者可以手动触发深度调整，例如</p>
+<p>对于打开了fairyBatching的组件，当开发者自己调用SetPosition等API改变子元件或者孙子元件的位置、大小，旋转或缩放，并不会自动触发深度调整，例如一个图片原来显示在一个窗口里的顶层，你用Tween将它从原来的位置移到另外一个位置，这个图片就有可能被窗口里的其他元素遮挡。这时开发者需要手动触发深度调整，例如：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aObject.InvalidateBatchingState();</div></pre></td></tr></table></figure>
-<p>这个API并不需要由开启了fairyBatching的组件调用，它可以用任何一个内含的元件发起。</p>
+<p>这个API并不需要由开启了fairyBatching的组件调用，aObject可以是任何一个内含的元件。并且你可以在任何时间调用，每帧调用也可以，只要你确认是需要。它的消耗不算大，但也不能说没有。</p>
 <p>对于UI动效（Transitions），FairyGUI会在动效结束后自动调用这个API。如果动效过程中有对组件的大小或者位置进行改变，并且观察到组件的渲染顺序不正确，首先可以尝试调整动效的设计，避免出现组件之间重叠状态的改变，如果确实无法避免，那么还可以强制动效每帧都执行深度调整，例如：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aTransition.invalidateBatchingEveryFrame = <span class="literal">true</span>;</div></pre></td></tr></table></figure>
 <p>下载并运行Demo，可以观察fairyBatching的实际效果。例如这个Demo的首页：</p>
 <p><img src="../../images/2015-09-23_180017.png" alt=""></p>
-<p>设置了fairyBatching后由42个DC减少到了6个DC，另外，可以看到Saved by batching: 27的字样。</p>
+<p>设置了fairyBatching后由42个DC减少到了6个DC，另外，可以看到Saved by batching: 37的字样。</p>
 <p><img src="../../images/2015-09-23_180207.png" alt=""></p>
 <p><img src="../../images/2015-09-23_180119.png" alt=""></p>
 

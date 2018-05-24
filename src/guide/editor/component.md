@@ -27,9 +27,9 @@ order: 90
 - `溢出处理` 表示处理超出组件矩形区域的内容的方式。
  - `可见` 表示超出组件矩形区域的内容保持可见，这是默认行为。
  - `隐藏` 表示超出组件矩形区域的内容不可见，相当于对组件应用了一个矩形遮罩。
- - `垂直滚动` `水平滚动` `自由滚动` 与其他UI框架很大不同，在FairyGUI中不需要拖入滚动控件实现滚动。任何一个普通的组件，只需要简单设置一个属性就可以使组件具有滚动功能。溢出处理中有三种滚动的选择，自由滚动就是横向和纵向都能滚动。详细说明在[滚动设置](#滚动设置)。
+ - `垂直滚动` `水平滚动` `自由滚动` 与其他UI框架很大不同，在FairyGUI中不需要拖入滚动控件实现滚动。任何一个普通的组件，只需要简单设置一个属性就可以使组件具有滚动功能。溢出处理中有三种滚动的选择，自由滚动就是横向和纵向都能滚动。详细说明在[滚动容器](scrollpane.html)。
 
-- `边缘` 设定组件四周的留空。一般用在“溢出处理”为“隐藏”或者“滚动”的情况。`边缘虚化`目前只有在Unity平台支持。如果组件发生了对内容的剪裁，则可以在边缘产生虚化的效果，增强用户体验。这个值应该比较大才能看出效果，例如50。
+- `边缘` 设定组件四周的留空。一般用在“溢出处理”为“隐藏”或者“滚动”的情况。边缘虚化目前只有在Unity平台支持。如果组件发生了对内容的剪裁，则可以在边缘产生虚化的效果，增强用户体验。这个值应该比较大才能看出效果，例如50。
 
 <center>
 ![](../../images/20170802095820.png)
@@ -45,7 +45,22 @@ order: 90
 
 - `背景颜色` 设置组件编辑区域的背景颜色，仅用于辅助设计，实际组件背景都是透明的，不会有颜色。如果你需要组件有一个真实的背景色，可以放置一个图形。
 
-- `备注` 设置组件的备注信息。这个信息目前仅供插件开发者使用，没有其他用途。
+- `自定义数据` 可以设置一个自定义的数据，这个数据FairyGUI不做解析，按原样发布到最后的描述文件中。开发者可以在运行时获取。获取方式是：
+  ```csharp
+    //Unity/Cry
+    aComponent.packageItem.componentData.GetAttribute("customData");
+    //Cocos2dx/Vision
+    aComponent->getPackageItem()->componentData->RootElement()->Attribute("customData");
+    //LayaAir
+    aComponent.packageItem.componentData.getAttribute("customData");
+    //Egret
+    aComponent.packageItem.componentData.attributes.customData;
+    //AS3/Starling
+    aComponent.packageItem.componentData.@customData;
+  ```
+  如果组件有扩展类，那么也可以覆盖方法ConstructFromXML(xml)，这里的xml就相当于componentData，可以按上面介绍的方法获取customData属性。
+
+  这里的输入框比较小，如果要输入大文本，则可以在输入激活时，按CTRL+ENTER，然后会弹出一个专门用于输入文本的窗口。
 
 ## 设计图功能
 
@@ -55,11 +70,9 @@ order: 90
 
 设计图不会发布到最终的资源中。
 
-## 点击测试
+## 点击穿透
 
 组件内，显示在前面的元件将优先收到点击事件。如果该元件是可触摸的，则点击事件结束，不会继续向后传递。
-
-**点击穿透**
 
 在组件宽度x高度的范围内点击测试都是有效的（无法穿透），无论这个范围内是否有子元件。举个例子说明。
 
@@ -88,83 +101,45 @@ order: 90
 
 注意：图片和普通文字是不接受点击的，如果一个只含有图片或普通文字的组件，设置了点击穿透，那么整个组件就是完全穿透了，不会拦截到任何点击。
 
-**像素点击测试**
+## 像素点击测试
 
 有些特殊需求，需要用到不规则区域的点击测试。首先你要准备一张包含不规则区域的图片，图片里不透明的像素代表接受点击的区域，透明的像素代表点击穿透的区域，组件里超出图片范围的也是可穿透的区域。
 
 把这张图片拖入舞台，然后在组件的“像素点击测试”属性里，选择这张图片。
 
 <center>
-![](../../images/20170802103448.png)
+![](../../images/20170925151838.png)
 </center>
-
-## 滚动设置
-
-设置了“溢出处理”为“水平滚动”、“垂直滚动”，“自由滚动”后，可以详细设置滚动的相关属性。点击“溢出处理”旁边的![](../../images/20170801144514.png)按钮。
-
-![](../../images/20170802112058.png)
-
-- `滚动条显示` 滚动条的显示策略。 
- - `默认` 使用全局设置，在主菜单“文件”->“项目属性”->“预览设置”里设置。
- - `可见` 表示滚动条一直显示。
- - `滚动时显示` 表示滚动条只有在滚动时才会显示，其他情况下自动隐藏。
- - `隐藏` 表示滚动条一直不可见的状态。
-
-- `边缘回弹效果` 滚动到达边缘时是否允许继续滑动/拖动一定距离，表现一个回弹的效果。一般在移动平台上使用，PC上较少。有些开发者会提出为什么我的滚动容器里内容没超出视口，却依然能滚动，这其实是边缘回弹效果。
-
-- `触摸滚动效果` 是否允许用户直接拖拽滚动区域内的内容。一般在移动平台上使用，PC上较少，PC上一般需要拖动滚动条，或使用鼠标滚轮。
-
-- `滚动条组件` 设置滚动条资源。一般不需要设置，全局有一个设置，在主菜单“文件”->“项目属性”->“预览设置”里。如果你要使用不同于全局设置的滚动条资源，那么在这里设置。
-
-- `定位` 可以设置滚动条在容器中的位置，这是一个相对于正常位置的偏移值。
-
-- `下拉/上拉刷新组件` 设置上拉刷新或下拉刷新时需要显示的组件。下面是下拉刷新的效果：
-
-<center>
-![](../../images/gaollg12.gif)
-</center>
-
-- `将垂直滚动条显示在左边` 设置垂直滚动条显示在容器的左边，而不是在容器的右边。
-
-- `仅在内容溢出时才显示滚动条` 只有当容器内的内容超出视口区域时，才显示滚动条，否则隐藏。注意：即使是不显示，滚动条还是有预留的占位的，这个和“滚动条显示”设置为“隐藏”不相同，后者是完全取消滚动条的占位的。
-
-- `滚动位置自动贴近元件` 在滚动结束后，保证滚动位置刚好处于任意元件的上边缘（或左边缘）。
-
-- `页面模式` 以视口大小为页面大小，每次滚动的距离是一页。一般在移动平台上使用，PC上较少，拖动滚动条进行滚动操作与这个模式冲突。
-
-- `禁用惯性` 当用手拖拽内容一段距离，并释放手指后，系统会根据手指移动的速度计算出一个速率，然后滚动会按照将此速率衰减到零的方式慢慢停下来，这称为惯性滚动。如果不需要此特性，可以关闭。这个功能是和“触摸滚动效果”配合使用的。
-
-- `禁用剪裁` 一般情况下，容器会对超出视口的内容进行剪裁。特殊情况下，例如，如果一个列表的item组件自身就是滚动容器，那么item组件可以关闭剪裁。因为大量的剪裁会消耗很多的系统性能。
 
 ## 遮罩
 
 FairyGUI的遮罩有两种：矩形遮罩和自定义遮罩。
 
-**矩形遮罩**
+### 矩形遮罩
 
 将组件的“溢出处理”设置为“隐藏”或者“滚动”，那么组件就带了矩形遮罩。超出组件(矩形区域-边缘留空）的区域都不可见。无论在什么平台，这种遮罩的效率是最高的。
 
-**自定义遮罩**
+### 自定义遮罩
 
 可以设置组件内一个图片或者图形作为组件的遮罩。这种遮罩一般都是使用模板测试(Stencil Op)技术。各个平台支持的力度不同：
 
 - `AS3/Starling/Egret/Laya` 使用图形（Graph）作为遮罩时，有图形的区域内容**可见**，例如，一个圆形，则圆形区域内可见，其他区域不可见。
 
-不能使用图片（Image）作为遮罩，因为使用图片作为遮罩也是取其矩形区域而已，用一个矩形（Graph）的图形效果是一样的。
+  不能使用图片（Image）作为遮罩，因为使用图片作为遮罩也是取其矩形区域而已，用一个矩形（Graph）的图形效果是一样的。
 
-Starling版本要使用自定义遮罩必须在应用程序描述文件里加上
+  Starling版本要使用自定义遮罩必须在应用程序描述文件里加上:
 
-```csharp
+  ```csharp
     <initialWindow>
         <depthAndStencil>true</depthAndStencil>
     </initialWindow>
-```
+  ```
 
 - `Unity` 使用图形（Graph）作为遮罩时，有图形的区域内容**可见**，例如，一个圆形，则圆形区域内**可见**，其他区域不可见。
 
-使用图片（Image）作为遮罩时，图片内透明度为0的像素对应区域的内容**不可见**，反之可见。超出图片区域的内容**不可见**。
+  使用图片（Image）作为遮罩时，图片内透明度为0的像素对应区域的内容**不可见**，反之可见。超出图片区域的内容**不可见**。
 
-**反向遮罩（挖洞）**
+### 反向遮罩（挖洞）
 
 效果和正常遮罩相反，也就是可见的区域变不可见，不可见的区域变可见。目前仅Unity平台支持，例如：
 
@@ -227,7 +202,9 @@ Starling版本要使用自定义遮罩必须在应用程序描述文件里加上
 ```
 FairyGUI和Flash/Cocos类似，采用树状的结构组织显示对象。容器可以包含一个或多个基础显示对象，也可以包含容器。这个树状结构称为显示列表。FairyGUI提供了API管理显示列表。
 
-**显示列表管理**
+### 显示列表管理
+
+- `numChildren` 获得容器内孩子元件的数量。
 
 - `AddChild` `AddChildAt` 向容器内添加元件。前者将元件添加到显示列表的队尾；后者可以指定一个索引控制元件的插入位置。
 
@@ -239,13 +216,29 @@ FairyGUI和Flash/Cocos类似，采用树状的结构组织显示对象。容器�
 
 - `SetChildIndex` `SwapChildren` `SwapChildrenAt` 设置元件在显示列表中的索引。
 
-**渲染顺序**
+### 渲染顺序
+
+在FairyGUI中，显示列表是以树形组织的，下面说的渲染顺序均指在**同一个父元件**下安排的顺序，不同父元件的元件是不可能互相交错的，这是前提，请注意。
 
 显示对象的渲染顺序取决于它的显示列表中的顺序，顺序大的后渲染，即显示在较前面。一般来说，我们都是使用AddChild或SetChildIndex调整渲染顺序。例如如果要一个元件显示在容器的最前面，那调用AddChild(元件)就可以了，AddChild是可以重复调用的。也可以调用SetChildIndex设置对象在显示列表中的具体位置，例如SetChildIndex(元件,0)就可以将元件置于最底层。
 
-还有另外一个因子可以影响渲染循序，它就是GObject.sortingOrder。**这个属性只用于特定的用途，不作常规的使用。它一般用于类似固定置顶的功能，另外，永远不要将sortingOrder用在列表中。**。sortingOrder越大，则渲染顺序越后，即显示到更前面的位置。一般情况下，sortingOrder为0，这时渲染顺序由显示对象在显示列表中的顺序决定。sortingOrder可以令你更灵活的控制渲染循序。例如，如果希望一个元件始终保持在其他元件上方，可以设置其sortingOrder一个较大的整数值，这样无论容器使用AddChild添加了多少元件，这个元件依然显示在最前面。（sortingOrder的效率较差，勿做频繁调用的用途）
+还有另外一个因子可以影响渲染循序，它就是GObject.sortingOrder。**这个属性只用于特定的用途，不作常规的使用。它一般用于类似固定置顶的功能，另外，永远不要将sortingOrder用在列表中。**sortingOrder越大，则渲染顺序越后，即显示到更前面的位置。一般情况下，sortingOrder为0，这时渲染顺序由显示对象在显示列表中的顺序决定。sortingOrder可以令你更灵活的控制渲染循序。例如，如果希望一个元件始终保持在其他元件上方，可以设置其sortingOrder一个较大的整数值，这样无论容器使用AddChild添加了多少元件，这个元件依然显示在最前面。（sortingOrder的效率较差，勿做频繁调用的用途）
 
-**绑定扩展类**
+上面提到的都是调整对象在显示列表中的顺序，如果不想调整这个顺序的同时，又要调整渲染顺序，组件还提供了另一种方式。
+
+```csharp
+    //升序，这是默认值，按照对象在显示列表中的顺序，从小到大依次渲染，效果就是序号大的显示在较前面。
+    aComponent.childrenRenderOrder = ChildrenRenderOrder.Ascent;
+
+    //降序，按照对象在显示列表中的顺序，从大到小依次渲染，效果就是序号小的显示在较前面。
+    aComponent.childrenRenderOrder = ChildrenRenderOrder.Descent;
+
+    //拱形，需要指定一个顶峰的索引，从两端向这个索引位置依次渲染，效果就是这个位置的对象显示在最前面，两边的对象依次显示在后面。
+    aComponent.childrenRenderOrder = ChildrenRenderOrder.Arch;
+    aComponent.apexIndex = 3; //索引为3的对象显示在最前面。
+```
+
+### 绑定扩展类
 
 可以绑定一个类为组件的扩展类。首先，编写一个扩展类：
 
@@ -284,76 +277,3 @@ FairyGUI和Flash/Cocos类似，采用树状的结构组织显示对象。容器�
 ```
 
 注意：如果组件A只是一个普通的组件，没有定义“扩展”，那么基类是GComponent，如上例所示；如果组件A的扩展是按钮，那么MyComponent的基类应该为GButton，如果扩展是进度条，那么基类应该为GProgressBar，等等。这个千万不能弄错，否则会出现报错。
-
-## ScrollPane
-
-当组件的“溢出处理”设置为“滚动”后，可以通过GComponent.scrollPane使用滚动相关的功能，例如：
-
-```csharp
-    ScrollPane scrollPane =  aComponent.scrollPane;
-    //设置滚动位置为100像素
-    scrollPane.posX = 100;
-
-    //滚动到中间位置，带动画过程
-    scrollPane.SetPercX(0.5f, true);
-```
-
-当你增删子组件后，或者移动子组件的位置、调整子组件的大小，容器是自动更新滚动区域的，不需要调用任何API。这个刷新发生在本帧绘制之前。如果你希望立刻访问子元件的正确坐标，那么可以调用`EnsureBoundsCorrect`通知GComponent立刻重排。EnsureBoundsCorrect是一个友好的函数，你不用担心重复调用会有额外性能消耗。
-
-ScrollPane中常用的API有：
-
-- `viewWidth` `viewHeight` 视口宽度和高度。
-
-- `contentWidth` `contentHeight` 内容高度和宽度。
-
-- `percX` `percY` `SetPercX` `SetPercY` 获得或设置滚动的位置，以百分比来计算，取值范围是0-1。如果希望滚动条从当前值到设置值有一个动态变化的过程，可以使用Set方法，它们提供了一个是否使用缓动的参数。
-
-- `posX` `posY` `SetPosX` `SetPosY` 获得或设置滚动的位置，以绝对像素值来计算。取值范围是0-最大滚动距离。垂直最大滚动距离=（内容高度-视口高度），水平最大滚动距离=（内容宽度-视口宽度）。如果希望滚动条从当前值到设置值有一个动态变化的过程，可以使用Set方法，它们提供了一个是否使用缓动的参数。
-
-- `ScrollLeft` `ScrollRight` `ScrollUp` `ScrollDown` 向指定方向滚动N*`scrollStep`。例如，如果scrollStep=20，那么ScrollLeft(1)表示向左滚动20像素，ScrollLeft(2)表示向左滚动40像素。注意：如果滚动属性设置了贴近元件，例如元件大小为41像素，则需要滚动距离超过20像素，才能真正发生滚动，那么如果调用ScrollLeft(1)，在scrollStep=20的情况下，会导致看不到任何效果。
-
-- `ScrollToView` 调整滚动位置，使指定的元件出现在视口内。
-
-可以侦听滚动改变，在任何情况下滚动位置改变都会触发这个事件。
-
-```csharp
-    //Unity
-    scrollPane.onScroll.Add(onScroll);
-
-    //AS3
-    scrollPane.addEventListener(Event.SCROLL, onScroll);
-
-    //Egret
-    scrollPane.addEventListener(ScrollPane.SCROLL, this.onScroll, this);
-
-    //Laya，注意是用组件侦听，不是ScrollPane
-    aComponent.on(fairygui.Events.SCROLL, this, this.onScroll);
-```
-
-和滚动相关的事件还有：
-
-- `ScrollEnd` 惯性滚动结束后回调。
-- `PullDownRelease` 下拉刷新回调。
-- `PullUpRelease` 上拉刷新回调。
-
-```csharp
-    //Unity
-    scrollPane.onScrollEnd.Add(onScrollEnd);
-    scrollPane.onPullDownRelease.Add(onPullDownRelease);
-    scrollPane.onPullUpRelease.Add(onPullUpRelease);
-
-    //AS3
-    scrollPane.addEventListener(ScrollPane.SCROLL_END, onScrollEnd);
-    scrollPane.addEventListener(ScrollPane.PULL_DOWN_RELEASE, onPullDownRelease);
-    scrollPane.addEventListener(ScrollPane.PULL_UP_RELEASE, onPullUpRelease);
-
-    //Egret
-    scrollPane.addEventListener(ScrollPane.SCROLL_END, this.onScrollEnd, this);
-    scrollPane.addEventListener(ScrollPane.PULL_DOWN_RELEASE, this.onPullDownRelease, this);
-    scrollPane.addEventListener(ScrollPane.PULL_UP_RELEASE, this.onPullUpRelease, this);
-
-    //Laya，注意是用组件侦听，不是ScrollPane
-    aComponent.on(fairygui.Events.SCROLL_END, this, this.onScrollEnd);  
-    aComponent.on(fairygui.Events.PULL_DOWN_RELEASE, this, this.onPullDownRelease);  
-    aComponent.on(fairygui.Events.PULL_UP_RELEASE, this, this.onPullUpRelease);    
-```

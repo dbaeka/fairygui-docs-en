@@ -100,7 +100,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">Editor Start</a>
 	                </li>
 	            
 	                
@@ -146,6 +146,11 @@
 	                
 	                <li>
 	                    <a href="/guide/editor/component.html" class="sidebar-link">Component</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollpane.html" class="sidebar-link">ScrollPane</a>
 	                </li>
 	            
 	                
@@ -200,7 +205,12 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup Manage</a>
+	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/dragdrop.html" class="sidebar-link">Drag&Drop</a>
 	                </li>
 	            
 	                
@@ -220,7 +230,13 @@
 	                <li><h3>Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/unity/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/unity/index.html" class="sidebar-link">Unity Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/transform.html" class="sidebar-link">Unity Coordinate</a>
 	                </li>
 	            
 	                
@@ -232,7 +248,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/font.html" class="sidebar-link">Font handling</a>
+	                    <a href="/guide/unity/font.html" class="sidebar-link">Font Handling</a>
 	                </li>
 	            
 	                
@@ -262,7 +278,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall optimization</a>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall Optimization</a>
 	                </li>
 	            
 	                
@@ -271,14 +287,64 @@
 	                    <a href="/guide/unity/lua.html" class="sidebar-link">Used in Lua</a>
 	                </li>
 	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/special.html" class="sidebar-link">Unity Features</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/faq.html" class="sidebar-link">Unity FAQ</a>
+	                </li>
+	            
 
+	            
+	                
+	                
+	                <li><h3>Cocos2dx</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cocos2dx/index.html" class="sidebar-link">Cocos2dx Start</a>
+	                </li>
+	            
+	            
+	            
+	                
+	                
+	                <li><h3>CryEngine</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cry/index.html" class="sidebar-link">Cry Engine Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/transform.html" class="sidebar-link">Cry-Coordinate</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/input.html" class="sidebar-link">Cry-Input Processing</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/event.html" class="sidebar-link">Cry-Event System</a>
+	                </li>
+	            
+	            
 	            
 	                
 	                
 	                <li><h3>LayaAir</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/laya/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/laya/index.html" class="sidebar-link">LayaAir Start</a>
 	                </li>
 	            
 	
@@ -288,7 +354,7 @@
 	                <li><h3>Egret</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/egret/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/egret/index.html" class="sidebar-link">Egret Start</a>
 	                </li>
 	            
 
@@ -321,7 +387,7 @@
 <li><p><code>模式</code> 有三种按钮模式选择。</p>
 <ul>
 <li><code>普通按钮</code> 用于点击-&gt;响应的用途，无状态。</li>
-<li><code>单选按钮</code> 有一个是否选中的状态。被点击后处于选中状态，再点击仍然保持选中状态。</li>
+<li><code>单选按钮</code> 有一个是否选中的状态。被点击后处于选中状态，再点击仍然保持选中状态。如果要实现单选按钮组，那可以将多个单选按钮的“连接”属性绑定到同一个控制器，具体请参考<a href="controller.html#和按钮的联动">控制器</a>。</li>
 <li><code>复选按钮</code> 有一个是否选中的状态。被点击后处于选中状态，再点击则变成不选中状态。</li>
 </ul>
 </li>
@@ -355,7 +421,7 @@
 <ul>
 <li><p><code>状态</code> 单选按钮或多选按钮可以设置按钮是否处于选中状态。</p>
 </li>
-<li><p><code>标题</code> 设置的文本将赋值到标签组件内的“title”元件的文本属性。如果不存在“title”元件，则什么事都不会发生。</p>
+<li><p><code>标题</code> 设置的文本将赋值到标签组件内的“title”元件的文本属性。如果不存在“title”元件，则什么事都不会发生。<br>这里的输入框比较小，如果要输入大文本，则可以在输入激活时，按CTRL+ENTER，然后会弹出一个专门用于输入文本的窗口。</p>
 </li>
 <li><p><code>选中时标题</code> 当按钮处于选中状态时，设置标题属性为这里设置的值；当按钮处于不选中状态时，恢复原标题属性的值。</p>
 </li>
@@ -382,12 +448,16 @@
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//关闭后你只能通过改变selected属性修改按钮状态，用户点击不会改变状态。</span></div><div class="line">button.changeStateOnClick = <span class="literal">false</span>;</div></pre></td></tr></table></figure>
 <p>通过代码设置按钮与控制器的联动的方式是：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">button.pageOption.controller = aController;</div><div class="line">button.pageOption.index = <span class="number">1</span>; <span class="comment">//通过索引设置</span></div><div class="line">button.pageOption.name = <span class="string">"page_name"</span>; <span class="comment">//或通过页面名称设置</span></div></pre></td></tr></table></figure>
-<p>按钮可以模拟触发点击：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//模拟触发点击，只会有一个触发的表现，以及改变按钮状态，不会触发侦听按钮的点击事件。</span></div><div class="line">button.FireClick(<span class="literal">true</span>);</div><div class="line"></div><div class="line"><span class="comment">//如果同时要触发点击事件，需要额外调用：</span></div><div class="line">button.onClick.Call();</div></pre></td></tr></table></figure>
 <p>按钮全局声音的设置为：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">   <span class="comment">//Unity版本要求一个AudioClip对象，如果是使用库里面的资源，那么可以使用：</span></div><div class="line">   UIConfig.buttonSound = (AudioClip)UIPackage.GetItemAssetByURL(<span class="string">"ui://包名/声音名"</span>);</div><div class="line"></div><div class="line">   <span class="comment">//其他版本要求一个资源url，即：</span></div><div class="line">   UIConfig.buttonSound = <span class="string">"ui://包名/声音名"</span>;</div><div class="line"></div><div class="line">   <span class="comment">//全局音量    </span></div><div class="line">UIConfig.buttonSoundVolumeScale = <span class="number">1</span>f;</div></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity版本要求一个AudioClip对象，如果是使用库里面的资源，那么可以使用：</span></div><div class="line">UIConfig.buttonSound = (AudioClip)UIPackage.GetItemAssetByURL(<span class="string">"ui://包名/声音名"</span>);</div><div class="line"></div><div class="line"><span class="comment">//其他版本要求一个资源url，即：</span></div><div class="line">UIConfig.buttonSound = <span class="string">"ui://包名/声音名"</span>;</div><div class="line"></div><div class="line"><span class="comment">//全局音量    </span></div><div class="line">UIConfig.buttonSoundVolumeScale = <span class="number">1</span>f;</div></pre></td></tr></table></figure>
+<p>这个设置只能在创建任何UI前设置。如果要控制全局声音的开关或音量，可以这样：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//开关声音</span></div><div class="line">GRoot.inst.EnabledSound();</div><div class="line">GRoot.inst.DisableSound();</div><div class="line"></div><div class="line"><span class="comment">//调整全局声音音量，这个包括按钮声音和动效播放的声音</span></div><div class="line">GRoot.inst.soundVolume = <span class="number">0.5</span>f;</div></pre></td></tr></table></figure>
+<p>监听普通按钮点击的方式为：（注意，点击事件不只是按钮有，任何支持触摸的元件都有，例如普通组件、装载器、图形等，他们的点击事件注册方式和按钮是相同的。）</p>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry</span></div><div class="line">button.onClick.Add(onClick);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">button.addClickListener(onClick);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">button.addClickListener(<span class="keyword">this</span>.onClick, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya</span></div><div class="line">button.onClick(<span class="keyword">this</span>, <span class="keyword">this</span>.onClick);</div><div class="line"></div><div class="line"><span class="comment">//Cocos2dx</span></div><div class="line">button-&gt;addClickListener(CC_CALLBACK_1(AClass::onClick, this));</div></pre></td></tr></table></figure>
+<p>按钮可以模拟触发点击：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//模拟触发点击，只会有一个触发的表现，以及改变按钮状态，不会触发侦听按钮的点击事件。</span></div><div class="line">button.FireClick(<span class="literal">true</span>);</div><div class="line"></div><div class="line"><span class="comment">//如果同时要触发点击事件，需要额外调用：(仅Unity/Cry示例，其他平台自己研究）</span></div><div class="line">button.onClick.Call();</div></pre></td></tr></table></figure>
 <p>单选和多选按钮状态改变时有通知事件：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity</span></div><div class="line">button.onChanged.Add(onChanged);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">button.addEventListener(StateChangeEvent.CHANGED, onChanged);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">button.addEventListener(StateChangeEvent.CHANGED, <span class="keyword">this</span>.onChanged, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya</span></div><div class="line">button.<span class="keyword">on</span>(fairygui.Events.STATE_CHANGED, <span class="keyword">this</span>, <span class="keyword">this</span>.onChanged);</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry</span></div><div class="line">button.onChanged.Add(onChanged);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">button.addEventListener(StateChangeEvent.CHANGED, onChanged);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">button.addEventListener(StateChangeEvent.CHANGED, <span class="keyword">this</span>.onChanged, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya</span></div><div class="line">button.<span class="keyword">on</span>(fairygui.Events.STATE_CHANGED, <span class="keyword">this</span>, <span class="keyword">this</span>.onChanged);</div><div class="line"></div><div class="line"><span class="comment">//Cocos2dx</span></div><div class="line">button-&gt;addEventListener(UIEventType::Changed, CC_CALLBACK_1(AClass::onChanged, this));</div></pre></td></tr></table></figure>
     
     <div class="footer">
       found mistake? Want to participate in editing?

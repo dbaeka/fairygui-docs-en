@@ -100,7 +100,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">Editor Start</a>
 	                </li>
 	            
 	                
@@ -146,6 +146,11 @@
 	                
 	                <li>
 	                    <a href="/guide/editor/component.html" class="sidebar-link">Component</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollpane.html" class="sidebar-link">ScrollPane</a>
 	                </li>
 	            
 	                
@@ -200,7 +205,12 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup Manage</a>
+	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/dragdrop.html" class="sidebar-link">Drag&Drop</a>
 	                </li>
 	            
 	                
@@ -220,7 +230,13 @@
 	                <li><h3>Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/unity/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/unity/index.html" class="sidebar-link">Unity Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/transform.html" class="sidebar-link">Unity Coordinate</a>
 	                </li>
 	            
 	                
@@ -232,7 +248,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/font.html" class="sidebar-link">Font handling</a>
+	                    <a href="/guide/unity/font.html" class="sidebar-link">Font Handling</a>
 	                </li>
 	            
 	                
@@ -262,7 +278,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall optimization</a>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall Optimization</a>
 	                </li>
 	            
 	                
@@ -271,14 +287,64 @@
 	                    <a href="/guide/unity/lua.html" class="sidebar-link">Used in Lua</a>
 	                </li>
 	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/special.html" class="sidebar-link">Unity Features</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/faq.html" class="sidebar-link">Unity FAQ</a>
+	                </li>
+	            
 
+	            
+	                
+	                
+	                <li><h3>Cocos2dx</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cocos2dx/index.html" class="sidebar-link">Cocos2dx Start</a>
+	                </li>
+	            
+	            
+	            
+	                
+	                
+	                <li><h3>CryEngine</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cry/index.html" class="sidebar-link">Cry Engine Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/transform.html" class="sidebar-link">Cry-Coordinate</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/input.html" class="sidebar-link">Cry-Input Processing</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/event.html" class="sidebar-link">Cry-Event System</a>
+	                </li>
+	            
+	            
 	            
 	                
 	                
 	                <li><h3>LayaAir</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/laya/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/laya/index.html" class="sidebar-link">LayaAir Start</a>
 	                </li>
 	            
 	
@@ -288,7 +354,7 @@
 	                <li><h3>Egret</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/egret/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/egret/index.html" class="sidebar-link">Egret Start</a>
 	                </li>
 	            
 
@@ -306,17 +372,28 @@
     
       <h1>Input processing</h1>
     
-    <h2 id="鼠标-触摸输入"><a href="#鼠标-触摸输入" class="headerlink" title="鼠标/触摸输入"></a>鼠标/触摸输入</h2><p>FairyGUI使用内置的机制进行鼠标和触摸事件的处理，不使用射线。如果要使用射线，可以将UIPanel的“HitTest Mode”设置为“Raycast”。</p>
+    <h2 id="鼠标-触摸输入"><a href="#鼠标-触摸输入" class="headerlink" title="鼠标/触摸输入"></a>鼠标/触摸输入</h2><p>FairyGUI使用内置的机制进行鼠标和触摸事件的处理，不使用射线。如果确实要使用射线，可以将UIPanel的“HitTest Mode”设置为“Raycast”。无论哪种点击检测模式，下面的事件处理机制都一样。</p>
 <p>如果要区分点击UI还是点击场景里的对象，可以使用下面的方法：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">if</span>(Stage.isTouchOnUI) <span class="comment">//点在了UI上</span></div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"><span class="keyword">else</span> <span class="comment">//没有点在UI上</span></div><div class="line">&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>这种检测不仅适用于点击，也适用于悬停。例如，如果鼠标悬停在UI上，这个判断也是真。</p>
-<p>在任何事件回调中都可以获得当前鼠标或手指位置，例如：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">EventHandler</span>(<span class="params">EventContext context</span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    Debug.Log(context.inputEvent.x + <span class="string">", "</span> + context.inputEvent.y);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>和鼠标/触摸相关的事件有：</p>
+<ul>
+<li><code>onTouchBegin</code> 鼠标按键按下（左、中、右键），或者手指按下。鼠标按钮可以从context.inputEvent.button获得，0-左键,1-中键,2-右键。</li>
+<li><code>onTouchMove</code> 鼠标指针移动或者手指在屏幕上移动。这个事件只有两种情况会触发，1、在onTouchBegin里调用了context.CaptureTouch()，那么后续的移动事件都会在这个对象上触发（无论手指或指针位置是不是在该对象上方）。2、舞台的onTouchMove始终会触发，即Stage.inst.onTouchMove，它不需要使用CaptureTouch捕获。在PC平台上鼠标只要移动，就可以触发；在手机平台上，只有手指按下后移动才会触发。</li>
+<li><code>onTouchEnd</code> 鼠标按键释放或者手指从屏幕上离开。如果鼠标或者触摸位置已经不在组件范围内了，那么组件的TouchEnd事件是不会触发的，如果确实需要，可以在onTouchBegin里调用context.CaptureTouch()请求捕获。</li>
+<li><code>onClick</code> 鼠标或者手指点击。可以从context.inputEvent.isDoubleClick判断是否双击。<strong>如果你在找长按事件，那么请使用LongPressGesture<a href="#手势">(长按手势)</a>。</strong></li>
+<li><code>onRightClick</code> 鼠标右键点击。</li>
+</ul>
+<p>在任何事件（即不只是鼠标/触摸相关的事件）回调中都可以获得当前鼠标或手指位置，以及点击的对象，例如：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">AnyEventHandler</span>(<span class="params">EventContext context</span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="comment">//点击位置，注意是屏幕坐标，要转换本地坐标要使用GlobalToLocal</span></div><div class="line">    Debug.Log(context.inputEvent.x + <span class="string">", "</span> + context.inputEvent.y);</div><div class="line"></div><div class="line">    <span class="comment">//获取点击的对象</span></div><div class="line">    Debug.Log((GObject)context.sender);</div><div class="line">    <span class="comment">//如果事件是冒泡的，可以获得最底层的对象。但要注意，这里的对象类型是DisplayObject，不是GObject。</span></div><div class="line">    Debug.Log((DisplayObject)context.initiator);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>如果不在事件中，需要获得当前鼠标或者手指的位置，可以用：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//这是鼠标的位置，或者最后一个手指的位置</span></div><div class="line">Vector2 pos1 = Stage.inst.touchPosition;</div><div class="line"></div><div class="line"><span class="comment">//获取指定手指的位置，参数是手指id</span></div><div class="line">Vector2 pos2 = Stage.inst.GetTouchPosition(<span class="number">1</span>);</div><div class="line"></div><div class="line"><span class="comment">//这是当前按下的手指的数量</span></div><div class="line"><span class="keyword">int</span> touchCount = Stage.inst.touchCount;</div><div class="line"></div><div class="line"><span class="comment">//获得当前所有按下的手指</span></div><div class="line"><span class="keyword">int</span>[] touchIDs = Stage.inst.GetAllTouch(<span class="literal">null</span>);</div></pre></td></tr></table></figure>
-<p>如果要侦听鼠标或者手指的移动，FairyGUI提供了一个全局的事件。注意：在需要时侦听，不需要时请移除。</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Stage.inst.onTouchMove.Add(onTouchMove);</div></pre></td></tr></table></figure>
-<h2 id="VR输入处理"><a href="#VR输入处理" class="headerlink" title="VR输入处理"></a>VR输入处理</h2><p>VR里输入一般使用凝视输入，或者手柄输入，针对这些新的输入方式，FairyGUI提供了封装支持，也就是说，在VR应用里，你仍然可以像处理鼠标或者触摸输入一样处理VR的输入。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//这是鼠标的位置，或者最后一个手指的位置</span></div><div class="line">Vector2 pos1 = Stage.inst.touchPosition;</div><div class="line"></div><div class="line"><span class="comment">//获取指定手指的位置，参数是手指id</span></div><div class="line">Vector2 pos2 = Stage.inst.GetTouchPosition(<span class="number">1</span>);</div></pre></td></tr></table></figure>
+<p>在任何时候，如果需要获得当前点击的对象，或者鼠标下的对象，都可以通过以下的方式获得：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GObject obj = GRoot.inst.touchTarget;</div><div class="line"></div><div class="line"><span class="comment">//判断是不是在某个组件内</span></div><div class="line">Debug.Log(testComponent.IsAncestorOf(obj));</div></pre></td></tr></table></figure>
+<h2 id="多点触摸"><a href="#多点触摸" class="headerlink" title="多点触摸"></a>多点触摸</h2><p>FairyGUI支持多点触摸的处理。每个手指都会按照TouchBegin-&gt;TouchMove-&gt;TouchEnd流程派发事件，可以使用EventContext.inputEvent.touchId区分不同的手指。一般来说，普通的点击事件无需关心手指id，只有需要用到整个触摸流程的才需要处理。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//这是当前按下的手指的数量</span></div><div class="line"><span class="keyword">int</span> touchCount = Stage.inst.touchCount;</div><div class="line"></div><div class="line"><span class="comment">//获得当前所有按下的手指id</span></div><div class="line"><span class="keyword">int</span>[] touchIDs = Stage.inst.GetAllTouch(<span class="literal">null</span>);</div></pre></td></tr></table></figure>
+<p>如果你不想使用多点触摸功能，可以使用Unity的API：Input.multiTouchEnabled = false关闭。</p>
+<h2 id="VR输入处理"><a href="#VR输入处理" class="headerlink" title="VR输入处理"></a>VR输入处理</h2><p>VR里输入一般使用凝视输入，或者手柄输入，针对这些新的输入方式，FairyGUI提供了封装支持，也就是说，在VR应用里，你仍然可以像处理鼠标或者触摸输入一样处理VR的输入，无任何区别。</p>
 <p>首先，需要把这些外部输入传入FairyGUI。在Stage类里提供了这些API：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SetCustomInput</span>(<span class="params"><span class="keyword">ref</span> RaycastHit hit, <span class="keyword">bool</span> buttonDown</span>)</span>;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SetCustomInput</span>(<span class="params"><span class="keyword">ref</span> RaycastHit hit, <span class="keyword">bool</span> buttonDown, <span class="keyword">bool</span> buttonUp</span>)</span>;</div></pre></td></tr></table></figure>
 <ul>
@@ -332,21 +409,19 @@
 <h2 id="键盘输入"><a href="#键盘输入" class="headerlink" title="键盘输入"></a>键盘输入</h2><p>侦听键盘输入的方法是：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Stage.inst.onKeyDown.Add(OnKeyDown);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">OnKeyDown</span>(<span class="params">EventContext context</span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    Debug.Log(context.inputEvent.keyCode);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>在手机上是通过原生的键盘输入。键盘弹出时，派发GTextInput.onFocusIn事件，键盘收回时，派发GTextInput.onFocusOut事件。</p>
-<p>Unity在键盘输入时自带了一个额外的输入框，如果你不需要这个输入框，希望像微信那样弹出自己的输入框，你需要自行编写原生支持，FairyGUI这边提供的支持有：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//取消Unity弹出原生的键盘的行为</span></div><div class="line">Stage.keyboardInput = <span class="literal">false</span>;</div><div class="line"></div><div class="line"><span class="comment">//插入字符到光标位置</span></div><div class="line">Stage.inst.InputString(<span class="string">"xxx"</span>);</div></pre></td></tr></table></figure>
+<p>Unity在键盘输入时自带了一个额外的输入框，如果你不需要这个输入框，希望像微信那样弹出自己的输入框，你需要自行编写原生代码，FairyGUI这边提供的支持有：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//定义自己的键盘</span></div><div class="line">KeyBoard yourKeyboard;</div><div class="line"></div><div class="line">Stage.inst.keyboard = yourKeyboard;</div></pre></td></tr></table></figure>
 <p><strong>复制粘贴问题</strong></p>
-<p>当使用DLL形式的插件时，因为DLL默认是为移动平台编译的，所以不支持复制粘贴（如果要支持，需要自己写原生）。如果是在PC平台上使用时，需要将<a href="https://github.com/fairygui/FairyGUI-unity/blob/master/Examples.Unity5/Assets/FairyGUI/CopyPastePatch.cs" target="_blank" rel="external">CopyPastePatch.cs</a>放到工程里，并在游戏启动时调用CopyPastePatch.Apply()，就可以在PC平台激活复制粘贴功能。如果你是使用源码形式的插件，不需要进行这个处理。</p>
-<h2 id="手势"><a href="#手势" class="headerlink" title="手势"></a>手势</h2><p>FairyGUI提供了常用手势的支持，它们是：</p>
-<ul>
-<li><p><code>LongPressGesture</code> 长按手势。</p>
-</li>
-<li><p><code>SwipeGesture</code> 手指划动手势。</p>
-</li>
-<li><p><code>PinchGesture</code> 两指缩放手势。</p>
-</li>
-<li><p><code>RotationGesture</code> 两指旋转手势。</p>
-</li>
-</ul>
+<p>当使用DLL形式的插件时，因为DLL默认是为移动平台编译的，所以不支持复制粘贴（如果要支持，需要自己写原生代码支持）。如果是在PC平台上使用时，需要将<a href="https://github.com/fairygui/FairyGUI-unity/blob/master/Examples.Unity5/Assets/FairyGUI/CopyPastePatch.cs" target="_blank" rel="external">CopyPastePatch.cs</a>放到工程里，并在游戏启动时调用CopyPastePatch.Apply()，就可以在PC平台激活复制粘贴功能。<strong>如果你是使用源码形式的插件，不需要进行这个处理。</strong></p>
+<h2 id="手势"><a href="#手势" class="headerlink" title="手势"></a>手势</h2><p>FairyGUI提供了手势的支持。使用手势的方式是：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">LongPressGesture gesture = <span class="keyword">new</span> LongPressGesture(targetObject);</div><div class="line">gesture.onAction.Add(OnGestureAction);</div></pre></td></tr></table></figure>
+<p>targetObject是接收手势的元件，注意一定要是可触摸的。图片是不可触摸的，一般建议用组件，或者图形（图形透明度可以设置为0）。如果你需要全屏幕监测手势，那么可以直接用GRoot.inst作为targetObject（需1.9.0 SDK或更高版本支持）</p>
+<p>常用的手势有：</p>
+<p><code>LongPressGesture</code> 长按手势。</p>
+<p><code>SwipeGesture</code> 手指划动手势。</p>
+<p><code>PinchGesture</code>两指缩放手势。</p>
+<p><code>RotationGesture</code> 两指旋转手势。</p>
+<p>手势的使用方法可以参考Gesture这个Demo。</p>
 
     
     <div class="footer">

@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
     
-        <title>FairyGUI - Instructions</title>
+        <title>FairyGUI - Unity Start</title>
     
         <meta charset="utf-8">
         <meta name="description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
@@ -12,11 +12,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="Instructions — FairyGUI">
+        <meta property="og:title" content="Unity Start — FairyGUI">
         <meta property="og:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="Instructions — FairyGUI">
+        <meta name="twitter:title" content="Unity Start — FairyGUI">
         <meta name="twitter:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
 
 
@@ -100,7 +100,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/index.html" class="sidebar-link current">Instructions</a>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">Editor Start</a>
 	                </li>
 	            
 	                
@@ -146,6 +146,11 @@
 	                
 	                <li>
 	                    <a href="/guide/editor/component.html" class="sidebar-link">Component</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollpane.html" class="sidebar-link">ScrollPane</a>
 	                </li>
 	            
 	                
@@ -200,7 +205,12 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup Manage</a>
+	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/dragdrop.html" class="sidebar-link">Drag&Drop</a>
 	                </li>
 	            
 	                
@@ -220,7 +230,13 @@
 	                <li><h3>Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/unity/index.html" class="sidebar-link current">Instructions</a>
+	                    <a href="/guide/unity/index.html" class="sidebar-link current">Unity Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/transform.html" class="sidebar-link">Unity Coordinate</a>
 	                </li>
 	            
 	                
@@ -232,7 +248,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/font.html" class="sidebar-link">Font handling</a>
+	                    <a href="/guide/unity/font.html" class="sidebar-link">Font Handling</a>
 	                </li>
 	            
 	                
@@ -262,7 +278,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall optimization</a>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall Optimization</a>
 	                </li>
 	            
 	                
@@ -271,14 +287,64 @@
 	                    <a href="/guide/unity/lua.html" class="sidebar-link">Used in Lua</a>
 	                </li>
 	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/special.html" class="sidebar-link">Unity Features</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/faq.html" class="sidebar-link">Unity FAQ</a>
+	                </li>
+	            
 
+	            
+	                
+	                
+	                <li><h3>Cocos2dx</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cocos2dx/index.html" class="sidebar-link">Cocos2dx Start</a>
+	                </li>
+	            
+	            
+	            
+	                
+	                
+	                <li><h3>CryEngine</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cry/index.html" class="sidebar-link">Cry Engine Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/transform.html" class="sidebar-link">Cry-Coordinate</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/input.html" class="sidebar-link">Cry-Input Processing</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/event.html" class="sidebar-link">Cry-Event System</a>
+	                </li>
+	            
+	            
 	            
 	                
 	                
 	                <li><h3>LayaAir</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/laya/index.html" class="sidebar-link current">Instructions</a>
+	                    <a href="/guide/laya/index.html" class="sidebar-link">LayaAir Start</a>
 	                </li>
 	            
 	
@@ -288,7 +354,7 @@
 	                <li><h3>Egret</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/egret/index.html" class="sidebar-link current">Instructions</a>
+	                    <a href="/guide/egret/index.html" class="sidebar-link">Egret Start</a>
 	                </li>
 	            
 
@@ -304,14 +370,14 @@
 
 <div class="content guide_unity with-sidebar ">
     
-      <h1>Instructions</h1>
+      <h1>Unity Start</h1>
     
     <h2 id="加载UI包"><a href="#加载UI包" class="headerlink" title="加载UI包"></a>加载UI包</h2><p>Unity项目载入UI包有以下几种方式，开发者可以根据项目需要选择其中一种或者多种方式混搭使用：</p>
 <ol>
 <li><p>将打包后的文件直接发布到Unity的Resources目录或者其子目录下，</p>
 <p><img src="../../images/2015-10-21_151409.png" alt=""></p>
 <p>这种方式处理的UI包，如果使用UIPanel显示UI，不需要任何代码载入；如果是动态创建UI，要使用代码载入包：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//demo就是发布时填写的文件名</span></div><div class="line">UIPackage.AddPackage(<span class="string">"demo"</span>);</div><div class="line"></div><div class="line"><span class="comment">//如果在子目录下</span></div><div class="line">UIPackage.AddPacakge(<span class="string">"路径/demo"</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//demo就是发布时填写的文件名</span></div><div class="line">UIPackage.AddPackage(<span class="string">"demo"</span>);</div><div class="line"></div><div class="line"><span class="comment">//如果在子目录下</span></div><div class="line">UIPackage.AddPackage(<span class="string">"路径/demo"</span>);</div></pre></td></tr></table></figure>
 </li>
 <li><p>将发布后的文件打包为两个AssetBundle，即定义文件和资源各打包为一个bundle(desc_bundle+res_bundle)。这样做的好处是一般UI的更新都是修改元件位置什么的，不涉及图片资源的更新，那么只需要重新打包和推送desc_bundle就行了，不需要让玩家更新通常体积比较大的res_bundle，节省流量。打包程序由开发者按照自己熟悉的方式自行实现。以demo为例，请遵循以下规则打包：</p>
 <ul>
@@ -326,7 +392,11 @@
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//bundle的载入由开发者自行实现。</span></div><div class="line">UIPackage.AddPackage(bundle);</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p><strong>在使用AssetBundle的载入方案中，将由FairyGUI接管bundle并负责bundle资源的释放。</strong></p>
+<p><strong>在使用AssetBundle的载入方案中，AddPackge提供了一个参数，用于控制是否由FairyGUI接管bundle并负责bundle资源的释放。默认为true，即由FairyGUI接管bundle并负责bundle资源的释放</strong></p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//第二个参数为false，表示不需要让FairyGUI释放bundle。</span></div><div class="line">UIPackage.AddPackage(bundle, <span class="literal">false</span>);</div></pre></td></tr></table></figure>
+<h2 id="卸载UI包"><a href="#卸载UI包" class="headerlink" title="卸载UI包"></a>卸载UI包</h2><p>当一个包不再使用时，可以将其卸载。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//这里可以使用包的id，包的名称，包的路径，均可以</span></div><div class="line">UIPackage.RemovePackage(<span class="string">"package"</span>);</div></pre></td></tr></table></figure>
+<p>包卸载后，所有包里包含的贴图等资源均会被卸载，由包里创建出来的组件也无法显示正常（虽然不会报错），所以这些组件应该（或已经）被销毁。<br>一般不建议包进行频繁装载卸载，因为每次装载卸载必然是要消耗CPU时间（意味着耗电）和产生大量GC的。UI系统占用的内存是可以精确估算的，你可以按照包的使用频率设定哪些包是常驻内存的（建议尽量多）。</p>
 <h2 id="UIPanel"><a href="#UIPanel" class="headerlink" title="UIPanel"></a>UIPanel</h2><p>在Unity中使用编辑器制作的界面有两种方式，第一种是使用UIPanel。</p>
 <p>只需3步就可以使用将编辑器中制作好的界面放入到Unity的场景中。</p>
 <ol>
@@ -345,7 +415,7 @@
 <p><img src="../../images/2017-08-08_213749.png" alt=""></p>
 <p>运行时，获得UIPanel的UI的方式是：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">UIPanel panel = gameObject.GetComponent&lt;UIPanel&gt;();</div><div class="line">GComponent view = panel.ui;</div></pre></td></tr></table></figure>
-<p>UIPanel在GameObjec销毁时（手动销毁或者过场景等）时会一并销毁。</p>
+<p>UIPanel在GameObject销毁时（手动销毁或者过场景等）会一并销毁。</p>
 <p>UIPane只保存了UI包的名称和组件的名称，它不对纹理或其他资源产生任何引用，也就是UI使用的资源不会包含在场景数据中。</p>
 <p>在编辑状态下，无论UI组件引用了哪些UI包的资源，包括放置在Resources目录下的和不放置在Resources下的，都能够正确显示。<strong>但当运行后，UIPanel只能自动载入放置在Resources目录或其子目录下的UI包，也只会载入自身所在的UI包，其他情况的UI包（例如引用到的UI包或打包到AssetBundle的UI包）不能自动载入</strong>。你需要在UIPanel创建前使用UIPackage.AddPackage准备好这类UI包。UIPanel在Start事件或者第一次访问UIPanel.ui属性时创建UI界面，你仍然有机会在Awake里完成这些操作。</p>
 <p>下面是UIPanel的一些属性说明：</p>
@@ -397,7 +467,7 @@
 </ul>
 <p><strong>动态创建UIPanel</strong></p>
 <p>UIPanel也可以在游戏中创建，为任意游戏对象动态挂接UI界面，例如：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//UIPanel的生命周期将和yourGameObject保持一致。再次提醒，注意yourGameObject的layer。</span></div><div class="line">UIPanel panel = yourGameObject.AddComponent&lt;UIPanel&gt;();</div><div class="line">panel.packageName = “包名”;</div><div class="line">panel.componentName = “组件名”;</div><div class="line"></div><div class="line"><span class="comment">//设置renderMode的方式</span></div><div class="line">panel.container.renderMode = RenderMode.WorldSpace;</div><div class="line"></div><div class="line"><span class="comment">//设置fairyBatching</span></div><div class="line">panel.fairyBatching = <span class="literal">true</span>;</div><div class="line"></div><div class="line"><span class="comment">//设置sortingOrder的方式</span></div><div class="line">panel.SetSortingOrder(<span class="number">1</span>, <span class="literal">true</span>);</div><div class="line"></div><div class="line"><span class="comment">//设置hitTestMode的方式</span></div><div class="line">panel.SetHitTestMode(HitTestMode.Default);</div><div class="line"></div><div class="line">panel.CreateUI();</div></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//UIPanel的生命周期将和yourGameObject保持一致。再次提醒，注意yourGameObject的layer。</span></div><div class="line">UIPanel panel = yourGameObject.AddComponent&lt;UIPanel&gt;();</div><div class="line">panel.packageName = “包名”;</div><div class="line">panel.componentName = “组件名”;</div><div class="line"></div><div class="line"><span class="comment">//下面这是设置选项非必须</span></div><div class="line"></div><div class="line"><span class="comment">//设置renderMode的方式</span></div><div class="line">panel.container.renderMode = RenderMode.WorldSpace;</div><div class="line"></div><div class="line"><span class="comment">//设置fairyBatching的方式</span></div><div class="line">panel.container.fairyBatching = <span class="literal">true</span>;</div><div class="line"></div><div class="line"><span class="comment">//设置sortingOrder的方式</span></div><div class="line">panel.SetSortingOrder(<span class="number">1</span>, <span class="literal">true</span>);</div><div class="line"></div><div class="line"><span class="comment">//设置hitTestMode的方式</span></div><div class="line">panel.SetHitTestMode(HitTestMode.Default);</div><div class="line"></div><div class="line"><span class="comment">//最后，创建出UI</span></div><div class="line">panel.CreateUI();</div></pre></td></tr></table></figure>
 <p><strong>UIPanel的排序</strong></p>
 <p>UIPanel在屏幕上的显示顺序是由他的sortingOrder属性决定的。sortingOrder越大，显示在越前面（越靠近屏幕）。但这里的排序是指同一个相机下的UIPanel。如果两个UIPanel由不同的相机渲染，那么他们的显示层次首先是由相机的深度（Depth）决定的，渲染相机深度较大的UIPanel一定显示在前面。</p>
 <p>对于RenderMode为ScreenSpace的UIPanel，特别的，1000是一个特殊的层次，它表示2D UI（GRoot）的显示层次，也就是说，sortingOrder大于1000的UIPanel会显示在2D UI的上面，小于1000的都显示在2D UI的下面。</p>
@@ -412,18 +482,20 @@
 </ol>
 <h2 id="动态创建UI"><a href="#动态创建UI" class="headerlink" title="动态创建UI"></a>动态创建UI</h2><p>在很多情况下，你并不需要将UI界面放到场景中。另外一种常用的创建UI对象的方式是：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GComponent view = UIPackage.CreateObject(“包名”, “组件名”).asCom;</div><div class="line"></div><div class="line"><span class="comment">//以下几种方式都可以将view显示出来：</span></div><div class="line"></div><div class="line"><span class="comment">//1，直接加到GRoot显示出来</span></div><div class="line">GRoot.inst.AddChild(view);</div><div class="line"></div><div class="line"><span class="comment">//2，使用窗口方式显示</span></div><div class="line">aWindow.contentPane = view;</div><div class="line">aWindow.Show();</div><div class="line"></div><div class="line"><span class="comment">//3，加到其他组件里</span></div><div class="line">aComponnent.AddChild(view);</div></pre></td></tr></table></figure>
+<p>如果界面内容过多，创建时可能引起卡顿，FairyGUI提供了异步创建UI的方式，异步创建方式下，每帧消耗的CPU时间将受到控制，但创建时间也会比同步创建稍长一点。例如：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">UIPackage.CreateObjectAsync(<span class="string">"包名"</span>,<span class="string">"组件名"</span>, MyCreateObjectCallback);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">MyCreateObjectCallback</span>(<span class="params">GObject obj</span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>动态创建的界面不会自动销毁，例如一个背包窗口，你并不需要在每次过场景都销毁。如果要销毁界面，需要手工调用Dispose方法，例如</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">view.Dispose();</div></pre></td></tr></table></figure>
-<p><strong>使用UIPanel和UIPackage.CreateObject的场合</strong></p>
-<p>UIPanel最常用的地方就是3D UI。他可以方便地将UI挂到任意GameObject上。当然，UIPanel在2D UI中也可以使用，他的优点是可以直接摆放在场景中，符合Unity的ECS架构。缺点是是这种用法对UI管理带来很多麻烦，特别是对中大型游戏。</p>
-<p>使用UIPackage.CreateObject可以使用代码创建任何界面，可以应用在传统的设计模式中，Lua支持也十分方便。不过必须要小心处理生成的对象的生命周期。</p>
+<p><strong>使用UIPanel和UIPackage.CreateObject的场合和注意事项</strong></p>
+<p>UIPanel最常用的地方就是3D UI。他可以方便地将UI挂到任意GameObject上。当然，UIPanel在2D UI中也可以使用，他的优点是可以直接摆放在场景中，符合Unity的ECS架构。缺点是这种用法对UI管理带来很多麻烦，特别是对中大型游戏。</p>
+<p>使用UIPackage.CreateObject可以使用代码创建任何界面，可以应用在传统的设计模式中，Lua支持也十分方便。不过必须要小心处理生成的对象的生命周期，因为它需要手动显式销毁，并且永远不要将使用CreateObject创建出来的对象挂到其他一些普通GameObject上，否则那些GameObject销毁时会一并销毁这个UI里的GameObject，但这个UI又还处于正常使用状态，就会出现空引用错误。</p>
 <h2 id="Stage-Camera"><a href="#Stage-Camera" class="headerlink" title="Stage Camera"></a>Stage Camera</h2><p>当添加UIPanel后，或者第一次动态创建UI时，场景里会自动新增一个“Stage Camera”。这是默认的UI相机。你也可以手动在场景里增加这个UI相机：</p>
 <p><img src="../../images/2017-08-09_174219.png" alt=""></p>
 <p>“Stage Camera”一般不需要修改它的属性，除了下面这个：</p>
 <ul>
 <li><code>Constant Size</code> 是否使用固定的相机大小。默认是true。这个选项仅影响粒子效果的缩放。当取值为true时，屏幕放大或缩小，粒子效果也会随着放大和缩小，这适用于手机游戏；当取值为false时，屏幕放大或缩小，粒子效果不会随着放大和缩小，这适用于PC游戏。</li>
 </ul>
-<h2 id="UIContentScaler"><a href="#UIContentScaler" class="headerlink" title="UIContentScaler"></a>UIContentScaler</h2><p>UIContentScaler组件是用来设置适配的。在启动场景里任何一个GameObject挂上UIContentScaler组件即可。并不需要每个场景都挂。</p>
+<h2 id="UIContentScaler"><a href="#UIContentScaler" class="headerlink" title="UIContentScaler"></a>UIContentScaler</h2><p>UIContentScaler组件是用来设置适配的。在启动场景里任何一个GameObject挂上UIContentScaler组件即可。并不需要每个场景都挂。<br><strong>使用UIContentScaler和使用GRoot.inst.setContentScaleFactor的效果是完全一样的，选择其中一种方式设置适配即可。</strong></p>
 <p><img src="../../images/2016-03-23_125255.png" alt=""></p>
 <ul>
 <li><code>Scale Mode</code> 缩放模式。<ul>
@@ -438,20 +510,7 @@
 </ul>
 <h2 id="UIConfig"><a href="#UIConfig" class="headerlink" title="UIConfig"></a>UIConfig</h2><p>UIConfig组件用于设置一些全局的参数。使用UIConfig组件设置和在代码中使用UIConfig类设置全局参数效果是一样的。UIConfig组件还可以加载包，点击<code>Preload Packages</code>下面的Add即可。</p>
 <p><img src="../../images/2016-04-06_095535.png" alt=""></p>
-<h2 id="坐标转换"><a href="#坐标转换" class="headerlink" title="坐标转换"></a>坐标转换</h2><p>FairyGUI是以左上角为原点的，Unity的屏幕坐标是以左下角为原点的。如果需要进行这两者的转换，可以用：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity的屏幕坐标系，以左下角为原点</span></div><div class="line">Vector2 pos = Input.mousePosition;</div><div class="line"></div><div class="line"><span class="comment">//转换为FairyGUI的屏幕坐标</span></div><div class="line">pos.y = Screen.height - pos.y;</div></pre></td></tr></table></figure>
-<p>如果要获得任意一个UI元件在屏幕上的坐标，可以用：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Vector2 screenPos = aObject.LocalToGlobal(Vector2.zero);</div></pre></td></tr></table></figure>
-<p>如果要获取屏幕坐标在UI元件上的局部坐标，可以用：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Vector2 screenPos = Stage.inst.touchPosition;</div><div class="line">Vector2 localPos = aObject.GlobalToLocal(screenPos);</div></pre></td></tr></table></figure>
-<p>如果有UI适配导致的全局缩放，那么逻辑屏幕大小和物理屏幕大小不一致，逻辑屏幕的坐标就是GRoot里的坐标。如果要进行局部坐标与逻辑屏幕坐标的转换，可以用：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//物理屏幕坐标转换为逻辑屏幕坐标</span></div><div class="line">Vector2 logicScreenPos = GRoot.inst.GlobalToLocal(screenPos);</div><div class="line"></div><div class="line"><span class="comment">//UI元件坐标与逻辑屏幕坐标之间的转换</span></div><div class="line">aObject.LocalToRoot(pos);</div><div class="line">aObject.RootToLocal(pos);</div></pre></td></tr></table></figure>
-<p>如果要转换任意两个UI对象间的坐标，例如需要知道A里面的坐标(10,10)在B里面的位置，可以用：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Vector2 posInB = aObject.TransformPoint(bObject, <span class="keyword">new</span> Vector2(<span class="number">10</span>,<span class="number">10</span>));</div></pre></td></tr></table></figure>
-<p>如果要转换世界空间的坐标到UI里的坐标，可以用：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Vector3 screenPos = Camera.main.WorldToScreenPoint(worldPos);</div><div class="line"><span class="comment">//原点位置转换</span></div><div class="line">screenPos.y = Screen.height - screenPos.y; </div><div class="line">Vector2 pt = GRoot.inst.GlobalToLocal(screenPos);</div></pre></td></tr></table></figure>
-<p>如果要转换UI里的坐标到世界空间的坐标，可以用：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Vector2 screenPos = GRoot.inst.LocalToGlobal(pos);</div><div class="line"><span class="comment">//原点位置转换</span></div><div class="line">screenPos.y = Screen.height - screenPos.y; </div><div class="line">Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);</div></pre></td></tr></table></figure>
+
     
     <div class="footer">
       found mistake? Want to participate in editing?

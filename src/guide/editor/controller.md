@@ -16,7 +16,7 @@ order: 100
 
 每个组件都可以创建一个或多个控制器，如下图所示：
 
-![](../../images/20170726162538.png)
+![](../../images/20170802225854.png)
 
 点击创建控制器或修改控制器，弹出以下页面：
 
@@ -106,7 +106,7 @@ order: 100
 
 - `持续时间` 整个缓动过程持续的时间，单位秒。
 - `延迟时间` 控制器页面切换后，延迟一定时间再开始缓动。单位秒。
-- `缓动函数` 时间/速度曲线。详细请参考 [图解](../../images/20170802000005.png) [示例](https://greensock.com/ease-visualizer)。
+- `缓动函数` 时间/速度曲线。详细请参考 [图解](../../images/20170802000005.jpg) [示例](https://greensock.com/ease-visualizer)。
 
 ### 大小控制
 
@@ -263,7 +263,7 @@ order: 100
 控制器改变时有通知事件：
 
 ```csharp
-    //Unity
+    //Unity/Cry
     c1.onChanged.Add(onChanged);
 
     //AS3
@@ -274,9 +274,28 @@ order: 100
 
     //Laya
     c1.on(fairygui.Events.STATE_CHANGED, this, this.onChanged);
+
+    //Cocos2dx
+    c1->addEventListener(UIEventType::Changed, CC_CALLBACK_1(AClass::onChanged, this));
 ```
 
-改变控制器页面时，与之连接的属性控制可能带有缓动，如果你正在做界面的初始化，可能不希望出现缓动。可以这样做：
+改变控制器页面时，与之连接的属性控制可能带有缓动，如果你要获得缓动结束的通知，可以侦听GearStop事件：
+
+```csharp
+    //Unity/Cry
+    aObject.OnGearStop.Add(OnGearStop);
+
+    //Egret
+    c1.addEventListener(GObject.GEAR_STOP, this.OnGearStop, this);
+
+    //Laya
+    c1.on(fairygui.Events.GEAR_STOP, this, this.OnGearStop);
+
+    //Cocos2dx
+    c1->addEventListener(UIEventType::GearStop, CC_CALLBACK_1(AClass::OnGearStop, this));
+```
+
+如果你正在做界面的初始化，可能不希望出现缓动。可以这样做：
 
 ```csharp
     //禁止所有控制器引起的缓动

@@ -100,7 +100,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">Editor Start</a>
 	                </li>
 	            
 	                
@@ -146,6 +146,11 @@
 	                
 	                <li>
 	                    <a href="/guide/editor/component.html" class="sidebar-link">Component</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollpane.html" class="sidebar-link">ScrollPane</a>
 	                </li>
 	            
 	                
@@ -200,7 +205,12 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup Manage</a>
+	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/dragdrop.html" class="sidebar-link">Drag&Drop</a>
 	                </li>
 	            
 	                
@@ -220,7 +230,13 @@
 	                <li><h3>Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/unity/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/unity/index.html" class="sidebar-link">Unity Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/transform.html" class="sidebar-link">Unity Coordinate</a>
 	                </li>
 	            
 	                
@@ -232,7 +248,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/font.html" class="sidebar-link">Font handling</a>
+	                    <a href="/guide/unity/font.html" class="sidebar-link">Font Handling</a>
 	                </li>
 	            
 	                
@@ -262,7 +278,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall optimization</a>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall Optimization</a>
 	                </li>
 	            
 	                
@@ -271,14 +287,64 @@
 	                    <a href="/guide/unity/lua.html" class="sidebar-link">Used in Lua</a>
 	                </li>
 	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/special.html" class="sidebar-link">Unity Features</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/faq.html" class="sidebar-link">Unity FAQ</a>
+	                </li>
+	            
 
+	            
+	                
+	                
+	                <li><h3>Cocos2dx</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cocos2dx/index.html" class="sidebar-link">Cocos2dx Start</a>
+	                </li>
+	            
+	            
+	            
+	                
+	                
+	                <li><h3>CryEngine</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cry/index.html" class="sidebar-link">Cry Engine Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/transform.html" class="sidebar-link">Cry-Coordinate</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/input.html" class="sidebar-link">Cry-Input Processing</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/event.html" class="sidebar-link">Cry-Event System</a>
+	                </li>
+	            
+	            
 	            
 	                
 	                
 	                <li><h3>LayaAir</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/laya/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/laya/index.html" class="sidebar-link">LayaAir Start</a>
 	                </li>
 	            
 	
@@ -288,7 +354,7 @@
 	                <li><h3>Egret</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/egret/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/egret/index.html" class="sidebar-link">Egret Start</a>
 	                </li>
 	            
 
@@ -340,6 +406,7 @@
 <li><code>播放震动</code> 元件显示一个震动效果。</li>
 <li><code>改变颜色滤镜</code> 改变元件的颜色滤镜。</li>
 </ul>
+<p><strong>注意：“组”支持的动效类型很少，如果需要复杂的动作，请改用组件。</strong></p>
 <p><strong>时间轴操作</strong></p>
 <p><img src="../../images/gaollg5.gif" alt=""></p>
 <ul>
@@ -361,6 +428,7 @@
 <li><code>复制时间轴</code> 复制时间轴。</li>
 <li><code>粘贴时间轴</code> 将复制的时间轴粘贴到选定的时间轴。源和目标应该具有相同的属性。</li>
 <li><code>删除时间轴</code> 删除选定的时间轴。</li>
+<li><code>更改目标对象</code> 修改时间轴的目标对象。</li>
 </ul>
 <p><strong>动效属性设置</strong></p>
 <p><img src="../../images/20170808112058.png" alt=""></p>
@@ -382,7 +450,7 @@
 <ul>
 <li><p><code>Tween</code> 勾选后从这个关键帧到下一个关键帧建立一个Tween。如果没有下一个关键帧，那么这个Tween是无效的。</p>
 </li>
-<li><p><code>缓动函数</code> 时间/速度曲线。详细请参考 <a href="../../images/20170802000005.png">图解</a> <a href="https://greensock.com/ease-visualizer" target="_blank" rel="external">示例</a>。</p>
+<li><p><code>缓动函数</code> 时间/速度曲线。详细请参考 <a href="../../images/20170802000005.jpg">图解</a> <a href="https://greensock.com/ease-visualizer" target="_blank" rel="external">示例</a>。</p>
 </li>
 <li><p><code>重复</code> 重复播放的次数。-1表示循环。</p>
 </li>
@@ -395,6 +463,8 @@
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Transition trans = aComponent.GetTransition(“peng”);</div><div class="line">trans.Play();</div></pre></td></tr></table></figure>
 <p>Play有多种原型，例如可以重复播放一定次数，可以在播放结束时回调等。例如：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//结束时有一个回调，但需注意，如果动效里有嵌套的动效，或者有循环的内容，必须是等全部都结束后才会回调。</span></div><div class="line">trans.Play(callback);</div></pre></td></tr></table></figure>
+<p>也可以倒着放，但要注意倒着放之前需要先执行一次正着放。例如：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">trans.playReverse();</div></pre></td></tr></table></figure>
 <p>要中途停止动效的播放，可以调用：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">trans.Stop();</div></pre></td></tr></table></figure>
 <p>Stop方法也可以带参数，原型是：</p>

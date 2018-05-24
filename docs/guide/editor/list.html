@@ -100,7 +100,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">Editor Start</a>
 	                </li>
 	            
 	                
@@ -146,6 +146,11 @@
 	                
 	                <li>
 	                    <a href="/guide/editor/component.html" class="sidebar-link">Component</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollpane.html" class="sidebar-link">ScrollPane</a>
 	                </li>
 	            
 	                
@@ -200,7 +205,12 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup Manage</a>
+	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/dragdrop.html" class="sidebar-link">Drag&Drop</a>
 	                </li>
 	            
 	                
@@ -220,7 +230,13 @@
 	                <li><h3>Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/unity/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/unity/index.html" class="sidebar-link">Unity Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/transform.html" class="sidebar-link">Unity Coordinate</a>
 	                </li>
 	            
 	                
@@ -232,7 +248,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/font.html" class="sidebar-link">Font handling</a>
+	                    <a href="/guide/unity/font.html" class="sidebar-link">Font Handling</a>
 	                </li>
 	            
 	                
@@ -262,7 +278,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall optimization</a>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall Optimization</a>
 	                </li>
 	            
 	                
@@ -271,14 +287,64 @@
 	                    <a href="/guide/unity/lua.html" class="sidebar-link">Used in Lua</a>
 	                </li>
 	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/special.html" class="sidebar-link">Unity Features</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/faq.html" class="sidebar-link">Unity FAQ</a>
+	                </li>
+	            
 
+	            
+	                
+	                
+	                <li><h3>Cocos2dx</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cocos2dx/index.html" class="sidebar-link">Cocos2dx Start</a>
+	                </li>
+	            
+	            
+	            
+	                
+	                
+	                <li><h3>CryEngine</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cry/index.html" class="sidebar-link">Cry Engine Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/transform.html" class="sidebar-link">Cry-Coordinate</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/input.html" class="sidebar-link">Cry-Input Processing</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/event.html" class="sidebar-link">Cry-Event System</a>
+	                </li>
+	            
+	            
 	            
 	                
 	                
 	                <li><h3>LayaAir</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/laya/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/laya/index.html" class="sidebar-link">LayaAir Start</a>
 	                </li>
 	            
 	
@@ -288,7 +354,7 @@
 	                <li><h3>Egret</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/egret/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/egret/index.html" class="sidebar-link">Egret Start</a>
 	                </li>
 	            
 
@@ -338,17 +404,17 @@
 <ul>
 <li><code>可见</code> 表示超出列表矩形区域的内容保持可见。</li>
 <li><code>隐藏</code> 表示超出列表矩形区域的内容不可见，相当于对列表应用了一个矩形遮罩。</li>
-<li><code>垂直滚动</code> <code>水平滚动</code> <code>自由滚动</code> 详细说明在<a href="component.html#滚动设置">滚动设置</a>。注意：列表的“布局”和“溢出处理”是独立的设置，如果两者不匹配可能达不到预期的效果。例如，对于一个单行排列的列表，如果选择“垂直滚动”，那滚动是没有效果的。</li>
+<li><code>垂直滚动</code> <code>水平滚动</code> <code>自由滚动</code> 详细说明在<a href="scrollpane.html">滚动容器</a>。注意：列表的“布局”和“溢出处理”是独立的设置，如果两者不匹配可能达不到预期的效果。例如，对于一个单行排列的列表，如果选择“垂直滚动”，那滚动是没有效果的。</li>
 </ul>
 </li>
-<li><p><code>渲染顺序</code> 定义item的显示顺序与它的列表中的顺序的关系。</p>
+<li><p><code>渲染顺序</code> 定义item的显示顺序与它的列表中的顺序的关系。详细说明在<a href="component.html#渲染顺序">渲染顺序</a></p>
 <ul>
 <li><code>升序</code> 这是默认行为。item索引越大，显示在越前面。</li>
 <li><code>降序</code> item索引越小，显示在越前面。</li>
 <li><code>拱形</code> 自定义一个显示在最前的索引，例如2，则第三个项目显示在最前面，排列在它前面的和后面的item依次显示在后面。</li>
 </ul>
 </li>
-<li><p><code>选择模式</code> 支持四种选择模式：无，单选，多选（使用shift键），多选（单击选择）。item要参与到单选有一个前提，是必须为单选按钮，如果不是单选按钮，则不会参与到选择模式中。单选是指同一时间只能有一个item被选中；多选则允许有多个，多选的操作方式有两种，一种是使用shift键进行多选，不过这需要键盘的支持，不适合移动设备；另一种是每个item单击即选中，再单击就取消选中的方式，不需要键盘的支持。</p>
+<li><p><code>选择模式</code> 支持四种选择模式：无，单选，多选（使用shift键），多选（单击选择）。<strong>item要参与到单选有一个前提，是必须为单选按钮，如果不是单选按钮，则不会参与到选择模式中。</strong>单选是指同一时间只能有一个item被选中；多选则允许有多个，多选的操作方式有两种，一种是使用shift键进行多选，不过这需要键盘的支持，不适合移动设备；另一种是每个item单击即选中，再单击就取消选中的方式，不需要键盘的支持。</p>
 </li>
 <li><p><code>选择控制</code> 可以绑定一个控制器。这样当列表选中项目发生改变时，控制器也同时跳转到相同索引的页面。反之亦然，如果控制器跳转到某个页面，那么列表也同时选定相同索引的项目。</p>
 </li>
@@ -362,10 +428,11 @@
 </li>
 </ul>
 <p><img src="../../images/20170807144559.png" alt=""></p>
-<p>点击增加，将增加一个由”项目资源“指定的项目，你也可以直接从库中直接拖动一个组件到界面中。如果item是一个标签或按钮，那么可以在这里设置它的文本和图标。</p>
-<h2 id="GList"><a href="#GList" class="headerlink" title="GList"></a>GList</h2><p><strong>管理列表内容</strong></p>
-<p>列表对应的类型是GList。在FairyGUI中，列表的本质就是一个组件，GList也是从GComponent派生来的，所以你可以用GComponent的API直接访问列表内的内容，例如可以用GetChild或者GetChildAt访问列表内的项目；也可以用AddChild添加一个item。这部分的API可以参考GComponent的<a href="component.html#GComponent">显示列表管理</a>。</p>
-<p>当你对列表增删改后，列表是自动排列和刷新的，不需要调用任何API。这个刷新发生在本帧绘制之前。刷新时将按照列表的布局调整各个子元件的坐标。如果你希望立刻访问item的正确坐标，那么可以调用<code>EnsureBoundsCorrect</code>通知GList立刻重排。EnsureBoundsCorrect是一个友好的函数，你不用担心重复调用会有额外性能消耗。</p>
+<p>点击增加，将增加一个由”项目资源“指定的项目，如果你的列表是多种资源混合，新增一个项目后，可以从库中拖动组件到“资源”栏中。如果item是一个标签或按钮，那么可以在这里设置它的文本和图标。</p>
+<p>  <strong>发布时自动清空</strong> 表示这里编辑的列表数据在最终发布时不会包含，也就是列表数据仅作编辑器预览用途。</p>
+<h2 id="GList"><a href="#GList" class="headerlink" title="GList"></a>GList</h2><h3 id="管理列表内容"><a href="#管理列表内容" class="headerlink" title="管理列表内容"></a>管理列表内容</h3><p>列表对应的类型是GList。在FairyGUI中，列表的本质就是一个组件，GList也是从GComponent派生来的，所以你可以用GComponent的API直接访问列表内的内容，例如可以用GetChild或者GetChildAt访问列表内的项目；也可以用AddChild添加一个item。这部分的API可以参考GComponent的<a href="component.html#GComponent">显示列表管理</a>。</p>
+<p>当你对列表增删改后，列表是自动排列和刷新的，不需要调用任何API。自动排列时会根据列表的布局设置item的坐标、大小和深度，所以不要自行设置item的位置，也不要设置sortingOrder尝试去控制item的深度。除了一个例外，垂直布局的列表只会自动设置item的y坐标，如果你需要item有一个水平位移的效果，你仍然可以修改item的x值。水平布局的也是一样道理。</p>
+<p>这个排列和刷新发生在本帧绘制之前，如果你希望立刻访问item的正确坐标，那么可以调用<code>EnsureBoundsCorrect</code>通知GList立刻重排。EnsureBoundsCorrect是一个友好的函数，你不用担心重复调用会有额外性能消耗。</p>
 <p>在实际应用中，列表的内容通常被频繁的更新。典型的用法就是当接收到后台数据时，将列表清空，然后再重新添加所有项目。如果每次都创建和销毁UI对象，将消耗很大的CPU和内存。因此，GList内建了对象池。</p>
 <p>使用对象池后的显示列表管理方法：</p>
 <ul>
@@ -390,18 +457,20 @@
 <p>错误示例2：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</div><div class="line">    aList.AddItemFromPool();</div><div class="line"></div><div class="line">aList.RemoveChildren();</div></pre></td></tr></table></figure>
 <p>这里添加了10个item，但移除时并没有保存他们的引用，也没有放回到池里，这样就造成了内存泄漏。将aList.RemoveChildren改成aList.RemoveChildrenToPool();</p>
-<p><strong>使用回调函数修改列表</strong></p>
-<p>当添加大量item时，除了用循环方式AddItemFromPool外，还可以使用另一种回调的方式。首先为列表定义一个回调函数，例如</p>
+<p><strong>移除和销毁是两回事。</strong>当你把item从列表移除时，如果以后不再使用，那么还应该销毁；如果还需要用，那么请保存它的引用。<strong>但如果放入了池，切勿再销毁item</strong>。</p>
+<h3 id="使用回调函数修改列表"><a href="#使用回调函数修改列表" class="headerlink" title="使用回调函数修改列表"></a>使用回调函数修改列表</h3><p>当添加大量item时，除了用循环方式AddChild或AddItemFromPool外，还可以使用另一种回调的方式。首先为列表定义一个回调函数，例如</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">RenderListItem</span>(<span class="params"><span class="keyword">int</span> index, GObject obj</span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    GButton button = obj.asButton;</div><div class="line">    button.title = <span class="string">""</span>+index;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>然后设置这个函数为列表的渲染函数：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity</span></div><div class="line">aList.itemRenderer = RenderListItem;</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">aList.itemRenderer = RenderListItem;</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">aList.itemRenderer = RenderListItem;</div><div class="line">aList.callbackThisObj = <span class="keyword">this</span>;</div><div class="line"></div><div class="line"><span class="comment">//Laya</span></div><div class="line">aList.itemRenderer = Handler.create(<span class="keyword">this</span>, <span class="keyword">this</span>.RenderListItem);</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry</span></div><div class="line">aList.itemRenderer = RenderListItem;</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">aList.itemRenderer = RenderListItem;</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">aList.itemRenderer = RenderListItem;</div><div class="line">aList.callbackThisObj = <span class="keyword">this</span>;</div><div class="line"></div><div class="line"><span class="comment">//Laya。（注意，最后一个参数必须为false！）</span></div><div class="line">aList.itemRenderer = Handler.create(<span class="keyword">this</span>, <span class="keyword">this</span>.RenderListItem, <span class="literal">null</span>, <span class="literal">false</span>);</div><div class="line"></div><div class="line"><span class="comment">//Cocos2dx</span></div><div class="line">aList-&gt;itemRenderer = CC_CALLBACK_2(AClass::renderListItem, this);</div></pre></td></tr></table></figure>
 <p>最后直接设置列表中的项目总数，这样列表就会调整当前列表容器的对象数量，然后调用回调函数渲染item。</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//创建100个对象，注意这里不能使用numChildren，numChildren是只读的。</span></div><div class="line"></div><div class="line">aList.numItems = <span class="number">10</span>;</div></pre></td></tr></table></figure>
 <p>如果新设置的项目数小于当前的项目数，那么多出来的item将放回池里。</p>
 <p>使用这种方式生成的列表，如果你需要更新某个item，自行调用RenderListItem(索引，GetChildAt(索引))就可以了。</p>
-<p><strong>事件</strong></p>
-<p>点击列表内的某一个item触发事件：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity, EventContext.data就是当前被点击的item对象</span></div><div class="line">list.onClickItem.Add(onClickItem);</div><div class="line"></div><div class="line"><span class="comment">//AS3, ItemEvent.itemObject就是当前被点击的对象</span></div><div class="line">list.addEventListener(ItemEvent.CLICK, onClickItem);</div><div class="line"></div><div class="line"><span class="comment">//Egret，ItemEvent.itemObject就是当前被点击的对象</span></div><div class="line">list.addEventListener(ItemEvent.CLICK, <span class="keyword">this</span>.onClickItem, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya, onClickItem方法的第一个参数就是当前被点击的对象</span></div><div class="line">list.<span class="keyword">on</span>(fairygui.Events.CLICK_ITEM, <span class="keyword">this</span>, <span class="keyword">this</span>.onClickItem);</div></pre></td></tr></table></figure>
+<h3 id="scrollItemToViewOnClick"><a href="#scrollItemToViewOnClick" class="headerlink" title="scrollItemToViewOnClick"></a>scrollItemToViewOnClick</h3><p>这是列表的一个选项，如果为true，当点击某个item时，如果这个item处于部分显示状态，那么列表将会自动滚动到整个item显示完整。<br>默认值是true。如果你的列表有超过列表视口大小的item，建议设置为false。</p>
+<h3 id="foldInvisibleItems"><a href="#foldInvisibleItems" class="headerlink" title="foldInvisibleItems"></a>foldInvisibleItems</h3><p>这是列表的一个选项，如果为true，但某个item不可见时（visible=false），列表不会为他留位置，也就是排版时会忽略这个item；如果为false，在列表会为这个item保留位置，显示效果就是一个空白的占位。默认值是false。</p>
+<h3 id="列表自动大小"><a href="#列表自动大小" class="headerlink" title="列表自动大小"></a>列表自动大小</h3><p>严格来说，列表没有自动大小的功能。但GList提供了API根据item的数量设置列表大小。当你填充完列表的数据后，可以调用GList.ResizeToFit，这样列表的大小就会修改为最适合的大小，容纳指定的item数量。如果不指定item数量，则列表扩展大小至显示所有item。</p>
+<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p>点击列表内的某一个item触发事件：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry, EventContext.data就是当前被点击的item对象</span></div><div class="line">list.onClickItem.Add(onClickItem);</div><div class="line"></div><div class="line"><span class="comment">//AS3, ItemEvent.itemObject就是当前被点击的对象</span></div><div class="line">list.addEventListener(ItemEvent.CLICK, onClickItem);</div><div class="line"></div><div class="line"><span class="comment">//Egret，ItemEvent.itemObject就是当前被点击的对象</span></div><div class="line">list.addEventListener(ItemEvent.CLICK, <span class="keyword">this</span>.onClickItem, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya, onClickItem方法的第一个参数就是当前被点击的对象</span></div><div class="line">list.<span class="keyword">on</span>(fairygui.Events.CLICK_ITEM, <span class="keyword">this</span>, <span class="keyword">this</span>.onClickItem);</div><div class="line"></div><div class="line"><span class="comment">//Cocos2dx，EventContext.getData()就是当前被点击的item对象</span></div><div class="line">list-&gt;addEventListener(UIEventType::ClickItem, CC_CALLBACK_1(AClass::onClickItem, this));</div></pre></td></tr></table></figure>
 <p>从上面的代码可以看出，事件回调里都可以方便的获得当前点击的对象。如果要获得索引，那么可以使用GetChildIndex。</p>
 <h2 id="虚拟列表"><a href="#虚拟列表" class="headerlink" title="虚拟列表"></a>虚拟列表</h2><p>如果列表的item数量特别多时，例如几百上千，为每一条项目创建实体的显示对象将非常消耗时间和资源。FairyGUI的列表内置了虚拟机制，也就是它只为显示范围内的item创建实体对象，并通过动态设置数据的方式实现大容量列表。</p>
 <p>启用虚拟列表有几个条件：</p>
@@ -412,13 +481,13 @@
 </ul>
 <p>满足条件后可以开启列表的虚拟功能：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aList.SetVirtual();</div></pre></td></tr></table></figure>
-<p>提示：虚拟功能只能开启，不能关闭。</p>
+<p><strong>提示：虚拟功能只能开启，不能关闭。</strong></p>
 <p>在虚拟列表中，显示对象和item的数量在数量上和顺序上是不一致的，item的数量可以通过numItems获得，而显示对象的数量可以由组件的API numChildren获得。</p>
 <p>在虚拟列表中，需要注意item索引和显示对象索引的区分。通过selectedIndex获得的值是item的索引，而非显示对象的索引。AddSelection/RemoveSelection等API同样需要的是item的索引。项目索引和对象索引的转换可以通过以下两个方法完成：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//转换项目索引为显示对象索引。</span></div><div class="line"><span class="keyword">int</span> childIndex = aList.ItemIndexToChildIndex(<span class="number">1</span>);</div><div class="line"></div><div class="line"><span class="comment">//转换显示对象索引为项目索引。</span></div><div class="line"><span class="keyword">int</span> itemIndex = aList.ChildIndexToItemIndex(<span class="number">1</span>);</div></pre></td></tr></table></figure>
 <p>使用虚拟列表时，我们很少会需要访问屏外对象。如果你确实需要获得列表中指定索引的某一个项目的显示对象，例如第500个，因为当前这个item是不在视口的，对于虚拟列表，不在视口的对象是没有对应的显示对象的，那么你需要先让列表滚动到目标位置。例如：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//这里要注意，因为我们要立即访问新滚动位置的对象，所以第二个参数scrollItToView不能为true，即不使用动画效果</span></div><div class="line">aList.ScrollToView(<span class="number">500</span>);</div><div class="line"></div><div class="line"><span class="comment">//转换到显示对象索引</span></div><div class="line"><span class="keyword">int</span> index = aList.ItemIndexToChildIndex(<span class="number">500</span>);</div><div class="line"></div><div class="line"><span class="comment">//这就是你要的第500个对象</span></div><div class="line">GObject obj = aList.GetChildAt(index);</div></pre></td></tr></table></figure>
-<p>如果某个item需要更新，刷新虚拟列表的方式有两种：</p>
+<p>虚拟列表的本质是数据和渲染分离，经常有人问怎样删除、或者修改虚拟列表的项目，答案就是先修改你的数据，然后刷新列表就可以了，不需要获得某个item对象来处理。<br>刷新虚拟列表的方式有两种：</p>
 <ul>
 <li>使用numItems重新设置数量。</li>
 <li>GList.RefreshVirtualList。</li>
@@ -431,9 +500,10 @@
 </ul>
 <p><strong>除这两种方式外，不可以通过其他方式改变item大小，否则虚拟列表排列会错乱。</strong></p>
 <p>虚拟列表支持不同类型的item混合。首先为列表定义一个回调函数，例如</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">   <span class="comment">//根据索引的不同，返回不同的资源URL</span></div><div class="line"><span class="function"><span class="keyword">string</span> <span class="title">GetListItemResource</span>(<span class="params"><span class="keyword">int</span> index</span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">       Message msg = _messages[index];</div><div class="line">       <span class="keyword">if</span> (msg.fromMe)</div><div class="line">           <span class="keyword">return</span> <span class="string">"ui://Emoji/chatRight"</span>;</div><div class="line">       <span class="keyword">else</span></div><div class="line">           <span class="keyword">return</span> <span class="string">"ui://Emoji/chatLeft"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//根据索引的不同，返回不同的资源URL</span></div><div class="line"><span class="function"><span class="keyword">string</span> <span class="title">GetListItemResource</span>(<span class="params"><span class="keyword">int</span> index</span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    Message msg = _messages[index];</div><div class="line">    <span class="keyword">if</span> (msg.fromMe)</div><div class="line">        <span class="keyword">return</span> <span class="string">"ui://Emoji/chatRight"</span>;</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="keyword">return</span> <span class="string">"ui://Emoji/chatLeft"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>然后设置这个函数为列表的item提供者：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity</span></div><div class="line">aList.itemProvider = GetListItemResource;</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">   aList.itemProvider = GetListItemResource;</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">aList.itemProvider = GetListItemResource;</div><div class="line">aList.callbackThisObj = <span class="keyword">this</span>;</div><div class="line"></div><div class="line"><span class="comment">//Laya</span></div><div class="line">aList.itemProvider = Handler.create(<span class="keyword">this</span>, <span class="keyword">this</span>.GetListItemResource);</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry</span></div><div class="line">aList.itemProvider = GetListItemResource;</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">aList.itemProvider = GetListItemResource;</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">aList.itemProvider = GetListItemResource;</div><div class="line">aList.callbackThisObj = <span class="keyword">this</span>;</div><div class="line"></div><div class="line"><span class="comment">//Laya</span></div><div class="line">aList.itemProvider = Handler.create(<span class="keyword">this</span>, <span class="keyword">this</span>.GetListItemResource);</div><div class="line"></div><div class="line"><span class="comment">//Cocos2dx</span></div><div class="line">aList-&gt;itemProvider = CC_CALLBACK_1(AClass::getListItemResource, this);</div></pre></td></tr></table></figure>
+<p>对于横向流动、竖向流动和分页的列表，与非虚拟列表具有流动特性不同，虚拟列表每行或每列的item个数都是固定的。列表在初始化时会创建一个默认的item用于测算这个数量。<br>如果你仍然需要每行或每列不等item数量的排版，且必须使用虚拟化，那么可以插入一些用于占位的空组件或者空图形，并根据实际需要设置他们的宽度，从而实现那种排版效果。</p>
 <h2 id="循环列表"><a href="#循环列表" class="headerlink" title="循环列表"></a>循环列表</h2><p>循环列表是指首尾相连的列表，循环列表必须是虚拟列表。启用循环列表的方法为:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aList.SetVirtualAndLoop()。</div></pre></td></tr></table></figure>
 <p>循环列表只支持单行或者单列的布局，不支持流动布局和分页布局。<br>循环列表的特性与虚拟列表一致，在此不再赘述。</p>

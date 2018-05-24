@@ -72,9 +72,9 @@ order: 80
     int cnt = gcom.numChildren;
     for(int i=0;i<cnt;i++)
     {
-    	if(gcom.GetChildAt(i).group==aGroup)
-    		Debug.Log("get result");
+        if(gcom.GetChildAt(i).group==aGroup)
+            Debug.Log("get result");
     }
 ```
 
-
+**必须注意，对于没有布局的高级组，运行时是不会自动改变大小的，也就是无论组内的元素怎么变动，这种高级组的大小是不会自动改变的！** 如果确实需要改变，那么只能自行调用GGroup.EnsureBoundsCorrect。

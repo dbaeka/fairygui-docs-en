@@ -100,7 +100,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">Editor Start</a>
 	                </li>
 	            
 	                
@@ -146,6 +146,11 @@
 	                
 	                <li>
 	                    <a href="/guide/editor/component.html" class="sidebar-link">Component</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollpane.html" class="sidebar-link">ScrollPane</a>
 	                </li>
 	            
 	                
@@ -200,7 +205,12 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup Manage</a>
+	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/dragdrop.html" class="sidebar-link">Drag&Drop</a>
 	                </li>
 	            
 	                
@@ -220,7 +230,13 @@
 	                <li><h3>Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/unity/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/unity/index.html" class="sidebar-link">Unity Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/transform.html" class="sidebar-link">Unity Coordinate</a>
 	                </li>
 	            
 	                
@@ -232,7 +248,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/font.html" class="sidebar-link">Font handling</a>
+	                    <a href="/guide/unity/font.html" class="sidebar-link">Font Handling</a>
 	                </li>
 	            
 	                
@@ -262,7 +278,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall optimization</a>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall Optimization</a>
 	                </li>
 	            
 	                
@@ -271,14 +287,64 @@
 	                    <a href="/guide/unity/lua.html" class="sidebar-link">Used in Lua</a>
 	                </li>
 	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/special.html" class="sidebar-link">Unity Features</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/faq.html" class="sidebar-link">Unity FAQ</a>
+	                </li>
+	            
 
+	            
+	                
+	                
+	                <li><h3>Cocos2dx</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cocos2dx/index.html" class="sidebar-link">Cocos2dx Start</a>
+	                </li>
+	            
+	            
+	            
+	                
+	                
+	                <li><h3>CryEngine</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cry/index.html" class="sidebar-link">Cry Engine Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/transform.html" class="sidebar-link">Cry-Coordinate</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/input.html" class="sidebar-link">Cry-Input Processing</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/event.html" class="sidebar-link">Cry-Event System</a>
+	                </li>
+	            
+	            
 	            
 	                
 	                
 	                <li><h3>LayaAir</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/laya/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/laya/index.html" class="sidebar-link">LayaAir Start</a>
 	                </li>
 	            
 	
@@ -288,7 +354,7 @@
 	                <li><h3>Egret</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/egret/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/egret/index.html" class="sidebar-link">Egret Start</a>
 	                </li>
 	            
 
@@ -321,8 +387,8 @@
 <h2 id="编辑动画"><a href="#编辑动画" class="headerlink" title="编辑动画"></a>编辑动画</h2><p>在资源库中，或者舞台上，双击动画，进入动画属性设置对话框：</p>
 <p><img src="../../images/20170728151408.png" alt=""></p>
 <ul>
-<li><code>帧频</code> 可选24、30和60。可根据源动画的设定进行修改。</li>
-<li></li>
+<li><p><code>帧频</code> 可选24、30和60。可根据源动画的设定进行修改。</p>
+</li>
 <li><p><code>播放间隔</code> 每隔多少帧播放一张图片。增大或减少这个值可以降低或者增加动画播放的速度。</p>
 </li>
 <li><p><code>循环延迟</code> 当动画播放结束后，停留多少帧再重新开始播放。</p>
@@ -331,7 +397,9 @@
 </li>
 <li><p><code>摆动式播放</code> 默认的播放形式是从第一帧播放到最后一帧，然后下个循环又从第一帧播放到最后一帧。如果勾选了摆动式播放，则先从第一帧播放到最后一帧，再从最后一帧倒序播放回第一帧，依此循环。</p>
 </li>
-<li><p><code>纹理集</code> 设置改动画发布到哪一张纹理集。<strong>动画不支持纹理分页，也就是说，当纹理设置了自动分页时，如果动画被分布到不同的纹理集页面，就会出现显示错误。这时你可以安排动画单独纹理集，或者和其他动画放在一个纹理集上。</strong></p>
+<li><p><code>纹理集</code> 设置动画发布到指定的纹理集。<strong>动画不支持纹理分页，也就是说，当纹理设置了自动分页时，如果动画被分布到不同的纹理集页面，运行时就会出现显示错误。这时你可以安排动画放置到单独的纹理集，或者和其他动画放在同一个纹理集上。</strong></p>
+</li>
+<li><p><code>允许平滑</code> 它指示动画在拉伸时是否进行平滑处理。如果这个动画是用在制作像素游戏里的角色，你可能需要关闭平滑，其他情况一般都应开启。这个选项不适用于Unity版本，需要在Inspector里设置纹理集属性。</p>
 </li>
 <li><p><code>导入图片序列</code> 从序列图片中更新动画。</p>
 </li>
@@ -359,7 +427,7 @@
 <p>对动画播放过程的控制，可以使用PlayState对象：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//返回播放头部</span></div><div class="line">((MovieClip)aMovie.displayObject).playState.reset();</div></pre></td></tr></table></figure>
 <p>动画播放完成可以获得一个回调通知：（如果是循环播放，则所有循环结束后才算播放完成）</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity</span></div><div class="line">aMovie.onPlayEnd.Add(...);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">aMovie.setPlaySettings(..., callback);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">aMovie.setPlaySettings(..., callback, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya</span></div><div class="line">aMovie.setPlaySettings(..., Handler.create(callback, <span class="keyword">this</span>));</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry</span></div><div class="line">aMovie.onPlayEnd.Add(...);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">aMovie.setPlaySettings(..., callback);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">aMovie.setPlaySettings(..., callback, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya</span></div><div class="line">aMovie.setPlaySettings(..., Handler.create(callback, <span class="keyword">this</span>));</div><div class="line"></div><div class="line"><span class="comment">//Cocos2dx</span></div><div class="line">aMovie-&gt;setPlaySettings(..., CC_CALLBACK_0(AClass::onPlayComplete, this));</div></pre></td></tr></table></figure>
 
     
     <div class="footer">

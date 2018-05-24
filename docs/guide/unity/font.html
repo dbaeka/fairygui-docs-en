@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
     
-        <title>FairyGUI - Font handling</title>
+        <title>FairyGUI - Font Handling</title>
     
         <meta charset="utf-8">
         <meta name="description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
@@ -12,11 +12,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="Font handling — FairyGUI">
+        <meta property="og:title" content="Font Handling — FairyGUI">
         <meta property="og:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="Font handling — FairyGUI">
+        <meta name="twitter:title" content="Font Handling — FairyGUI">
         <meta name="twitter:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
 
 
@@ -100,7 +100,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">Editor Start</a>
 	                </li>
 	            
 	                
@@ -146,6 +146,11 @@
 	                
 	                <li>
 	                    <a href="/guide/editor/component.html" class="sidebar-link">Component</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollpane.html" class="sidebar-link">ScrollPane</a>
 	                </li>
 	            
 	                
@@ -200,7 +205,12 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup Manage</a>
+	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/dragdrop.html" class="sidebar-link">Drag&Drop</a>
 	                </li>
 	            
 	                
@@ -220,7 +230,13 @@
 	                <li><h3>Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/unity/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/unity/index.html" class="sidebar-link">Unity Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/transform.html" class="sidebar-link">Unity Coordinate</a>
 	                </li>
 	            
 	                
@@ -232,7 +248,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/font.html" class="sidebar-link current">Font handling</a>
+	                    <a href="/guide/unity/font.html" class="sidebar-link current">Font Handling</a>
 	                </li>
 	            
 	                
@@ -262,7 +278,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall optimization</a>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall Optimization</a>
 	                </li>
 	            
 	                
@@ -271,14 +287,64 @@
 	                    <a href="/guide/unity/lua.html" class="sidebar-link">Used in Lua</a>
 	                </li>
 	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/special.html" class="sidebar-link">Unity Features</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/faq.html" class="sidebar-link">Unity FAQ</a>
+	                </li>
+	            
 
+	            
+	                
+	                
+	                <li><h3>Cocos2dx</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cocos2dx/index.html" class="sidebar-link">Cocos2dx Start</a>
+	                </li>
+	            
+	            
+	            
+	                
+	                
+	                <li><h3>CryEngine</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cry/index.html" class="sidebar-link">Cry Engine Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/transform.html" class="sidebar-link">Cry-Coordinate</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/input.html" class="sidebar-link">Cry-Input Processing</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/event.html" class="sidebar-link">Cry-Event System</a>
+	                </li>
+	            
+	            
 	            
 	                
 	                
 	                <li><h3>LayaAir</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/laya/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/laya/index.html" class="sidebar-link">LayaAir Start</a>
 	                </li>
 	            
 	
@@ -288,7 +354,7 @@
 	                <li><h3>Egret</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/egret/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/egret/index.html" class="sidebar-link">Egret Start</a>
 	                </li>
 	            
 
@@ -304,7 +370,7 @@
 
 <div class="content guide_unity with-sidebar ">
     
-      <h1>Font handling</h1>
+      <h1>Font Handling</h1>
     
     <h2 id="使用动态字体"><a href="#使用动态字体" class="headerlink" title="使用动态字体"></a>使用动态字体</h2><p>FairyGUI使用Unity的动态字体技术渲染文字。只需以下几个简单的步骤就可以完成设置：</p>
 <ol>
@@ -314,12 +380,14 @@
 <p><img src="../../images/2015-10-21_164556.png" alt=""></p>
 <p>注意在Font Names中填写的是字体名称，标准的字体名称可以从这里找到：<a href="https://wenku.baidu.com/view/598e5aec19e8b8f67c1cb915.html" target="_blank" rel="external">中文字体的英文名称对照表</a>。例如Droid Sans Fallback是Android平台支持中文的内置默认字体之一。多个字体用逗号隔开，Unity会使用第一个在系统中能找到的字体。</p>
 </li>
-<li><p>设置UIConfig.defaultFont=”字体文件名称”即可，注意这里使用的是文件名称，也就是说，如果放置在Resources目录的是arial.ttf，则UIConfig.defaultFont=”arial”，不需要带.ttf后缀。</p>
-<p>因为我们没有勾选Include Font Data，所以无论这个字体文件有多大，最终并不会包含在我们的发布包中，也就是说不会增大发行包的体积。Unity会在实际运行的系统中查找与Font Names匹配的第一个字体，并使用此字体进行动态渲染。但这要求玩家的运行系统环境中有你设定的字体，如果没有，实际使用的字体可能并不是你想要的效果。</p>
-<p>从Unity5.0开始，Unity引入了新的字体管理API，也可以不放置字体文件到Resources目录，你只需要直接设置UIConfig.defaultFont=”字体名称”即可，同样，多个字体名称用逗号隔开。例如：</p>
+<li><p>设置UIConfig.defaultFont=”字体文件名称”即可，注意这里使用的是文件名称，也就是说，如果放置在Resources目录的是arial.ttf，则UIConfig.defaultFont = “arial”，不需要带.ttf后缀。</p>
+<p>因为我们没有勾选Include Font Data，所以无论这个字体文件有多大，最终并不会包含在我们的发布包中，也就是说不会增大发行包的体积。Unity会在实际运行的系统中查找与Font Names匹配的第一个字体，并使用此字体进行动态渲染。但这要求玩家的运行系统环境中有你设定的字体，如果没有，实际使用的字体可能并不是你想要的效果，这种情况下，如果你确实需要保留字体效果，那就勾选Include Font Data。</p>
+<p><strong>当发布到WebGL平台时，目前Unity发布的WebGL程序不能访问系统字体，也就是你必须使用ttf字体，并且勾选Include Font Data</strong>。</p>
+<p><strong>从Unity5.0开始，Unity引入了新的字体管理API</strong>，也可以不放置字体文件到Resources目录，你只需要直接设置UIConfig.defaultFont=”字体名称”即可，同样，多个字体名称用逗号隔开。例如：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">UIConfig.defaultFont = <span class="string">"Droid Sans Fallback, LTHYSZK, Helvetica-Bold, Microsoft YaHei, SimHei"</span>;</div></pre></td></tr></table></figure>
 </li>
 </ol>
+<p>  要注意，这里的字体必须是在系统环境中存在的字体，且名称一定要能被操作系统识别。</p>
 <h2 id="多种字体的处理"><a href="#多种字体的处理" class="headerlink" title="多种字体的处理"></a>多种字体的处理</h2><p>如果你的界面使用了多种字体，比如对单独的文字设置了字体：</p>
 <p><img src="../../images/2016-07-06_143622.png" alt=""></p>
 <p>这里用到了”黑体”这个名字的字体，这是与UIConfig.defaultFont设不同的字体，那么我们需要注册这种字体。方法是，首先做好上面第一步1和第2步，假如字体文件名称是HeiTi.ttf，然后：</p>
@@ -328,10 +396,10 @@
 <p>要查看你定义的字体是不是生效，可以在Project视图，点击并展开字体文件，如果字体被正确使用，那么可以看到Font Texture以及Texture会有你用到的文字。</p>
 <p><img src="../../images/20170808230450.png" alt=""></p>
 <h2 id="自定义粗体"><a href="#自定义粗体" class="headerlink" title="自定义粗体"></a>自定义粗体</h2><p>当你使用部分字体的粗体效果时，你会发现粗体的效果在Unity中的显示不正确，这是因为有些字体不带粗体效果的，这时候Unity就会用拉宽来实现，就像变扁了。FairyGUI可以用额外的mesh来解决粗体的显示。方法是：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">FontManager.GetFont(“字体路径”).customFold = <span class="literal">true</span>;</div></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">FontManager.GetFont(<span class="string">"字体路径"</span>).customBold = <span class="literal">true</span>;</div></pre></td></tr></table></figure>
 <p>这里字体路径与UIConfig.defaultFont里设置的内容应该完全一样。</p>
 <p>某些字体，Unity渲染有粗体效果，但当设置成斜体时，粗体效果又丢失（例如雅黑）。FairyGUI在这种情况可以取消Unity默认渲染粗体的效果，改为增加额外的面渲染粗体。激活这个功能的方法是</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">FontManager.GetFont(“字体路径”).customBoldAndItalic = <span class="literal">true</span>;</div></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">FontManager.GetFont(<span class="string">"字体路径"</span>).customBoldAndItalic = <span class="literal">true</span>;</div></pre></td></tr></table></figure>
 <p>如果已经设置了customBold，不需要再设置customBoldAndItalic。</p>
 <h2 id="增强字体效果"><a href="#增强字体效果" class="headerlink" title="增强字体效果"></a>增强字体效果</h2><p>在实际游戏制作过程中发现在桌面平台下Unity对中文字体的渲染稍显模糊和暗淡，因此FairyGUI使用了特制的着色器解决了这个问题。以下是Unity默认的字体渲染效果和FairyGUI的字体渲染效果的比较：</p>
 <p><img src="../../images/2015-10-21_172001.png" alt=""></p>

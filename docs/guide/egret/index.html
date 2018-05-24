@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
     
-        <title>FairyGUI - Instructions</title>
+        <title>FairyGUI - Egret Start</title>
     
         <meta charset="utf-8">
         <meta name="description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
@@ -12,11 +12,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="Instructions — FairyGUI">
+        <meta property="og:title" content="Egret Start — FairyGUI">
         <meta property="og:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="Instructions — FairyGUI">
+        <meta name="twitter:title" content="Egret Start — FairyGUI">
         <meta name="twitter:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
 
 
@@ -100,7 +100,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/index.html" class="sidebar-link current">Instructions</a>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">Editor Start</a>
 	                </li>
 	            
 	                
@@ -146,6 +146,11 @@
 	                
 	                <li>
 	                    <a href="/guide/editor/component.html" class="sidebar-link">Component</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollpane.html" class="sidebar-link">ScrollPane</a>
 	                </li>
 	            
 	                
@@ -200,7 +205,12 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup Manage</a>
+	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/dragdrop.html" class="sidebar-link">Drag&Drop</a>
 	                </li>
 	            
 	                
@@ -220,7 +230,13 @@
 	                <li><h3>Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/unity/index.html" class="sidebar-link current">Instructions</a>
+	                    <a href="/guide/unity/index.html" class="sidebar-link">Unity Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/transform.html" class="sidebar-link">Unity Coordinate</a>
 	                </li>
 	            
 	                
@@ -232,7 +248,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/font.html" class="sidebar-link">Font handling</a>
+	                    <a href="/guide/unity/font.html" class="sidebar-link">Font Handling</a>
 	                </li>
 	            
 	                
@@ -262,7 +278,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall optimization</a>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall Optimization</a>
 	                </li>
 	            
 	                
@@ -271,14 +287,64 @@
 	                    <a href="/guide/unity/lua.html" class="sidebar-link">Used in Lua</a>
 	                </li>
 	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/special.html" class="sidebar-link">Unity Features</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/faq.html" class="sidebar-link">Unity FAQ</a>
+	                </li>
+	            
 
+	            
+	                
+	                
+	                <li><h3>Cocos2dx</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cocos2dx/index.html" class="sidebar-link">Cocos2dx Start</a>
+	                </li>
+	            
+	            
+	            
+	                
+	                
+	                <li><h3>CryEngine</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cry/index.html" class="sidebar-link">Cry Engine Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/transform.html" class="sidebar-link">Cry-Coordinate</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/input.html" class="sidebar-link">Cry-Input Processing</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/event.html" class="sidebar-link">Cry-Event System</a>
+	                </li>
+	            
+	            
 	            
 	                
 	                
 	                <li><h3>LayaAir</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/laya/index.html" class="sidebar-link current">Instructions</a>
+	                    <a href="/guide/laya/index.html" class="sidebar-link">LayaAir Start</a>
 	                </li>
 	            
 	
@@ -288,7 +354,7 @@
 	                <li><h3>Egret</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/egret/index.html" class="sidebar-link current">Instructions</a>
+	                    <a href="/guide/egret/index.html" class="sidebar-link current">Egret Start</a>
 	                </li>
 	            
 
@@ -304,10 +370,20 @@
 
 <div class="content guide_egret with-sidebar ">
     
-      <h1>Instructions</h1>
+      <h1>Egret Start</h1>
     
-    <h2 id="Egret-4-x"><a href="#Egret-4-x" class="headerlink" title="Egret 4.x"></a>Egret 4.x</h2><ol>
-<li><p>将FairyGUI库以及依赖的rawinflate库拷贝到libs目录。</p>
+    <p>开发小游戏须知：</p>
+<ol>
+<li>因为rawinflate这个库在小游戏平台有问题，所以直接不使用它。请使用最新编辑器，发布时勾选“不压缩描述文件”就可以了。rawinflate这个库就不会再引用到。</li>
+<li>小游戏不支持fui扩展名，所以在发布界面要把扩展名修改成小游戏支持的扩展名。</li>
+<li><p>在scripts/wxgame/wxgame.ts里，找到</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">content += &quot;;egret.fairygui;&quot;;</div></pre></td></tr></table></figure>
+<p>改成：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">content += &quot;;window.egret.fairygui;&quot;;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Egret-4-x"><a href="#Egret-4-x" class="headerlink" title="Egret 4.x"></a>Egret 4.x</h2><ol>
+<li><p>将FairyGUI库以及依赖的rawinflate库拷贝到libs目录。（如果你在编辑器发布时没有勾选<code>压缩描述文件</code>，那么这个库是不需要的）。</p>
 <p><img src="../../images/20170809161022.png" alt=""></p>
 </li>
 <li><p>在index.html里添加上述两个库的引用。</p>
@@ -317,7 +393,7 @@
 <li><p>使用FairyGUI编辑器完成UI编辑。发布目录请选择Egret工程的resource/assets目录。发布后得到两个（或以上）文件。</p>
 <p><img src="../../images/20170809161256.png" alt=""></p>
 </li>
-<li><p>在default.res.json里，将上述的文件添加到定义中。扩展名为fui文件，类型请选择为bin。注意：Egret自动检测添加的资源，名称通常会自动加上下划线和后缀，例如basic.fui，名称自动设置为“basic_fui”，这里我们要手动将_fui去掉，名称只需要为“basic”。</p>
+<li><p>在default.res.json里，将上述的文件添加到定义中。扩展名为fui文件，类型请选择为bin。<strong>注意：Egret自动检测添加的资源，名称通常会自动加上下划线和后缀，例如basic.fui，名称自动设置为“basic_fui”，这里我们要手动将_fui去掉，名称只需要为“basic”。</strong></p>
 <p><img src="../../images/20170809161350.png" alt=""></p>
 <p>资源一般都加到preload组里，如果你是高阶玩家，也可以试试动态加载。确保在使用到相应的元件前加载好就行。</p>
 </li>
@@ -325,11 +401,13 @@
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"> <span class="comment">/**</span></div><div class="line"><span class="comment">  * 创建游戏场景</span></div><div class="line"><span class="comment">  * Create a game scene</span></div><div class="line"><span class="comment">  */</span></div><div class="line"> <span class="function"><span class="keyword">private</span> <span class="title">createGameScene</span>(<span class="params"></span>):<span class="keyword">void</span> </span>&#123;</div><div class="line">     fairygui.UIPackage.addPackage(<span class="string">"basic"</span>);</div><div class="line">     </div><div class="line">     fairygui.UIConfig.defaultFont = <span class="string">"宋体"</span>;</div><div class="line">     fairygui.UIConfig.verticalScrollBar = fairygui.UIPackage.getItemURL(<span class="string">"Basic"</span>, <span class="string">"ScrollBar_VT"</span>);</div><div class="line">     fairygui.UIConfig.horizontalScrollBar = fairygui.UIPackage.getItemURL(<span class="string">"Basic"</span>, <span class="string">"ScrollBar_HZ"</span>);</div><div class="line">     fairygui.UIConfig.popupMenu = fairygui.UIPackage.getItemURL(<span class="string">"Basic"</span>, <span class="string">"PopupMenu"</span>);</div><div class="line">     fairygui.UIConfig.buttonSound = fairygui.UIPackage.getItemURL(<span class="string">"Basic"</span>,<span class="string">"click"</span>);</div><div class="line">     </div><div class="line">     <span class="keyword">this</span>.stage.addChild(fairygui.GRoot.inst.displayObject);</div><div class="line"></div><div class="line">     <span class="keyword">this</span>.mainPanel = <span class="keyword">new</span> MainPanel();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="Egret-5-x"><a href="#Egret-5-x" class="headerlink" title="Egret 5.x"></a>Egret 5.x</h2><p>步骤与4.x的基本一样，不过需要额外的两个操作：</p>
+<p>如果出现“fairygui not defined”的错误，请再一次检查index.html里是否有fairygui.js的引用。</p>
+<h2 id="Egret-5-x"><a href="#Egret-5-x" class="headerlink" title="Egret 5.x"></a>Egret 5.x</h2><p>步骤与4.x的基本一样，不过不再需要在index.html文件里添加fairygui和rawinflate的引用。你只需要以下这个步骤：</p>
 <ol>
-<li>复制一份rawinflate.min.js，并改名为rawinflate.js。</li>
+<li>复制一份rawinflate.min.js，并改名为rawinflate.js。（如果你在编辑器发布时没有勾选<code>压缩描述文件</code>，那么这个库是不需要的）。</li>
 <li><p>在egretProperties.json文件中添加:</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">&#123;  </div><div class="line">    <span class="string">"name"</span>: <span class="string">"rawinflate"</span>,  </div><div class="line">    <span class="string">"path"</span>: <span class="string">"./libs/rawinflate"</span>  </div><div class="line">&#125;,  </div><div class="line">&#123;  </div><div class="line">    <span class="string">"name"</span>: <span class="string">"fairygui"</span>,  </div><div class="line">    <span class="string">"path"</span>: <span class="string">"./libs/fairygui"</span>  </div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">&#123;  </div><div class="line">    <span class="string">"name"</span>: <span class="string">"rawinflate"</span>,  </div><div class="line">    <span class="string">"path"</span>: <span class="string">"./libs/rawinflate"</span>  </div><div class="line">&#125;,  </div><div class="line">&#123;  </div><div class="line">    <span class="string">"name"</span>: <span class="string">"fairygui"</span>,  </div><div class="line">    <span class="string">"path"</span>: <span class="string">"./libs/fairygui"</span>  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
 </ol>
 
     

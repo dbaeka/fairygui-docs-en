@@ -100,7 +100,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">Editor Start</a>
 	                </li>
 	            
 	                
@@ -146,6 +146,11 @@
 	                
 	                <li>
 	                    <a href="/guide/editor/component.html" class="sidebar-link">Component</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollpane.html" class="sidebar-link">ScrollPane</a>
 	                </li>
 	            
 	                
@@ -200,7 +205,12 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup Manage</a>
+	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/dragdrop.html" class="sidebar-link">Drag&Drop</a>
 	                </li>
 	            
 	                
@@ -220,7 +230,13 @@
 	                <li><h3>Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/unity/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/unity/index.html" class="sidebar-link">Unity Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/transform.html" class="sidebar-link">Unity Coordinate</a>
 	                </li>
 	            
 	                
@@ -232,7 +248,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/font.html" class="sidebar-link">Font handling</a>
+	                    <a href="/guide/unity/font.html" class="sidebar-link">Font Handling</a>
 	                </li>
 	            
 	                
@@ -262,7 +278,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall optimization</a>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall Optimization</a>
 	                </li>
 	            
 	                
@@ -271,14 +287,64 @@
 	                    <a href="/guide/unity/lua.html" class="sidebar-link">Used in Lua</a>
 	                </li>
 	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/special.html" class="sidebar-link">Unity Features</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/faq.html" class="sidebar-link">Unity FAQ</a>
+	                </li>
+	            
 
+	            
+	                
+	                
+	                <li><h3>Cocos2dx</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cocos2dx/index.html" class="sidebar-link">Cocos2dx Start</a>
+	                </li>
+	            
+	            
+	            
+	                
+	                
+	                <li><h3>CryEngine</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cry/index.html" class="sidebar-link">Cry Engine Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/transform.html" class="sidebar-link">Cry-Coordinate</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/input.html" class="sidebar-link">Cry-Input Processing</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/event.html" class="sidebar-link">Cry-Event System</a>
+	                </li>
+	            
+	            
 	            
 	                
 	                
 	                <li><h3>LayaAir</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/laya/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/laya/index.html" class="sidebar-link">LayaAir Start</a>
 	                </li>
 	            
 	
@@ -288,7 +354,7 @@
 	                <li><h3>Egret</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/egret/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/egret/index.html" class="sidebar-link">Egret Start</a>
 	                </li>
 	            
 
@@ -315,7 +381,7 @@
 <p>点击主工具栏中的<img src="../../images/20170801151407.png" alt="">按钮，生成一个富文本。</p>
 <h2 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h2><p><img src="../../images/20170801164910.png" alt=""></p>
 <ul>
-<li><p><code>文本</code> 设置文本内容。富文本可直接使用HTML语法。例如<img src="ui://包名/图片名" width="20" height="20">。注意，img标签需要使用“/&gt;”结束，而不是“&gt;”。当需要换行时，在编辑器里可以直接按回车，或者使用html标签“<br>”亦可。运行时需要换行可以用“\n”，尽量避免使用“\r\n”。</p>
+<li><p><code>文本</code> 设置文本内容。富文本可直接使用HTML语法。例如<img src="ui://包名/图片名" width="20" height="20">。注意，img标签需要使用“/&gt;”结束，而不是“&gt;”。当需要换行时，在编辑器里可以<strong>直接按回车</strong>，或者使用html标签“<br>”亦可。代码赋值需要换行可以用“\n”。某些引擎，例如LayaAir，可能不支持回车符换行，可以使用<br>试试。<br>这里的输入框比较小，如果要输入大文本，则可以在输入激活时，按CTRL+ENTER，然后会弹出一个专门用于输入文本的窗口。</p>
 </li>
 <li><p><code>字体</code> 设置文字使用的字体。你不需要每个文本设置一次字体。在项目属性里可以设置项目中所有文本默认使用的字体。运行时则通过UIConfig.defaultFont统一设置。如果某些文本确实需要指定特别的字体，可以点击右边的A按钮，选择其他字体，或者直接输入字体名称。如果需要使用位图字体，可以从资源库中把字体资源拖动到这里。</p>
 </li>
@@ -359,8 +425,8 @@
 </ul>
 <h2 id="GRichTextField"><a href="#GRichTextField" class="headerlink" title="GRichTextField"></a>GRichTextField</h2><p>富文本支持动态创建，例如：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GRichTextField aRichTextField = <span class="keyword">new</span> GRichTextField();</div><div class="line">aRichTextField.SetSize(<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">aRichTextField.text = <span class="string">"&lt;a href='xxx'&gt;Hello World&lt;/a&gt;"</span>;</div></pre></td></tr></table></figure>
-<p>侦听富文本中链接点击的方法是：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity, EventContext里的data就是href值。</span></div><div class="line">aRichTextField.onClinkLink.Add(onClickLink);</div><div class="line"></div><div class="line"><span class="comment">//AS3/Egret，TextEvent.text就是href值。</span></div><div class="line">aRichTextField.addEventListener(TextEvent.LINK, onClickLink);</div><div class="line"></div><div class="line"><span class="comment">//Egret，TextEvent.text就是href值。</span></div><div class="line">aRichTextField.addEventListener(TextEvent.LINK, <span class="keyword">this</span>.onClickLink, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya, onClickLink的参数就是href值。</span></div><div class="line">aRichTextField.<span class="keyword">on</span>(laya.events.Event.LINK,<span class="keyword">this</span>,<span class="keyword">this</span>.onClickLink);</div></pre></td></tr></table></figure>
+<p>侦听富文本中链接点击的方法是（这个事件是冒泡的，也就是你可以不在富文本上侦听，在它的父元件或者祖父元件上侦听都是可以的）：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry, EventContext里的data就是href值。</span></div><div class="line">aRichTextField.onClickLink.Add(onClickLink);</div><div class="line"></div><div class="line"><span class="comment">//AS3/Egret，TextEvent.text就是href值。</span></div><div class="line">aRichTextField.addEventListener(TextEvent.LINK, onClickLink);</div><div class="line"></div><div class="line"><span class="comment">//Egret，TextEvent.text就是href值。</span></div><div class="line">aRichTextField.addEventListener(TextEvent.LINK, <span class="keyword">this</span>.onClickLink, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya, onClickLink的参数就是href值。</span></div><div class="line">aRichTextField.<span class="keyword">on</span>(laya.events.Event.LINK,<span class="keyword">this</span>,<span class="keyword">this</span>.onClickLink);</div><div class="line"></div><div class="line"><span class="comment">//Cocos2dx，EventContext.getDataValue().asString()就是href的值。</span></div><div class="line">aRichTextField-&gt;addEventListener(UIEventType::ClickLink, CC_CALLBACK_1(AClass::onClickLink, this));</div></pre></td></tr></table></figure>
 <p>富文本最重要的功能是支持HTML解析和渲染。普通的文本样式标签，例如<code>FONT</code>、<code>B</code>、<code>I</code>、<code>U</code>这些一般都能很好的支持。其他一些对象标签，例如<code>A</code>、<code>IMG</code>等在各个引擎中支持的力度有所不同：</p>
 <ul>
 <li><code>AS3/Starling</code> 支持<code>A</code>标签和<code>IMG</code>标签，支持混排UI库里的图片/动画和外部图片。支持定制超级链接的样式：</li>
@@ -419,7 +485,7 @@
 <p>如果要访问HTML中的对象，可以使用以下的方式：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//当前文本中具有的HTML元素数量</span></div><div class="line"><span class="keyword">int</span> cnt = aRichTextField.richTextField.htmlElementCount;</div><div class="line"></div><div class="line"><span class="comment">//获得指定索引的HTML元素，0=&lt;index&lt;cnt</span></div><div class="line">HtmlElement element = aRichTextField.richTextField.GetHtmlElementAt(index);</div><div class="line"></div><div class="line"><span class="comment">//获得指定名称的HTML元素。名称由HTML元素里的name属性指定。</span></div><div class="line">element = aRichTextField.richTextField.GetHtmlElement(elementName);</div><div class="line"></div><div class="line"><span class="comment">//获得HTML元素对应的HTML对象。HTML对象的类型有HtmlImage、HtmlLink、HtmlInput等。</span></div><div class="line">IHtmlObject htmlObject = (IHtmlObject)element.htmlObject;</div><div class="line"><span class="keyword">if</span>(element.type==HtmlElementType.Image)</div><div class="line">&#123;</div><div class="line">    HtmlImage image = (HtmlImage)htmlObject;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>又例如，如果要制作鼠标移到链接上显示信息的效果：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">int</span> cnt = richText.htmlObjectCount;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;cnt;i++) </div><div class="line">&#123;</div><div class="line">	IHtmlObject obj = richText.GetHtmlObjectAt(i);</div><div class="line">	<span class="keyword">if</span>(obj <span class="keyword">is</span> HtmlLink) </div><div class="line">	&#123;</div><div class="line">		((HtmlLink)obj).shape.onRollOver.Add(onLinkRollOver);</div><div class="line">		((HtmlLink)obj).shape.onRollOut.Add(onLinkRollOut);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//你可以在RollOver和RollOut的处理里调用GRoot.inst.ShowPopup、GRoot.inst.ShowTooltips或者其他处理。</span></div></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">int</span> cnt = richText.htmlObjectCount;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;cnt;i++) </div><div class="line">&#123;</div><div class="line">    IHtmlObject obj = richText.GetHtmlObjectAt(i);</div><div class="line">    <span class="keyword">if</span>(obj <span class="keyword">is</span> HtmlLink) </div><div class="line">    &#123;</div><div class="line">        ((HtmlLink)obj).shape.onRollOver.Add(onLinkRollOver);</div><div class="line">        ((HtmlLink)obj).shape.onRollOut.Add(onLinkRollOut);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//你可以在RollOver和RollOut的处理里调用GRoot.inst.ShowPopup、GRoot.inst.ShowTooltips或者其他处理。</span></div></pre></td></tr></table></figure>
 <p>你也可以扩展实现自己的IHtmlObject。你需要自己实现一个IHtmlPageContext接口，然后赋值给RichTextField的htmlPageContext属性。详细可阅读源码。</p>
 
     

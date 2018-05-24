@@ -100,7 +100,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">Editor Start</a>
 	                </li>
 	            
 	                
@@ -146,6 +146,11 @@
 	                
 	                <li>
 	                    <a href="/guide/editor/component.html" class="sidebar-link">Component</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollpane.html" class="sidebar-link">ScrollPane</a>
 	                </li>
 	            
 	                
@@ -200,7 +205,12 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup Manage</a>
+	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/dragdrop.html" class="sidebar-link">Drag&Drop</a>
 	                </li>
 	            
 	                
@@ -220,7 +230,13 @@
 	                <li><h3>Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/unity/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/unity/index.html" class="sidebar-link">Unity Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/transform.html" class="sidebar-link">Unity Coordinate</a>
 	                </li>
 	            
 	                
@@ -232,7 +248,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/font.html" class="sidebar-link">Font handling</a>
+	                    <a href="/guide/unity/font.html" class="sidebar-link">Font Handling</a>
 	                </li>
 	            
 	                
@@ -262,7 +278,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall optimization</a>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall Optimization</a>
 	                </li>
 	            
 	                
@@ -271,14 +287,64 @@
 	                    <a href="/guide/unity/lua.html" class="sidebar-link">Used in Lua</a>
 	                </li>
 	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/special.html" class="sidebar-link">Unity Features</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/faq.html" class="sidebar-link">Unity FAQ</a>
+	                </li>
+	            
 
+	            
+	                
+	                
+	                <li><h3>Cocos2dx</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cocos2dx/index.html" class="sidebar-link">Cocos2dx Start</a>
+	                </li>
+	            
+	            
+	            
+	                
+	                
+	                <li><h3>CryEngine</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cry/index.html" class="sidebar-link">Cry Engine Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/transform.html" class="sidebar-link">Cry-Coordinate</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/input.html" class="sidebar-link">Cry-Input Processing</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/event.html" class="sidebar-link">Cry-Event System</a>
+	                </li>
+	            
+	            
 	            
 	                
 	                
 	                <li><h3>LayaAir</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/laya/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/laya/index.html" class="sidebar-link">LayaAir Start</a>
 	                </li>
 	            
 	
@@ -288,7 +354,7 @@
 	                <li><h3>Egret</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/egret/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/egret/index.html" class="sidebar-link">Egret Start</a>
 	                </li>
 	            
 
@@ -314,6 +380,14 @@
 <li><p><code>自动大小</code> 设置装载器是否根据内容的大小自动调整自身的大小。例如，如果图片的大小是100x100，则装载器的大小自动变成100x100。</p>
 </li>
 <li><p><code>填充处理</code> 当需要显示的图片或动画与装载器大小不相同时使用的缩放策略。注意如果你设置了自动大小，那这个填充处理就无意义了。因为这个选项只是当装载器大小与内容大小不一致时的处理方式。</p>
+<ul>
+<li><code>无</code> 内容不会发生任何缩放。</li>
+<li><code>等比缩放（显示全部）</code> 按照最小比率缩放，不变形，一边可能留空白。</li>
+<li><code>等比缩放（无边框）</code> 按照最大比率缩放，不变形，一边可能超出装载器矩形范围。</li>
+<li><code>等比缩放（适应高度）</code> 内容高度占满装载器高度，宽度等比缩放。</li>
+<li><code>等比缩放（适应宽度）</code> 内容宽度占满装载器宽度，高度等比缩放。</li>
+<li><code>自由缩放</code> 内容缩放至占满装载器矩形范围，不保持比例。</li>
+</ul>
 </li>
 <li><p><code>对齐</code> 设置装载器内容的对齐方式。</p>
 </li>
@@ -328,7 +402,7 @@
 <li><p><code>填充方法</code> 设置填充方法可以实现图片的一些裁剪效果。详细说明请参考图片的<a href="image.html#实例属性">填充方法</a>。<em>（注：仅Starling、Unity版本支持）</em></p>
 </li>
 </ul>
-<h2 id="GLoader"><a href="#GLoader" class="headerlink" title="GLoader"></a>GLoader</h2><p>装载器支持动态创建，动态创建图形一定要设置图形的大小，否则显示不出来。例如：</p>
+<h2 id="GLoader"><a href="#GLoader" class="headerlink" title="GLoader"></a>GLoader</h2><p>装载器支持动态创建，动态创建装载器一定要设置装载器的大小，否则显示不出来。例如：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GLoader aLoader = <span class="keyword">new</span> GLoader();</div><div class="line">aLoader.SetSize(<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">aLoader.url = <span class="string">"ui://包名/图片名"</span>;</div></pre></td></tr></table></figure>
 <p>GLoader可以载入图片和动画，但不能是组件或其他类型的元件。如果是UI包里的资源，那么通过“ui://包名/图片名”这种格式的地址就可以载入。但实际项目中，可能我们还需要载入和显示一些不在UI包里的，我们称之为“外部”的图片。默认的GLoader具有有限度的的加载外部资源的能力，它们是：</p>
 <ul>

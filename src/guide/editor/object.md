@@ -51,7 +51,7 @@ order: 10
 
 ![](../../images/20170726161142.png)
 
-- `BlendMode` 这个提供了一部分的混合选项设置。对于Unity平台，对图片、动画、文字，你可以放心地修改它们的BlendMode。但对于组件，请谨慎使用。组件的BlendMode需要使用到FairyGUI提供的PaintMode技术，目标组件会转化为RenderTexture，再使用混合选项。这里面会有一定的内存消耗。但实现细节无需开发者介入。对组件使用BlendMode会使场景里出现CaptureCamera对象，这是正常的。
+- `BlendMode` 这个提供了一部分的混合选项设置。对于Unity平台，对图片、动画、文字，你可以放心地修改它们的BlendMode。但对于组件，请谨慎使用。组件的BlendMode需要使用到FairyGUI提供的PaintMode技术，目标组件会转化为RenderTexture，再使用混合选项。这里面会有一定的内存消耗。但实现细节无需开发者介入。
 
 Unity的Blend效果与编辑器中的预览可能会有差别。开发者可以通过使用以下代码重定义混合效果。注意：设置了特别BlendMode的显示对象无法与其他显示对象合并Draw Call。
 
@@ -60,19 +60,30 @@ Unity的Blend效果与编辑器中的预览可能会有差别。开发者可以�
         UnityEngine.Rendering.BlendMode.XX, UnityEngine.Rendering.BlendMode.XX);
 ```
 
-- `滤镜` 目前编辑器支持两种滤镜的定义，颜色滤镜和模糊滤镜。对于H5类平台，请谨慎使用滤镜，因为会带来一定的消耗；对于Unity平台，你可以放心地对图片、动画、装载器使用颜色滤镜，这几乎不会带来额外消耗，但对于其他类型的元件，例如组件，请谨慎使用。组件的滤镜需要使用到FairyGUI提供的PaintMode技术，目标组件会转化为RenderTexture，再使用滤镜。这里面会有一定的内存消耗。但实现细节无需开发者介入。对组件使用滤镜会使场景里出现CaptureCamera对象，这是正常的。
+- `滤镜` 目前编辑器支持两种滤镜的定义，颜色滤镜和模糊滤镜。对于H5类平台，请谨慎使用滤镜，因为会带来一定的消耗；对于Unity平台，你可以放心地对图片、动画、装载器使用颜色滤镜，这几乎不会带来额外消耗，但对于其他类型的元件，例如组件，请谨慎使用。组件的滤镜需要使用到FairyGUI提供的PaintMode技术，目标组件会转化为RenderTexture，再使用滤镜。这里面会有一定的内存消耗。但实现细节无需开发者介入。
 
 注意：设置了滤镜的显示对象无法与其他显示对象合并Draw Call。
+
+**Unity版本须知**
+
+对组件使用BlendMode或者滤镜会需要用到捕获UI成纹理的功能，所以需要定义VUI、Hidden VUI这两个Layer，否则会出现警告。这两个Layer可以随便定义到没使用的层序号，但要注意所有相机的Culling Mask都**不选择**这两个层。另外，运行时场景里会自动出现Capture Camera对象，这是正常的，不需要理会。
 
 ## TIPS属性
 
 ![](../../images/20170726161155.png)
 
-当鼠标移到元件范围内时，显示这里可以定义的文本。用户需要提供一个组件作为显示。这个组件一般扩展为标签，以便底层将TIPS文本设置到“标题”中。打开主菜单“文件”->“项目设置”，然后在弹出的对话框里选择“预览设置”，右边面板会出现一个“TIPS组件”的设置，将你制作好的标签组件拖入即可。这里的设置仅适用于编辑器预览，运行时需要用代码再次设置，例如：
+当鼠标移到元件范围内时，显示这里定义的文本。用户需要提供一个组件用于显示这个文本。这个组件的“扩展”属性需要定义为“标签”，以便底层将TIPS文本设置到标签的“标题”属性中。打开编辑器主菜单“文件”->“项目设置”，然后在弹出的对话框里选择“预览设置”，右边面板会出现一个“TIPS组件”的设置，将你制作好的标签组件拖入即可。这里的设置仅适用于编辑器预览，运行时需要用代码再次设置：
 
-```csharp	
+```csharp
     UIConfig.tooltipsWin = "ui://包名/组件名";
 ```
+
+## 自定义数据
+
+![](../../images/20180108143441.png)
+
+可以设置一个自定义的数据，这个数据FairyGUI不做解析，按原样发布到最后的描述文件中。开发者可以在运行时获取。获取方式是：GObject.data或GObject.userData（Cocos2dx、Vision）。
+这里的输入框比较小，如果要输入大文本，则可以在输入激活时，按CTRL+ENTER，然后会弹出一个专门用于输入文本的窗口。
 
 ## GObject
 
@@ -96,7 +107,7 @@ Unity的Blend效果与编辑器中的预览可能会有差别。开发者可以�
     aObject.SetPivot(0.5f, 0.5f, true); //设置轴心，并同时作为锚点
 ```
 
-- `设置可见` visible = true/false。
+- `设置可见` visible = true/false。注意：即使对象设置visible=false，它仍然在显示列表中，所以仍然会消耗一定的计算资源（但不会消耗渲染资源），所以如果是长期的隐藏，建议移出显示列表，即removeFromParent。另外，不要和显示控制器混淆，两者是独立的。即使对象的visible=true,如果不在显示控制器的指定页面里，对象仍然是不可见的。
 
 - `设置交互` touchable = true/false。
 
@@ -111,7 +122,7 @@ Unity的Blend效果与编辑器中的预览可能会有差别。开发者可以�
 
 - `设置旋转` rotation。Unity版本还支持rotationX和rotationY。2D UI由正交相机渲染，设置rotationX或rotationY可以有旋转效果，但无透视效果。FairyGUI提供了透视模拟的功能。例如：
 
-```csharp
+  ```csharp
     //设置对象实用透视模拟
     aObject.displayObject.perspective = true;
     //可以设置相机距离
@@ -119,14 +130,26 @@ Unity的Blend效果与编辑器中的预览可能会有差别。开发者可以�
 
     //此时旋转X轴或Y轴可以有透视效果。
     aObject.rotaionX = 30;
-```
+  ```
 
 - `获得原生对象` displayObject。例如：
 
-```csharp
+  ```csharp
     //获取原生对象
     DisplayObject displayObject = aObject.displayObject;
 
     //Unity版本获取GameObject
     GameObject go = displayObject.gameObject;
-```
+  ```
+
+- `销毁` Dispose。销毁对象，当对象不再使用可以调用它。注意：纹理、声音等这些公共资源是由UIPackage管理的，销毁对象不会回收这些资源。如果要回收这些资源，应该使用UIPackage.RemovePackage。
+
+- `resourceURL` 对象在资源库中的URL地址。只有图片、动画、组件这些有链接资源的对象才能获得这个URL值。可以用这个URL比较两个组件对象是不是由同一个组件资源构建的。URL是内部编码格式，不可读，如果要获得资源名称，可以使用下面的方法：
+
+  ```csharp
+    //对象在资源库中的名称
+    Debug.Log(aObject.packageItem.name);
+
+    //根据URL获得资源名称
+    Debug.Log(UIPackage.GetItemByURL(resourceURL).name);
+  ```

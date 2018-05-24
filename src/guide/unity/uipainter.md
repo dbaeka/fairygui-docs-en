@@ -22,6 +22,8 @@ UIPainter和UIPanel的设置极为相似，设置好“Package Name”和“Comp
 
 材质那里要注意选择一个着色器，如果不需要特别的效果，那选择“FairyGUI/Image”就可以，如果需要光照等需求，也选择其他着色器。（如果没有材质，自己新建一个材质）。
 
+当曲面UI用于VR时，需要注意Stage Camera或者Capture Camera都**不可以**跟随眼睛移动，一般来说，使用高版本的FairyGUI SDK（如果使用的是dll版本，一定要注意和Unity的版本匹配），FairyGUI会自动设置好。如果出现显示问题，请检查一下相机的设置是否正确。
+
 ## UIPainter
 
 - `Package Name` UI组件所在的包名称。注意，这里只是保存一个名称，并没有实际引用到任何UI数据。
@@ -34,4 +36,4 @@ UIPainter和UIPanel的设置极为相似，设置好“Package Name”和“Comp
 
 - `Touch Disabled` 勾选后，将关闭点击检测。当这个UI没有可交互的内容时可以勾选以提高点击检测时的性能。
 
-当使用曲面UI时，因为需要用到捕获UI成纹理的功能，需要定义VUI、Hidden VUI这两个Layer，否则会出现警告。另外，场景里会出现Capture Camera对象，这是正常的。
+当使用曲面UI时，需要用到捕获UI成纹理的功能，所以需要定义VUI、Hidden VUI这两个Layer，否则会出现警告。这两个Layer可以随便定义到没使用的层序号，但要注意所有相机的Culling Mask都**不选择**这两个层。另外，运行时场景里会自动出现Capture Camera对象，这是正常的，不需要理会。

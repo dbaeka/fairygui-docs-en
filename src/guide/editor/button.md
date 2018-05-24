@@ -24,7 +24,7 @@ order: 130
 
 - `模式` 有三种按钮模式选择。
  - `普通按钮` 用于点击->响应的用途，无状态。
- - `单选按钮` 有一个是否选中的状态。被点击后处于选中状态，再点击仍然保持选中状态。
+ - `单选按钮` 有一个是否选中的状态。被点击后处于选中状态，再点击仍然保持选中状态。如果要实现单选按钮组，那可以将多个单选按钮的“连接”属性绑定到同一个控制器，具体请参考[控制器](controller.html#和按钮的联动)。
  - `复选按钮` 有一个是否选中的状态。被点击后处于选中状态，再点击则变成不选中状态。
 
 - `声音` 设置按钮被点击时的音效。如果所有按钮都共用一种音效，不需要每个按钮设置，在项目属性对话框里有一个全局的设置。
@@ -65,6 +65,7 @@ order: 130
 - `状态` 单选按钮或多选按钮可以设置按钮是否处于选中状态。
 
 - `标题` 设置的文本将赋值到标签组件内的“title”元件的文本属性。如果不存在“title”元件，则什么事都不会发生。
+  这里的输入框比较小，如果要输入大文本，则可以在输入激活时，按CTRL+ENTER，然后会弹出一个专门用于输入文本的窗口。
 
 - `选中时标题` 当按钮处于选中状态时，设置标题属性为这里设置的值；当按钮处于不选中状态时，恢复原标题属性的值。
 
@@ -114,16 +115,6 @@ order: 130
     button.pageOption.name = "page_name"; //或通过页面名称设置
 ```
 
-按钮可以模拟触发点击：
-
-```csharp
-    //模拟触发点击，只会有一个触发的表现，以及改变按钮状态，不会触发侦听按钮的点击事件。
-    button.FireClick(true);
-
-    //如果同时要触发点击事件，需要额外调用：
-    button.onClick.Call();
-```
-
 按钮全局声音的设置为：
 
 ```csharp
@@ -134,13 +125,53 @@ order: 130
     UIConfig.buttonSound = "ui://包名/声音名";
 
     //全局音量    
-	UIConfig.buttonSoundVolumeScale = 1f;
+    UIConfig.buttonSoundVolumeScale = 1f;
+```
+
+这个设置只能在创建任何UI前设置。如果要控制全局声音的开关或音量，可以这样：
+
+```csharp
+    //开关声音
+    GRoot.inst.EnabledSound();
+    GRoot.inst.DisableSound();
+
+    //调整全局声音音量，这个包括按钮声音和动效播放的声音
+    GRoot.inst.soundVolume = 0.5f;
+```
+
+监听普通按钮点击的方式为：（注意，点击事件不只是按钮有，任何支持触摸的元件都有，例如普通组件、装载器、图形等，他们的点击事件注册方式和按钮是相同的。）
+
+```csharp
+    //Unity/Cry
+    button.onClick.Add(onClick);
+
+    //AS3
+    button.addClickListener(onClick);
+
+    //Egret
+    button.addClickListener(this.onClick, this);
+
+    //Laya
+    button.onClick(this, this.onClick);
+
+    //Cocos2dx
+    button->addClickListener(CC_CALLBACK_1(AClass::onClick, this));
+```
+
+按钮可以模拟触发点击：
+
+```csharp
+    //模拟触发点击，只会有一个触发的表现，以及改变按钮状态，不会触发侦听按钮的点击事件。
+    button.FireClick(true);
+
+    //如果同时要触发点击事件，需要额外调用：(仅Unity/Cry示例，其他平台自己研究）
+    button.onClick.Call();
 ```
 
 单选和多选按钮状态改变时有通知事件：
 
 ```csharp
-    //Unity
+    //Unity/Cry
     button.onChanged.Add(onChanged);
 
     //AS3
@@ -151,4 +182,7 @@ order: 130
 
     //Laya
     button.on(fairygui.Events.STATE_CHANGED, this, this.onChanged);
+
+    //Cocos2dx
+    button->addEventListener(UIEventType::Changed, CC_CALLBACK_1(AClass::onChanged, this));
 ```

@@ -100,7 +100,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">Editor Start</a>
 	                </li>
 	            
 	                
@@ -146,6 +146,11 @@
 	                
 	                <li>
 	                    <a href="/guide/editor/component.html" class="sidebar-link">Component</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollpane.html" class="sidebar-link">ScrollPane</a>
 	                </li>
 	            
 	                
@@ -200,7 +205,12 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup Manage</a>
+	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/dragdrop.html" class="sidebar-link">Drag&Drop</a>
 	                </li>
 	            
 	                
@@ -220,7 +230,13 @@
 	                <li><h3>Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/unity/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/unity/index.html" class="sidebar-link">Unity Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/transform.html" class="sidebar-link">Unity Coordinate</a>
 	                </li>
 	            
 	                
@@ -232,7 +248,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/font.html" class="sidebar-link">Font handling</a>
+	                    <a href="/guide/unity/font.html" class="sidebar-link">Font Handling</a>
 	                </li>
 	            
 	                
@@ -262,7 +278,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall optimization</a>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall Optimization</a>
 	                </li>
 	            
 	                
@@ -271,14 +287,64 @@
 	                    <a href="/guide/unity/lua.html" class="sidebar-link">Used in Lua</a>
 	                </li>
 	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/special.html" class="sidebar-link">Unity Features</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/faq.html" class="sidebar-link">Unity FAQ</a>
+	                </li>
+	            
 
+	            
+	                
+	                
+	                <li><h3>Cocos2dx</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cocos2dx/index.html" class="sidebar-link">Cocos2dx Start</a>
+	                </li>
+	            
+	            
+	            
+	                
+	                
+	                <li><h3>CryEngine</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cry/index.html" class="sidebar-link">Cry Engine Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/transform.html" class="sidebar-link">Cry-Coordinate</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/input.html" class="sidebar-link">Cry-Input Processing</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/event.html" class="sidebar-link">Cry-Event System</a>
+	                </li>
+	            
+	            
 	            
 	                
 	                
 	                <li><h3>LayaAir</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/laya/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/laya/index.html" class="sidebar-link">LayaAir Start</a>
 	                </li>
 	            
 	
@@ -288,7 +354,7 @@
 	                <li><h3>Egret</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/egret/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/egret/index.html" class="sidebar-link">Egret Start</a>
 	                </li>
 	            
 
@@ -306,7 +372,7 @@
     
       <h1>Image</h1>
     
-    <p>图片是FairyGUI中最基础的元素，它的设计是尽量考虑到简洁而且高效的。因此，不提供修改图片源的功能，也不支持点击。如果需要动态更改，或者支持点击，请改用装载器。</p>
+    <p>图片是FairyGUI中最基础的元素，它的设计是尽量考虑到简洁而且高效的。因此，不提供修改图片源的功能，也不支持点击。如果需要动态更改，或者支持点击，请改用装载器（如果图片已经放置在舞台，那么在右键菜单中选择交换元件，再选择装载器，就可以快捷地把图片修改为装载器了）。</p>
 <h2 id="图片属性"><a href="#图片属性" class="headerlink" title="图片属性"></a>图片属性</h2><p>在资源库中，或者舞台上，双击图片，进入图片属性设置对话框：</p>
 <p><img src="../../images/20170727152217.png" alt=""></p>
 <ul>
@@ -324,11 +390,13 @@
 <ul>
 <li><p><code>使用平铺进行缩放</code> 图片拉伸时使用平铺模式进行填充。除了Flash和Haxe版本，应该尽量避免使用较小面积的图片平铺填充到较大的面积，因为这样会产生大量的网格，甚至可能溢出报错。如果你确实有这个需求，Unity版本提供了一种优化策略，你需要将这个图片设置为单独导出（下面的纹理集设置会说明），然后在Unity编辑器中，将这张纹理的Wrap Mode设置为Repeat。满足这两个条件后，使用这个图片进行平铺填充的性能会大大提高，而且不会出现溢出的异常。</p>
 </li>
-<li><p><code>允许平滑</code>    这个选项适用于Flash和Starling版本。它指示图片在拉伸时是否进行平滑处理。如果这个图片是用在制作像素游戏里的角色，你可能需要关闭平滑，其他情况一般都应开启。</p>
+<li><p><code>允许平滑</code> 它指示图片在拉伸时是否进行平滑处理。如果这个图片是用在制作像素游戏里的角色，你可能需要关闭平滑，其他情况一般都应开启。这个选项不适用于Unity版本，需要在Inspector里设置纹理集属性。</p>
 </li>
 <li><p><code>质量</code> 这个选项适用于Flash和Haxe版本。你可以控制单个图片的压缩率，以便获得最优的质量空间比。改变选项后按“应用”可以立即观察到图片的变化，并在“数据大小”里观察压缩大小的成果。</p>
 </li>
 <li><p><code>纹理集</code> 这个选项适用于使用纹理集的平台。一个包可以包含一张或多张纹理集，每个图片都可以安排放置到不同的纹理集。“单独”表示这个图片单独放置到一张纹理集，纹理集的大小是2的幂；“单独（NPOT）”表示这张图片按原大小直接输出。注意：在Unity中，非2的幂大小的纹理不支持压缩格式，只能为RGBA或RGBA。</p>
+</li>
+<li><p><code>重复边缘像素</code> 勾选后，在图集里会自动将图片最边缘的像素扩充出来，以避免图片在拼接或者平铺时产生缝隙。</p>
 </li>
 <li><p><code>导入</code> 选择一个外部图片覆盖此图片。</p>
 </li>
@@ -373,6 +441,8 @@
 <p>在Unity平台中，如果在某些特殊场合需要将Texture2D对象赋予给GImage，可以这样做：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//必须注意GImage不管理外部对象的生命周期，不会主动销毁your_Texture2D</span></div><div class="line">aImage.texture = <span class="keyword">new</span> NTexture(your_Texture2D);</div></pre></td></tr></table></figure>
 <p>再次强调，这种需求仍然是建议尽量使用装载器实现。</p>
+<p>在Unity平台中，你可以为GImage设置自定义的材质，或者着色器。例如：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aImage.shader = yourShader; </div><div class="line"><span class="comment">//或者</span></div><div class="line">aImage.material = yourMaterial;</div></pre></td></tr></table></figure>
 
     
     <div class="footer">

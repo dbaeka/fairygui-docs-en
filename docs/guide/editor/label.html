@@ -100,7 +100,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">Editor Start</a>
 	                </li>
 	            
 	                
@@ -146,6 +146,11 @@
 	                
 	                <li>
 	                    <a href="/guide/editor/component.html" class="sidebar-link">Component</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollpane.html" class="sidebar-link">ScrollPane</a>
 	                </li>
 	            
 	                
@@ -200,7 +205,12 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup Manage</a>
+	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/dragdrop.html" class="sidebar-link">Drag&Drop</a>
 	                </li>
 	            
 	                
@@ -220,7 +230,13 @@
 	                <li><h3>Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/unity/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/unity/index.html" class="sidebar-link">Unity Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/transform.html" class="sidebar-link">Unity Coordinate</a>
 	                </li>
 	            
 	                
@@ -232,7 +248,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/font.html" class="sidebar-link">Font handling</a>
+	                    <a href="/guide/unity/font.html" class="sidebar-link">Font Handling</a>
 	                </li>
 	            
 	                
@@ -262,7 +278,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall optimization</a>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall Optimization</a>
 	                </li>
 	            
 	                
@@ -271,14 +287,64 @@
 	                    <a href="/guide/unity/lua.html" class="sidebar-link">Used in Lua</a>
 	                </li>
 	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/special.html" class="sidebar-link">Unity Features</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/faq.html" class="sidebar-link">Unity FAQ</a>
+	                </li>
+	            
 
+	            
+	                
+	                
+	                <li><h3>Cocos2dx</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cocos2dx/index.html" class="sidebar-link">Cocos2dx Start</a>
+	                </li>
+	            
+	            
+	            
+	                
+	                
+	                <li><h3>CryEngine</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cry/index.html" class="sidebar-link">Cry Engine Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/transform.html" class="sidebar-link">Cry-Coordinate</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/input.html" class="sidebar-link">Cry-Input Processing</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/event.html" class="sidebar-link">Cry-Event System</a>
+	                </li>
+	            
+	            
 	            
 	                
 	                
 	                <li><h3>LayaAir</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/laya/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/laya/index.html" class="sidebar-link">LayaAir Start</a>
 	                </li>
 	            
 	
@@ -288,7 +354,7 @@
 	                <li><h3>Egret</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/egret/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/egret/index.html" class="sidebar-link">Egret Start</a>
 	                </li>
 	            
 
@@ -313,7 +379,7 @@
 <li>新建一个组件，然后在组件属性里选择扩展为“标签”。</li>
 </ul>
 <h2 id="设计属性"><a href="#设计属性" class="headerlink" title="设计属性"></a>设计属性</h2><p>在组件编辑状态下，标签组件的属性面板是：</p>
-<p><img src="../../images/20170802232618.png" alt=""></p>
+<p><img src="../../images/20170803135953.png" alt=""></p>
 <p><strong>命名约定</strong></p>
 <ul>
 <li><p><code>title</code> 可以是普通文本，富文本，也可以是标签、按钮。</p>
@@ -325,7 +391,7 @@
 <h2 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h2><p>在舞台上选中一个标签组件，右边的属性面板列表出现：</p>
 <p><img src="../../images/20170803140710.png" alt=""></p>
 <ul>
-<li><p><code>标题</code> 设置的文本将赋值到标签组件内的“title”元件的文本属性。如果不存在“title”元件，则什么事都不会发生。</p>
+<li><p><code>标题</code> 设置的文本将赋值到标签组件内的“title”元件的文本属性。如果不存在“title”元件，则什么事都不会发生。<br>这里的输入框比较小，如果要输入大文本，则可以在输入激活时，按CTRL+ENTER，然后会弹出一个专门用于输入文本的窗口。</p>
 </li>
 <li><p><code>标题颜色</code> 默认的标题颜色是标签组件内的“title”元件的文字颜色，勾选后，可以修改文字颜色。如果不存在“title”元件，则什么事都不会发生。</p>
 </li>
@@ -335,7 +401,7 @@
 </li>
 </ul>
 <p>如果“title”是输入文本，则属性面板内会出现<img src="../../images/20170801144514.png" alt="">按钮，点击后出现输入设置面板。设置方法可参考文本的教程。</p>
-<h2 id="GLabel"><a href="#GLabel" class="headerlink" title="GLabel"></a>GLabel</h2><p>设置标签的标题或者图标，你甚至不需要强制对象为GLable的类型，直接用GObject提供的接口就可以，例如：</p>
+<h2 id="GLabel"><a href="#GLabel" class="headerlink" title="GLabel"></a>GLabel</h2><p>设置标签的标题或者图标，你甚至不需要强制对象为GLabel的类型，直接用GObject提供的接口就可以，例如：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GObject obj = gcom.GetChild(<span class="string">"n1"</span>);</div><div class="line">obj.text = <span class="string">"hello"</span>;</div><div class="line">obj.icon = <span class="string">"ui://包名/图片名"</span>;</div></pre></td></tr></table></figure>
 <p>修改标题颜色可以这样：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GLabel label = gcom.GetChild(<span class="string">"n1"</span>).asLabel;</div><div class="line">lable.titleColor = ...;</div></pre></td></tr></table></figure>

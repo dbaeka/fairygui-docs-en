@@ -1,12 +1,25 @@
 ---
-title: Instructions
+title: Egret Start
 type: guide_egret
 order: 0
 ---
 
+开发小游戏须知：
+
+1. 因为rawinflate这个库在小游戏平台有问题，所以直接不使用它。请使用最新编辑器，发布时勾选“不压缩描述文件”就可以了。rawinflate这个库就不会再引用到。
+2. 小游戏不支持fui扩展名，所以在发布界面要把扩展名修改成小游戏支持的扩展名。
+3. 在scripts/wxgame/wxgame.ts里，找到
+  ```
+    content += ";egret.fairygui;";
+  ```
+  改成：
+  ```
+    content += ";window.egret.fairygui;";
+  ```
+
 ## Egret 4.x
 
-1. 将FairyGUI库以及依赖的rawinflate库拷贝到libs目录。
+1. 将FairyGUI库以及依赖的rawinflate库拷贝到libs目录。（如果你在编辑器发布时没有勾选`压缩描述文件`，那么这个库是不需要的）。
 
   ![](../../images/20170809161022.png)
 
@@ -20,7 +33,7 @@ order: 0
 
   ![](../../images/20170809161256.png)
 
-4. 在default.res.json里，将上述的文件添加到定义中。扩展名为fui文件，类型请选择为bin。注意：Egret自动检测添加的资源，名称通常会自动加上下划线和后缀，例如basic.fui，名称自动设置为“basic_fui”，这里我们要手动将_fui去掉，名称只需要为“basic”。
+4. 在default.res.json里，将上述的文件添加到定义中。扩展名为fui文件，类型请选择为bin。**注意：Egret自动检测添加的资源，名称通常会自动加上下划线和后缀，例如basic.fui，名称自动设置为“basic_fui”，这里我们要手动将_fui去掉，名称只需要为“basic”。**
 
   ![](../../images/20170809161350.png)
 
@@ -48,20 +61,22 @@ order: 0
    }
   ```
 
+如果出现“fairygui not defined”的错误，请再一次检查index.html里是否有fairygui.js的引用。
+
 ## Egret 5.x
 
-步骤与4.x的基本一样，不过需要额外的两个操作：
+步骤与4.x的基本一样，不过不再需要在index.html文件里添加fairygui和rawinflate的引用。你只需要以下这个步骤：
 
-1. 复制一份rawinflate.min.js，并改名为rawinflate.js。
+1. 复制一份rawinflate.min.js，并改名为rawinflate.js。（如果你在编辑器发布时没有勾选`压缩描述文件`，那么这个库是不需要的）。
 2. 在egretProperties.json文件中添加:
 
   ```csharp
-	{  
-	    "name": "rawinflate",  
-	    "path": "./libs/rawinflate"  
-	},  
-	{  
-	    "name": "fairygui",  
-	    "path": "./libs/fairygui"  
-	}
+    {  
+        "name": "rawinflate",  
+        "path": "./libs/rawinflate"  
+    },  
+    {  
+        "name": "fairygui",  
+        "path": "./libs/fairygui"  
+    }
   ```

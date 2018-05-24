@@ -6,7 +6,7 @@ order: 30
 
 ## 鼠标/触摸输入
 
-FairyGUI使用内置的机制进行鼠标和触摸事件的处理，不使用射线。如果要使用射线，可以将UIPanel的“HitTest Mode”设置为“Raycast”。
+FairyGUI使用内置的机制进行鼠标和触摸事件的处理，不使用射线。如果确实要使用射线，可以将UIPanel的“HitTest Mode”设置为“Raycast”。无论哪种点击检测模式，下面的事件处理机制都一样。
 
 如果要区分点击UI还是点击场景里的对象，可以使用下面的方法：
 
@@ -21,12 +21,26 @@ FairyGUI使用内置的机制进行鼠标和触摸事件的处理，不使用射
 
 这种检测不仅适用于点击，也适用于悬停。例如，如果鼠标悬停在UI上，这个判断也是真。
 
-在任何事件回调中都可以获得当前鼠标或手指位置，例如：
+和鼠标/触摸相关的事件有：
+
+- `onTouchBegin` 鼠标按键按下（左、中、右键），或者手指按下。鼠标按钮可以从context.inputEvent.button获得，0-左键,1-中键,2-右键。
+- `onTouchMove` 鼠标指针移动或者手指在屏幕上移动。这个事件只有两种情况会触发，1、在onTouchBegin里调用了context.CaptureTouch()，那么后续的移动事件都会在这个对象上触发（无论手指或指针位置是不是在该对象上方）。2、舞台的onTouchMove始终会触发，即Stage.inst.onTouchMove，它不需要使用CaptureTouch捕获。在PC平台上鼠标只要移动，就可以触发；在手机平台上，只有手指按下后移动才会触发。
+- `onTouchEnd` 鼠标按键释放或者手指从屏幕上离开。如果鼠标或者触摸位置已经不在组件范围内了，那么组件的TouchEnd事件是不会触发的，如果确实需要，可以在onTouchBegin里调用context.CaptureTouch()请求捕获。
+- `onClick` 鼠标或者手指点击。可以从context.inputEvent.isDoubleClick判断是否双击。**如果你在找长按事件，那么请使用LongPressGesture[(长按手势)](#手势)。**
+- `onRightClick` 鼠标右键点击。
+
+在任何事件（即不只是鼠标/触摸相关的事件）回调中都可以获得当前鼠标或手指位置，以及点击的对象，例如：
 
 ```csharp
-    void EventHandler(EventContext context)
+    void AnyEventHandler(EventContext context)
     {
+        //点击位置，注意是屏幕坐标，要转换本地坐标要使用GlobalToLocal
         Debug.Log(context.inputEvent.x + ", " + context.inputEvent.y);
+
+        //获取点击的对象
+        Debug.Log((GObject)context.sender);
+        //如果事件是冒泡的，可以获得最底层的对象。但要注意，这里的对象类型是DisplayObject，不是GObject。
+        Debug.Log((DisplayObject)context.initiator);
     }
 ```
 
@@ -38,29 +52,40 @@ FairyGUI使用内置的机制进行鼠标和触摸事件的处理，不使用射
 
     //获取指定手指的位置，参数是手指id
     Vector2 pos2 = Stage.inst.GetTouchPosition(1);
+```
 
+在任何时候，如果需要获得当前点击的对象，或者鼠标下的对象，都可以通过以下的方式获得：
+
+```csharp
+    GObject obj = GRoot.inst.touchTarget;
+
+    //判断是不是在某个组件内
+    Debug.Log(testComponent.IsAncestorOf(obj));
+```
+
+## 多点触摸
+
+FairyGUI支持多点触摸的处理。每个手指都会按照TouchBegin->TouchMove->TouchEnd流程派发事件，可以使用EventContext.inputEvent.touchId区分不同的手指。一般来说，普通的点击事件无需关心手指id，只有需要用到整个触摸流程的才需要处理。
+
+```csharp
     //这是当前按下的手指的数量
     int touchCount = Stage.inst.touchCount;
 
-    //获得当前所有按下的手指
+    //获得当前所有按下的手指id
     int[] touchIDs = Stage.inst.GetAllTouch(null);
 ```
 
-如果要侦听鼠标或者手指的移动，FairyGUI提供了一个全局的事件。注意：在需要时侦听，不需要时请移除。
-
-```csharp
-    Stage.inst.onTouchMove.Add(onTouchMove);
-```
+如果你不想使用多点触摸功能，可以使用Unity的API：Input.multiTouchEnabled = false关闭。
 
 ## VR输入处理
 
-VR里输入一般使用凝视输入，或者手柄输入，针对这些新的输入方式，FairyGUI提供了封装支持，也就是说，在VR应用里，你仍然可以像处理鼠标或者触摸输入一样处理VR的输入。
+VR里输入一般使用凝视输入，或者手柄输入，针对这些新的输入方式，FairyGUI提供了封装支持，也就是说，在VR应用里，你仍然可以像处理鼠标或者触摸输入一样处理VR的输入，无任何区别。
 
 首先，需要把这些外部输入传入FairyGUI。在Stage类里提供了这些API：
 
 ```csharp
-	public void SetCustomInput(ref RaycastHit hit, bool buttonDown);
-	public void SetCustomInput(ref RaycastHit hit, bool buttonDown, bool buttonUp);
+    public void SetCustomInput(ref RaycastHit hit, bool buttonDown);
+    public void SetCustomInput(ref RaycastHit hit, bool buttonDown, bool buttonUp);
 ```
 
 - `hit` 没有手柄的，这里传入眼睛的射线（其实就是摄像机的射线）击中的目标；有手柄的，传入手柄射线击中的目标。
@@ -88,29 +113,38 @@ SetCustomInput可以放在Update里调用，而且必须**每帧调用**。如�
 
 在手机上是通过原生的键盘输入。键盘弹出时，派发GTextInput.onFocusIn事件，键盘收回时，派发GTextInput.onFocusOut事件。
 
-Unity在键盘输入时自带了一个额外的输入框，如果你不需要这个输入框，希望像微信那样弹出自己的输入框，你需要自行编写原生支持，FairyGUI这边提供的支持有：
+Unity在键盘输入时自带了一个额外的输入框，如果你不需要这个输入框，希望像微信那样弹出自己的输入框，你需要自行编写原生代码，FairyGUI这边提供的支持有：
 
 ```csharp
-    //取消Unity弹出原生的键盘的行为
-    Stage.keyboardInput = false;
+    //定义自己的键盘
+    KeyBoard yourKeyboard;
 
-    //插入字符到光标位置
-    Stage.inst.InputString("xxx");
+    Stage.inst.keyboard = yourKeyboard;
 ```
 
 **复制粘贴问题**
 
-当使用DLL形式的插件时，因为DLL默认是为移动平台编译的，所以不支持复制粘贴（如果要支持，需要自己写原生）。如果是在PC平台上使用时，需要将[CopyPastePatch.cs](https://github.com/fairygui/FairyGUI-unity/blob/master/Examples.Unity5/Assets/FairyGUI/CopyPastePatch.cs)放到工程里，并在游戏启动时调用CopyPastePatch.Apply()，就可以在PC平台激活复制粘贴功能。如果你是使用源码形式的插件，不需要进行这个处理。
+当使用DLL形式的插件时，因为DLL默认是为移动平台编译的，所以不支持复制粘贴（如果要支持，需要自己写原生代码支持）。如果是在PC平台上使用时，需要将[CopyPastePatch.cs](https://github.com/fairygui/FairyGUI-unity/blob/master/Examples.Unity5/Assets/FairyGUI/CopyPastePatch.cs)放到工程里，并在游戏启动时调用CopyPastePatch.Apply()，就可以在PC平台激活复制粘贴功能。**如果你是使用源码形式的插件，不需要进行这个处理。**
 
 ## 手势
 
-FairyGUI提供了常用手势的支持，它们是：
+FairyGUI提供了手势的支持。使用手势的方式是：
 
-- `LongPressGesture` 长按手势。
+```csharp
+    LongPressGesture gesture = new LongPressGesture(targetObject);
+    gesture.onAction.Add(OnGestureAction);
+```
 
-- `SwipeGesture` 手指划动手势。
+targetObject是接收手势的元件，注意一定要是可触摸的。图片是不可触摸的，一般建议用组件，或者图形（图形透明度可以设置为0）。如果你需要全屏幕监测手势，那么可以直接用GRoot.inst作为targetObject（需1.9.0 SDK或更高版本支持）
 
-- `PinchGesture` 两指缩放手势。
+常用的手势有：
 
-- `RotationGesture` 两指旋转手势。
+`LongPressGesture` 长按手势。
 
+`SwipeGesture` 手指划动手势。
+
+`PinchGesture`两指缩放手势。
+
+`RotationGesture` 两指旋转手势。
+
+手势的使用方法可以参考Gesture这个Demo。

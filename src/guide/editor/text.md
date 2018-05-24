@@ -19,7 +19,9 @@ FairyGUI编辑器运行的环境，与应用实际运行的环境是不相同的
     UIConfig.defaultFont = 'Droid Sans Fallback'; 
 ```
 
-设置运行时使用的字体需保证该字体在目标平台上也存在，否则达不到想要的效果。
+设置运行时使用的字体需保证该字体在目标平台上也存在，否则达不到想要的效果。如果你想打包字体到目标平台，那么需要查询引擎提供的支持，比如Unity，可以这样做：[../unity/font.html](../unity/font.html "使用字体")
+
+如果要在编辑器里使用ttf字体，请双击ttf文件，确认安装到系统，这样重启编辑器后就可以在字体列表里看到这种字体了。
 
 ## 位图字体
 
@@ -65,9 +67,10 @@ FairyGUI编辑器支持位图字体。首先，我们创建一种字体。点击
 
 ![](../../images/20170801092638.png)
 
-- `文本` 设置文本内容。当需要换行时，在编辑器里可以直接按回车。运行时需要换行可以用“\n”，尽量避免使用“\r\n”。
+- `文本` 设置文本内容。当需要换行时，在编辑器里可以**直接按回车**。用代码赋值时需要换行可以用“\n”。
+  这里的输入框比较小，如果要输入大文本，则可以在输入激活时，按CTRL+ENTER，然后会弹出一个专门用于输入文本的窗口。
 
-- `字体` 设置文字使用的字体。你不需要每个文本设置一次字体。在项目属性里可以设置项目中所有文本默认使用的字体。运行时则通过UIConfig.defaultFont统一设置。如果某些文本确实需要指定特别的字体，可以点击右边的A按钮，选择其他字体，或者直接输入字体名称。如果需要使用位图字体，可以从资源库中把字体资源拖动到这里。
+- `字体` 设置文字使用的字体。你不需要每个文本设置一次字体。在项目属性里可以设置项目中所有文本默认使用的字体。运行时则通过UIConfig.defaultFont统一设置。如果需要使用位图字体，可以从资源库中把字体资源拖动到这里。如果使用TTF字体，那么你需要将字体安装到操作系统，然后再在这里输入字体名称。如果设置了字体名称后，发现字体效果不对，那么你提供的字体名称可能不对。**对于部分字体，编辑器能识别的字体名称不一定是字体的中文名称**。查看准确的系统字体名称，你可以下载FontCreator软件，查看字体的Font Family属性。
 
 - `字体大小` 设置文字使用的字号。如果使用的是位图字体，你需要对位图字体设置“允许动态改变字号”，这里的选项才有效。
 
@@ -75,12 +78,12 @@ FairyGUI编辑器支持位图字体。首先，我们创建一种字体。点击
 
 - `行距` 每行的像素间距。
 
-- `字距` 每个字符的像素间距。
+- `字距` 每个字符的像素间距。*（Unity、AS3、Starling支持，其他引擎均不支持）*
 
 - `自动大小` 
   - `自动宽度和高度` 文本不会自动换行，宽度和高度都增长到容纳全部文本。
   - `自动高度` 文本使用固定宽度排版，到达宽度后自动换行，高度增长到容纳全部文本。
-  - `自动收缩` 文本使用固定宽度排版，到达宽度后文本自动缩小，使所有文本依然全部显示。如果内容宽度小于文本宽度，则不做任何处理。
+  - `自动收缩` 文本使用固定宽度排版，到达宽度后文本自动缩小，使所有文本依然全部显示。如果内容宽度小于文本宽度，则不做任何处理。*(位图字体要在字体属性里勾选'允许改变字号'才能使用自动收缩特性)*
   - `无` 文本使用固定宽度和高度排版，不会自动换行。超出文本框范围的被剪裁。*（Laya、Egret、Unity平台没有开启此剪裁功能，也就是超出范围的依然会显示）*
 
 - `对齐` 设置文本的对齐。
@@ -133,14 +136,27 @@ FairyGUI编辑器支持位图字体。首先，我们创建一种字体。点击
     aTextField.text = "Hello World";
 ```
 
-在Unity平台中，如果你需要改变文本的样式，请使用以下的方式：
+动态改变文本的样式（字体大小、颜色等），在不同的平台，方式略有差别：
 
 ```csharp
+    //Unity/Cry
     TextFormat tf = aTextField.textFormat;
     tf.color = ...;
     tf.size = ...;
     aTextField.textFormat = tf;
+
+    //Cocos2dx
+    TextFormat* tf = aTextField->getTextFormat();
+    tf->color = ...;
+    tf->size  ...;
+    aTextField->applyTextFormat();
+
+    //其他平台
+    aTextField.color = ...;
+    aTextField.fontSize = ...;
 ```
+
+如果要设置文本的字体为位图字体，字体名称直接使用字体的url就可以了，例如‘ui://包名/字体名’。
 
 ## GTextInput
 
@@ -151,43 +167,50 @@ FairyGUI编辑器支持位图字体。首先，我们创建一种字体。点击
 输入文本在文本改变时有通知事件：
 
 ```csharp
-    //Unity
-    aTextField.onChanged.Add(onChanged);
+    //Unity/Cry
+    aTextInput.onChanged.Add(onChanged);
 
     //AS3
-    aTextField.addEventListener(Event.CHANGE, onChanged);
+    aTextInput.addEventListener(Event.CHANGE, onChanged);
 
     //Egret
-    aTextField.addEventListener(Event.CHANGE, this.onChanged, this);
+    aTextInput.addEventListener(Event.CHANGE, this.onChanged, this);
 
     //Laya
-    aTextField.on(laya.events.Event.INPUT, this, this.onChanged);
+    aTextInput.on(laya.events.Event.INPUT, this, this.onChanged);
 ```
 
 在获得焦点和失去焦点时有通知事件：
 
 ```csharp
     //Unity
-    aTextField.onFocusIn.Add(onFocusIn);
-    aTextField.onFocusOut.Add(onFocusOut);
+    aTextInput.onFocusIn.Add(onFocusIn);
+    aTextInput.onFocusOut.Add(onFocusOut);
 
     //AS3
-    aTextField.addEventListener(FocusEvent.FOCUS_IN, onFocusIn);
-    aTextField.addEventListener(FocusEvent.FOCUS_OUT, onFocusOut);
+    aTextInput.addEventListener(FocusEvent.FOCUS_IN, onFocusIn);
+    aTextInput.addEventListener(FocusEvent.FOCUS_OUT, onFocusOut);
 
     //Egret
-    aTextField.addEventListener(FocusEvent.FOCUS_IN, this.onFocusIn, this);
-    aTextField.addEventListener(FocusEvent.FOCUS_OUT, this.onFocusOut, this);
+    aTextInput.addEventListener(FocusEvent.FOCUS_IN, this.onFocusIn, this);
+    aTextInput.addEventListener(FocusEvent.FOCUS_OUT, this.onFocusOut, this);
 
     //Laya
-    aTextField.on(laya.events.Event.FOCUS, this, this.onFocusIn);
-    aTextField.on(laya.events.Event.BLUR, this, this.onFocusOut);
+    aTextInput.on(laya.events.Event.FOCUS, this, this.onFocusIn);
+    aTextInput.on(laya.events.Event.BLUR, this, this.onFocusOut);
 ```
 
-如果要主动设置输入文本焦点，可以用
+如果要主动设置焦点，可以用
 
 ```csharp
-    aTextField.RequestFocus();
+    aTextInput.RequestFocus();
+```
+
+如果输入文本设置了单行，则当按用户回车时会派发一个事件：
+
+```csharp
+    //Unity
+    aTextInput.onSubmit.Add(onSubmit);
 ```
 
 ## UBB语法

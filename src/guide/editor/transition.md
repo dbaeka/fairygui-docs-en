@@ -45,6 +45,8 @@ FairyGUI不仅提供了静态UI的编辑功能，而且提供了强大的动效�
 - `播放震动` 元件显示一个震动效果。
 - `改变颜色滤镜` 改变元件的颜色滤镜。
 
+**注意：“组”支持的动效类型很少，如果需要复杂的动作，请改用组件。**
+
 **时间轴操作**
 
 ![](../../images/gaollg5.gif)
@@ -67,6 +69,7 @@ FairyGUI不仅提供了静态UI的编辑功能，而且提供了强大的动效�
 - `复制时间轴` 复制时间轴。
 - `粘贴时间轴` 将复制的时间轴粘贴到选定的时间轴。源和目标应该具有相同的属性。
 - `删除时间轴` 删除选定的时间轴。
+- `更改目标对象` 修改时间轴的目标对象。
 
 **动效属性设置**
 
@@ -90,7 +93,7 @@ FairyGUI不仅提供了静态UI的编辑功能，而且提供了强大的动效�
 
 - `Tween` 勾选后从这个关键帧到下一个关键帧建立一个Tween。如果没有下一个关键帧，那么这个Tween是无效的。
 
-- `缓动函数` 时间/速度曲线。详细请参考 [图解](../../images/20170802000005.png) [示例](https://greensock.com/ease-visualizer)。
+- `缓动函数` 时间/速度曲线。详细请参考 [图解](../../images/20170802000005.jpg) [示例](https://greensock.com/ease-visualizer)。
  
 - `重复` 重复播放的次数。-1表示循环。
 
@@ -103,27 +106,33 @@ FairyGUI不仅提供了静态UI的编辑功能，而且提供了强大的动效�
 动效的播放在代码中启动，例如：
 
 ```csharp
-	Transition trans = aComponent.GetTransition(“peng”);
-	trans.Play();
+    Transition trans = aComponent.GetTransition(“peng”);
+    trans.Play();
 ```
 
 Play有多种原型，例如可以重复播放一定次数，可以在播放结束时回调等。例如：
 
 ```csharp
-	//结束时有一个回调，但需注意，如果动效里有嵌套的动效，或者有循环的内容，必须是等全部都结束后才会回调。
-	trans.Play(callback);
+    //结束时有一个回调，但需注意，如果动效里有嵌套的动效，或者有循环的内容，必须是等全部都结束后才会回调。
+    trans.Play(callback);
+```
+
+也可以倒着放，但要注意倒着放之前需要先执行一次正着放。例如：
+
+```csharp
+    trans.playReverse();
 ```
 
 要中途停止动效的播放，可以调用：
 
 ```csharp
-	trans.Stop();
+    trans.Stop();
 ```
 
 Stop方法也可以带参数，原型是：
 
 ```csharp
-	public void Stop(bool setToComplete, bool processCallback);
+    public void Stop(bool setToComplete, bool processCallback);
 ```
 
 `setToComplete`表示是否将组件的状态设置到播放完成的状态，如果否，组件的状态就会停留在当前时间。`processCallback`是否调用Play方法传入的回调函数。
@@ -133,22 +142,22 @@ Stop方法也可以带参数，原型是：
 如果需要修改某个关键帧的属性值，可以使用：
 
 ```csharp
-	//例如某帧的标签为aa，这帧是设置某个元件的XY值的，将XY的数值改为100,200。
-	trans.SetValue("aa", 100, 200);
+    //例如某帧的标签为aa，这帧是设置某个元件的XY值的，将XY的数值改为100,200。
+    trans.SetValue("aa", 100, 200);
 ```
 
 可以修改某个Tween的持续时间，但修改某个Tween的时间**不会**使后续的Tween推迟。例如：
 
 ```csharp
-	//修改某个Tween的持续时间为0.5秒。注意，标签应该定在Tween的开始关键帧上。
-	trans.SetDuration("aa", 0.5f);
+    //修改某个Tween的持续时间为0.5秒。注意，标签应该定在Tween的开始关键帧上。
+    trans.SetDuration("aa", 0.5f);
 ```
 
 可以在动效运行到某帧时触发一个回调，例如：
 
 ```csharp
-	//运行到标签为aa的关键帧时，触发一个callback的回调。
-	trans.SetHook("aa", callback);
+    //运行到标签为aa的关键帧时，触发一个callback的回调。
+    trans.SetHook("aa", callback);
 ```
 
 在Unity中，动效的播放速度是不受Time.timeScale影响的，但你可以单独设置动效的timeScale，例如：

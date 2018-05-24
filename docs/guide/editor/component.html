@@ -100,7 +100,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">Editor Start</a>
 	                </li>
 	            
 	                
@@ -146,6 +146,11 @@
 	                
 	                <li>
 	                    <a href="/guide/editor/component.html" class="sidebar-link current">Component</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollpane.html" class="sidebar-link">ScrollPane</a>
 	                </li>
 	            
 	                
@@ -200,7 +205,12 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup Manage</a>
+	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/dragdrop.html" class="sidebar-link">Drag&Drop</a>
 	                </li>
 	            
 	                
@@ -220,7 +230,13 @@
 	                <li><h3>Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/unity/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/unity/index.html" class="sidebar-link">Unity Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/transform.html" class="sidebar-link">Unity Coordinate</a>
 	                </li>
 	            
 	                
@@ -232,7 +248,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/font.html" class="sidebar-link">Font handling</a>
+	                    <a href="/guide/unity/font.html" class="sidebar-link">Font Handling</a>
 	                </li>
 	            
 	                
@@ -262,7 +278,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall optimization</a>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall Optimization</a>
 	                </li>
 	            
 	                
@@ -271,14 +287,64 @@
 	                    <a href="/guide/unity/lua.html" class="sidebar-link">Used in Lua</a>
 	                </li>
 	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/special.html" class="sidebar-link">Unity Features</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/faq.html" class="sidebar-link">Unity FAQ</a>
+	                </li>
+	            
 
+	            
+	                
+	                
+	                <li><h3>Cocos2dx</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cocos2dx/index.html" class="sidebar-link">Cocos2dx Start</a>
+	                </li>
+	            
+	            
+	            
+	                
+	                
+	                <li><h3>CryEngine</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cry/index.html" class="sidebar-link">Cry Engine Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/transform.html" class="sidebar-link">Cry-Coordinate</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/input.html" class="sidebar-link">Cry-Input Processing</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/event.html" class="sidebar-link">Cry-Event System</a>
+	                </li>
+	            
+	            
 	            
 	                
 	                
 	                <li><h3>LayaAir</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/laya/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/laya/index.html" class="sidebar-link">LayaAir Start</a>
 	                </li>
 	            
 	
@@ -288,7 +354,7 @@
 	                <li><h3>Egret</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/egret/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/egret/index.html" class="sidebar-link">Egret Start</a>
 	                </li>
 	            
 
@@ -326,10 +392,10 @@
 <ul>
 <li><code>可见</code> 表示超出组件矩形区域的内容保持可见，这是默认行为。</li>
 <li><code>隐藏</code> 表示超出组件矩形区域的内容不可见，相当于对组件应用了一个矩形遮罩。</li>
-<li><code>垂直滚动</code> <code>水平滚动</code> <code>自由滚动</code> 与其他UI框架很大不同，在FairyGUI中不需要拖入滚动控件实现滚动。任何一个普通的组件，只需要简单设置一个属性就可以使组件具有滚动功能。溢出处理中有三种滚动的选择，自由滚动就是横向和纵向都能滚动。详细说明在<a href="#滚动设置">滚动设置</a>。</li>
+<li><code>垂直滚动</code> <code>水平滚动</code> <code>自由滚动</code> 与其他UI框架很大不同，在FairyGUI中不需要拖入滚动控件实现滚动。任何一个普通的组件，只需要简单设置一个属性就可以使组件具有滚动功能。溢出处理中有三种滚动的选择，自由滚动就是横向和纵向都能滚动。详细说明在<a href="scrollpane.html">滚动容器</a>。</li>
 </ul>
 </li>
-<li><p><code>边缘</code> 设定组件四周的留空。一般用在“溢出处理”为“隐藏”或者“滚动”的情况。<code>边缘虚化</code>目前只有在Unity平台支持。如果组件发生了对内容的剪裁，则可以在边缘产生虚化的效果，增强用户体验。这个值应该比较大才能看出效果，例如50。</p>
+<li><p><code>边缘</code> 设定组件四周的留空。一般用在“溢出处理”为“隐藏”或者“滚动”的情况。边缘虚化目前只有在Unity平台支持。如果组件发生了对内容的剪裁，则可以在边缘产生虚化的效果，增强用户体验。这个值应该比较大才能看出效果，例如50。</p>
 </li>
 </ul>
 <center><br><img src="../../images/20170802095820.png" alt=""><br></center>
@@ -345,14 +411,16 @@
 </li>
 <li><p><code>背景颜色</code> 设置组件编辑区域的背景颜色，仅用于辅助设计，实际组件背景都是透明的，不会有颜色。如果你需要组件有一个真实的背景色，可以放置一个图形。</p>
 </li>
-<li><p><code>备注</code> 设置组件的备注信息。这个信息目前仅供插件开发者使用，没有其他用途。</p>
+<li><p><code>自定义数据</code> 可以设置一个自定义的数据，这个数据FairyGUI不做解析，按原样发布到最后的描述文件中。开发者可以在运行时获取。获取方式是：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry</span></div><div class="line">aComponent.packageItem.componentData.GetAttribute(<span class="string">"customData"</span>);</div><div class="line"><span class="comment">//Cocos2dx/Vision</span></div><div class="line">aComponent-&gt;getPackageItem()-&gt;componentData-&gt;RootElement()-&gt;Attribute(<span class="string">"customData"</span>);</div><div class="line"><span class="comment">//LayaAir</span></div><div class="line">aComponent.packageItem.componentData.getAttribute(<span class="string">"customData"</span>);</div><div class="line"><span class="comment">//Egret</span></div><div class="line">aComponent.packageItem.componentData.attributes.customData;</div><div class="line"><span class="comment">//AS3/Starling</span></div><div class="line">aComponent.packageItem.componentData.@customData;</div></pre></td></tr></table></figure>
+<p>如果组件有扩展类，那么也可以覆盖方法ConstructFromXML(xml)，这里的xml就相当于componentData，可以按上面介绍的方法获取customData属性。</p>
+<p>这里的输入框比较小，如果要输入大文本，则可以在输入激活时，按CTRL+ENTER，然后会弹出一个专门用于输入文本的窗口。</p>
 </li>
 </ul>
 <h2 id="设计图功能"><a href="#设计图功能" class="headerlink" title="设计图功能"></a>设计图功能</h2><p><img src="../../images/20170802102647.png" alt=""></p>
 <p>可以设定一个组件的设计图。设计图将显示在舞台上，可以设置显示在组件内容的底层或者上层。使用设计图可以使拼接UI更加快速和精准。</p>
 <p>设计图不会发布到最终的资源中。</p>
-<h2 id="点击测试"><a href="#点击测试" class="headerlink" title="点击测试"></a>点击测试</h2><p>组件内，显示在前面的元件将优先收到点击事件。如果该元件是可触摸的，则点击事件结束，不会继续向后传递。</p>
-<p><strong>点击穿透</strong></p>
+<h2 id="点击穿透"><a href="#点击穿透" class="headerlink" title="点击穿透"></a>点击穿透</h2><p>组件内，显示在前面的元件将优先收到点击事件。如果该元件是可触摸的，则点击事件结束，不会继续向后传递。</p>
 <p>在组件宽度x高度的范围内点击测试都是有效的（无法穿透），无论这个范围内是否有子元件。举个例子说明。</p>
 <p>这是组件A，大小为400x400，内容为4个白色的矩形：</p>
 <p><img src="../../images/2015-12-21_164631.png" alt=""></p>
@@ -365,66 +433,24 @@
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//true表示不可穿透，false表示可穿透。</span></div><div class="line">aComponent.opaque = <span class="literal">false</span>;</div></pre></td></tr></table></figure>
 <p>设置穿透后，只有点击4个白块时，A才接收到点击事件，如果点击绿色点位置，B将接收到点击事件。这个特性在设计一些全屏界面时尤其要注意。例如一个主界面添加到舞台，并设置为全屏，如果不穿透的话，那么Stage.isTouchOnUI将一直返回true。</p>
 <p>注意：图片和普通文字是不接受点击的，如果一个只含有图片或普通文字的组件，设置了点击穿透，那么整个组件就是完全穿透了，不会拦截到任何点击。</p>
-<p><strong>像素点击测试</strong></p>
-<p>有些特殊需求，需要用到不规则区域的点击测试。首先你要准备一张包含不规则区域的图片，图片里不透明的像素代表接受点击的区域，透明的像素代表点击穿透的区域，组件里超出图片范围的也是可穿透的区域。</p>
+<h2 id="像素点击测试"><a href="#像素点击测试" class="headerlink" title="像素点击测试"></a>像素点击测试</h2><p>有些特殊需求，需要用到不规则区域的点击测试。首先你要准备一张包含不规则区域的图片，图片里不透明的像素代表接受点击的区域，透明的像素代表点击穿透的区域，组件里超出图片范围的也是可穿透的区域。</p>
 <p>把这张图片拖入舞台，然后在组件的“像素点击测试”属性里，选择这张图片。</p>
-<center><br><img src="../../images/20170802103448.png" alt=""><br></center>
+<center><br><img src="../../images/20170925151838.png" alt=""><br></center>
 
-<h2 id="滚动设置"><a href="#滚动设置" class="headerlink" title="滚动设置"></a>滚动设置</h2><p>设置了“溢出处理”为“水平滚动”、“垂直滚动”，“自由滚动”后，可以详细设置滚动的相关属性。点击“溢出处理”旁边的<img src="../../images/20170801144514.png" alt="">按钮。</p>
-<p><img src="../../images/20170802112058.png" alt=""></p>
-<ul>
-<li><p><code>滚动条显示</code> 滚动条的显示策略。 </p>
-<ul>
-<li><code>默认</code> 使用全局设置，在主菜单“文件”-&gt;“项目属性”-&gt;“预览设置”里设置。</li>
-<li><code>可见</code> 表示滚动条一直显示。</li>
-<li><code>滚动时显示</code> 表示滚动条只有在滚动时才会显示，其他情况下自动隐藏。</li>
-<li><code>隐藏</code> 表示滚动条一直不可见的状态。</li>
-</ul>
-</li>
-<li><p><code>边缘回弹效果</code> 滚动到达边缘时是否允许继续滑动/拖动一定距离，表现一个回弹的效果。一般在移动平台上使用，PC上较少。有些开发者会提出为什么我的滚动容器里内容没超出视口，却依然能滚动，这其实是边缘回弹效果。</p>
-</li>
-<li><p><code>触摸滚动效果</code> 是否允许用户直接拖拽滚动区域内的内容。一般在移动平台上使用，PC上较少，PC上一般需要拖动滚动条，或使用鼠标滚轮。</p>
-</li>
-<li><p><code>滚动条组件</code> 设置滚动条资源。一般不需要设置，全局有一个设置，在主菜单“文件”-&gt;“项目属性”-&gt;“预览设置”里。如果你要使用不同于全局设置的滚动条资源，那么在这里设置。</p>
-</li>
-<li><p><code>定位</code> 可以设置滚动条在容器中的位置，这是一个相对于正常位置的偏移值。</p>
-</li>
-<li><p><code>下拉/上拉刷新组件</code> 设置上拉刷新或下拉刷新时需要显示的组件。下面是下拉刷新的效果：</p>
-</li>
-</ul>
-<center><br><img src="../../images/gaollg12.gif" alt=""><br></center>
-
-<ul>
-<li><p><code>将垂直滚动条显示在左边</code> 设置垂直滚动条显示在容器的左边，而不是在容器的右边。</p>
-</li>
-<li><p><code>仅在内容溢出时才显示滚动条</code> 只有当容器内的内容超出视口区域时，才显示滚动条，否则隐藏。注意：即使是不显示，滚动条还是有预留的占位的，这个和“滚动条显示”设置为“隐藏”不相同，后者是完全取消滚动条的占位的。</p>
-</li>
-<li><p><code>滚动位置自动贴近元件</code> 在滚动结束后，保证滚动位置刚好处于任意元件的上边缘（或左边缘）。</p>
-</li>
-<li><p><code>页面模式</code> 以视口大小为页面大小，每次滚动的距离是一页。一般在移动平台上使用，PC上较少，拖动滚动条进行滚动操作与这个模式冲突。</p>
-</li>
-<li><p><code>禁用惯性</code> 当用手拖拽内容一段距离，并释放手指后，系统会根据手指移动的速度计算出一个速率，然后滚动会按照将此速率衰减到零的方式慢慢停下来，这称为惯性滚动。如果不需要此特性，可以关闭。这个功能是和“触摸滚动效果”配合使用的。</p>
-</li>
-<li><p><code>禁用剪裁</code> 一般情况下，容器会对超出视口的内容进行剪裁。特殊情况下，例如，如果一个列表的item组件自身就是滚动容器，那么item组件可以关闭剪裁。因为大量的剪裁会消耗很多的系统性能。</p>
-</li>
-</ul>
 <h2 id="遮罩"><a href="#遮罩" class="headerlink" title="遮罩"></a>遮罩</h2><p>FairyGUI的遮罩有两种：矩形遮罩和自定义遮罩。</p>
-<p><strong>矩形遮罩</strong></p>
-<p>将组件的“溢出处理”设置为“隐藏”或者“滚动”，那么组件就带了矩形遮罩。超出组件(矩形区域-边缘留空）的区域都不可见。无论在什么平台，这种遮罩的效率是最高的。</p>
-<p><strong>自定义遮罩</strong></p>
-<p>可以设置组件内一个图片或者图形作为组件的遮罩。这种遮罩一般都是使用模板测试(Stencil Op)技术。各个平台支持的力度不同：</p>
+<h3 id="矩形遮罩"><a href="#矩形遮罩" class="headerlink" title="矩形遮罩"></a>矩形遮罩</h3><p>将组件的“溢出处理”设置为“隐藏”或者“滚动”，那么组件就带了矩形遮罩。超出组件(矩形区域-边缘留空）的区域都不可见。无论在什么平台，这种遮罩的效率是最高的。</p>
+<h3 id="自定义遮罩"><a href="#自定义遮罩" class="headerlink" title="自定义遮罩"></a>自定义遮罩</h3><p>可以设置组件内一个图片或者图形作为组件的遮罩。这种遮罩一般都是使用模板测试(Stencil Op)技术。各个平台支持的力度不同：</p>
 <ul>
-<li><code>AS3/Starling/Egret/Laya</code> 使用图形（Graph）作为遮罩时，有图形的区域内容<strong>可见</strong>，例如，一个圆形，则圆形区域内可见，其他区域不可见。</li>
-</ul>
+<li><p><code>AS3/Starling/Egret/Laya</code> 使用图形（Graph）作为遮罩时，有图形的区域内容<strong>可见</strong>，例如，一个圆形，则圆形区域内可见，其他区域不可见。</p>
 <p>不能使用图片（Image）作为遮罩，因为使用图片作为遮罩也是取其矩形区域而已，用一个矩形（Graph）的图形效果是一样的。</p>
-<p>Starling版本要使用自定义遮罩必须在应用程序描述文件里加上</p>
+<p>Starling版本要使用自定义遮罩必须在应用程序描述文件里加上:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">&lt;initialWindow&gt;</div><div class="line">    &lt;depthAndStencil&gt;<span class="literal">true</span>&lt;/depthAndStencil&gt;</div><div class="line">&lt;/initialWindow&gt;</div></pre></td></tr></table></figure>
-<ul>
-<li><code>Unity</code> 使用图形（Graph）作为遮罩时，有图形的区域内容<strong>可见</strong>，例如，一个圆形，则圆形区域内<strong>可见</strong>，其他区域不可见。</li>
-</ul>
+</li>
+<li><p><code>Unity</code> 使用图形（Graph）作为遮罩时，有图形的区域内容<strong>可见</strong>，例如，一个圆形，则圆形区域内<strong>可见</strong>，其他区域不可见。</p>
 <p>使用图片（Image）作为遮罩时，图片内透明度为0的像素对应区域的内容<strong>不可见</strong>，反之可见。超出图片区域的内容<strong>不可见</strong>。</p>
-<p><strong>反向遮罩（挖洞）</strong></p>
-<p>效果和正常遮罩相反，也就是可见的区域变不可见，不可见的区域变可见。目前仅Unity平台支持，例如：</p>
+</li>
+</ul>
+<h3 id="反向遮罩（挖洞）"><a href="#反向遮罩（挖洞）" class="headerlink" title="反向遮罩（挖洞）"></a>反向遮罩（挖洞）</h3><p>效果和正常遮罩相反，也就是可见的区域变不可见，不可见的区域变可见。目前仅Unity平台支持，例如：</p>
 <p><img src="../../images/20170622162422.png" alt=""></p>
 <p>使用图形（Graph）作为遮罩时，有图形的区域内容<strong>不可见</strong>，例如，一个圆形，则圆形区域内不可见，其他区域可见。</p>
 <p>使用图片（Image）作为遮罩时，图片内透明度为0的像素对应区域的内容<strong>可见</strong>，反之不可见。超出图片区域的内容<strong>可见</strong>。</p>
@@ -453,8 +479,9 @@
 <p>如果要创建UI库里的组件，应该使用这样的方式：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GComponent gcom = UIPackage.CreateObject(<span class="string">"包名"</span>,<span class="string">"组件名"</span>).asCom;</div><div class="line">GRoot.inst.AddChild(gcom);</div></pre></td></tr></table></figure>
 <p>FairyGUI和Flash/Cocos类似，采用树状的结构组织显示对象。容器可以包含一个或多个基础显示对象，也可以包含容器。这个树状结构称为显示列表。FairyGUI提供了API管理显示列表。</p>
-<p><strong>显示列表管理</strong></p>
-<ul>
+<h3 id="显示列表管理"><a href="#显示列表管理" class="headerlink" title="显示列表管理"></a>显示列表管理</h3><ul>
+<li><p><code>numChildren</code> 获得容器内孩子元件的数量。</p>
+</li>
 <li><p><code>AddChild</code> <code>AddChildAt</code> 向容器内添加元件。前者将元件添加到显示列表的队尾；后者可以指定一个索引控制元件的插入位置。</p>
 </li>
 <li><p><code>RemoveChild</code> <code>RemoveChildAt</code> <code>RemoveCihldren</code> 从容器内删除元件。当元件从显示对象中移出时，将不再占用显示资源。但元件从显示列表移出后，只是不显示，并没有销毁，如果你没有保存这个对象的引用留待后续使用，或者没有调用对象的Dispose方法销毁对象，那么会产生内存泄露。</p>
@@ -466,44 +493,19 @@
 <li><p><code>SetChildIndex</code> <code>SwapChildren</code> <code>SwapChildrenAt</code> 设置元件在显示列表中的索引。</p>
 </li>
 </ul>
-<p><strong>渲染顺序</strong></p>
+<h3 id="渲染顺序"><a href="#渲染顺序" class="headerlink" title="渲染顺序"></a>渲染顺序</h3><p>在FairyGUI中，显示列表是以树形组织的，下面说的渲染顺序均指在<strong>同一个父元件</strong>下安排的顺序，不同父元件的元件是不可能互相交错的，这是前提，请注意。</p>
 <p>显示对象的渲染顺序取决于它的显示列表中的顺序，顺序大的后渲染，即显示在较前面。一般来说，我们都是使用AddChild或SetChildIndex调整渲染顺序。例如如果要一个元件显示在容器的最前面，那调用AddChild(元件)就可以了，AddChild是可以重复调用的。也可以调用SetChildIndex设置对象在显示列表中的具体位置，例如SetChildIndex(元件,0)就可以将元件置于最底层。</p>
-<p>还有另外一个因子可以影响渲染循序，它就是GObject.sortingOrder。<strong>这个属性只用于特定的用途，不作常规的使用。它一般用于类似固定置顶的功能，另外，永远不要将sortingOrder用在列表中。</strong>。sortingOrder越大，则渲染顺序越后，即显示到更前面的位置。一般情况下，sortingOrder为0，这时渲染顺序由显示对象在显示列表中的顺序决定。sortingOrder可以令你更灵活的控制渲染循序。例如，如果希望一个元件始终保持在其他元件上方，可以设置其sortingOrder一个较大的整数值，这样无论容器使用AddChild添加了多少元件，这个元件依然显示在最前面。（sortingOrder的效率较差，勿做频繁调用的用途）</p>
-<p><strong>绑定扩展类</strong></p>
-<p>可以绑定一个类为组件的扩展类。首先，编写一个扩展类：</p>
+<p>还有另外一个因子可以影响渲染循序，它就是GObject.sortingOrder。<strong>这个属性只用于特定的用途，不作常规的使用。它一般用于类似固定置顶的功能，另外，永远不要将sortingOrder用在列表中。</strong>sortingOrder越大，则渲染顺序越后，即显示到更前面的位置。一般情况下，sortingOrder为0，这时渲染顺序由显示对象在显示列表中的顺序决定。sortingOrder可以令你更灵活的控制渲染循序。例如，如果希望一个元件始终保持在其他元件上方，可以设置其sortingOrder一个较大的整数值，这样无论容器使用AddChild添加了多少元件，这个元件依然显示在最前面。（sortingOrder的效率较差，勿做频繁调用的用途）</p>
+<p>上面提到的都是调整对象在显示列表中的顺序，如果不想调整这个顺序的同时，又要调整渲染顺序，组件还提供了另一种方式。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//升序，这是默认值，按照对象在显示列表中的顺序，从小到大依次渲染，效果就是序号大的显示在较前面。</span></div><div class="line">aComponent.childrenRenderOrder = ChildrenRenderOrder.Ascent;</div><div class="line"></div><div class="line"><span class="comment">//降序，按照对象在显示列表中的顺序，从大到小依次渲染，效果就是序号小的显示在较前面。</span></div><div class="line">aComponent.childrenRenderOrder = ChildrenRenderOrder.Descent;</div><div class="line"></div><div class="line"><span class="comment">//拱形，需要指定一个顶峰的索引，从两端向这个索引位置依次渲染，效果就是这个位置的对象显示在最前面，两边的对象依次显示在后面。</span></div><div class="line">aComponent.childrenRenderOrder = ChildrenRenderOrder.Arch;</div><div class="line">aComponent.apexIndex = <span class="number">3</span>; <span class="comment">//索引为3的对象显示在最前面。</span></div></pre></td></tr></table></figure>
+<h3 id="绑定扩展类"><a href="#绑定扩展类" class="headerlink" title="绑定扩展类"></a>绑定扩展类</h3><p>可以绑定一个类为组件的扩展类。首先，编写一个扩展类：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyComponent</span> : <span class="title">GComponent</span></div><div class="line">&#123;</div><div class="line">    GObject msgObj;</div><div class="line"></div><div class="line">    <span class="comment">//如果你有需要访问容器内容的初始化工作，必须在这个方法里，而不是在构造函数里。</span></div><div class="line">    <span class="function"><span class="keyword">override</span> <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">ConstructFromXML</span>(<span class="params">XML xml</span>)</span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        <span class="keyword">base</span>.ConstructFromXML(xml);</div><div class="line">        </div><div class="line">        <span class="comment">//在这里继续你的初始化</span></div><div class="line">        msgObj = GetChild(<span class="string">"msg"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ShowMessage</span>(<span class="params"><span class="keyword">string</span> msg</span>)</span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        msgObj.text = msg;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>然后注册你的扩展类。注意，<strong>必须在组件构建前注册</strong>。</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">UIObjectFactory.SetPackageItemExtension(<span class="string">"ui://包名/组件A”, typeof(MyComponent));</span></div></pre></td></tr></table></figure>
 <p>这样就为组件A绑定了一个实现类MyComponent 。以后所有组件A创建出来的对象（包括在编辑器里使用的组件A）都是MyComponent类型。然后我们就可以为MyComponent添加API，用更加面向对象的方式操作组件A。例如：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">MyComponent gcom = (MyComponent)UIPackage.CreateObject(“包名“， ”组件A”);</div><div class="line">gcom.ShowMessage(<span class="string">"Hello world"</span>);</div></pre></td></tr></table></figure>
 <p>注意：如果组件A只是一个普通的组件，没有定义“扩展”，那么基类是GComponent，如上例所示；如果组件A的扩展是按钮，那么MyComponent的基类应该为GButton，如果扩展是进度条，那么基类应该为GProgressBar，等等。这个千万不能弄错，否则会出现报错。</p>
-<h2 id="ScrollPane"><a href="#ScrollPane" class="headerlink" title="ScrollPane"></a>ScrollPane</h2><p>当组件的“溢出处理”设置为“滚动”后，可以通过GComponent.scrollPane使用滚动相关的功能，例如：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">ScrollPane scrollPane =  aComponent.scrollPane;</div><div class="line"><span class="comment">//设置滚动位置为100像素</span></div><div class="line">scrollPane.posX = <span class="number">100</span>;</div><div class="line"></div><div class="line"><span class="comment">//滚动到中间位置，带动画过程</span></div><div class="line">scrollPane.SetPercX(<span class="number">0.5</span>f, <span class="literal">true</span>);</div></pre></td></tr></table></figure>
-<p>当你增删子组件后，或者移动子组件的位置、调整子组件的大小，容器是自动更新滚动区域的，不需要调用任何API。这个刷新发生在本帧绘制之前。如果你希望立刻访问子元件的正确坐标，那么可以调用<code>EnsureBoundsCorrect</code>通知GComponent立刻重排。EnsureBoundsCorrect是一个友好的函数，你不用担心重复调用会有额外性能消耗。</p>
-<p>ScrollPane中常用的API有：</p>
-<ul>
-<li><p><code>viewWidth</code> <code>viewHeight</code> 视口宽度和高度。</p>
-</li>
-<li><p><code>contentWidth</code> <code>contentHeight</code> 内容高度和宽度。</p>
-</li>
-<li><p><code>percX</code> <code>percY</code> <code>SetPercX</code> <code>SetPercY</code> 获得或设置滚动的位置，以百分比来计算，取值范围是0-1。如果希望滚动条从当前值到设置值有一个动态变化的过程，可以使用Set方法，它们提供了一个是否使用缓动的参数。</p>
-</li>
-<li><p><code>posX</code> <code>posY</code> <code>SetPosX</code> <code>SetPosY</code> 获得或设置滚动的位置，以绝对像素值来计算。取值范围是0-最大滚动距离。垂直最大滚动距离=（内容高度-视口高度），水平最大滚动距离=（内容宽度-视口宽度）。如果希望滚动条从当前值到设置值有一个动态变化的过程，可以使用Set方法，它们提供了一个是否使用缓动的参数。</p>
-</li>
-<li><p><code>ScrollLeft</code> <code>ScrollRight</code> <code>ScrollUp</code> <code>ScrollDown</code> 向指定方向滚动N*<code>scrollStep</code>。例如，如果scrollStep=20，那么ScrollLeft(1)表示向左滚动20像素，ScrollLeft(2)表示向左滚动40像素。注意：如果滚动属性设置了贴近元件，例如元件大小为41像素，则需要滚动距离超过20像素，才能真正发生滚动，那么如果调用ScrollLeft(1)，在scrollStep=20的情况下，会导致看不到任何效果。</p>
-</li>
-<li><p><code>ScrollToView</code> 调整滚动位置，使指定的元件出现在视口内。</p>
-</li>
-</ul>
-<p>可以侦听滚动改变，在任何情况下滚动位置改变都会触发这个事件。</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity</span></div><div class="line">scrollPane.onScroll.Add(onScroll);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">scrollPane.addEventListener(Event.SCROLL, onScroll);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">scrollPane.addEventListener(ScrollPane.SCROLL, <span class="keyword">this</span>.onScroll, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya，注意是用组件侦听，不是ScrollPane</span></div><div class="line">aComponent.<span class="keyword">on</span>(fairygui.Events.SCROLL, <span class="keyword">this</span>, <span class="keyword">this</span>.onScroll);</div></pre></td></tr></table></figure>
-<p>和滚动相关的事件还有：</p>
-<ul>
-<li><code>ScrollEnd</code> 惯性滚动结束后回调。</li>
-<li><code>PullDownRelease</code> 下拉刷新回调。</li>
-<li><code>PullUpRelease</code> 上拉刷新回调。</li>
-</ul>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity</span></div><div class="line">scrollPane.onScrollEnd.Add(onScrollEnd);</div><div class="line">scrollPane.onPullDownRelease.Add(onPullDownRelease);</div><div class="line">scrollPane.onPullUpRelease.Add(onPullUpRelease);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">scrollPane.addEventListener(ScrollPane.SCROLL_END, onScrollEnd);</div><div class="line">scrollPane.addEventListener(ScrollPane.PULL_DOWN_RELEASE, onPullDownRelease);</div><div class="line">scrollPane.addEventListener(ScrollPane.PULL_UP_RELEASE, onPullUpRelease);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">scrollPane.addEventListener(ScrollPane.SCROLL_END, <span class="keyword">this</span>.onScrollEnd, <span class="keyword">this</span>);</div><div class="line">scrollPane.addEventListener(ScrollPane.PULL_DOWN_RELEASE, <span class="keyword">this</span>.onPullDownRelease, <span class="keyword">this</span>);</div><div class="line">scrollPane.addEventListener(ScrollPane.PULL_UP_RELEASE, <span class="keyword">this</span>.onPullUpRelease, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya，注意是用组件侦听，不是ScrollPane</span></div><div class="line">aComponent.<span class="keyword">on</span>(fairygui.Events.SCROLL_END, <span class="keyword">this</span>, <span class="keyword">this</span>.onScrollEnd);  </div><div class="line">aComponent.<span class="keyword">on</span>(fairygui.Events.PULL_DOWN_RELEASE, <span class="keyword">this</span>, <span class="keyword">this</span>.onPullDownRelease);  </div><div class="line">aComponent.<span class="keyword">on</span>(fairygui.Events.PULL_UP_RELEASE, <span class="keyword">this</span>, <span class="keyword">this</span>.onPullUpRelease);</div></pre></td></tr></table></figure>
+
     
     <div class="footer">
       found mistake? Want to participate in editing?

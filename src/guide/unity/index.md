@@ -1,5 +1,5 @@
 ---
-title: Instructions
+title: Unity Start
 type: guide_unity
 order: 0
 ---
@@ -19,7 +19,7 @@ Unity项目载入UI包有以下几种方式，开发者可以根据项目需要�
     UIPackage.AddPackage("demo");
     
     //如果在子目录下
-    UIPackage.AddPacakge("路径/demo");
+    UIPackage.AddPackage("路径/demo");
   ```
 
 2. 将发布后的文件打包为两个AssetBundle，即定义文件和资源各打包为一个bundle(desc_bundle+res_bundle)。这样做的好处是一般UI的更新都是修改元件位置什么的，不涉及图片资源的更新，那么只需要重新打包和推送desc_bundle就行了，不需要让玩家更新通常体积比较大的res_bundle，节省流量。打包程序由开发者按照自己熟悉的方式自行实现。以demo为例，请遵循以下规则打包：
@@ -43,7 +43,24 @@ Unity项目载入UI包有以下几种方式，开发者可以根据项目需要�
     UIPackage.AddPackage(bundle);
   ```
 
-**在使用AssetBundle的载入方案中，将由FairyGUI接管bundle并负责bundle资源的释放。**
+**在使用AssetBundle的载入方案中，AddPackge提供了一个参数，用于控制是否由FairyGUI接管bundle并负责bundle资源的释放。默认为true，即由FairyGUI接管bundle并负责bundle资源的释放**
+
+```csharp
+    //第二个参数为false，表示不需要让FairyGUI释放bundle。
+    UIPackage.AddPackage(bundle, false);
+```
+
+## 卸载UI包
+
+当一个包不再使用时，可以将其卸载。
+
+```csharp
+    //这里可以使用包的id，包的名称，包的路径，均可以
+    UIPackage.RemovePackage("package");
+```
+
+包卸载后，所有包里包含的贴图等资源均会被卸载，由包里创建出来的组件也无法显示正常（虽然不会报错），所以这些组件应该（或已经）被销毁。
+一般不建议包进行频繁装载卸载，因为每次装载卸载必然是要消耗CPU时间（意味着耗电）和产生大量GC的。UI系统占用的内存是可以精确估算的，你可以按照包的使用频率设定哪些包是常驻内存的（建议尽量多）。
 
 ## UIPanel
 
@@ -76,7 +93,7 @@ Unity项目载入UI包有以下几种方式，开发者可以根据项目需要�
     GComponent view = panel.ui;
 ```
 
-UIPanel在GameObjec销毁时（手动销毁或者过场景等）时会一并销毁。
+UIPanel在GameObject销毁时（手动销毁或者过场景等）会一并销毁。
 
 UIPane只保存了UI包的名称和组件的名称，它不对纹理或其他资源产生任何引用，也就是UI使用的资源不会包含在场景数据中。
 
@@ -129,12 +146,14 @@ UIPanel也可以在游戏中创建，为任意游戏对象动态挂接UI界面�
     UIPanel panel = yourGameObject.AddComponent<UIPanel>();
     panel.packageName = “包名”;
     panel.componentName = “组件名”;
+
+    //下面这是设置选项非必须
     
     //设置renderMode的方式
     panel.container.renderMode = RenderMode.WorldSpace;
     
-    //设置fairyBatching
-    panel.fairyBatching = true;
+    //设置fairyBatching的方式
+    panel.container.fairyBatching = true;
     
     //设置sortingOrder的方式
     panel.SetSortingOrder(1, true);
@@ -142,6 +161,7 @@ UIPanel也可以在游戏中创建，为任意游戏对象动态挂接UI界面�
     //设置hitTestMode的方式
     panel.SetHitTestMode(HitTestMode.Default);
     
+    //最后，创建出UI
     panel.CreateUI();
 ```
 
@@ -186,17 +206,27 @@ UIPanel可以用来制作头顶血条。要注意的是：
     aComponnent.AddChild(view);
 ```
 
+如果界面内容过多，创建时可能引起卡顿，FairyGUI提供了异步创建UI的方式，异步创建方式下，每帧消耗的CPU时间将受到控制，但创建时间也会比同步创建稍长一点。例如：
+
+```csharp
+    UIPackage.CreateObjectAsync("包名","组件名", MyCreateObjectCallback);
+
+    void MyCreateObjectCallback(GObject obj)
+    {
+    }
+```
+
 动态创建的界面不会自动销毁，例如一个背包窗口，你并不需要在每次过场景都销毁。如果要销毁界面，需要手工调用Dispose方法，例如
 
 ```csharp
-	view.Dispose();
+    view.Dispose();
 ```
 
-**使用UIPanel和UIPackage.CreateObject的场合**
+**使用UIPanel和UIPackage.CreateObject的场合和注意事项**
 
-UIPanel最常用的地方就是3D UI。他可以方便地将UI挂到任意GameObject上。当然，UIPanel在2D UI中也可以使用，他的优点是可以直接摆放在场景中，符合Unity的ECS架构。缺点是是这种用法对UI管理带来很多麻烦，特别是对中大型游戏。
+UIPanel最常用的地方就是3D UI。他可以方便地将UI挂到任意GameObject上。当然，UIPanel在2D UI中也可以使用，他的优点是可以直接摆放在场景中，符合Unity的ECS架构。缺点是这种用法对UI管理带来很多麻烦，特别是对中大型游戏。
 
-使用UIPackage.CreateObject可以使用代码创建任何界面，可以应用在传统的设计模式中，Lua支持也十分方便。不过必须要小心处理生成的对象的生命周期。
+使用UIPackage.CreateObject可以使用代码创建任何界面，可以应用在传统的设计模式中，Lua支持也十分方便。不过必须要小心处理生成的对象的生命周期，因为它需要手动显式销毁，并且永远不要将使用CreateObject创建出来的对象挂到其他一些普通GameObject上，否则那些GameObject销毁时会一并销毁这个UI里的GameObject，但这个UI又还处于正常使用状态，就会出现空引用错误。
 
 ## Stage Camera
 
@@ -211,6 +241,7 @@ UIPanel最常用的地方就是3D UI。他可以方便地将UI挂到任意GameOb
 ## UIContentScaler
 
 UIContentScaler组件是用来设置适配的。在启动场景里任何一个GameObject挂上UIContentScaler组件即可。并不需要每个场景都挂。
+**使用UIContentScaler和使用GRoot.inst.setContentScaleFactor的效果是完全一样的，选择其中一种方式设置适配即可。**
 
 ![](../../images/2016-03-23_125255.png)
 
@@ -227,63 +258,3 @@ UIContentScaler组件是用来设置适配的。在启动场景里任何一个Ga
 UIConfig组件用于设置一些全局的参数。使用UIConfig组件设置和在代码中使用UIConfig类设置全局参数效果是一样的。UIConfig组件还可以加载包，点击`Preload Packages`下面的Add即可。
 
 ![](../../images/2016-04-06_095535.png)
-
-## 坐标转换
-
-FairyGUI是以左上角为原点的，Unity的屏幕坐标是以左下角为原点的。如果需要进行这两者的转换，可以用：
-
-```csharp
-    //Unity的屏幕坐标系，以左下角为原点
-    Vector2 pos = Input.mousePosition;
-
-    //转换为FairyGUI的屏幕坐标
-    pos.y = Screen.height - pos.y;
-```
-
-如果要获得任意一个UI元件在屏幕上的坐标，可以用：
-
-```csharp
-    Vector2 screenPos = aObject.LocalToGlobal(Vector2.zero);
-```
-
-如果要获取屏幕坐标在UI元件上的局部坐标，可以用：
-
-```csharp
-    Vector2 screenPos = Stage.inst.touchPosition;
-    Vector2 localPos = aObject.GlobalToLocal(screenPos);
-```
-
-如果有UI适配导致的全局缩放，那么逻辑屏幕大小和物理屏幕大小不一致，逻辑屏幕的坐标就是GRoot里的坐标。如果要进行局部坐标与逻辑屏幕坐标的转换，可以用：
-
-```csharp
-    //物理屏幕坐标转换为逻辑屏幕坐标
-    Vector2 logicScreenPos = GRoot.inst.GlobalToLocal(screenPos);
-    
-    //UI元件坐标与逻辑屏幕坐标之间的转换
-    aObject.LocalToRoot(pos);
-    aObject.RootToLocal(pos);
-```
-
-如果要转换任意两个UI对象间的坐标，例如需要知道A里面的坐标(10,10)在B里面的位置，可以用：
-
-```csharp
-    Vector2 posInB = aObject.TransformPoint(bObject, new Vector2(10,10));
-```
-
-如果要转换世界空间的坐标到UI里的坐标，可以用：
-
-```csharp
-    Vector3 screenPos = Camera.main.WorldToScreenPoint(worldPos);
-    //原点位置转换
-    screenPos.y = Screen.height - screenPos.y; 
-    Vector2 pt = GRoot.inst.GlobalToLocal(screenPos);
-```
-
-如果要转换UI里的坐标到世界空间的坐标，可以用：
-
-```csharp
-    Vector2 screenPos = GRoot.inst.LocalToGlobal(pos);
-    //原点位置转换
-    screenPos.y = Screen.height - screenPos.y; 
-    Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
-```

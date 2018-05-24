@@ -16,9 +16,7 @@
 		<% } %>
         </h2>
         <ul class="menu-root">
-            <% if (type === 'guide_editor' || type === 'guide_unity' || type === 'guide_egret'
-				||	type === 'guide_laya' || type === 'guide_starling' || type === 'guide_as3'
- 				|| type === 'guide') { %>
+            <% if (type.indexOf('guide')!=-1) { %>
 
 	 			<%  site.pages.find({type: 'guide'}).sort('order').each(function (p) { %>
 	                <% var fileName = p.path.replace(/^.+?\/([\w-]+)\.html/, '$1') %>
@@ -44,6 +42,26 @@
 	                </li>
 	            <% }) %>
 
+	            <% site.pages.find({type: 'guide_cocos2dx'}).sort('order').each(function (p) { %>
+	                <% var fileName = p.path.replace(/^.+?\/([\w-]+)\.html/, '$1') %>
+	                <% if (fileName === 'index') { %>
+	                <li><h3>Cocos2dx</h3></li>
+	                <% } %>
+	                <li>
+	                    <a href="<%- url_for(p.path) %>" class="sidebar-link<%- page.title === p.title ? ' current' : '' %><%- p.is_new ? ' new' : '' %>"><%- p.title %></a>
+	                </li>
+	            <% }) %>
+	            
+	            <% site.pages.find({type: 'guide_cry'}).sort('order').each(function (p) { %>
+	                <% var fileName = p.path.replace(/^.+?\/([\w-]+)\.html/, '$1') %>
+	                <% if (fileName === 'index') { %>
+	                <li><h3>CryEngine</h3></li>
+	                <% } %>
+	                <li>
+	                    <a href="<%- url_for(p.path) %>" class="sidebar-link<%- page.title === p.title ? ' current' : '' %><%- p.is_new ? ' new' : '' %>"><%- p.title %></a>
+	                </li>
+	            <% }) %>
+	            
 	            <% site.pages.find({type: 'guide_laya'}).sort('order').each(function (p) { %>
 	                <% var fileName = p.path.replace(/^.+?\/([\w-]+)\.html/, '$1') %>
 	                <% if (fileName === 'index') { %>

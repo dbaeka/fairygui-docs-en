@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
     
-        <title>FairyGUI - Popup Manage</title>
+        <title>FairyGUI - Popup</title>
     
         <meta charset="utf-8">
         <meta name="description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
@@ -12,11 +12,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="Popup Manage — FairyGUI">
+        <meta property="og:title" content="Popup — FairyGUI">
         <meta property="og:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="Popup Manage — FairyGUI">
+        <meta name="twitter:title" content="Popup — FairyGUI">
         <meta name="twitter:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
 
 
@@ -100,7 +100,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">Editor Start</a>
 	                </li>
 	            
 	                
@@ -146,6 +146,11 @@
 	                
 	                <li>
 	                    <a href="/guide/editor/component.html" class="sidebar-link">Component</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollpane.html" class="sidebar-link">ScrollPane</a>
 	                </li>
 	            
 	                
@@ -200,7 +205,12 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/popup.html" class="sidebar-link current">Popup Manage</a>
+	                    <a href="/guide/editor/popup.html" class="sidebar-link current">Popup</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/dragdrop.html" class="sidebar-link">Drag&Drop</a>
 	                </li>
 	            
 	                
@@ -220,7 +230,13 @@
 	                <li><h3>Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/unity/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/unity/index.html" class="sidebar-link">Unity Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/transform.html" class="sidebar-link">Unity Coordinate</a>
 	                </li>
 	            
 	                
@@ -232,7 +248,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/font.html" class="sidebar-link">Font handling</a>
+	                    <a href="/guide/unity/font.html" class="sidebar-link">Font Handling</a>
 	                </li>
 	            
 	                
@@ -262,7 +278,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall optimization</a>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall Optimization</a>
 	                </li>
 	            
 	                
@@ -271,14 +287,64 @@
 	                    <a href="/guide/unity/lua.html" class="sidebar-link">Used in Lua</a>
 	                </li>
 	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/special.html" class="sidebar-link">Unity Features</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/faq.html" class="sidebar-link">Unity FAQ</a>
+	                </li>
+	            
 
+	            
+	                
+	                
+	                <li><h3>Cocos2dx</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cocos2dx/index.html" class="sidebar-link">Cocos2dx Start</a>
+	                </li>
+	            
+	            
+	            
+	                
+	                
+	                <li><h3>CryEngine</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/cry/index.html" class="sidebar-link">Cry Engine Start</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/transform.html" class="sidebar-link">Cry-Coordinate</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/input.html" class="sidebar-link">Cry-Input Processing</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/cry/event.html" class="sidebar-link">Cry-Event System</a>
+	                </li>
+	            
+	            
 	            
 	                
 	                
 	                <li><h3>LayaAir</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/laya/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/laya/index.html" class="sidebar-link">LayaAir Start</a>
 	                </li>
 	            
 	
@@ -288,7 +354,7 @@
 	                <li><h3>Egret</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/egret/index.html" class="sidebar-link">Instructions</a>
+	                    <a href="/guide/egret/index.html" class="sidebar-link">Egret Start</a>
 	                </li>
 	            
 
@@ -304,19 +370,23 @@
 
 <div class="content guide_editor with-sidebar ">
     
-      <h1>Popup Manage</h1>
+      <h1>Popup</h1>
     
-    <p>在UI系统中我们经常需要弹出一些组件，这些组件在用户点击空白地方的情况下就会自动消失。GRoot提供了几个API实现这类Popup行为。</p>
+    <p>在UI系统中我们经常需要弹出一些组件，这些组件在用户点击空白地方的情况下就会自动消失。FairyGUI内置了这个功能。</p>
+<h2 id="Popup-管理"><a href="#Popup-管理" class="headerlink" title="Popup 管理"></a>Popup 管理</h2><p>弹出和关闭Popup的API在GRoot中提供。</p>
 <ul>
-<li><code>ShowPopup</code> 弹出一个组件，如果指定了目标，则会调整弹出的位置到目标的下方，形成一个下拉的效果。同时提供了参数可以用来指定是向上弹出或者向下弹出。FairyGUI会根据组件的大小自动计算弹出位置，以确保组件显示不会超出屏幕。例如：</li>
+<li><code>ShowPopup</code> 弹出一个组件。如果指定了目标，则会调整弹出的位置到目标的下方，形成一个下拉的效果。同时提供了参数可以用来指定是向上弹出或者向下弹出。FairyGUI会根据组件的大小自动计算弹出位置，以确保组件显示不会超出屏幕。例如：</li>
 </ul>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//弹出在当前鼠标位置</span></div><div class="line">GRoot.inst.ShowPopup(aComponent);</div><div class="line"></div><div class="line"><span class="comment">//弹出在aButton的下方</span></div><div class="line">GRoot.inst.ShowPopup(aComponent, aButton);</div><div class="line"></div><div class="line"><span class="comment">//弹出在自定义的位置</span></div><div class="line">GRoot.inst.ShowPopup(aComponent);</div><div class="line">aComponent.SetXY(<span class="number">100</span>, <span class="number">100</span>);</div></pre></td></tr></table></figure>
 <p>窗口也可以通过ShowPopup弹出，这样弹出的窗口也具有了点击空白关闭的特性：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Window aWindow;</div><div class="line">GRoot.inst.ShowPopup(aWindow);</div></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Window aWindow;</div><div class="line">GRoot.inst.ShowPopup(aWindow);</div><div class="line"></div><div class="line"><span class="comment">//和使用aWindow.Show显示窗口的唯一区别就是多了点击空白关闭的功能，其它用法没有任何区别。</span></div></pre></td></tr></table></figure>
 <ul>
-<li><code>HidePopup</code> 默认情况下，用户点击空白地方就会自动关闭弹出的组件。也可以调用此API手工关闭。不指定参数时，所有当前的弹出都关闭。</li>
+<li><code>HidePopup</code> 默认情况下，用户点击空白地方就会自动关闭弹出的组件。也可以调用此API手工关闭。可以指定需要关闭的Popup，不指定参数时，所有当前的弹出都关闭。</li>
 </ul>
-
+<h2 id="PopupMenu"><a href="#PopupMenu" class="headerlink" title="PopupMenu"></a>PopupMenu</h2><p>PopupMenu是FairyGUI提供的一个工具类，用于实现弹出菜单。首先需要在编辑器制作一个菜单组件，点击“资源-&gt;新建弹出菜单…”，然后根据向导完成。菜单组件里的关键元素是命名为<code>list</code>的列表组件，列表的溢出处理模式应该选择为可见，因为一般来说，菜单都是显示全部item的，不需要滚动。</p>
+<p>菜单组件制作完成后，可以在代码里生成和调用这个菜单。</p>
+<p>首先设置全局的菜单资源：<br><figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">UIConfig.popupMenu = <span class="string">"ui://包名/菜单组件名"</span>;</div><div class="line"></div><div class="line"><span class="comment">//如果有设计分隔条</span></div><div class="line">UIConfig.popupMenu_seperator = <span class="string">"ui://包名/菜单分隔条"</span>;</div></pre></td></tr></table></figure></p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//如果构造函数不带参数，则表示使用UIConfig.popupMenu里定义的资源。</span></div><div class="line"><span class="comment">//也可以带一个参数，指定这个菜单使用的菜单组件资源</span></div><div class="line">PopupMenu menu = <span class="keyword">new</span> PopupMenu();</div><div class="line"></div><div class="line"><span class="comment">//如果要修改菜单的宽度。</span></div><div class="line">menu.contentPane.width = <span class="number">300</span>;</div><div class="line"></div><div class="line"><span class="comment">//添加一个菜单item，并注册点击回调函数</span></div><div class="line">GButton item = menu.AddItem(<span class="string">"标题"</span>, MenuItemCallback);</div><div class="line">item.name = <span class="string">"item1"</span>;</div><div class="line"></div><div class="line"><span class="comment">//点击回调函数，context.data是当前被点击的item</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">MenuItemCallback</span>(<span class="params">EventContext context</span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    GButton item = GButton(context.data);</div><div class="line">    Debug.Log(item.name);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//添加分隔条</span></div><div class="line">menu.AddSeperator();</div><div class="line"></div><div class="line"><span class="comment">//设置菜单项变灰</span></div><div class="line">menu.SetItemGrayed(<span class="string">"item1"</span>, <span class="literal">true</span>);</div></pre></td></tr></table></figure>
     
     <div class="footer">
       found mistake? Want to participate in editing?
