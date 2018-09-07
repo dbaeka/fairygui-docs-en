@@ -6,12 +6,12 @@ order: 0
 
 ## FairyGUI Editor 
 
->Current version 3.9.3
+>Current version 3.9.5
 
 <div id="downloads">
-<a class="button" href="https://fairygui-in.oss-us-west-1.aliyuncs.com/FairyGUI-Editor_3_9_3.zip" target="_self">Windows</a><span class="light info">Support Simplified Chinese, Traditional Chinese and English</span>
+<a class="button" href="https://fairygui-in.oss-us-west-1.aliyuncs.com/FairyGUI-Editor_3_9_5.zip" target="_self">Windows</a><span class="light info">Support Simplified Chinese, Traditional Chinese and English</span>
 
-<a class="button" href="https://fairygui-in.oss-us-west-1.aliyuncs.com/FairyGUI-Editor_Mac_3_9_3.zip" target="_self">OSX</a><span class="light info">Support Simplified Chinese, Traditional Chinese and English</span>
+<a class="button" href="https://fairygui-in.oss-us-west-1.aliyuncs.com/FairyGUI-Editor_Mac_3_9_5.zip" target="_self">OSX</a><span class="light info">Support Simplified Chinese, Traditional Chinese and English</span>
 </div>
 
 FairyGUI Editor is green software, decompression can be used directly, no need to install. Recommended to extract to non-Chinese directory.
@@ -43,7 +43,7 @@ Source: [https://github.com/fairygui/FairyGUI-layabox](https://github.com/fairyg
 
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-layabox.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-layabox.svg" alt="forks">
 
-[Examples](http://res.fairygui.com/FairyGUI-layabox-demo180523.zip)
+[Examples](https://fairygui-in.oss-us-west-1.aliyuncs.com/FairyGUI-layabox-demo180907.zip)
 
 ## Egret SDK
 
@@ -51,7 +51,7 @@ Source: [https://github.com/fairygui/FairyGUI-egret](https://github.com/fairygui
 
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-egret.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-egret.svg" alt="forks">
 
-[Examples](http://res.fairygui.com/FairyGUI-egret-demo180523.zip)
+[Examples](https://fairygui-in.oss-us-west-1.aliyuncs.com/FairyGUI-egret-demo180907.zip)
 
 ## Starling SDK
 
@@ -59,7 +59,7 @@ Source: [https://github.com/fairygui/FairyGUI-starling](https://github.com/fairy
 
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-starling.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-starling.svg" alt="forks">
 
-[Examples](http://res.fairygui.com/FairyGUI-starling-demo180523.zip)
+[Examples](https://fairygui-in.oss-us-west-1.aliyuncs.com/FairyGUI-starling-demo180907.zip)
 
 ## Pixi SDK
 
@@ -83,7 +83,7 @@ Source: [https://github.com/fairygui/FairyGUI-as3](https://github.com/fairygui/F
 
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-as3.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-as3.svg" alt="forks">
 
-[Examples](http://res.fairygui.com/FairyGUI-as3-demo180523.zip)
+[Examples](https://fairygui-in.oss-us-west-1.aliyuncs.com/FairyGUI-as3-demo180907.zip)
 
 ## Cry Engine SDK
 
