@@ -103,5 +103,3 @@ EventContext是回调函数的参数类型。
 - `touchId` 当前事件相关的手指ID；在PC平台，该值为0，没有意义。
 
 - `isDoubleClick` 是否双击。
-
-

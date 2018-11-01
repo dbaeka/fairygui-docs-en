@@ -10,9 +10,13 @@ Unity项目载入UI包有以下几种方式，开发者可以根据项目需要�
 
 1. 将打包后的文件直接发布到Unity的Resources目录或者其子目录下，
 
+  旧版本格式（XML）的文件列表：
   ![](../../images/2015-10-21_151409.png)
 
-  这种方式处理的UI包，如果使用UIPanel显示UI，不需要任何代码载入；如果是动态创建UI，要使用代码载入包：
+  新版本格式（二进制）的文件列表：
+  ![](../../images/20180908225713.png)
+
+  这种方式处理的UI包，如果使用UIPanel显示UI，不需要任何代码载入包，UIPanel会自动载入；如果是动态创建UI，则要使用代码载入包：
 
   ```csharp
     //demo就是发布时填写的文件名
@@ -20,12 +24,20 @@ Unity项目载入UI包有以下几种方式，开发者可以根据项目需要�
     
     //如果在子目录下
     UIPackage.AddPackage("路径/demo");
+
+    //如果不放到Resources或者其子目录下，可以传入全路径，但这种方法只能在Editor里使用
+    UIPackage.AddPackage("Assets/SomePath/Package1");
   ```
+  AddPackage会先使用传入的路径作为key进行检测，如果这个包已经添加，则不会重复添加。
 
 2. 将发布后的文件打包为两个AssetBundle，即定义文件和资源各打包为一个bundle(desc_bundle+res_bundle)。这样做的好处是一般UI的更新都是修改元件位置什么的，不涉及图片资源的更新，那么只需要重新打包和推送desc_bundle就行了，不需要让玩家更新通常体积比较大的res_bundle，节省流量。打包程序由开发者按照自己熟悉的方式自行实现。以demo为例，请遵循以下规则打包：
-
+  旧版本格式（XML）：
   - demo.bytes单独打包为desc_bundle；
-  - 其他资源（demo@atlas0.png等），打包到res_bundle（在此例中就是atlas0和sprites）。
+  - 其他资源（demo@atlas0.png等），打包到res_bundle。
+
+  新版本格式（二进制）
+  - demo_fui.bytes单独打包为desc_bundle；
+  - 其他资源（demo_atlas0.png等），打包到res_bundle。
 
   这种方式处理的UI包，必须使用代码载入：
 
@@ -33,6 +45,7 @@ Unity项目载入UI包有以下几种方式，开发者可以根据项目需要�
     //desc_bundle和res_boundle的载入由开发者自行实现。
     UIPackage.AddPackage(desc_bundle, res_bundle);
   ```
+  使用这种方式AddPackage，没有排重检测机制，需要你自己保证。
 
 3. 将发布后的文件打包为一个AssetBundle。打包程序由开发者按照自己熟悉的方式自行实现。以demo为例，将demo.bytes和其他资源（demo@atlas0.png等），都放入bundle。
  
@@ -42,13 +55,7 @@ Unity项目载入UI包有以下几种方式，开发者可以根据项目需要�
     //bundle的载入由开发者自行实现。
     UIPackage.AddPackage(bundle);
   ```
-
-**在使用AssetBundle的载入方案中，AddPackge提供了一个参数，用于控制是否由FairyGUI接管bundle并负责bundle资源的释放。默认为true，即由FairyGUI接管bundle并负责bundle资源的释放**
-
-```csharp
-    //第二个参数为false，表示不需要让FairyGUI释放bundle。
-    UIPackage.AddPackage(bundle, false);
-```
+  使用这种方式AddPackage，没有排重检测机制，需要你自己保证。
 
 ## 卸载UI包
 
@@ -61,6 +68,16 @@ Unity项目载入UI包有以下几种方式，开发者可以根据项目需要�
 
 包卸载后，所有包里包含的贴图等资源均会被卸载，由包里创建出来的组件也无法显示正常（虽然不会报错），所以这些组件应该（或已经）被销毁。
 一般不建议包进行频繁装载卸载，因为每次装载卸载必然是要消耗CPU时间（意味着耗电）和产生大量GC的。UI系统占用的内存是可以精确估算的，你可以按照包的使用频率设定哪些包是常驻内存的（建议尽量多）。
+
+## 二进制格式的包内存管理
+
+如果包是二进制格式的，适用于以下说明：
+
+1. AddPackage时不会像XML格式的包那样把全部资源（贴图、声音）一次性载入，而是用到再载入。如果你需要全部载入，调用`UIPackage.LoadAllAssets`。
+
+2. 如果UIPackage是从AssetBundle中载入的，在RemovePackage时AssetBundle才会被Unload(true)。如果你确认所有资源都已经载入了（例如调用了LoadAllAssets），也可以自行卸载AssetBundle。
+
+3. 调用`UIPackage.UnloadAssets`可以只释放UI包的资源，而不移除包，也不需要卸载从UI包中创建的UI界面（这些界面你仍然可以调用显示，不会报错，但图片显示空白）。当包需要恢复使用时，调用`UIPackage.ReloadAssets`恢复资源，那些从这个UI包创建的UI界面能够自动恢复正常显示。如果包是从AssetBundle载入的，那么在UnloadAssets时AssetBundle会被Unload(true)，所以在ReloadAssets时，必须调用ReloadAssets一个带参数的重载并提供新的AssetBundle实例。
 
 ## UIPanel
 
@@ -133,7 +150,7 @@ UIPane只保存了UI包的名称和组件的名称，它不对纹理或其他资
 
 - `HitTest Mode` 这里可以设置UIPanel处理鼠标或触摸事件的方式。
  - `Default` 这是默认的方式。FairyGUI会用内置的机制检测鼠标或触摸动作，不使用射线，UIPanel也不需要创建碰撞体，效率比较高。
- - `Raycast` 在这种方式下，UIPanel将自动创建碰撞体，并且使用射线方式进行点击检测。这种方式适合于UIPanel还需要和其他3D对象互动的情况。
+ - `Raycast` 在这种方式下，UIPanel将自动创建碰撞体，并且使用射线方式进行点击检测。这种方式适合于UIPanel还需要和其他3D对象互动的情况。对于设置为使用Raycast进行点击测试的UIPanel，你可以使用HitTestContext.layerMask排除掉一些不关心的层。
 
 - `Set Native Children Order` 可以在UIPanel对象下直接挂其他3D对象，例如模型、粒子等（注意设置他们的layer和UIPanel的相同），然后勾选这个选项后，就可以让这些3D对象显示在UIPanel的层次上。相当于把外部的3D对象插入到UI层次中。但这些3D对象只能显示在这个UIPanel的内容上面，不能和这个UIPanel里面的内容穿插。一般这个功能用在制作UI中使用的特效时，方便查看最终的显示结果，也可以用来观察调整模型在UI相机下的缩放倍数。
 
@@ -255,6 +272,8 @@ UIContentScaler组件是用来设置适配的。在启动场景里任何一个Ga
 
 ## UIConfig
 
-UIConfig组件用于设置一些全局的参数。使用UIConfig组件设置和在代码中使用UIConfig类设置全局参数效果是一样的。UIConfig组件还可以加载包，点击`Preload Packages`下面的Add即可。
+UIConfig组件用于设置一些全局的参数。使用UIConfig组件和在代码中使用UIConfig类设置全局参数效果是一样的。但有一个区别是使用代码去设置那么编辑模式就看不到正确的效果了，例如你用UIConfig.defaultFont去设置默认字体，那么UIPanel在编辑模式显示的字体效果就不对，只有运行后才对。解决方案就是使用UIConfig组件。在场景里选择任意一个对象，挂上UIConfig组件，修改相应的选项即可。
+
+UIConfig组件还可以加载包，点击`Preload Packages`下面的Add即可。
 
 ![](../../images/2016-04-06_095535.png)

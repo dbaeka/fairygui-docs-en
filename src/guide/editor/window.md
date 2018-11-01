@@ -45,7 +45,7 @@ order: 190
 
 ![](../../images/ddd2.png)
 
-如果你需要窗口隐藏时播放动画效果，那么覆盖d`oHideAnimation`编写你的动画代码，并且在动画结束时调用`HideImmediately`（**注意不是直接调用onHide！**）。
+如果你需要窗口隐藏时播放动画效果，那么覆盖d`doHideAnimation`编写你的动画代码，并且在动画结束时调用`HideImmediately`（**注意不是直接调用onHide！**）。
 覆盖`onHide`编写其他需要在窗口隐藏时处理的业务逻辑。
 
 ## Window
@@ -53,6 +53,8 @@ order: 190
 - `Show` 显示窗口。
 
 - `Hide` 隐藏窗口。窗口并不会销毁，只是隐藏。
+
+- `isShowing` 获取窗口是否显示。
 
 - `modal` 设置窗口是否模态窗口。模态窗口将阻止用户点击任何模态窗口后面的内容。当模态窗口显示时，模态窗口背后可以自动覆盖一层灰色的颜色，这个颜色可以自定义：
 
@@ -84,6 +86,16 @@ order: 190
 ```csharp
     UIConfig.bringWindowToFrontOnClick = false;
 ```
+
+**窗口管理**
+
+GRoot里提供了一些窗口管理的常用API。
+
+- `BringToFront` 把窗口提到所有窗口的最前面。
+- `CloseAllWindows` 隐藏所有窗口。注意不是销毁。
+- `CloseAllExceptModals` 隐藏所有非模态窗口。
+- `GetTopWindow` 返回当前显示在最上面的窗口。
+- `hasModalWindow` 当前是否有模态窗口在显示。
 
 **直接加组件到GRoot，和使用Window有什么区别？**
 GRoot是2D UI的根容器。当我们通过UIPackage.CreateObject创建出顶级UI界面后，将它添加到GRoot下。例如游戏的登录界面、主界面等，这类界面的特点是在游戏的底层，且比较固定。

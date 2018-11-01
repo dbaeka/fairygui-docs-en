@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
     
-        <title>FairyGUI - Atlas</title>
+        <title>FairyGUI - Binary Package Format</title>
     
         <meta charset="utf-8">
         <meta name="description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
@@ -12,11 +12,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="Atlas — FairyGUI">
+        <meta property="og:title" content="Binary Package Format — FairyGUI">
         <meta property="og:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="Atlas — FairyGUI">
+        <meta name="twitter:title" content="Binary Package Format — FairyGUI">
         <meta name="twitter:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
 
 
@@ -27,7 +27,7 @@
 
         <!-- this needs to be loaded before guide's inline scripts -->
         <script src="/js/vue.min.js"></script>
-        <script>window.PAGE_TYPE = "guide_unity"</script>
+        <script>window.PAGE_TYPE = "guide_editor"</script>
     </head>
     <body class="docs">        <div id="mobile-bar"  data-bg-text="FairyGUI" >
             <a class="menu-button"></a>
@@ -81,7 +81,7 @@
         <h2>
             Guide
             <!--<select class="version-select">
-                <option value="SELF" selected>unity</option>
+                <option value="SELF" selected>editor</option>
             </select>-->
  		 
 		  
@@ -225,7 +225,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/upgrade_binary_format.html" class="sidebar-link">Binary Package Format</a>
+	                    <a href="/guide/editor/upgrade_binary_format.html" class="sidebar-link current">Binary Package Format</a>
 	                </li>
 	            
 	
@@ -247,7 +247,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/atlas.html" class="sidebar-link current">Atlas</a>
+	                    <a href="/guide/unity/atlas.html" class="sidebar-link">Atlas</a>
 	                </li>
 	            
 	                
@@ -373,42 +373,52 @@
 </div>
 
 
-<div class="content guide_unity with-sidebar ">
+<div class="content guide_editor with-sidebar ">
     
-      <h1>Atlas</h1>
+      <h1>Binary Package Format</h1>
     
-    <p>FairyGUI编辑器发布到Unity的资源通常包含一个或多个纹理集，以demo工程为例，这里demo@atlas0.png就是一个纹理集。</p>
-<p><img src="../../images/2015-10-21_230257.png" alt=""></p>
-<p>纹理集是由UI编辑器自动生成的，但在Unity里可以改变纹理集的属性，常用的设置有：</p>
+    <p>编辑器从3.9.0版本起，支持了新的发布格式，即二进制格式（下面简称新格式）。和以往使用的XML格式（下面简称旧格式）不同，二进制格式更加紧凑，解析时更快，而且占用的内存和产生的内存垃圾更少。<br><strong>(注意：只是指发布后的格式，编辑器里的文件格式不会有任何改变）</strong></p>
+<p>新格式对比旧格式，在不同场合下可以获得的提升为：</p>
 <ul>
-<li><p><code>Texture Type</code> 设置为Advanced(5.5前版本)或者Default(5.5后版本）。<strong>不需要设置为Sprite。</strong></p>
-</li>
-<li><p><code>Texture Shape</code> 一定要选择2D。<strong>这个选项从5.5版本开始出现。如果不是2D，则出现UI图片都显示白色方块的问题。</strong></p>
-</li>
-<li><p><code>Generate Mip Maps</code> 不勾选。UI不使用Mip Maps功能。</p>
-</li>
-<li><p><code>Filter Mode</code> 使用Bilinear，这样图像在缩放时能产生比较平滑的过渡效果，副作用是会产生一定的模糊。而且单色的图像缩放会产生不必要的渐变边缘。而使用Point，则图像在缩放时会块状化。</p>
-</li>
+<li><code>AddPackage</code>： GC最大可降低90% CPU耗时最大可降低80%</li>
+<li><code>CreateObject</code>：GC最大可降低约15% CPU耗时最大可降低20%</li>
 </ul>
-<p><img src="../../images/2015-10-22_082659.png" alt=""></p>
-<p>一般使用Bilinear即可。你也可以在UI编辑器里将图片安排到不同纹理集，然后每个纹理集设置不同的Filter Mode以满足特殊需求。</p>
-<ul>
-<li><p><code>Max Size</code> 一般设置到2048。</p>
+<p>目前Unity、Laya和Egret均已经支持新格式，Cocos2dx和CryEngine会稍后提供，AS3和Starling版本则不会提供新格式的支持。<br>对于Unity引擎，使用新格式需要使用FairyGUI-Unity 3.0或以上版本，其他引擎尽量更新到最近的库。编辑器更新到3.9.0版本后，在发布对话框里的全局设置里，勾选“使用二进制格式”。</p>
+<p><strong>文件命名</strong></p>
+<p>新格式的文件命名与旧格式不同。旧格式的文件名中有使用“@”作为连接字符，由于有不少用户反映这个字符在某些场合下不允许使用，所以新格式改为使用“_”字符。在旧格式中，Unity的描述文件名为“xxx.bytes”,新格式中，更改为“xxx_fui.bytes”，这是为了可以更快的识别出包文件。新格式只有一个描述文件和一个或多个贴图和声音文件，不会再生成单独的sprites文件。</p>
+<p>支持新格式的SDK不再支持读取旧格式的文件，同样，旧的SDK也无法识别新格式的文件，无法无缝切换，你需要做出抉择。</p>
+<p><strong>UI包管理</strong></p>
+<p>使用新格式后，UI包的管理策略有改变，主要为：</p>
+<ol>
+<li><p>现在AddPackage时不会像以前那样把全部资源（贴图、声音）一次性载入，而是用到再载入。如果你需要全部载入，调用<code>UIPackage.LoadAllAssets</code>。</p>
 </li>
-<li><p><code>Format</code> UI的纹理集一般都是PNG格式，并带有透明通道。同时，UI对画质的要求比较高，所以建议选择AutoMatic TrueColor。但TrueColor有一个最大的问题是文件大，而且占用内存很高，例如1024×1024的图集，将占用4MB的内存，2048×2048则达到16MB。</p>
+<li><p>如果UIPackage是从AssetBundle中载入的，在RemovePackage时AssetBundle才会被Unload(true)。如果你确认所有资源都已经载入了（例如调用了LoadAllAssets），也可以自行卸载AssetBundle。</p>
 </li>
-</ul>
-<p>如果对内存使用比较敏感，也可以选用压缩格式，即AutoMatic Compressed。在桌面平台上即相同于DXT5，在Android平台上相当于ETC1，在IPhone平台则为PVRTC。这些格式能够大大降低内存占用，也因为它们是显卡直接支持的格式，所以Unity在载入时省去了解码位图的步骤，能够加快载入速度。但它们都是属于有损压缩，在显示质量上肯定不如TrueColor，特别是纹理集颜色十分丰富或者有颜色渐变时，失真会比较厉害。特别重要的是，ETC1是不支持透明通道的，PVRTC对透明通道的支持也比较弱，所以并不适合带透明通道的图集。为此，FairyGUI提供了ETC1/PVRTC+A的解决方案。首先，在发布时勾选“分离Alpha通道”，如下图：</p>
-<p><img src="../../images/20170808225148.png" alt=""></p>
-<p>这样，就产生了两个不含透明通道的贴图，一张去除了原图透明通道的贴图，和一张将原贴图透明通道数值转换为等价灰度的贴图。这两张贴图都可以设置为Automatic Compressed。(一定要注意，不能再将主贴图设置为True Color)</p>
-<p><img src="../../images/2015-10-22_110549.png" alt=""></p>
-<p>FairyGUI提供了特制的着色器处理两张贴图的合并。开发者并不需要编写额外的代码就可以使用这项技术。</p>
-<p>你可以将本身就不含透明通道的图片（例如一些大型的背景图）安排到一张纹理集上。如果一张纹理集内的所有图片都不包含透明通道，那么最终输出的图集也不包含透明通道。不含透明通道的图集可以选用Automatic 16bits格式。</p>
+<li><p>调用<code>UIPackage.UnloadAssets</code>可以只释放UI包的资源，而不移除包，也不需要卸载从UI包中创建的UI界面（这些界面你仍然可以调用显示，不会报错，但图片显示空白）。当包需要恢复使用时，调用<code>UIPackage.ReloadAssets</code>恢复资源，那些从这个UI包创建的UI界面能够自动恢复正常显示。如果包是从AssetBundle载入的，那么在UnloadAssets时AssetBundle会被Unload(true)，所以在ReloadAssets时，必须调用ReloadAssets一个带参数的重载并提供新的AssetBundle实例。</p>
+</li>
+<li><p>Egret版本目前不支持Unload和Reload；Laya版本支持Unload，但不需要调用Reload，贴图资源一旦用到就会自动Reload。</p>
+</li>
+<li><p>使用新格式后，UI包描述部分占用的内存急剧减少（只有几十KB~几百KB的规模），所以可以不用再管理包的装载卸载，而直接让UIPackage都常驻，再配合使用UnloadAssets和ReloadAssets就可以达到控制内存的效果了（当然这只是建议）。</p>
+</li>
+<li><p>在Unity编辑器中运行时，即使UI包没有放置在Resources下，现在也能够正常加载，路径用全路径即可，当然，打包APP后是不可能加载的，你需要用宏做区别。例如：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//编辑器环境下直接从文件路径中加载，方便测试，正式环境则使用AssetBundle</span></div><div class="line"><span class="meta">#<span class="meta-keyword">if</span> UNITY_EDITOR</span></div><div class="line">    UIPackage.AddPackage(<span class="string">"Assets/SomePath/Package1"</span>);</div><div class="line"><span class="meta">#<span class="meta-keyword">else</span></span></div><div class="line">    UIPackage.AddPackage(ab);</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure>
+<p>同样，UIPanel也可以选择任意路径下的包，编辑器下都能够正常显示。运行时则需要保证包在UIPanel激活前加载好。</p>
+</li>
+</ol>
+<p><strong>另外的一些接口改变</strong></p>
+<ol>
+<li><p>[Unity] UIConfig.buttonSound原来接受一个AudioClip对象，现在需要用NAudioClip，可以用直接用new NAudioClip(audioClip)包装。UIPacakge.GetItemAsset(声音item）现在返回的也是NAudioClip对象。</p>
+</li>
+<li><p>[Unity] UIPackage.AddPackage的接受AssetBundle参数的重载，不再提供unloadBundleAfterLoaded参数。AssetBundle也不会在AddPackage后立刻卸载。</p>
+</li>
+<li><p>获取编辑器内在组件设计期设置的自定义数据，需要使用新加的API：GComponent.baseUserData；获取编辑器内对元件定义的自定义数据的方法则不变，仍然是GObject.data。</p>
+</li>
+</ol>
 
     
     <div class="footer">
       found mistake? Want to participate in editing?
-      <a href="https://github.com/fairygui/en.fairygui.io/tree/master/src/guide/unity/atlas.md" target="_blank">
+      <a href="https://github.com/fairygui/en.fairygui.io/tree/master/src/guide/editor/upgrade_binary_format.md" target="_blank">
         Edit this page on Github!
       </a>
     </div>
