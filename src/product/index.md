@@ -6,12 +6,12 @@ order: 0
 
 ## FairyGUI Editor 
 
->Current version 3.9.8
+>Current version 3.9.9
 
 <div id="downloads">
-<a class="button" href="https://fairygui-in.oss-us-west-1.aliyuncs.com/FairyGUI-Editor_3_9_8.zip" target="_self">Windows</a><span class="light info">Support Simplified Chinese, Traditional Chinese and English</span>
+<a class="button" href="https://fairygui-in.oss-us-west-1.aliyuncs.com/FairyGUI-Editor_3_9_9.zip" target="_self">Windows</a><span class="light info">Support Simplified Chinese, Traditional Chinese and English</span>
 
-<a class="button" href="https://fairygui-in.oss-us-west-1.aliyuncs.com/FairyGUI-Editor_Mac_3_9_8.zip" target="_self">OSX</a><span class="light info">Support Simplified Chinese, Traditional Chinese and English</span>
+<a class="button" href="https://fairygui-in.oss-us-west-1.aliyuncs.com/FairyGUI-Editor_Mac_3_9_9.zip" target="_self">OSX</a><span class="light info">Support Simplified Chinese, Traditional Chinese and English</span>
 </div>
 
 FairyGUI Editor is green software, decompression can be used directly, no need to install. Recommended to extract to non-Chinese directory.
