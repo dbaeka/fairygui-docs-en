@@ -124,12 +124,12 @@ UIPane只保存了UI包的名称和组件的名称，它不对纹理或其他资
 
 - `Render Mode` 有三种：
  - `Screen Space Overlay` 默认值，表示这个UI在屏幕空间显示，这时Transform的Scale将被锁定，而且不建议修改Transform中的其他内容（让他们保持为0）。如果要修改面板在屏幕上的位置，使用UI Transform（参考下面关于UI Transform的说明）。
-- `Screen Space Camera` 表示这个UI在屏幕空间显示，但不使用FairyGUI默认的正交相机，而是使用指定的正交相机。
-- `World Space` 表示这个UI在世界空间显示，由透视相机渲染。默认的使用场景的主相机，如果不是，那么设置Render Camera。当使用这种模式时，使用Transfrom修改UI在世界空间中的位置、缩放、旋转。但你仍然可以使用UI Transform。
+  - `Screen Space Camera` 表示这个UI在屏幕空间显示，但不使用FairyGUI默认的正交相机，而是使用指定的正交相机。
+  - `World Space` 表示这个UI在世界空间显示，由透视相机渲染。默认的使用场景的主相机，如果不是，那么设置Render Camera。当使用这种模式时，使用Transfrom修改UI在世界空间中的位置、缩放、旋转。但你仍然可以使用UI Transform。
 
 注意：Render Mode只定义了FairyGUI对待这个UI的方式，通常是坐标相关的操作（如点击检测等），但和渲染无关。UI由哪个相机渲染是由GameObject的layer决定的。所以如果发现UI没有显示出来，可以检查一下GameObject的layer是否正确。例如如果是Screen Space，GameObject应该在UI层，如果是WorldSpace，则是在Default层或者其他自定义的层次。
 
-- `Render Camera` 当Render Mode是Screen Space Camera或者World Space时可以设置。如果不设置，默认为场景的主相机。
+- `Render Camera` 当Render Mode是Screen Space Camera或者World Space时可以设置。如果不设置，默认为场景的主相机。如果不设置，默认为场景的主相机。注意，当RenderMode为WorldSpace时，如果这里没有设置相机，那么场景里一定要有主相机，否则UI无法点击。
 
 - `Sorting Order` 调整UIPanel的显示顺序。越大的显示在越前面。
 
