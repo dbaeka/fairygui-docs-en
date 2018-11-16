@@ -57,6 +57,9 @@ Create Component1@Package1 failed!
 2. 主相机的ClearFlags错误设置为了Depth。
 3. 场景里还有其他相机，且它的Culling Mask设置勾选了UI。
 
+## 文字显示为黑色
+没有放置着色器。
+
 ## 字体渲染效果不对
 
 如果你设置了字体后，觉得字体效果不对，可以用以下的方式排查：

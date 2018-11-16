@@ -245,6 +245,29 @@ UIPanel最常用的地方就是3D UI。他可以方便地将UI挂到任意GameOb
 
 使用UIPackage.CreateObject可以使用代码创建任何界面，可以应用在传统的设计模式中，Lua支持也十分方便。不过必须要小心处理生成的对象的生命周期，因为它需要手动显式销毁，并且永远不要将使用CreateObject创建出来的对象挂到其他一些普通GameObject上，否则那些GameObject销毁时会一并销毁这个UI里的GameObject，但这个UI又还处于正常使用状态，就会出现空引用错误。
 
+## GameObject和UI节点的关联
+
+使用GObject.displayObject.gameObject，很容易获得一个UI节点对应的GameObject；但有些情况下，需要通过GameObject反推到UI节点，例如：
+- 调试的时候希望在Inspector能看到GameObject对应的UI节点信息；
+- 做UI自动化测试时，例如使用网易AirTest这样的UI自动化方案时，需要通过GameObject获取到UI节点。
+
+出于节省内存的考虑，FairyGUI默认是没有给每个GameObject挂上能提供对应UI节点的信息的Mono组件的。从SDK 3.2.0版本开始，可以通过定义一个宏 **FAIRYGUI_TEST** 来实现这些需求。定义这个宏后，当在Scene里点击GameObject时，在Inspector里可以查看Display Object Info这个组件的内容：
+
+![](../../images/20181116175512.png)
+
+当然，也可以在这里修改它的内容。
+
+注意，一个GObject可能会由多个GameObject组合，如果选择一个GameObject，只有第一栏信息，没有出现第二栏信息，说明它不是UI节点的主GameObject。
+
+下面的代码演示了怎样获取一个GameObject对应的UI节点并修改它的文本：
+
+```
+    DisplayObjectInfo info = gameObject.GetComponent<DisplayObjectInfo>(); 
+
+    GObject obj = GRoot.inst.DisplayObjectToGObject(info.displayObject);
+    obj.text = "Hello";
+```
+
 ## Stage Camera
 
 当添加UIPanel后，或者第一次动态创建UI时，场景里会自动新增一个“Stage Camera”。这是默认的UI相机。你也可以手动在场景里增加这个UI相机：
