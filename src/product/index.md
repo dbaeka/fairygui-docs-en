@@ -43,7 +43,7 @@ Source: [https://github.com/fairygui/FairyGUI-layabox](https://github.com/fairyg
 
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-layabox.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-layabox.svg" alt="forks">
 
-[Examples](https://fairygui-in.oss-us-west-1.aliyuncs.com/FairyGUI-layabox-demo180907.zip)
+[Examples](https://fairygui-in.oss-us-west-1.aliyuncs.com/FairyGUI-layabox-demo181120.zip)
 
 ## Egret SDK
 
@@ -61,7 +61,7 @@ Source: [https://github.com/fairygui/FairyGUI-starling](https://github.com/fairy
 
 [Examples](https://fairygui-in.oss-us-west-1.aliyuncs.com/FairyGUI-starling-demo180907.zip)
 
-## Pixi SDK
+## PIXI SDK
 
 Source: [https://github.com/jcyuan/FairyGUI-PixiJS/releases](https://github.com/jcyuan/FairyGUI-PixiJS/releases)
 
