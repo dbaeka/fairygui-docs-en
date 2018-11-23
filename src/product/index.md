@@ -25,11 +25,13 @@ XXX will be replaced by the version number of the three numbers on it.
 
 ## Unity SDK
 
+In Unity：Open AssetStore, Search 'FairyGUI', and then download and import.
+
+[AssetStore](http://u3d.as/kX8) | [GitHub](https://github.com/fairygui/FairyGUI-unity/releases)
+
 Source: [https://github.com/fairygui/FairyGUI-unity](https://github.com/fairygui/FairyGUI-unity)
 
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-unity.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-unity.svg" alt="forks">
-
-[Examples](https://github.com/fairygui/FairyGUI-unity/releases)
 
 ## Cocos2dx SDK
 

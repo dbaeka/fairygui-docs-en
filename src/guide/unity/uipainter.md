@@ -36,4 +36,4 @@ UIPainter和UIPanel的设置极为相似，设置好“Package Name”和“Comp
 
 - `Touch Disabled` 勾选后，将关闭点击检测。当这个UI没有可交互的内容时可以勾选以提高点击检测时的性能。
 
-当使用曲面UI时，需要用到捕获UI成纹理的功能，所以需要定义VUI、Hidden VUI这两个Layer，否则会出现警告。这两个Layer可以随便定义到没使用的层序号，但要注意所有相机的Culling Mask都**不选择**这两个层。另外，运行时场景里会自动出现Capture Camera对象，这是正常的，不需要理会。
+当使用曲面UI时，需要用到捕获UI成纹理的功能，请务必阅读[PaintMode](special.html#PaintMode)
