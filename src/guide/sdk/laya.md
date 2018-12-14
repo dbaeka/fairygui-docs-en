@@ -1,23 +1,11 @@
 ---
-title: LayaAir Start
-type: guide_laya
+title: LayaAir
+type: guide_sdk
 order: 0
 ---
 
-## 小游戏开发必读
-
-1. 因为rawinflate这个库在小游戏平台有问题，所以直接不使用它。请使用最新编辑器，在发布对话框，全局设置里不勾选“压缩描述文件”就可以了。rawinflate这个库就不会再引用到（也不需要打包了）。
-2. 小游戏不支持fui扩展名，所以在发布界面要把扩展名修改成小游戏支持的扩展名（自己查阅小游戏文档）。然后在代码里设置：
-  ```
-    fairygui.UIConfig.packageFileExtension = "你定义的扩展名";
-  ```
-3. 下载[xml解析库](http://fairygui.oss-cn-shenzhen.aliyuncs.com/js.rar)，引入方式：
-  ```
-    window.Parser = require("./js/dom_parser");
-  ```
-  如果在发布对话框，全局设置里勾选“使用二进制格式”，则不需要XML库的支持。
-4. AddPackage有两种方式，一种是传统的传入文件名方式，另一种是直接传入fui整个文件的内容，也就是说不管你内容是从哪里来的。两种方式可以按需选择。
-5. 如果遇到加载失败，请检查laya的加载流程。因为FairyGUI不负责加载，你需要确保资源已经顺利加载了再AddPackage。
+## 关于LayaAir2.0
+现在已支持LayaAir2.0，要注意GitHub上master分支中的代码是支持LayaAir2.0的，分支layaair1.x才是支持LayaAir1.x的。这两个分支目前都保持维护状态，直到LayaAir2.0完全稳定。
 
 ## TS/JS版本
 
@@ -29,9 +17,13 @@ order: 0
 
   ![](../../images/20170809155742.png)
 
-3. 在index.html里添加上述两个库的引用，注意放置的位置。
+3. [LayaAir1.x版本]在index.html里添加上述两个库的引用，注意放置的位置。
 
   ![](../../images/20170809160052.png)
+
+  **[LayaAir2.x版本]**在index.js里添加上述两个库的引用，注意放置的位置。
+
+  ![](../../images/20181117114842.png)
 
   注：FairyGUI只依赖laya.core， laya.html两个模块，不需要laya.ui。
 
@@ -79,3 +71,14 @@ order: 0
 
 1. 从GITHUB中拉FairyGUI layabox SDK的源代码，放到你的源码工程里。
 2. 在index.html里加入rawinflate.min.js，注意要放在你的js前。（如果你在编辑器发布时没有勾选`压缩描述文件`，那么这个库是不需要的）。
+
+## 小游戏开发必读
+
+1. 因为rawinflate这个库在小游戏平台有问题，所以直接不使用它。请使用最新编辑器，在发布对话框，全局设置里不勾选“压缩描述文件”就可以了。rawinflate这个库就不会再引用到（也不需要打包了）。
+2. 小游戏不支持fui扩展名，所以在发布界面要把扩展名修改成小游戏支持的扩展名（自己查阅小游戏文档）。然后在代码里设置：
+  ```
+    fairygui.UIConfig.packageFileExtension = "你定义的扩展名";
+  ```
+3. 在发布对话框，全局设置里勾选“使用二进制格式”。
+4. AddPackage有两种方式，一种是传统的传入文件名方式，另一种是直接传入fui整个文件的内容，也就是说不管你内容是从哪里来的。两种方式可以按需选择。
+5. 如果遇到加载失败，请检查laya的加载流程。因为FairyGUI不负责加载，你需要确保资源已经顺利加载了再AddPackage。

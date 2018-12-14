@@ -19,6 +19,10 @@ Laya/Egret Online Demo:
 11. [Pull To Refresh](http://www.fairygui.com/laya-demo/pulltorefresh)
 12. [Inventory](http://www.fairygui.com/laya-demo/inventory)
 
+Cocos Creator Online Demo:
+
+[Demo](http://www.fairygui.com/cocos-demo/)
+
 PIXI Online Demo:
 
-1. [Basic](http://jc-space.com/pixigui)
+1. [Demo](http://jc-space.com/pixigui)

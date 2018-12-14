@@ -3,20 +3,20 @@
 <html lang="en">
     <head>
     
-        <title>FairyGUI - Egret Start</title>
+        <title>FairyGUI - LayaAir</title>
     
         <meta charset="utf-8">
         <meta name="description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
-        <meta name="keywords" content="FairyGUI,FGUI,UI Editor,Unity GUI,Pixi GUI,Haxe GUI,Starling GUI,CryEngine UI,Havok Vision,Project Anarchy,C++ UI,MonoGame UI">
+        <meta name="keywords" content="FairyGUI,FGUI,UI Editor,Unity GUI,Pixi GUI,Haxe GUI,Starling GUI,CryEngine UI,Havok Vision,Project Anarchy,C++ UI,MonoGame UI,Cocos Creator">
         
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="Egret Start — FairyGUI">
+        <meta property="og:title" content="LayaAir — FairyGUI">
         <meta property="og:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="Egret Start — FairyGUI">
+        <meta name="twitter:title" content="LayaAir — FairyGUI">
         <meta name="twitter:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
 
 
@@ -27,7 +27,7 @@
 
         <!-- this needs to be loaded before guide's inline scripts -->
         <script src="/js/vue.min.js"></script>
-        <script>window.PAGE_TYPE = "guide_egret"</script>
+        <script>window.PAGE_TYPE = "guide_sdk"</script>
     </head>
     <body class="docs">        <div id="mobile-bar"  data-bg-text="FairyGUI" >
             <a class="menu-button"></a>
@@ -81,7 +81,7 @@
         <h2>
             Guide
             <!--<select class="version-select">
-                <option value="SELF" selected>egret</option>
+                <option value="SELF" selected>sdk</option>
             </select>-->
  		 
 		  
@@ -232,7 +232,41 @@
 	            
 	                
 	                
-	                <li><h3>Unity</h3></li>
+	                <li><h3>SDK</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/sdk/laya.html" class="sidebar-link current">LayaAir</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/sdk/egret.html" class="sidebar-link">Egret</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/sdk/cocos2dx.html" class="sidebar-link">Cocos2dx</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/sdk/creator.html" class="sidebar-link">Cocos Creator</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/sdk/cryengine.html" class="sidebar-link">Cry Engine</a>
+	                </li>
+	            
+
+	            
+	                
+	                
+	                <li><h3>SDK - Unity</h3></li>
 	                
 	                <li>
 	                    <a href="/guide/unity/index.html" class="sidebar-link">Unity Start</a>
@@ -305,121 +339,56 @@
 	                </li>
 	            
 
-	            
-	                
-	                
-	                <li><h3>Cocos2dx</h3></li>
-	                
-	                <li>
-	                    <a href="/guide/cocos2dx/index.html" class="sidebar-link">Cocos2dx Start</a>
-	                </li>
-	            
-	            
-	            
-	                
-	                
-	                <li><h3>CryEngine</h3></li>
-	                
-	                <li>
-	                    <a href="/guide/cry/index.html" class="sidebar-link">Cry Engine Start</a>
-	                </li>
-	            
-	                
-	                
-	                <li>
-	                    <a href="/guide/cry/transform.html" class="sidebar-link">Cry-Coordinate</a>
-	                </li>
-	            
-	                
-	                
-	                <li>
-	                    <a href="/guide/cry/input.html" class="sidebar-link">Cry-Input Processing</a>
-	                </li>
-	            
-	                
-	                
-	                <li>
-	                    <a href="/guide/cry/event.html" class="sidebar-link">Cry-Event System</a>
-	                </li>
-	            
-	            
-	            
-	                
-	                
-	                <li><h3>LayaAir</h3></li>
-	                
-	                <li>
-	                    <a href="/guide/laya/index.html" class="sidebar-link">LayaAir Start</a>
-	                </li>
-	            
-	
-	            
-	                
-	                
-	                <li><h3>Egret</h3></li>
-	                
-	                <li>
-	                    <a href="/guide/egret/index.html" class="sidebar-link current">Egret Start</a>
-	                </li>
-	            
-
-	            
-
-	            
-
             
         </ul>
     </div>
 </div>
 
 
-<div class="content guide_egret with-sidebar ">
+<div class="content guide_sdk with-sidebar ">
     
-      <h1>Egret Start</h1>
+      <h1>LayaAir</h1>
     
-    <h2 id="小游戏开发必读"><a href="#小游戏开发必读" class="headerlink" title="小游戏开发必读"></a>小游戏开发必读</h2><ol>
-<li>因为rawinflate这个库在小游戏平台有问题，所以直接不使用它。请使用最新编辑器，发布时勾选“不压缩描述文件”就可以了。rawinflate这个库就不会再引用到（也不需要打包了）。</li>
-<li>小游戏不支持fui扩展名，所以在发布界面要把扩展名修改成小游戏支持的扩展名（自己查阅小游戏文档）。代码里不需要改任何东西，因为扩展名是在default.res.json里使用的。</li>
-<li><p>在scripts/wxgame/wxgame.ts里，在适当的地方加上：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">if(filename == &quot;libs/fairygui/fairygui.js&quot; || filename == &quot;libs/fairygui/fairygui.min.js&quot;) &#123;</div><div class="line">    content += &quot;;window.fairygui = fairygui;&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+    <h2 id="关于LayaAir2-0"><a href="#关于LayaAir2-0" class="headerlink" title="关于LayaAir2.0"></a>关于LayaAir2.0</h2><p>现在已支持LayaAir2.0，要注意GitHub上master分支中的代码是支持LayaAir2.0的，分支layaair1.x才是支持LayaAir1.x的。这两个分支目前都保持维护状态，直到LayaAir2.0完全稳定。</p>
+<h2 id="TS-JS版本"><a href="#TS-JS版本" class="headerlink" title="TS/JS版本"></a>TS/JS版本</h2><ol>
+<li><p>将FairyGUI库以及依赖的rawinflate库拷贝到bin/libs目录。（如果你在编辑器发布时没有勾选<code>压缩描述文件</code>，那么这个库是不需要的）。</p>
+<p><img src="../../images/20170809155135.png" alt=""></p>
 </li>
-<li><p>AddPackage有两种方式，一种是传统的传入文件名方式，另一种是直接传入fui整个文件的内容，也就是说不管你内容是从哪里来的。两种方式可以按需选择。</p>
+<li><p>把fairygui.d.ts拷贝到libs目录。</p>
+<p><img src="../../images/20170809155742.png" alt=""></p>
 </li>
-<li>如果遇到加载失败，请检查egret的加载流程。因为FairyGUI不负责加载，你需要确保资源已经顺利加载了再AddPackage。</li>
-<li>在发布对话框，全局设置里，勾选“使用二进制格式”。</li>
-</ol>
-<h2 id="Egret-4-x"><a href="#Egret-4-x" class="headerlink" title="Egret 4.x"></a>Egret 4.x</h2><ol>
-<li><p>将FairyGUI库以及依赖的rawinflate库拷贝到libs目录。（如果你在编辑器发布时没有勾选<code>压缩描述文件</code>，那么这个库是不需要的）。</p>
-<p><img src="../../images/20170809161022.png" alt=""></p>
+<li><p>[LayaAir1.x版本]在index.html里添加上述两个库的引用，注意放置的位置。</p>
+<p><img src="../../images/20170809160052.png" alt=""></p>
+<p><strong>[LayaAir2.x版本]</strong>在index.js里添加上述两个库的引用，注意放置的位置。</p>
+<p><img src="../../images/20181117114842.png" alt=""></p>
+<p>注：FairyGUI只依赖laya.core， laya.html两个模块，不需要laya.ui。</p>
 </li>
-<li><p>在index.html里添加上述两个库的引用。</p>
-<p><img src="../../images/20170809161215.png" alt=""></p>
-<p>注：FairyGUI只依赖egret的core和res两个模块，不需要gui和eui。</p>
+<li><p>使用FairyGUI编辑器完成UI编辑。发布目录请选择Laya工程的bin/res目录（当然其他目录也是可以的）。发布后得到两个（或以上）文件。</p>
+<p><img src="../../images/20170809160159.png" alt=""></p>
 </li>
-<li><p>使用FairyGUI编辑器完成UI编辑。发布目录请选择Egret工程的resource/assets目录。发布后得到两个（或以上）文件。</p>
-<p><img src="../../images/20170809161256.png" alt=""></p>
-</li>
-<li><p>在default.res.json里，将上述的文件添加到定义中。扩展名为fui文件，类型请选择为bin。<strong>注意：Egret自动检测添加的资源，名称通常会自动加上下划线和后缀，例如basic.fui，名称自动设置为“basic_fui”，这里我们要手动将_fui去掉，名称只需要为“basic”。</strong></p>
-<p><img src="../../images/20170809161350.png" alt=""></p>
-<p>资源一般都加到preload组里，如果你是高阶玩家，也可以试试动态加载。确保在使用到相应的元件前加载好就行。</p>
-</li>
-<li><p>在代码里完成规定的初始化，例如设定默认字体，滚动条等等。</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"> <span class="comment">/**</span></div><div class="line"><span class="comment">  * 创建游戏场景</span></div><div class="line"><span class="comment">  * Create a game scene</span></div><div class="line"><span class="comment">  */</span></div><div class="line"> <span class="function"><span class="keyword">private</span> <span class="title">createGameScene</span>(<span class="params"></span>):<span class="keyword">void</span> </span>&#123;</div><div class="line">     fairygui.UIPackage.addPackage(<span class="string">"basic"</span>);</div><div class="line">     </div><div class="line">     fairygui.UIConfig.defaultFont = <span class="string">"宋体"</span>;</div><div class="line">     fairygui.UIConfig.verticalScrollBar = fairygui.UIPackage.getItemURL(<span class="string">"Basic"</span>, <span class="string">"ScrollBar_VT"</span>);</div><div class="line">     fairygui.UIConfig.horizontalScrollBar = fairygui.UIPackage.getItemURL(<span class="string">"Basic"</span>, <span class="string">"ScrollBar_HZ"</span>);</div><div class="line">     fairygui.UIConfig.popupMenu = fairygui.UIPackage.getItemURL(<span class="string">"Basic"</span>, <span class="string">"PopupMenu"</span>);</div><div class="line">     fairygui.UIConfig.buttonSound = fairygui.UIPackage.getItemURL(<span class="string">"Basic"</span>,<span class="string">"click"</span>);</div><div class="line">     </div><div class="line">     <span class="keyword">this</span>.stage.addChild(fairygui.GRoot.inst.displayObject);</div><div class="line"></div><div class="line">     <span class="keyword">this</span>.mainPanel = <span class="keyword">new</span> MainPanel();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li><p>在程序启动时（或者在需要用到这些UI的适当地方）加载这两个文件，并完成初始化。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 程序入口</span></div><div class="line"><span class="keyword">class</span> <span class="title">GameMain</span> &#123;</div><div class="line">    constructor()</div><div class="line">    &#123;</div><div class="line">        Laya.init(<span class="number">1136</span>, <span class="number">640</span>, Laya.WebGL);</div><div class="line">        laya.utils.Stat.show(<span class="number">0</span>, <span class="number">0</span>);</div><div class="line">        <span class="comment">//设置适配模式</span></div><div class="line">        Laya.stage.scaleMode = <span class="string">"showall"</span>;</div><div class="line">        Laya.stage.alignH = <span class="string">"left"</span>;</div><div class="line">        Laya.stage.alignV = <span class="string">"top"</span>;</div><div class="line">        <span class="comment">//设置横竖屏</span></div><div class="line">        Laya.stage.screenMode = <span class="string">"horizontal"</span>;</div><div class="line">        </div><div class="line">        Laya.loader.load([&#123; url: <span class="string">"res/Basic@atlas0.png"</span>, type: Loader.IMAGE &#125;,</div><div class="line">            &#123; url: <span class="string">"res/Basic.fui"</span>, type: Loader.BUFFER &#125;</div><div class="line">        ], Handler.create(<span class="keyword">this</span>, <span class="keyword">this</span>.onLoaded));</div><div class="line">    &#125;</div><div class="line">   </div><div class="line">    onLoaded(): <span class="keyword">void</span> &#123;</div><div class="line">        Laya.stage.addChild(fairygui.GRoot.inst.displayObject);</div><div class="line">        </div><div class="line">        fairygui.UIPackage.addPackage(<span class="string">"res/Basic"</span>);</div><div class="line">        fairygui.UIConfig.defaultFont = <span class="string">"宋体"</span>;</div><div class="line">        fairygui.UIConfig.verticalScrollBar = <span class="string">"ui://Basic/ScrollBar_VT"</span>;</div><div class="line">        fairygui.UIConfig.horizontalScrollBar = <span class="string">"ui://Basic/ScrollBar_HZ"</span>;</div><div class="line">        fairygui.UIConfig.popupMenu = <span class="string">"ui://Basic/PopupMenu"</span>;</div><div class="line">        fairygui.UIConfig.buttonSound = <span class="string">"ui://Basic/click"</span>;</div><div class="line">        </div><div class="line">        <span class="keyword">new</span> MainPanel();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>如果出现“fairygui not defined”的错误，请再一次检查index.html里是否有fairygui.js的引用。</p>
-<h2 id="Egret-5-x"><a href="#Egret-5-x" class="headerlink" title="Egret 5.x"></a>Egret 5.x</h2><p>步骤与4.x的基本一样，不过不再需要在index.html文件里添加fairygui和rawinflate的引用。你只需要以下这个步骤：</p>
-<ol>
-<li>复制一份rawinflate.min.js，并改名为rawinflate.js。（如果你在编辑器发布时没有勾选<code>压缩描述文件</code>，那么这个库是不需要的）。</li>
-<li><p>在egretProperties.json文件中添加:</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">&#123;  </div><div class="line">    <span class="string">"name"</span>: <span class="string">"rawinflate"</span>,  </div><div class="line">    <span class="string">"path"</span>: <span class="string">"./libs/rawinflate"</span>  </div><div class="line">&#125;,  </div><div class="line">&#123;  </div><div class="line">    <span class="string">"name"</span>: <span class="string">"fairygui"</span>,  </div><div class="line">    <span class="string">"path"</span>: <span class="string">"./libs/fairygui"</span>  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="AS版本"><a href="#AS版本" class="headerlink" title="AS版本"></a>AS版本</h2><ol>
+<li>从GITHUB中拉FairyGUI layabox SDK的源代码，放到你的源码工程里。</li>
+<li>在index.html里加入rawinflate.min.js，注意要放在你的js前。（如果你在编辑器发布时没有勾选<code>压缩描述文件</code>，那么这个库是不需要的）。</li>
+</ol>
+<h2 id="小游戏开发必读"><a href="#小游戏开发必读" class="headerlink" title="小游戏开发必读"></a>小游戏开发必读</h2><ol>
+<li>因为rawinflate这个库在小游戏平台有问题，所以直接不使用它。请使用最新编辑器，在发布对话框，全局设置里不勾选“压缩描述文件”就可以了。rawinflate这个库就不会再引用到（也不需要打包了）。</li>
+<li><p>小游戏不支持fui扩展名，所以在发布界面要把扩展名修改成小游戏支持的扩展名（自己查阅小游戏文档）。然后在代码里设置：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">fairygui.UIConfig.packageFileExtension = &quot;你定义的扩展名&quot;;</div></pre></td></tr></table></figure>
 </li>
+<li><p>在发布对话框，全局设置里勾选“使用二进制格式”。</p>
+</li>
+<li>AddPackage有两种方式，一种是传统的传入文件名方式，另一种是直接传入fui整个文件的内容，也就是说不管你内容是从哪里来的。两种方式可以按需选择。</li>
+<li>如果遇到加载失败，请检查laya的加载流程。因为FairyGUI不负责加载，你需要确保资源已经顺利加载了再AddPackage。</li>
 </ol>
 
     
     <div class="footer">
       found mistake? Want to participate in editing?
-      <a href="https://github.com/fairygui/en.fairygui.io/tree/master/src/guide/egret/index.md" target="_blank">
+      <a href="https://github.com/fairygui/en.fairygui.io/tree/master/src/guide/sdk/laya.md" target="_blank">
         Edit this page on Github!
       </a>
     </div>
