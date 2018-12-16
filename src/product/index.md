@@ -6,12 +6,12 @@ order: 0
 
 ## FairyGUI Editor 
 
->Current version 3.10.1
+>Current version 3.10.2
 
 <div id="downloads">
-<a class="button" href="https://fairygui-in.oss-us-west-1.aliyuncs.com/FairyGUI-Editor_3_10_1.zip" target="_self">Windows</a><span class="light info">Support Simplified Chinese, Traditional Chinese and English</span>
+<a class="button" href="https://fairygui-in.oss-us-west-1.aliyuncs.com/FairyGUI-Editor_3_10_2.zip" target="_self">Windows</a><span class="light info">Support Simplified Chinese, Traditional Chinese and English</span>
 
-<a class="button" href="https://fairygui-in.oss-us-west-1.aliyuncs.com/FairyGUI-Editor_Mac_3_10_1.zip" target="_self">OSX</a><span class="light info">Support Simplified Chinese, Traditional Chinese and English</span>
+<a class="button" href="https://fairygui-in.oss-us-west-1.aliyuncs.com/FairyGUI-Editor_Mac_3_10_2.zip" target="_self">OSX</a><span class="light info">Support Simplified Chinese, Traditional Chinese and English</span>
 </div>
 
 FairyGUI Editor is green software, decompression can be used directly, no need to install. Recommended to extract to non-Chinese directory.
@@ -61,7 +61,7 @@ Source: [https://github.com/fairygui/FairyGUI-egret](https://github.com/fairygui
 
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-cocoscreator.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-cocoscreator.svg" alt="forks">
 
-[下载例子](http://res.fairygui.com/FairyGUI-cocoscreator-demo181211.zip)
+[下载例子](http://res.fairygui.com/FairyGUI-cocoscreator-demo181216.zip)
 
 ## Starling SDK
 
