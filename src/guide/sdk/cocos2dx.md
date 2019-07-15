@@ -4,29 +4,29 @@ type: guide_sdk
 order: 3
 ---
 
-## 运行Demo
+## Running the Demo
 
-1. 从GitHub Clone或者直接下载FairyGUI-cocos2dx。
-2. 下载3.x版本cocos2dx命名成cocos2d放在Example根目录。cocos2dx源码需要改动一处地方才能通过编译，打开2d/CCLabel.h，大约在672行，为updateBMFontScale函数打上virtual修饰符。即
+1. Download using GitHub Clone or directly from `FairyGUI-cocos2dx`.
+2. Download the 3.x version of cocos2dx and name it cocos2d in the Example root directory. Cocos2dx source code needs to be changed in one place to compile, open `2d/CCLabel.h`, about 672 lines, and put the virtual modifier on the `updateBMFontScale` function. which is:
 
   ```
     virtual void updateBMFontScale();
   ```
 
-3. 使用Visual Studio打开Examples/proj.win32/Examples.sln，然后直接运行Demo。
-4. Demo的UI工程在Examples/UIProject下。结合UI工程和例子代码可以了解到FairyGUI在Cocos2dx下的使用方法。
+3. Open `Examples/proj.win32/Examples.sln` using Visual Studio and run the Demo directly.
+4. Demo's UI project is under `Examples/UIProject`. Combine UI engineering and example code to understand how FairyGUI is used under Cocos2dx.
 
-## 加入FairyGUI到你的项目
+## Adding FairyGUI to Your Project
 
-将libfairygui加入到你的WorkSpace里，然后添加引用即可。libfairygui是一个静态库，最后链接到你的程序里。
+Add `libfairygui` to your WorkSpace and add a reference. `Libfairygui` is a static library that is linked to your program.
 
-## 关于GRoot
+## About GRoot
 
-GRoot是UI的根对象，我们可以像Demo那样，每个场景都创建一个GRoot对象。GRoot::getInstance()（或者简单的使用UIRoot这个宏）指向的是最后创建的GRoot对象，一般来说就是当前Scene包含的GRoot对象。Cocos2dx在切换Scene时Scene里的一切东西都会销毁，也包括加入到Scene里的GRoot。如果你想避免界面的重复创建，一个GRoot在不同Scene里公用，那么可以自己对GRoot retain。切换场景后自行add GRoot到Scene即可。
+`GRoot` is the root object of the UI. We can create a `GRoot` object for each scene like in the Demo. `GRoot::getInstance()` (or simply use the `UIRoot` macro) points to the last created `GRoot` object, which is generally the `GRoot` object contained in the current Scene. Cocos2dx will destroy everything in Scene when switching Scene, including `GRoot` added to Scene. If you want to avoid repeated creation of the interface, by using a shared `GRoot` in different Scenes, then you can own `GRoot` retain. After switching the scene, you can add `GRoot` to Scene.
 
-## 事件机制
+## Event System
 
-与事件相关的API有
+The event API has these methods:
 
 ```csharp
     void addEventListener(int eventType, const EventCallback& callback);
@@ -36,9 +36,10 @@ GRoot是UI的根对象，我们可以像Demo那样，每个场景都创建一个
     void removeEventListeners();
 ```
 
-`eventType` 一个事件类型常量，定义在event/UIEventType.h里。
-`callback` 回调函数，可以用CC_CALLBACK_1宏来定义，也可以用Lambda表达式。
-`tag` 如果事件注册后要进行remove操作，那么add的时候必须标识这个事件。这里的机制是调用者提供一个EventTag。EventTag可以用整形，或者一个指针地址来构造，例如可以直接传递this。特别地，0表示没有EventTag，也就是不要使用0作为特殊的EventTag。
+`eventType` An event type constant, defined in `event/UIEventType.h`.
+`callback` The callback function can be defined with the `CC_CALLBACK_1` macro or with a Lambda expression.
+`tag` If the event is to be removed after the event is registered, then this must be added to identify the event. The mechanism here is that the caller provides an `EventTag`. `EventTag` can be constructed with an integer, or a pointer address, for example, you can pass this directly. In particular, 0 means no `EventTag`; meaning, don't use 0 as a special `EventTag`.
 
 ## Lua Binding
-FairyGUI-cocos2dx只提供了C++版本，Lua Binding需要由你自行完成。网上有很多方案可以完成这点。例如这位热心网友的分享：[https://www.jianshu.com/p/547e584e05d8](https://www.jianshu.com/p/547e584e05d8 "FairyGUI在Cocos2d-x下的多平台接入和lua绑定")
+
+FairyGUI-cocos2dx is only available in C++, and Lua Binding needs to be done by you. There are many ways to do this online. For example, the sharing of this enthusiastic netizen:[https://www.jianshu.com/p/547e584e05d8](https://www.jianshu.com/p/547e584e05d8 "FairyGUI在Cocos2d-x下的多平台接入和lua绑定")

@@ -4,469 +4,473 @@ type: guide_editor
 order: 0
 ---
 
-## 打开项目和创建项目
+## Open Project and Create Project
 
-启动FairyGUI编辑器后，首先显示的是打开项目/创建项目的窗口：
+After launching the FairyGUI editor, the first window to open the project/create project is displayed:
 
 ![](../../images/2017-04-25_230248.png)
 
-- `历史记录` 曾经打开过的项目可以直接从列表中点击打开。
-- `删除` 点击右上的垃圾桶按钮删除选定的打开历史记录。
-- `打开其他` 通过选择一个项目描述文件 xxx.fairy 打开一个已有项目。
-- `打开目录` 通过选择项目所在的目录打开一个已有项目。适用于打开2.x版本的项目。
+- `History` Items that have been opened can be opened directly from the list.
+- `Delete` Click the trash can button on the top right to delete the selected open history.
+- `Open Other` Open an existing project by selecting a project description file xxx.fairy.
+- `Open Directory` Open an existing project by selecting the directory where the project is located. Applicable to open the 2.x version of the project.
 
-编辑器支持同时打开多个项目。Windows平台下，可以直接启动多个FairyGUI编辑器。Mac平台下，你可以在打开一个项目后，再点击菜单“文件”->“在新窗口打开项目”打开其他项目。
+The editor supports opening multiple projects at the same time. On the Windows platform, multiple FairyGUI editors can be launched directly. On the Mac platform, you can open other projects after opening a project and then clicking `Main Menu -> "File" -> "Open project in new window"`.
 
 ![](../../images/2017-04-25_230303.png)
 
-在指定位置创建一个新的UI项目。
+Create a new UI project at the specified location.
 
-- `项目名称` 任意的项目名称。
-- `项目类型` UI项目类型，即目标平台。不同的平台类型在资源组织、发布上有一定的差别。不需要担心这里选择错了项目类型，在项目创建后可以随时调整UI项目类型，操作位置在菜单“文件”->“项目属性”里。
+- `Project name` Any item name.
+- `Project Type` UI item type, which is the target platform. Different platform types have certain differences in resource organization and distribution. **You don't need to worry about choosing the wrong project type here. You can adjust the UI project type at any time after the project is created**. The operation location is in `Main Menu -> "File" -> "Project Properties"`.
 
-## 资源管理
+## Resource Management
 
-FairyGUI的项目在文件系统的结构为：
+The structure of the FairyGUI project in the file system is:
 
 ![](../../images/2017-04-07_112222.png)
 
-- FairyGUI是以包为单位组织资源的。包在文件系统中体现为一个目录。assets目录下每个目录都是一个包。包内的每个资源都有一个是否导出的属性，一个包只能使用其他包设置为已导出的资源，而不设置为导出的资源是不可访问的。同时，只有设置为导出的组件才可以使用代码动态创建。
+- FairyGUI organizes resources on a per-package basis. The package is embodied as a directory in the file system. Each directory in the assets directory is a package. Each resource in the package has an attribute that is exported. A package can only be set to an exported resource using another package, and the resource that isn't set to be exported is inaccessible. At the same time, only components that are set to be exported can be dynamically created using code.
 
-- 包发布后可以得到一个描述文件和一张或多张纹理集（不同平台的文件数量和打包方式可能有差别）。FairyGUI是不处理包之间的依赖关系的，如果B包导出了一个元件B1，而A包的A1元件使用了元件B1，那么在创建A1之前，必须保证B包已经被载入，否则A1里的B1不能正确显示（但不会影响程序正常运行）。这个载入需要由开发者手动调用，FairyGUI不会自动载入。
+- After the package is released, you can get a description file and one or more texture sets (the number of files and packaging methods may vary from platform to platform). FairyGUI doesn't handle the dependencies between packages. If the B package exports a component B1 and the A1 component of the A package uses component B1, then before creating A1, the B package must be loaded, otherwise A1 B1 doesn't display correctly (but doesn't affect the normal operation of the program). This loading needs to be manually called by the developer, and FairyGUI will not load automatically.
 
-- 如何划分包，有一个原则，就是不要建立交叉的引用关系。例如避免A包使用B包的资源，B包使用C包的资源这类情况。我们一般都建立一个或多个公共包，把整个项目需要频繁使用到的资源放在这里，把一些基础组件，例如按钮、滚动条、窗口背景等也放到这里。其他包需要使用时直接从公共包拖入就可以了。除了公共包，其他包相互之间尽量不发生引用关系。简洁的依赖关系可以使程序员更轻松地控制UI资源的载入和卸载。
+- How to divide packages. There's a principle - don't establish cross-reference relationships. For example, avoid the case where the `A` package uses the `B` package's resources, and the `B` package uses the `C` package's resources. We generally create one or more public packages, put the resources that need to be used frequently throughout the project, and put some basic components, such as buttons, scrollbars, window backgrounds, etc. here. Other packages need to be dragged directly from the public package when they need to be used. In addition to public packages, other packages don't have a reference relationship with each other. Simple dependencies make it easier for programmers to control the loading and unloading of UI resources.
 
-- 包划分的粒度一般没有一个硬性的规定。在具体实践中，有不同的方案，比如有的人喜欢分的比较细，一个模块一个包；有的人喜欢包少一点，就把不同UI模块的资源和组件都堆在一起。这些方案对UI的运行性能影响都不大。但是图片资源尽量不要太分散，因为不同包的图片是不能打在同一张纹理集上的，如果资源太分散，可能造成纹理集的留空过多，浪费空间。
+- The granularity of package partitioning generally doesn't have a hard rule. In practice, there are different solutions. For example, some people prefer to be more detailed, one module and one package; some people prefer to pack less resources and components of different UI modules. These scenarios have little impact on the performance of the UI. However, the **image resources shouldn't be too scattered, because the images of different packages cannot be on the same texture set**. If the resources are too scattered, the texture set may be left too much and waste space.
 
-**增删改资源**
+**Add, Delete, and Change Resources**
 
-你可以直接在文件管理器（或Finder）进行这些操作：
+You can do this directly in the file manager (or Finder):
 
-- `增加资源` 可以直接将素材放置到包目录里。也可以将另外项目的包直接拷入到assets目录。然后点击库面板上面的刷新按钮。
+- `Add resources` You can place the material directly into the package directory. You can also copy the package of another project directly into the assets directory. Then click the refresh button above the library panel.
 
-- `移动资源` 可以将素材在包内各个文件夹里移动。但不能跨包移动，否则引用关系将丢失。然后点击库面板上面的刷新按钮。
+- `Mobile Resources` You can move the material in various folders within the package. But it can't be moved across packages, otherwise the reference relationship will be lost. Then click the refresh button above the library panel.
 
-- `删除资源` 可以直接在包目录里删除素材；然后点击库面板上面的刷新按钮。
+- `Delete resource` You can delete the material directly in the package directory; then click the refresh button above the library panel.
 
-- `替换资源` 可以用外部工具打开素材编辑，也可以直接替换文件。这类操作无需刷新，返回到编辑器就可以看到最新修改的结果。
+- `Replace resource` You can open the material edit with an external tool, or you can directly replace the file. This type of operation doesn't need to be refreshed, and you can see the results of the latest changes when you return to the editor.
 
 **package.xml**
 
-每个包里都有一个package.xml文件，这个是包的数据库文件，如果这个文件被破坏，那么包的内容将无法读取。在多人协作的情况下，如果package.xml出现冲突，请谨慎处理。
+Each package has a `package.xml` file, which is the package's database file. If the file is destroyed, the contents of the package won't be readable. In the case of multiplayer collaboration, if there's a conflict in `package.xml`, please handle it carefully.
 
-## 库面板
+## Library Panel
 
-进入编辑器后，主界面的左边是库面板。库面板包括资源库和收藏夹两个子面板。
+After entering the editor, the left side of the main interface is the library panel. The library panel includes two sub-panels, the repository and the favorites.
 
 ![](../../images/2017-04-25_231318.png)
 
-库面板里采用树状结构显示。顶层节点是包，每个包下面可以创建文件夹。可以直接在键盘上按包名第一个字符的拼音的首字母，直接定位包。
+The library panel is displayed in a tree structure. The top-level nodes are packages, and folders can be created under each package. You can directly locate the package by directly typing the first letter of the first character of the package name on the keyboard.
 
-可以直接将图片、声音、动画、文字等素材从文件管理器（或Finder）中拖动到资源库中。素材可以随意移动，也可以使用复制和粘贴功能。如果要更新素材，可以点击资源，在右键菜单中选择“更新资源”，也可以在文件管理器（或Finder）中直接替换文件，后者适合批量操作。
+You can drag images, sounds, animations, text, and so on directly from the file manager (or Finder) into the repository. The material can be moved at will, or you can use the copy and paste function. If you want to update the material, you can click on the resource, select "Update Resource" in the right-click menu, or you can directly replace the file in the file manager (or Finder), which is suitable for batch operations.
 
-**资源URL地址**
+**Resource URL Address**
 
-在FairyGUI中，每一个资源都有一个URL地址。选中一个资源，右键菜单，选择“复制URL”，就可以得到资源的URL地址。无论在编辑器中还是在代码里，都可以通过这个URL引用资源。例如设置一个按钮的图标，你可以直接从库中拖入，也可以手工粘贴这个URL地址。这个URL是一串编码，并不可读，在开发中使用会造成阅读困难，所以我们通常使用另外一种格式：ui://包名/资源名。两种URL格式是通用的，一种不可读，但不受包或资源重命名的影响；另一种则可读性较高。
+In FairyGUI, each resource has a URL. Select a resource, right-click menu, select "Copy URL", you can get the URL address of the resource. Resources can be referenced through this URL, both in the editor and in the code. For example, to set a button icon, you can drag directly from the library, or you can manually paste the URL address. This URL is a bunch of encodings that aren't readable. It can be difficult to read in development, so we usually use another format: ui://package/resource name. The two URL formats are generic, one unreadable, but not affected by package or resource renaming; the other is more readable.
 
-**资源导出**
+**Resource Export**
 
-包内的每个资源都有一个是否导出的属性，已导出的资源的图标右下角有一个小红点。使用右键菜单提供的功能可以方便的切换一个或多个资源的导出属性。
+Each resource in the package has an attribute that is exported. The icon of the exported resource has a small red dot in the lower right corner. Use the functions provided in the right-click menu to easily switch the export properties of one or more resources.
 
-**收藏夹**
+**Favorites**
 
-收藏夹提供了一个快速访问常用组件的功能。可以将一些常用的组件或素材放置在收藏夹里，便于快速访问。也可以实现一个类似控件面板的功能。在资源库里右键单击一个或多个资源，然后在右键菜单中选择“加入收藏夹”，就可以将资源加入收藏夹。
+Favorites provide a quick access to frequently used components. Some commonly used components or clips can be placed in favorites for quick access. It is also possible to implement a function similar to the control panel. You can add resources to your favorites by right-clicking one or more resources in the repository and selecting Add to Favorites from the context menu.
 
 ![](../../images/20170721153434.png)
 
-**过滤显示包**
+**Filter Display Package**
 
-当库面板里的包比较多时，查找东西比较麻烦。可以把一些不常用的包隐藏起来。点击库面板上的![](../../images/20180202120924.png)
+When there are more packages in the library panel, it's more troublesome to find things. You can hide some of the less commonly used packages. Click on the library panel
 
-**与编辑器链接**
+![](../../images/20180202120924.png)
 
-激活这个功能后，当活动文档发生切换时，会同时在资源库中选中活动文档对应的组件。 
+**Link with Editor**
 
-**快速定位**
+When this function is activated, when the active document is switched, the component corresponding to the active document is also selected in the repository.
 
-按资源名称拼音或者英文的第一个字母，可以在当前选中项的同一层次快速定位到该资源。
+**Rapid Positioning**
 
-**复制、粘贴和粘贴全部**
+Pinyin by resource name or the first letter of English can quickly locate the resource at the same level of the currently selected item.
 
-库里面的资源可以复制粘贴。使用右键菜单中的“复制” “粘贴” “粘贴全部”或者“Ctrl+C” “Ctrl+V”都可以完成。
+**Copy, Paste, and Paste All**
 
-“粘贴”和“粘贴全部”在跨包复制时体现区别。
-- `粘贴全部` 把选定的资源以及它（们）所有引用到的资源一并粘贴过来。
-- `粘贴` 只会粘贴选定的资源以及它（们）引用到但**没有设置为导出**的资源。快捷键为Ctrl+V。
+Resources in the library can be copied and pasted. Use the "Copy" "Paste" "Paste All" or "Ctrl+C" "Ctrl+V" in the right-click menu to complete.
 
-提示：复制、粘贴功能支持跨项目，同时打开两个项目后，就可以互相复制粘贴。
+"Paste" and "Paste All" reflect the difference when copying across packages.
+- `Paste all` Paste the selected resource and all the resources it references.
+- `Paste` will only paste the selected resource and the resources it references (but) are **not set to export**. The shortcut is `Ctrl+V`.
 
-## 主工具栏
+Tip: The copy and paste function is supported across projects. After opening two projects at the same time, you can copy and paste to one another.
+
+## Main Toolbar
 
 ![](../../images/20170726140511.png)
 
-- `屏蔽显示控制器` ![](../../images/20170810222944.png)屏蔽后所有被显示控制器隐藏的内容都会显示出来。
-- `屏蔽关联系统` ![](../../images/20170810222952.png)屏蔽后手动修改元件坐标和大小关联系统不会动作。
-- `提醒信息` ![](../../images/20170810223001.png)如果当前文档内有同名对象，会显示黄色叹号。
-- `在库中显示` ![](../../images/20170810223008.png)点击可在库中定位这个组件。
+- `Mask display controller` ![](../../images/20170810222944.png) All contents hidden by the display controller will be displayed after masking.
+- `Blocking associated system` ![](../../images/20170810222952.png) Manually modifying the component coordinates and size associated with the system doesn't act.
+- `Reminder information` ![](../../images/20170810223001.png) If there's an object with the same name in the current document, a yellow exclamation mark will be displayed.
+- `Show ` ![](../../images/20170810223008.png) in the library to locate this component in the library.
 
-## 侧工具栏
+## Side Toolbar
 
-![](../../images/20170726140818.png) 可以在拖动和选择两种模式间切换。特别的，在选择模式下，按住空格就可以临时切换为拖动模式，释放空格就可以切换为选择模式。
+![](../../images/20170726140818.png) You can switch between drag and drop modes. In particular, in the selection mode, press and hold a space to temporarily switch to the drag mode, and release the space to switch to the selection mode.
 
-![](../../images/20170726140827.png) 基础控件区域。点击后再在舞台上点击一个位置，则在对应位置生成一个对象。
+![](../../images/20170726140827.png) The base control area. Click and then click on a position on the stage to generate an object at the corresponding location.
 
-![](../../images/20170726140837.png) 组合和取消组合。组合的快捷键是Ctrl+G，取消组合的快捷键是Ctrl+Shift+G。
+![](../../images/20170726140837.png) Combine and ungroup. The combined shortcut is Ctrl+G, and the ungrouped shortcut is Ctrl+Shift+G.
 
-![](../../images/20170810223145.png)![](../../images/20170810223153.png)![](../../images/20170810223201.png) 对齐操作。选定多个元件后，再点击这里的按钮，可以执行对应的对齐功能。例如选定两个元件后，点击左右居中，则两个元件将设置为中线对齐。如果只选择了一个元件，则该元件对容器组件执行对应的对齐功能。例如，选定一个元件后，点击左右对齐，则元件将移到容器组件的中间位置。又例如，选定一个元件后，点击相同宽度，则元件的宽度将设置为与容器组件相同。
+![](../../images/20170810223145.png)![](../../images/20170810223153.png)![](../../images/20170810223201.png) Alignment operation. After selecting multiple components, click the button here to perform the corresponding alignment function. For example, after selecting two components and clicking left and right to center, the two components will be set to centerline alignment. If only one component is selected, the component performs a corresponding alignment function on the container-component. For example, after selecting a component and clicking `Align Left and Right`, the component will move to the middle of the container assembly. For another example, after selecting a component and clicking the same width, the component's width will be set to be the same as the container-component.
 
-![](../../images/20170726141549.png) 自定义排列。点击后弹出自定义排列的对话框。
+![](../../images/20170726141549.png) Custom arrangement. Click to pop up the dialog box for custom arrangement.
 
 ![](../../images/20170726141638.png)
 
-## 控制器工具栏
+## Controller Toolbar
 
-![](../../images/20170726142308.png) 
+![](../../images/20170726142308.png)
 
-点击加号可以增加新的控制器。点击控制器名称可以进入控制器编辑界面。点击控制器的各个页面按钮切换页面。
+Click the plus sign to add a new controller. Click on the controller name to enter the controller editing interface. Click the controller's various page buttons to switch pages.
 
-## 动效工具栏
+## Motion Toolbar
 
-![](../../images/20170726142345.png) 
+![](../../images/20170726142345.png)
 
-点击加号可以增加新的动效。点击动效名称可以进入动效编辑界面。
+Click on the plus sign to add new effects. Click on the effect name to enter the motion editing interface.
 
-## 显示列表
+## Display List
 
 ![](../../images/20170727101112.png)
 
-这里显示的当前正在编辑的组件的显示列表。按显示顺序排列，列表中越往下的元件显示在越前面。
-显示列表面板的操作有：
-- 点击每行行头“眼睛”对应的位置可以隐藏元件，仅用于辅助编辑，不影响运行时。
-- 点击每行行头“锁”对应的位置可以锁定元件，锁定后元件无法选中，仅用于辅助编辑，不影响运行时。
-- 点击锁图标可以解锁所有元件。
-- 点击眼睛图标可以解除所有元件的隐藏状态。
-- 在显示列表中拖拽可以改变元件在显示列表中的位置。
+The display list of the components currently being edited is displayed here. In the order in which they are displayed, the lower the component in the list is displayed in front.
+The operations of the display list panel are:
+- Click on the position corresponding to the "eye" of each line head to hide the component, only for auxiliary editing, without affecting the runtime.
+- Click on the position corresponding to the "lock" in each line head to lock the component. After locking, the component cannot be selected, only for auxiliary editing, and doesn't affect the runtime.
+- Click on the lock icon to unlock all components.
+- Click on the eye icon to unhide all components.
+- Drag and drop in the display list to change the position of the component in the display list.
 
-## 舞台
+## Stage
 
 ![](../../images/20170726143302.png)
 
-舞台是组件的编辑区域。添加内容到舞台的方法有：
+The stage is the editing area of ​​the component. Ways to add content to the stage are:
 
-- 侧工具栏上点击基础控件，然后点击舞台。
-- 从资源库或收藏夹中直接拖拽资源到编辑区域。
-- 可直接粘贴剪贴板中的文字或图片。图片会自动导入到资源库，然后再放置到舞台上。
-- 可以从Windows资源管理器或者Finder中直接拖入资源。如果该资源是位于assets目录下的，也就是说已经是包里的资源里，那么对应包里的资源会放置到舞台上，不会发生资源重复导入到资源库的情况。这个设计可以部分解决目前库面板不能显示所有图片缩略图的不便利性，因为在Windows资源管理器或者Finder中你可以方便的查看缩略图，同时，如果你是使用多屏工作，还可以起到类似将库面板放置单独一屏的作用。
+- Click on the base control on the side toolbar and click on the stage.
+- Drag resources directly from the repository or favorites to the editing area.
+- Paste text or images from the clipboard directly. The image is automatically imported into the repository and placed on the Stage.
+- You can drag resources directly from Windows Explorer or Finder. If the resource is located in the assets directory, that is to say, it's already in the resource in the package, then the resources in the corresponding package will be placed on the stage, and there will be no repeated import of resources into the resource library. This design can partially solve the inconvenience that the current library panel can not display all the image thumbnails, because you can easily view the thumbnails in Windows Explorer or Finder, and if you're working with multi-screen, you can also play It is similar to placing the library panel on a separate screen.
 
-中间不同于周边颜色的是组件区域。但你并不需要把所有内容都放置到组件区域内。默认情况下，超出组件区域的内容依然会被显示，但组件的大小仅由组件区域决定。某些特别的功能，例如滤镜，只对组件区域生效，所以建议把内容都放置在组件区域内。
+What's different from the surrounding color in the middle is the component area. But you don't need to put everything in the component area. By default, content that exceeds the component area is still displayed, but the component's size is determined only by the component area. Some special features, such as filters, are only valid for the component area, so it's recommended to place the content in the component area.
 
-常用的舞台操作有：
+Commonly used stage operations are:
 
-- `选定` 点击一个元件单选，按住SHIFT点击多个元件多选。点击空白处取消所有选择。在空白处按下并拖动进行框选。
+- `Selected` Click on a component to single-select, hold down `SHIFT` and click on multiple components to select multiple. Click on the blank to cancel all selections. Press and drag in the blank space to select the box.
 
-- `移动` 按住元件拖动，如果拖动时按住SHIFT，则移动限制在垂直方向或者水平方向。使用键盘上、下、左、右箭头键可以移动选定的元件，每按一次移动1像素，如果同时按下SHIFT键，则移动加速，每次移动10像素。
+- `Move` Press and hold the component to drag. If you hold down `SHIFT` while dragging, the movement is limited to the vertical or horizontal direction. Use the up, down, left, and right arrow keys on the keyboard to move the selected component. Each press moves 1 pixel. If you press the SHIFT button at the same time, the motion is accelerated and moves 10 pixels at a time.
 
-- `缩放` 拖拽选定框边缘的8个调整点，可以改变元件的宽度和高度。
+- `Zoom` Drag and drop the 8 adjustment points on the edge of the selected frame to change the width and component's height.
 
-- `组合` 选定多个元件后，按CTRL+G建立一个组合。
+- `Combination` After selecting multiple components, press `CTRL+G` to create a combination.
 
-**舞台右键菜单**
+**Stage Right-Click Menu**
 
 ![](../../images/20170726144117.png)
 
-- `替换元件` 可以将当前选中的元件替换成另外一个元件，位置大小等所有属性都会保留。
+- `Replace component` You can replace the currently selected component with another component, and all attributes such as position size will be retained.
 
-- `转换为组件` 可以将当前选中的一个或多个元件替换成一个单独的组件，这个组件的内容包括原来选择的内容。
+- `Convert to component` You can replace the currently selected component or components with a single component whose contents include the originally selected content.
 
-- `转换为位图` 可以将当前选中的一个或多个元件替换成一个单独的图片，这个图片的内容由原来选中的内容绘制而成。生成的图片自动加入资源库中。
+- `Convert to bitmap` You can replace the currently selected one or more components with a single image. The content of this image is drawn from the original selected content. The generated image is automatically added to the repository.
 
-- `在库中显示` 在库中高亮显示当前选中的元件。
+- `Show in library` Highlights the currently selected component in the library.
 
-## 预览
+## Preview
 
-点击主工具栏上的![](../../images/20170726145053.png)按钮可以进入预览模式。
+Click the ![](../../images/20170726145053.png) button on the main toolbar to enter preview mode.
 
 ![](../../images/20170726145201.png)
 
-**适配测试**
+**Adaptation Test**
 
 ![](../../images/20170726145236.png)
 
-如果当前设计的组件需要进行适配测试，可以勾选“适配测试”选项。勾选后，如果是第一次测试，需要先点击“整体缩放”按钮，设置好UI自适应的参数。然后再调整本组件的自适应参数进行测试。
-注意：如果你在动效播放的过程中改变屏幕大小，而这个动效有涉及到带适配设置的元件，那么动效可能播放异常。所有请不要在动效播放的过程中改变屏幕大小。
+If the currently designed component requires an adaptation test, check the `"Adaptation Test"` option. After checking, if it's the first test, you need to click the `“Overall Zoom”` button to set the UI adaptive parameters. Then adjust the adaptive parameters of this component to test.
+Note: If you change the screen size during the dynamic playback, and this motion involves components with adaptive settings, the animation may play abnormally. Please don't change the screen size during the animation.
 
-## 属性面板
+## Property Panel
 
-点击舞台中任意一个或多个元件，编辑器右侧将显示对应的属性设置面板。如果你点击舞台的空白处（不点中任何东西），则显示的是容器组件的属性面板。
+Click on any one or more components in the Stage, and the corresponding property settings panel will be displayed on the right side of the editor. If you click on the stage's blank space (don't click anything), the properties panel of the container-component is displayed.
 
 ![](../../images/20170726161112.png)
 
-后续讲解各个资源类型使用方法时再详细介绍这里的属性含义。
+The following explains the meaning of the attributes in detail when you use the methods of each resource type.
 
-## 项目设置对话框
+## Project Settings Dialog
 
-打开项目设置对话框：主菜单“文件”->“项目设置”
+Open the project settings dialog: `Main Menu -> "File" -> "Project Settings"`
 
 ![](../../images/20170727103552.png)
 
-这里可以修改项目的名称和类型。
+Here you can modify the name and type of the project.
 
 ![](../../images/20170727103741.png)
 
-修改文本相关的一些全局设置。
+Modify some global settings related to the text.
 
-- `字体` 设置所有文本的默认字体。可以点击“A”按钮选择系统中其他字体。如果你需要使用ttf文件，请先双击ttf文件，将字体安装到系统，再在这里选择（需要重启编辑器才能看到）。这个字体设置仅用于编辑器内，运行时具体使用什么字体，需要使用UIConfig.defaultFont设定。为了使编辑器效果与运行时效果一致，应该尽量选择相同的字体或者相近的字体。例如：
+- `Font` Sets the default font for all text. You can click on the "A" button to select other fonts in the system. If you need to use the ttf file, please double-click the ttf file, install the font to the system, and select it here (you need to restart the editor to see it). This font setting is only used in the editor. What fonts are used at runtime, you need to use UIConfig.defaultFont settings. In order to make the editor effect consistent with the runtime, you should try to choose the same font or similar font. E.g:
 
 ```csharp
     UIConfig.defaultFont = 'HeiTi';
 ```
 
-- `文字大小方案` 一个游戏或应用中使用的字体大小通常有几种固定的方案，这里定义好后，制作UI时需要设置字体大小时，就可以直接在下拉菜单选择，而不需要每次输入。
+- `Text size scheme` There are usually several fixed schemes for the font size used in a game or application. After defining this, when you need to set the font size when making the UI, you can select it directly in the drop-down menu without having to do it each time. Input.
 
 <center>
 ![](../../images/20170727114115.png)
 </center>
 
-- `禁用字体渲染位置优化` 该选项仅适用于Egret和Laya版本。勾选后，FairyGUI将使用系统渲染文本的默认位置，不再进行自动的优化。这个差别这对于微软雅黑特别明显。这个选项可以帮助解决部分H5引擎渲染字体位置的问题。
+- `Disable font rendering position optimization` This option is only available for Egret and Laya versions. When checked, FairyGUI will use the system to render the default position of the text, no longer automatically optimized. This difference is especially noticeable for Microsoft Yahei. This option can help solve some of the problems with the H5 engine rendering font position.
 
 ![](../../images/20170727103756.png)
 
-设置颜色设置的方案。一个游戏或应用中使用的颜色通常有几种方案，这里定义好后，制作UI时需要设置颜色时，就可以直接在下拉菜单选择，而不需要每次调色。
+Set the scheme for color settings. There are usually several options for the colors used in a game or application. Once you have defined them, you need to set the colors when you make the UI. You can select them directly from the drop-down menu without having to color each time.
 
 ![](../../images/20170727103807.png)
 
-设置编辑器预览用到的一些参数。**注意这些参数仅用于编辑器内，运行时需要用UIConfig重新设置**。
+Set some parameters used by the editor preview. **Note that these parameters are only used in the editor, and you need to reset them with UIConfig at runtime.**
 
-- `垂直滚动条` `水平滚动条` 设置制作UI时所有带滚动功能的容器需要使用的滚动条资源。这就是说，你将一个组件或者一个列表的“溢出处理”设置为“垂直滚动”、“水平滚动”或者“自由滚动”后，不需要每次设置滚动条，自动就会使用这里设置的滚动条资源。如果某个组件需要使用和全局设置不一样的滚动条，编辑器也提供了的单独的设置，后面的章节会另外说明。
+- `Vertical scrollbar` `Horizontal scrollbar` Sets the scrollbar resource that is required for all containers with scrolling functionality when making the UI. That is to say, after you set the "overflow processing" of a component or a list to "vertical scrolling", "horizontal scrolling" or "free scrolling", you don't need to set the scrollbar every time, it will automatically use the scrolling set here. Resources. If a component needs to use a different scrollbar than the global setting, the editor also provides separate settings, which are explained in the following sections.
 
-- `滚动条显示` 滚动条的显示策略。这是全局设置，也可以在组件或者列表的滚动属性设置里单独设置。
-    - `可见` 表示滚动条一直显示。
-    - `滚动时显示` 表示滚动条只有在滚动时才会显示，其他情况下自动隐藏。
-    - `隐藏` 表示滚动条一直不可见的状态，这种情况滚动条也不占用位置。
+- `Scroll bar shows` the display strategy of the scrollbar. This is a global setting and can be set separately in the scrolling property settings of the component or list.
+    - `Visible` means that the scrollbar is always displayed.
+    - `Show when scrolling` means that the scrollbar will only be displayed when scrolling, and will be automatically hidden in other cases.
+    - `Hide` indicates that the scrollbar is always invisible, in which case the scrollbar doesn't occupy the position.
 
-- `TIPS组件` 设定用于显示TIPS的组件。该组件应该扩展为标签。用法参考[这里](object.html#TIPS属性)。
+- `TIPS component` Sets the component used to display TIPS. This component should be expanded to a label. Usage reference [here](object.html#TIPSproperty).
 
-- `按钮点击声音` 设定按钮的默认点击声音。设置后，所有按钮点击都会播放这个声效，除非按钮自己独立设置另外的声效。运行时设置全局按钮点击声音需要通过UIConfig.buttonSound设置。
+- `Button click sound` Sets the default click sound of the button. Once set, all button clicks will play this sound, unless the button itself sets another sound. The global button click sound at runtime needs to be set via UIConfig.buttonSound.
 
 ![](../../images/20170727103829.png)
 
-适配测试设置。详细介绍请阅读[自适应](adaptation.html)。
+Adapt test settings. Please read the detailed introduction[自适应](adaptation.html).
 
 ![](../../images/20170727103847.png)
 
-自定义属性的设置。自定义属性仅供插件开发者使用。运行时不可访问。
+Custom property settings. Custom properties are only available to plugin developers. Not accessible during runtime.
 
-## 偏好设置对话框
+## Preferences Dialog
 
-打开偏好设置对话框：主菜单“编辑”->“首选项”。
+Open the Preferences dialog: `Main Menu -> "Edit" -> "Preferences"`.
 
 ![](../../images/20170727104311.png)
 
-- `导入时自动裁剪图片到最小包围` 如果设置为裁剪，则当图片加入到项目时，自动将周围的全透明区域（透明度为0）剪除。如果设置为不裁剪，而后续又想裁剪，可以双击图片打开图片属性对话框，对话框左下部有提供裁剪的功能按钮。
+- `Automatically crop the image to the minimum bracket when importing`. If set to crop, the image will be automatically clipped off when the image is added to the project. If you set it to not crop, and then want to crop it, double-click the image to open the Picture Properties dialog box. There is a function button that provides cropping at the bottom left of the dialog box.
 
-- `语言` 设置编辑器的界面语言。
+- `Language` Set the interface language of the editor.
 
-- `版本更新` 设置是否自动更新软件。
+- `Version Update` Set whether to automatically update the software.
 
-## 包设置对话框
+## Package Settings Dialog
 
-打开包设置对话框：主菜单“文件”->“包设置”。
+Open the package settings dialog: `Main Menu -> "File" -> "Package Settings"`.
 
 ![](../../images/20170727104354.png)
 
-- `包名称` 查看和修改选定包的名称。
+- `Package Name` View and modify the name of the selected package.
 
-- `JPEG品质` 适用于AS3和Haxe这类不使用图集的项目。当导入JPEG图片后，会自动使用指定的品质进行压缩。其他类型的项目不压缩JPG图片。
+- `JPEG quality` Applicable to projects such as AS3 and Haxe that don't use the Atlas. When a JPEG image is imported, it's automatically compressed with the specified quality. Other types of items don't compress JPG images.
 
-- `压缩PNG` 适用于AS3和Haxe这类不使用图集的项目。勾选后，当导入PNG图片后，会自动将PNG图片压缩为PNG8。你也可以对图片进行单独设置是否压缩，双击图片打开图片属性对话框，调整质量选项。其他类型的项目不压缩PNG图片。
+- `Compressed PNG` Applies to projects such as AS3 and Haxe that don't use the Atlas. After checking, the PNG image will be automatically compressed into PNG8 when the PNG image is imported. You can also set the image separately for compression, double-click the image to open the image properties dialog box, and adjust the quality options. Other types of items don't compress PNG images.
 
-## 发布对话框
+## Publish Settings Dialog
 
-打开发布设置对话框：主菜单“文件”->“发布设置”。或点击主工具栏上的发布按钮旁边的小三角形。
+Open the `Publish Settings dialog`: `Main Menu -> File -> Publish Settings`. Or click the small triangle next to the `Publish` button on the main toolbar.
 
 ![](../../images/20170727143910.png)
 
-左边是包列表，右边是选中包的发布设置。设置分为本包的设置和全局设置，点击右上角的黄色链接进入全局设置。全局设置作用到所有包。
+On the left is the package list, and on the right is the release settings for the selected package. Set the settings and global settings of this package, click the yellow link in the upper right corner to enter the global settings. Global settings apply to all packages.
 
-- `文件名` 发布的文件名。这个文件名与包名称不同。当我们载入包时，需要使用这里设定的文件名，而当创建对象时，需要使用包名称。例如
+- `File name` The name of the file to be published. This file name is different from the package name. When we load the package, we need to use the file name set here, and when creating the object, we need to use the package name. E.g
 
 ```csharp
-    UIPackage.AddPackage('file_name'); //这里是发布的文件名。
-    UIPackage.CreateObject("Package1','Component1'); //这里的Package1是包的名称。
+    UIPackage.AddPackage("file_name"); // Here is the name of the file being published.
+    UIPackage.CreateObject("Package1", "Component1"); // Here Package1 is the name of the package.
 ```
 
-- `发布路径` 发布内容放置的目录。对于Unity平台，**建议直接发布到Unity工程内的目录里**，这样编辑器会自动根据Unity的版本给新发布的纹理提供正确的meta文件。如果不是这样，那么当你手动拷贝到Unity工程里时，请注意自行检查纹理的设置是否符合要求。
-- 
-- `打包方式` 可以选择打包成一个包或者两个包。两个包则将XML定义和图片等资源分开。这样做的好处是如果只修改了组件，没有加入新的素材或删除素材，则可以只发布和推送定义包给用户，减少用户的流量消耗。
+- `Publish path` The directory where the content is posted. For the Unity platform, **it's recommended to be published directly to the directory within the Unity project**, so the editor will automatically provide the correct meta file for the newly released texture based on the version of Unity. If this isn't the case, then when you manually copy into the Unity project, please pay attention to check if the texture settings meet the requirements.
+-
+- `Package mode` You can choose to package into one package or two packages. The two packages separate the resources such as XML definitions and images. The advantage of this is that if you only modify the component (not adding new materials or deleting any materials), you can simply publish and push the definition package to the user, reducing the user's data consumption.
 
-- `生成代码` 生成绑定的代码。生成绑定的代码可以更直观地访问组件的各个节点，但也在一定程序度上会造成美术工作和程序员工作的耦合。
+- `Generate code` to generate the bound code. Generating the bundled code provides more intuitive access to the various nodes of the component, but it also results in a coupling between the art work and the programmer's work.
 
-- `压缩描述文件`  Laya和Egret项目提供了这样一个发布选项，通过此选项可以控制发布的描述文件是否压缩。默认是压缩的。如果你已经使用了web服务器的gzip压缩功能，又或者打包时会自行压缩，那可以选择不压缩的格式。
-  ![](../../images/20180105005321.png)
+- `Compressing the description file` The Laya and Egret projects provide a publishing option that allows you to control whether the published description file is compressed. The default is compressed. If you have already used the gzip compression feature of the web server, or if you compress it yourself, you can choose a format that isn't compressed.
+  ![](../../images/20180105005321.png)
 
-- `使用二进制格式` 发布格式设定为二进制格式。使用二进制格式可以减少降低时载入包的消耗，推荐使用。这种格式需要一定版本以上的SDK支持：Unity-3.0，Cocos2dx-2.0，其他SDK请使用2018年9月后的源码。如果你是从旧的SDK升级，请查看升级说明：[升级到二进制包格式](upgrade_binary_format.html)。
+- `Use binary format` The publishing format is set to binary format. Using the binary format can reduce the consumption of load packets when it's reduced. It is recommended. This format requires a certain version of SDK support: Unity-3.0, Cocos2dx-2.0, other SDKs please use the source code after September 2018. If you're upgrading from an old SDK, please see the upgrade instructions: [Upgrade to Binary Package Format](upgrade_binary_format.html).
 
-- `仅发布定义` 通常发布的内容包括素材（图片、声音等）和XML定义文件， 如果你没有增删改素材，那么你可以仅发布XML定义文件，避免了重新生成图集带来的时间消耗。
+- `Publish only definitions` Usually published content includes material (pictures, sounds, etc.) and XML definition files. If you have not added or deleted material, you can only publish the XML definition file, avoiding the time consumption caused by regenerating the atlas. .
 
-### 纹理集定义
+### Texture Set Definition
 
 ![](../../images/20170727144133.png)
 
-- `None POT` None Power Of Two的简写，勾选后，允许输出纹理的大小**不限定为**二的幂。注意，有些纹理格式规定大小必须为二的幂。
+- `None POT` None Short for Power Of Two, after checking, the size of the output texture allowed **isn't limited to the power of**. Note that some texture formats specify that the size must be a power of two.
 
-- `正方形` 勾选后，限制输出纹理的宽和高相等。
+- `Square` Check to limit the width and height of the output texture to be equal.
 
-- `允许旋转` 允许旋转图片以达到更大的纹理空间利用率。*（Egret和LayaAir平台不支持）*
+- `Allow rotation` Allows you to rotate the image to achieve greater texture space utilization. *(Not supported on Egret and LayaAir platforms)*
 
-- `分离Alpha通道` 这个选项仅适用于Unity。通过此方法，可以在Unity里将原纹理设置为不支持Alpha通道的格式（例如ETC1）以减少内存占用。FairyGUI-unity SDK提供了专门的着色器进行混合。
+- `Separate Alpha Channel` This option is only available for Unity. With this method, you can set the original texture in Unity to a format that doesn't support alpha channel (such as ETC1) to reduce memory usage. The FairyGUI-unity SDK provides specialized shaders for mixing.
 
-- `纹理集定义` 对于支持纹理集的平台，例如Unity/Egret/Starling，你可以规划图片放到不同的纹理集内。这项功能的意义在于：
-  1. 图片太大太多，假设纹理集最大支持2048×2048（这个可调整），超出此范围的你可以使用多个纹理集；
-  2. 图片用途不一致，例如一张尺寸比较大的色彩丰富的背景图就不适合和色彩比较单一的UI素材放到一起，这样会使最终发布的png图片过大。将超大尺寸背景图单独放一张纹理集是一个比较好的解决方案；
-  3. 图片的特性不一致，例如在Unity平台里，你可以为纹理集设置单独的Filter Mode、压缩格式等等。
-  这里只提供10张纹理集的设置，如果一个包的纹理集超过10张，建议考虑分包。
+- `Textset definition` For platforms that support texture sets, such as Unity/Egret/Starling, you can plan to place images in different texture sets. The significance of this feature is:
+  1. The picture is too large, assuming the texture set supports up to 2048×2048 (this is adjustable), you can use multiple texture sets beyond this range;
+  2. The images are inconsistent. For example, a large-sized background image with a large size isn't suitable for putting together a single color UI material, which will make the final png image too large. It is a good solution to put a large size background image on a texture set separately;
+  3. The characteristics of the image are inconsistent. For example, in the Unity platform, you can set a separate Filter Mode, compression format, etc. for the texture set.
+  Only 10 texture set settings are provided here. If a package has more than 10 texture sets, it's recommended to consider subcontracting.
 
-- `压缩` 将纹理使用PNG8格式压缩。这个压缩方式能大大降低PNG文件大小，但也会使图片失真比较严重，特别是色彩比较丰富，或者含有渐变的图片，请谨慎使用。Unity引擎不要使用这个压缩功能，因为Unity对纹理的压缩应该在Unity里设置，Unity在打包时会自动根据设置的格式压缩纹理，使用这里的压缩除了降低图片质量外没有任何减少文件体积的作用。
+- `Compress` compresses textures using the PNG8 format. This compression method can greatly reduce the size of the PNG file, but it will also make the image distortion more serious, especially the color is rich, or contains gradient pictures, please use with caution. The Unity engine shouldn't use this compression function, because Unity's texture compression should be set in Unity. Unity will automatically compress the texture according to the format set when packaging. The compression used here doesn't reduce the file size except the image quality.
 
-### 资源排除设置
+### Resource Exclusion Settings
 
 ![](../../images/20170727144149.png)
 
-如果一些素材，只用于测试用途，例如一个装载器，放一个图片进去只用于看效果，但这个图片是不随包发布的（后续可能通过外部加载），那么可以在这个界面里将这个图片拖入，那么发布时就不会包含这个图片了。
+If some material is only used for testing purposes, such as a loader, put an image into it only to see the effect, but this image isn't released with the package (subsequently through external loading), then you can put this image in this interface. Drag in, then the image won't be included when it's released.
 
-### 发布代码设置
+### Publish Settings
 
 ![](../../images/20170727144103.png)
 
-- `代码保存路径` 发布的代码保存的路径。
+- `File Path` The path to the saved code.
 
-- `组件名前缀` 给每个组件生成的类名加上前缀。例如如果组件名为“Component1”，这里设置前缀为“T”，那么最后生成的类名为“TComponent1”。前缀可以为空。注意，如果组件名是中文，会被自动转换为拼音。
+- `Class Name Prefix` prefixes the class name generated by each component. For example, if the component name is "Component1" and the prefix is ​​set to "T", then the last generated class name is "TComponent1". The prefix can be empty. Note that if the component name is Chinese, it will be automatically converted to Pinyin.
 
-- `成员名称前缀` 给组件里每个元件的名称前加上前缀。例如如果元件名称为“n10”，这里设置前缀为“m_”，那么最后生成的类成员的名称为“m_n10”。前缀可以为空，但不建议这样做。因为元件名称很可能和类的一些属性和方法名称冲突。例如，如果元件名称为“icon”，那就和GObject的icon属性冲突了。
+- `Member Name Prefix` Prefix the name of each component in the component. For example, if the component name is "n10" and the prefix is ​​set to "m_", the name of the last generated class member is "m_n10". The prefix can be empty, but this isn't recommended. Because the component name is likely to conflict with some of the class's properties and method names. For example, if the component name is "icon", it conflicts with the icon property of GObject.
 
-- `不生成使用默认名称的成员` 勾选后，对于"n1","n2"等这种系统自动生成的名称，或者“title”，“icon”等这种扩展组件里约定的名称，将不会为这些名称的元件生成成员获取代码。如果一个组件里，全部都是这些名称的元件，那么整个组件都不会生成代码。例如，一个按钮，里面只有名称为“title”和“icon”的元件，则不会为这个按钮生成代码，因为使用基类GButton已经足够。
+- `Ignore not renamed child`. When checked, the names automatically generated by such systems such as "n1", "n2", or the names of the extensions such as "title", "icon", etc. will be Member acquisition codes aren't generated for components of these names. If a component is a component of these names, then the entire component will not generate code. For example, a button with only the symbols named "title" and "icon" will not generate code for this button, because using the base class GButton is sufficient.
 
- - `使用名称获取成员对象` 如果不勾选，组件初始化时使用索引获得子对象；如果勾选，则使用名称获得子对象。前者效率高，推荐使用；后者则兼容性较好，例如，如果调整了元件的顺序，不会发生异常。
+ - `Use name to get child` If unchecked, the component is initialized with the index to get the child object; if checked, the child object is obtained with the name. The former is highly efficient and recommended; the latter is more compatible, for example, if the order of the components is adjusted, no anomalies will occur.
 
-- `包名称` 对于AS3代码，是指发布的代码的package；对于C#代码，是指发布的代码的namespace；对于Typscript代码，是指发布的代码的module；对于C++代码，是指发布的代码的namespace。
+- `Package Name` For AS3 code, the package of the released code; for C# code, the namespace of the released code; for Typscript code, the module of the released code; for C++ code, the code for the release Namespace.
 
-- `代码类型` 对于Laya引擎，你可以选择发布AS3代码还是TS代码。
+- `Code Type` For the Laya engine, you can choose to publish the AS3 code or the TS code.
 
-使用发布出来的代码的方式：
+The way to use the published code:
 
 ```csharp
-    //首先要调用BindAll。发布出来的代码有个名字为XXXBinder的文件
-    //注意：一定要在启动时调用。
+    // First call BindAll. The released code has a file named XXXBinder
+    // Note: Be sure to call it at startup.
     XXXBinder.BindAll();
 
-    //创建UI界面。注意：不是直接new XXX。
+    // Create a UI interface. Note: Not directly new XXX.
     XXX view = XXX.CreateInstance();
     view.m_n10.text = ...;
 ```
 
-发布代码时会用到代码模板。代码模板在编辑器安装目录下的template目录下。如果你需要自定义模板，需要将template目录拷贝到UI项目的根目录下，再做修改。模板里支持的参数有：
+The code template is used when publishing the code. The code template is in the template directory under the editor installation directory. If you need a custom template, you need to copy the template directory to the root of the UI project and make changes. The parameters supported in the template are:
 
 ```csharp
     Component.template
     -------------
-    {packageName} UI模块名
-    {componentName} UI组件父类名
-    {className} UI组件类名
-    {uiPkgName} UI资源包名
-    {uiResName}UI资源名
-    {uiPath} UI资源路径
-    
+    {packageName} UIModuleName
+    {componentName} UIComponentParentClassName
+    {className} UIComponentClassName
+    {uiPkgName} UIResourcePackageName
+    {uiResName} UIResourceName
+    {uiPath} UIResourcePath
+
     Binder.template
     -------------
-    {className}  UI模块名+"Binder"
-    {packageName} UI模块名
+    {className}  UIModuleName+"Binder"
+    {packageName} UIModuleName
 ```
 
-## 依赖关系查询对话框
+## Dependency Query Dialog
 
-在资源库里，点击一个资源后，右键菜单点击“依赖关系查询”，或者在主菜单“工具”->“依赖关系查询”，可以打开依赖关系查询对话框。
+In the repository, click on a resource, right-click on the `"Dependency Query"` menu, or in `Main Menu -> "Tools" -> "Dependency Query"`, to open the Dependency Query dialog box.
 
 ![](../../images/20170727144223.png)
 
-在这里可以查询资源之间的依赖关系。
+Querying the dependencies between resources:
 
 ![](../../images/20170727144240.png)
 
-如果查询出A资源被B、C、D组件引用，那么可以将这些组件里的A替换成其他资源。
+If the A resource is queried by the B, C, and D components, then the A in these components can be replaced with other resources.
 
-## 导入和导出资源包
+## Import and Export Resource Bundles
 
-- `导出资源包`
+- `Export Resource Bundles`
 
-在资源库里选定一个或者多个资源，也可以选定文件夹或包，然后点击主菜单“资源”->“导出资源”：
+Select one or more resources in the repository, or select a folder or package, then click on `Main Menu -> "Resources" -> "Export Resources"`:
 
 ![](../../images/20170810111638.png)
 
-这里列出了选定的资源以及它（们）依赖的资源，点击导出，生成一个扩展名为fairypackage的文件。
+Here is a list of selected resources and the resources they depend on. Click Export to generate a file with the extension fairpackage.
 
-- `导入资源包`
+- `Import Resource Bundles`
 
-点击主菜单“资源”->“导入资源”，然后按提示选择一个扩展名为fairypackage的文件。
+Click on `Main Menu -> "Resources" -> "Import Resources"` and follow the prompts to select a file with the extension fairpackage.
 
 ![](../../images/20170810112536.png)
 
-选择导入的位置，然后点击导入，fairypackage里的资源导入得到指定的位置。
+Select the imported location, then click Import, and the resources in the fairypackage are imported to get the specified location.
 
-- `导入内置的资源包` FairyGUI自带了几套皮肤，点击主菜单“资源”->“导入内置的资源包”，然后选择其中一个包导入即可。例如BlueSkin.fairypackage包含的内容有：
+- `Import Built-in Resource Bundles` FairyGUI comes with a few sets of skins, click on `Main Menu -> "Resources" -> "Import built-in resource bundles"`, and then select one of the packages to import. For example, `BlueSkin.fairypackage` contains:
 
 ![](../../images/20170810125620.png)
 
-## 字符串导入和导出
+## String Import and Export
 
-使用FairyGUI编辑器可以使你的游戏支持多种语言成为一件轻松的事。
+Using the FairyGUI editor makes it easy to support multiple languages in your game.
 
-点击菜单“工具”->”字符串导入与导出”，弹出窗口如下图：
+Click on `Main Menu -> "Tool" -> "String Import and Export"`, pop-up window as shown below:
 
 ![](../../images/20170807165657.png)
 
-使用”导出所有字符串到文件“功能，完成后得到一个xml文件，
+Use the "Export all strings to file" function, get an xml file after you finish,
 
 ![](../../images/20170807165753.png)
 
-这个文件包含了在UI上出现的所有文字（排除了纯阿拉伯数字），然后可以将此文件提交翻译，翻译完毕后，我们有两种方式使新的语言文件生效：
+This file contains all the text that appears on the UI (excluding pure Arabic numerals), and then this file can be submitted for translation. After the translation, we have two ways to make the new language file take effect:
 
-“如果导出目标文件已存在，与目标文件合并”：这个选项表示，比如现在导出内容中包含1个id为x1的字符串，值为a，而目标文件也存在一个id为x1的字符串，值为b，则导出的结果文件里，x1的值为b。
+"If the export target file already exists, merge with the target file": This option means that, for example, the output contains a string with an id of x1, the value is a, and the target file also has a string with the id x1. The value is b, and the value of x1 in the exported result file is b.
 
-- 使用上述窗口的字符串导入功能，直接将翻译好的文件导回到编辑器，则UI上的文字将全部被替换。这种方法适用于每种语言使用一个项目的方式。
+- Using the string import function of the above window, directly import the translated file back to the editor, the text on the UI will be completely replaced. This method is suitable for the way each project uses one project.
 
-- 运行时动态加载语言文件。这种方法相对比较灵活。
+- Dynamically load language files at runtime. This method is relatively flexible.
 
 ```csharp
-    //Unity
+    // Unity
 
-    string fileContent; //自行载入语言文件，这里假设已载入到此变量
+    string fileContent; // Load the language file yourself, assuming it has been loaded into this variable
     FairyGUI.Utils.XML xml  = new FairyGUI.Utils.XML(fileContent);
     UIPackage.SetStringsSource(xml);
 ```
 
 ```csharp
-    //AS3
+    // AS3
 
-    var fileContent:String;//自行载入语言文件，这里假设已载入到此变量
+    var fileContent:String; // Load the language file yourself, assuming it has been loaded into this variable
     var xml:XML = new XML(fileContent);
     UIPackage.setStringsSource(xml);
 ```
 
-## 编辑器插件
+## Editor Plugin
 
-点击菜单“工具”->”插件管理”，弹出窗口如下图：
+Click on `Main Menu -> "Tools" -> "Plugin Management"`, pop-up window as shown below:
 
 ![](../../images/20170810113630.png)
 
-这里列出了编辑器已装载的插件。目前只能使用AS3语言编写编辑器插件，而且插件能做的东西也非常有限，不建议使用。如果确实需要编写插件，目前只有一个资料可供参考：[编辑器插件怎么写？](http://ask.fairygui.com/?/question/5)
+这里列出了编辑器已装载的插件。目前只能使用AS3语言编写编辑器插件，而且插件能做的东西也非常有限，不建议使用。如果确实需要编写插件，目前只有一个资料可供参考:[编辑器插件怎么写？](http://ask.fairygui.com/?/question/5)
 
-## 命令行发布
+## Command-line Publishing
 
-支持命令行发布（实验性功能）：
+Support for command-line publishing (experimental features):
 
+```
 FairyGUI-Editor -p project_desc_file [-b package_names] [-x callback] [-o output_path]
+```
 
-project_desc_file：项目描述文件路径，例如d:\a\1.fairy。
-package_names: 可选。不提供则为所有包，多个包用逗号隔开。
-callback：可选。发布完毕后调用这个程序。
-output_path：可选。如果指定，则覆盖项目里的设置，直接使用这里指定的位置。
+* project-desc-file: Project description file path, such as d:?a.1.fairy.
+* package-names: Optional. Not available for all packages, multiple packages separated by commas.
+* callback: Optional. Call the program after the publishing is complete.
+* output-path: optional. If specified, override the project settings, using the location specified here directly.

@@ -4,128 +4,134 @@ type: guide_editor
 order: 90
 ---
 
-组件是FairyGUI中的一个基础容器。组件可以包含一个或多个基础显示对象，也可以包含组件。
+`Component` is a base container in FairyGUI. A `Component` can contain one or more base display objects, as well as components.
 
-## 组件属性
+## Component Attributes
 
-在舞台上点击**空白处**，右边属性栏显示的是容器组件的属性：
+Click on the **blank** on the Stage, and the property bar on the right shows the properties of the container-component:
 
 ![](../../images/20170802091705.png)
 
-- `宽` `高` 设置组件的宽度和高度。
+- `Width` `Height` Set the width and height of the component.
 
-- `宽度限制` `高度限制` 左边为最小值，右边为最大值，0表示不限制。注意：修改宽高限制不会修改当前的宽高，即使当前的宽高值不符合限制。
+- `Width Limit` `Height Limit` The left side is the minimum value, the right side is the maximum value, and 0 means no limit. Note: Modifying the width and height limits doesn't modify the current width and height, even if the current width and height values don't meet the limit.
 
-- `轴心` 旋转、缩放、倾斜这些变换时的轴心点。取值范围是0~1。例如X=0.5，Y=0.5表示中心位置。点击右边的小三角形可以快速设置一些常用的值，比如中心，左下角，右下角等。
+- `轴心` Rotate, scale, and tilt the pivot points of these transformations. The value ranges from 0 to 1. For example, X = 0.5 and Y = 0.5 indicate the center position. Click on the small triangle on the right to quickly set some commonly used values, such as center, bottom left corner, bottom right corner, and so on.
 
-- `同时作为锚点` 勾选这个选项后，元件的原点位置将设置为轴心所在的位置。默认情况下，每个元件的(0,0)都是在左上角；勾选了轴心同时作为锚点后，则元件的(0,0)在轴心的位置。注意，关联系统是不计入这个选项的影响的，所以勾选了锚点后的元件，再使用宽高类的关联，可能表现不正常。
+- `同时作为锚点` When this option is checked, the component's origin position will be set to the position of the axis. By default, each component's (0,0) is in the upper left corner; when the axis is selected as the anchor point, the component's (0,0) is at the axis position. Note that the associated system doesn't count towards the impact of this option, so check the components behind the anchor point, and then use the association of the wide and high class, may not behave normally.
 
-- `初始名字` 当组件被实例化（限编辑器内）时，自动设置组件的名称为这里设置的值。最常见的用途就是，FairyGUI里要求窗口框架组件需命名为frame，那么你创作了一个窗口框架组件后，设置“初始名字”为frame，以后每次拖入这个组件，自动就取好名字了，不用每次修改。
+- `初始名字` When the component is instantiated (within the editor), the name of the component is automatically set to the value set here. The most common use is that the FairyGUI requires the window frame component to be named frame. Then after you create a window frame component, set the "initial name" to the frame. After each dragging into the component, you will automatically get the name. You don't have to change it every time.
 
 - `点击穿透` 默认情况下，组件的矩形区域（宽x高）将拦截点击，勾选后，点击事件可以穿透组件中**没有内容**的区域。详细说明在[点击穿透](#点击穿透)。
 
-- `溢出处理` 表示处理超出组件矩形区域的内容的方式。注意：**溢出处理**不支持在代码里动态修改。
+- `溢出处理` 表示处理超出组件矩形区域的内容的方式。注意:**溢出处理**不支持在代码里动态修改。
  - `可见` 表示超出组件矩形区域的内容保持可见，这是默认行为。
  - `隐藏` 表示超出组件矩形区域的内容不可见，相当于对组件应用了一个矩形遮罩。
  - `垂直滚动` `水平滚动` `自由滚动` 与其他UI框架很大不同，在FairyGUI中不需要拖入滚动控件实现滚动。任何一个普通的组件，只需要简单设置一个属性就可以使组件具有滚动功能。溢出处理中有三种滚动的选择，自由滚动就是横向和纵向都能滚动。详细说明在[滚动容器](scrollpane.html)。
 
-- `边缘` 设定组件四周的留空。一般用在“溢出处理”为“隐藏”或者“滚动”的情况。边缘虚化目前只有在Unity平台支持。如果组件发生了对内容的剪裁，则可以在边缘产生虚化的效果，增强用户体验。这个值应该比较大才能看出效果，例如50。
+- `边缘` Set the space around the component to be left blank. It is generally used when "overflow processing" is "hidden" or "scrolling". Edge blur is currently only supported on the Unity platform. If the component has been tailored to the content, it can create a blur effect on the edge to enhance the user experience. This value should be large to see the effect, such as 50.
 
 <center>
 ![](../../images/20170802095820.png)
 </center>
 
-- `自定义遮罩` 详细说明在[遮罩](#遮罩)。
+- `Custom Mask` Details are in [Mask](#Mask).
 
-- `反向（挖洞）` 详细说明在[遮罩](#遮罩)。
+- `Reverse (Burrowing)` Details are in [Mask](#Mask).
 
-- `像素点击测试` 详细说明在[点击测试](#点击测试)。
+- `Pixel Hit Test` Detailed description in [Click Test](#ClickTest).
 
-- `扩展` 详细说明在[扩展](#扩展)。
+- `Extension` Detailed description in [Extension](#Extension).
 
-- `背景颜色` 设置组件编辑区域的背景颜色，仅用于辅助设计，实际组件背景都是透明的，不会有颜色。如果你需要组件有一个真实的背景色，可以放置一个图形。
+- `Background Color` Set the background color of the component editing area, only for auxiliary design. The actual component background is transparent, there will be no color. If you need components with a real background color, you can place a graphic.
 
-- `自定义数据` 可以设置一个自定义的数据，这个数据FairyGUI不做解析，按原样发布到最后的描述文件中。开发者可以在运行时获取。获取方式根据SDK版本有所不同，如果是支持XML包格式的SDK，获取方式为：
+- `Custom Data` You can set custom data. FairyGUI doesn't parse it, and it's released to the final description file as-is. Developers can retrieve it at runtime. The acquisition method varies according to the SDK version. If the SDK supports the XML package format, the acquisition method is:
   ```csharp
-    //Unity/Cry
+    // Unity/Cry
     aComponent.packageItem.componentData.GetAttribute("customData");
-    //Cocos2dx/Vision
+
+    // Cocos2dx/Vision
     aComponent->getPackageItem()->componentData->RootElement()->Attribute("customData");
-    //LayaAir
+
+    // LayaAir
     aComponent.packageItem.componentData.getAttribute("customData");
-    //Egret
+
+    // Egret
     aComponent.packageItem.componentData.attributes.customData;
-    //AS3/Starling
+
+    // AS3/Starling
     aComponent.packageItem.componentData.@customData;
   ```
-  如果是支持二进制包格式的SDK，获取方式为：
+  If the SDK supports the binary package format, the acquisition method is:
     ```csharp
-    //Unity/Cry/Laya/Egret
+    // Unity/Cry/Laya/Egret
     aComponent.baseUserData;
-    //Cocos2dx/Vision
+
+    // Cocos2dx/Vision
     aComponent->getBaseUserData();
   ```
 
-## 设计图功能
+## Design Function
 
 ![](../../images/20170802102647.png)
 
-可以设定一个组件的设计图。设计图将显示在舞台上，可以设置显示在组件内容的底层或者上层。使用设计图可以使拼接UI更加快速和精准。
+You can set the design of a component. The design will be displayed on the Stage and can be set to appear at the bottom or top of the component content. Using a design diagram can make the stitching UI faster and more accurate.
 
-设计图不会发布到最终的资源中。
+The design map won't be published to the final resource.
 
-## 点击穿透
+## Click Through
 
-组件内，显示在前面的元件将优先收到点击事件。如果该元件是可触摸的，则点击事件结束，不会继续向后传递。
+Within the component, the component shown in the front will receive the click event first. If the component is touchable, the click event ends and won't continue to be passed backwards.
 
-在组件宽度x高度的范围内点击测试都是有效的（无法穿透），无论这个范围内是否有子元件。举个例子说明。
+Clicking on the test within the component's area is valid (no clicks uncaptured), regardless of whether there are subcomponents in this range. Let's look at an example.
 
-这是组件A，大小为400x400，内容为4个白色的矩形：
+This is component `A`, which is 400x400 in size and has 4 white rectangles.:
 
 ![](../../images/2015-12-21_164631.png)
 
-这是组件B，大小为400x400，内容为一个红色的矩形：
+This is component `B`, which is 400x400 in size and has a red rectangle:
 
 ![](../../images/2015-12-21_164656.png)
 
-将B先添加进舞台，然后再添加A到舞台，也就是说，A显示在B的前面，效果如下图：
+Add `B` to the Stage first, then add `A` to the stage. That is, `A` is displayed in front of `B`. The effect is as follows:
 
 ![](../../images/2015-12-21_165100.png)
 
-可以看到，虽然A在B的上面，但红色方块是可见的，因为A在此区域并没有内容。当点击图中绿色点的位置时，点击事件将在A上面触发，而B是点击不了的。这是因为在A的范围内，点击是不能穿透的。
+We can see that although `A` is above `B`, the red square is visible because `A` has no content in this area. When you click on the position of the green dot in the graph, the click event will trigger on `A`, and `B` won't click. This is because within the scope of `A`, the click isn't ignored.
 
-如果希望A能被穿透应该怎样？组件属性里提供设置：![](../../images/20170802103448.png)，勾选即可。代码里也可以设置：
+What if I want `A` to be ignored? The settings are provided in the component properties:![](../../images/20170802103448.png)，and can also be set in code:
 
 ```csharp
-    //true表示不可穿透，false表示可穿透。
+    // True means clickable (captured) and false means ignored (uncaptured).
     aComponent.opaque = false;
 ```
 
-设置穿透后，只有点击4个白块时，A才接收到点击事件，如果点击绿色点位置，B将接收到点击事件。**这个特性在设计一些全屏界面时尤其要注意。例如一个主界面添加到舞台，并设置为全屏，如果不穿透的话，那么Stage.isTouchOnUI将一直返回true。**
+After disabling its click-capturing, `A` only receives the click event when clicking 4 white blocks. If the green dot position is clicked, `B` will receive the click event.
+**This feature is especially important when designing some fullscreen interfaces. For example, a main interface is added to the Stage and set to full screen. If the click isn't ignored, then `Stage.isTouchOnUI` will always return true.**
 
-**注意：图片和普通文字是不接受点击的，如果一个只含有图片或普通文字的组件，设置了点击穿透，那么整个组件就是完全穿透了，不会拦截到任何点击。**
+**Note: Pictures and normal text don't accept clicks. If a component that only contains images or plain text is set to clickable, then the entire component is completely ignored and no clicks are captured.**
 
-## 像素点击测试
+## Pixel Hit Test
 
-有些特殊需求，需要用到不规则区域的点击测试。首先你要准备一张包含不规则区域的图片，图片里不透明的像素代表接受点击的区域，透明的像素代表点击穿透的区域，组件里超出图片范围的也是可穿透的区域。
+For some special needs, you need to use `Pixel Hit Test` on an irregular area. First you need to prepare a picture with irregular areas. The opaque pixels in the picture represent the areas that accept the click, the transparent pixels represent the areas where clicks are ignored, and the areas in the component that are beyond the scope of the image are also ignored areas.
 
-把这张图片拖入舞台，然后在组件的“像素点击测试”属性里，选择这张图片。
+Drag this image onto the Stage and select it in the component's `Pixel Hit Test` property.
 
 <center>
 ![](../../images/20170925151838.png)
 </center>
 
-## 遮罩
+## Mask
 
-FairyGUI的遮罩有两种：矩形遮罩和自定义遮罩。
+There are two types of masks for FairyGUI: rectangular masks and custom masks.
 
-### 矩形遮罩
+### Rectangular Mask
 
-将组件的“溢出处理”设置为“隐藏”或者“滚动”，那么组件就带了矩形遮罩。超出组件(矩形区域-边缘留空）的区域都不可见。无论在什么平台，这种遮罩的效率是最高的。
+Set the component's `Overflow Processing` to `Hidden` or `Scroll`, and the component has a rectangular mask. Areas that are out of the component (rectangular area - edge left) aren't visible. This mask is the most efficient no matter what platform it's on.
 
-### 自定义遮罩
+### Custom Mask
 
-可以设置组件内一个图片或者图形作为组件的遮罩。这种遮罩一般都是使用模板测试(Stencil Op)技术。各个平台支持的力度不同：
+You can set a picture or graphic inside the component as a mask for the component. Such masks are generally using Stencil Op technology. The strengths supported by each platform are different:
 
 - `AS3/Starling/Egret` 使用图形（Graph）作为遮罩时，有图形的区域内容**可见**，例如，一个圆形，则圆形区域内可见，其他区域不可见。
 
@@ -143,11 +149,12 @@ FairyGUI的遮罩有两种：矩形遮罩和自定义遮罩。
 
   使用图片（Image）作为遮罩时，图片内透明度为0的像素对应区域的内容**不可见**，反之可见。超出图片区域的内容**不可见**。
 
-Unity版本须知：如果你要对使用了自定义遮罩的组件进行设置倾斜、设置BlendMode，设置滤镜，又或者曲面UI中含有自定义遮罩的组件时，需要额外的设置才能显示正常。请参考[PaintMode](../unity/special.html#PaintMode)
+Note on the Unity version: If you want to set the tilt of a component that uses a custom mask, set `BlendMode`, set a filter, or a component with a custom mask in the surface UI, additional settings are required to display properly. Please refer to [PaintMode](../unity/special.html#PaintMode)
 
-### 反向遮罩（挖洞）
+### Reverse Mask (Burrow)
 
-效果和正常遮罩相反，也就是可见的区域变不可见，不可见的区域变可见*(仅部分引擎支持，例如Unity、Laya）*。例如：
+The effect is the opposite of a normal mask, ie the visible area becomes invisible and the invisible area becomes visible
+*(Only some of the engines support this, such as Unity, Laya)*. E.g:
 
 ![](../../images/20170622162422.png)
 
@@ -155,42 +162,42 @@ Unity版本须知：如果你要对使用了自定义遮罩的组件进行设置
 
 使用图片（Image）作为遮罩时，图片内透明度为0的像素对应区域的内容**可见**，反之不可见。超出图片区域的内容**可见**。
 
-注意：
-1. 当遮罩发生时，点击测试也同样会发生变化，只有显示出来的内容才接受点击检测，被遮住的内容不接受点击检测。
-2. 对于正在编辑的组件，遮罩只有在预览时才能看到效果。
-3. 定义了遮罩的组件，其内部的元件永远无法和外部的元件合并Draw Call，因为他们有不同的材质属性。
+Note:
+1. When the mask occurs, the click test will also change. Only the displayed content will accept the click detection, and the hidden content will not accept the click detection.
+2. For components that are being edited, the mask will only see the effect when previewed.
+3. The component that defines the mask, its internal components can never be combined with external components' draw calls because they have different material properties.
 
-## 扩展
+## Extensions
 
 ![](../../images/20170802154335.png)
 
-可以看到有六种“扩展”选择。组件可以随意在这些“扩展”中切换。选择哪种“扩展”，组件就有了那种扩展的属性和行为特性。
+You can see that there are six "extended" options. Components can switch between these "extensions" at will. Which "extension" is chosen, the component has the extended attributes and behavioral characteristics.
 
-下面以按钮为例，介绍一下“扩展”是怎样工作的。选择“扩展”为按钮后，可以看到属性面板下方出现了按钮相关的提示和设置。
+Let's take a button as an example to show how "extension" works. After selecting "Extend" as the button, you can see the prompts and settings related to the button below the property panel.
 
 ![](../../images/20170802154543.png)
 
-这里先忽略按钮组件的设置，后续教程会详细说明。从提示可以看到，FairyGUI中“扩展”的定义方式是以”名称约定“为基础的。一个按钮，可以带有标题和图标，这个标题（一般是一个文本）和图标（一般是一个装载器）需要你自己放置到组件中，并把他们名字设置为title和icon，就像这样：
+Ignore the settings of the button component first, as detailed in the following tutorial. As you can see from the prompts, the definition of "extension" in FairyGUI is based on the "naming convention". A button with a title and an icon, the title (usually a text) and the icon (usually a loader) need to be placed into the component yourself and set their name to title and icon, like this:
 
 ![](../../images/2016-01-11_183043.jpg)
 
-然后我们测试一下这个刚制作好的组件。把按钮组件拖到另一个组件中，并设置一下“标题”和“图标”，如下图
+Then we test the newly created component. Drag the button component to another component and set the "title" and "icon" as shown below:
 
 ![](../../images/20170802155233.png)
 
-效果出来了。这说明标题文本被自动设置到了名称为“title”的文本元件上，图标被自动设置到了名称为“icon”的装载器元件上。
+The effect is coming out. This means that the title text is automatically set to the text component named "title" and the icon is automatically set to the loader component named "icon".
 
-如果按钮组件里没有放置名称为icon的装载器控件呢？那么设置图标就没有效果，仅此而已。其他约定的处理方式也相同。不会有任何报错。
+What if the loader control named icon isn't placed in the button component? Then setting the icon has no effect, nothing more. Other conventions are handled in the same way. There will be no errors.
 
-从按钮的设计就可以看出FairyGUI“扩展”功能的优势所在。如果一个编辑器提供了现成的按钮组件，无论设计者考虑多么周到，都无法覆盖所有需求，就一个按钮，随便想到的变化就可能有：是否带图标/图标在左边还是右边/图标与文字的距离/是否带文字/文字的颜色/文字的大小等等。而在FairyGUI里，按钮组件内所有东西都是任由你布置的。
+From the button design you can see the advantages of the FairyGUI "extension" feature. If an editor provides off-the-shelf button components, no matter how thoughtful the designer is, it can't cover all the requirements. Just a button, the changes that come to mind may be: whether the icon/icon is on the left or the right/icon and text Distance/whether with text/text color/text size, etc. In FairyGUI, everything in the button component is left to you.
 
-“扩展”还赋予了组件行为，具体到按钮上，就是处理各种鼠标或触摸事件，按下时改变状态（单选/多选），单击时播放声音等等。这些都是由“扩展”的底层去处理的。这部分同样是通过“名称约定”来工作的。例如，按钮内只要提供了名称为“button”的控制器，当鼠标悬浮在按钮上方时，就会自动切换该控制器到“over”页面；当鼠标按下时，就会自动切换该控制器到“down”页面，等等。如果按钮没有提供名称为“button”的控制器呢？上述行为就不会发生。按钮控制器并不是必须的，如果你不需要以上行为，就不用提供。
+"Extension" also gives the component behavior, specifically to the button, is to handle a variety of mouse or touch events, change the state when pressed (single / multiple selection), play sound when clicked, and so on. These are all handled by the underlying "extensions". This part also works through the "name convention". For example, if a controller with the name "button" is provided in the button, when the mouse is hovered over the button, the controller will be automatically switched to the "over" page; when the mouse is pressed, the controller will be automatically switched. Go to the "down" page, and so on. What if the button doesn't provide a controller with the name "button"? The above behavior will not happen. The button controller isn't required, if you don't need the above behavior, you don't have to provide it.
 
-其他类型的“扩展”的工作方式与按钮类似。后续文档会详细介绍每种“扩展”的属性和行为。
+Other types of "extensions" work in a similar way to buttons. Subsequent documentation details the properties and behavior of each "extension".
 
 ## GComponent
 
-组件支持动态创建，例如：
+Components support dynamic creation, for example:
 
 ```csharp
     GComponent gcom = new GComponent();
@@ -198,72 +205,73 @@ Unity版本须知：如果你要对使用了自定义遮罩的组件进行设置
     GRoot.inst.AddChild(gcom);
 ```
 
-动态创建的组件是空组件，可以作为其他组件的容器。一个常见的用途，如果你要建立一个多层的UI管理系统，那么空组件就是一个合适的层级容器选择。动态创建的组件默认是点击穿透的，也就是说如果直接new一个空组件作为接收点击用途，你还得这样设置：
+Dynamically created components are empty components that can serve as containers for other components. A common use, if you want to build a multi-layer UI management system, then the empty component is a suitable hierarchical container selection. The dynamically created component is click-through by default, which means that if you directly add a new empty component as a receiving click, you have to set it like this:
 
 ```csharp
-    //设置组件点击不穿透。
+    // Set the component to capture the click.
     gcom.opaque = true;
 ```
 
-如果要创建UI库里的组件，应该使用这样的方式：
+If you want to create a component in the UI library, you should use this method:
 
 ```csharp
-    GComponent gcom = UIPackage.CreateObject("包名","组件名").asCom;
+    GComponent gcom = UIPackage.CreateObject("PackageName","ComponentName").asCom;
     GRoot.inst.AddChild(gcom);
 ```
-FairyGUI和Flash/Cocos类似，采用树状的结构组织显示对象。容器可以包含一个或多个基础显示对象，也可以包含容器。这个树状结构称为显示列表。FairyGUI提供了API管理显示列表。
 
-### 显示列表管理
+Similar to Flash/Cocos, FairyGUI organizes display objects in a tree structure. A container can contain one or more base display objects or a container. This tree structure is called a display list. FairyGUI provides a list of API management displays.
 
-- `numChildren` 获得容器内孩子元件的数量。
+### Display List Management
 
-- `AddChild` `AddChildAt` 向容器内添加元件。前者将元件添加到显示列表的队尾；后者可以指定一个索引控制元件的插入位置。
+- `numChildren` Get the number of child components in the container.
 
-- `RemoveChild` `RemoveChildAt` `RemoveChildren` 从容器内删除元件。当元件从显示对象中移出时，将不再占用显示资源。但元件从显示列表移出后，只是不显示，并没有销毁，如果你没有保存这个对象的引用留待后续使用，或者没有调用对象的Dispose方法销毁对象，那么会产生内存泄露。
+- `AddChild` `AddChildAt` Add components to the container. The former adds components to the end of the display list; the latter can specify the insertion position of an index control element.
 
-- `GetChild` `GetChildAt` 通过索引或名称获得元件引用。元件的名字是允许重复的，在这种情况下，GetChild返回第一个匹配名称的对象。
+- `RemoveChild` `RemoveChildAt` `RemoveChildren` Remove components from the container. When a component is removed from the display object, it no longer occupies display resources. However, after the component is removed from the display list, it isn't displayed and isn't destroyed. If you don't save the reference to the object for later use, or if you don't call the object's `Dispose` method to destroy the object, a memory leak will occur.
 
-- `GetChildIndex` 获得指定元件在显示列表中的索引。
+- `GetChild` `GetChildAt` Get a component reference by index or name. The name of the component is allowed to repeat, in which case `GetChild` returns the first object that matches the name.
 
-- `SetChildIndex` `SwapChildren` `SwapChildrenAt` 设置元件在显示列表中的索引。
+- `GetChildIndex` Gets the index of the specified component in the display list.
 
-### 渲染顺序
+- `SetChildIndex` `SwapChildren` `SwapChildrenAt` Sets the index of the component in the display list.
 
-在FairyGUI中，显示列表是以树形组织的，下面说的渲染顺序均指在**同一个父元件**下安排的顺序，不同父元件的元件是不可能互相交错的，这是前提，请注意。
+### Rendering Order
 
-显示对象的渲染顺序取决于它的显示列表中的顺序，顺序大的后渲染，即显示在较前面。一般来说，我们都是使用AddChild或SetChildIndex调整渲染顺序。例如如果要一个元件显示在容器的最前面，那调用AddChild(元件)就可以了，AddChild是可以重复调用的。也可以调用SetChildIndex设置对象在显示列表中的具体位置，例如SetChildIndex(元件,0)就可以将元件置于最底层。
+In FairyGUI, the display list is organized in a tree. Please note: the rendering order below refers to the order arranged under the **same parent component**. It's impossible to interlace the components of different parents.
 
-还有另外一个因子可以影响渲染循序，它就是GObject.sortingOrder。**这个属性只用于特定的用途，不作常规的使用。它一般用于类似固定置顶的功能，另外，永远不要将sortingOrder用在列表中。**sortingOrder越大，则渲染顺序越后，即显示到更前面的位置。一般情况下，sortingOrder为0，这时渲染顺序由显示对象在显示列表中的顺序决定。sortingOrder可以令你更灵活的控制渲染循序。例如，如果希望一个元件始终保持在其他元件上方，可以设置其sortingOrder一个较大的整数值，这样无论容器使用AddChild添加了多少元件，这个元件依然显示在最前面。（sortingOrder的效率较差，勿做频繁调用的用途）
+The rendering order of the display object depends on the order in its display list, and the large sequential rendering is displayed in front. In general, we use `AddChild` or `SetChildIndex` to adjust the rendering order. For example, if you want a component to appear at the top of the container, then call `AddChild(component)`, `AddChild` can be called repeatedly. You can also call `SetChildIndex` to set the specific position of the object in the display list, such as `SetChildIndex(component, 0)` to put the component at the bottom.
 
-上面提到的都是调整对象在显示列表中的顺序，如果不想调整这个顺序的同时，又要调整渲染顺序，组件还提供了另一种方式。
+There's another factor that can affect the rendering order, which is `GObject.sortingOrder`. **This property is for specific purposes only and isn't used routinely. It's generally used for functions like fixed topping. Also, never use sortingOrder in the list.** The larger the `sortingOrder`, the later the rendering order is, and the more advanced position is displayed. In general, the `sortingOrder` is 0, and the rendering order is determined by the order in which the display objects are displayed in the list. `SortingOrder` gives you more control over the rendering sequence. For example, if you want a component to always remain above other components, you can set its `sortingOrder` to a larger integer value so that the component still appears first, no matter how many components the container adds with `AddChild`. (`SortingOrder` is inefficient, don't use it frequently)
+
+All of the aforementioned are the object-sort order in the display list. If you don't want to adjust the order (and adjust the rendering order), the component provides another way:
 
 ```csharp
-    //升序，这是默认值，按照对象在显示列表中的顺序，从小到大依次渲染，效果就是序号大的显示在较前面。
+    // Ascending order (this is the default value), according to the order of the objects in the display list, from small to large rendering. The effect is that the serial number is displayed in the front.
     aComponent.childrenRenderOrder = ChildrenRenderOrder.Ascent;
 
-    //降序，按照对象在显示列表中的顺序，从大到小依次渲染，效果就是序号小的显示在较前面。
+    // Descending, according to the order of the objects in the display list, from the largest to the smallest. The effect is that the serial number is displayed in the front.
     aComponent.childrenRenderOrder = ChildrenRenderOrder.Descent;
 
-    //拱形，需要指定一个顶峰的索引，从两端向这个索引位置依次渲染，效果就是这个位置的对象显示在最前面，两边的对象依次显示在后面。
+    // Arch, you need to specify an index of the peak, from the two ends to the index position in turn, the effect is that the object at this position is displayed in the front, the objects on both sides are displayed in the back.
     aComponent.childrenRenderOrder = ChildrenRenderOrder.Arch;
-    aComponent.apexIndex = 3; //索引为3的对象显示在最前面。
+    aComponent.apexIndex = 3; // An object with an index of 3 is displayed first.
 ```
 
-### 绑定扩展类
+### Binding Extension Class
 
-可以绑定一个类为组件的扩展类。首先，编写一个扩展类：
+You can bind an extension class whose class is a component. First, write an extension class:
 
 ```csharp
     public class MyComponent : GComponent
     {
         GObject msgObj;
 
-        //如果你有需要访问容器内容的初始化工作，必须在这个方法里，而不是在构造函数里。各个SDK的函数原型的参数可能略有差别，请以代码提示为准。
+        // If you have initialization work that needs to access the contents of the container, you must do it in this method, not in the constructor. The parameters of the function prototype of each SDK may be slightly different. Please follow the code hints.
         override protected void ConstructFromXML(XML xml)
         {
             base.ConstructFromXML(xml);
-            
-            //在这里继续你的初始化
+
+            // Continue your initialization here
             msgObj = GetChild("msg");
         }
 
@@ -274,17 +282,17 @@ FairyGUI和Flash/Cocos类似，采用树状的结构组织显示对象。容器�
     }
 ```
 
-然后注册你的扩展类。注意，**必须在组件构建前注册**，如果你使用的是UIPanel，那么在Start里注册是不够早的，必须在Awake里，总之，如果注册不成功，90%可能都是注册晚于创建，10%可能是URL错误，这可以通过打印URL排查。
+Then register your extension class. Note that **it must be registered before the component is built**. If you are using `UIPanel`, it isn't early enough to register in `Start`. It must be in `Awake`. In short, if the registration is unsuccessful, 90% may be registered later than Created, 10% may be a URL error, which can be checked by printing the URL.
 
 ```csharp
-    UIObjectFactory.SetPackageItemExtension("ui://包名/组件A”, typeof(MyComponent));
+    UIObjectFactory.SetPackageItemExtension("ui://PackageName/ComponentA", typeof(MyComponent));
 ```
 
-这样就为组件A绑定了一个实现类MyComponent 。以后所有组件A创建出来的对象（包括在编辑器里使用的组件A）都是MyComponent类型。然后我们就可以为MyComponent添加API，用更加面向对象的方式操作组件A。例如：
+This binds component `A` with an implementation class, `MyComponent`. All objects created by component `A` in the future (including component `A` used in the editor) are of type `MyComponent`. Then we can add an API to `MyComponent` and manipulate component `A` in a more object-oriented way. E.g:
 
 ```csharp
-    MyComponent gcom = (MyComponent)UIPackage.CreateObject(“包名“， ”组件A”);
+    MyComponent gcom = (MyComponent)UIPackage.CreateObject("PackageName"， "ComponentA");
     gcom.ShowMessage("Hello world");
 ```
 
-注意：如果组件A只是一个普通的组件，没有定义“扩展”，那么基类是GComponent，如上例所示；如果组件A的扩展是按钮，那么MyComponent的基类应该为GButton，如果扩展是进度条，那么基类应该为GProgressBar，等等。这个千万不能弄错，否则会出现报错。
+Note: If component `A` is just a normal component, there's no definition of "extension", then the base class is `GComponent`, as shown in the above example; if the extension of component `A` is a button, then the base class of `MyComponent` should be `GButton`, if the extension is a progress bar , then the base class should be `GProgressBar`, and so on. This must not be mistaken, otherwise there will be an error.
