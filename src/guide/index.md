@@ -6,15 +6,15 @@ order: 0
 
 FairyGUI is a Cross Platform UI Editor & UI framework.
 
-By using FairyGUI Editor, you can build a variety of complex game interface without writing code or any configuration files. Support `Unity`、`Cocos2dx`、`Cry Engine`、 `MonoGame`、`Havok Vision/Project Anarchy`、`Egret`、`LayaAir`、`Haxe`、`Pixi`、`Flash`、`Starling`，`Corona`，and `Unreal`、`LibGDX`、`Three.js` in the future.<br>
+By using FairyGUI Editor, you can build a variety of complex game interface without writing code or any configuration files. Supports `Unity`、`Cocos2dx`、`Cry Engine`、 `MonoGame`、`Havok Vision/Project Anarchy`、`Egret`、`LayaAir`、`Haxe`、`Pixi`、`Flash`、`Starling`，`Corona`，and `Unreal`、`LibGDX`、`Three.js` in the future.<br>
 
 ## Features
 
 * WYSIWYG. Easy to use, and habits consistent with the Adobe series of software, planning and art designers can easily get started.
 
-* In the editor can be combined with a variety of complex UI components, no need to write code. No programmers need to extend the UI component.
+* The editor can be used to combine a variety of complex UI components; no need to write code. No programmers are needed to extend the UI component.
 
-* Support for translation, zoom, rotation, tilt, flip and other conventional 2D transform.
+* Support for translation, zoom, rotation, tilt, flip and other conventional 2D transforms.
 
 * Powerful text controls. Support for dynamic fonts, bitmap fonts, and external tools (such as BMFont, etc.) produced by the bitmap fonts, while supporting HTML syntax and UBB syntax to support complex graphics mixed. The input text supports the direct input of the IOS native expression. Support the font of the stroke effect, shadow effects, support for gradient text.
 
@@ -48,14 +48,14 @@ By using FairyGUI Editor, you can build a variety of complex game interface with
 
 * Support in the UI layer to insert any 3D objects, such as models, particles, skeleton animation, etc., automatically handle the rendering order.
 
-* Edit the use of decentralized material, published automatically packaged atlas. Support the definition of multiple Atlas, Unity version automatically supports the extraction of A channel compression.
+* Edit the use of decentralized material, published automatically packaged atlas. Supports the definition of multiple Atlas. Unity version automatically supports the extraction of A channel compression.
 
 * Multi-language switching support. You can switch UI language in real time.
 
-* Various resolution adaptive. A set of UIs for different resolution devices.
+* Various adaptive resolution modes. A set of UIs for different resolution devices.
 
 * Support for automatically generating code for editor components.
 
-* Provide plug-in mechanism, according to the needs of the project for the editor to add personality features.
+* Provides a plug-in mechanism, according to the needs of the project for the editor to add personality features.
 
-* Support design function, directly to the design shown in the background, easy to control the precise splicing.
+* Supports design functionality, with the design directly shown on the canvas. It's easy to control the precise splicing.
