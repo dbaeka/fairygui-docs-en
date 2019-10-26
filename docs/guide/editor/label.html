@@ -351,13 +351,13 @@
     
       <h1>Label</h1>
     
-    <p>标签组件非常简单，它没有特殊的行为，他可以通过放入title元件和icon元件为组件提供标题和图标属性。</p>
-<h2 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h2><p>可以通过两种方式创建标签组件。</p>
+    <p>The <code>Label</code> component is very simple, it has no special behavior. You can provide <code>title</code> and <code>icon</code> properties for the component by placing a component named “title” and a component named “icon”.</p>
+<h2 id="Create-Labels"><a href="#Create-Labels" class="headerlink" title="Create Labels"></a>Create Labels</h2><p>There are two ways to create a label component.</p>
 <ul>
-<li>点击主菜单“资源”-&gt;“新建标签”。</li>
-<li>新建一个组件，然后在组件属性里选择扩展为“标签”。</li>
+<li>Click on <code>Main Menu -&gt; &quot;Resources&quot; -&gt; &quot;New Tab&quot;</code>.</li>
+<li>Create a new component and select <code>Expand as &quot;Label&quot;</code> in the component properties.</li>
 </ul>
-<h2 id="设计属性"><a href="#设计属性" class="headerlink" title="设计属性"></a>设计属性</h2><p>在组件编辑状态下，标签组件的属性面板是：</p>
+<h2 id="Design-Properties"><a href="#Design-Properties" class="headerlink" title="Design Properties"></a>Design Properties</h2><p>In the component editing state, the properties panel of the label component is:</p>
 <p><img src="../../images/20170803135953.png" alt=""></p>
 <p><strong>命名约定</strong></p>
 <ul>
@@ -366,8 +366,8 @@
 <li><p><code>icon</code> 可以是装载器，也可以是标签、按钮。</p>
 </li>
 </ul>
-<p>注意：标签组件内并非只能有“title”和“icon”，你可以放置任何元件，例如放置任意多的文本、装载器等。“title”和“icon”的设定只是用于标签组件在编辑器实例化时能够直观设置而已。</p>
-<h2 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h2><p>在舞台上选中一个标签组件，右边的属性面板列表出现：</p>
+<p>注意:标签组件内并非只能有“title”和“icon”，你可以放置任何元件，例如放置任意多的文本、装载器等。“title”和“icon”的设定只是用于标签组件在编辑器实例化时能够直观设置而已。</p>
+<h2 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h2><p>在舞台上选中一个标签组件，右边的属性面板列表出现:</p>
 <p><img src="../../images/20170803140710.png" alt=""></p>
 <ul>
 <li><p><code>标题</code> 设置的文本将赋值到标签组件内的“title”元件的文本属性。如果不存在“title”元件，则什么事都不会发生。<br>这里的输入框比较小，如果要输入大文本，则可以在输入激活时，按CTRL+ENTER，然后会弹出一个专门用于输入文本的窗口。</p>
@@ -380,9 +380,9 @@
 </li>
 </ul>
 <p>如果“title”是输入文本，则属性面板内会出现<img src="../../images/20170801144514.png" alt="">按钮，点击后出现输入设置面板。设置方法可参考文本的教程。</p>
-<h2 id="GLabel"><a href="#GLabel" class="headerlink" title="GLabel"></a>GLabel</h2><p>设置标签的标题或者图标，你甚至不需要强制对象为GLabel的类型，直接用GObject提供的接口就可以，例如：</p>
+<h2 id="GLabel"><a href="#GLabel" class="headerlink" title="GLabel"></a>GLabel</h2><p>设置标签的标题或者图标，你甚至不需要强制对象为GLabel的类型，直接用GObject提供的接口就可以，例如:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GObject obj = gcom.GetChild(<span class="string">"n1"</span>);</div><div class="line">obj.text = <span class="string">"hello"</span>;</div><div class="line">obj.icon = <span class="string">"ui://包名/图片名"</span>;</div></pre></td></tr></table></figure>
-<p>修改标题颜色可以这样：</p>
+<p>修改标题颜色可以这样:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GLabel label = gcom.GetChild(<span class="string">"n1"</span>).asLabel;</div><div class="line">lable.titleColor = ...;</div></pre></td></tr></table></figure>
 <p>另外，标签也是一个标准的组件，因此GComponent的所有方法都是可以使用的，例如你可以用GetChild访问任何子组件。</p>
 
