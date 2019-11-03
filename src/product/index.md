@@ -59,11 +59,11 @@ Source: [https://github.com/fairygui/FairyGUI-egret](https://github.com/fairygui
 
 ## CocosCreator SDK
 
-源码: [https://github.com/fairygui/FairyGUI-cocoscreator](https://github.com/fairygui/FairyGUI-cocoscreator)
+Source: [https://github.com/fairygui/FairyGUI-cocoscreator](https://github.com/fairygui/FairyGUI-cocoscreator)
 
 <img src="https://img.shields.io/github/stars/fairygui/FairyGUI-cocoscreator.svg"         alt="stars"> <img src="https://img.shields.io/github/forks/fairygui/FairyGUI-cocoscreator.svg" alt="forks">
 
-[下载例子](http://res.fairygui.com/FairyGUI-cocoscreator-demo191102.zip)
+[Examples](http://res.fairygui.com/FairyGUI-cocoscreator-demo191102.zip)
 
 ## Starling SDK
 
