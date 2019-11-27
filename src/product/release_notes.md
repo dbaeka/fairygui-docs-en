@@ -4,6 +4,11 @@ type: product
 order: 1
 ---
 
+## 5.0.6
+1. 为专业版提供了高级插件接口，详见[Github地址]("https://github.com/fairygui/FairyGUI-Editor/plugin").
+2. 首选项里补充了发布按钮功能的设置。
+3. 修正了若干bug。
+
 ## 5.0.5
 1. 紧急修复分支无法增加资源的bug。
 2. 修正了发布时没有发布自定义属性引用的资源的bug。
