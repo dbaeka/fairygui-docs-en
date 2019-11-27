@@ -5,7 +5,7 @@ order: 1
 ---
 
 ## 5.0.6
-1. 为专业版提供了高级插件接口，详见[Github地址](https://github.com/fairygui/FairyGUI-Editor/plugin).
+1. 为专业版提供了高级插件接口，详见[Github地址](https://github.com/fairygui/FairyGUI-Editor/tree/master/plugin).
 2. 首选项里补充了发布按钮功能的设置。
 3. 修正了若干bug。
 
