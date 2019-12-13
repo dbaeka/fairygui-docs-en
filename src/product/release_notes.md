@@ -4,6 +4,12 @@ type: product
 order: 1
 ---
 
+## 5.0.7
+1. 在“首选项”里加入“发布时自动保存”的选项。
+2. 动画增加了导出为散图的功能。
+3. 修正了动效帧频设置发布后不生效的问题。
+4. 修正了Laya发布的代码提示缺少GTree的问题。
+   
 ## 5.0.6
 1. 为专业版提供了高级插件接口，详见[Github地址](https://github.com/fairygui/FairyGUI-Editor/tree/master/plugin).
 2. 首选项里补充了发布按钮功能的设置。
