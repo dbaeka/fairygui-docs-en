@@ -1,34 +1,32 @@
 ---
-title: ScrollPane
+title: 滚动容器
 type: guide_editor
-order: 95
+order: 19
 ---
 
 ## 滚动属性
 
-对组件或者列表设置了“溢出处理”为“水平滚动”、“垂直滚动”，“自由滚动”后，组件或者列表即成为滚动容器。点击“溢出处理”旁边的![](../../images/20170801144514.png)按钮，可以设置详细的滚动的相关属性。
+对组件或者列表设置了“溢出处理”为“水平滚动”、“垂直滚动”，“自由滚动”后，组件或者列表即成为滚动容器。点击“溢出处理”旁边的![](../../images/QQ20191211-161858.png)按钮，可以设置详细的滚动的相关属性。
 
-![](../../images/20170802112058.png)
+![](../../images/QQ20191211-182032.png)
 
-- `滚动条显示` 滚动条的显示策略。 
- - `默认` 使用全局设置，在主菜单“文件”->“项目属性”->“预览设置”里设置。
- - `可见` 表示滚动条一直显示。
- - `滚动时显示` 表示滚动条只有在滚动时才会显示，其他情况下自动隐藏。
- - `隐藏` 表示滚动条一直不可见的状态。
+- `滚动条显示` 滚动条的显示策略。
+  - `默认` 使用全局设置，编辑器在主菜单“文件->项目属性->预览设置”里设置，运行时则需要通过`UIConfig.defaultScrollBarDisplay`设置。
+  - `可见` 表示滚动条一直显示。
+  - `滚动时显示` 表示滚动条只有在滚动时才会显示，或者鼠标移入滚动区域时显示（PC上），其他情况下自动隐藏。
+  - `隐藏` 表示滚动条一直不可见的状态。
 
-- `边缘回弹效果` 滚动到达边缘时是否允许继续滑动/拖动一定距离，表现一个回弹的效果。一般在移动平台上使用，PC上较少。有些开发者会提出为什么我的滚动容器里内容没超出视口，却依然能滚动，这其实是边缘回弹效果。
+- `边缘回弹效果` 滚动到达边缘时是否允许继续滑动/拖动一定距离，表现一个回弹的效果。一般在移动平台上使用，PC上较少。**有些开发者会提出为什么我的滚动容器里内容没超出视口，却依然能滚动，这其实是边缘回弹效果。**
 
 - `触摸滚动效果` 是否允许用户直接拖拽滚动区域内的内容。一般在移动平台上使用，PC上较少，PC上一般需要拖动滚动条，或使用鼠标滚轮。
 
-- `滚动条组件` 设置滚动条资源。一般不需要设置，全局有一个设置，在主菜单“文件”->“项目属性”->“预览设置”里。如果你要使用不同于全局设置的滚动条资源，那么在这里设置。
+- `滚动条组件` 设置滚动条资源。一般不需要设置，全局有一个设置，在主菜单“文件->项目属性->默认值”里。如果你要使用不同于全局设置的滚动条资源，那么在这里设置。
 
 - `定位` 可以设置滚动条在容器中的位置，这是一个相对于正常位置的偏移值。
 
 - `下拉/上拉刷新组件` 设置上拉刷新或下拉刷新时需要显示的组件。下面是下拉刷新的效果：
 
-<center>
-![](../../images/gaollg12.gif)
-</center>
+  ![](../../images/gaollg12.gif)
 
 - `将垂直滚动条显示在左边` 设置垂直滚动条显示在容器的左边，而不是在容器的右边。
 
@@ -42,9 +40,11 @@ order: 95
 
 - `禁用剪裁` 一般情况下，容器会对超出视口的内容进行剪裁。特殊情况下，例如，如果一个列表的item组件自身就是滚动容器，那么item组件可以关闭剪裁。因为大量的剪裁会消耗很多的系统性能。
 
+- `浮动显示` 勾选后，滚动条不占据视口的位置，而是直接覆盖在视口上面。例如一个适用于手机的滚动条，它是细条且半透明的，只在滚动时才显示出来，用于提示滚动位置。那么我们把它设置为“浮动”，这样就不会挤占视口的显示空间。
+
 ## ScrollPane
 
-当组件的“溢出处理”设置为“滚动”后，可以通过GComponent.scrollPane使用滚动相关的功能，例如：
+当组件的“溢出处理”设置为“滚动”后，可以通过`GComponent.scrollPane`使用滚动相关的功能，例如：
 
 ```csharp
     ScrollPane scrollPane =  aComponent.scrollPane;
@@ -74,11 +74,11 @@ ScrollPane中常用的API有：
 
 - `ScrollToView` 调整滚动位置，使指定的元件出现在视口内。
 
-- `touchEffect` 打开或关闭触摸滚动功能。关闭触摸滚动后，用户就不能拖拽视口进行滚动了。
+- `touchEffect` 打开或关闭触摸滚动功能。关闭触摸滚动后，用户就不能拖拽视口进行滚动了。这个功能可以在编辑器里设置，如果编辑器里设置的是“默认”，则使用UIConfig.defaultScrollTouchEffect。
 
 - `scrollStep` 这个值是指滚动“一格”的距离。这个距离有三个用途：a）scrollUp/scrollDown/scrollLeft/scrollRight； b）点击滚动条的箭头按钮； c）鼠标滚轮，鼠标滚轮滚一次的距离是scrollStep*2。
 
-- `bounceBackEffect` 可以打开或关闭边缘回弹功能。
+- `bounceBackEffect` 可以打开或关闭边缘回弹功能。这个功能可以在编辑器里设置，如果编辑器设置的是“默认”，则使用UIConfig.defaultScrollBounceEffect。
 
 - `mouseWheelEnabled` 打开或关闭鼠标滚动支持。
 
@@ -103,6 +103,9 @@ ScrollPane中常用的API有：
 
     //Cocos2dx，注意是用组件侦听，不是ScrollPane
     aComponent->addEventListener(UIEventType::Scroll, CC_CALLBACK_1(AClass::onScroll, this));
+
+    //CocosCreator，注意使用组件侦听，不是ScrollPane
+    aComponent.on(fgui.Event.SCROLL, this.onScroll, this);
 ```
 
 和滚动相关的事件还有：
@@ -136,4 +139,9 @@ ScrollPane中常用的API有：
     aComponent->addEventListener(UIEventType::ScrollEnd, CC_CALLBACK_1(AClass::onScrollEnd, this));
     aComponent->addEventListener(UIEventType::PullDownRelease, CC_CALLBACK_1(AClass::onPullDownRelease, this));
     aComponent->addEventListener(UIEventType::PullUpRelease, CC_CALLBACK_1(AClass::onPullUpRelease, this));
+
+    //CocosCreator，注意使用组件侦听，不是ScrollPane
+    scrollPane.on(fgui.Event.SCROLL_END, this.onScrollEnd, this);
+    scrollPane.on(fgui.Event.PULL_DOWN_RELEASE, this.onPullDownRelease, this);
+    scrollPane.on(fgui.Event.PULL_UP_RELEASE, this.onPullUpRelease, this);
 ```

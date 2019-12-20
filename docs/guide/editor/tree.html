@@ -1,0 +1,421 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    
+        <title>FairyGUI - 树</title>
+    
+        <meta charset="utf-8">
+        <meta name="description" content="FairyGUI Manual">
+        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Manual">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="-树FairyGUI">
+        <meta property="og:description" content="FairyGUI Manual">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="树 — FairyGUI">
+        <meta name="twitter:description" content="FairyGUI Manual">
+
+      <!--  <link href='//fonts.proxy.ustclug.org/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
+
+        <!-- main page styles -->
+        <link rel="stylesheet" href="/css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script src="/js/vue.min.js"></script>
+        <script>window.PAGE_TYPE = "guide_editor"</script>
+    </head>
+    <body class="docs">        <div id="mobile-bar"  data-bg-text="FairyGUI" >
+            <a class="menu-button"></a>
+        </div>
+        <div id="header">
+  <ul id="nav">
+    <li><a href="/guide/" class="nav-link current">FairyGUI Manual</a></li>
+<li><a href="/examples/" class="nav-link">Examples</a></li>
+<li><a href="/release_notes/" class="nav-link">Release Notes</a></li>
+  </ul>
+</div>
+
+        
+            <div id="main" class="fix-sidebar">
+                
+                    
+    <div class="sidebar">
+    <ul class="main-menu">
+        <li><a href="/guide/" class="nav-link current">FairyGUI Manual</a></li>
+<li><a href="/examples/" class="nav-link">Examples</a></li>
+<li><a href="/release_notes/" class="nav-link">Release Notes</a></li>
+    </ul>
+    <div class="list">
+        <ul class="menu-root">
+            
+
+	 			
+	                
+	                <li>
+	                    <a href="/guide/index.html" class="sidebar-link">介绍</a>
+	                </li>
+	            
+	
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">编辑器使用基础</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/project_settings.html" class="sidebar-link">项目设置</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/package.html" class="sidebar-link">包</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/branch.html" class="sidebar-link">分支</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/publish.html" class="sidebar-link">发布</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/object.html" class="sidebar-link">元件</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/image.html" class="sidebar-link">图片</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/movieclip.html" class="sidebar-link">动画</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/graph.html" class="sidebar-link">图形</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/loader.html" class="sidebar-link">装载器</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/text.html" class="sidebar-link">文本</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/richtext.html" class="sidebar-link">富文本</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/group.html" class="sidebar-link">组</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/component.html" class="sidebar-link">组件</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollpane.html" class="sidebar-link">滚动容器</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/controller.html" class="sidebar-link">控制器</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/relation.html" class="sidebar-link">关联系统</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/label.html" class="sidebar-link">标签</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/button.html" class="sidebar-link">按钮</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/combobox.html" class="sidebar-link">下拉框</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/progressbar.html" class="sidebar-link">进度条</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/slider.html" class="sidebar-link">滑动条</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollbar.html" class="sidebar-link">滚动条</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/list.html" class="sidebar-link">列表</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/tree.html" class="sidebar-link current">树</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/dragdrop.html" class="sidebar-link">Drag&Drop</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/window.html" class="sidebar-link">窗口系统</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/transition.html" class="sidebar-link">动效</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/adaptation.html" class="sidebar-link">适配</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/i18n.html" class="sidebar-link">多国语言</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/export.html" class="sidebar-link">导入和导出资源包</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/preference.html" class="sidebar-link">偏好设置</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/plugin.html" class="sidebar-link">插件</a>
+	                </li>
+	            
+	
+	            
+	                
+	                
+	                <li><h3>SDK</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/sdk/laya.html" class="sidebar-link">LayaAir</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/sdk/egret.html" class="sidebar-link">Egret</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/sdk/cocos2dx.html" class="sidebar-link">Cocos2dx</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/sdk/creator.html" class="sidebar-link">Cocos Creator</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/sdk/cryengine.html" class="sidebar-link">Cry Engine</a>
+	                </li>
+	            
+
+	            
+	                
+	                
+	                <li><h3>SDK - Unity</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/unity/index.html" class="sidebar-link">显示UI面板</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/transform.html" class="sidebar-link">坐标系统</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/atlas.html" class="sidebar-link">纹理集的处理</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/font.html" class="sidebar-link">字体的处理</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/input.html" class="sidebar-link">输入处理</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/event.html" class="sidebar-link">事件机制</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/insert3d.html" class="sidebar-link">插入模型/粒子/Spine/Canvas</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/uipainter.html" class="sidebar-link">曲面UI</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall优化</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/lua.html" class="sidebar-link">在Lua中使用</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/special.html" class="sidebar-link">特色功能</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/faq.html" class="sidebar-link">常见问题</a>
+	                </li>
+	            
+
+            
+        </ul>
+    </div>
+</div>
+
+
+<div class="content guide_editor with-sidebar ">
+    
+      <h1>树</h1>
+    
+    <p>树是列表的一种特例。是组件的一种特殊扩展。勾选列表属性的<img src="../../images/QQ20191212-104005.png" alt="">，使列表变成一棵树。</p>
+<h2 id="树属性"><a href="#树属性" class="headerlink" title="树属性"></a>树属性</h2><p>点击树视图右侧的<img src="../../images/QQ20191211-161858.png" alt="">按钮显示如下界面：</p>
+<p><img src="../../images/QQ20191212-105754.png" alt=""></p>
+<ul>
+<li><p><code>每级缩进</code> 树节点的深度每增加一级，向右缩进的像素距离。例如，如果每级缩进是15像素，树节点的层级是3级，那么树节点的缩进是15*3=45像素。</p>
+</li>
+<li><p><code>点击文件夹时展开/折叠</code> 点击文件夹节点时是否自动展开或者折叠这个这个节点。</p>
+<ul>
+<li><code>否</code> 没有动作。</li>
+<li><code>单击</code> 在单击时动作。</li>
+<li><code>双击</code> 在双击时动作。</li>
+</ul>
+</li>
+</ul>
+<p>激活树视图后，编辑列表项目的界面也有了变化，如下图：</p>
+<p><img src="../../images/QQ20191212-112139.png" alt=""></p>
+<p>最右侧增加了“层级”设置。顶层节点为0级，增加一级则表示是上一级的子节点。</p>
+<p>参考下图，层级与节点的对应关系：</p>
+<p><img src="../../images/QQ20191212-112117.png" alt=""></p>
+<h2 id="树节点设计"><a href="#树节点设计" class="headerlink" title="树节点设计"></a>树节点设计</h2><p>树节点设计有几个约定的规则：</p>
+<ol>
+<li><p>名称为<code>expanded</code>的控制器（可选）。如果节点是文件夹节点，当节点展开时，这个控制器自动切换页面到1；当节点折叠时，自动切换页面到0。你可以使用此控制器控制节点在这两种状态下的形态。<br>如果树节点内有放置按钮（这个按钮应该是复选按钮）用于展开和折叠，那么应该将这个按钮和控制器连接，如下图：</p>
+<p><img src="../../images/QQ20191212-114818.png" alt=""></p>
+</li>
+<li><p>名称为<code>leaf</code>的控制器（可选）。如果节点是文件夹节点，那么这个控制器的页面是0；如果节点是叶节点，那么这个控制器的页面是1。你可以使用此控制器控制这两种不同类型节点的形态。</p>
+</li>
+<li><p>名称为<code>indent</code>的对象将用于设置缩进（可选）。假设某节点的缩进是45像素，那么indent对象的宽度会被设置为45。</p>
+</li>
+</ol>
+<h2 id="GTree"><a href="#GTree" class="headerlink" title="GTree"></a>GTree</h2><p>当一个列表激活树视图后，它在代码中的对象就是GTree。GTree继承自GList，所以GList的所有API也适用于GTree，不过GTree目前<strong>不支持虚拟化</strong>。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GTree aTree = aComponent.GetChild(<span class="string">"tree"</span>).asTree;</div><div class="line">GTreeNode rootNode = aTree.rootNode;</div></pre></td></tr></table></figure>
+<p>这里rootNode是树的根节点，它是一个“假”的节点，不可见。</p>
+<p>创建并添加节点：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GTreeNode aNode = <span class="keyword">new</span> GTreeNode(<span class="literal">true</span>); <span class="comment">//true表示文件夹节点，false表示叶节点</span></div><div class="line">rootNode.AddChild(aNode);</div></pre></td></tr></table></figure>
+<p>渲染节点的方式有两种：</p>
+<ol>
+<li><p>直接操作节点对应的组件。</p>
+ <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GComponent obj = aNode.cell;</div><div class="line">obj.GetChild(<span class="string">"abc"</span>).text = <span class="string">"hello"</span>;</div></pre></td></tr></table></figure>
+<p> <strong>这种方式一定要是节点已经在树里了才能使用，也就是已经AddChild了</strong>。</p>
+</li>
+<li><p>通过回调函数操作。</p>
+ <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aTree.treeNodeRender = RenderTreeNode;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">RenderTreeNode</span>(<span class="params">GTreeNode node, GComponent obj</span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>响应树节点点击，和列表响应item的处理方式一样，都是监听<code>onClickItem</code>事件，可以参考<a href="list.html#事件">这里</a>。在得到点击的item对象后，要获得其对应的GTreeNode对象，可以用API<code>GObject.treeNode</code>获得。</p>
+<p>GTree还有一个特别的回调：<code>treeNodeWillExpand</code>，它在TreeNode即将展开或者收缩时回调触发。你可以在回调中动态增加子节点。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aTree.treeNodeWillExpand = onExpand;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">onExpand</span>(<span class="params">GTreeNode node, <span class="keyword">bool</span> expand</span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+    
+    <div class="footer">
+      found mistake? Want to participate in editing?
+      <a href="https://github.com/fairygui/en.fairygui.io/tree/master/src/guide/editor/tree.md" target="_blank">
+        Edit this page on Github!
+      </a>
+    </div>
+</div>
+
+                
+            </div>
+            <script src="/js/smooth-scroll.min.js"></script>
+        
+
+        <!-- main custom script for sidebars, version selects etc. -->        
+        <script src="/js/css.escape.js"></script>
+        <script src="/js/common.js"></script>
+    </body>
+</html>

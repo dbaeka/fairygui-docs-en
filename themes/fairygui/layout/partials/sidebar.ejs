@@ -3,18 +3,6 @@
         <%- partial('partials/main_menu', { context: 'sidebar' }) %>
     </ul>
     <div class="list">
-		<a class="become-backer" href="<%- url_for("/about/donate.html") %>">
-            Donate
-        </a>
-        <h2>
-            <%- type === 'api' ? 'API' : (type.split('_')[0].charAt(0).toUpperCase() + type.split('_')[0].slice(1)) %>
-            <!--<select class="version-select">
-                <option value="SELF" selected><%- type.split('_')[1] %></option>
-            </select>-->
- 		<% if(type.indexOf('guide')!=-1) { %> 
-		  
-		<% } %>
-        </h2>
         <ul class="menu-root">
             <% if (type.indexOf('guide')!=-1) { %>
 

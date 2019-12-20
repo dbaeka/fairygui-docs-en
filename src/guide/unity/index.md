@@ -1,5 +1,5 @@
 ---
-title: Unity Start
+title: 显示UI面板
 type: guide_unity
 order: 0
 ---
@@ -10,15 +10,11 @@ Unity项目载入UI包有以下几种方式，开发者可以根据项目需要�
 
 1. 将打包后的文件直接发布到Unity的Resources目录或者其子目录下，
 
-  旧版本格式（XML）的文件列表：
-  ![](../../images/2015-10-21_151409.png)
+   ![](../../images/20180908225713.png)
 
-  新版本格式（二进制）的文件列表：
-  ![](../../images/20180908225713.png)
+   这种方式处理的UI包，如果使用UIPanel显示UI，不需要任何代码载入包，UIPanel会自动载入；如果是动态创建UI，则要使用代码载入包：
 
-  这种方式处理的UI包，如果使用UIPanel显示UI，不需要任何代码载入包，UIPanel会自动载入；如果是动态创建UI，则要使用代码载入包：
-
-  ```csharp
+   ```csharp
     //demo就是发布时填写的文件名
     UIPackage.AddPackage("demo");
     
@@ -27,35 +23,30 @@ Unity项目载入UI包有以下几种方式，开发者可以根据项目需要�
 
     //如果不放到Resources或者其子目录下，可以传入全路径，但这种方法只能在Editor里使用
     UIPackage.AddPackage("Assets/SomePath/Package1");
-  ```
-  AddPackage会先使用传入的路径作为key进行检测，如果这个包已经添加，则不会重复添加。
+   ```
+   AddPackage会先使用传入的路径作为key进行检测，如果这个包已经添加，则不会重复添加。
 
 2. 将发布后的文件打包为两个AssetBundle，即定义文件和资源各打包为一个bundle(desc_bundle+res_bundle)。这样做的好处是一般UI的更新都是修改元件位置什么的，不涉及图片资源的更新，那么只需要重新打包和推送desc_bundle就行了，不需要让玩家更新通常体积比较大的res_bundle，节省流量。打包程序由开发者按照自己熟悉的方式自行实现。以demo为例，请遵循以下规则打包：
-  旧版本格式（XML）：
-  - demo.bytes单独打包为desc_bundle；
-  - 其他资源（demo@atlas0.png等），打包到res_bundle。
+   - demo_fui.bytes单独打包为desc_bundle；
+   - 其他资源（demo_atlas0.png等），打包到res_bundle。
 
-  新版本格式（二进制）
-  - demo_fui.bytes单独打包为desc_bundle；
-  - 其他资源（demo_atlas0.png等），打包到res_bundle。
-
-  这种方式处理的UI包，必须使用代码载入：
+   这种方式处理的UI包，必须使用代码载入：
 
    ```csharp
     //desc_bundle和res_boundle的载入由开发者自行实现。
     UIPackage.AddPackage(desc_bundle, res_bundle);
-  ```
-  使用这种方式AddPackage，没有排重检测机制，需要你自己保证。
+   ```
+   使用这种方式AddPackage，没有排重检测机制，需要你自己保证。
 
-3. 将发布后的文件打包为一个AssetBundle。打包程序由开发者按照自己熟悉的方式自行实现。以demo为例，将demo.bytes和其他资源（demo@atlas0.png等），都放入bundle。
+3. 将发布后的文件打包为一个AssetBundle。打包程序由开发者按照自己熟悉的方式自行实现。以demo为例，将demo_fui.bytes和其他资源（demo_atlas0.png等），都放入bundle。
  
-  这种方式处理的UI包，必须使用代码载入：
+   这种方式处理的UI包，必须使用代码载入：
 
-  ```csharp
+   ```csharp
     //bundle的载入由开发者自行实现。
     UIPackage.AddPackage(bundle);
-  ```
-  使用这种方式AddPackage，没有排重检测机制，需要你自己保证。
+   ```
+   使用这种方式AddPackage，没有排重检测机制，需要你自己保证。
 
 ## 卸载UI包
 
@@ -69,13 +60,11 @@ Unity项目载入UI包有以下几种方式，开发者可以根据项目需要�
 包卸载后，所有包里包含的贴图等资源均会被卸载，由包里创建出来的组件也无法显示正常（虽然不会报错），所以这些组件应该（或已经）被销毁。
 一般不建议包进行频繁装载卸载，因为每次装载卸载必然是要消耗CPU时间（意味着耗电）和产生大量GC的。UI系统占用的内存是可以精确估算的，你可以按照包的使用频率设定哪些包是常驻内存的（建议尽量多）。
 
-## 二进制格式的包内存管理
+## 包内存管理
 
-如果包是二进制格式的，适用于以下说明：
+1. AddPackage只有用到才会载入贴图、声音等资源。如果你需要提前全部载入，调用`UIPackage.LoadAllAssets`。
 
-1. AddPackage时不会像XML格式的包那样把全部资源（贴图、声音）一次性载入，而是用到再载入。如果你需要全部载入，调用`UIPackage.LoadAllAssets`。
-
-2. 如果UIPackage是从AssetBundle中载入的，在RemovePackage时AssetBundle才会被Unload(true)。如果你确认所有资源都已经载入了（例如调用了LoadAllAssets），也可以自行卸载AssetBundle。
+2. 如果UIPackage是从AssetBundle中载入的，在RemovePackage时AssetBundle才会被Unload(true)。如果你确认所有资源都已经载入了（例如调用了LoadAllAssets），也可以自行卸载AssetBundle。如果你的ab是自行管理，不希望FairyGUI做任何处理的，可以设置`UIPackage.unloadBundleByFGUI`为false。
 
 3. 调用`UIPackage.UnloadAssets`可以只释放UI包的资源，而不移除包，也不需要卸载从UI包中创建的UI界面（这些界面你仍然可以调用显示，不会报错，但图片显示空白）。当包需要恢复使用时，调用`UIPackage.ReloadAssets`恢复资源，那些从这个UI包创建的UI界面能够自动恢复正常显示。如果包是从AssetBundle载入的，那么在UnloadAssets时AssetBundle会被Unload(true)，所以在ReloadAssets时，必须调用ReloadAssets一个带参数的重载并提供新的AssetBundle实例。
 
@@ -123,13 +112,13 @@ UIPane只保存了UI包的名称和组件的名称，它不对纹理或其他资
 - `Component Name` UI组件的名称。注意，这里只是保存一个名称，并没有实际引用到任何UI数据。
 
 - `Render Mode` 有三种：
- - `Screen Space Overlay` 默认值，表示这个UI在屏幕空间显示，这时Transform的Scale将被锁定，而且不建议修改Transform中的其他内容（让他们保持为0）。如果要修改面板在屏幕上的位置，使用UI Transform（参考下面关于UI Transform的说明）。
+  - `Screen Space Overlay` 默认值，表示这个UI在屏幕空间显示，这时Transform的Scale将被锁定，而且不建议修改Transform中的其他内容（让他们保持为0）。如果要修改面板在屏幕上的位置，使用UI Transform（参考下面关于UI Transform的说明）。
   - `Screen Space Camera` 表示这个UI在屏幕空间显示，但不使用FairyGUI默认的正交相机，而是使用指定的正交相机。
   - `World Space` 表示这个UI在世界空间显示，由透视相机渲染。默认的使用场景的主相机，如果不是，那么设置Render Camera。当使用这种模式时，使用Transfrom修改UI在世界空间中的位置、缩放、旋转。但你仍然可以使用UI Transform。
 
 注意：Render Mode只定义了FairyGUI对待这个UI的方式，通常是坐标相关的操作（如点击检测等），但和渲染无关。UI由哪个相机渲染是由GameObject的layer决定的。所以如果发现UI没有显示出来，可以检查一下GameObject的layer是否正确。例如如果是Screen Space，GameObject应该在UI层，如果是WorldSpace，则是在Default层或者其他自定义的层次。
 
-- `Render Camera` 当Render Mode是Screen Space Camera或者World Space时可以设置。如果不设置，默认为场景的主相机。如果不设置，默认为场景的主相机。注意，当RenderMode为WorldSpace时，如果这里没有设置相机，那么场景里一定要有主相机，否则UI无法点击。
+- `Render Camera` 当Render Mode是Screen Space Camera或者World Space时可以设置。如果不设置，默认为场景的主相机。注意，当RenderMode为WorldSpace时，如果这里没有设置相机，那么场景里一定要有主相机，否则UI无法点击。
 
 - `Sorting Order` 调整UIPanel的显示顺序。越大的显示在越前面。
 
@@ -142,15 +131,15 @@ UIPane只保存了UI包的名称和组件的名称，它不对纹理或其他资
 ![](../../images/2016-03-23_123617.png)
 
 - `Fit Screen` 这里可以设置UIPanel适配屏幕。
- - `Fit Size` UI将铺满屏幕。
- - `Fit Width And Set Middle` UI将横向铺满屏幕，然后上下居中。
- - `Fit Height And Set Center` UI将纵向铺满屏幕，然后左右居中。
+  - `Fit Size` UI将铺满屏幕。
+  - `Fit Width And Set Middle` UI将横向铺满屏幕，然后上下居中。
+  - `Fit Height And Set Center` UI将纵向铺满屏幕，然后左右居中。
 
 这里提供的选项不多，因为FairyGUI推荐的是在FairyGUI编辑器中整体设计，而不是在Unity里摆放小元件。例如如果需要不同的UI在屏幕上的各个位置布局，你应该在FairyGUI编辑器中创建一个全屏大小的组件，然后在里面放置各个子组件，再用关联控制布局；最后将这个全屏组件放置到Unity，将Fit Screen设置为Fit Size即可。错误的做法是把各个子组件放置到Unity里再布局。
 
 - `HitTest Mode` 这里可以设置UIPanel处理鼠标或触摸事件的方式。
- - `Default` 这是默认的方式。FairyGUI会用内置的机制检测鼠标或触摸动作，不使用射线，UIPanel也不需要创建碰撞体，效率比较高。
- - `Raycast` 在这种方式下，UIPanel将自动创建碰撞体，并且使用射线方式进行点击检测。这种方式适合于UIPanel还需要和其他3D对象互动的情况。对于设置为使用Raycast进行点击测试的UIPanel，你可以使用HitTestContext.layerMask排除掉一些不关心的层。
+  - `Default` 这是默认的方式。FairyGUI会用内置的机制检测鼠标或触摸动作，不使用射线，UIPanel也不需要创建碰撞体，效率比较高。
+  - `Raycast` 在这种方式下，UIPanel将自动创建碰撞体，并且使用射线方式进行点击检测。这种方式适合于UIPanel还需要和其他3D对象互动的情况。对于设置为使用Raycast进行点击测试的UIPanel，你可以使用HitTestContext.layerMask排除掉一些不关心的层。
 
 - `Set Native Children Order` 可以在UIPanel对象下直接挂其他3D对象，例如模型、粒子等（注意设置他们的layer和UIPanel的相同），然后勾选这个选项后，就可以让这些3D对象显示在UIPanel的层次上。相当于把外部的3D对象插入到UI层次中。但这些3D对象只能显示在这个UIPanel的内容上面，不能和这个UIPanel里面的内容穿插。一般这个功能用在制作UI中使用的特效时，方便查看最终的显示结果，也可以用来观察调整模型在UI相机下的缩放倍数。
 
@@ -164,10 +153,13 @@ UIPanel也可以在游戏中创建，为任意游戏对象动态挂接UI界面�
     panel.packageName = “包名”;
     panel.componentName = “组件名”;
 
-    //下面这是设置选项非必须
+    //下面这是设置选项非必须，注意很多属性都要在container上设置，而不是UIPanel
     
     //设置renderMode的方式
     panel.container.renderMode = RenderMode.WorldSpace;
+
+    //设置renderCamera的方式
+    panel.container.renderCamera = ...;
     
     //设置fairyBatching的方式
     panel.container.fairyBatching = true;
@@ -201,7 +193,7 @@ UIPanel在屏幕上的显示顺序是由他的sortingOrder属性决定的。sort
 
 UIPanel可以用来制作头顶血条。要注意的是：
 1. 放在3D对象上的UIPanel是无法和其他UIPanel进行DrawCall合并的，因此如果同屏人物很多，DC就很高。这个无法避免。如果一定要合并DC，那改用2D UI，把这些HUD对象都放到同一层里，然后与3D对象同步位置。至于近大远小之类的，要不自己按距离算scale，要不就别管了。EmitNumbers这个Demo就演示了怎样用2D UI和3D对象同步坐标。
-2.  UIPanel没有自动面向屏幕的功能，自行挂脚本实现，使用LookAt一般就可以。
+2. UIPanel没有自动面向屏幕的功能，自行挂脚本实现，使用LookAt一般就可以。
 
 ## 动态创建UI
 
@@ -286,9 +278,9 @@ UIContentScaler组件是用来设置适配的。在启动场景里任何一个Ga
 ![](../../images/2016-03-23_125255.png)
 
 - `Scale Mode` 缩放模式。
- - `Constant Pixel Size` 不进行缩放。UI按1：1呈现。
- - `Scale With Screen Size` 根据屏幕大小进行缩放。
- - `Constant Physical Size` 暂不支持。
+  - `Constant Pixel Size` 不进行缩放。UI按1：1呈现。
+  - `Scale With Screen Size` 根据屏幕大小进行缩放。
+  - `Constant Physical Size` 暂不支持。
 - `Screen Match Mode` 适配模式。参考上面API的说明。
 - `Design Resolution X` `Design Resolution Y` 涉及分辨率的宽和高。
 - `Ignore Orientation` 通常我们设置一个设计分辨率时，FairyGUI会自动根据横竖屏设置调整设计分辨率的屏幕方向，以保证屏幕在旋转时全局缩放系数保证不变。如果你是设计PC上的程序，可能这个特性不是你需要的，那么可以勾选此选项关闭这个功能。

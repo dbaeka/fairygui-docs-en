@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    
+        <title>FairyGUI - 其它SDK更新日志</title>
+    
+        <meta charset="utf-8">
+        <meta name="description" content="FairyGUI Manual">
+        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Manual">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="-其它SDK更新日志FairyGUI">
+        <meta property="og:description" content="FairyGUI Manual">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="其它SDK更新日志 — FairyGUI">
+        <meta name="twitter:description" content="FairyGUI Manual">
+
+      <!--  <link href='//fonts.proxy.ustclug.org/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
+
+        <!-- main page styles -->
+        <link rel="stylesheet" href="/css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script src="/js/vue.min.js"></script>
+        <script>window.PAGE_TYPE = "release_notes"</script>
+    </head>
+    <body class="docs">        <div id="mobile-bar"  data-bg-text="FairyGUI" >
+            <a class="menu-button"></a>
+        </div>
+        <div id="header">
+  <ul id="nav">
+    <li><a href="/guide/" class="nav-link">FairyGUI Manual</a></li>
+<li><a href="/examples/" class="nav-link">Examples</a></li>
+<li><a href="/release_notes/" class="nav-link current">Release Notes</a></li>
+  </ul>
+</div>
+
+        
+            <div id="main" class="fix-sidebar">
+                
+                    
+    <div class="sidebar">
+    <ul class="main-menu">
+        <li><a href="/guide/" class="nav-link">FairyGUI Manual</a></li>
+<li><a href="/examples/" class="nav-link">Examples</a></li>
+<li><a href="/release_notes/" class="nav-link current">Release Notes</a></li>
+    </ul>
+    <div class="list">
+        <ul class="menu-root">
+            
+
+	            
+	                
+	                <li>
+	                    <a href="/release_notes/index.html" class="sidebar-link">发行日志</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/release_notes/unity_release_notes.html" class="sidebar-link">Unity SDK更新日志</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/release_notes/sdk_release_notes.html" class="sidebar-link current">其它SDK更新日志</a>
+	                </li>
+	            
+
+            
+        </ul>
+    </div>
+</div>
+
+
+<div class="content release_notes with-sidebar ">
+    
+      <h1>其它SDK更新日志</h1>
+    
+    <h2 id="2018-11-19"><a href="#2018-11-19" class="headerlink" title="2018/11/19"></a>2018/11/19</h2><ol>
+<li>[Laya] 现在已支持LayaAir2.0，要注意master中的代码是支持LayaAir2.0的，分支layaair1.x才是支持LayaAir1.x的。这两个分支目前都保持维护状态，直到LayaAir2.0完全稳定。</li>
+<li>[Laya] 现在支持图片的填充方式。</li>
+<li>[Laya] 现在支持反向遮罩（挖洞）。</li>
+<li>[All] 修正了混合不同资源ITEM的虚拟列表在滚动过程中可能会出现ITEM的深度不正确的bug。</li>
+<li>[All] 修正了GList.scrollToView在横向流动或者竖向流动布局中滚动位置不正确的bug。</li>
+<li>[MonoGame] 新增了MonoGame SDK。</li>
+</ol>
+<h2 id="2018-9-7"><a href="#2018-9-7" class="headerlink" title="2018/9/7"></a>2018/9/7</h2><ol>
+<li>[Cocos2dx/Cry] 新增支持二进制的包格式。。<a href="../guide/editor/upgrade_binary_format.html">详情</a></li>
+</ol>
+<h2 id="2018-8-27"><a href="#2018-8-27" class="headerlink" title="2018/8/27"></a>2018/8/27</h2><ol>
+<li>[Egret/Laya/Unity] 新增支持二进制的包格式。。<a href="../guide/editor/upgrade_binary_format.html">详情</a></li>
+<li>[Egret] 修正了MovieClip在egret下发布为native后不显示的bug。</li>
+<li>[Laya] 修正了绘制圆角矩形不正确的bug。</li>
+<li>[Laya] 修正了GLoader在加载外部资源时没有指定为图片格式导致不能加载后缀不带png或jpg的网络图片的bug。</li>
+</ol>
+<h2 id="2018-8-1"><a href="#2018-8-1" class="headerlink" title="2018/8/1"></a>2018/8/1</h2><ol>
+<li>[All] 除C++版本，其他平台增加了内置的Tween库，这意味着Unity不再依赖DOTween，AS3/Starling版本不再依赖greensock, Egret/Laya不再依赖它们自身的Tween库。当然，你仍然可以使用这些Tween库，并且建议使用在游戏开发中使用它们，因为FairyGUI内置的Tween库重点在满足FairyGUI的内部需求，功能比较简洁，未必能符合你的项目需求。</li>
+<li>[All] 动效现在可以暂停：Transition.setPaused(true);</li>
+<li>[All] 动效现在可以播放其中一部分，在Play方法中传入startTime和endTime参数，单位为秒。可以通过GetLabelTime的方式获得编辑器中某个关键帧的时间。</li>
+<li>[All] 由于使用了内置的Tween库，现在在游戏暂停再返回后，动效播放不会再出现混乱的情况。</li>
+</ol>
+<h2 id="2018-7-5"><a href="#2018-7-5" class="headerlink" title="2018/7/5"></a>2018/7/5</h2><ol>
+<li>[All] 装载器现在可以载入组件。</li>
+<li>[All] 文本增加了模板功能。</li>
+<li>[All] 修正了GButton.FireClick里的bug。</li>
+<li>[All] 当滚动容器的分页控制器页面改变时，现在滚动容器的翻页带有过渡效果。</li>
+<li>[Cocos2dx] Cocos2dx发布了1.4.0版本。</li>
+<li>[Cocos2dx] 修正了编辑器内位图字体设置默认占位不生效的bug。</li>
+<li>[Cocos2dx] 修正了按钮按下变暗没有生效的问题。</li>
+</ol>
+<h2 id="2018-5-23"><a href="#2018-5-23" class="headerlink" title="2018/5/23"></a>2018/5/23</h2><ol>
+<li>[All] 修正了当元件有设置轴心或锚点，部分关联关系工作不正常的问题。</li>
+<li>[All] 修正了进度条max设置为0时，进度显示不正确的bug。</li>
+<li>[Laya] 增加了UIConfig.packageFileExtension，配合编辑器改发布文件扩展名的功能（小程序需要）。</li>
+<li>[Cocos2dx] Cocos2dx发布了1.3版本。</li>
+<li>[Cocos2dx] 修正了一个致命的引用计数问题。</li>
+<li>[Cocos2dx] 修正了像素点击测试不准确的问题。</li>
+</ol>
+<h2 id="2018-3-30"><a href="#2018-3-30" class="headerlink" title="2018/3/30"></a>2018/3/30</h2><ol>
+<li>[All] 增加了对GLoader新填充类型的支持。</li>
+<li>[All] 修改了虚拟列表滚动时在某些特殊情况下不再响应滚动的bug。</li>
+<li>[Unity] Unity发布了2.1.0版本。</li>
+</ol>
+<h2 id="2018-3-19"><a href="#2018-3-19" class="headerlink" title="2018/3/19"></a>2018/3/19</h2><ol>
+<li>[All] GRoot.ShowPopup里现在会自动检查sortingOrder，保证popup的东西一定在目标前面。</li>
+</ol>
+<h2 id="2018-3-5"><a href="#2018-3-5" class="headerlink" title="2018/3/5"></a>2018/3/5</h2><ol>
+<li>[Laya/Egret/Starling/Flash] 重构ScrollPane，支持了Header和Footer，也就是下拉刷新和上拉刷新功能的支持。（其他SDK早已支持，这次是对这几个SDK的填坑。）。功能演示可以在产品页面下载最新的Demo，里面包含了PullToRefresh这个Demo。</li>
+<li>[Laya] 适配最新引擎1.7.16。</li>
+<li>[Egret] 适配最新引擎5.1.5。</li>
+</ol>
+<h2 id="2018-1-4"><a href="#2018-1-4" class="headerlink" title="2018/1/4"></a>2018/1/4</h2><ol>
+<li>[All] 增加了对编辑器自定义数据的支持。</li>
+<li>[Egret/Laya] UIPackage.addPackage增加了一个可选参数，现在你可以直接传入描述文件数据。</li>
+<li>[Egret/Laya] 增加了对编辑器输出非压缩格式的支持。</li>
+<li>[Egret] 适配最新引擎5.1.2。</li>
+</ol>
+<h2 id="2017-12-15"><a href="#2017-12-15" class="headerlink" title="2017/12/15"></a>2017/12/15</h2><ol>
+<li>[Cocos2dx] Cocos2dx发布了1.1版本。</li>
+<li>[Cocos2dx] 修正了loadComponentChildren的bug。</li>
+<li>[Cocos2dx] 修正了析构函数没有加virtual修饰符的问题。</li>
+<li>[Cocos2dx] 修正了剪裁容器外面的元素也能响应点击的bug。</li>
+</ol>
+<h2 id="2017-11-28"><a href="#2017-11-28" class="headerlink" title="2017/11/28"></a>2017/11/28</h2><ol>
+<li>[All] GObject.visible修改了底层的实现方式，以前visible=false时是将原生对象移出显示列表的，现在改成不移出，仅仅是设置原生对象的visible=false。</li>
+<li>[Laya] 更新了例子，使用LayaAir 1.7.12。</li>
+<li>[Egret] 更新了例子，使用EgretEngine 5.0.13。</li>
+<li>[Laya] 修正了Base64编码的bug。（影响像素点击测试功能）</li>
+<li>[Cocos2dx] 正式版发布。</li>
+</ol>
+<h2 id="2017-9-24"><a href="#2017-9-24" class="headerlink" title="2017/9/24"></a>2017/9/24</h2><ol>
+<li>[All] 修正了虚拟列表滚动后丢失ITEM选中状态的问题。</li>
+<li>[All] 修正了滚动容器的一个bug，对于设置了贴近ITEM的滚动容器，当滚动时，如果点击停止，停止后没有回到贴近ITEM的正确位置。</li>
+<li>[Flash/Starling/Egret] 增加了MovieClip的平滑设置支持。</li>
+<li>[Egret] 修正了富文本点击链接触发两次的问题。</li>
+</ol>
+
+    
+    <div class="footer">
+      found mistake? Want to participate in editing?
+      <a href="https://github.com/fairygui/en.fairygui.io/tree/master/src/release_notes/sdk_release_notes.md" target="_blank">
+        Edit this page on Github!
+      </a>
+    </div>
+</div>
+
+                
+            </div>
+            <script src="/js/smooth-scroll.min.js"></script>
+        
+
+        <!-- main custom script for sidebars, version selects etc. -->        
+        <script src="/js/css.escape.js"></script>
+        <script src="/js/common.js"></script>
+    </body>
+</html>

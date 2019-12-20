@@ -4,11 +4,6 @@ type: guide_sdk
 order: 0
 ---
 
-## 关于LayaAir2.0
-现在已支持LayaAir2.0，要注意GitHub上master分支中的代码是支持LayaAir2.0的，分支layaair1.x才是支持LayaAir1.x的。这两个分支目前都保持维护状态，直到LayaAir2.0完全稳定。
-
-## TS/JS版本
-
 1. 将FairyGUI库以及依赖的rawinflate库拷贝到bin/libs目录。（如果你在编辑器发布时没有勾选`压缩描述文件`，那么这个库是不需要的）。
 
   ![](../../images/20170809155135.png)
@@ -17,11 +12,7 @@ order: 0
 
   ![](../../images/20170809155742.png)
 
-3. [LayaAir1.x版本]在index.html里添加上述两个库的引用，注意放置的位置。
-
-  ![](../../images/20170809160052.png)
-
-  **[LayaAir2.x版本]**在index.js里添加上述两个库的引用，注意放置的位置。
+3. 在bin/index.js里添加上述两个库的引用，注意放置的位置。
 
   ![](../../images/20181117114842.png)
 
@@ -34,43 +25,17 @@ order: 0
 5. 在程序启动时（或者在需要用到这些UI的适当地方）加载这两个文件，并完成初始化。
 
   ```csharp
-    // 程序入口
-    class GameMain {
-        constructor()
-        {
-            Laya.init(1136, 640, Laya.WebGL);
-            laya.utils.Stat.show(0, 0);
-            //设置适配模式
-            Laya.stage.scaleMode = "showall";
-            Laya.stage.alignH = "left";
-            Laya.stage.alignV = "top";
-            //设置横竖屏
-            Laya.stage.screenMode = "horizontal";
-            
-            Laya.loader.load([{ url: "res/Basic@atlas0.png", type: Loader.IMAGE },
-                { url: "res/Basic.fui", type: Loader.BUFFER }
-            ], Handler.create(this, this.onLoaded));
-        }
-       
-        onLoaded(): void {
-            Laya.stage.addChild(fairygui.GRoot.inst.displayObject);
-            
-            fairygui.UIPackage.addPackage("res/Basic");
-            fairygui.UIConfig.defaultFont = "宋体";
-            fairygui.UIConfig.verticalScrollBar = "ui://Basic/ScrollBar_VT";
-            fairygui.UIConfig.horizontalScrollBar = "ui://Basic/ScrollBar_HZ";
-            fairygui.UIConfig.popupMenu = "ui://Basic/PopupMenu";
-            fairygui.UIConfig.buttonSound = "ui://Basic/click";
-            
-            new MainPanel();
-        }
+    onLoaded(): void {
+        Laya.stage.addChild(fgui.GRoot.inst.displayObject);
+        
+        fgui.UIPackage.addPackage("res/Basic");
+        fgui.UIConfig.defaultFont = "宋体";
+        fgui.UIConfig.verticalScrollBar = "ui://Basic/ScrollBar_VT";
+        fgui.UIConfig.horizontalScrollBar = "ui://Basic/ScrollBar_HZ";
+        fgui.UIConfig.popupMenu = "ui://Basic/PopupMenu";
+        fgui.UIConfig.buttonSound = "ui://Basic/click";
     }
   ```
-
-## AS版本
-
-1. 从GITHUB中拉FairyGUI layabox SDK的源代码，放到你的源码工程里。
-2. 在index.html里加入rawinflate.min.js，注意要放在你的js前。（如果你在编辑器发布时没有勾选`压缩描述文件`，那么这个库是不需要的）。
 
 ## 小游戏开发必读
 

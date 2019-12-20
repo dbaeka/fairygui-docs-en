@@ -1,0 +1,382 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    
+        <title>FairyGUI - 导入和导出资源包</title>
+    
+        <meta charset="utf-8">
+        <meta name="description" content="FairyGUI Manual">
+        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Manual">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="-导入和导出资源包FairyGUI">
+        <meta property="og:description" content="FairyGUI Manual">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="导入和导出资源包 — FairyGUI">
+        <meta name="twitter:description" content="FairyGUI Manual">
+
+      <!--  <link href='//fonts.proxy.ustclug.org/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
+
+        <!-- main page styles -->
+        <link rel="stylesheet" href="/css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script src="/js/vue.min.js"></script>
+        <script>window.PAGE_TYPE = "guide_editor"</script>
+    </head>
+    <body class="docs">        <div id="mobile-bar"  data-bg-text="FairyGUI" >
+            <a class="menu-button"></a>
+        </div>
+        <div id="header">
+  <ul id="nav">
+    <li><a href="/guide/" class="nav-link current">FairyGUI Manual</a></li>
+<li><a href="/examples/" class="nav-link">Examples</a></li>
+<li><a href="/release_notes/" class="nav-link">Release Notes</a></li>
+  </ul>
+</div>
+
+        
+            <div id="main" class="fix-sidebar">
+                
+                    
+    <div class="sidebar">
+    <ul class="main-menu">
+        <li><a href="/guide/" class="nav-link current">FairyGUI Manual</a></li>
+<li><a href="/examples/" class="nav-link">Examples</a></li>
+<li><a href="/release_notes/" class="nav-link">Release Notes</a></li>
+    </ul>
+    <div class="list">
+        <ul class="menu-root">
+            
+
+	 			
+	                
+	                <li>
+	                    <a href="/guide/index.html" class="sidebar-link">介绍</a>
+	                </li>
+	            
+	
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">编辑器使用基础</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/project_settings.html" class="sidebar-link">项目设置</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/package.html" class="sidebar-link">包</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/branch.html" class="sidebar-link">分支</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/publish.html" class="sidebar-link">发布</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/object.html" class="sidebar-link">元件</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/image.html" class="sidebar-link">图片</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/movieclip.html" class="sidebar-link">动画</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/graph.html" class="sidebar-link">图形</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/loader.html" class="sidebar-link">装载器</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/text.html" class="sidebar-link">文本</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/richtext.html" class="sidebar-link">富文本</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/group.html" class="sidebar-link">组</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/component.html" class="sidebar-link">组件</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollpane.html" class="sidebar-link">滚动容器</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/controller.html" class="sidebar-link">控制器</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/relation.html" class="sidebar-link">关联系统</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/label.html" class="sidebar-link">标签</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/button.html" class="sidebar-link">按钮</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/combobox.html" class="sidebar-link">下拉框</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/progressbar.html" class="sidebar-link">进度条</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/slider.html" class="sidebar-link">滑动条</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollbar.html" class="sidebar-link">滚动条</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/list.html" class="sidebar-link">列表</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/tree.html" class="sidebar-link">树</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/popup.html" class="sidebar-link">Popup</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/dragdrop.html" class="sidebar-link">Drag&Drop</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/window.html" class="sidebar-link">窗口系统</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/transition.html" class="sidebar-link">动效</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/adaptation.html" class="sidebar-link">适配</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/i18n.html" class="sidebar-link">多国语言</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/export.html" class="sidebar-link current">导入和导出资源包</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/preference.html" class="sidebar-link">偏好设置</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/plugin.html" class="sidebar-link">插件</a>
+	                </li>
+	            
+	
+	            
+	                
+	                
+	                <li><h3>SDK</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/sdk/laya.html" class="sidebar-link">LayaAir</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/sdk/egret.html" class="sidebar-link">Egret</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/sdk/cocos2dx.html" class="sidebar-link">Cocos2dx</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/sdk/creator.html" class="sidebar-link">Cocos Creator</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/sdk/cryengine.html" class="sidebar-link">Cry Engine</a>
+	                </li>
+	            
+
+	            
+	                
+	                
+	                <li><h3>SDK - Unity</h3></li>
+	                
+	                <li>
+	                    <a href="/guide/unity/index.html" class="sidebar-link">显示UI面板</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/transform.html" class="sidebar-link">坐标系统</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/atlas.html" class="sidebar-link">纹理集的处理</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/font.html" class="sidebar-link">字体的处理</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/input.html" class="sidebar-link">输入处理</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/event.html" class="sidebar-link">事件机制</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/insert3d.html" class="sidebar-link">插入模型/粒子/Spine/Canvas</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/uipainter.html" class="sidebar-link">曲面UI</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall优化</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/lua.html" class="sidebar-link">在Lua中使用</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/special.html" class="sidebar-link">特色功能</a>
+	                </li>
+	            
+	                
+	                
+	                <li>
+	                    <a href="/guide/unity/faq.html" class="sidebar-link">常见问题</a>
+	                </li>
+	            
+
+            
+        </ul>
+    </div>
+</div>
+
+
+<div class="content guide_editor with-sidebar ">
+    
+      <h1>导入和导出资源包</h1>
+    
+    <p>可以将部分资源导出为一个资源包，也可以导入资源包。资源包可用于分享用途。</p>
+<h2 id="导出资源包"><a href="#导出资源包" class="headerlink" title="导出资源包"></a>导出资源包</h2><p>在资源库里选定一个或者多个资源，也可以选定文件夹或包，然后点击主菜单“资源-&gt;导出资源包”：</p>
+<p><img src="../../images/QQ20191210-140556.png" alt=""></p>
+<p>这里列出了选定的资源以及它（们）依赖的资源，点击导出，生成一个扩展名为<code>fairypackage</code>的文件。</p>
+<h2 id="导入资源包"><a href="#导入资源包" class="headerlink" title="导入资源包"></a>导入资源包</h2><p>点击主菜单“资源-&gt;导入资源”，然后按提示选择一个扩展名为<code>fairypackage</code>的文件。</p>
+<p><img src="../../images/QQ20191210-141156.png" alt=""></p>
+<p>选择导入的位置，然后点击导入，fairypackage里的资源导入得到指定的位置。</p>
+<h2 id="导入内置的资源包"><a href="#导入内置的资源包" class="headerlink" title="导入内置的资源包"></a>导入内置的资源包</h2><p>FairyGUI自带了几套皮肤，点击主菜单“资源-&gt;导入内置的资源包”，然后选择其中一个包导入即可。</p>
+
+    
+    <div class="footer">
+      found mistake? Want to participate in editing?
+      <a href="https://github.com/fairygui/en.fairygui.io/tree/master/src/guide/editor/export.md" target="_blank">
+        Edit this page on Github!
+      </a>
+    </div>
+</div>
+
+                
+            </div>
+            <script src="/js/smooth-scroll.min.js"></script>
+        
+
+        <!-- main custom script for sidebars, version selects etc. -->        
+        <script src="/js/css.escape.js"></script>
+        <script src="/js/common.js"></script>
+    </body>
+</html>

@@ -1,175 +1,170 @@
 ---
-title: Relation System
+title: 关联系统
 type: guide_editor
-order: 110
+order: 21
 ---
 
-The `Relation` system is the core technology for FairyGUI to achieve an automatic layout. The layout system provided by other UI frameworks generally only provide a variety of fixed layouts, or anchor points, which can only define the relationship between `Component`s and containers. The FairyGUI `Relation` can define the relationship between any two `Component`s, and the interaction is more varied.
+关联系统是FairyGUI实现自动布局的核心技术。其他UI框架提供的布局系统，一般只提供各种固定的layout，或者锚点，都只能定义元件与容器之间的关系。而FairyGUI的关联能够定义任意两个元件的关系，而且互动方式更多样。
 
-## Set Relation
+## 设置关联
 
-Select a `Component` and you can see that the associated `Relation` panel appears in the property bar on the right:
+选定一个元件，可以看到在右边的属性栏出现了关联面板：
 
-![](../../images/20170802232618.png)
+![](../../images/QQ20191211-171058.png)
 
-The `Relation`'s target can be any `Component` in the current container, or the container *itself* being edited (called a "container-component").
-如果要设置的目标是容器组件，则点击![](../../images/20170802232707.png)You can complete the setup quickly. If it is another component, click “Click Settings” to enter the interface of selecting the target component. At this time, we can select the target object from the editing area on the left. If you click on the blank space of the Stage, select `Is The Container Component`. When the selection is complete, click “Finish” to complete the setup.
+关联的目标可以是当前容器中的任意一个元件，也可以是正在编辑的容器本身（称为容器组件）。
+如果要设置的目标是容器组件，则点击“容器”下面的下拉框就能快速完成设置；如果是其他元件，则点击“对其他元件”就可以进入到选择目标元件的界面，这时我们就可以从左边的编辑区域选择目标对象，选择结束后，点击“完成”完成设置。
 
-![](../../images/20170802232841.png)
+![](../../images/QQ20191211-171302.png)
 
-Once the target object is set up, you can set up your own relationship with the target. There are two drop-down lists for this selection. The left and right drop-down lists are the same function. You can set one or two `Relation`s for each target (if the two are not enough, continue to select this target in the associated sub-panel below). FairyGUI supports setting any number of associated targets.
+目标对象设置好后，就可以设置自己和目标的关联关系。
 
-![](../../images/20170802232935.png)
+关联关系的类型有：（为论述方便，这里假设自己是A，目标元件是T）
 
-The types of `Relation`s are: (for the convenience of discussion, assume that you are `A` and the target component is `T`)
+- `左->左` 假设原来T和A的左侧距离是X，当T的左侧位置变化时，保持T和A的左侧距离为X。注意：与容器组件关联左->左是没有意义的，因为元件在容器中，而容器组件的位置变化是整个容器的移动，并不会影响容器内部所有元件的坐标。
 
-- `左->左` Suppose that the left distance of the original `T` and `A` is X, and when the left position of `T` changes, the left distance of `T` and `A` is kept X. Note: Giving the container-component a `Left->Left` `Relation` is meaningless because the component is *in* the container, and the change in position of the container-component is the movement of the entire container and doesn't affect the coordinates of all components inside the container.
+- `左->中` 假设原来T的中心点和A的左侧距离是X，当T的中心点发生位移时，保持T的中心点和A的左侧距离为X。这里T的中心点发生位移有两种情况，一是T发生位移，二是T的宽度增大。
 
-- `左->中` Suppose that the distance between the center point of the original `T` and the left side of `A` is X. When the center point of `T` is displaced, the distance between the center point of `T` and the left side of `A` is X. Here, there are two cases in which the center point of `T` is displaced. One is that `T` is displaced, and the other is that the width of `T` is increased.
+  举例说明，下面的文本是自动增大的，图标与文本建立了一个左->中的关联，所以当文字变化时，图标保持在了文本的中心：
 
-For example, the text below is automatically incremented, and the icon establishes a left->in `Relation` with the text, so when the text changes, the icon remains at the center of the text:
+  ![](../../images/20170802000000.jpg)
 
-![](../../images/20170802000000.jpg)
+  注意：关联只有在目标的位置或大小发生变化时才起作用。比如上例，设置图标关联文本的左->中，并不意味着就是居中，图标的初始位置是要自己设置的。这是初学者比较容易犯的错误。再强调一下，它只是保持T的中心点和A的左侧距离。那么看下面这个示范：
 
-Note: `Relation`s only work if the location or size of the target changes. For example, in the above example, setting the `Left->Middle` Relation for the icon's text doesn't mean that it's centered. The initial position of the icon is set by itself. This is a mistake that beginners are more likely to make. Again, it just keeps the center point of T and the left side of A. Then look at the demonstration below:
+  ![](../../images/20170802000001.jpg)
 
-![](../../images/20170802000001.jpg)
+  依然是建立的左->中关联，这次我们把图标往左挪动了一点，可以看到，文本长度发生变化后，图标的位置与文本中线的位置保持不变。
 
-依然是建立的左->中关联，这次我们把图标往左挪动了一点，可以看到，文本长度发生变化后，图标的位置与文本中线的位置保持不变。
+- `左->右` 假设原来T的右侧和A的左侧距离是X，当T的右侧发生位移时，保持T的右侧和A的左侧距离为X。这里T的右侧发生位移有两种情况，一是T发生位移，二是T的宽度增大。咋一看，似乎和左->中没有区别，但在复杂的应用场景中，左->右有发挥作用的空间。举例说明：
 
-- `左->右` It's assumed that the distance between the right side of the original T and the left side of A is X, and when the right side of T is displaced, the distance between the right side of T and the left side of A is X. Here, there are two cases of displacement on the right side of T. One is that T is displaced, and the other is that the width of T is increased. At first glance, it seems that there's no difference with `Left->`, but in complex application scenarios, `Left->Right` has a functioning space. For example:
+  ![](../../images/20170802000002.jpg)
 
-![](../../images/20170802000002.jpg)
+  这里有一个左右居中的关联，下面会说明，暂且不表。置可以看到，在文本内容发生变化时，文本的中线位置没有发生变化，位所以问号图标的置不变；但文本的右侧位发生了变化，所以叹号图标随之发生了移动，保持了与文本右侧的距离。
 
-There is a left-and-right-centered `Relation` here, as explained below, not for the time being. As we can see, when the text content changes, the position of the text's center line doesn't change, so the question-mark icon's position remains unchanged; but the right bit of the text changes, so the exclamation mark icon moves and remains. The distance from the right side of the text.
+- `左右居中` 假设原来T的中心和A的中心距离是X，当T的中心发生位移时，保持T的中心和A的中心距离为X。这里T的中心发生位移有两种情况，一是T发生位移，二是T的宽度增大。举例说明：
 
-- `左右居中` 假设原来T的中心和A的中心距离是X，当T的中心发生位移时，保持T的中心和A的中心距离为X。这里T的中心发生位移有两种情况，一是T发生位移，二是T的宽度增大。举例说明:
+  ![](../../images/20170802000003.jpg)
 
-![](../../images/20170802000003.jpg)
+  文本建立了一个与容器组件的左右居中关联，可以看到，当组件变宽时，文本依然保持了中间的位置。这里再提醒一次，左右居中关联并不等同与居中，文本可以放置在任何位置。关联只是保证中线距离一直不变。
 
-The text establishes a left-right centering `Relation` with the container-component. As you can see, the text remains in the middle when the component is widened. Again, the left-and-right-centered `Relation`s are not equivalent to centering, and the text can be placed anywhere. The `Relation` is only to ensure that the midline distance remains the same.
+- `右->左` 假设原来T的左侧和A的右侧距离是X，当T的左侧发生位移时，保持T的左侧和A的右侧距离为X。”右“系列的关联还有一个特点，就是如果A的宽度发生改变时，A也会自动移动以保持X不变。举例说明：
 
-- `右->左` It's assumed that the distance between the left side of the original `T` and the right side of `A` is X, and when the displacement of the left side of `T` occurs, the distance between the left side of `T` and the right side of `A` is X. Another feature of the "right" series is that if `A`'s width changes, `A` will automatically move to keep X unchanged. For example:
+  ![](../../images/20170802000004.jpg)
 
-![](../../images/20170802000004.jpg)
-
-The text here establishes a `Right->Left` `Relation` with the question-mark icon. When the text's content changes, the text's width changes. Normally, the width should change to the right after the width changes, but in order to keep the text right the distance between the side and the left side of the question mark doesn't change, and the text automatically extends to the left. Tip: In this case, the text and the container-component establishes a `Right->Left` `Relation` with the same effect.
+  这里文本建立了一个与问号图标的右->左关联，当文本内容发生变化时，文本的宽度发生了变化，正常来说，宽度发生变化后文本应该向右侧伸展，但为了保持文本的右侧与问号左侧距离不变，文本自动向左延伸，提示：本例中文本与容器组件建立一个右->左关联也是同样效果的。
 
 - `右->中` 假设原来T的中心和A的右侧距离是X，当T的中心发生位移时，保持T的中心和A的右侧距离为X。
 
 - `右->右` 假设原来T的右侧和A的右侧距离是X，当T的右侧发生位移时，保持T的右侧和A的右侧距离为X。
 
-- `左延展->左` 假设T的左侧和A的左侧的距离是X，当T的左侧发生位移时，A的左侧会发生移动，但保持A的右侧不变，也就是A产生一个延展（宽度变化）的效果。举例说明:
+- `左延展->左` 假设T的左侧和A的左侧的距离是X，当T的左侧发生位移时，A的左侧会发生移动，但保持A的右侧不变，也就是A产生一个延展（宽度变化）的效果。举例说明：
 
-![](../../images/20170802233918.png)
+  ![](../../images/20170802233918.png)
 
-The green square establishes a `Left Extension->Left``Relation` with the white square.
+  绿色方块建立了一个与白色方块左延展->左的关联。
 
-![](../../images/gaollg20.gif)
+  ![](../../images/gaollg20.gif)
 
-When the white square moves to the left, the left side of the green square follows the white square, but the right side of the green square remains motionless. The effect is that the green square is elongated.
+  当白色方块向左移动时，绿色方块的左侧跟随白色方块移动，但绿色方块的右侧保持不动，效果就是绿色方块被拉长了。
 
 - `左延展->右` 假设T的右侧和A的左侧的距离是X，当T的右侧发生位移时，A的左侧会发生移动，但保持A的右侧不变，也就是A产生一个延展（宽度变化）的效果。
 
 - `右延展->左` 假设T的左侧和A的右侧的距离是X，当T的左侧发生位移时，A的右侧会发生移动，但保持A的左侧不变，也就是A产生一个延展（宽度变化）的效果。
 
-- `右延展->右` 假设T的右侧和A的右侧的距离是X，当T的右侧发生位移时，A的右侧会发生移动，但保持A的左侧不变，也就是A产生一个延展（宽度变化）的效果。右延展->右一般也用来做容器的自动扩展。举例说明:
+- `右延展->右` 假设T的右侧和A的右侧的距离是X，当T的右侧发生位移时，A的右侧会发生移动，但保持A的左侧不变，也就是A产生一个延展（宽度变化）的效果。右延展->右一般也用来做容器的自动扩展。举例说明：
 
-![](../../images/20170802234354.png)
+  ![](../../images/20170802234354.png)
 
-Here the container-component sets a right extension to the text -> right `Relation` (the way to set the container-component's `Relation` is to click in the blank space of the editor area. That is, do not select any components, and the container-component's associated settings will appear on the right side) , which means that as the text expands, the container-component's width increases.
+  这里容器组件设置了一个对文本的右延展->右关联（设置容器组件的关联的方法是点击编辑器区域的空白处，也就是不要选中任何元件，右侧就会出现容器组件的关联设置），这表示当文本扩展时，容器组件的宽度随之增大。
 
-![](../../images/20170802234450.png)
+  ![](../../images/20170802234450.png)
 
-When the container-component establishes a `Relation` to the right extension of the text, the container-component's width is determined by the text's width. So when this component is dragged to other places, its width cannot be changed manually. Pulling small or directly inputting the width has no effect.
+  当容器组件建立了对文本右延展的关联后，容器组件的宽度就由文本的宽度决定了。所以当这个组件被拖到其他地方使用时，它的宽度就无法手工改变了，拉大拉小或者直接输入宽度都没有作用。
 
-- `宽->宽`
-Assuming that the difference between the `T`'s width and `A`'s width is X, when the width of `T` changes, the width of `A` changes the same. For example:
+- `宽->宽` 假设T的宽度和A的宽度的差是X，当T的宽度发生变化时，A的宽度发生相同的变化。举例说明：
 
-![](../../images/20170802234604.png)
+  ![](../../images/20170802234604.png)
 
-The background image establishes a `Width->Width` `Relation` with the container-component.
+  背景图片与容器组件建立了宽->宽关联。
 
-![](../../images/20170802234450.png)
+  ![](../../images/20170802234450.png)
 
-Now that we have taken the finished component out, we can see that when the component is stretched, the icon gets wider. If we don't set the `Relation`, the effect is this:
+  现在我们把制作好的组件拿出来使用，可以看到，当组件被拉宽时，图标的宽度也随之被拉宽。如果我们没有设置关联，那么效果是这样的：
 
-![](../../images/20170802234710.png)
+  ![](../../images/20170802234710.png)
 
-- `顶->顶` `顶->中` `顶->底` `上下居中` `底->顶` `底->中` `底->底` `顶延展->顶` `顶延展->底` `底延展->顶` `底延展->底` `高->高` The setting methods and characteristics of these `Relation`s are the same as those described above, but only from the horizontal to the vertical, and will not be described here.
+- `顶->顶` `顶->中` `顶->底` `上下居中` `底->顶` `底->中` `底->底` `顶延展->顶` `顶延展->底` `底延展->顶` `底延展->底` `高->高` 这些关联的设置方法和特性都和上述的关联相同，只是从横向变成纵向而已，在此不再赘述。
 
-- `使用百分比` As can be seen from the above discussion, the `Relation` is always maintaining a set distance, which is the absolute distance, which is the distance of the pixel. Sometimes we need a proportional distance. FairyGUI provides such a feature that you can use proportional distance when setting up `Relation`s. For example:
+从上面的论述可以看到，关联总是在保持设定好的距离，这个距离是绝对距离，是像素的距离。有时候我们需要的是成比例的距离。FairyGUI提供了这样一个功能，在设置关联时，可以使用比例距离。只需要勾选关联关系旁边的“%”即可。
 
-![](../../images/20170802235057.png)
+百分比关系的功能举例说明：
 
-The smiley icon adds a `Left->Medium` `Relation` to the container-component and checks `Use Percentage`. The container-component's width is 200 pixels, and the smiley icon's x coordinate is now 50 pixels. That is to say, the question-mark icon is at the 1/4 position of the container assembly, and the center distance from the container assembly is also 1/4 of the width.
+  ![](../../images/QQ20191212-204945.png)
 
-![](../../images/20170802235256.png)
+  笑脸图标增加了一个到容器组件的“左->中”关联，并勾选”使用百分比“。容器组件的宽度是200像素，现在笑脸图标的x坐标是50像素。也就是说，笑脸图标在容器组件的1/4位置，与容器组件的中心距离也是1/4的宽度。
 
-Now drag the designed-component out, the upper width is 200 pixels, and the component's width is extended to 400 pixels. As we can see, the smiley icon has been displaced according to the `Relation` rule in `Left->`, which is now at 100 pixels and still maintains a width of 1/4 of the center of the container assembly.
+  现在把设计好的组件拖出来使用，并且把组件的宽度拉长为400像素。可以看到，笑脸图标依照左->中的关联规则发生了位移，它现在所在的位置是100像素，仍然保持了与容器组件中心距离1/4的宽度。
 
-Now let's compare the results of not using "Use Percentage". At the original size of 200 pixels, the position of the question-mark icon at the center of the container assembly is 50 pixels. When the (below) component's width increases, the question-mark icon's position and the center of the container-component is still 50 pixels.
-
-![](../../images/20170802235356.png)
+  ![](../../images/QQ20191212-205136.png)
 
 ## Relation
 
-In addition to setting the `Relation` in the editor, sometimes we also need to dynamically add `Relation`s; For example, in an onboarding component (something that's dynamically added to the Stage). When you want the Stage width to change (such as the browser window being dragged by the player), the component remains in the rightmost position:
+除了在编辑器设置关联外，有时候我们也需要动态添加关联。例如在一款页游中，一个动态添加到舞台的组件，希望舞台宽度改变时（比如浏览器窗口被玩家拖大拖小），组件依然保持在右侧位置，那么可以这样调用：
 
 ```csharp
     aObject.AddRelation(GRoot.inst, RelationType.Right_Right);
 ```
 
-Another example: a component that's dynamically added to the Stage always maintains a fullscreen size and can be called like this:
+又例如，一个动态添加到舞台的组件始终保持满屏大小，可以这样调用
 
 ```csharp
     aObject.SetSize(GRoot.inst.width, GRoot.inst.height);
     aObject.AddRelation(GRoot.inst, RelationType.Size);
 ```
 
-`RelationType.Size` is equivalent to a combination of `RelationType.Width_Width` and `RelationType.Height_Height`. It's emphasized here that the operation of making the component fullscreen size must be done by you, which is called `SetSize` in the above code. `Relation` doesn't accomplish this task, because the `Relation` is regardless of the component's current size, it only keeps the difference between the two when the target changes.
+RelationType.Size相当于RelationType.Width_Width和RelationType.Height_Height的组合。这里强调一下，使组件变为满屏大小这个操作必须由你完成，也就是上面代码中的SetSize调用。关联并不能完成这项任务，因为关联是不管元件当前的大小的，它只会在目标变化时保持两者大小的差别。
 
-The way to remove the `Relation` is:
+删除关联的方法是：
 
 ```csharp
-    // Remove a relation
+    //删除某个关联
     aObject.RemoveRelation(targetObject, RelationType.Size);
 
-    // Remove all relations for an Object
+    //删除指向某个对象的所有关联
     aObject.relations.ClearFor(targetObject);
 ```
 
-## Instance Resolution
+## 实例解析
 
-**Example 1**
+**实例一**
 
-This is the main interface of the game. The main interface usually needs to be resized to the fullscreen when it's actually displayed. This requires the design to take into account the change in interface size. The following figure shows the requirements for the layout of individual components in the main interface:
+这是一个游戏的主界面，主界面在实际显示时通常需要调整大小到满屏，这就要求设计时考虑到界面大小会变化的情况。下图是主界面中各个单独部件布局的要求：
 
 ![](../../images/2016-01-11_164517.jpg)
 
-A: Associated with the container component "centered left and right"
-B: Associate with container component `Right->Right`
-C: and container component `Right->Righ`, `Bottom->Bottom` association
-D: and container component `Bottom->Bottom`, "left and right centered %" association
-E: Associated with the container component `Bottom->Bottom`
+A：和容器组件“左右居中“关联
+B：和容器组件”右->右”关联
+C：和容器组件“右->右”，”底->底“关联
+D：和容器组件”底->底”，“左右居中%”关联
+E：和容器组件“底->底”关联
 
-Then set this interface to fullscreen at runtime:
+然后运行时把这个界面设置为满屏就可以了。
 
 ```csharp
     aComponent.SetSize(GRoot.inst.width, GRoot.inst.height);
-    // It remains fullscreen when the screen changes. If the screen size is always the same, this statement can also be ignored.
+    //当屏幕改变时仍然保持全屏。如果屏幕大小始终不变，则这句也可以忽略
     aComoponet.AddRelation(GRoot.inst, RelationType.Size);
 ```
 
-**Example 2**
+**实例二**
 
-This is a game's NPC information interface. The NPC's intro text is dynamic, and automatic height text is used here. The link below is a list. The request list is automatically moved up or down when the text content changes. We only need to create a "Top->Bottom" `Relation` of the list to the text.
+这是一个游戏的NPC信息界面，NPC的介绍文本是动态的，这里使用了自动高度的文本。下面的链接是一个列表。要求列表在文本内容变化时，自动上移或下移。我们只需要将列表“顶->底”关联到文即可。
 
 ![](../../images/2016-01-10_105206.jpg)
 
-**Example 3**
+**实例三**
 
-This is a currency counter. It requires the currency icon and text to remain centered as the quantity changes.
+这是一个游戏中金钱数量的显示，要求当数量变化时，货币图标和文本保持居中。
 
 ![](../../images/2015-12-21_170726.png)
 
@@ -177,7 +172,7 @@ This is a currency counter. It requires the currency icon and text to remain cen
 
 ![](../../images/2015-12-21_172639.png)
 
-First, the text needs to be set to automatic width and height so that when the number changes, the text automatically grows.
-The `Relation`s used are:
-Text: Left-and-right-centered to the container-component
-Icon: `Left->Left` `Relation` to text
+首先，文本需要设置为自动宽度和高度，这样数量变化时，文本自动会增长。
+用到的关联有：
+文本：左右居中关联到容器组件
+图标：左->左关联到文本

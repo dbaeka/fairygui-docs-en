@@ -3,24 +3,23 @@
 <html lang="en">
     <head>
     
-        <title>FairyGUI - ScrollPane</title>
+        <title>FairyGUI - 滚动容器</title>
     
         <meta charset="utf-8">
-        <meta name="description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
-        <meta name="keywords" content="FairyGUI,FGUI,UI Editor,Unity GUI,Pixi GUI,Haxe GUI,Starling GUI,CryEngine UI,Havok Vision,Project Anarchy,C++ UI,MonoGame UI,Cocos Creator,Corona">
+        <meta name="description" content="FairyGUI Manual">
+        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Manual">
         
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="ScrollPane — FairyGUI">
-        <meta property="og:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+        <meta property="og:title" content="-滚动容器FairyGUI">
+        <meta property="og:description" content="FairyGUI Manual">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="ScrollPane — FairyGUI">
-        <meta name="twitter:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+        <meta name="twitter:title" content="滚动容器 — FairyGUI">
+        <meta name="twitter:description" content="FairyGUI Manual">
 
-
-        <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'>
+      <!--  <link href='//fonts.proxy.ustclug.org/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
 
         <!-- main page styles -->
         <link rel="stylesheet" href="/css/page.css">
@@ -31,28 +30,12 @@
     </head>
     <body class="docs">        <div id="mobile-bar"  data-bg-text="FairyGUI" >
             <a class="menu-button"></a>
-            <a class="logo" href="https://github.com/fairygui/FairyGUI-unity"></a>
         </div>
-        <div id="bg"> <!--end tag in the `index.ejs`-->
-
-<div id="header">
-  <a id="logo" href="https://github.com/fairygui/">
-    <img src="/images/github-white.png">
-  </a>
+        <div id="header">
   <ul id="nav">
-    
-
-	<li><a href="/" class="nav-link">Home</a></li>
-
-<li><a href="/product/" class="nav-link">Product</a></li>
-<li><a href="/service/" class="nav-link">Service</a></li>
-<li><a href="/guide/" class="nav-link current">Tutorials</a></li>
-<li><a href="http://www.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
-<li><a href="/examples/" class="nav-link">Demo</a></li>
-<li><a href="/showcase/" class="nav-link">Showcase</a></li>
-<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">Q&A</a></li>
-<li><a href="/about/" class="nav-link">About</a></li>
-<li><a href="http://www.fairygui.com/" target="_self"  class="nav-link">中文</a><a class="nav-link"> / English</a></li>
+    <li><a href="/guide/" class="nav-link current">FairyGUI Manual</a></li>
+<li><a href="/examples/" class="nav-link">Examples</a></li>
+<li><a href="/release_notes/" class="nav-link">Release Notes</a></li>
   </ul>
 </div>
 
@@ -62,147 +45,145 @@
                     
     <div class="sidebar">
     <ul class="main-menu">
-        
-
-	<li><a href="/" class="nav-link">Home</a></li>
-
-<li><a href="/product/" class="nav-link">Product</a></li>
-<li><a href="/service/" class="nav-link">Service</a></li>
-<li><a href="/guide/" class="nav-link current">Tutorials</a></li>
-<li><a href="http://www.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
-<li><a href="/examples/" class="nav-link">Demo</a></li>
-<li><a href="/showcase/" class="nav-link">Showcase</a></li>
-<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">Q&A</a></li>
-<li><a href="/about/" class="nav-link">About</a></li>
-<li><a href="http://www.fairygui.com/" target="_self"  class="nav-link">中文</a><a class="nav-link"> / English</a></li>
+        <li><a href="/guide/" class="nav-link current">FairyGUI Manual</a></li>
+<li><a href="/examples/" class="nav-link">Examples</a></li>
+<li><a href="/release_notes/" class="nav-link">Release Notes</a></li>
     </ul>
     <div class="list">
-		<a class="become-backer" href="/about/donate.html">
-            Donate
-        </a>
-        <h2>
-            Guide
-            <!--<select class="version-select">
-                <option value="SELF" selected>editor</option>
-            </select>-->
- 		 
-		  
-		
-        </h2>
         <ul class="menu-root">
             
 
 	 			
 	                
 	                <li>
-	                    <a href="/guide/index.html" class="sidebar-link">Introduction</a>
+	                    <a href="/guide/index.html" class="sidebar-link">介绍</a>
 	                </li>
 	            
 	
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/index.html" class="sidebar-link">Editor Start</a>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">编辑器使用基础</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/object.html" class="sidebar-link">Object</a>
+	                    <a href="/guide/editor/project_settings.html" class="sidebar-link">项目设置</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/image.html" class="sidebar-link">Image</a>
+	                    <a href="/guide/editor/package.html" class="sidebar-link">包</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/movieclip.html" class="sidebar-link">MovieClip</a>
+	                    <a href="/guide/editor/branch.html" class="sidebar-link">分支</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/graph.html" class="sidebar-link">Graph</a>
+	                    <a href="/guide/editor/publish.html" class="sidebar-link">发布</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/loader.html" class="sidebar-link">Loader</a>
+	                    <a href="/guide/editor/object.html" class="sidebar-link">元件</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/text.html" class="sidebar-link">Text</a>
+	                    <a href="/guide/editor/image.html" class="sidebar-link">图片</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/richtext.html" class="sidebar-link">RichText</a>
+	                    <a href="/guide/editor/movieclip.html" class="sidebar-link">动画</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/group.html" class="sidebar-link">Group</a>
+	                    <a href="/guide/editor/graph.html" class="sidebar-link">图形</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/component.html" class="sidebar-link">Component</a>
+	                    <a href="/guide/editor/loader.html" class="sidebar-link">装载器</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/scrollpane.html" class="sidebar-link current">ScrollPane</a>
+	                    <a href="/guide/editor/text.html" class="sidebar-link">文本</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/controller.html" class="sidebar-link">Controller</a>
+	                    <a href="/guide/editor/richtext.html" class="sidebar-link">富文本</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/relation.html" class="sidebar-link">Relation System</a>
+	                    <a href="/guide/editor/group.html" class="sidebar-link">组</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/label.html" class="sidebar-link">Label</a>
+	                    <a href="/guide/editor/component.html" class="sidebar-link">组件</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/button.html" class="sidebar-link">Button</a>
+	                    <a href="/guide/editor/scrollpane.html" class="sidebar-link current">滚动容器</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/combobox.html" class="sidebar-link">ComboBox</a>
+	                    <a href="/guide/editor/controller.html" class="sidebar-link">控制器</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/progressbar.html" class="sidebar-link">ProgressBar</a>
+	                    <a href="/guide/editor/relation.html" class="sidebar-link">关联系统</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/slider.html" class="sidebar-link">Slider</a>
+	                    <a href="/guide/editor/label.html" class="sidebar-link">标签</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/scrollbar.html" class="sidebar-link">ScrollBar</a>
+	                    <a href="/guide/editor/button.html" class="sidebar-link">按钮</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/list.html" class="sidebar-link">List</a>
+	                    <a href="/guide/editor/combobox.html" class="sidebar-link">下拉框</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/window.html" class="sidebar-link">Window</a>
+	                    <a href="/guide/editor/progressbar.html" class="sidebar-link">进度条</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/slider.html" class="sidebar-link">滑动条</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollbar.html" class="sidebar-link">滚动条</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/list.html" class="sidebar-link">列表</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/tree.html" class="sidebar-link">树</a>
 	                </li>
 	            
 	                
@@ -217,17 +198,37 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/transition.html" class="sidebar-link">Transition</a>
+	                    <a href="/guide/editor/window.html" class="sidebar-link">窗口系统</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/adaptation.html" class="sidebar-link">Adaptation</a>
+	                    <a href="/guide/editor/transition.html" class="sidebar-link">动效</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/upgrade_binary_format.html" class="sidebar-link">Binary Package Format</a>
+	                    <a href="/guide/editor/adaptation.html" class="sidebar-link">适配</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/i18n.html" class="sidebar-link">多国语言</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/export.html" class="sidebar-link">导入和导出资源包</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/preference.html" class="sidebar-link">偏好设置</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/plugin.html" class="sidebar-link">插件</a>
 	                </li>
 	            
 	
@@ -271,73 +272,73 @@
 	                <li><h3>SDK - Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/unity/index.html" class="sidebar-link">Unity Start</a>
+	                    <a href="/guide/unity/index.html" class="sidebar-link">显示UI面板</a>
 	                </li>
 	            
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/transform.html" class="sidebar-link">Unity Coordinate</a>
+	                    <a href="/guide/unity/transform.html" class="sidebar-link">坐标系统</a>
 	                </li>
 	            
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/atlas.html" class="sidebar-link">Atlas</a>
+	                    <a href="/guide/unity/atlas.html" class="sidebar-link">纹理集的处理</a>
 	                </li>
 	            
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/font.html" class="sidebar-link">Font Handling</a>
+	                    <a href="/guide/unity/font.html" class="sidebar-link">字体的处理</a>
 	                </li>
 	            
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/input.html" class="sidebar-link">Input processing</a>
+	                    <a href="/guide/unity/input.html" class="sidebar-link">输入处理</a>
 	                </li>
 	            
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/event.html" class="sidebar-link">Event System</a>
+	                    <a href="/guide/unity/event.html" class="sidebar-link">事件机制</a>
 	                </li>
 	            
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/insert3d.html" class="sidebar-link">Interspersed with 3D objects</a>
+	                    <a href="/guide/unity/insert3d.html" class="sidebar-link">插入模型/粒子/Spine/Canvas</a>
 	                </li>
 	            
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/uipainter.html" class="sidebar-link">Curved UI</a>
+	                    <a href="/guide/unity/uipainter.html" class="sidebar-link">曲面UI</a>
 	                </li>
 	            
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall Optimization</a>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall优化</a>
 	                </li>
 	            
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/lua.html" class="sidebar-link">Used in Lua</a>
+	                    <a href="/guide/unity/lua.html" class="sidebar-link">在Lua中使用</a>
 	                </li>
 	            
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/special.html" class="sidebar-link">Unity Features</a>
+	                    <a href="/guide/unity/special.html" class="sidebar-link">特色功能</a>
 	                </li>
 	            
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/faq.html" class="sidebar-link">Unity FAQ</a>
+	                    <a href="/guide/unity/faq.html" class="sidebar-link">常见问题</a>
 	                </li>
 	            
 
@@ -349,33 +350,30 @@
 
 <div class="content guide_editor with-sidebar ">
     
-      <h1>ScrollPane</h1>
+      <h1>滚动容器</h1>
     
-    <h2 id="滚动属性"><a href="#滚动属性" class="headerlink" title="滚动属性"></a>滚动属性</h2><p>对组件或者列表设置了“溢出处理”为“水平滚动”、“垂直滚动”，“自由滚动”后，组件或者列表即成为滚动容器。点击“溢出处理”旁边的<img src="../../images/20170801144514.png" alt="">按钮，可以设置详细的滚动的相关属性。</p>
-<p><img src="../../images/20170802112058.png" alt=""></p>
+    <h2 id="滚动属性"><a href="#滚动属性" class="headerlink" title="滚动属性"></a>滚动属性</h2><p>对组件或者列表设置了“溢出处理”为“水平滚动”、“垂直滚动”，“自由滚动”后，组件或者列表即成为滚动容器。点击“溢出处理”旁边的<img src="../../images/QQ20191211-161858.png" alt="">按钮，可以设置详细的滚动的相关属性。</p>
+<p><img src="../../images/QQ20191211-182032.png" alt=""></p>
 <ul>
-<li><p><code>滚动条显示</code> 滚动条的显示策略。 </p>
+<li><p><code>滚动条显示</code> 滚动条的显示策略。</p>
 <ul>
-<li><code>默认</code> 使用全局设置，在主菜单“文件”-&gt;“项目属性”-&gt;“预览设置”里设置。</li>
+<li><code>默认</code> 使用全局设置，编辑器在主菜单“文件-&gt;项目属性-&gt;预览设置”里设置，运行时则需要通过<code>UIConfig.defaultScrollBarDisplay</code>设置。</li>
 <li><code>可见</code> 表示滚动条一直显示。</li>
-<li><code>滚动时显示</code> 表示滚动条只有在滚动时才会显示，其他情况下自动隐藏。</li>
+<li><code>滚动时显示</code> 表示滚动条只有在滚动时才会显示，或者鼠标移入滚动区域时显示（PC上），其他情况下自动隐藏。</li>
 <li><code>隐藏</code> 表示滚动条一直不可见的状态。</li>
 </ul>
 </li>
-<li><p><code>边缘回弹效果</code> 滚动到达边缘时是否允许继续滑动/拖动一定距离，表现一个回弹的效果。一般在移动平台上使用，PC上较少。有些开发者会提出为什么我的滚动容器里内容没超出视口，却依然能滚动，这其实是边缘回弹效果。</p>
+<li><p><code>边缘回弹效果</code> 滚动到达边缘时是否允许继续滑动/拖动一定距离，表现一个回弹的效果。一般在移动平台上使用，PC上较少。<strong>有些开发者会提出为什么我的滚动容器里内容没超出视口，却依然能滚动，这其实是边缘回弹效果。</strong></p>
 </li>
 <li><p><code>触摸滚动效果</code> 是否允许用户直接拖拽滚动区域内的内容。一般在移动平台上使用，PC上较少，PC上一般需要拖动滚动条，或使用鼠标滚轮。</p>
 </li>
-<li><p><code>滚动条组件</code> 设置滚动条资源。一般不需要设置，全局有一个设置，在主菜单“文件”-&gt;“项目属性”-&gt;“预览设置”里。如果你要使用不同于全局设置的滚动条资源，那么在这里设置。</p>
+<li><p><code>滚动条组件</code> 设置滚动条资源。一般不需要设置，全局有一个设置，在主菜单“文件-&gt;项目属性-&gt;默认值”里。如果你要使用不同于全局设置的滚动条资源，那么在这里设置。</p>
 </li>
 <li><p><code>定位</code> 可以设置滚动条在容器中的位置，这是一个相对于正常位置的偏移值。</p>
 </li>
 <li><p><code>下拉/上拉刷新组件</code> 设置上拉刷新或下拉刷新时需要显示的组件。下面是下拉刷新的效果：</p>
+<p><img src="../../images/gaollg12.gif" alt=""></p>
 </li>
-</ul>
-<center><br><img src="../../images/gaollg12.gif" alt=""><br></center>
-
-<ul>
 <li><p><code>将垂直滚动条显示在左边</code> 设置垂直滚动条显示在容器的左边，而不是在容器的右边。</p>
 </li>
 <li><p><code>仅在内容溢出时才显示滚动条</code> 只有当容器内的内容超出视口区域时，才显示滚动条，否则隐藏。注意：即使是不显示，滚动条还是有预留的占位的，这个和“滚动条显示”设置为“隐藏”不相同，后者是完全取消滚动条的占位的。</p>
@@ -388,8 +386,10 @@
 </li>
 <li><p><code>禁用剪裁</code> 一般情况下，容器会对超出视口的内容进行剪裁。特殊情况下，例如，如果一个列表的item组件自身就是滚动容器，那么item组件可以关闭剪裁。因为大量的剪裁会消耗很多的系统性能。</p>
 </li>
+<li><p><code>浮动显示</code> 勾选后，滚动条不占据视口的位置，而是直接覆盖在视口上面。例如一个适用于手机的滚动条，它是细条且半透明的，只在滚动时才显示出来，用于提示滚动位置。那么我们把它设置为“浮动”，这样就不会挤占视口的显示空间。</p>
+</li>
 </ul>
-<h2 id="ScrollPane"><a href="#ScrollPane" class="headerlink" title="ScrollPane"></a>ScrollPane</h2><p>当组件的“溢出处理”设置为“滚动”后，可以通过GComponent.scrollPane使用滚动相关的功能，例如：</p>
+<h2 id="ScrollPane"><a href="#ScrollPane" class="headerlink" title="ScrollPane"></a>ScrollPane</h2><p>当组件的“溢出处理”设置为“滚动”后，可以通过<code>GComponent.scrollPane</code>使用滚动相关的功能，例如：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">ScrollPane scrollPane =  aComponent.scrollPane;</div><div class="line"><span class="comment">//设置滚动位置为100像素</span></div><div class="line">scrollPane.posX = <span class="number">100</span>;</div><div class="line"></div><div class="line"><span class="comment">//滚动到中间位置，带动画过程</span></div><div class="line">scrollPane.SetPercX(<span class="number">0.5</span>f, <span class="literal">true</span>);</div></pre></td></tr></table></figure>
 <p>当你增删子组件后，或者移动子组件的位置、调整子组件的大小，容器是自动更新滚动区域的，不需要调用任何API。这个刷新发生在本帧绘制之前。如果你希望立刻访问子元件的正确坐标，那么可以调用<code>EnsureBoundsCorrect</code>通知GComponent立刻重排。EnsureBoundsCorrect是一个友好的函数，你不用担心重复调用会有额外性能消耗。</p>
 <p>ScrollPane中常用的API有：</p>
@@ -408,11 +408,11 @@
 </li>
 <li><p><code>ScrollToView</code> 调整滚动位置，使指定的元件出现在视口内。</p>
 </li>
-<li><p><code>touchEffect</code> 打开或关闭触摸滚动功能。关闭触摸滚动后，用户就不能拖拽视口进行滚动了。</p>
+<li><p><code>touchEffect</code> 打开或关闭触摸滚动功能。关闭触摸滚动后，用户就不能拖拽视口进行滚动了。这个功能可以在编辑器里设置，如果编辑器里设置的是“默认”，则使用UIConfig.defaultScrollTouchEffect。</p>
 </li>
 <li><p><code>scrollStep</code> 这个值是指滚动“一格”的距离。这个距离有三个用途：a）scrollUp/scrollDown/scrollLeft/scrollRight； b）点击滚动条的箭头按钮； c）鼠标滚轮，鼠标滚轮滚一次的距离是scrollStep*2。</p>
 </li>
-<li><p><code>bounceBackEffect</code> 可以打开或关闭边缘回弹功能。</p>
+<li><p><code>bounceBackEffect</code> 可以打开或关闭边缘回弹功能。这个功能可以在编辑器里设置，如果编辑器设置的是“默认”，则使用UIConfig.defaultScrollBounceEffect。</p>
 </li>
 <li><p><code>mouseWheelEnabled</code> 打开或关闭鼠标滚动支持。</p>
 </li>
@@ -422,14 +422,14 @@
 </li>
 </ul>
 <p>可以侦听滚动改变，在任何情况下滚动位置改变都会触发这个事件。</p>
-<figure class="highlight"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry</span></div><div class="line">scrollPane.onScroll.Add(onScroll);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">scrollPane.addEventListener(Event.SCROLL, onScroll);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">scrollPane.addEventListener(ScrollPane.SCROLL, <span class="keyword">this</span>.onScroll, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya，注意是用组件侦听，不是ScrollPane</span></div><div class="line">aComponent.<span class="keyword">on</span>(fairygui.Events.SCROLL, <span class="keyword">this</span>, <span class="keyword">this</span>.onScroll);</div><div class="line"></div><div class="line"><span class="comment">//Cocos2dx，注意是用组件侦听，不是ScrollPane</span></div><div class="line">aComponent-&gt;addEventListener(UIEventType::Scroll, CC_CALLBACK_1(AClass::onScroll, this));</div></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry</span></div><div class="line">scrollPane.onScroll.Add(onScroll);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">scrollPane.addEventListener(Event.SCROLL, onScroll);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">scrollPane.addEventListener(ScrollPane.SCROLL, <span class="keyword">this</span>.onScroll, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya，注意是用组件侦听，不是ScrollPane</span></div><div class="line">aComponent.<span class="keyword">on</span>(fairygui.Events.SCROLL, <span class="keyword">this</span>, <span class="keyword">this</span>.onScroll);</div><div class="line"></div><div class="line"><span class="comment">//Cocos2dx，注意是用组件侦听，不是ScrollPane</span></div><div class="line">aComponent-&gt;addEventListener(UIEventType::Scroll, CC_CALLBACK_1(AClass::onScroll, this));</div><div class="line"></div><div class="line"><span class="comment">//CocosCreator，注意使用组件侦听，不是ScrollPane</span></div><div class="line">aComponent.<span class="keyword">on</span>(fgui.Event.SCROLL, <span class="keyword">this</span>.onScroll, <span class="keyword">this</span>);</div></pre></td></tr></table></figure>
 <p>和滚动相关的事件还有：</p>
 <ul>
 <li><code>ScrollEnd</code> 惯性滚动结束后回调。</li>
 <li><code>PullDownRelease</code> 下拉刷新回调。</li>
 <li><code>PullUpRelease</code> 上拉刷新回调。</li>
 </ul>
-<figure class="highlight"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry</span></div><div class="line">scrollPane.onScrollEnd.Add(onScrollEnd);</div><div class="line">scrollPane.onPullDownRelease.Add(onPullDownRelease);</div><div class="line">scrollPane.onPullUpRelease.Add(onPullUpRelease);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">scrollPane.addEventListener(ScrollPane.SCROLL_END, onScrollEnd);</div><div class="line">scrollPane.addEventListener(ScrollPane.PULL_DOWN_RELEASE, onPullDownRelease);</div><div class="line">scrollPane.addEventListener(ScrollPane.PULL_UP_RELEASE, onPullUpRelease);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">scrollPane.addEventListener(ScrollPane.SCROLL_END, <span class="keyword">this</span>.onScrollEnd, <span class="keyword">this</span>);</div><div class="line">scrollPane.addEventListener(ScrollPane.PULL_DOWN_RELEASE, <span class="keyword">this</span>.onPullDownRelease, <span class="keyword">this</span>);</div><div class="line">scrollPane.addEventListener(ScrollPane.PULL_UP_RELEASE, <span class="keyword">this</span>.onPullUpRelease, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya，注意是用组件侦听，不是ScrollPane</span></div><div class="line">aComponent.<span class="keyword">on</span>(fairygui.Events.SCROLL_END, <span class="keyword">this</span>, <span class="keyword">this</span>.onScrollEnd);</div><div class="line">aComponent.<span class="keyword">on</span>(fairygui.Events.PULL_DOWN_RELEASE, <span class="keyword">this</span>, <span class="keyword">this</span>.onPullDownRelease);</div><div class="line">aComponent.<span class="keyword">on</span>(fairygui.Events.PULL_UP_RELEASE, <span class="keyword">this</span>, <span class="keyword">this</span>.onPullUpRelease);</div><div class="line"></div><div class="line"><span class="comment">//Cocos2dx，注意是用组件侦听，不是ScrollPane</span></div><div class="line">aComponent-&gt;addEventListener(UIEventType::ScrollEnd, CC_CALLBACK_1(AClass::onScrollEnd, this));</div><div class="line">aComponent-&gt;addEventListener(UIEventType::PullDownRelease, CC_CALLBACK_1(AClass::onPullDownRelease, this));</div><div class="line">aComponent-&gt;addEventListener(UIEventType::PullUpRelease, CC_CALLBACK_1(AClass::onPullUpRelease, this));</div></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry</span></div><div class="line">scrollPane.onScrollEnd.Add(onScrollEnd);</div><div class="line">scrollPane.onPullDownRelease.Add(onPullDownRelease);</div><div class="line">scrollPane.onPullUpRelease.Add(onPullUpRelease);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">scrollPane.addEventListener(ScrollPane.SCROLL_END, onScrollEnd);</div><div class="line">scrollPane.addEventListener(ScrollPane.PULL_DOWN_RELEASE, onPullDownRelease);</div><div class="line">scrollPane.addEventListener(ScrollPane.PULL_UP_RELEASE, onPullUpRelease);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">scrollPane.addEventListener(ScrollPane.SCROLL_END, <span class="keyword">this</span>.onScrollEnd, <span class="keyword">this</span>);</div><div class="line">scrollPane.addEventListener(ScrollPane.PULL_DOWN_RELEASE, <span class="keyword">this</span>.onPullDownRelease, <span class="keyword">this</span>);</div><div class="line">scrollPane.addEventListener(ScrollPane.PULL_UP_RELEASE, <span class="keyword">this</span>.onPullUpRelease, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya，注意是用组件侦听，不是ScrollPane</span></div><div class="line">aComponent.<span class="keyword">on</span>(fairygui.Events.SCROLL_END, <span class="keyword">this</span>, <span class="keyword">this</span>.onScrollEnd);</div><div class="line">aComponent.<span class="keyword">on</span>(fairygui.Events.PULL_DOWN_RELEASE, <span class="keyword">this</span>, <span class="keyword">this</span>.onPullDownRelease);</div><div class="line">aComponent.<span class="keyword">on</span>(fairygui.Events.PULL_UP_RELEASE, <span class="keyword">this</span>, <span class="keyword">this</span>.onPullUpRelease);</div><div class="line"></div><div class="line"><span class="comment">//Cocos2dx，注意是用组件侦听，不是ScrollPane</span></div><div class="line">aComponent-&gt;addEventListener(UIEventType::ScrollEnd, CC_CALLBACK_1(AClass::onScrollEnd, this));</div><div class="line">aComponent-&gt;addEventListener(UIEventType::PullDownRelease, CC_CALLBACK_1(AClass::onPullDownRelease, this));</div><div class="line">aComponent-&gt;addEventListener(UIEventType::PullUpRelease, CC_CALLBACK_1(AClass::onPullUpRelease, this));</div><div class="line"></div><div class="line"><span class="comment">//CocosCreator，注意使用组件侦听，不是ScrollPane</span></div><div class="line">scrollPane.<span class="keyword">on</span>(fgui.Event.SCROLL_END, <span class="keyword">this</span>.onScrollEnd, <span class="keyword">this</span>);</div><div class="line">scrollPane.<span class="keyword">on</span>(fgui.Event.PULL_DOWN_RELEASE, <span class="keyword">this</span>.onPullDownRelease, <span class="keyword">this</span>);</div><div class="line">scrollPane.<span class="keyword">on</span>(fgui.Event.PULL_UP_RELEASE, <span class="keyword">this</span>.onPullUpRelease, <span class="keyword">this</span>);</div></pre></td></tr></table></figure>
     
     <div class="footer">
       found mistake? Want to participate in editing?

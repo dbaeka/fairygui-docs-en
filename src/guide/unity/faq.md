@@ -1,5 +1,5 @@
 ---
-title: Unity FAQ
+title: 常见问题
 type: guide_unity
 order: 100
 ---
@@ -57,18 +57,9 @@ Create Component1@Package1 failed!
 2. 主相机的ClearFlags错误设置为了Depth。
 3. 场景里还有其他相机，且它的Culling Mask设置勾选了UI。
 
-## 文字显示为黑色
-没有放置着色器。
+## 突然出现文字都变成紫色，然后又恢复正常
 
-## 字体渲染效果不对
-
-如果你设置了字体后，觉得字体效果不对，可以用以下的方式排查：
-
-1. 如果是只用了字体名称，没有使用ttf字体文件的，那么你需要再次确认你的操作系统（例如Windows）里是否有安装这种字体，字体名称是否正确。**对于部分字体，Unity能识别的字体名称不一定是字体的中文名称**。查看准确的系统字体名称，你可以将ttf文件拖入到Unity，就可以在Inspector的"Font Names"里看到正确的字体名称。也可以下载FontCreator软件，查看字体的Font Family属性。
-
-2. 如果是用了ttf文件的，那么运行时在Project视图，点击ttf文件左边的箭头后，可以看到ttf文件下有Font Texture和Font Material。Font Texture里应该有你游戏中使用到的文字，并能看到渲染效果。如果能看到，说明这个字体在Unity中的渲染效果就是这样。
-
-![](../../images/20170808230450.png)
+参考[字体](font.html#常见问题)。
 
 ## 层级显示错误
 
@@ -82,6 +73,8 @@ Create Component1@Package1 failed!
 
 这个API并不需要由开启了fairyBatching的组件调用，aObject可以是任何一个内含的元件。并且你可以在任何时间调用，每帧调用也可以，只要你确认是需要。它的消耗不算大，但也不能说没有。
 
+如果是动效过程观察到这种情况，设置动效的invalidateBatchingEveryFrame=true即可。
+
 ## 图片拼接/平铺有缝
 
 双击图片，在图片属性对话框中勾选“重复边缘像素”。
@@ -91,6 +84,10 @@ Create Component1@Package1 failed!
 参考[PaintMode](special.html#PaintMode)
 
 ## 出现需要定义层的警告
+
+```
+Please define two layers named 'VUI' and 'Hidden VUI' "
+```
 
 参考[PaintMode](special.html#PaintMode)
 
@@ -142,6 +139,15 @@ UIConfig.buttonSoundVolume仅用于初始化设置，后续改变是无效的。
     //调整全局声音音量，这个包括按钮声音和动效播放的声音
     GRoot.inst.soundVolume = 0.5f;
 ```
+
 ## FairyGUI可以播放视频吗
 
 播放视频的功能Unity有提供，不需要FairyGUI支持。你可以使用一个Loader，然后将视频对象的texture赋值给Loader就可以了。
+
+## 可以用代码创建动效吗
+
+动效（Transition）是为了编辑器里可视化设计提出的一个概念。如果你是全部用代码来设计UI元件的动作，那就不需要用动效了，直接用Tween来完成。可以用DoTween或者FairyGUI内置的GTween。
+
+## 创建的Tweener调用kill(false)时偶尔会将正在播放的其他动效暂停
+
+GTweener是重用的。注意检查你的所有代码，不要重用或者误用GTweener实例，也就是说，Tween一旦结束，GTweener实例就不要再使用了，更加不要去kill。一般建议不要保存GTweener实例。

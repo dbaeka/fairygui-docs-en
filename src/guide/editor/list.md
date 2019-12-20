@@ -1,30 +1,23 @@
 ---
-title: List
+title: 列表
 type: guide_editor
-order: 180
+order: 28
 ---
 
-列表是组件的一种特殊扩展。点击侧工具栏的![](../../images/20170803150926.png)按钮生成一个列表。
+列表是组件的一种特殊扩展。点击侧工具栏的![](../../images/sidetb_06.png)按钮生成一个列表。
 
 ## 列表属性
 
 在舞台上点中一个列表，右边属性栏显示的是列表的属性：
 
-![](../../images/20170803151004.png)
+![](../../images/QQ20191211-162009.png)
 
 - `列表布局` 目前支持的列表有五种。
- - `单列` 每行一个item，竖向排列。
- - `单行` 每列一个item，横向排列。
- - `横向流动` item横向依次排列，到底视口右侧边缘或到达指定的列数，自动换行继续排列。
+  - `单列` 每行一个item，竖向排列。
+  - `单行` 每列一个item，横向排列。
+  - `横向流动` item横向依次排列，到底视口右侧边缘或到达指定的列数，自动换行继续排列。
  - `竖向流动` item竖向依次排列，到底视口底部边缘或到达指定的行数，返回顶部开启新的一列继续排列。
- - `分页` 视口宽度x视口高度作为单页大小，横向排列各个页面。每页中，item横向依次排列，到底视口右侧边缘或到达指定的列数，自动换行继续排列。当新的一行超出视口高度或到达指定的行数，则进入下一页。注意，分页只是列表的排列方式，不代表列表就是按页滚动。分页滚动需要在滚动属性里设置。
-
-- `自动调整列表项目大小` 如果勾选:
- 1. 列表布局为单列，则列表项目的宽度自动设置为列表显示区域的宽度；
- 2. 列表布局为单行，则列表项目的高度自动设置为列表显示区域的高度；
- 3. 列表布局为水平流动，且设置了列数时，则每行内的列表项目的宽度自动调整使行宽与列表显示区域的宽度相等；
- 4. 列表布局为垂直流动，且设置了行数时，则每列内的项目的高度自动调整使行高与列表显示区域的高度相等；
- 5. 列表布局为分页，则3、4规则均适用。
+ - `分页` 视口宽度x视口高度作为单页大小，横向排列各个页面。每页中，item横向依次排列，到底视口右侧边缘或到达指定的列数，自动换行继续排列。当新的一行超出视口高度或到达指定的行数，则进入下一页。**注意，分页只是列表的排列方式，不代表列表就是按页滚动。分页滚动需要在滚动属性里设置。**
 
 - `行数` `列数` 这个选项只对横向流动、竖向流动和分页的布局有效。如果不指定（设置为0），则一直排到边缘才换行，否则，必须每行的数量到达设定的值才换行。
 
@@ -50,15 +43,34 @@ order: 180
 
 - `边缘` 设定列表四周的留空。一般用在“溢出处理”为“隐藏”或者“滚动”的情况。`边缘虚化`目前只有在Unity平台支持。如果列表发生了对内容的剪裁，则可以在边缘产生虚化的效果，增强用户体验。这个值应该比较大才能看出效果，例如50。
 
+- `树视图` 勾选后列表将使用树结构组织它的内容。请参考[树](tree.html)。
+
 - `项目资源` 这里设置列表默认使用的item类型。但FairyGUI的列表可以支持多种资源混排，并不是只支持单一的item类型。
 
-- `编辑列表数据` 为列表增删项目。
+点击![](../../images/QQ20191211-161858.png)后弹出二级界面：
 
-![](../../images/20180705094732.png)
+![](../../images/QQ20191211-162506.png)
 
-点击增加，将增加一个由”项目资源“指定的项目，如果你的列表是多种资源混合，新增一个项目后，可以从库中拖动组件到“资源”栏中。如果item是一个标签或按钮，那么可以在这里设置它的文本和图标。
+- `自动调整列表项目大小` 如果勾选:
+  1. 列表布局为单列，则列表项目的宽度自动设置为列表显示区域的宽度；
+  2. 列表布局为单行，则列表项目的高度自动设置为列表显示区域的高度；
+  3. 列表布局为水平流动，且设置了列数时，则每行内的列表项目的宽度自动调整使行宽与列表显示区域的宽度相等；
+  4. 列表布局为垂直流动，且设置了行数时，则每列内的项目的高度自动调整使行高与列表显示区域的高度相等；
+  5. 列表布局为分页，则3、4规则均适用。
 
-  **发布时自动清空** 表示这里编辑的列表数据在最终发布时不会包含，也就是列表数据仅作编辑器预览用途。
+- `折叠隐藏的项目` 如果勾选，当某个item不可见时（visible=false），列表不会为他留位置，也就是排版时会忽略这个item；如果不勾选，在列表会为这个item保留位置，显示效果就是一个空白的占位。API是foldInvisibleItems。
+
+- `点击项目时自动滚动到它全部可见` 勾选后，当点击某个item时，如果这个item处于部分显示状态，那么列表将会自动滚动到整个item显示完整。如果你的列表有超过列表视口大小的item，建议不要勾选，不然行为会很怪异。API是scrollItemToViewOnClick。
+
+点击“编辑列表”后显示对话框：
+
+![](../../images/QQ20191211-163009.png)
+
+点击增加，将增加一个由“项目资源”指定的item，如果你的列表需要多种资源混合，可以先新增一个item，再从库中拖动组件到“资源”栏中替换默认的资源。
+
+表格内可编辑item的标题、图标和名称属性，其它属性则可以选中item后，在右侧的检查器内修改。
+
+“发布时自动清空”表示这里编辑的列表数据在最终发布时不会包含到发布结果中，也就是列表数据仅作编辑器预览用途。
 
 ## GList
 
@@ -131,21 +143,24 @@ order: 180
 然后设置这个函数为列表的渲染函数：
 
 ```csharp
-    //Unity/Cry
+    //Unity/Cry/MonoGame
     aList.itemRenderer = RenderListItem;
     
     //AS3
-    aList.itemRenderer = RenderListItem;
+    aList.itemRenderer = renderListItem;
     
     //Egret
-    aList.itemRenderer = RenderListItem;
+    aList.itemRenderer = renderListItem;
     aList.callbackThisObj = this;
     
     //Laya。（注意，最后一个参数必须为false！）
-    aList.itemRenderer = Handler.create(this, this.RenderListItem, null, false);
+    aList.itemRenderer = Handler.create(this, this.renderListItem, null, false);
 
     //Cocos2dx
     aList->itemRenderer = CC_CALLBACK_2(AClass::renderListItem, this);
+
+    //CocosCreator
+    aList.itemRenderer = this.renderListItem.bind(this);
 ```
 
 最后直接设置列表中的项目总数，这样列表就会调整当前列表容器的对象数量，然后调用回调函数渲染item。
@@ -160,15 +175,6 @@ order: 180
 
 使用这种方式生成的列表，如果你需要更新某个item，自行调用RenderListItem(索引，GetChildAt(索引))就可以了。
 
-### scrollItemToViewOnClick
-
-这是列表的一个选项，如果为true，当点击某个item时，如果这个item处于部分显示状态，那么列表将会自动滚动到整个item显示完整。
-默认值是true。如果你的列表有超过列表视口大小的item，建议设置为false。
-
-### foldInvisibleItems
-
-这是列表的一个选项，如果为true，但某个item不可见时（visible=false），列表不会为他留位置，也就是排版时会忽略这个item；如果为false，在列表会为这个item保留位置，显示效果就是一个空白的占位。默认值是false。
-
 ### 列表自动大小
 
 严格来说，列表没有自动大小的功能。但GList提供了API根据item的数量设置列表大小。当你填充完列表的数据后，可以调用GList.ResizeToFit，这样列表的大小就会修改为最适合的大小，容纳指定的item数量。如果不指定item数量，则列表扩展大小至显示所有item。
@@ -178,7 +184,7 @@ order: 180
 点击列表内的某一个item触发事件：
 
 ```csharp
-    //Unity/Cry, EventContext.data就是当前被点击的item对象
+    //Unity/Cry/MonoGame, EventContext.data就是当前被点击的item对象
     list.onClickItem.Add(onClickItem);
     
     //AS3, ItemEvent.itemObject就是当前被点击的对象
@@ -192,6 +198,9 @@ order: 180
 
     //Cocos2dx，EventContext.getData()就是当前被点击的item对象
     list->addEventListener(UIEventType::ClickItem, CC_CALLBACK_1(AClass::onClickItem, this));
+
+    //CocosCreator, onClickItem的第一个参数就是当前被点击的对象，可选的第二个对象是fgui.Event。
+    list.on(fgui.Event.CLICK_ITEM, this.onClickItem, this);
 ```
 
 从上面的代码可以看出，事件回调里都可以方便的获得当前点击的对象。如果要获得索引，那么可以使用GetChildIndex。
@@ -305,9 +314,9 @@ AS3/Starling/Egret/Laya参考：
 虚拟列表支持可变大小的item，可以通过两种方式动态改变item的大小：
 
 - 在itemRenderer的内部使用width、height或SetSize改变item的大小。
-- item建立对内部元件的关联，例如item建立了一个对内部某个可变高度文本的高高关联，这样当文本改变时，item的高度自动改变。
+- item建立对内部元件的关联，然后在itemRenderer里修改内容触发内部元件的改变，从而自动改变item高度。例如item建立了一个对内部某个可变高度文本的高高关联，这样当文本改变时，item的高度自动改变。
 
-**除这两种方式外，不可以通过其他方式改变item大小，否则虚拟列表排列会错乱。**
+**除这两种方式外，不可以通过其他在itemRenderer外的方式改变item大小，否则虚拟列表排列会错乱。但你可以通过调用RefreshVirtualList强制触发itemRenderer。**
 
 虚拟列表支持不同类型的item混合。首先为列表定义一个回调函数，例如
 
@@ -330,17 +339,20 @@ AS3/Starling/Egret/Laya参考：
     aList.itemProvider = GetListItemResource;
 
     //AS3
-    aList.itemProvider = GetListItemResource;
+    aList.itemProvider = getListItemResource;
 
     //Egret
-    aList.itemProvider = GetListItemResource;
+    aList.itemProvider = getListItemResource;
     aList.callbackThisObj = this;
 
     //Laya。（注意，最后一个参数必须为false！）
-    aList.itemProvider = Handler.create(this, this.GetListItemResource, null, false);
+    aList.itemProvider = Handler.create(this, this.getListItemResource, null, false);
 
     //Cocos2dx
     aList->itemProvider = CC_CALLBACK_1(AClass::getListItemResource, this);
+
+    //CocosCreator
+    aList.itemProvider = this.getListItemResource.bind(this);
 ```
 
 对于横向流动、竖向流动和分页的列表，与非虚拟列表具有流动特性不同，虚拟列表每行或每列的item个数都是固定的。列表在初始化时会创建一个默认的item用于测算这个数量。

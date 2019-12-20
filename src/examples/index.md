@@ -1,28 +1,15 @@
 ---
-title: Demo
+title: Examples
 type: examples
 order: 0
 ---
 
-Laya/Egret Online Demo:
+在线示例仅能提供H5类引擎的示例，其他引擎请在产品页面相应引擎SDK下下载Demo！
 
-1. [Basic](http://www.fairygui.com/laya-demo/main)
-2. [Bag](http://www.fairygui.com/laya-demo/bag)
-3. [Guide](http://www.fairygui.com/laya-demo/guide)
-4. [Cooldown](http://www.fairygui.com/laya-demo/cooldown)
-5. [Virtual List](http://www.fairygui.com/laya-demo/virtuallist)
-6. [Loop List](http://www.fairygui.com/laya-demo/looplist)
-7. [Extension](http://www.fairygui.com/laya-demo/extension)
-8. [Joystick](http://www.fairygui.com/laya-demo/joystick)
-9. [Modal Waiting](http://www.fairygui.com/laya-demo/modalwaiting)
-10. [Transition](http://www.fairygui.com/laya-demo/transition)
-11. [Pull To Refresh](http://www.fairygui.com/laya-demo/pulltorefresh)
-12. [Inventory](http://www.fairygui.com/laya-demo/inventory)
+[Laya在线示例](http://www.fairygui.com/laya-demo/main/)
 
-Cocos Creator Online Demo:
+[Egret在线示例](http://www.fairygui.com/egret-demo/main/)
 
-[Demo](http://www.fairygui.com/cocos-demo/)
+[CocosCreator在线示例](http://www.fairygui.com/cocos-demo/)
 
-PIXI Online Demo:
-
-1. [Demo](http://jc-space.com/pixigui)
+[PIXI在线示例](http://jc-space.com/pixigui)

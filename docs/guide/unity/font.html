@@ -3,24 +3,23 @@
 <html lang="en">
     <head>
     
-        <title>FairyGUI - Font Handling</title>
+        <title>FairyGUI - 字体的处理</title>
     
         <meta charset="utf-8">
-        <meta name="description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
-        <meta name="keywords" content="FairyGUI,FGUI,UI Editor,Unity GUI,Pixi GUI,Haxe GUI,Starling GUI,CryEngine UI,Havok Vision,Project Anarchy,C++ UI,MonoGame UI,Cocos Creator,Corona">
+        <meta name="description" content="FairyGUI Manual">
+        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Manual">
         
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="Font Handling — FairyGUI">
-        <meta property="og:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+        <meta property="og:title" content="-字体的处理FairyGUI">
+        <meta property="og:description" content="FairyGUI Manual">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="Font Handling — FairyGUI">
-        <meta name="twitter:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+        <meta name="twitter:title" content="字体的处理 — FairyGUI">
+        <meta name="twitter:description" content="FairyGUI Manual">
 
-
-        <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'>
+      <!--  <link href='//fonts.proxy.ustclug.org/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
 
         <!-- main page styles -->
         <link rel="stylesheet" href="/css/page.css">
@@ -31,28 +30,12 @@
     </head>
     <body class="docs">        <div id="mobile-bar"  data-bg-text="FairyGUI" >
             <a class="menu-button"></a>
-            <a class="logo" href="https://github.com/fairygui/FairyGUI-unity"></a>
         </div>
-        <div id="bg"> <!--end tag in the `index.ejs`-->
-
-<div id="header">
-  <a id="logo" href="https://github.com/fairygui/">
-    <img src="/images/github-white.png">
-  </a>
+        <div id="header">
   <ul id="nav">
-    
-
-	<li><a href="/" class="nav-link">Home</a></li>
-
-<li><a href="/product/" class="nav-link">Product</a></li>
-<li><a href="/service/" class="nav-link">Service</a></li>
-<li><a href="/guide/" class="nav-link current">Tutorials</a></li>
-<li><a href="http://www.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
-<li><a href="/examples/" class="nav-link">Demo</a></li>
-<li><a href="/showcase/" class="nav-link">Showcase</a></li>
-<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">Q&A</a></li>
-<li><a href="/about/" class="nav-link">About</a></li>
-<li><a href="http://www.fairygui.com/" target="_self"  class="nav-link">中文</a><a class="nav-link"> / English</a></li>
+    <li><a href="/guide/" class="nav-link current">FairyGUI Manual</a></li>
+<li><a href="/examples/" class="nav-link">Examples</a></li>
+<li><a href="/release_notes/" class="nav-link">Release Notes</a></li>
   </ul>
 </div>
 
@@ -62,147 +45,145 @@
                     
     <div class="sidebar">
     <ul class="main-menu">
-        
-
-	<li><a href="/" class="nav-link">Home</a></li>
-
-<li><a href="/product/" class="nav-link">Product</a></li>
-<li><a href="/service/" class="nav-link">Service</a></li>
-<li><a href="/guide/" class="nav-link current">Tutorials</a></li>
-<li><a href="http://www.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
-<li><a href="/examples/" class="nav-link">Demo</a></li>
-<li><a href="/showcase/" class="nav-link">Showcase</a></li>
-<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">Q&A</a></li>
-<li><a href="/about/" class="nav-link">About</a></li>
-<li><a href="http://www.fairygui.com/" target="_self"  class="nav-link">中文</a><a class="nav-link"> / English</a></li>
+        <li><a href="/guide/" class="nav-link current">FairyGUI Manual</a></li>
+<li><a href="/examples/" class="nav-link">Examples</a></li>
+<li><a href="/release_notes/" class="nav-link">Release Notes</a></li>
     </ul>
     <div class="list">
-		<a class="become-backer" href="/about/donate.html">
-            Donate
-        </a>
-        <h2>
-            Guide
-            <!--<select class="version-select">
-                <option value="SELF" selected>unity</option>
-            </select>-->
- 		 
-		  
-		
-        </h2>
         <ul class="menu-root">
             
 
 	 			
 	                
 	                <li>
-	                    <a href="/guide/index.html" class="sidebar-link">Introduction</a>
+	                    <a href="/guide/index.html" class="sidebar-link">介绍</a>
 	                </li>
 	            
 	
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/index.html" class="sidebar-link">Editor Start</a>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">编辑器使用基础</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/object.html" class="sidebar-link">Object</a>
+	                    <a href="/guide/editor/project_settings.html" class="sidebar-link">项目设置</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/image.html" class="sidebar-link">Image</a>
+	                    <a href="/guide/editor/package.html" class="sidebar-link">包</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/movieclip.html" class="sidebar-link">MovieClip</a>
+	                    <a href="/guide/editor/branch.html" class="sidebar-link">分支</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/graph.html" class="sidebar-link">Graph</a>
+	                    <a href="/guide/editor/publish.html" class="sidebar-link">发布</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/loader.html" class="sidebar-link">Loader</a>
+	                    <a href="/guide/editor/object.html" class="sidebar-link">元件</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/text.html" class="sidebar-link">Text</a>
+	                    <a href="/guide/editor/image.html" class="sidebar-link">图片</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/richtext.html" class="sidebar-link">RichText</a>
+	                    <a href="/guide/editor/movieclip.html" class="sidebar-link">动画</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/group.html" class="sidebar-link">Group</a>
+	                    <a href="/guide/editor/graph.html" class="sidebar-link">图形</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/component.html" class="sidebar-link">Component</a>
+	                    <a href="/guide/editor/loader.html" class="sidebar-link">装载器</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/scrollpane.html" class="sidebar-link">ScrollPane</a>
+	                    <a href="/guide/editor/text.html" class="sidebar-link">文本</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/controller.html" class="sidebar-link">Controller</a>
+	                    <a href="/guide/editor/richtext.html" class="sidebar-link">富文本</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/relation.html" class="sidebar-link">Relation System</a>
+	                    <a href="/guide/editor/group.html" class="sidebar-link">组</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/label.html" class="sidebar-link">Label</a>
+	                    <a href="/guide/editor/component.html" class="sidebar-link">组件</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/button.html" class="sidebar-link">Button</a>
+	                    <a href="/guide/editor/scrollpane.html" class="sidebar-link">滚动容器</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/combobox.html" class="sidebar-link">ComboBox</a>
+	                    <a href="/guide/editor/controller.html" class="sidebar-link">控制器</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/progressbar.html" class="sidebar-link">ProgressBar</a>
+	                    <a href="/guide/editor/relation.html" class="sidebar-link">关联系统</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/slider.html" class="sidebar-link">Slider</a>
+	                    <a href="/guide/editor/label.html" class="sidebar-link">标签</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/scrollbar.html" class="sidebar-link">ScrollBar</a>
+	                    <a href="/guide/editor/button.html" class="sidebar-link">按钮</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/list.html" class="sidebar-link">List</a>
+	                    <a href="/guide/editor/combobox.html" class="sidebar-link">下拉框</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/window.html" class="sidebar-link">Window</a>
+	                    <a href="/guide/editor/progressbar.html" class="sidebar-link">进度条</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/slider.html" class="sidebar-link">滑动条</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollbar.html" class="sidebar-link">滚动条</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/list.html" class="sidebar-link">列表</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/tree.html" class="sidebar-link">树</a>
 	                </li>
 	            
 	                
@@ -217,17 +198,37 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/transition.html" class="sidebar-link">Transition</a>
+	                    <a href="/guide/editor/window.html" class="sidebar-link">窗口系统</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/adaptation.html" class="sidebar-link">Adaptation</a>
+	                    <a href="/guide/editor/transition.html" class="sidebar-link">动效</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/upgrade_binary_format.html" class="sidebar-link">Binary Package Format</a>
+	                    <a href="/guide/editor/adaptation.html" class="sidebar-link">适配</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/i18n.html" class="sidebar-link">多国语言</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/export.html" class="sidebar-link">导入和导出资源包</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/preference.html" class="sidebar-link">偏好设置</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/plugin.html" class="sidebar-link">插件</a>
 	                </li>
 	            
 	
@@ -271,73 +272,73 @@
 	                <li><h3>SDK - Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/unity/index.html" class="sidebar-link">Unity Start</a>
+	                    <a href="/guide/unity/index.html" class="sidebar-link">显示UI面板</a>
 	                </li>
 	            
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/transform.html" class="sidebar-link">Unity Coordinate</a>
+	                    <a href="/guide/unity/transform.html" class="sidebar-link">坐标系统</a>
 	                </li>
 	            
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/atlas.html" class="sidebar-link">Atlas</a>
+	                    <a href="/guide/unity/atlas.html" class="sidebar-link">纹理集的处理</a>
 	                </li>
 	            
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/font.html" class="sidebar-link current">Font Handling</a>
+	                    <a href="/guide/unity/font.html" class="sidebar-link current">字体的处理</a>
 	                </li>
 	            
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/input.html" class="sidebar-link">Input processing</a>
+	                    <a href="/guide/unity/input.html" class="sidebar-link">输入处理</a>
 	                </li>
 	            
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/event.html" class="sidebar-link">Event System</a>
+	                    <a href="/guide/unity/event.html" class="sidebar-link">事件机制</a>
 	                </li>
 	            
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/insert3d.html" class="sidebar-link">Interspersed with 3D objects</a>
+	                    <a href="/guide/unity/insert3d.html" class="sidebar-link">插入模型/粒子/Spine/Canvas</a>
 	                </li>
 	            
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/uipainter.html" class="sidebar-link">Curved UI</a>
+	                    <a href="/guide/unity/uipainter.html" class="sidebar-link">曲面UI</a>
 	                </li>
 	            
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall Optimization</a>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall优化</a>
 	                </li>
 	            
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/lua.html" class="sidebar-link">Used in Lua</a>
+	                    <a href="/guide/unity/lua.html" class="sidebar-link">在Lua中使用</a>
 	                </li>
 	            
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/special.html" class="sidebar-link">Unity Features</a>
+	                    <a href="/guide/unity/special.html" class="sidebar-link">特色功能</a>
 	                </li>
 	            
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/faq.html" class="sidebar-link">Unity FAQ</a>
+	                    <a href="/guide/unity/faq.html" class="sidebar-link">常见问题</a>
 	                </li>
 	            
 
@@ -349,43 +350,41 @@
 
 <div class="content guide_unity with-sidebar ">
     
-      <h1>Font Handling</h1>
+      <h1>字体的处理</h1>
     
-    <h2 id="使用动态字体"><a href="#使用动态字体" class="headerlink" title="使用动态字体"></a>使用动态字体</h2><p>FairyGUI使用Unity的动态字体技术渲染文字。只需以下几个简单的步骤就可以完成设置：</p>
-<ol>
-<li><p>拷贝一个字体文件到项目的Resources目录或Resources/Fonts目录。字体文件可以随意使用一个，例如arial.ttf，或simhei.ttf等，这个ttf是什么字体并不影响最终显示字体的选择。</p>
-</li>
-<li><p>在Unity中点击字体文件，在inspector中修改字体属性：</p>
-<p><img src="../../images/2015-10-21_164556.png" alt=""></p>
-<p>注意在Font Names中填写的是字体名称，建议使用英文字体名称，字体的英文名称可以从FairyGUI编辑器里找到。例如Droid Sans Fallback是Android平台支持中文的内置默认字体之一。多个字体用逗号隔开，Unity会使用第一个在系统中能找到的字体。</p>
-</li>
-<li><p>设置UIConfig.defaultFont=”字体文件名称”即可，注意这里使用的是文件名称，也就是说，如果放置在Resources目录的是arial.ttf，则UIConfig.defaultFont = “arial”，不需要带.ttf后缀。</p>
-<p>因为我们没有勾选Include Font Data，所以无论这个字体文件有多大，最终并不会包含在我们的发布包中，也就是说不会增大发行包的体积。Unity会在实际运行的系统中查找与Font Names匹配的第一个字体，并使用此字体进行动态渲染。但这要求玩家的运行系统环境中有你设定的字体，如果没有，实际使用的字体可能并不是你想要的效果，这种情况下，如果你确实需要保留字体效果，那就勾选Include Font Data。</p>
-<p><strong>当发布到WebGL平台时，目前Unity发布的WebGL程序不能访问系统字体，也就是你必须使用ttf字体，并且勾选Include Font Data</strong>。</p>
-<p><strong>从Unity5.0开始，Unity引入了新的字体管理API</strong>，也可以不放置字体文件到Resources目录，你只需要直接设置UIConfig.defaultFont=”字体名称”即可，同样，多个字体名称用逗号隔开。例如：</p>
+    <h2 id="使用动态字体"><a href="#使用动态字体" class="headerlink" title="使用动态字体"></a>使用动态字体</h2><p>直接使用字体名称即可。例如，设置全局字体：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">UIConfig.defaultFont = <span class="string">"Droid Sans Fallback, LTHYSZK, Helvetica-Bold, Microsoft YaHei, SimHei"</span>;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>  要注意，这里的字体必须是在系统环境中存在的字体，且名称一定要能被操作系统识别。</p>
-<h2 id="多种字体的处理"><a href="#多种字体的处理" class="headerlink" title="多种字体的处理"></a>多种字体的处理</h2><p>如果你的界面使用了多种字体，比如对单独的文字设置了字体：</p>
+<p>多个字体名称用逗号隔开。Unity会自动使用第一个能识别的字体名称。但必须有一个是能识别的。能识别的意思是，<strong>必须是在系统环境中存在的字体，且字体名称一定要正确</strong>。假设你设置了“微软雅黑”，那手机上肯定是没有的，显示效果就达不到期望。</p>
+<p> <strong>WebGL平台不支持动态字体（Unity不支持），你必须使用TTF字体</strong>。</p>
+<h2 id="使用TTF字体"><a href="#使用TTF字体" class="headerlink" title="使用TTF字体"></a>使用TTF字体</h2><p>Unity支持直接使用TTF字体资源，只需要将文件名称作为字体名称即可，假设font1.ttf已经放置放置在Resources目录：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">UIConfig.defaultFont = <span class="string">"font1"</span>;</div></pre></td></tr></table></figure>
+<p>如果TTF文件是放置在Resources目录或者Resources/Fonts目录，那么直接使用字体文件名即可。如果是其他路径，还需要加上路径，假设是放置在Resources/SomePath：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">UIConfig.defaultFont = <span class="string">"SomePath/font1"</span>;</div></pre></td></tr></table></figure>
+<p>一般来说，字体文件放到Resources目录下即可，如果需要将字体打包到AssetBundle，那么需要自行加载并注册字体，例如：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Font myFont = myBundle.LoadAsset&lt;Font&gt;(name);</div><div class="line">FontManager.RegisterFont(<span class="keyword">new</span> DynamicFont(<span class="string">"字体名称"</span>, myFont),<span class="string">"字体名称"</span>);</div></pre></td></tr></table></figure>
+<h2 id="字体映射"><a href="#字体映射" class="headerlink" title="字体映射"></a>字体映射</h2><p>如果你的界面使用了多种字体，例如对单独的文字设置了字体：</p>
 <p><img src="../../images/2016-07-06_143622.png" alt=""></p>
-<p>这里用到了”黑体”这个名字的字体，这是与UIConfig.defaultFont设不同的字体，那么我们需要注册这种字体。方法是，首先做好上面第一步1和第2步，假如字体文件名称是HeiTi.ttf，然后：</p>
+<p>这里用到了”黑体”这个名字的字体，但”黑体”未必能被Unity识别，更加不能在手机上生效。我们需要建立一个这种字体到已知字体的映射。假设我们已经按照上述方法，准备好一个TTF字体HeiTi.ttf，然后：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">FontManager.RegisterFont(FontManager.GetFont(<span class="string">"HeiTi"</span>), <span class="string">"黑体"</span>);</div></pre></td></tr></table></figure>
-<p>RegisterFont的第二个参数对应编辑器里使用的字体名称；第一个参数，是Unity中放入的字体文件资源。如果文件带路径，这也需要把路径填上。</p>
-<p>要查看你定义的字体是不是生效，可以在Project视图，点击并展开字体文件，如果字体被正确使用，那么可以看到Font Texture以及Texture会有你用到的文字。</p>
-<p><img src="../../images/20170808230450.png" alt=""></p>
-<h2 id="自定义粗体"><a href="#自定义粗体" class="headerlink" title="自定义粗体"></a>自定义粗体</h2><p>当你使用部分字体的粗体效果时，你会发现粗体的效果在Unity中的显示不正确，这是因为有些字体不带粗体效果的，这时候Unity就会用拉宽来实现，就像变扁了。FairyGUI可以用额外的mesh来解决粗体的显示。方法是：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">FontManager.GetFont(<span class="string">"字体路径"</span>).customBold = <span class="literal">true</span>;</div></pre></td></tr></table></figure>
-<p>这里字体路径与UIConfig.defaultFont里设置的内容应该完全一样。</p>
+<p>RegisterFont的第二个参数对应编辑器里使用的字体名称；第一个参数，就是Unity能识别的字体名称，参考上面的“使用动态字体”和“使用TTF字体”。</p>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="字体显示变扁了"><a href="#字体显示变扁了" class="headerlink" title="字体显示变扁了"></a>字体显示变扁了</h3><p>当你使用部分字体的粗体效果时，你会发现粗体的效果在Unity中的显示不正确，这是因为有些字体不带粗体效果的，这时候Unity就会用拉宽来实现，就像变扁了。FairyGUI可以用额外的mesh来解决粗体的显示。方法是：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">FontManager.GetFont(<span class="string">"字体名称"</span>).customBold = <span class="literal">true</span>;</div></pre></td></tr></table></figure>
 <p>某些字体，Unity渲染有粗体效果，但当设置成斜体时，粗体效果又丢失（例如雅黑）。FairyGUI在这种情况可以取消Unity默认渲染粗体的效果，改为增加额外的面渲染粗体。激活这个功能的方法是</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">FontManager.GetFont(<span class="string">"字体路径"</span>).customBoldAndItalic = <span class="literal">true</span>;</div></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">FontManager.GetFont(<span class="string">"字体名称"</span>).customBoldAndItalic = <span class="literal">true</span>;</div></pre></td></tr></table></figure>
 <p>如果已经设置了customBold，不需要再设置customBoldAndItalic。</p>
-<h2 id="增强字体效果"><a href="#增强字体效果" class="headerlink" title="增强字体效果"></a>增强字体效果</h2><p>在实际游戏制作过程中发现在桌面平台下Unity对中文字体的渲染稍显模糊和暗淡，因此FairyGUI使用了特制的着色器解决了这个问题。以下是Unity默认的字体渲染效果和FairyGUI的字体渲染效果的比较：</p>
-<p><img src="../../images/2015-10-21_172001.png" alt=""></p>
-<p>可以看见经过FairyGUI的特殊处理，中文文字更清晰更亮。</p>
-<p>只有在桌面平台下FairyGUI才会开启这种技术，移动平台永远不会开启，因为在高DPI情况下，字体默认的渲染效果已经非常漂亮。</p>
-<p>另外，如果你不喜欢这种显示效果，或者你使用的是全英文的文字，也可以手动把这种技术关闭：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">UIConfig.renderingTextBrighterOnDesktop = <span class="literal">false</span>;</div></pre></td></tr></table></figure>
+<h3 id="文字全部显示为黑色"><a href="#文字全部显示为黑色" class="headerlink" title="文字全部显示为黑色"></a>文字全部显示为黑色</h3><p>SDK安装不完整，没有放置FairyGUI的着色器。</p>
+<h3 id="字体显示效果不对"><a href="#字体显示效果不对" class="headerlink" title="字体显示效果不对"></a>字体显示效果不对</h3><ul>
+<li><p>如果是动态字体，那么你需要再次确认你的操作系统（例如Windows）里是否有安装这种字体，字体名称是否正确。<strong>对于部分字体，Unity能识别的字体名称不一定是字体的中文名称</strong>。查看准确的系统字体名称，你可以将ttf文件拖入到Unity，就可以在Inspector的”Font Names”里看到正确的字体名称。也可以下载FontCreator软件，查看字体的Font Family属性。</p>
+</li>
+<li><p>如果是TTF字体，运行时在Project视图，点击TTF文件左边的箭头后，可以看到TTF文件下有Font Texture和Font Material。Font Texture里应该有你游戏中使用到的文字，并能看到渲染效果。如果能看到，说明这个字体在Unity中的渲染效果就是这个样子。</p>
+<p><img src="../../images/20170808230450.png" alt=""></p>
+</li>
+</ul>
+<h3 id="文字出现破碎或者紫色"><a href="#文字出现破碎或者紫色" class="headerlink" title="文字出现破碎或者紫色"></a>文字出现破碎或者紫色</h3><p>Unity为字体维护一个动态贴图，里面包含了当前用到的文字。当发生文本赋值时，如果当前贴图不足以容纳新的文字，Unity就会自动重建贴图，那么所有文字对应的UV就会发生变化。这时原来已经在显示的文字就会出现异常，比如破碎，紫色之类的效果。</p>
+<p>FairyGUI已经为这种情况内置了应对方案，就是在出现这种情况时马上把所有文字重绘一遍。所以网上一些先行撑大文字贴图的方案在FairyGUI这里并不需要。</p>
+<p>但FairyGUI进行这种操作是有时间点的，就是StageEngine.LateUpdate里。如果你的文本赋值发生在LateUpdate，而且很不幸执行顺序在StageEngine.LateUpdate之后，那么FairyGUI没有机会再进行补救了，这帧就会出现文字显示异常的情况。</p>
+<p>所以要防止这种情况出现，检查你的文本赋值，尽量放在Update里，不要放到LateUpdate里。如果一定是放到LateUpdate里，调整你的MB的执行顺序在StageEngine之前。</p>
+
     
     <div class="footer">
       found mistake? Want to participate in editing?

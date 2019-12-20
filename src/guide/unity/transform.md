@@ -1,5 +1,5 @@
 ---
-title: Unity Coordinate
+title: 坐标系统
 type: guide_unity
 order: 5
 ---
@@ -19,6 +19,8 @@ FairyGUI是以屏幕左上角为原点的，Unity的屏幕坐标是以左下角�
 ## 坐标转换
 
 GObject里的x/y/position值都是**局部坐标**，也就是相对于父元件的偏移。GObject没有提供直接的属性获得对象的全局坐标，但提供了方法进行转换。
+
+**请注意：一个对象，本地（Local）坐标的原点是(0,0)，不是(x,y)，(x,y)是在父元件的坐标，不是自己的本地坐标。**
 
 如果要获得任意一个UI元件在屏幕上的坐标，可以用：
 

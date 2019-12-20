@@ -1,5 +1,5 @@
 ---
-title: Atlas
+title: 纹理集的处理
 type: guide_unity
 order: 10
 ---
@@ -10,7 +10,7 @@ FairyGUI编辑器发布到Unity的资源通常包含一个或多个纹理集，�
 
 纹理集是由UI编辑器自动生成的，但在Unity里可以改变纹理集的属性，常用的设置有：
 
-- `Texture Type` 设置为Advanced(5.5前版本)或者Default(5.5后版本）。**不需要设置为Sprite。**
+- `Texture Type` 设置为Advanced(5.5前版本)或者Default(5.5后版本）。**不要设置为Sprite。**
 
 - `Texture Shape` 一定要选择2D。**这个选项从5.5版本开始出现。如果不是2D，则出现UI图片都显示白色方块的问题。**
 
@@ -20,7 +20,9 @@ FairyGUI编辑器发布到Unity的资源通常包含一个或多个纹理集，�
 
 ![](../../images/2015-10-22_082659.png)
 
-一般使用Bilinear即可。你也可以在UI编辑器里将图片安排到不同纹理集，然后每个纹理集设置不同的Filter Mode以满足特殊需求。
+一般使用Bilinear即可，你也可以在UI编辑器里将图片安排到不同纹理集，然后每个纹理集设置不同的Filter Mode以满足特殊需求。
+
+**如果需要消除图像由于采样模式造成的边缘过渡，可以在图片属性对话框设置“重复边缘像素”解决。**
 
 - `Max Size` 一般设置到2048。
 

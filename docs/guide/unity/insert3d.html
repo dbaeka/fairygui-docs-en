@@ -3,24 +3,23 @@
 <html lang="en">
     <head>
     
-        <title>FairyGUI - Interspersed with 3D objects</title>
+        <title>FairyGUI - 插入模型/粒子/Spine/Canvas</title>
     
         <meta charset="utf-8">
-        <meta name="description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
-        <meta name="keywords" content="FairyGUI,FGUI,UI Editor,Unity GUI,Pixi GUI,Haxe GUI,Starling GUI,CryEngine UI,Havok Vision,Project Anarchy,C++ UI,MonoGame UI,Cocos Creator,Corona">
+        <meta name="description" content="FairyGUI Manual">
+        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Manual">
         
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="Interspersed with 3D objects — FairyGUI">
-        <meta property="og:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+        <meta property="og:title" content="-插入模型/粒子/Spine/CanvasFairyGUI">
+        <meta property="og:description" content="FairyGUI Manual">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="Interspersed with 3D objects — FairyGUI">
-        <meta name="twitter:description" content="FairyGUI - Professional UI editor, cross-platform UI solution">
+        <meta name="twitter:title" content="插入模型/粒子/Spine/Canvas — FairyGUI">
+        <meta name="twitter:description" content="FairyGUI Manual">
 
-
-        <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'>
+      <!--  <link href='//fonts.proxy.ustclug.org/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
 
         <!-- main page styles -->
         <link rel="stylesheet" href="/css/page.css">
@@ -31,28 +30,12 @@
     </head>
     <body class="docs">        <div id="mobile-bar"  data-bg-text="FairyGUI" >
             <a class="menu-button"></a>
-            <a class="logo" href="https://github.com/fairygui/FairyGUI-unity"></a>
         </div>
-        <div id="bg"> <!--end tag in the `index.ejs`-->
-
-<div id="header">
-  <a id="logo" href="https://github.com/fairygui/">
-    <img src="/images/github-white.png">
-  </a>
+        <div id="header">
   <ul id="nav">
-    
-
-	<li><a href="/" class="nav-link">Home</a></li>
-
-<li><a href="/product/" class="nav-link">Product</a></li>
-<li><a href="/service/" class="nav-link">Service</a></li>
-<li><a href="/guide/" class="nav-link current">Tutorials</a></li>
-<li><a href="http://www.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
-<li><a href="/examples/" class="nav-link">Demo</a></li>
-<li><a href="/showcase/" class="nav-link">Showcase</a></li>
-<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">Q&A</a></li>
-<li><a href="/about/" class="nav-link">About</a></li>
-<li><a href="http://www.fairygui.com/" target="_self"  class="nav-link">中文</a><a class="nav-link"> / English</a></li>
+    <li><a href="/guide/" class="nav-link current">FairyGUI Manual</a></li>
+<li><a href="/examples/" class="nav-link">Examples</a></li>
+<li><a href="/release_notes/" class="nav-link">Release Notes</a></li>
   </ul>
 </div>
 
@@ -62,147 +45,145 @@
                     
     <div class="sidebar">
     <ul class="main-menu">
-        
-
-	<li><a href="/" class="nav-link">Home</a></li>
-
-<li><a href="/product/" class="nav-link">Product</a></li>
-<li><a href="/service/" class="nav-link">Service</a></li>
-<li><a href="/guide/" class="nav-link current">Tutorials</a></li>
-<li><a href="http://www.fairygui.com/api/" target="_blank"  class="nav-link">API</a></li>
-<li><a href="/examples/" class="nav-link">Demo</a></li>
-<li><a href="/showcase/" class="nav-link">Showcase</a></li>
-<li><a href="http://ask.fairygui.com/" target="_blank" class="nav-link">Q&A</a></li>
-<li><a href="/about/" class="nav-link">About</a></li>
-<li><a href="http://www.fairygui.com/" target="_self"  class="nav-link">中文</a><a class="nav-link"> / English</a></li>
+        <li><a href="/guide/" class="nav-link current">FairyGUI Manual</a></li>
+<li><a href="/examples/" class="nav-link">Examples</a></li>
+<li><a href="/release_notes/" class="nav-link">Release Notes</a></li>
     </ul>
     <div class="list">
-		<a class="become-backer" href="/about/donate.html">
-            Donate
-        </a>
-        <h2>
-            Guide
-            <!--<select class="version-select">
-                <option value="SELF" selected>unity</option>
-            </select>-->
- 		 
-		  
-		
-        </h2>
         <ul class="menu-root">
             
 
 	 			
 	                
 	                <li>
-	                    <a href="/guide/index.html" class="sidebar-link">Introduction</a>
+	                    <a href="/guide/index.html" class="sidebar-link">介绍</a>
 	                </li>
 	            
 	
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/index.html" class="sidebar-link">Editor Start</a>
+	                    <a href="/guide/editor/index.html" class="sidebar-link">编辑器使用基础</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/object.html" class="sidebar-link">Object</a>
+	                    <a href="/guide/editor/project_settings.html" class="sidebar-link">项目设置</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/image.html" class="sidebar-link">Image</a>
+	                    <a href="/guide/editor/package.html" class="sidebar-link">包</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/movieclip.html" class="sidebar-link">MovieClip</a>
+	                    <a href="/guide/editor/branch.html" class="sidebar-link">分支</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/graph.html" class="sidebar-link">Graph</a>
+	                    <a href="/guide/editor/publish.html" class="sidebar-link">发布</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/loader.html" class="sidebar-link">Loader</a>
+	                    <a href="/guide/editor/object.html" class="sidebar-link">元件</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/text.html" class="sidebar-link">Text</a>
+	                    <a href="/guide/editor/image.html" class="sidebar-link">图片</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/richtext.html" class="sidebar-link">RichText</a>
+	                    <a href="/guide/editor/movieclip.html" class="sidebar-link">动画</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/group.html" class="sidebar-link">Group</a>
+	                    <a href="/guide/editor/graph.html" class="sidebar-link">图形</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/component.html" class="sidebar-link">Component</a>
+	                    <a href="/guide/editor/loader.html" class="sidebar-link">装载器</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/scrollpane.html" class="sidebar-link">ScrollPane</a>
+	                    <a href="/guide/editor/text.html" class="sidebar-link">文本</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/controller.html" class="sidebar-link">Controller</a>
+	                    <a href="/guide/editor/richtext.html" class="sidebar-link">富文本</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/relation.html" class="sidebar-link">Relation System</a>
+	                    <a href="/guide/editor/group.html" class="sidebar-link">组</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/label.html" class="sidebar-link">Label</a>
+	                    <a href="/guide/editor/component.html" class="sidebar-link">组件</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/button.html" class="sidebar-link">Button</a>
+	                    <a href="/guide/editor/scrollpane.html" class="sidebar-link">滚动容器</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/combobox.html" class="sidebar-link">ComboBox</a>
+	                    <a href="/guide/editor/controller.html" class="sidebar-link">控制器</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/progressbar.html" class="sidebar-link">ProgressBar</a>
+	                    <a href="/guide/editor/relation.html" class="sidebar-link">关联系统</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/slider.html" class="sidebar-link">Slider</a>
+	                    <a href="/guide/editor/label.html" class="sidebar-link">标签</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/scrollbar.html" class="sidebar-link">ScrollBar</a>
+	                    <a href="/guide/editor/button.html" class="sidebar-link">按钮</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/list.html" class="sidebar-link">List</a>
+	                    <a href="/guide/editor/combobox.html" class="sidebar-link">下拉框</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/window.html" class="sidebar-link">Window</a>
+	                    <a href="/guide/editor/progressbar.html" class="sidebar-link">进度条</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/slider.html" class="sidebar-link">滑动条</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/scrollbar.html" class="sidebar-link">滚动条</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/list.html" class="sidebar-link">列表</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/tree.html" class="sidebar-link">树</a>
 	                </li>
 	            
 	                
@@ -217,17 +198,37 @@
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/transition.html" class="sidebar-link">Transition</a>
+	                    <a href="/guide/editor/window.html" class="sidebar-link">窗口系统</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/adaptation.html" class="sidebar-link">Adaptation</a>
+	                    <a href="/guide/editor/transition.html" class="sidebar-link">动效</a>
 	                </li>
 	            
 	                
 	                <li>
-	                    <a href="/guide/editor/upgrade_binary_format.html" class="sidebar-link">Binary Package Format</a>
+	                    <a href="/guide/editor/adaptation.html" class="sidebar-link">适配</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/i18n.html" class="sidebar-link">多国语言</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/export.html" class="sidebar-link">导入和导出资源包</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/preference.html" class="sidebar-link">偏好设置</a>
+	                </li>
+	            
+	                
+	                <li>
+	                    <a href="/guide/editor/plugin.html" class="sidebar-link">插件</a>
 	                </li>
 	            
 	
@@ -271,73 +272,73 @@
 	                <li><h3>SDK - Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/guide/unity/index.html" class="sidebar-link">Unity Start</a>
+	                    <a href="/guide/unity/index.html" class="sidebar-link">显示UI面板</a>
 	                </li>
 	            
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/transform.html" class="sidebar-link">Unity Coordinate</a>
+	                    <a href="/guide/unity/transform.html" class="sidebar-link">坐标系统</a>
 	                </li>
 	            
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/atlas.html" class="sidebar-link">Atlas</a>
+	                    <a href="/guide/unity/atlas.html" class="sidebar-link">纹理集的处理</a>
 	                </li>
 	            
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/font.html" class="sidebar-link">Font Handling</a>
+	                    <a href="/guide/unity/font.html" class="sidebar-link">字体的处理</a>
 	                </li>
 	            
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/input.html" class="sidebar-link">Input processing</a>
+	                    <a href="/guide/unity/input.html" class="sidebar-link">输入处理</a>
 	                </li>
 	            
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/event.html" class="sidebar-link">Event System</a>
+	                    <a href="/guide/unity/event.html" class="sidebar-link">事件机制</a>
 	                </li>
 	            
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/insert3d.html" class="sidebar-link current">Interspersed with 3D objects</a>
+	                    <a href="/guide/unity/insert3d.html" class="sidebar-link current">插入模型/粒子/Spine/Canvas</a>
 	                </li>
 	            
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/uipainter.html" class="sidebar-link">Curved UI</a>
+	                    <a href="/guide/unity/uipainter.html" class="sidebar-link">曲面UI</a>
 	                </li>
 	            
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall Optimization</a>
+	                    <a href="/guide/unity/drawcall.html" class="sidebar-link">DrawCall优化</a>
 	                </li>
 	            
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/lua.html" class="sidebar-link">Used in Lua</a>
+	                    <a href="/guide/unity/lua.html" class="sidebar-link">在Lua中使用</a>
 	                </li>
 	            
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/special.html" class="sidebar-link">Unity Features</a>
+	                    <a href="/guide/unity/special.html" class="sidebar-link">特色功能</a>
 	                </li>
 	            
 	                
 	                
 	                <li>
-	                    <a href="/guide/unity/faq.html" class="sidebar-link">Unity FAQ</a>
+	                    <a href="/guide/unity/faq.html" class="sidebar-link">常见问题</a>
 	                </li>
 	            
 
@@ -349,7 +350,7 @@
 
 <div class="content guide_unity with-sidebar ">
     
-      <h1>Interspersed with 3D objects</h1>
+      <h1>插入模型/粒子/Spine/Canvas</h1>
     
     <p>FairyGUI提供了非常完整的解决方案解决模型、粒子、骨骼动画等3D对象与UI穿插的问题，并且支持与UGUI Canvas穿插。</p>
 <h2 id="直接放入3D对象"><a href="#直接放入3D对象" class="headerlink" title="直接放入3D对象"></a>直接放入3D对象</h2><p>这种方式是直接用UI相机渲染3D对象，相比RenderTexture的方案，使用简单且节省内存，缺点是在UI相机下3D对象没有透视。</p>
@@ -397,8 +398,8 @@
 <p>最后，设置GoWrapper支持自定义遮罩：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">wrapper.supportStencil = <span class="literal">true</span>;</div></pre></td></tr></table></figure>
 <p><strong>注意，如果有多个相同的被剪裁的对象，他们的材质不能共用一个，否则会出现显示异常。解决方法是复制材质，请参考上一段，复制材质。</strong></p>
-<h2 id="使用RenderTexture"><a href="#使用RenderTexture" class="headerlink" title="使用RenderTexture"></a>使用RenderTexture</h2><p>在UI上展现3D内容的另一种方式是使用RenderTexture。使用RenderTexture的步骤比较复杂，需要另外新建相机渲染目标对象，然后把该相机的输出定向到一张RenderTexture。有了RenderTexture后，我们将它赋值到Image.texture即可。详细的代码可以参考<a href="https://github.com/fairygui/FairyGUI-unity/blob/master/Examples.Unity5/Assets/FairyGUI/Examples/RenderTexture/RenderImage.cs" target="_blank" rel="external">RenderImage</a>。</p>
-<p>RenderTexture可以设置背景颜色为透明，方便和UI混合，具体在例子中就是把“this._image.blendMode = BlendMode.Off;”注释掉即可。但如果渲染的内容包含有透明贴图，那么和UI混合时就会出现透明部分的显示错误。在RenderImage这个例子中，FairyGUI提供了一个方案，将RenderTexture所在位置的背景图片影射到RenderTexture渲染相机的背景上，这样就不用担心透贴的问题。</p>
+<h2 id="使用RenderTexture"><a href="#使用RenderTexture" class="headerlink" title="使用RenderTexture"></a>使用RenderTexture</h2><p>在UI上展现3D内容的另一种方式是使用RenderTexture。使用RenderTexture的步骤比较复杂，需要另外新建相机渲染目标对象，然后把该相机的输出定向到一张RenderTexture。有了RenderTexture后，我们将它赋值到Image.texture即可。详细的代码可以参考<a href="https://github.com/fairygui/FairyGUI-unity/blob/master/Assets/Examples/RenderTexture/RenderImage.cs" target="_blank" rel="external">RenderImage</a>。</p>
+<p>RenderTexture可以设置背景颜色为透明，方便和UI混合，具体在例子中就是把“this._image.blendMode = BlendMode.Off;”注释掉即可。但如果渲染的内容包含有透明贴图，那么和UI混合时就会出现透明部分的显示错误，有两种解决方案，第一种方案可以参考<a href="https://blog.uwa4d.com/archives/Severe_MOBA.html" target="_blank" rel="external">这里的资料</a>，修改模型或者粒子的着色器，以及RenderTexture的着色器。 第二种方案是FairyGUI提供的独特方案，也就是像RenderImage演示的那样，将RenderTexture所在位置的背景图片影射到RenderTexture渲染相机的背景上：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SetBackground</span>(<span class="params">GObject image</span>)</span>;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SetBackground</span>(<span class="params">GObject image1, GObject image2</span>)</span>;</div></pre></td></tr></table></figure>
 <p>可以看到，最多可以设置两个图片。如果RenderTexture的背后有超过两个图片的叠加，就无法处理了。这两个图片不需要和RenderTexture在同一个容器里，它们可以在UI的任何层次。</p>
 <h2 id="插入Canvas"><a href="#插入Canvas" class="headerlink" title="插入Canvas"></a>插入Canvas</h2><p>FairyGUI无论从功能上还是效率上，都能满足所有大部分UI设计的需求，因此在使用FairyGUI的项目里，很少会有需要再使用UGUI的情况。大部分UGUI需要用插件完成的功能，FairyGUI均已经内置，而且很多可以在编辑器零脚本完成。如果确实需要用到一些UGUI的插件，并且不方便移植，FairyGUI也提供了方案插入UGUI的Canvas到FairyGUI的显示层次中。步骤如下：</p>

@@ -1,5 +1,5 @@
 ---
-title: Unity Features
+title: 特色功能
 type: guide_unity
 order: 90
 ---
@@ -45,15 +45,6 @@ Please define two layers named 'VUI' and 'Hidden VUI' "
 ## 组件截图
 
 使用下面的方法可以实现对组件截图的功能。原理是使用FairyGUI提供的`绘画模式`功能。
-
-```csharp
-    EnterPaintingMode(int requestorId, Margin? margin);
-```
-
-- `requestorId` 请求者id。当多个请求要求显示对象进入绘画模式时，可以用这个id区分。取值是1、2、4、8、16以此类推。1024内内部保留。用户自定义的id从1024开始。
-- `margin` 纹理四周的留空。如果特殊处理后的内容大于原内容，那么这里的设置可以使纹理扩大。
-
-利用绘画模式实现截图功能：
 
 ```csharp
     GObject aObject;

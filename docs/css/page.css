@@ -87,7 +87,7 @@ pre .xml .cdata {
   opacity: 0.5;
 }
 body {
-  font-family: 'Sans-serif', 'Microsoft Yahei';
+  font-family: 'Hiragino Sans GB', 'Segoe UI', 'Sans-serif', 'Microsoft Yahei', Arial, sans-serif;
   font-size: 15px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -120,7 +120,7 @@ strong {
 }
 code,
 pre {
-  font-family: 'Roboto Mono', Monaco, courier, monospace;
+  font-family: 'Hiragino Sans GB', 'Segoe UI', 'Sans-serif', 'Microsoft Yahei', Arial, sans-serif;
   font-size: 0.8em;
   background-color: #f8f8f8;
   -webkit-font-smoothing: initial;
@@ -140,17 +140,22 @@ p {
   word-spacing: 0.05em;
 }
 a.button {
-  padding: 1em 2.5em;
+  padding: 20px 50px 20px 50px;
   border-radius: 0.2em;
   display: inline-block;
   color: #fff;
   transition: all 0.15s ease;
   box-sizing: border-box;
   border: 1px solid #fff;
+  font-weight: 100;
 }
 a.button.white {
   background-color: #fff;
   color: #32a39f;
+}
+a.button:hover {
+  background-color: #fff;
+  color: #4e99bf;
 }
 .highlight {
   overflow-x: auto;
@@ -367,6 +372,7 @@ body.docs #mobile-bar::before {
   display: inline-block;
   position: relative;
   margin: 0 0.6em;
+  color: #fff;
 }
 #nav li a {
   color: #fff;
@@ -376,7 +382,7 @@ body.docs #mobile-bar::before {
 }
 .nav-link:hover,
 .nav-link.current {
-  border-bottom: 3px solid #fff;
+  border-bottom: 2px solid #fff;
 }
 .nav-link.shop {
   margin-left: 10px;
@@ -391,7 +397,7 @@ body.docs #mobile-bar::before {
   height: 16px;
   font-size: 9px;
   font-weight: bold;
-  font-family: 'Roboto Mono', Monaco, courier, monospace;
+  font-family: 'Hiragino Sans GB', 'Segoe UI', 'Sans-serif', 'Microsoft Yahei', Arial, sans-serif;
   padding: 1px 4px 0 6px;
   border-radius: 4px;
 }
@@ -421,14 +427,14 @@ body.docs #mobile-bar::before {
   font-size: 1.5em;
   line-height: 40px;
   color: #2c3e50;
-  font-family: 'Sans-serif', 'Microsoft Yahei';
+  font-family: 'Hiragino Sans GB', 'Segoe UI', 'Sans-serif', 'Microsoft Yahei', Arial, sans-serif;
   font-weight: 500;
 }
 #logo img {
   vertical-align: middle;
   margin-right: 6px;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
 }
 #mobile-bar {
   position: fixed;
@@ -550,26 +556,6 @@ ul.demo li {
     margin-left: 0;
   }
 }
-.benchmark-table {
-  margin: 0 auto;
-  text-align: center;
-}
-.benchmark-table tbody > tr > th {
-  text-align: right;
-}
-.benchmark-table th,
-.benchmark-table td {
-  padding: 3px 7px;
-}
-.sponsors-page a,
-.sponsors-page img {
-  width: 120px;
-  display: inline-block;
-  vertical-align: middle;
-}
-.sponsors-page a {
-  margin: 10px 20px;
-}
 .content.guide[class*="migration"] h2 > sup,
 .content.guide[class*="migration"] h3 > sup {
   margin-left: 0.3em;
@@ -662,22 +648,6 @@ ul.demo li {
   display: none;
   padding-left: 0;
 }
-.sidebar .main-sponsor {
-  color: #7f8c8d;
-  font-size: 0.85em;
-}
-.sidebar .main-sponsor .logo {
-  color: #7f8c8d;
-  margin: 10px 0;
-  padding: 10px 0;
-  text-align: center;
-  font-weight: bold;
-}
-.sidebar .main-sponsor img,
-.sidebar .main-sponsor a {
-  width: 125px;
-  display: inline-block;
-}
 .sidebar .become-backer {
   border: 1px solid #32a39f;
   border-radius: 2em;
@@ -727,8 +697,9 @@ ul.demo li {
 .content {
   position: relative;
   padding: 2.2em 0;
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
+  margin-left: 300px;
 }
 .content.api > a:first-of-type > h2 {
   margin-top: 0;
@@ -883,7 +854,7 @@ ul.demo li {
   text-align: center;
   line-height: 20px;
   font-weight: bold;
-  font-family: 'Sans-serif', 'Microsoft Yahei';
+  font-family: 'Hiragino Sans GB', 'Segoe UI', 'Sans-serif', 'Microsoft Yahei', Arial, sans-serif;
   font-size: 14px;
 }
 .content p.tip code {
