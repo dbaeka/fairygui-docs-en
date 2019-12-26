@@ -1,10 +1,10 @@
 ---
-title: 编辑器使用基础
+title: Basics
 type: guide_editor
 order: 0
 ---
 
-## 打开项目
+## Open Project
 
 启动FairyGUI编辑器后，首先显示的是欢迎窗口：
 
@@ -17,7 +17,7 @@ order: 0
 
 编辑器支持同时打开多个项目。Windows平台下，可以通过重复双击桌面上的图标启动多个FairyGUI编辑器。Mac平台下，你可以在打开一个项目后，再点击主菜单“文件”->“新建窗口”，然后再打开其他项目。
 
-## 创建新项目
+## Create Project
 
 ![](../../images/QQ20191203-155930.png)
 

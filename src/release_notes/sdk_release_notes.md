@@ -1,5 +1,5 @@
 ---
-title: 其它SDK更新日志
+title: SDK Release Notes
 type: release_notes
 order: 2
 ---

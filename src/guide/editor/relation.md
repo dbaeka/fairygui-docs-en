@@ -1,5 +1,5 @@
 ---
-title: 关联系统
+title: Relation
 type: guide_editor
 order: 21
 ---

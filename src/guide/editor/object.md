@@ -1,5 +1,5 @@
 ---
-title: 元件
+title: Object
 type: guide_editor
 order: 10
 ---

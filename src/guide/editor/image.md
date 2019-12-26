@@ -1,5 +1,5 @@
 ---
-title: 图片
+title: Image
 type: guide_editor
 order: 11
 ---

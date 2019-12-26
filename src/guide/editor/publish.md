@@ -1,5 +1,5 @@
 ---
-title: 发布
+title: Publish
 type: guide_editor
 order: 4
 ---

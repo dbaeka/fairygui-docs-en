@@ -1,5 +1,5 @@
 ---
-title: 滑动条
+title: Slider
 type: guide_editor
 order: 26
 ---

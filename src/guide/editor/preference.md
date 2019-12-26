@@ -1,5 +1,5 @@
 ---
-title: 偏好设置
+title: Preference
 type: guide_editor
 order: 38
 ---

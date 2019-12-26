@@ -1,5 +1,5 @@
 ---
-title: 项目设置
+title: Project Settings
 type: guide_editor
 order: 1
 ---

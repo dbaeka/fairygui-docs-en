@@ -1,5 +1,5 @@
 ---
-title: 标签
+title: Label
 type: guide_editor
 order: 22
 ---

@@ -1,5 +1,5 @@
 ---
-title: 分支
+title: Branch
 type: guide_editor
 order: 3
 ---

@@ -1,5 +1,5 @@
 ---
-title: 下拉框
+title: ComboBox
 type: guide_editor
 order: 24
 ---

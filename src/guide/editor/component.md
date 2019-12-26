@@ -1,5 +1,5 @@
 ---
-title: 组件
+title: Component
 type: guide_editor
 order: 18
 ---

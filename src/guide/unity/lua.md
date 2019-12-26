@@ -1,5 +1,5 @@
 ---
-title: 在Lua中使用
+title: Lua
 type: guide_unity
 order: 80
 ---

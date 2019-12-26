@@ -1,5 +1,5 @@
 ---
-title: 进度条
+title: ProgressBar
 type: guide_editor
 order: 25
 ---

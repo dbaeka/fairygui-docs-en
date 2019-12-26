@@ -1,5 +1,5 @@
 ---
-title: 动画
+title: MovieClip
 type: guide_editor
 order: 12
 ---

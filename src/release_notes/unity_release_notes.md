@@ -1,5 +1,5 @@
 ---
-title: Unity SDK更新日志
+title: Unity SDK Release Notes
 type: release_notes
 order: 1
 ---

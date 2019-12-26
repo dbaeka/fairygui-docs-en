@@ -1,5 +1,5 @@
 ---
-title: 窗口系统
+title: Window
 type: guide_editor
 order: 33
 ---

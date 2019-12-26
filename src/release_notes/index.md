@@ -1,5 +1,5 @@
 ---
-title: 发行日志
+title: Release Notes
 type: release_notes
 order: 0
 ---

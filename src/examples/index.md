@@ -4,12 +4,12 @@ type: examples
 order: 0
 ---
 
-在线示例仅能提供H5类引擎的示例，其他引擎请在产品页面相应引擎SDK下下载Demo！
+Online samples can only provide samples of H5 engines. For other engines, please download demo under the corresponding engine SDK on the product page!
 
-[Laya在线示例](http://www.fairygui.com/laya-demo/main/)
+[Laya](http://www.fairygui.com/laya-demo/main/)
 
-[Egret在线示例](http://www.fairygui.com/egret-demo/main/)
+[Egret](http://www.fairygui.com/egret-demo/main/)
 
-[CocosCreator在线示例](http://www.fairygui.com/cocos-demo/)
+[CocosCreator](http://www.fairygui.com/cocos-demo/)
 
-[PIXI在线示例](http://jc-space.com/pixigui)
+[PIXI](http://jc-space.com/pixigui)

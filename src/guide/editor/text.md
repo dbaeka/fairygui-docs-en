@@ -1,5 +1,5 @@
 ---
-title: 文本
+title: Text
 type: guide_editor
 order: 15
 ---

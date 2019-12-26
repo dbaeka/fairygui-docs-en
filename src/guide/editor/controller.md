@@ -1,5 +1,5 @@
 ---
-title: 控制器
+title: Controller
 type: guide_editor
 order: 20
 ---

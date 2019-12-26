@@ -1,5 +1,5 @@
 ---
-title: 插件
+title: Plugin
 type: guide_editor
 order: 39
 ---

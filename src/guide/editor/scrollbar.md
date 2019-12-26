@@ -1,5 +1,5 @@
 ---
-title: 滚动条
+title: ScrollBar
 type: guide_editor
 order: 27
 ---

@@ -1,5 +1,5 @@
 ---
-title: 适配
+title: Adaptation
 type: guide_editor
 order: 35
 ---

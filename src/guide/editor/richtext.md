@@ -1,5 +1,5 @@
 ---
-title: 富文本
+title: RichText
 type: guide_editor
 order: 16
 ---

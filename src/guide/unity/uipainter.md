@@ -1,5 +1,5 @@
 ---
-title: 曲面UI
+title: Curved UI
 type: guide_unity
 order: 60
 ---

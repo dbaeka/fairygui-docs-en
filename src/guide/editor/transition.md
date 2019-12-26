@@ -1,5 +1,5 @@
 ---
-title: 动效
+title: Transition
 type: guide_editor
 order: 34
 ---
