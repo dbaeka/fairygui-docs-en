@@ -12,8 +12,8 @@ timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://fairygui.github.io
-root: /
+url: https://en.fairygui.com/docs
+root: /docs/
 permalink: :year/:month/:day/:title/
 tag_dir: tags
 archive_dir: archives
