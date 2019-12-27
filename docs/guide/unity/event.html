@@ -6,18 +6,18 @@
         <title>FairyGUI - Event</title>
     
         <meta charset="utf-8">
-        <meta name="description" content="FairyGUI Manual">
-        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Manual">
+        <meta name="description" content="FairyGUI Docs">
+        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Docs">
         
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
         <meta property="og:title" content="-EventFairyGUI">
-        <meta property="og:description" content="FairyGUI Manual">
+        <meta property="og:description" content="FairyGUI Docs">
 
         <meta name="twitter:card" content="summary">
         <meta name="twitter:title" content="Event — FairyGUI">
-        <meta name="twitter:description" content="FairyGUI Manual">
+        <meta name="twitter:description" content="FairyGUI Docs">
 
       <!--  <link href='//fonts.proxy.ustclug.org/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
 
@@ -65,7 +65,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/docs/guide/editor/index.html" class="sidebar-link">Basics</a>
+	                    <a href="/docs/guide/editor/index.html" class="sidebar-link">Basis</a>
 	                </li>
 	            
 	                
@@ -120,7 +120,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/docs/guide/editor/richtext.html" class="sidebar-link">RichText</a>
+	                    <a href="/docs/guide/editor/richtext.html" class="sidebar-link">Rich Text</a>
 	                </li>
 	            
 	                
@@ -274,7 +274,7 @@
 	                <li><h3>SDK - Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/index.html" class="sidebar-link">Basics</a>
+	                    <a href="/docs/guide/unity/index.html" class="sidebar-link">Basis</a>
 	                </li>
 	            
 	                
@@ -292,7 +292,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/font.html" class="sidebar-link">Font</a>
+	                    <a href="/docs/guide/unity/font.html" class="sidebar-link">Fonts</a>
 	                </li>
 	            
 	                
@@ -310,7 +310,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/insert3d.html" class="sidebar-link">Insert 3D/Canvas</a>
+	                    <a href="/docs/guide/unity/insert3d.html" class="sidebar-link">Insert 3D</a>
 	                </li>
 	            
 	                
@@ -354,64 +354,64 @@
     
       <h1>Event</h1>
     
-    <p><code>EventDispatcher</code>是事件分发的中心，GObject就是一个EventDispatcher。每个事件类型都对应一个<code>EventListener</code>，接收事件并调用处理函数。</p>
-<p>例如，编写某个元件单击的处理逻辑：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aObject.onClick.Add(aCallback);</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">aCallback</span>(<span class="params"></span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="comment">//some logic</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="冒泡和捕获"><a href="#冒泡和捕获" class="headerlink" title="冒泡和捕获"></a>冒泡和捕获</h2><p>一些特殊的事件，比如鼠标/触摸事件，具备向父组件传递的特性，这个传递过程叫做冒泡。例如当手指接触A元件时，A元件触发TouchBegin事件，然后A元件的父组件B触发TouchBegin事件，然后B的父组件C也触发TouchBegin事件，以此类推，直到舞台根部。这个设计保证了所有相关的显示对象都有机会处理触摸事件，而不只是最顶端的显示对象。</p>
-<p>冒泡过程可以被打断，通过调用EventContext.StopPropagation()可以使冒泡停止向父组件推进。</p>
-<p>从上面的冒泡过程可以看出，事件处理的顺序应该是：A’s listeners-&gt;B’s listeners-&gt;C’s listeners，这里还有一种机制可以让链路上任意一个对象可以提前处理事件，这就是事件捕获。事件捕获是反向的，例如在上面的例子中，就是C先捕获事件，然后是B，再到A。所以所有事件处理的完整顺序应该是：</p>
+    <p><code>EventDispatcher</code>Is the center of event distribution, GObject is an EventDispatcher. Each event type corresponds to one<code>EventListener</code>To receive events and call handlers.</p>
+<p>For example, write processing logic for a component click:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aObject.onClick.Add(aCallback);</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">aCallback</span>(<span class="params"></span>)</span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        <span class="comment">//some logic</span></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h2 id="Bubbling-and-catching"><a href="#Bubbling-and-catching" class="headerlink" title="Bubbling and catching"></a>Bubbling and catching</h2><p>Some special events, such as mouse / touch events, have the characteristics of passing to the parent component. This passing process is called bubbling. For example, when a finger touches the A component, the A component triggers the TouchBegin event, then the parent component B of the A component triggers the TouchBegin event, and then the parent component C of the B component also triggers the TouchBegin event, and so on until the root of the stage. This design guarantees that all related display objects have the opportunity to handle touch events, not just the topmost display object.</p>
+<p>The bubbling process can be interrupted. By calling EventContext.StopPropagation (), the bubbling can be stopped to advance to the parent component.</p>
+<p>As can be seen from the bubbling process above, the order of event processing should be: A’s listeners-&gt; B’s listeners-&gt; C’s listeners. There is also a mechanism that allows any object on the link to process events in advance. This is event capture. . Event capture is reversed. For example, in the above example, C captures the event first, then B, and then A. So the complete sequence of all event processing should be:</p>
 <p>C’s capture listeners-&gt;B’s capture listeners-&gt;A’s capture listeners-&gt;A’s listeners-&gt;B’s listeners-&gt;C’s listeners</p>
-<p>捕获传递链是不能中止的，冒泡传递链可以通过StopPropagation中止。<br>事件捕获的设计可以使父元件优于子元件和孙子元件检查事件。</p>
-<p>并非所有事件都有冒泡设计，在非冒泡事件中，capture的回调优于普通回调，仅此而已，可以作为一个优先级特性来使用。</p>
-<h2 id="事件回调函数"><a href="#事件回调函数" class="headerlink" title="事件回调函数"></a>事件回调函数</h2><p>每个事件可以注册一个或多个回调函数。函数原型为：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">EventCallback0</span>(<span class="params"></span>)</span>;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">EventCallback1</span>(<span class="params">EventContext context</span>)</span>;</div></pre></td></tr></table></figure>
-<p>两种形式的使用方法都是相同的，差别在于不带参数或带一个参数,只是为了方便在不需要用到EventContext时少写一点而已。</p>
-<p>没有直接传递自定义参数进回调函数的办法。但可以通过三种方式间接实现：</p>
+<p>Capturing delivery chains cannot be aborted, and bubbling delivery chains can be aborted with StopPropagation.<br>Event capture is designed to allow parent components to inspect events over child and grandchild components.</p>
+<p>Not all events have a bubbling design. In non-bubbling events, capture callbacks are better than ordinary callbacks, nothing more, and can be used as a priority feature.</p>
+<h2 id="Event-callback-function"><a href="#Event-callback-function" class="headerlink" title="Event callback function"></a>Event callback function</h2><p>Each event can register one or more callback functions. The function prototype is:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">EventCallback0</span>(<span class="params"></span>)</span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">EventCallback1</span>(<span class="params">EventContext context</span>)</span>;</div></pre></td></tr></table></figure>
+<p>The two forms of use are the same, the difference is that there is no parameter or a parameter, just for convenience to write less when you do not need to use EventContext.</p>
+<p>There is no way to directly pass custom parameters into the callback function. But it can be achieved indirectly in three ways:</p>
 <ol>
-<li>通过全局或者模块变量；</li>
-<li><p>使用lamba表达式，例如：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">a.onClick.Add(()=&gt;&#123; ... &#125;);</div></pre></td></tr></table></figure>
-</li>
-<li><p>将变量放到显示对象的data属性里。例如:</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">a.data = ...;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">aCallback</span>(<span class="params">EventContext context</span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    Debug.Log(((GObject)context.sender).data)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
+<li>Through global or module variables;</li>
+<li>Use lamba expressions, for example:</li>
 </ol>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">a.onClick.Add(()=&gt;&#123; ... &#125;);</div></pre></td></tr></table></figure>
+<ol>
+<li>Put the variable in the data property of the display object. E.g:</li>
+</ol>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">a.data = ...;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">aCallback</span>(<span class="params">EventContext context</span>)</span></div><div class="line"><span class="function">  </span>&#123;</div><div class="line">      Debug.Log(((GObject)context.sender).data)</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
 <h2 id="EventListener"><a href="#EventListener" class="headerlink" title="EventListener"></a>EventListener</h2><ul>
-<li><code>Add</code> <code>Remove</code> 添加或删除一个回调。</li>
-<li><code>AddCapture</code> <code>RemoveCapture</code> 添加或删除一个捕获期回调。</li>
+<li><code>Add</code> <code>Remove</code>Add or delete a callback.</li>
+<li><code>AddCapture</code> <code>RemoveCapture</code>Add or delete a capture period callback.</li>
 </ul>
-<h2 id="EventContext"><a href="#EventContext" class="headerlink" title="EventContext"></a>EventContext</h2><p>EventContext是回调函数的参数类型。</p>
+<h2 id="EventContext"><a href="#EventContext" class="headerlink" title="EventContext"></a>EventContext</h2><p>EventContext is the parameter type of the callback function.</p>
 <ul>
-<li><p><code>sender</code> 获得事件的分发者。</p>
+<li><p><code>sends</code>Get the distributor of the event.</p>
 </li>
-<li><p><code>initiator</code> 获得事件的发起者。一般来说，事件的分发者和发起者是相同的，但如果事件已发生冒泡，则可能不相同。参考下面冒泡的描述。</p>
+<li><p><code>initiator</code>Get the originator of the event. Generally, the distributor and originator of an event are the same, but if the event has bubbling, it may not be the same. Refer to the bubble description below.</p>
 </li>
-<li><p><code>type</code> 事件类型。</p>
+<li><p><code>type</code>Event type.</p>
 </li>
-<li><p><code>inputEvent</code> 如果事件是键盘/触摸/鼠标事件，通过访问inputEvent对象可以获得这类事件的相关数据。</p>
+<li><p><code>inputEvent</code>If the event is a keyboard / touch / mouse event, you can get the relevant data of this type of event by accessing the inputEvent object.</p>
 </li>
-<li><p><code>data</code> 事件的数据。根据事件不同，可以有不同的含义。</p>
+<li><p><code>data</code>The data of the event. Depending on the event, it can have different meanings.</p>
 </li>
-<li><p><code>StopPropagation</code> 点击子节点的区域，父节点也能收到触摸事件，这就是事件冒泡的特性。如果你不想再向父节点传递，可以调用这个方法。</p>
+<li><p><code>StopPropagation</code>Click the area of the child node, the parent node can also receive touch events, which is the characteristic of event bubbling. If you do not want to pass to the parent node, you can call this method.</p>
 </li>
-<li><p><code>CaptureTouch</code> 当鼠标左键释放或者手指抬起时，如果鼠标或者触摸位置已经不在组件范围内了，那么组件的TouchEnd事件是不会触发的。如果确实需要，可以请求捕获。在TouchBegin事件处理函数内，你可以调用context.CaptureTouch()，这样，无论鼠标在哪里释放（即使不在对象区域内），对象的onTouchEnd都会被调用。注意仅生效一次。<br>在1.9.1SDK后，如果调用了CaptureTouch，那么GObject.onTouchMove事件将在手指（或鼠标左键）抬起前一直触发（无论手指或指针位置是不是在该对象上方），直到鼠标左键释放或者手指抬起。</p>
+<li><p><code>CaptureTouch</code>When the left mouse button is released or the finger is raised, if the mouse or touch position is no longer within the component’s range, the component’s TouchEnd event will not be triggered. If you really need it, you can request a capture. Inside the TouchBegin event handler, you can call context.CaptureTouch (), so that no matter where the mouse is released (even if it is not in the object area), the object’s onTouchEnd will be called. Note that it only takes effect once.<br>After 1.9.1 SDK, if CaptureTouch is called, the GObject.onTouchMove event will be triggered before the finger (or the left mouse button) is raised (regardless of the position of the finger or pointer above the object), until the left mouse button is released or Lift your finger.</p>
 </li>
-<li><p><code>UncaptureTouch</code> 取消CaptureTouch发起的触摸事件捕获。</p>
+<li><p><code>UncaptureTouch</code>Cancels the capture of touch events initiated by CaptureTouch.</p>
 </li>
 </ul>
-<h2 id="InputEvent"><a href="#InputEvent" class="headerlink" title="InputEvent"></a>InputEvent</h2><p>对键盘事件和鼠标/触摸事件，可以通过EventContext.inputEvent获得此类事件的相关数据。</p>
+<h2 id="InputEvent"><a href="#InputEvent" class="headerlink" title="InputEvent"></a>InputEvent</h2><p>For keyboard events and mouse / touch events, you can get the relevant data of such events through EventContext.inputEvent.</p>
 <ul>
-<li><p><code>x</code> <code>y</code> 鼠标或手指的位置；这是舞台坐标，因为UI可能因为自适配发生了缩放，所以如果要转成UI元件中的坐标，要使用GObject.GlobalToLocal转换。</p>
+<li><p><code>x</code> ``y The position of the mouse or finger; this is the stage coordinates, because the UI may be scaled due to self-adaptation, so if you want to convert to the coordinates in the UI element, use GObject.GlobalToLocal transformation.</p>
 </li>
-<li><p><code>keyCode</code> 按键代码；</p>
+<li><p><code>keyCode</code>Key code</p>
 </li>
-<li><p><code>modifiers</code> 参考UnityEngine.EventModifiers。</p>
+<li><p><code>modifiers</code>Reference UnityEngine.EventModifiers.</p>
 </li>
-<li><p><code>mouseWheelDelta</code> 鼠标滚轮滚动值。</p>
+<li><p><code>mouseWheelDelta</code>Mouse wheel scroll value.</p>
 </li>
-<li><p><code>touchId</code> 当前事件相关的手指ID；在PC平台，该值为0，没有意义。</p>
+<li><p><code>touchId</code>Finger ID associated with the current event; on PC platforms, this value is 0, meaningless.</p>
 </li>
-<li><p><code>isDoubleClick</code> 是否双击。</p>
+<li><p><code>isDoubleClick</code>Whether to double-click.</p>
 </li>
 </ul>
 

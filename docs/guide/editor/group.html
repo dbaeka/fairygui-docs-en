@@ -6,18 +6,18 @@
         <title>FairyGUI - Group</title>
     
         <meta charset="utf-8">
-        <meta name="description" content="FairyGUI Manual">
-        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Manual">
+        <meta name="description" content="FairyGUI Docs">
+        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Docs">
         
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
         <meta property="og:title" content="-GroupFairyGUI">
-        <meta property="og:description" content="FairyGUI Manual">
+        <meta property="og:description" content="FairyGUI Docs">
 
         <meta name="twitter:card" content="summary">
         <meta name="twitter:title" content="Group — FairyGUI">
-        <meta name="twitter:description" content="FairyGUI Manual">
+        <meta name="twitter:description" content="FairyGUI Docs">
 
       <!--  <link href='//fonts.proxy.ustclug.org/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
 
@@ -65,7 +65,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/docs/guide/editor/index.html" class="sidebar-link">Basics</a>
+	                    <a href="/docs/guide/editor/index.html" class="sidebar-link">Basis</a>
 	                </li>
 	            
 	                
@@ -120,7 +120,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/docs/guide/editor/richtext.html" class="sidebar-link">RichText</a>
+	                    <a href="/docs/guide/editor/richtext.html" class="sidebar-link">Rich Text</a>
 	                </li>
 	            
 	                
@@ -274,7 +274,7 @@
 	                <li><h3>SDK - Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/index.html" class="sidebar-link">Basics</a>
+	                    <a href="/docs/guide/unity/index.html" class="sidebar-link">Basis</a>
 	                </li>
 	            
 	                
@@ -292,7 +292,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/font.html" class="sidebar-link">Font</a>
+	                    <a href="/docs/guide/unity/font.html" class="sidebar-link">Fonts</a>
 	                </li>
 	            
 	                
@@ -310,7 +310,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/insert3d.html" class="sidebar-link">Insert 3D/Canvas</a>
+	                    <a href="/docs/guide/unity/insert3d.html" class="sidebar-link">Insert 3D</a>
 	                </li>
 	            
 	                
@@ -354,65 +354,65 @@
     
       <h1>Group</h1>
     
-    <p>在舞台上选定一个或多个元件，然后按Ctrl+G，就可以建立一个组。 FairyGUI的组有两种类型，<code>普通组</code>和<code>高级组</code>。</p>
-<h2 id="普通组"><a href="#普通组" class="headerlink" title="普通组"></a>普通组</h2><p>普通组仅在编辑时有效，是辅助你进行UI设计的。普通组发布后不存在，也就是在运行时无法访问到普通组。</p>
-<p>普通组的作用有：</p>
+    <p>Select one or more symbols on the Stage and press Ctrl + G to create a group. There are two types of FairyGUI groups,<code>normal group and advanced group</code>。</p>
+<h2 id="Normal-group"><a href="#Normal-group" class="headerlink" title="Normal group"></a>Normal group</h2><p>The normal group is only valid during editing, and it assists you in UI design. The common group does not exist after it is published, that is, the common group cannot be accessed at runtime.</p>
+<p>The roles of the general group are:</p>
 <ol>
-<li>可以整体一起移动；</li>
-<li>可以整体一起调整深度；</li>
-<li>可以整体复制和粘贴。</li>
-<li>双击组，进入组内部后，可以随意调整各个元件的深度，不影响组外的东西。</li>
-<li>当组大小改变时，组内的内容将同时增大或者缩小。</li>
+<li>Can move together as a whole;</li>
+<li>You can adjust the depth together;</li>
+<li>Can be copied and pasted as a whole.</li>
+<li>Double-click the group to enter the inside of the group, you can adjust the depth of each element at will, without affecting the things outside the group.</li>
+<li>When the group size changes, the content in the group will increase or decrease at the same time.</li>
 </ol>
-<p>普通组的属性面板：</p>
+<p>Properties panel for common groups:</p>
 <p><img src="../../images/QQ20191211-151543.png" alt=""></p>
 <ul>
-<li><code>名称</code> 可以给普通组取名，用途也仅仅是辅助设计。</li>
+<li><code>name</code>You can name common groups and use them only as an aid to design.</li>
 </ul>
-<h2 id="高级组"><a href="#高级组" class="headerlink" title="高级组"></a>高级组</h2><p>高级组除了具有普通组所有的功能外，它在发布后仍然保留，也就是在运行时可以通过代码访问高级组对象。所以它可以像一个普通元件那样设置关联和属性控制。</p>
-<p>高级组的作用有：</p>
+<h2 id="Advanced-group"><a href="#Advanced-group" class="headerlink" title="Advanced group"></a>Advanced group</h2><p>The advanced group has all the functions of the normal group, but it is retained after the release, that is, the advanced group object can be accessed through code at runtime. So it can set relations and attribute control like a normal component.</p>
+<p>The role of the advanced group is:</p>
 <ol>
-<li>可以设置可见性。如果组不可见，则组内的所有元件均不可见。</li>
-<li>设置属性控制。高级组支持的属性控制有：显示控制，位置控制，大小控制。</li>
-<li>设置关联。</li>
-<li>设置布局。</li>
+<li>You can set visibility. If the group is not visible, all components within the group are not visible.</li>
+<li>Set property controls. The advanced group supports attribute control: display control, position control, size control.</li>
+<li>Set up the relations.</li>
+<li>Set the layout.</li>
 </ol>
-<p>高级组的属性面板：</p>
+<p>Advanced group properties panel:</p>
 <p><img src="../../images/QQ20191211-151618.png" alt=""></p>
 <ul>
-<li><p><code>布局</code> 高级组具有简单的布局功能。</p>
+<li><p><code>layout</code>The advanced group has simple layout features.</p>
 <ul>
-<li><p><code>无</code> 没有布局。没有布局的高级组是不会自动计算包围的，这是为了提高运行性能。因为没有布局的高级组一般只用来做显隐用途。</p>
+<li><p><code>no</code>No layout. Advanced groups without layouts will not automatically calculate enclosing, this is to improve running performance. Because the advanced group without layout is generally only used for explicit and implicit purposes.</p>
 </li>
-<li><p><code>水平布局</code></p>
-<p>组内的元件按照他们在容器中的显示顺序水平依次排列，他们之间的间隔由列距指定。当组的宽度改变时，每个元件都<strong>按比例增大</strong>，然后重新排列，列距保持不变。当组内的元件自身的宽度改变时，组自动按规则重新排列。</p>
+<li><p><code>Horizontal layout</code></p>
+<p> The elements in the group are arranged horizontally in the order they are displayed in the container, and the interval between them is specified by the column spacing. When the width of the group changes, each element is<strong>Increase proportionally</strong>, And then rearranged, the column spacing remains the same. When the width of the components in the group changes, the group automatically rearranges according to the rules.</p>
 </li>
-<li><p><code>垂直布局</code></p>
-<p>组件的元件按照他们在容器中的显示顺序垂直依次排列，他们之间的间隔由行距指定。当组的高度改变时，每个元件都<strong>按比例增大</strong>，然后重新排列，行距保持不变。当组内的元件自身的高度改变时，组自动按规则重新排列。</p>
-</li>
-</ul>
-</li>
-<li><p><code>排除隐藏的对象</code></p>
-<p>决定高级组在应用布局时，是否为隐藏的对象保留位置。如果勾选了这个选项，那么隐藏的对象就不会参与排列。</p>
-</li>
-<li><p><code>禁用自动计算包围</code></p>
-<p>一般情况下，有布局的高级组是自动计算包围的，也就是说，高级组的大小由组内元素决定。勾选这个选项后，高级组的大小就可以随意指定，不再受组内元素的影响。这用于实现这样一类需求：动态建立一个高级组，设定了固定大小后，无论往组里添加多少元件，这些元件都自动伸缩，且严格按布局排列。</p>
-</li>
-<li><p><code>仅伸缩指定索引元件</code></p>
-<p>一般情况下，有布局的高级组在拉伸时，组内的元素是均匀拉伸的。但在某些需求下，会要求只有一个元件拉伸，而其他元件大小保持不变。这里可以指定这样一个元件的索引实现需求。</p>
+<li><p><code>Vertical layout</code></p>
+<p> The components of an assembly are arranged vertically in the order in which they appear in the container, and the spacing between them is specified by the line spacing. When the height of the group changes, each element<strong>Increase proportionally</strong>, Then rearrange them, leaving the line spacing unchanged. When the height of the components in the group changes, the group is automatically rearranged according to the rules.</p>
 </li>
 </ul>
-<p><strong>演示一</strong></p>
-<p>这是一个无布局的组，可以看到，组大小改变时，里面的方块大小同时改变，但位置不变。</p>
+</li>
+<li><p><code>Exclude hidden objects</code></p>
+<p> Determines whether the advanced group reserves positions for hidden objects when applying layouts. If this option is checked, hidden objects will not participate in the arrangement.</p>
+</li>
+<li><p><code>Disable automatic bracketing</code></p>
+<p> In general, advanced groups with layouts are automatically calculated by enclosing, that is, the size of the advanced group is determined by the elements within the group. When this option is checked, the size of the advanced group can be arbitrarily specified and is no longer affected by the elements in the group. This is used to achieve such a type of requirement: dynamically set up an advanced group. After a fixed size is set, no matter how many components are added to the group, these components automatically expand and contract, and are arranged strictly in layout.</p>
+</li>
+<li><p><code>Scale only specified index elements</code></p>
+<p> In general, when an advanced group with a layout is stretched, the elements in the group are stretched uniformly. However, under certain requirements, only one component is required to be stretched, while other components remain the same size. Here you can specify the index implementation requirements for such a component.</p>
+</li>
+</ul>
+<p><strong>Demo one</strong></p>
+<p>This is a group without layout. As you can see, when the group size changes, the size of the squares in it changes at the same time, but the position remains the same.</p>
 <p><img src="../../images/gaollg17.gif" alt=""></p>
-<p>这是一个水平布局的组，可以与上图比较一下差别。</p>
+<p>This is a group with a horizontal layout, which can be compared with the image above.</p>
 <p><img src="../../images/gaollg18.gif" alt=""></p>
-<p><strong>演示二</strong></p>
-<p>如果组内有设置了大小限制的元件，那么组大小改变时，这些元件的大小限制依然生效，在以下的例子中，由于左右两个色块被限制了大小，所以组变大时，只有中间的色块改变大小。</p>
+<p><strong>Demo two</strong></p>
+<p>If there are components in the group that have a size limit set, then the size limit of these components will still take effect when the group size is changed. In the following example, because the left and right color blocks are limited in size, when the group becomes larger, only the middle The color blocks change size.</p>
 <p><img src="../../images/gaollg19.gif" alt=""></p>
-<h2 id="GGroup"><a href="#GGroup" class="headerlink" title="GGroup"></a>GGroup</h2><p>高级组可以在运行时通过代码访问。但要注意的是，组不是容器，它并没有维护一个组内元件的列表。如果你需要遍历组内的所有元件，你需要遍历容器组件的所有孩子，测试他们group属性。代码如下：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GGroup aGroup = gcom.GetChild(<span class="string">"groupName"</span>).asGroup;</div><div class="line"><span class="keyword">int</span> cnt = gcom.numChildren;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;cnt;i++)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>(gcom.GetChildAt(i).<span class="keyword">group</span>==aGroup)</div><div class="line">        Debug.Log(<span class="string">"get result"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>必须注意，对于没有布局的高级组，运行时是不会自动改变大小的，也就是无论组内的元素怎么变动，这种高级组的大小是不会自动改变的！</strong> 如果确实需要改变，那么只能自行调用GGroup.EnsureBoundsCorrect。</p>
+<h2 id="GGroup"><a href="#GGroup" class="headerlink" title="GGroup"></a>GGroup</h2><p>Advanced groups are accessible through code at runtime. Note, however, that groups are not containers; they do not maintain a list of components within a group. If you need to iterate through all the elements in a group, you need to iterate through all the children of the container component and test their group property. code show as below:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GGroup aGroup = gcom.GetChild(<span class="string">"groupName"</span>).asGroup;</div><div class="line">    <span class="keyword">int</span> cnt = gcom.numChildren;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;cnt;i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(gcom.GetChildAt(i).<span class="keyword">group</span>==aGroup)</div><div class="line">            Debug.Log(<span class="string">"get result"</span>);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p><strong>It must be noted that for advanced groups without layout, the runtime will not automatically change the size, that is, no matter how the elements in the group change, the size of this advanced group will not automatically change! </strong>If you really need to change, you can only call GGroup.EnsureBoundsCorrect yourself.</p>
 
     
     <div class="footer">

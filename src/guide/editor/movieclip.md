@@ -4,94 +4,94 @@ type: guide_editor
 order: 12
 ---
 
-## 创建动画
+## Create movieclip
 
-编辑器支持创建、编辑和使用序列帧动画。创建序列帧动画的方式有：
+The editor supports creating, editing, and using sequence frame movieclips. There are several ways to create a sequence frame movieclip:
 
-1. 使用Adobe Animate CC/Flash等动画编辑工具制作好动画，导出带plist或eas扩展名的描述文件以及相关的贴图（应放置在相同目录），然后将描述文件（仅描述文件，不是贴图）拖入编辑器即可生成动画素材。
+1. Use movieclip editing tools such as Adobe Animate CC / Flash to make movieclips, export the description file with plist or eas extension and related maps (should be placed in the same directory), and then drag the description file (only description file, not map) The editor can generate movieclip material.
 
-2. 点击菜单“资源”->"新建动画"，或者点击主工具栏![](../../images/maintb_09.png)按钮，可以创建一个新的空白动画。然后在动画编辑界面点击“导入图片序列”，导入多张图片。
+2. Click the menu "Resources"-> "New movieclip", or click the main toolbar![](../../images/maintb_09.png)Button to create a new blank movieclip. Then click "Import image Sequence" in the movieclip editing interface to import multiple images.
 
-3. 直接拖入一个GIF文件到编辑器，GIF会自动转换为序列帧动画。
+3. Drag a GIF file directly into the editor, and the GIF will be automatically converted into a sequence frame movieclip.
 
-4. Flash项目支持直接导入和使用SWF文件。
+4. Flash projects support direct import and use of SWF files.
 
-无论从何种方式创建的动画，在编辑器里，动画素材都是以一个单一文件存在（扩展名为jta）。也就是说，无论动画是从库里的图片文件创建的，还是从外面导进来的，都不会再有对单个图片的依赖。例如，如果你是从资源库里拖图片进入动画编辑器创建动画的，创建完成后，这些图片与动画再没有任何关系。如果你要设置动画所在的纹理集，在动画编辑器里对动画进行设置，对那些图片设置是无效的。
+Regardless of how the movieclip is created, in the editor, the movieclip material exists as a single file (with the extension jta). In other words, no matter whether the movieclip is created from the image file in the library or imported from the outside, there will no longer be a dependency on a single image. For example, if you drag an image from the asset library into the movieclip editor to create the movieclip, after the creation is complete, these images have no relationship with the movieclip anymore. If you want to set the texture set of the movieclip, set the movieclip in the movieclip editor. The settings for those images are invalid.
 
-## 编辑动画
+## Edit movieclip
 
-在资源库中，或者舞台上，双击动画，进入动画属性设置对话框：
+In the resource library or on the stage, double-click the movieclip to enter the movieclip property setting dialog box:
 
 ![](../../images/QQ20191211-163721.png)
 
-- `帧频` 可选24、30和60。可根据源动画的设定进行修改。
+- `Frame rate`Available in 24, 30 and 60. It can be modified according to the settings of the source movieclip.
 
-- `播放间隔` 每隔多少帧播放一张图片。增大或减少这个值可以降低或者增加动画播放的速度。
+- `Play interval`How many frames to play a image at. Increasing or decreasing this value can reduce or increase the speed of movieclip playback.
 
-- `循环延迟` 当动画播放结束后，停留多少帧再重新开始播放。
+- `Cycle delay`When the movieclip is over, how many frames to pause before restarting the playback.
 
-- `本帧延迟` 播放当前帧后停留多少帧再继续播放。
+- `This frame is delayed`How many frames to pause after playing the current frame before continuing playback.
 
-- `摆动式播放` 默认的播放形式是从第一帧播放到最后一帧，然后下个循环又从第一帧播放到最后一帧。如果勾选了摆动式播放，则先从第一帧播放到最后一帧，再从最后一帧倒序播放回第一帧，依此循环。
- 
-- `纹理集` 设置动画发布到指定的纹理集。**动画不支持纹理分页，也就是说，当纹理设置了自动分页时，如果动画被分布到不同的纹理集页面，运行时就会出现显示错误。这时你可以安排动画放置到单独的纹理集，或者和其他动画放在同一个纹理集上。**
+- `Swing play`The default playback format is to play from the first frame to the last frame, and then play from the first frame to the last frame in the next loop. If the swing play is checked, the first frame is played to the last frame, and then the last frame is played back to the first frame in reverse order, and so on.
 
-- `允许平滑` 它指示动画在拉伸时是否进行平滑处理。如果这个动画是用在制作像素游戏里的角色，你可能需要关闭平滑，其他情况一般都应开启。这个选项不适用于Unity等使用纹理集的平台。
+- `Texture set`Sets the movieclip to publish to the specified texture set. **movieclip does not support texture paging, that is, when the texture is set to automatic paging, if the movieclip is distributed to different texture set pages, a display error will occur at runtime. At this time you can arrange the movieclip to be placed on a separate texture set, or on the same texture set as other movieclips.**
 
-功能按钮：
+- `Allow smoothing`It indicates whether the movieclip is smoothed when stretched. If this movieclip is used to make a character in a pixel game, you may need to turn off smoothing, otherwise you should generally turn it on. This option is not available for platforms such as Unity that use texture sets.
 
-- `导入图片序列` 从序列图片中更新动画。
+function button:
 
-- `导入Sprite表` 导入Adobe Animate CC或者其他动画工具导出的动画文件。
+- `Import image sequence`Update movieclip from sequence images.
 
-- `导出图片序列` 将动画导出为图片序列。
+- `Import Sprite Table`Import movieclip files exported by Adobe Animate CC or other movieclip tools.
 
-## 实例属性
+- `Export image sequence`Export the movieclip as a sequence of images.
 
-在舞台上选中一个动画，右边的属性面板列表出现：
+## Instance properties
+
+Select an movieclip on the stage, and the property panel list on the right appears:
 
 ![](../../images/QQ20191211-163804.png)
 
-- `帧` 设置当前帧。
+- `frame`Set the current frame.
 
-- `播放` 设置动画是否处于播放状态。
+- `Play`Sets whether the movieclip is playing.
 
-- `颜色` 修改动画各个颜色通道的值，使动画产生变色的效果。
+- `colour`Modify the value of each color channel of the movieclip to make the movieclip change color.
 
-- `亮度` 调整动画的明暗。这个实际是通过修改`颜色`属性实现的，和设置颜色为灰阶颜色一样的效果。
+- `brightness`Adjust the brightness of the movieclip. This is actually modified by`colour`The property achieves the same effect as setting the color to grayscale.
 
 ## GMovieClip
 
-动画我们一般不直接使用new来创建，也很少有需要单独创建动画的需求。它一般直接放置在其他组件中作为组成元素。如果确实需要实例化一个动画，可以使用以下方法：
+We generally do not use new directly to create movieclips, and there is rarely a need to create movieclips separately. It is usually placed directly in other components as a constituent element. If you really need to instantiate an movieclip, you can use the following methods:
 
 ```csharp
-    GMovieClip aMovie = UIPackage.CreateObject("包名","动画名").asMovieClip;
+GMovieClip aMovie = UIPackage.CreateObject ("package name", "movieclip name").asMovieClip;
 ```
 
-常用的API有：
+The commonly used APIs are:
 
 ```csharp
-    aMovie.playing = false; //切换播放和停止状态
-    aMovie.frame = 5; //如果动画处于停止状态，可以设置停止在第几帧
+aMovie.playing = false; // Switch playback and stop status
+    aMovie.frame = 5; // If the movieclip is stopped, you can set the frame to stop at
 ```
 
-对动画进行循环播放的设置，例如从第几帧播放到第几帧，循环播放多少次等：
+Set the loop playback of the movieclip, such as from frame to frame, how many times to loop, etc .:
 
 ```csharp
-    aMovie.SetPlaySettings(0, -1, 0, -1); 
+aMovie.SetPlaySettings(0, -1, 0, -1);
 ```
 
-对动画播放过程的其他控制，可以使用MovieClip对象：
+For other controls on the movieclip playback process, you can use the MovieClip object:
 
 ```csharp
-    //返回播放头部
-    ((MovieClip)aMovie.displayObject).Rewind();
+// Return to play head
+    ((MovieClip) aMovie.displayObject) .Rewind ();
 ```
 
-动画播放完成可以获得一个回调通知：（如果是循环播放，则所有循环结束后才算播放完成）
+You can get a callback notification when the movieclip is completed: (If it is looped, the playback is not completed until all the loops are completed)
 
 ```csharp
-    //Unity/Cry
+//Unity/Cry
     aMovie.onPlayEnd.Add(...);
 
     //AS3

@@ -4,39 +4,39 @@ type: guide_editor
 order: 39
 ---
 
-编辑器支持插件。插件可以实现以下这些功能：
-1. 显示自定义的视图。（限专业版）
-2. 显示自定义的Inspector。（限专业版）
-3. 自定义菜单。
-4. 导入资源。
-5. 添加元件到舞台，以及设置舞台上的元件的属性。（限专业版）
-6. 插入自定义操作到发布流程。例如自定义发布代码。
+The editor supports plugins. Plugins can implement these functions:
+1. Display a custom view. (Professional Edition only)
+2. Display the custom Inspector. (Professional Edition only)
+3. Custom menu.
+4. Import resources.
+5. Add symbols to the stage, and set the properties of symbols on the stage. (Professional Edition only)
+6. Insert custom actions into the publishing process. Such as custom publishing code.
 
-## 开发
+## Develop
 
-目前插件只支持AS3语言开发。
+Currently the plugin only supports AS3 language development.
 
-1. 从[仓库](https://github.com/fairygui/FairyGUI-Editor/tree/master/plugin)下载最新版本的插件接口和示例。
-2. 使用你熟悉的AS3开发工具创建一个**库项目**，并将下载的插件接口放入工程内。
-3. 设置libs/FairyGUI-as3.swc为外部链接，即不打包到最终的swc中。这点很重要。
-4. 插件入口在PlugInMain这个类里。
-5. `fairygui.plugin`下的接口是旧版本的接口，社区版用户只能访问这部分接口。
-6. `fairygui.editor.api`下的接口是5.x版本的接口，只有专业版用户才能使用。
+1. [](https://github.com/fairygui/FairyGUI-Editor/tree/master/plugin)Download the latest version of the plug-in interface and examples from the repository.
+2. Create one using your familiar AS3 development tools**Library item**And put the downloaded plug-in interface into the project.
+3. Set libs / FairyGUI-as3.swc as an external link, that is, do not package it into the final swc. This is very important.
+4. The plugin entry is in the class PlugInMain.
+5. `fairygui.plugin`The interface below is the interface of the old version, and the community version users can only access this part of the interface.
+6. `fairygui.editor.api`The interface below is the 5.x interface, which can only be used by professional users.
 
-## 部署
+## Deploy
 
-将生成的插件swc拷贝到插件目录，也就是在软件安装目录/plugins下。
-点击菜单“工具->插件管理”，弹出窗口如下图：
+Copy the generated plug-in swc to the plug-in directory, that is, under the software installation directory / plugins.
+Click the menu "Tools-> Plugin Management", the pop-up window is as follows:
 
 ![](../../images/QQ20191210-144149.png)
 
-如果从列表里看到你的插件的名字，说明安装已成功。
+If you see the name of your plugin in the list, the installation was successful.
 
-## 调试
+## Debug
 
-可以通过输出信息到控制台进行调试。
+You can debug by outputting information to the console.
 
-## 参考资料
+## References
 
-1. [编辑器插件怎么写？](http://ask.fairygui.com/?/question/5)
+1. [How to write an editor plugin?](http://ask.fairygui.com/?/question/5)
 2. [FairyGUIToLua](https://github.com/ZxIce/FairyGUIToLua)

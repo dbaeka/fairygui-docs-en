@@ -4,46 +4,46 @@ type: guide_sdk
 order: 0
 ---
 
-1. 将FairyGUI库以及依赖的rawinflate库拷贝到bin/libs目录。（如果你在编辑器发布时没有勾选`压缩描述文件`，那么这个库是不需要的）。
+1. Copy the FairyGUI library and the dependent rawinflate library to the bin / libs directory. (If you did n’t check it when the editor was published`Compressed description file`, Then this library is not needed).
 
-  ![](../../images/20170809155135.png)
+![](../../images/20170809155135.png)
 
-2. 把fairygui.d.ts拷贝到libs目录。
+2. Copy fairygui.d.ts to the libs directory.
 
-  ![](../../images/20170809155742.png)
+![](../../images/20170809155742.png)
 
-3. 在bin/index.js里添加上述两个库的引用，注意放置的位置。
+3. Add references to the above two libraries in bin / index.js and pay attention to where they are placed.
 
-  ![](../../images/20181117114842.png)
+![](../../images/20181117114842.png)
 
-  注：FairyGUI只依赖laya.core， laya.html两个模块，不需要laya.ui。
+Note: FairyGUI only depends on two modules, laya.core and laya.html. Laya.ui is not required.
 
-4. 使用FairyGUI编辑器完成UI编辑。发布目录请选择Laya工程的bin/res目录（当然其他目录也是可以的）。发布后得到两个（或以上）文件。
+4. Use FairyGUI editor to complete UI editing. Please select the bin / res directory of the Laya project (other directories are also possible, of course). Get two (or more) files after posting.
 
-  ![](../../images/20170809160159.png)
+![](../../images/20170809160159.png)
 
-5. 在程序启动时（或者在需要用到这些UI的适当地方）加载这两个文件，并完成初始化。
+5. Load these two files when the program starts (or wherever you need these UIs) and complete the initialization.
 
-  ```csharp
-    onLoaded(): void {
-        Laya.stage.addChild(fgui.GRoot.inst.displayObject);
-        
-        fgui.UIPackage.addPackage("res/Basic");
-        fgui.UIConfig.defaultFont = "宋体";
-        fgui.UIConfig.verticalScrollBar = "ui://Basic/ScrollBar_VT";
-        fgui.UIConfig.horizontalScrollBar = "ui://Basic/ScrollBar_HZ";
-        fgui.UIConfig.popupMenu = "ui://Basic/PopupMenu";
-        fgui.UIConfig.buttonSound = "ui://Basic/click";
-    }
-  ```
+```csharp
+onLoaded(): void {
+      Laya.stage.addChild(fgui.GRoot.inst.displayObject);
+      
+      fgui.UIPackage.addPackage("res/Basic");
+      fgui.UIConfig.defaultFont = "宋体";
+      fgui.UIConfig.verticalScrollBar = "ui://Basic/ScrollBar_VT";
+      fgui.UIConfig.horizontalScrollBar = "ui://Basic/ScrollBar_HZ";
+      fgui.UIConfig.popupMenu = "ui://Basic/PopupMenu";
+      fgui.UIConfig.buttonSound = "ui://Basic/click";
+  }
+```
 
-## 小游戏开发必读
+## Must-read game development
 
-1. 因为rawinflate这个库在小游戏平台有问题，所以直接不使用它。请使用最新编辑器，在发布对话框，全局设置里不勾选“压缩描述文件”就可以了。rawinflate这个库就不会再引用到（也不需要打包了）。
-2. 小游戏不支持fui扩展名，所以在发布界面要把扩展名修改成小游戏支持的扩展名（自己查阅小游戏文档）。然后在代码里设置：
-  ```
-    fairygui.UIConfig.packageFileExtension = "你定义的扩展名";
-  ```
-3. 在发布对话框，全局设置里勾选“使用二进制格式”。
-4. AddPackage有两种方式，一种是传统的传入文件名方式，另一种是直接传入fui整个文件的内容，也就是说不管你内容是从哪里来的。两种方式可以按需选择。
-5. 如果遇到加载失败，请检查laya的加载流程。因为FairyGUI不负责加载，你需要确保资源已经顺利加载了再AddPackage。
+1. Because rawinflate has a problem on the small game platform, it is not used directly. Please use the latest editor. Uncheck "Compress description file" in the global settings of the release dialog. The rawinflate library will no longer be referenced (and no packaging is required).
+2. Mini games do not support fui extensions, so in the publishing interface, you must change the extension to the extensions supported by the mini games (check the mini game documentation yourself). Then set it in the code:
+```
+fairygui.UIConfig.packageFileExtension = "The extension you defined";
+```
+3. In the publish dialog, check "Use binary format" in the global settings.
+4. AddPackage has two methods, one is the traditional method of passing in the file name, and the other is to directly pass in the content of the entire file, that is, no matter where your content comes from. Two methods can be selected as required.
+5. If you encounter loading failures, please check Laya's loading process. Because FairyGUI is not responsible for loading, you need to ensure that the resources have been successfully loaded before AddPackage.

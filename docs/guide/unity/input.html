@@ -6,18 +6,18 @@
         <title>FairyGUI - Input</title>
     
         <meta charset="utf-8">
-        <meta name="description" content="FairyGUI Manual">
-        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Manual">
+        <meta name="description" content="FairyGUI Docs">
+        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Docs">
         
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
         <meta property="og:title" content="-InputFairyGUI">
-        <meta property="og:description" content="FairyGUI Manual">
+        <meta property="og:description" content="FairyGUI Docs">
 
         <meta name="twitter:card" content="summary">
         <meta name="twitter:title" content="Input — FairyGUI">
-        <meta name="twitter:description" content="FairyGUI Manual">
+        <meta name="twitter:description" content="FairyGUI Docs">
 
       <!--  <link href='//fonts.proxy.ustclug.org/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
 
@@ -65,7 +65,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/docs/guide/editor/index.html" class="sidebar-link">Basics</a>
+	                    <a href="/docs/guide/editor/index.html" class="sidebar-link">Basis</a>
 	                </li>
 	            
 	                
@@ -120,7 +120,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/docs/guide/editor/richtext.html" class="sidebar-link">RichText</a>
+	                    <a href="/docs/guide/editor/richtext.html" class="sidebar-link">Rich Text</a>
 	                </li>
 	            
 	                
@@ -274,7 +274,7 @@
 	                <li><h3>SDK - Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/index.html" class="sidebar-link">Basics</a>
+	                    <a href="/docs/guide/unity/index.html" class="sidebar-link">Basis</a>
 	                </li>
 	            
 	                
@@ -292,7 +292,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/font.html" class="sidebar-link">Font</a>
+	                    <a href="/docs/guide/unity/font.html" class="sidebar-link">Fonts</a>
 	                </li>
 	            
 	                
@@ -310,7 +310,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/insert3d.html" class="sidebar-link">Insert 3D/Canvas</a>
+	                    <a href="/docs/guide/unity/insert3d.html" class="sidebar-link">Insert 3D</a>
 	                </li>
 	            
 	                
@@ -354,63 +354,63 @@
     
       <h1>Input</h1>
     
-    <h2 id="鼠标-触摸输入"><a href="#鼠标-触摸输入" class="headerlink" title="鼠标/触摸输入"></a>鼠标/触摸输入</h2><p>FairyGUI使用内置的机制进行鼠标和触摸事件的处理，不使用射线。如果确实要使用射线，可以将UIPanel的“HitTest Mode”设置为“Raycast”。无论哪种点击检测模式，下面的事件处理机制都一样。</p>
-<p>如果要区分点击UI还是点击场景里的对象，可以使用下面的方法：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">if</span>(Stage.isTouchOnUI) <span class="comment">//点在了UI上</span></div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"><span class="keyword">else</span> <span class="comment">//没有点在UI上</span></div><div class="line">&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这种检测不仅适用于点击，也适用于悬停。例如，如果鼠标悬停在UI上，这个判断也是真。<strong>如果你觉得屏幕上都没有UI了这个还是返回真，那就真的是有UI</strong>，特别是全屏界面，没设置穿透时，它的空白区域也是接受输入的。你可以通过打印GRoot.inst.touchTarget检查。</p>
-<p>和鼠标/触摸相关的事件有：</p>
+    <h2 id="Mouse-touch-input"><a href="#Mouse-touch-input" class="headerlink" title="Mouse / touch input"></a>Mouse / touch input</h2><p>FairyGUI uses built-in mechanisms for handling mouse and touch events, without using rays. If you really want to use rays, you can set the UIPanel’s “HitTest Mode” to “Raycast”. Regardless of the click detection mode, the following event processing mechanism is the same.</p>
+<p>If you want to distinguish between clicking on the UI or clicking on objects in the scene, you can use the following methods:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">if</span> (Stage.isTouchOnUI) <span class="comment">// Click on the UI</span></div><div class="line">    &#123;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="comment">// no point on UI</span></div><div class="line">    &#123;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>This detection works not only for clicks but also for hovering. For example, this judgment is also true if the mouse is hovering over the UI. <strong>If you think there is no UI on the screen and this still returns true, then there is really a UI</strong>, Especially the full screen interface, when no penetration is set, its blank area also accepts input. You can check by printing GRoot.inst.touchTarget.</p>
+<p>The mouse / touch related events are:</p>
 <ul>
-<li><code>onTouchBegin</code> 鼠标按键按下（左、中、右键），或者手指按下。鼠标按钮可以从context.inputEvent.button获得，0-左键,1-中键,2-右键。</li>
-<li><code>onTouchMove</code> 鼠标指针移动或者手指在屏幕上移动。这个事件只有两种情况会触发：<ul>
-<li>在onTouchBegin里调用了context.CaptureTouch()，那么后续的移动事件都会在这个对象上触发（无论手指或指针位置是不是在该对象上方）。</li>
-<li>舞台的onTouchMove始终会触发，即Stage.inst.onTouchMove，它不需要使用CaptureTouch捕获。在PC平台上鼠标只要移动，就可以触发；在手机平台上，只有手指按下后移动才会触发。</li>
+<li><code>onTouchBegin</code>The mouse button is pressed (left, middle, right), or the finger is pressed. Mouse buttons can be obtained from context.inputEvent.button, 0-left button, 1-middle button, 2-right button.</li>
+<li><code>onTouchMove</code>The mouse pointer moves or your finger moves on the screen. There are only two cases of this event:<ul>
+<li>If context.CaptureTouch () is called in onTouchBegin, subsequent movement events will be triggered on this object (regardless of whether the position of the finger or pointer is above the object).</li>
+<li>The stage’s onTouchMove will always fire, Stage.inst.onTouchMove, it does not need to use CaptureTouch to capture. As long as the mouse is moved on the PC platform, it can be triggered; on the mobile platform, it is triggered only when the finger is pressed to move.</li>
 </ul>
 </li>
-<li><code>onTouchEnd</code> 鼠标按键释放或者手指从屏幕上离开。如果鼠标或者触摸位置已经不在组件范围内了，那么组件的TouchEnd事件是不会触发的，如果确实需要，可以在onTouchBegin里调用context.CaptureTouch()请求捕获。</li>
-<li><code>onClick</code> 鼠标或者手指点击。可以从context.inputEvent.isDoubleClick判断是否双击。<br><strong>如果你在找长按事件，那么请使用LongPressGesture<a href="#手势">(长按手势)</a>。</strong><br><strong>在手指按下后，如果调用Stage.inst.CancelClick，手指抬起时就不会触发Click事件。</strong></li>
-<li><code>onRightClick</code> 鼠标右键点击。</li>
-<li><code>onRollOver</code> 鼠标或者手指移入一个元件时触发。</li>
-<li><code>onRollOut</code> 鼠标或者手指移出一个元件时触发。</li>
+<li><code>onTouchEnd</code>The mouse button is released or your finger is off the screen. If the mouse or touch position is no longer within the scope of the component, then the component’s TouchEnd event will not be triggered. If it is really needed, you can call context.CaptureTouch () in onTouchBegin to request capture.</li>
+<li><code>onClick</code>Mouse or finger click. You can determine whether you double-clicked from context.inputEvent.isDoubleClick.<strong>If you are looking for a long press event, then use LongPressGesture<a href="#手势">(Long press gesture)</a>。</strong><br> <strong>After the finger is pressed, if Stage.inst.CancelClick is called, the Click event will not be triggered when the finger is raised.</strong></li>
+<li><code>onRightClick</code>Context.</li>
+<li><code>onRollOver</code>Fired when the mouse or finger moves into an element.</li>
+<li><code>onRollOut</code>Fired when the mouse or finger moves out of a component.</li>
 </ul>
-<p>在任何事件（即不只是鼠标/触摸相关的事件）回调中都可以获得当前鼠标或手指位置，以及点击的对象，例如：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">AnyEventHandler</span>(<span class="params">EventContext context</span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="comment">//点击位置，注意是屏幕坐标，要转换本地坐标要使用GlobalToLocal</span></div><div class="line">    Debug.Log(context.inputEvent.x + <span class="string">", "</span> + context.inputEvent.y);</div><div class="line"></div><div class="line">    <span class="comment">//获取点击的对象（在鼠标/触摸事件中）</span></div><div class="line">    Debug.Log((GObject)context.sender);</div><div class="line">    <span class="comment">//如果事件是冒泡的，可以获得最底层的对象。但要注意，这里的对象类型是DisplayObject，不是GObject。</span></div><div class="line">    Debug.Log((DisplayObject)context.initiator);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>如果不在事件中，需要获得当前鼠标或者手指的位置，可以用：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//这是鼠标的位置，或者最后一个手指的位置</span></div><div class="line">Vector2 pos1 = Stage.inst.touchPosition;</div><div class="line"></div><div class="line"><span class="comment">//获取指定手指的位置，参数是手指id</span></div><div class="line">Vector2 pos2 = Stage.inst.GetTouchPosition(<span class="number">1</span>);</div></pre></td></tr></table></figure>
-<p>在任何时候，如果需要获得当前点击的对象，或者鼠标下的对象，都可以通过以下的方式获得：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GObject obj = GRoot.inst.touchTarget;</div><div class="line"></div><div class="line"><span class="comment">//判断是不是在某个组件内</span></div><div class="line">Debug.Log(testComponent==obj || testComponent.IsAncestorOf(obj));</div></pre></td></tr></table></figure>
-<h2 id="多点触摸"><a href="#多点触摸" class="headerlink" title="多点触摸"></a>多点触摸</h2><p>FairyGUI支持多点触摸的处理。每个手指都会按照TouchBegin-&gt;TouchMove-&gt;TouchEnd流程派发事件，可以使用EventContext.inputEvent.touchId区分不同的手指。一般来说，普通的点击事件无需关心手指id，只有需要用到整个触摸流程的才需要处理。</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//这是当前按下的手指的数量</span></div><div class="line"><span class="keyword">int</span> touchCount = Stage.inst.touchCount;</div><div class="line"></div><div class="line"><span class="comment">//获得当前所有按下的手指id</span></div><div class="line"><span class="keyword">int</span>[] touchIDs = Stage.inst.GetAllTouch(<span class="literal">null</span>);</div></pre></td></tr></table></figure>
-<p>如果你不想使用多点触摸功能，可以使用Unity的API：Input.multiTouchEnabled = false关闭。</p>
-<h2 id="VR输入处理"><a href="#VR输入处理" class="headerlink" title="VR输入处理"></a>VR输入处理</h2><p>VR里输入一般使用凝视输入，或者手柄输入，针对这些新的输入方式，FairyGUI提供了封装支持，也就是说，在VR应用里，你仍然可以像处理鼠标或者触摸输入一样处理VR的输入，无任何区别，也就是说UI逻辑不需要做任何修改。</p>
-<p>首先，需要把这些外部输入传入FairyGUI。在Stage类里提供了这些API：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SetCustomInput</span>(<span class="params"><span class="keyword">ref</span> RaycastHit hit, <span class="keyword">bool</span> buttonDown</span>)</span>;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SetCustomInput</span>(<span class="params"><span class="keyword">ref</span> RaycastHit hit, <span class="keyword">bool</span> buttonDown, <span class="keyword">bool</span> buttonUp</span>)</span>;</div></pre></td></tr></table></figure>
+<p>You can get the current mouse or finger position and the clicked object in any event (that is, not just mouse / touch related events) callbacks, such as:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">AnyEventHandler</span> (<span class="params">EventContext context</span>)</span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        <span class="comment">// Click the position, pay attention to the screen coordinates. To convert the local coordinates, use GlobalToLocal.</span></div><div class="line">        Debug.Log (context.inputEvent.x + <span class="string">","</span> + context.inputEvent.y);</div><div class="line"></div><div class="line">        <span class="comment">// Get the clicked object (in mouse / touch event)</span></div><div class="line">        Debug.Log ((GObject) context.sender);</div><div class="line">        <span class="comment">// If the event is bubbling, you can get the lowest level object. But note that the object type here is DisplayObject, not GObject.</span></div><div class="line">        Debug.Log ((DisplayObject) context.initiator);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>If you are not in the event and need to get the current mouse or finger position, you can use:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// This is the position of the mouse, or the position of the last finger</span></div><div class="line">    Vector2 pos1 = Stage.inst.touchPosition;</div><div class="line"></div><div class="line">    <span class="comment">// Get the specified finger position, the parameter is the finger id</span></div><div class="line">    Vector2 pos2 = Stage.inst.GetTouchPosition (<span class="number">1</span>);</div></pre></td></tr></table></figure>
+<p>At any time, if you need to get the current clicked object, or the object under the mouse, you can get it in the following ways:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GObject obj = GRoot.inst.touchTarget;</div><div class="line"></div><div class="line">    <span class="comment">// determine if it is in a certain component</span></div><div class="line">    Debug.Log (testComponent == obj || testComponent.IsAncestorOf (obj));</div></pre></td></tr></table></figure>
+<h2 id="Multi-touch"><a href="#Multi-touch" class="headerlink" title="Multi-touch"></a>Multi-touch</h2><p>FairyGUI supports multi-touch processing. Each finger will dispatch events according to the TouchBegin-&gt; TouchMove-&gt; TouchEnd process. You can use EventContext.inputEvent.touchId to distinguish different fingers. In general, ordinary click events do not need to care about the finger id, only those that need to use the entire touch process need to be processed.</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// This is the number of fingers currently pressed</span></div><div class="line">    <span class="keyword">int</span> touchCount = Stage.inst.touchCount;</div><div class="line"></div><div class="line">    <span class="comment">// Get all currently pressed finger ids</span></div><div class="line">    <span class="keyword">int</span> [] touchIDs = Stage.inst.GetAllTouch (<span class="literal">null</span>);</div></pre></td></tr></table></figure>
+<p>If you don’t want to use the multi-touch function, you can use Unity’s API: Input.multiTouchEnabled = false to turn it off.</p>
+<h2 id="VR-input-processing"><a href="#VR-input-processing" class="headerlink" title="VR input processing"></a>VR input processing</h2><p>The input in VR generally uses gaze input or handle input. For these new input methods, FairyGUI provides package support. That is to say, in VR applications, you can still handle VR input like mouse or touch input. No difference, which means that the UI logic does not need to be modified.</p>
+<p>First, you need to pass these external inputs into FairyGUI. These APIs are provided in the Stage class:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SetCustomInput</span>(<span class="params"><span class="keyword">ref</span> RaycastHit hit, <span class="keyword">bool</span> buttonDown</span>)</span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SetCustomInput</span>(<span class="params"><span class="keyword">ref</span> RaycastHit hit, <span class="keyword">bool</span> buttonDown, <span class="keyword">bool</span> buttonUp</span>)</span>;</div></pre></td></tr></table></figure>
 <ul>
-<li><p><code>hit</code> 没有手柄的，这里传入眼睛的射线（其实就是摄像机的射线）击中的目标；有手柄的，传入手柄射线击中的目标。</p>
+<li><p><code>hit</code>If there is no handle, here the ray hit by the eye (actually the ray of the camera) hits the target; if there is a handle, the ray hit by the input handle hits the target.</p>
 </li>
-<li><p><code>buttonDown</code> 是否有按键按下。对于没有buttonUp参数的API，系统会在下一帧自动模拟一个buttonUp。</p>
+<li><p><code>buttonDown</code>Is there a key press? For APIs without a buttonUp parameter, the system will automatically simulate a buttonUp in the next frame.</p>
 </li>
-<li><p><code>buttonUp</code> 是否有按键松开。按下、松开整个过程构成一次点击。如果只有按下没有松开，则不会有点击触发，必须注意这一点。</p>
+<li><p><code>buttonUp</code>Whether any buttons are released. The whole process of pressing and releasing constitutes one click. If you only press and do not release, there will be no click trigger, you must pay attention to this.</p>
 </li>
 </ul>
-<p>SetCustomInput可以放在Update里调用，而且必须<strong>每帧调用</strong>。如果使用了SetCustomInput，则FairyGUI不再处理鼠标或者触摸输入。</p>
-<p>使用示例：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"></div><div class="line">SteamVR_TrackedObject controller;</div><div class="line">SteamVR_Controller.Device controllerDevice;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    controller = ...</div><div class="line">    controllerDevice = ...</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>) </span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    Vector3 pos = controller.transform.position;</div><div class="line">    Vector3 dir = controller.transform.forward;</div><div class="line">    <span class="keyword">bool</span> trigger_down = controllerDevice.GetPress(Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger);</div><div class="line"></div><div class="line">    RaycastHit rh;</div><div class="line">    <span class="keyword">if</span> (Physics.Raycast(pos, dir, <span class="keyword">out</span> rh))</div><div class="line">    &#123;</div><div class="line">        Stage.inst.SetCustomInput(rh, trigger_down);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="键盘输入"><a href="#键盘输入" class="headerlink" title="键盘输入"></a>键盘输入</h2><p>侦听键盘输入的方法是：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Stage.inst.onKeyDown.Add(OnKeyDown);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">OnKeyDown</span>(<span class="params">EventContext context</span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    Debug.Log(context.inputEvent.keyCode);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>在手机上是通过原生的键盘输入。键盘弹出时，派发GTextInput.onFocusIn事件，键盘收回时，派发GTextInput.onFocusOut事件。</p>
-<p>Unity在键盘输入时自带了一个额外的输入框，如果你不需要这个输入框，希望像微信那样弹出自己的输入框，你需要自行编写原生代码，FairyGUI这边提供的支持有：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//定义自己的键盘</span></div><div class="line">KeyBoard yourKeyboard;</div><div class="line"></div><div class="line">Stage.inst.keyboard = yourKeyboard;</div></pre></td></tr></table></figure>
-<p><strong>复制粘贴问题</strong></p>
-<p>当使用DLL形式的插件时，因为DLL默认是为移动平台编译的，所以不支持复制粘贴（如果要支持，需要自己写原生代码支持）。如果是在PC平台上使用时，需要将<a href="https://github.com/fairygui/FairyGUI-unity/blob/master/Examples.Unity5/Assets/FairyGUI/CopyPastePatch.cs" target="_blank" rel="external">CopyPastePatch.cs</a>放到工程里，并在游戏启动时调用CopyPastePatch.Apply()，就可以在PC平台激活复制粘贴功能。<strong>如果你是使用源码形式的插件，不需要进行这个处理。</strong></p>
-<h2 id="手势"><a href="#手势" class="headerlink" title="手势"></a>手势</h2><p>FairyGUI提供了手势的支持。使用手势的方式是：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">LongPressGesture gesture = <span class="keyword">new</span> LongPressGesture(targetObject);</div><div class="line">gesture.onAction.Add(OnGestureAction);</div></pre></td></tr></table></figure>
-<p>targetObject是接收手势的元件，注意一定要是可触摸的。图片是不可触摸的，一般建议用组件，或者装载器。如果你需要全屏幕监测手势，那么可以直接用GRoot.inst作为targetObject（需1.9.0 SDK或更高版本支持）</p>
-<p>常用的手势有：</p>
-<p><code>LongPressGesture</code> 长按手势。可以设定长按触发的时间，还可以控制长按触发后继续触发通知的时间间隔。</p>
-<p><code>SwipeGesture</code> 手指划动手势。</p>
-<p><code>PinchGesture</code>两指缩放手势。</p>
-<p><code>RotationGesture</code> 两指旋转手势。</p>
-<p>手势的使用方法可以参考Gesture这个Demo。手势与FairyGUI SDK是非耦合的，也就是说，如果你觉得手势不符合你的要求，你可以复制一个出来自己改自己用。</p>
+<p>SetCustomInput can be called in Update and must be<strong>Called every frame</strong>。 If SetCustomInput is used, FairyGUI no longer processes mouse or touch input.</p>
+<p>Example of use:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">SteamVR_TrackedObject controller;</div><div class="line">SteamVR_Controller.Device controllerDevice;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    controller = ...</div><div class="line">    controllerDevice = ...</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>) </span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    Vector3 pos = controller.transform.position;</div><div class="line">    Vector3 dir = controller.transform.forward;</div><div class="line">    <span class="keyword">bool</span> trigger_down = controllerDevice.GetPress(Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger);</div><div class="line"></div><div class="line">    RaycastHit rh;</div><div class="line">    <span class="keyword">if</span> (Physics.Raycast(pos, dir, <span class="keyword">out</span> rh))</div><div class="line">    &#123;</div><div class="line">        Stage.inst.SetCustomInput(rh, trigger_down);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="keyboard-input"><a href="#keyboard-input" class="headerlink" title="keyboard input"></a>keyboard input</h2><p>To listen to keyboard input:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Stage.inst.onKeyDown.Add(OnKeyDown);</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnKeyDown</span>(<span class="params">EventContext context</span>)</span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        Debug.Log(context.inputEvent.keyCode);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>On the phone, it is entered through the native keyboard. When the keyboard pops up, the GTextInput.onFocusIn event is dispatched, and when the keyboard is retracted, the GTextInput.onFocusOut event is dispatched.</p>
+<p>Unity comes with an extra input box when typing on the keyboard. If you do n’t need this input box and want to pop up your own input box like WeChat, you need to write your own code.</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// define your own keyboard</span></div><div class="line">    KeyBoard yourKeyboard;</div><div class="line"></div><div class="line">    Stage.inst.keyboard = yourKeyboard;</div></pre></td></tr></table></figure>
+<p><strong>Copy-paste problem</strong></p>
+<p>When using a plug-in in the form of a DLL, because the DLL is compiled for the mobile platform by default, copy and paste is not supported (if you want to support it, you need to write native code support yourself). If it is used on the PC platform,<a href="https://github.com/fairygui/FairyGUI-unity/blob/master/Examples.Unity5/Assets/FairyGUI/CopyPastePatch.cs" target="_blank" rel="external">CopyPastePatch.cs</a>Put it in the project, and call CopyPastePatch.Apply () when the game starts, you can activate the copy and paste function on the PC platform. <strong>If you are using a plugin in source form, you don’t need to do this.</strong></p>
+<h2 id="gesture"><a href="#gesture" class="headerlink" title="gesture"></a>gesture</h2><p>FairyGUI provides gesture support. The ways to use gestures are:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">LongPressGesture gesture = <span class="keyword">new</span> LongPressGesture(targetObject);</div><div class="line">    gesture.onAction.Add(OnGestureAction);</div></pre></td></tr></table></figure>
+<p>The targetObject is the component that receives the gesture. Note that it must be touchable. The image is not touchable, and it is generally recommended to use components or loaders. If you need to monitor gestures in full screen, you can directly use GRoot.inst as the targetObject (requires 1.9.0 SDK or later)</p>
+<p>Common gestures are:</p>
+<p><code>LongPressGesture</code>Long press gesture. You can set the time for the long press trigger, and you can also control the time interval for the notification to continue to be triggered after the long press trigger.</p>
+<p><code>SwipeGesture</code>Finger swipe gesture.</p>
+<p><code>PinchGesture</code>Two-finger zoom gesture.</p>
+<p><code>RotationGesture</code>Two-finger rotation gesture.</p>
+<p>Refer to Gesture Demo for gesture usage. Gestures are decoupled from the FairyGUI SDK. That is, if you do n’t think the gestures meet your requirements, you can copy one and use it yourself.</p>
 
     
     <div class="footer">

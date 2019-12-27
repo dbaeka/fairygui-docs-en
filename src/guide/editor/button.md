@@ -4,138 +4,133 @@ type: guide_editor
 order: 23
 ---
 
-按钮是FairyGUI里最常用的扩展组件。他用于多个用途，例如传统UI框架中的RadioButton、Checkbox、List Item等，在FairyGUI里通通都是按钮。
+Buttons are the most commonly used extension components in FairyGUI. It is used for multiple purposes, such as RadioButton, Checkbox, List Item, etc. in the traditional UI framework, all of which are buttons in FairyGUI.
 
-## 创建按钮
+## Create button
 
-可以通过两种方式创建按钮组件。
+There are two ways to create a button component.
 
-- 点击主菜单“资源->新建按钮”，按照向导的提示一步步完成。
+- Click the main menu "Resources-> New button" and follow the wizard's prompts step by step to complete.
 
-  ![](../../images/QQ20191210-233538.png)
+   ![](../../images/QQ20191210-233538.png)
 
-- 新建一个组件，然后在组件属性里选择扩展为“按钮”。然后创建一个控制器，点击![](../../images/QQ20191210-233616.png)，选择一个按钮模板。
+- Create a new component and select Expand to "Button" in the component properties. Then create a controller and click![](../../images/QQ20191210-233616.png), Select a button template.
 
-## 设计属性
+## Edit-mode properties
 
-在组件编辑状态下，按钮组件的属性面板是：
+In the component editing state, the properties panel of the button component is:
 
 ![](../../images/QQ20191210-233721.png)
 
-- `模式` 有三种按钮模式选择。
-  - `普通按钮` 用于点击响应的用途，无状态。
-  - `单选按钮` 有一个是否选中的状态。被点击后处于选中状态，再点击仍然保持选中状态。如果要实现单选按钮组，那可以将多个单选按钮的“连接”属性绑定到同一个控制器，具体请参考[控制器](controller.html#和按钮的联动)。
-  - `复选按钮` 有一个是否选中的状态。被点击后处于选中状态，再点击则变成不选中状态。
+- `mode`There are three button mode options.
+   - `Ordinary button`Use for click response, stateless.
+   - `single button`There is a state of being selected. After being clicked, it will be selected, and click again to remain selected. If you want to implement a radio button group, you can bind the "connection" property of multiple radio buttons to the same controller. For details, refer to [Controller](controller.html#Linkage-with-button)。
+   - `Check button`There is a state of being selected. After being clicked, it is selected, and then clicked to become unselected.
 
-- `声音` 设置按钮被点击时的音效。如果所有按钮都共用一种音效，不需要每个按钮设置，在项目属性对话框里有一个全局的设置。
+- `sound`Set the sound effect when the button is clicked. If all buttons share a sound effect, there is no need to set each button, there is a global setting in the project properties dialog.
 
-- `音量` 设置按钮点击音效的播放音量。0-100。
+- `volume`Set the playback volume of the button click sound. 0-100。
 
-- `按下效果` 用控制器可以随意控制按钮在不同页面的形态，但出于方便，内置了几种常用的按钮按下效果。
-  - `缩放` 按下时按钮变大或变小。按下缩放是通过改变按钮组件的ScaleX和ScaleY实现的。注意：设置了按下缩放后，按钮初始化时会自动将轴心设置为（0.5，0.5）。**(除了Unity平台，其他平台可能会有设置了按下变小，当正好按在按钮边缘时会出现有按下效果，但不触发点击事件的问题。解决方案是使用按下变大而不是按下变小。如果一定要按下变小，建议阀值不要太大，稍微有效果就可以，)**
-  - `变暗` 按下时按钮呈现变暗的状态。变暗实际是通过改变按钮组件内所有图片的颜色实现的，**如果你还有对按钮内图片的颜色的单独设置，这可能会发生冲突，导致颜色设置丢失。**
+- `Press effect`The controller can be used to control the shape of the buttons on different pages at will, but for convenience, several commonly used button pressing effects are built in.
+   - `Zoom`The button becomes larger or smaller when pressed. Push-to-zoom is achieved by changing the ScaleX and ScaleY of the button component. Note: After the zoom is set, the axis will be automatically set to (0.5, 0.5) when the button is initialized. **(Except for the Unity platform, other platforms may have a set to make the press smaller. When pressed exactly on the edge of the button, there will be a press effect, but the click event is not triggered. The solution is to use a larger press than a smaller press. If you must press it to become smaller, it is recommended that the threshold value is not too large, it can be slightly effective,)**
+   - `darken`The button appears dimmed when pressed. Dimming is actually achieved by changing the color of all images in the button component.**If you also have separate settings for the color of the image inside the button, this may conflict and cause the color settings to be lost.**
 
-## 制作说明
+## Instructions
 
-- `button` 按钮控制器必须命名为“button”，如果你不需要按钮有特殊效果，那么这个控制器不是必须的。
+- `button`The button controller must be named "button". If you don't need the button to have a special effect, then this controller is not necessary.
 
-  按钮控制器各个页面的说明：
+   Description of each page of the button controller:
 
-  `up` 按钮正常的状态；
-  `down` 普通按钮按下时的状态/单选或多选按钮被选中时的状态；
-  `over` 当鼠标指针悬浮在按钮上方时的状态；
-  `selectedOver` 当单选或多选按钮选中时，鼠标指针悬浮到按钮上方时的状态；
-  `disabled` 按钮不可用时的状态；
-  `selectedDisabled` 当单选或多选按钮选中时，按钮不可用时的状态。
+   `up`Normal state of the button;`down`The state when the normal button is pressed / the state when the radio or multi-select button is selected;`over`The state when the mouse pointer is hovering over the button;`selectedOver`The state of the mouse pointer when the radio button or multi-select button is selected;`disabled`State when the button is unavailable;`selectedDisabled`The state of a button when it is unavailable when a radio or multi-select button is selected.
 
-  通常我们设计一个4态按钮，用up/down/over/selectedOver就可以了，如果是用在移动设备上，那么使用up/down就可以了。当按钮不可用时，FairyGUI提供了一个默认的变灰的效果，如果你不想要这个效果，那就要用到disabled和selectedDisabled进行设计。
+   Usually we design a 4-state button, use up / down / over / selectedOver. If it is used on a mobile device, then use up / down. When the button is unavailable, FairyGUI provides a default grayed-out effect. If you don't want this effect, you should use disabled and selectedDisabled for design.
 
-- `title` 可以是普通文本，富文本，也可以是标签、按钮。
+- `title`Can be plain text, rich text, labels, buttons.
 
-- `icon` 可以是装载器，也可以是标签、按钮。
+- `icon`It can be a loader, or a label or button.
 
-注意：按钮组件内并非只能有“title”和“icon”，你可以放置任何元件，例如放置任意多的文本、装载器等。“title”和“icon”的设定只是用于按钮组件在编辑器实例化时能够直观设置而已。
+Note: There is not only “title” and “icon” inside the button component, you can place any component, such as placing as many texts, loaders, etc. The "title" and "icon" settings are only used for the button components to be intuitively set when the editor is instantiated.
 
-## 实例属性
+## Instance properties
 
-在舞台上选中一个按钮组件，右边的属性面板列表出现：
+Select a button component on the stage, and the property panel list on the right appears:
 
 ![](../../images/QQ20191211-093100.png)
 
-- `状态` 单选按钮或多选按钮可以设置按钮是否处于选中状态。普通按钮属性没有意义。
+- `status`The radio button or multi-select button can set whether the button is selected. Ordinary button properties have no meaning.
 
-- `标题` 设置的文本将赋值到按钮组件内的“title”元件的文本属性。如果不存在“title”元件，则什么事都不会发生。
+- `title`The set text will be assigned to the text property of the "title" element inside the button component. If the "title" element does not exist, nothing will happen.
 
-- `选中时标题` 当按钮处于选中状态时，设置“title”元件的文本属性为这里设置的值；当按钮处于不选中状态时，恢复原标题属性的值。
+- `Title when selected`When the button is selected, set the text property of the "title" component to the value set here; when the button is not selected, restore the value of the original title property.
 
-- `标题颜色` 默认的标题颜色是按钮组件内的“title”元件的文字颜色，勾选后，可以修改文字颜色。如果不存在“title”元件，则什么事都不会发生。
+- `Title color`The default title color is the text color of the "title" element in the button component. After checking, you can modify the text color. If the "title" element does not exist, nothing will happen.
 
-- `字体大小` 默认的字体大小是按钮组件内的“title”元件的字体大小，勾选后，可以修改字体大小。如果不存在“title”元件，则什么事都不会发生。
+- `font size`The default font size is the font size of the "title" element in the button component. After checking, you can modify the font size. If the "title" element does not exist, nothing will happen.
 
-- `图标` 设置的URL将赋值到按钮组件内的“icon”元件的图标属性。如果不存在“icon”元件，则什么事都不会发生。
+- `icon`The set URL will be assigned to the icon attribute of the "icon" element in the button component. If the "icon" element does not exist, nothing will happen.
 
-- `选中时图标` 当按钮处于选中状态时，设置按钮组件内的“icon”元件的图标属性为这里设置的值；当按钮处于不选中状态时，恢复原图标属性的值。
+- `Icon when selected`When the button is selected, the icon attribute of the "icon" element in the button component is set to the value set here; when the button is not selected, the original icon attribute value is restored.
 
-- `点击声音` 勾选后可以重新设置按钮的点击音效，覆盖按钮在设计期的设置。
+- `Click sound`After ticking, you can reset the click sound of the button, which overrides the setting of the button during the design period.
 
-- `音量` 设置按钮点击音效的播放音量。0-100。
+- `volume`Set the playback volume of the button click sound. 0-100。
 
-- `连接` 控制器可以与按钮联动。请参阅[控制器](controller.html#和按钮的联动)
+- `connection`The controller can be linked with buttons. See [controller](controller.html#Linkage-with-button)
 
 ## GButton
 
-设置按钮的标题或者图标，你甚至不需要强制对象为GButton的类型，直接用GObject提供的接口就可以，例如：
+Set the button's title or icon. You don't even need to force the object to be the type of GButton. You can use the interface provided by GObject directly, for example:
 
 ```csharp
-    GObject obj = gcom.GetChild("n1");
-    obj.text = "hello";
-    obj.icon = "ui://包名/图片名";
+GObject obj = gcom.GetChild ("n1");
+    obj.text = "hello";
+    obj.icon = "ui://package name/image name";
 ```
 
-如果是单选或者多选按钮，下面的方法设置是否选中：
+If it is a radio or multi-select button, the following method sets whether it is selected:
 
 ```csharp
-    button.selected = true;
+button.selected = true;
 ```
 
-通常对于单选/多选按钮，用户点击后就能切换状态。如果你不需要这样，希望只能通过API改变状态，那么可以：
+Normally for a single / multi-select button, the user can switch the state after clicking. If you don't need this and want to change the state only through the API, then you can:
 
 ```csharp
-    //关闭后你只能通过改变selected属性修改按钮状态，用户点击不会改变状态。
-    button.changeStateOnClick = false;
+// After closing, you can only modify the state of the button by changing the selected property. The user will not change the state when clicked.
+    button.changeStateOnClick = false;
 ```
 
-按钮全局声音的设置方式为：
+The global sound of the button is set as follows:
 
 ```csharp
-    //Unity版本要求一个AudioClip对象，如果是使用库里面的资源，那么可以使用：
-    UIConfig.buttonSound = (NAudioClip)UIPackage.GetItemAssetByURL("ui://包名/声音名");
+// The Unity version requires an AudioClip object. If you use the resources in the library, you can use:
+    UIConfig.buttonSound = (NAudioClip) UIPackage.GetItemAssetByURL("ui://package name/sound name");
 
-    //其他版本要求一个资源url，即：
-    UIConfig.buttonSound = "ui://包名/声音名";
+    // Other versions require a resource url, that is:
+    UIConfig.buttonSound = "ui://package name/sound name";
 ```
 
-按钮全局声音的音量设置方式为：
+The volume of the button global sound is set as follows:
 
 ```csharp
-    //全局音量
-    UIConfig.buttonSoundVolumeScale = 1f;
+// Global volume
+    UIConfig.buttonSoundVolumeScale = 1f;
 ```
 
-这个设置只能在创建任何UI前设置。如果要动态控制全局声音（包括动态里的音效）的开关或音量，Unity平台可以用以下的方式，其他平台则需要查阅引擎提供的功能。
+This setting can only be set before any UI is created. If you want to dynamically control the global sound (including dynamic sound effects) on or off, the Unity platform can use the following methods, other platforms need to consult the functions provided by the engine.
 
 ```csharp
-    GRoot.inst.EnabledSound();
-    GRoot.inst.DisableSound();
+GRoot.inst.EnabledSound ();
+    GRoot.inst.DisableSound ();
 
-    //调整全局声音音量，这个包括按钮声音和动效播放的声音
-    GRoot.inst.soundVolume = 0.5f;
+    // Adjust the global sound volume, this includes the button sound and the sound played by the effect
+    GRoot.inst.soundVolume = 0.5f;
 ```
 
-监听普通按钮点击的方式为：（注意，点击事件不只是按钮有，任何支持触摸的元件都有，例如普通组件、装载器、图形等，他们的点击事件注册方式和按钮是相同的。）
+The method of monitoring the click of a common button is: (Note that the click event is not only a button, any touch-enabled components, such as common components, loaders, graphics, etc., and their click event registration method is the same as the button.)
 
 ```csharp
-    //Unity/Cry/MonoGame
+//Unity/Cry/MonoGame
     button.onClick.Add(onClick);
 
     //AS3
@@ -154,20 +149,20 @@ order: 23
     button.onClick(this.onClick, this);
 ```
 
-按钮可以模拟触发点击：
+The button can simulate a triggered click:
 
 ```csharp
-    //模拟触发点击，只会有一个触发的表现，以及改变按钮状态，不会触发侦听按钮的点击事件。
-    button.FireClick(true);
+// Simulate the trigger click, there will only be a triggered performance, and changing the button state will not trigger listening for the button click event.
+    button.FireClick (true);
 
-    //如果同时要触发点击事件，需要额外调用：(仅Unity/Cry示例，其他平台自己研究）
-    button.onClick.Call();
+    // If the click event is to be triggered at the same time, an additional call is required: (only Unity / Cry examples, other platforms study it themselves)
+    button.onClick.Call ();
 ```
 
-单选和多选按钮状态改变时有通知事件：
+There are notification events when the radio button and radio button state change:
 
 ```csharp
-    //Unity/Cry/MonoGame
+//Unity/Cry/MonoGame
     button.onChanged.Add(onChanged);
 
     //AS3

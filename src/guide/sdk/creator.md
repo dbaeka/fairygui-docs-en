@@ -4,93 +4,93 @@ type: guide_sdk
 order: 4
 ---
 
-## 运行Demo
+## Run Demo
 
-1. 从GitHub Clone或者从[官网产品页](../../product/index.html#CocosCreator SDK)上直接下载FairyGUI-cocoscreator的例子。
-2. SDK基于Cocos Creator 2.x版本，1.x版本不支持，所以请使用2.0以上版本的Creator，推荐使用2.0.7或以上。
-3. 用Cocos Creator打开下载后的例子工程。
-4. 直接运行可以看到效果。
-5. UI界面的工程在UIProject目录，需要使用FairyGUI编辑器打开查看和修改。这部分文件是独立于Creator的，不需要放到Creator的assets目录下。
-6. 例子是使用TS编写的，但核心库是fairygui.js，所以用JS开发不会有任何问题。
-7. fairygui.js未经压缩，发布时cocos会自行压缩，最后的大小会在300K左右。
+1. From GitHub Clone or from[Official website product page](../../product/index.html#CocosCreator SDK) Download the example of FairyGUI-cocoscreator directly.
+2. The SDK is based on Cocos Creator 2.x version, 1.x version is not supported, so please use Creator version 2.0 or above, 2.0.7 or above is recommended.
+3. Use Cocos Creator to open the downloaded example project.
+4. You can see the effect by running directly.
+5. The UI interface project is in the UIProject directory. You need to use the FairyGUI editor to open it for viewing and modification. This part of the file is independent of the Creator and does not need to be placed in the Creator's assets directory.
+6. The examples are written using TS, but the core library is fairygui.js, so there is no problem developing with JS.
+7. fairygui.js is uncompressed, cocos will compress itself when released, and the final size will be around 300K.
 
-## 加载UI包
+## Load UI package
 
-FairyGUI是以包为单位组织UI界面的。一个UI包可能包括一个或多个界面。每个UI包发布后将得到一个bin文件后缀的描述文件，和一个或多个图片作为纹理集。这些文件需要放到resources目录，以便动态加载。因为为了避免复杂的依赖的关系，以后由此带来管理的困难。我们的界面不会直接由场景里的东西引用。一个UI包可以随时加载和卸载。
+FairyGUI organizes the UI interface by package. A UI package may include one or more interfaces. After each UI package is released, it will get a description file with a suffix of bin file, and one or more images as the texture set. These files need to be placed in the resources directory for dynamic loading. Because in order to avoid complex dependencies, management difficulties will be brought about in the future. Our interface is not directly referenced by things in the scene. A UI package can be loaded and unloaded at any time.
 
-在FairyGUI编辑器直接发布包到Creator的assets/resources目录或者其子目录下。
+Publish the package directly to Creator's assets / resources directory or its subdirectory in FairyGUI editor.
 
 ![](../../images/20181214102714.png)
 
-注意，图片设置为RAW格式即可，不需要设置为Sprite。因为FairyGUI会自己分析Sprite。
+Note that the image can be set to RAW format, and does not need to be set to Sprite. Because FairyGUI will analyze Sprite by itself.
 
-代码里载入包有两种方式。一种是你负责把文件加载，第二种是让FairyGUI自己去加载。第一种方式是方便你做一个混杂了其它资源的总体的加载，或者显示进度的需求等。
+There are two ways to load packages in code. One is to load the file, and the other is to let FairyGUI load it by itself. The first way is to make it easier for you to do an overall load mixed with other resources, or to display the needs of progress.
 
-第一种方式：
+The first way:
 
 ```csharp
-    //这里填写的是相对于resources里的路径
-    let res = [ 
-        "UI/Bag",  //描述文件
-        "UI/Bag_atlas0" //纹理集
-    ];
-    cc.loader.loadResArray(res, function(err, assets) {
-        //都加载完毕后再调用addPackage
-        fgui.UIPackage.addPackage("UI/Bag"); 
+// Filled here is relative to the path in resources
+    let res = [
+        "UI/Bag", // Description file
+        "UI/Bag_atlas0" // Texture set
+    ];
+    cc.loader.loadResArray (res, function (err, assets) {
+        // Call addPackage after both are loaded
+        fgui.UIPackage.addPackage ("UI/Bag");
 
-        //下面就可以开始创建包里的界面了。
-    });
+        // You can start creating the interface in the package below.
+    });
 ```
 
-第二种方式：
+The second way:
 ```csharp
-    //这里填写的是相对于resources里的路径
-    fgui.UIPackage.loadPackage("UI/Bag", function(err) {
-        //这里不需要再调用addPackage了，直接可以开始创建界面了
-    });
+// Filled here is relative to the path in resources
+    fgui.UIPackage.loadPackage ("UI/Bag", function (err) {
+        // You don't need to call addPackage here, you can start creating the interface directly.
+    });
 ```
-## 卸载UI包
+## Uninstall UI pack
 
-当一个包不再使用时，可以将其卸载。
-
-```csharp
-    //这里可以使用包的id，包的名称，包的路径，均可以
-    fgui.UIPackage.removePackage("Bag");
-```
-
-包卸载后，所有包里包含的贴图等资源均会被卸载，由包里创建出来的组件也无法显示正常（虽然不会报错），所以这些组件应该（或已经）被销毁。
-一般不建议包进行频繁装载卸载，因为每次装载卸载必然是要消耗CPU时间（意味着耗电）和产生大量GC的。UI系统占用的内存是可以精确估算的，你可以按照包的使用频率设定哪些包是常驻内存的（建议尽量多）。
-
-## 创建GRoot
-
-每个场景都需要有一个GRoot，这是UI的根节点。场景载入后，需要手动创建GRoot。
+When a package is no longer used, it can be uninstalled.
 
 ```csharp
-    fgui.GRoot.create();
+// Here you can use the package id, package name, and package path.
+    fgui.UIPackage.removePackage ("Bag");
 ```
 
-## 创建UI
+After the package is uninstalled, all the resources such as textures contained in the package will be uninstalled, and the components created in the package will not display properly (although no error will be reported), so these components should (or have been) destroyed.
+Frequent loading and unloading of packages is generally not recommended, because each loading and unloading must consume CPU time (meaning power consumption) and generate a lot of GC. The memory occupied by the UI system can be accurately estimated. You can set which packages are resident in memory according to the frequency of use of the packages (as much as possible is recommended).
+
+## Create GRoot
+
+Every scene needs to have a GRoot, which is the root node of the UI. After the scene loads, you need to manually create a GRoot.
 
 ```csharp
-    let view:fgui.GComponent = fgui.UIPackage.createObject(“包名”, “组件名”).asCom;
-    
-    //以下几种方式都可以将view显示出来：
-    
-    //1，直接加到GRoot显示出来
-    fgui.GRoot.inst.addChild(view);
-    
-    //2，使用窗口方式显示
-    aWindow.contentPane = view;
-    aWindow.show();
-    
-    //3，加到其他组件里
-    aComponnent.addChild(view);
+fgui.GRoot.create ();
 ```
 
-如果界面内容过多，创建时可能引起卡顿，FairyGUI提供了异步创建UI的方式，异步创建方式下，每帧消耗的CPU资源将受到控制，但创建时间也会比同步创建稍久一点。例如：
+## Create UI
 
 ```csharp
-    let handler = new AsyncOperation();
+let view: fgui.GComponent = fgui.UIPackage.createObject ("package name", "component name"). asCom;
+    
+    // The following methods can display the view:
+    
+    // 1, directly added to GRoot and displayed
+    fgui.GRoot.inst.addChild (view);
+    
+    // 2, use window display
+    aWindow.contentPane = view;
+    aWindow.show ();
+    
+    // 3, add to other components
+    aComponnent.addChild (view);
+```
+
+If the content of the interface is too much, it may cause a freeze when creating. FairyGUI provides a way to create the UI asynchronously. In the asynchronous creation mode, the CPU resources consumed by each frame will be controlled, but the creation time will be slightly longer than the synchronous creation. E.g:
+
+```csharp
+let handler = new AsyncOperation();
     
     fgui.UIPackage.createObjectAsync("包名","组件名", myCreateObjectCallback);
 
@@ -99,52 +99,52 @@ FairyGUI是以包为单位组织UI界面的。一个UI包可能包括一个或�
     }
 ```
 
-关闭界面一般用隐藏即可，即：
+The interface is usually closed by hiding, that is:
 
 ```csharp
-    //如果是加在GRoot或者其他父节点的
-    view.removeFromParent();
+// If it is added to GRoot or other parent nodes
+    view.removeFromParent ();
 
-    //如果是窗口
-    view.hide();
+    // if it is a window
+    view.hide ();
 ```
 
-如果界面不再使用了，可以销毁它：
+If the interface is no longer used, you can destroy it:
 
 ```csharp
-    view.Dispose();
+view.Dispose ();
 ```
 
-场景切换时，所有界面都会被销毁。如果不想被销毁，需要创建出界面后，把根节点设置为常驻，并且切换场景前，确保关闭界面。
+When the scene changes, all interfaces will be destroyed. If you do not want to be destroyed, you need to set the root node to be resident after creating the interface, and be sure to close the interface before switching scenes.
 
 ```csharp
-    cc.game.addPersistNode(view.node);
+cc.game.addPersistNode(view.node);
 ```
 
-## 坐标系统
+## coordinate system
 
-GObject里的x/y/position值都是**局部坐标**，也就是相对于父元件的偏移。GObject没有提供直接的属性获得对象的全局坐标，但提供了方法进行转换。
+The x / y / position values in GObject are all**Local coordinates**, Which is the offset from the parent component. GObject does not provide direct properties to obtain the global coordinates of the object, but provides methods to convert.
 
-如果要获得任意一个UI元件在屏幕上的坐标，可以用：
+If you want to get the coordinates of any UI element on the screen, you can use:
 
 ```csharp
-    let screenPos:cc.Vec2 = aObject.localToGlobal(cc.Vec2.ZERO);
+let screenPos:cc.Vec2 = aObject.localToGlobal(cc.Vec2.ZERO);
 ```
 
-（注意，这里说的屏幕，是指FairyGUI语义中的屏幕，是以屏幕左上角为原点的，不是指Creator语义中的屏幕）
+(Note that the screen mentioned here refers to the screen in FairyGUI semantics, with the upper left corner of the screen as the origin, not the screen in Creator semantics)
 
-相反，如果要获取屏幕坐标在UI元件上的局部坐标，可以用：
+Conversely, if you want to get the local coordinates of the screen coordinates on the UI element, you can use:
 
 ```csharp
-    let localPos:cc.Vec2 = aObject.globalToLocal(screenPos);
+let localPos:cc.Vec2 = aObject.globalToLocal(screenPos);
 ```
 
-## 事件系统
+## Event system
 
-FairyGUI直接使用了Creator的事件系统，所以GObject.on/off其实是通过GObject.node.on/off实现的，也就是可以通过GObject.node进行任何事件的操作，包括自定义的事件。在事件回调中，cc.Event中的currentTarget反映的是这个事件是由哪个node派发的，如果要获得这个node对应哪个GObject，可以用这样的方法：
+FairyGUI uses Creator's event system directly, so GObject.on / off is actually implemented through GObject.node.on / off, that is, any event operation can be performed through GObject.node, including custom events. In the event callback, the currentTarget in cc.Event reflects which node this event was dispatched. If you want to get which GObject this node corresponds to, you can use this method:
 
 ```
-    aObject.on(someEventName, this.onHandle, this);
+aObject.on(someEventName, this.onHandle, this);
 
     onHandle(evt:cc.Event) {
         cc.log(evt.currentTarget); //node对象
@@ -152,66 +152,66 @@ FairyGUI直接使用了Creator的事件系统，所以GObject.on/off其实是通
     }
 ```
 
-## 鼠标/触摸类事件
+## Mouse / touch events
 
-对于鼠标事件和触摸事件，FairyGUI里都使用自定义的事件，常量定义在fgui.Event里，这和Creator自身的cc.Node.EventType.TOUCH_BEGIN是不一样的，要注意区别。因为Creator自己的触摸逻辑很难处理穿透/不穿透，以及自定义区域点击这些情况。
+For mouse events and touch events, FairyGUI uses custom events. The constants are defined in fgui.Event, which is different from Creator's own cc.Node.EventType.TOUCH_BEGIN. Please note the difference. Because Creator's own touch logic is difficult to handle penetration / non-penetration, and custom area clicks.
 
-鼠标/触摸事件回调函数有一个参数：evt:fgui.Event，fgui.Event继承于cc.Event。
+The mouse / touch event callback function has one parameter: evt: fgui.Event, fgui.Event inherits from cc.Event.
 
-- `TOUCH_BEGIN` 鼠标按键按下（左、中、右键），或者手指按下。鼠标按钮可以从evt.button获得，0-左键,1-中键,2-右键。如果是触摸事件，可以从evt.touchId获得手指ID；如果是鼠标事件，evt.touchId恒定为0。
+- `TOUCH_BEGIN`The mouse button is pressed (left, middle, right), or the finger is pressed. Mouse buttons can be obtained from evt.button, 0-left button, 1-middle button, 2-right button. If it is a touch event, you can get the finger ID from evt.touchId; if it is a mouse event, evt.touchId is always 0.
 
-- `TOUCH_MOVE` 鼠标指针移动或者手指在屏幕上移动。这个事件只有两种情况会触发，1、在TOUCH_BEGIN里调用了evt.captureTouch()，那么后续的移动事件都会在这个对象上触发（无论手指或指针位置是不是在该对象上方）。2、GRoot上的TOUCH_MOVE始终会触发，不需要使用captureTouch捕获。
+- `TOUCH_MOVE`The mouse pointer moves or your finger moves on the screen. This event will only be triggered in two cases. 1. evt.captureTouch () is called in TOUCH_BEGIN, then subsequent movement events will be triggered on this object (regardless of the position of the finger or pointer above the object). 2. TOUCH_MOVE on GRoot will always trigger, no need to use captureTouch to capture.
 
-- `TOUCH_END` 鼠标按键释放或者手指从屏幕上离开。如果鼠标或者触摸位置已经不在GObject范围内了，那么组件的TouchEnd事件是不会触发的，如果确实需要，可以在TOUCH_BEGIN里调用evt.captureTouch()请求捕获。
+- `TOUCH_END`The mouse button is released or your finger is off the screen. If the mouse or touch position is no longer within the range of the GObject, then the component's TouchEnd event will not be triggered. If it is really needed, you can call evt.captureTouch () in TOUCH_BEGIN to request capture.
 
-- `CLICK` 点击事件。可以从evt.isDoubleClick判断是单击还是双击。侦听点击事件有个快捷方式：GObject.onClick(callback,...)，比GObject.on(fgui.Event.CLICK,...)简洁点。
+- `CLICK`Click event. You can determine whether to click or double-click from evt.isDoubleClick. There is a shortcut for listening for click events: GObject.onClick (callback, ...), which is simpler than GObject.on (fgui.Event.CLICK, ...).
 
-- `ROLL_OVER` 鼠标指针或者手指移入显示对象区域时触发。
+- `ROLL_OVER`Fired when the mouse pointer or finger moves into the display object area.
 
-- `ROLL_OUT` 鼠标指针或者手指移出显示对象区域时触发。
+- `ROLL_OUT`Fired when the mouse pointer or finger moves out of the display object area.
 
-- `MOUSE_WHEEL` 鼠标滚动事件。
+- `MOUSE_WHEEL`Mouse scroll event.
 
-如果不在事件回调流程中，需要获得当前鼠标或者手指的位置，可以用：
-
-```csharp
-    //touchId是手指id，如果你不关心这个，不传入即可
-    let pos1:cc.Vec2 = fgui.GRoot.inst.getTouchPosition(touchId);
-```
-
-在任何时候，如果需要获得当前点击的对象，或者鼠标下的对象，都可以通过以下的方式获得：
+If you are not in the event callback process and need to get the current mouse or finger position, you can use:
 
 ```csharp
-    let obj:fgui.GObject = fgui.GRoot.inst.touchTarget;
-
-    //判断是不是在某个组件内
-    cc.Log(testComponent.isAncestorOf(obj));
+// touchId is the finger id, if you don't care about this, don't pass in
+    let pos1: cc.Vec2 = fgui.GRoot.inst.getTouchPosition (touchId);
 ```
 
-## 字体
-
-如果要使用ttf字体，需要这些步骤：
-
-1、首先需要得到cc.Font对象，这个对象你是从loadRes获得，还是直接在场景中通过脚本的变量获得，可按照项目需求。
-
-2、使用fgui.UIConfig.registerFont给这个cc.Font注册一个FairyGUI里使用的字体名称，假定aFont就是cc.Font对象：
+At any time, if you need to get the current clicked object, or the object under the mouse, you can get it in the following ways:
 
 ```csharp
-    fgui.UIConfig.registerFont('myfont', aFont);
+let obj: fgui.GObject = fgui.GRoot.inst.touchTarget;
+
+    // determine if it is in a certain component
+    cc.Log (testComponent.isAncestorOf (obj));
 ```
 
-3、如果这个是全局字体：
+## Font
+
+If you want to use ttf fonts, these steps are needed:
+
+1. You first need to get the cc.Font object. Whether you obtain this object from loadRes or directly in the scene through script variables, you can follow the project requirements.
+
+2. Use fgui.UIConfig.registerFont to register a cc.Font with a font name used in FairyGUI. Assuming that aFont is the cc.Font object:
 
 ```csharp
-    fgui.UIConfig.defaultFont = 'myFont';
+fgui.UIConfig.registerFont('myfont', aFont);
 ```
 
-4、如果这个是某个文字单独指定的字体，例如：
+3. If this is a global font:
+
+```csharp
+fgui.UIConfig.defaultFont = 'myFont';
+```
+
+4. If this is a font specified by a certain text, for example:
 
 ![](../../images/2016-07-06_143622.png)
 
-这里用到了"黑体"这个名字的字体，这是与UIConfig.defaultFont不同的字体，那么我们需要注册这种字体。即：
+A font with the name "Heihe" is used here. This is a different font from UIConfig.defaultFont, so we need to register this font. which is:
 
 ```csharp
-    fgui.UIConfig.registerFont('黑体', aFont);
+fgui.UIConfig.registerFont ('Bold', aFont);
 ```

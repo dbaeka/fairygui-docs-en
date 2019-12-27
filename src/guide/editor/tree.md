@@ -4,83 +4,83 @@ type: guide_editor
 order: 29
 ---
 
-树是列表的一种特例。是组件的一种特殊扩展。勾选列表属性的![](../../images/QQ20191212-104005.png)，使列表变成一棵树。
+Trees are a special case of lists. Is a special extension of a component. Tick List Properties![](../../images/QQ20191212-104005.png)To make the list a tree.
 
-## 树属性
+## Tree properties
 
-点击树视图右侧的![](../../images/QQ20191211-161858.png)按钮显示如下界面：
+Click to the right of the tree view![](../../images/QQ20191211-161858.png)The button displays the following interface:
 
 ![](../../images/QQ20191212-105754.png)
 
-- `每级缩进` 树节点的深度每增加一级，向右缩进的像素距离。例如，如果每级缩进是15像素，树节点的层级是3级，那么树节点的缩进是15*3=45像素。
-  
-- `点击文件夹时展开/折叠` 点击文件夹节点时是否自动展开或者折叠这个这个节点。
-  - `否` 没有动作。
-  - `单击` 在单击时动作。
-  - `双击` 在双击时动作。
+- `Indent each level`The distance in pixels of the tree node is indented to the right for each additional level of depth. For example, if the indentation of each level is 15 pixels, and the level of the tree node is 3 levels, then the indentation of the tree node is 15 * 3 = 45 pixels.
 
-激活树视图后，编辑列表项目的界面也有了变化，如下图：
+- `Expand / collapse when clicking on a folder`Whether to automatically expand or collapse this node when clicking on a folder node.
+   - `no`No action.
+   - `Click`Action when clicked.
+   - `Double click`Action when double-clicked.
+
+After activating the tree view, the interface for editing list items has also changed, as shown below:
 
 ![](../../images/QQ20191212-112139.png)
 
-最右侧增加了“层级”设置。顶层节点为0级，增加一级则表示是上一级的子节点。
+The "Hierarchy" setting has been added to the far right. The top node is level 0, and adding one level indicates that it is a child node of the previous level.
 
-参考下图，层级与节点的对应关系：
+Refer to the following figure, the correspondence between levels and nodes:
 
 ![](../../images/QQ20191212-112117.png)
 
-## 树节点设计
+## Tree node design
 
-树节点设计有几个约定的规则：
+There are several agreed rules for tree node design:
 
-1. 名称为`expanded`的控制器（可选）。如果节点是文件夹节点，当节点展开时，这个控制器自动切换页面到1；当节点折叠时，自动切换页面到0。你可以使用此控制器控制节点在这两种状态下的形态。
-   如果树节点内有放置按钮（这个按钮应该是复选按钮）用于展开和折叠，那么应该将这个按钮和控制器连接，如下图：
+1. Name is`expanded`Controller (optional). If the node is a folder node, when the node is expanded, this controller automatically switches the page to 1; when the node is collapsed, it automatically switches the page to 0. You can use this controller to control the shape of the node in these two states.
+If there is a placement button in the tree node (this button should be a check button) for expanding and collapsing, then this button should be connected to the controller, as shown below:
 
    ![](../../images/QQ20191212-114818.png)
 
-2. 名称为`leaf`的控制器（可选）。如果节点是文件夹节点，那么这个控制器的页面是0；如果节点是叶节点，那么这个控制器的页面是1。你可以使用此控制器控制这两种不同类型节点的形态。
+2. Name is`leaf`Controller (optional). If the node is a folder node, then the page of this controller is 0; if the node is a leaf node, then the page of this controller is 1. You can use this controller to control the morphology of these two different types of nodes.
 
-3. 名称为`indent`的对象将用于设置缩进（可选）。假设某节点的缩进是45像素，那么indent对象的宽度会被设置为45。
+3. Name is`indent`The object will be used to set the indentation (optional).assuming the indentation of a node is 45 pixels, the width of the indent object will be set to 45.
 
 ## GTree
 
-当一个列表激活树视图后，它在代码中的对象就是GTree。GTree继承自GList，所以GList的所有API也适用于GTree，不过GTree目前**不支持虚拟化**。
+When a list activates the tree view, its object in the code is GTree. GTree inherits from GList, so all APIs of GList also apply to GTree, but GTree currently**Does not support virtualization**。
 
 ```csharp
 GTree aTree = aComponent.GetChild("tree").asTree;
 GTreeNode rootNode = aTree.rootNode;
 ```
 
-这里rootNode是树的根节点，它是一个“假”的节点，不可见。
+Here rootNode is the root node of the tree, it is a "fake" node and is not visible.
 
-创建并添加节点：
+Create and add nodes:
 
 ```csharp
-GTreeNode aNode = new GTreeNode(true); //true表示文件夹节点，false表示叶节点
-rootNode.AddChild(aNode);
+GTreeNode aNode = new GTreeNode (true); // true indicates a folder node, false indicates a leaf node
+rootNode.AddChild (aNode);
 ```
 
-渲染节点的方式有两种：
+There are two ways to render nodes:
 
-1. 直接操作节点对应的组件。
-    ```csharp
-    GComponent obj = aNode.cell;
-    obj.GetChild("abc").text = "hello";
-    ```
-    **这种方式一定要是节点已经在树里了才能使用，也就是已经AddChild了**。
+1. Directly operate the component corresponding to the node.
+   ```csharp
+   GComponent obj = aNode.cell;
+obj.GetChild("abc").text = "hello";
+   ```
+   **This method must be used if the node is already in the tree, which is already AddChild**。
 
-2. 通过回调函数操作。
-    ```csharp
-    aTree.treeNodeRender = RenderTreeNode;
+2. Operate through callback functions.
+   ```csharp
+   aTree.treeNodeRender = RenderTreeNode;
 
-    void RenderTreeNode(GTreeNode node, GComponent obj)
-    {
-    }
-    ```
+void RenderTreeNode (GTreeNode node, GComponent obj)
+{
+}
+   ```
 
-响应树节点点击，和列表响应item的处理方式一样，都是监听`onClickItem`事件，可以参考[这里](list.html#事件)。在得到点击的item对象后，要获得其对应的GTreeNode对象，可以用API`GObject.treeNode`获得。
+Clicking on the response tree node is the same as processing the list response item, and it is listening`onClickItem`Event, you can refer[Here](list.html#Event)。 After getting the clicked item object, to get its corresponding GTreeNode object, you can use the API`GObject.treeNode`obtain.
 
-GTree还有一个特别的回调：`treeNodeWillExpand`，它在TreeNode即将展开或者收缩时回调触发。你可以在回调中动态增加子节点。
+GTree also has a special callback:`treeNodeWillExpand`It fires when the TreeNode is about to expand or shrink. You can add child nodes dynamically in the callback.
 
 ```csharp
 aTree.treeNodeWillExpand = onExpand;

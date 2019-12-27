@@ -6,18 +6,18 @@
         <title>FairyGUI - ProgressBar</title>
     
         <meta charset="utf-8">
-        <meta name="description" content="FairyGUI Manual">
-        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Manual">
+        <meta name="description" content="FairyGUI Docs">
+        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Docs">
         
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
         <meta property="og:title" content="-ProgressBarFairyGUI">
-        <meta property="og:description" content="FairyGUI Manual">
+        <meta property="og:description" content="FairyGUI Docs">
 
         <meta name="twitter:card" content="summary">
         <meta name="twitter:title" content="ProgressBar — FairyGUI">
-        <meta name="twitter:description" content="FairyGUI Manual">
+        <meta name="twitter:description" content="FairyGUI Docs">
 
       <!--  <link href='//fonts.proxy.ustclug.org/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
 
@@ -65,7 +65,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/docs/guide/editor/index.html" class="sidebar-link">Basics</a>
+	                    <a href="/docs/guide/editor/index.html" class="sidebar-link">Basis</a>
 	                </li>
 	            
 	                
@@ -120,7 +120,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/docs/guide/editor/richtext.html" class="sidebar-link">RichText</a>
+	                    <a href="/docs/guide/editor/richtext.html" class="sidebar-link">Rich Text</a>
 	                </li>
 	            
 	                
@@ -274,7 +274,7 @@
 	                <li><h3>SDK - Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/index.html" class="sidebar-link">Basics</a>
+	                    <a href="/docs/guide/unity/index.html" class="sidebar-link">Basis</a>
 	                </li>
 	            
 	                
@@ -292,7 +292,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/font.html" class="sidebar-link">Font</a>
+	                    <a href="/docs/guide/unity/font.html" class="sidebar-link">Fonts</a>
 	                </li>
 	            
 	                
@@ -310,7 +310,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/insert3d.html" class="sidebar-link">Insert 3D/Canvas</a>
+	                    <a href="/docs/guide/unity/insert3d.html" class="sidebar-link">Insert 3D</a>
 	                </li>
 	            
 	                
@@ -354,58 +354,58 @@
     
       <h1>ProgressBar</h1>
     
-    <p>进度条的原理很简单，就是按进度改变一个元件的宽度、高度或填充比例。进度条分为两种，横向和纵向的。</p>
-<h2 id="创建进度条"><a href="#创建进度条" class="headerlink" title="创建进度条"></a>创建进度条</h2><p>可以通过两种方式创建进度条组件。</p>
+    <p>The principle of the progress bar is very simple, that is to change the width, height, or fill ratio of a component according to the progress. There are two types of progress bars, horizontal and vertical.</p>
+<h2 id="Create-progressbar"><a href="#Create-progressbar" class="headerlink" title="Create progressbar"></a>Create progressbar</h2><p>There are two ways to create a progress bar component.</p>
 <ul>
-<li><p>点击主菜单“资源”-&gt;“新建进度条”，然后按照向导的提示一步步完成。</p>
-<p><img src="../../images/QQ20191211-181510.png" alt=""></p>
+<li><p>Click the main menu “Resources”-&gt; “New Progress Bar” and follow the wizard’s prompts to complete step by step.</p>
+<p> <img src="../../images/QQ20191211-181510.png" alt=""></p>
 </li>
-<li><p>新建一个组件，然后在组件属性里选择扩展为“进度条”。</p>
+<li><p>Create a new component and select Expand to “Progress Bar” in the component properties.</p>
 </li>
 </ul>
-<h2 id="设计属性"><a href="#设计属性" class="headerlink" title="设计属性"></a>设计属性</h2><p>在组件编辑状态下，进度条组件的属性面板是：</p>
+<h2 id="Edit-mode-properties"><a href="#Edit-mode-properties" class="headerlink" title="Edit-mode properties"></a>Edit-mode properties</h2><p>In the component editing state, the properties panel of the progress bar component is:</p>
 <p><img src="../../images/QQ20191211-181600.png" alt=""></p>
 <ul>
-<li><p><code>标题类型</code> 如果组件内有名称为“title”的元件，则进度条可以显示一个表达当前进度的文字。</p>
+<li><p><code>Title type</code>If there is a component named “title” in the component, the progress bar can display a text expressing the current progress.</p>
 <ul>
-<li><code>百分比</code> 显示当前进度的百分比，例如“88%”。</li>
-<li><code>当前值/最大值</code> 例如“50/100”。</li>
-<li><code>当前值</code> 例如“50”。</li>
-<li><code>最大值</code> 例如“10000”。</li>
+<li><code>percentage</code>Displays the current progress percentage, such as “88%”.</li>
+<li><code>Current value / maximum value</code>For example “50/100”.</li>
+<li><code>The current value</code>For example “50”.</li>
+<li><code>Max</code>For example “10000”.</li>
 </ul>
 </li>
-<li><p><code>反向</code> 对于横向的进度条，一般来说，进度越大，伸缩条越向右延伸，如果是反向的，则伸缩条右边缘固定，进度越大，伸缩条越往左延伸；对于纵向的进度条，一般来说，进度越大，伸缩条越向下延伸，如果是反向的，则伸缩条底边缘固定，进度越大，伸缩条越往上延伸。</p>
-<p>比较以下两个进度条，第一个是正常的进度条，第二个是反向的。</p>
-<p><img src="../../images/gaollg7.gif" alt=""><br><img src="../../images/gaollg8.gif" alt=""></p>
+<li><p><code>Reverse</code>For a horizontal progress bar, in general, the larger the progress, the more the telescopic bar extends to the right. If it is reversed, the right edge of the telescopic bar is fixed. The larger the progress, the more the telescopic bar extends to the left. For a vertical progress bar, In general, the larger the progress, the more the telescopic bar extends downward. If it is reversed, the bottom edge of the telescopic bar is fixed. The larger the progress, the more the telescopic bar extends upward.</p>
+<p> Compare the following two progress bars. The first is the normal progress bar and the second is the reverse.</p>
+<p> <img src="../../images/gaollg7.gif" alt=""><br> <img src="../../images/gaollg8.gif" alt=""></p>
 </li>
 </ul>
-<h2 id="制作说明"><a href="#制作说明" class="headerlink" title="制作说明"></a>制作说明</h2><ul>
-<li><p><code>bar</code> 当进度改变时，改变“bar”对象的宽度。一般用于横向的进度条。注意：一定要设置bar对象的宽度为进度条处于最大值时的宽度。</p>
-<p>“bar”元件可以是任何类型，不限制于图片。</p>
-<p>特别的，如果“bar”对象是具有特殊填充模式的图片或者装载器，进度改变时，将改变它的填充比例，而不是宽度。</p>
+<h2 id="Instructions"><a href="#Instructions" class="headerlink" title="Instructions"></a>Instructions</h2><ul>
+<li><p><code>bar</code>When the progress changes, change the width of the “bar” object. Generally used for horizontal progress bar. Note: Be sure to set the width of the bar object to the width when the progress bar is at its maximum.</p>
+<p> The “bar” element can be of any type and is not limited to images.</p>
+<p> In particular, if the “bar” object is an image or loader with a special fill mode, when the progress changes, it will change its fill ratio, not the width.</p>
 </li>
-<li><p><code>bar_v</code> 当进度改变时，改变“bar_v”对象的高度。一般用于纵向的进度条。注意：一定要设置bar_v对象的高度为进度条处于最大值时的高度。</p>
-<p>“bar_v”元件可以是任何类型，不限制于图片。</p>
-<p>特别的，如果“bar_v”对象是具有特殊填充模式的图片或者装载器，进度改变时，将改变它的填充比例，而不是宽度。</p>
+<li><p><code>bar_v</code>When the progress changes, change the height of the “bar_v” object. Generally used for vertical progress bar. Note: Be sure to set the height of the bar_v object to the height when the progress bar is at its maximum.</p>
+<p> The “bar_v” element can be of any type and is not limited to images.</p>
+<p> In particular, if the “bar_v” object is an image or loader with a special fill mode, when the progress changes, it will change its fill ratio, not the width.</p>
 </li>
-<li><p><code>title</code> 可以是装载器，也可以是标签、按钮。用于显示进度的标题。显示的内容由“标题类型”决定。</p>
+<li><p><code>title</code>It can be a loader, or a label or button. A title to display progress. What is displayed is determined by the “Title Type”.</p>
 </li>
-<li><p><code>ani</code> 是一个动画对象。当进度改变时，修改动画的帧索引等于进度值（0-100）。</p>
+<li><p><code>years</code>Is an movieclip object. When the progress changes, the frame index of the modified movieclip is equal to the progress value (0-100).</p>
 </li>
 </ul>
-<p>可以利用关联做出效果更丰富的进度条组件，例如下面这个进度条，会动的小松鼠建立了一个和bar部件“右-&gt;右”的关联，这样当进度变化时，小松鼠也跟着动了。</p>
+<p>You can use the relation to make a richer progress bar component. For example, the following progress bar, the moving squirrel establishes an relation with the bar component “right-&gt; right”, so when the progress changes, the squirrel also follows Already.</p>
 <p><img src="../../images/2016-01-11_225610.jpg" alt=""></p>
-<h2 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h2><p>在舞台上选中一个进度条组件，右边的属性面板列表出现：</p>
+<h2 id="Instance-properties"><a href="#Instance-properties" class="headerlink" title="Instance properties"></a>Instance properties</h2><p>Select a progress bar component on the stage, and the property panel list on the right appears:</p>
 <p><img src="../../images/QQ20191211-181531.png" alt=""></p>
 <ul>
-<li><p><code>最小值</code> 最小进度值。</p>
+<li><p><code>Minimum value</code>The minimum progress value.</p>
 </li>
-<li><p><code>最大值</code> 最大进度值。</p>
+<li><p><code>Max</code>The maximum progress value.</p>
 </li>
-<li><p><code>当前值</code> 当前进度。</p>
+<li><p><code>The current value</code>Current progress.</p>
 </li>
 </ul>
-<h2 id="GProgressBar"><a href="#GProgressBar" class="headerlink" title="GProgressBar"></a>GProgressBar</h2><figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GProgressBar pb = gcom.GetChild(<span class="string">"n1"</span>).asProgress;</div><div class="line">pb.<span class="keyword">value</span> = <span class="number">50</span>;</div><div class="line"></div><div class="line"><span class="comment">//如果想改变进度值有一个动态的过程</span></div><div class="line">pb.TweenValue(<span class="number">50</span>, <span class="number">0.5</span>f);</div></pre></td></tr></table></figure>
+<h2 id="GProgressBar"><a href="#GProgressBar" class="headerlink" title="GProgressBar"></a>GProgressBar</h2><figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GProgressBar pb = gcom.GetChild (<span class="string">"n1"</span>).asProgress;</div><div class="line">    pb.<span class="keyword">value</span> = <span class="number">50</span>;</div><div class="line"></div><div class="line">    <span class="comment">// If you want to change the progress value, there is a dynamic process</span></div><div class="line">    pb.TweenValue (<span class="number">50</span>, <span class="number">0.5</span>f);</div></pre></td></tr></table></figure>
 
     
     <div class="footer">

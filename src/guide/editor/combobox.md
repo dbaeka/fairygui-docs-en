@@ -4,93 +4,93 @@ type: guide_editor
 order: 24
 ---
 
-## 创建下拉框
+## Create a drop-down box
 
-可以通过两种方式创建下拉框组件。
+There are two ways to create a drop-down box component.
 
-- 点击主菜单“资源”->“新建下拉框”，然后按照向导的提示一步步完成。
+- Click the main menu "Resources"-> "New drop-down box", and follow the wizard's prompts to complete step by step.
 
 ![](../../images/QQ20191211-094805.png)
 
-- 新建一个组件，然后在组件属性里选择扩展为“下拉框”。
+- Create a new component, and then select Expand to "drop-down box" in the component properties.
 
-## 设计属性
+## Edit-mode properties
 
-在组件编辑状态下，下拉框组件的属性面板是：
+In the component editing state, the properties panel of the drop-down box component is:
 
 ![](../../images/QQ20191211-094841.png)
 
-- `弹出组件` 下拉框在选项弹出时需要用到的组件。
+- `Eject component`The component that the drop-down box needs when the option pops up.
 
-  这个组件最基本的设计就是一个背景+一个列表。背景对容器组件做好宽高关联。列表需要命名为“list”，并设置好“项目资源”，一般来说，列表的“溢出处理”设置为“垂直滚动”。列表不需要建立任何关联。
+   The most basic design of this component is a background + a list. The background associates the width and height of the container component. The list needs to be named "list" and set "project resources". Generally speaking, the "overflow processing" of the list is set to "vertical scroll". The list does not require any relation.
 
-  ![](../../images/QQ20191211-095015.png)
+   ![](../../images/QQ20191211-095015.png)
 
-  当下拉框需要弹出下拉列表时，会将弹出组件的宽度自动设置成下拉框的宽度，然后填充列表数据，并按照“可见项目数量”的要求调整列表高度，最后显示出来。
+   When the drop-down box needs to pop up the drop-down list, the width of the pop-up component is automatically set to the width of the drop-down box, then the list data is filled, and the height of the list is adjusted according to the "number of visible items" requirement, and finally displayed.
 
-## 制作说明
+## Instructions
 
-- `button` 下拉框也需要一个按钮控制器，因为他和按钮的形态是一样的。可以按设计按钮的方式设计下拉框。当下拉框被点击下拉时，“button”控制器将停留在“down”页，下拉列表收回后，“button”控制器回到“up”页或“over”页。
+- `button`The drop-down box also needs a button controller, because it has the same shape as the button. The drop-down box can be designed as a design button. When the drop-down box is clicked to drop down, the "button" controller will stay on the "down" page. After the drop-down list is retracted, the "button" controller returns to the "up" or "over" page.
 - 
-- `title` 可以是普通文本，富文本，也可以是标签、按钮。
+- `title`Can be plain text, rich text, labels, buttons.
 
-- `icon` 可以是装载器，也可以是标签、按钮。
+- `icon`It can be a loader, or a label or button.
 - 
-## 实例属性
+## Instance properties
 
-在舞台上选中一个下拉框组件，右边的属性面板列表出现：
+Select a drop-down box component on the stage, and the property panel list on the right appears:
 
 ![](../../images/QQ20191211-095124.png)
 
-- `标题` 设置的文本将赋值到标签组件内的“title”元件的文本属性。如果不存在“title”元件，则什么事都不会发生。
+- `title`The set text is assigned to the text property of the "title" element inside the label component. If the "title" element does not exist, nothing will happen.
 
-- `图标` 设置的URL将赋值到标签组件内的“icon”元件的图标属性。如果不存在“icon”元件，则什么事都不会发生。
+- `icon`The set URL will be assigned to the icon attribute of the "icon" element in the label component. If the "icon" element does not exist, nothing will happen.
 
-- `可见项目数量` 下拉显示时最多显示的项目数量。例如，如果这里设置的值为10，而下拉框的数据有100条，那么下拉列表的视口会调整到只显示10条，其他需要滚动查看。
+- `Number of visible items`The maximum number of items displayed when the drop-down is displayed. For example, if the value set here is 10 and the data of the drop-down box is 100, then the viewport of the drop-down list will be adjusted to display only 10, others need to be scrolled.
 
-- `弹出方向` 下拉列表的弹出方向。如果为自动，先尝试向下弹出，如果显示超出屏幕，再尝试向上弹出。
+- `Ejection direction`The pop-up direction of the drop-down list. If it is automatic, try popping down first, and if the display goes beyond the screen, try popping up.
 
-- `选择控制` 可以绑定一个控制器。这样当下拉框选择发生改变时，控制器也同时跳转到相同索引的页面。反之亦然，如果控制器跳转到某个页面，那么下拉框也同时选定相同索引的项目。
+- `Selection control`You can bind a controller. In this way, when the drop-down box selection changes, the controller also jumps to the page with the same index at the same time. Vice versa, if the controller jumps to a certain page, the drop-down box also selects the item with the same index at the same time.
 
-- `编辑列表项目` 点击后弹出对话框，可以编辑下拉列表的项目：
+- `Editing list items`After clicking, a dialog box will pop up, you can edit the items in the drop-down list:
 
-  ![](../../images/QQ20191211-095240.png)
+   ![](../../images/QQ20191211-095240.png)
 
-  - `发布时清空` 发布时清空所有的items，也就是这里的设置内容仅作为编辑器内的预览用途。
-  - `文本` 设置这个列表项目的标题。
-  - `图标` 设置这个列表项目的图标。
-  - `值` 设置这个列表项目的value属性，用途可参考下面API的说明。
+   - `Clear when publishing`All items are cleared when publishing, that is, the settings here are only used for preview in the editor.
+   - `text`Sets the title of this list item.
+   - `icon`Set the icon for this list item.
+   - `value`Set the value property of this list item, please refer to the API description below.
 
 ## GComboBox
 
-我们可以在编辑器编辑下拉列表的项目，也可以用代码动态设置，例如：
+We can edit the items in the drop-down list in the editor, or set them dynamically with code, for example:
 
 ```csharp
-    GComboBox combo = gcom.GetChild("n1").asComboBox;
+GComboBox combo = gcom.GetChild ("n1").asComboBox;
 
-    //items是列表项目标题的数组。
-    combo.items = new string[] { "Item 1", "Item 2", ...};
+    // items is an array of list item titles.
+    combo.items = new string [] {"Item 1", "Item 2", ...};
 
-    //values是可选的，代表每个列表项目的value。
-    combo.values = new string[] { "value1", "value2", ...};
+    // values is optional and represents the value of each list item.
+    combo.values = new string [] {"value1", "value2", ...};
 
-    //获得当前选中项的索引
-    Debug.Log(combo.selectedIndex);
+    // Get the index of the currently selected item
+    Debug.Log (combo.selectedIndex);
 
-    //获得当前选中项的value。
-    Debug.Log(combo.value);
+    // Get the value of the currently selected item.
+    Debug.Log (combo.value);
 
-    //设置选中项，通过索引
-    combo.selectedIndex = 1;
+    // Set the selected item by index
+    combo.selectedIndex = 1;
 
-    //设置选中项，通过value
-    combo.value = "value1";
+    // Set the selected item by value
+    combo.value = "value1";
 ```
 
-下拉框选择改变时有通知事件：
+There is a notification event when the drop-down box selection is changed:
 
 ```csharp
-    //Unity/Cry/MonoGame
+//Unity/Cry/MonoGame
     combo.onChanged.Add(onChanged);
 
     //AS3
@@ -109,10 +109,10 @@ order: 24
     combo.on(fgui.Event.STATUS_CHANGED, this.onChanged, this);
 ```
 
-点击空白处后弹出框会自动关闭，如果要获得这个关闭的通知，可以监听移出舞台的事件，例如：
+The pop-up box will automatically close when you click on the blank space. If you want to be notified of this shutdown, you can listen to the event of moving out of the stage, for example:
 
 ```csharp
-    //Unity/Cry
+//Unity/Cry
     combo.dropdown.onRemoveFromStage.Add(onPopupClosed);
 
     //AS3
@@ -131,8 +131,8 @@ order: 24
     combo.on(fgui.Event.UNDISPLAY, this.onPopupClosed, this);
 ```
 
-如果要手工关闭弹出框：
+If you want to close the popup box manually:
 
 ```csharp
-    GRoot.inst.HidePopup();
+GRoot.inst.HidePopup ();
 ```

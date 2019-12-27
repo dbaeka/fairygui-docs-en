@@ -1,112 +1,112 @@
 ---
-title: Insert 3D/Canvas
+title: Insert 3D
 type: guide_unity
 order: 50
 ---
 
-FairyGUI提供了非常完整的解决方案解决模型、粒子、骨骼动画等3D对象与UI穿插的问题，并且支持与UGUI Canvas穿插。
+FairyGUI provides a very complete solution to solve the problem of 3D objects interspersed with UI such as models, particles, and skeleton animation, and supports interspersion with UGUI Canvas.
 
-## 直接放入3D对象
+## Put directly into 3D objects
 
-这种方式是直接用UI相机渲染3D对象，相比RenderTexture的方案，使用简单且节省内存，缺点是在UI相机下3D对象没有透视。
+This method is to directly render the 3D object with the UI camera. Compared with the RenderTexture solution, it is simple to use and saves memory. The disadvantage is that the 3D object has no perspective under the UI camera.
 
-在UI中插入3D对象需要用到一个图形占位和`GoWrapper`对象。
+Inserting 3D objects in the UI requires a graphic placeholder and`GoWrapper`Object.
 
-1. 实例化你的3D对象，例如:
+1. Instantiate your 3D object, for example:
 
-  ```csharp
-    Object prefab = Resources.Load("Role/npc");
-    GameObject go = (GameObject)Object.Instantiate(prefab);
-  ```
-2. 给3D对象设置合适的位置、缩放和旋转。
+```csharp
+Object prefab = Resources.Load("Role/npc");
+  GameObject go = (GameObject)Object.Instantiate(prefab);
+```
+2. Set the appropriate position, scale, and rotation for the 3D object.
 
-  ```csharp
-    go.transform.localPosition = new Vector3(61, -89, 1000); 
-    go.transform.localScale = new Vector3(180, 180, 180);
-    go.transform.localEulerAngles = new Vector3(0, 100, 0);
-  ```
+```csharp
+go.transform.localPosition = new Vector3(61, -89, 1000); 
+  go.transform.localScale = new Vector3(180, 180, 180);
+  go.transform.localEulerAngles = new Vector3(0, 100, 0);
+```
 
-  注意：对于模型这种有“厚度”的对象（在z轴有一定范围），localPosition的z值不应该为0，可以设置一个较大的正数值（正数表示远离摄像机）。因为Shader是开启了ZTest的，如果模型在z轴的坐标为0，和UI的z值相同，那么他的前端就可能与他上一层的UI重叠。
+Note: For objects such as models with “thickness” (there is a certain range on the z axis), the z value of localPosition should not be 0. You can set a larger positive value (a positive number means away from the camera). Because Shader has ZTest turned on, if the model's z-axis coordinate is 0 and the z value of the UI is the same, then his front end may overlap with the UI of the previous layer.
 
-  模型的缩放可以根据这个公式估算：缩放倍数 = 显示大小（单位像素）/ 模型大小（单位米）。例如如果一个模型是1米高，最终需要显示400像素高，那么需要放大400倍。
+The scale of the model can be estimated according to this formula: zoom factor = display size (unit pixels) / model size (units meters). For example, if a model is 1 meter high and eventually needs to display 400 pixels high, then you need to zoom in 400 times.
 
-2. 在UI中放置一个空白的图形，假设名称为“holder”。
+2. Place a blank graphic in the UI, assuming the name is "holder".
 
-  ```csharp
-    GGraph holder = view.GetChild("holder").asGraph;
-  ```
+```csharp
+GGraph holder = view.GetChild("holder").asGraph;
+```
 
-3. 构建GoWrapper对象，放入到holder中。
+3. Construct a GoWrapper object and place it in the holder.
 
-  ```csharp
-    GoWrapper wrapper = new GoWrapper(go);
-    holder.SetNativeObject(wrapper);
-  ```
+```csharp
+GoWrapper wrapper = new GoWrapper(go);
+  holder.SetNativeObject(wrapper);
+```
 
-**点击处理**
+**Click processing**
 
-GoWrapper默认是没有大小的，所以不能处理点击事件。如果需要对3D对象显示区域的点击事件，可以在holder上再放置一个图形（透明度设置为0）作为点击区域，或者一个空组件也行。
+GoWrapper has no size by default, so it cannot handle click events. If you need a click event on the display area of the 3D object, you can place another graphic (with transparency set to 0) on the holder as the click area, or an empty component will do.
 
-**调试方式**
+**Debugging method**
 
-使用这种方式插入3D对象，需要使用代码，并在运行时才能看到效果，对设置GameObject的位置、旋转、缩放等都不太直观。FairyGUI提供了直观的方法，可以把3D对象直接挂到UIPanel对象下。**首先设置3D对象的Layer为UI**，然后勾选UIPanel的“Set Native Children Order"。如下：
+To insert a 3D object in this way, you need to use code, and you can see the effect at runtime. It is not very intuitive to set the position, rotation, and scaling of the GameObject. FairyGUI provides an intuitive way to hang 3D objects directly under UIPanel objects. **First set the Layer of the 3D object to UI**, And check "Set Native Children Order" in UIPanel. as follows:
 
 ![](../../images/20170809140223.png)
 
-但这种方法GameObject并不会随着UIPanel的移动而移动，因此只能用作调试用途。例如制作UI上用的粒子时，可以提供这种方法给美术。
+But this method GameObject does not move with UIPanel, so it can only be used for debugging purposes. For example, when making particles for UI, this method can be provided to art.
 
-**更新GameObject**
+**Update GameObject**
 
-GoWrapper会在构造函数里查询你的GameObject里所有的Renderer并保存。如果你的GameObject后续发生了改变，需要告知GoWrapper重新查询和保存，否则显示不正确。
+GoWrapper will query all the Renderers in your GameObject in the constructor and save them. If your GameObject changes in the future, you need to tell GoWrapper to re-query and save, otherwise the display will be incorrect.
 
 ```csharp
-    wrapper.CacheRenderers();
+wrapper.CacheRenderers ();
 ```
 
-**更换GameObject**
+**Replace GameObject**
 
-如果要修改GoWrapper包装的对象，可以使用：
+If you want to modify the object wrapped by GoWrapper, you can use:
 
 ```csharp
+wrapper.wrapTarget = anotherGameObject;
+```
+
+After setting a new wrapper object, the original wrapper object will only be deleted by reference, but will not be destroyed. If you want to destroy the original GameObject, you must handle it yourself, for example:
+
+```csharp
+Object.Destroy(wrapper.wrapTarget);
     wrapper.wrapTarget = anotherGameObject;
 ```
 
-设置新的包装对象后，原来的包装对象只会被删除引用，但不会被销毁。如果你要销毁原来的GameObject，必须自行处理，例如：
+**Copy material**
+
+If the GoWrapper wrapper is used in many places at the same time, and you don't handle the copying of the material when you instantiate it, then there will be some problems. For example, if a model is displayed on the UI and used in the scene, the UI system needs to modify the material parameters of the model. The root cause of this problem is that GoWrapper uses shared materials by default, which is due to efficiency impact. There are two ways to solve this problem. First, copy the material yourself when you instantiate the object. You need to be careful to avoid excessive copy operations. Second, let GoWrapper copy automatically. This can be called when setting the wrapper object:
 
 ```csharp
-    Object.Destroy(wrapper.wrapTarget);
-    wrapper.wrapTarget = anotherGameObject;
+// The second parameter is true, which means that the material is copied
+    wrapper.setWrapTarget (anotherGameObject, true);
 ```
 
-**复制材质**
+**Tailoring**
 
-如果GoWrapper包装的对象是在很多地方同时使用，而且你在实例化时没有自行处理材质的复制，那么会产生一些问题。例如一个模型，你既在UI上显示，也在场景中使用，UI系统需要修改模型的材质参数，这就会对场景中的显示产生影响。造成这个问题的根源是GoWrapper默认是使用共享材质的，这是出于效率的影响。要解决这个问题，有两种途径。一、在你实例化对象时自行复制材质。你需要小心处理，避免过度的复制操作。二、让GoWrapper自动复制。在设置包装对象时这样调用即可：
+If you need to trim a 3D object, you can use a custom mask (**Models, particles, skeletal animation, etc.**）。 Reference of using custom mask:[Component mask](../editor/component.html#遮罩)。
 
-```csharp
-    //第二个参数为true，表示复制材质
-    wrapper.setWrapTarget(anotherGameObject, true);
-```
+For example, you need to display the model in the items in a list, and you want the model to be properly hidden when the list is scrolled. In this case, the overflow scroll function of the list itself cannot be used. First convert the list to a component, drag a rectangular graphic inside the component to cover the viewport of the list, and then set this graphic as a custom mask for the component.
 
-**剪裁**
-
-如果需要对3D对象进行剪裁，可以利用自定义遮罩（**模型、粒子、骨骼动画等均适用**）。自定义遮罩的使用方法参考：[组件的遮罩](../editor/component.html#遮罩)。
-
-例如需要在一个列表内的item显示模型，并希望模型在列表滚动时被正确隐藏，这时仅通过列表自身的溢出滚动功能是无法实现的。首先将列表转换为一个组件，在组件内拖入一个矩形图形覆盖列表的视口，然后将这个图形设置为组件的自定义遮罩。
-
-模型的着色器也必须做出相应的修改，把以下代码添加到模型的着色器的Properties段（可参考FairyGUI-Image.shader）：
+The model's shader must also be modified accordingly. Add the following code to the Properties section of the model's shader (see FairyGUI-Image.shader):
 
 ```csharp
-    _StencilComp ("Stencil Comparison", Float) = 8
+_StencilComp ("Stencil Comparison", Float) = 8
     _Stencil ("Stencil ID", Float) = 0
     _StencilOp ("Stencil Operation", Float) = 0
     _StencilWriteMask ("Stencil Write Mask", Float) = 255
     _StencilReadMask ("Stencil Read Mask", Float) = 255
 ```
 
-把以下代码加到模型的着色器的SubShader段（可参考FairyGUI-Image.shader）：
+Add the following code to the SubShader section of the model's shader (see FairyGUI-Image.shader):
 
 ```csharp
-    Stencil
+Stencil
     {
         Ref [_Stencil]
         Comp [_StencilComp]
@@ -116,36 +116,36 @@ GoWrapper会在构造函数里查询你的GameObject里所有的Renderer并保�
     }
 ```
 
-最后，设置GoWrapper支持自定义遮罩：
+Finally, set GoWrapper to support custom masks:
 
 ```csharp
-    wrapper.supportStencil = true;
+wrapper.supportStencil = true;
 ```
 
-**注意，如果有多个相同的被剪裁的对象，他们的材质不能共用一个，否则会出现显示异常。解决方法是复制材质，请参考上一段，复制材质。**
+**Note that if there are multiple objects that are being clipped, their materials cannot share one, otherwise they will display abnormally. The solution is to copy the material. Please refer to the previous paragraph to copy the material.**
 
-## 使用RenderTexture
+## Use RenderTexture
 
-在UI上展现3D内容的另一种方式是使用RenderTexture。使用RenderTexture的步骤比较复杂，需要另外新建相机渲染目标对象，然后把该相机的输出定向到一张RenderTexture。有了RenderTexture后，我们将它赋值到Image.texture即可。详细的代码可以参考[RenderImage](https://github.com/fairygui/FairyGUI-unity/blob/master/Assets/Examples/RenderTexture/RenderImage.cs)。
+Another way to present 3D content on the UI is to use RenderTexture. The steps for using RenderTexture are more complicated. You need to create a new camera to render the target object, and then direct the camera's output to a RenderTexture. With RenderTexture, we can assign it to Image.texture. Detailed code can refer to[RenderImage](https://github.com/fairygui/FairyGUI-unity/blob/master/Assets/Examples/RenderTexture/RenderImage.cs)。
 
-RenderTexture可以设置背景颜色为透明，方便和UI混合，具体在例子中就是把“this._image.blendMode = BlendMode.Off;”注释掉即可。但如果渲染的内容包含有透明贴图，那么和UI混合时就会出现透明部分的显示错误，有两种解决方案，第一种方案可以参考[这里的资料](https://blog.uwa4d.com/archives/Severe_MOBA.html)，修改模型或者粒子的着色器，以及RenderTexture的着色器。 第二种方案是FairyGUI提供的独特方案，也就是像RenderImage演示的那样，将RenderTexture所在位置的背景图片影射到RenderTexture渲染相机的背景上：
+RenderTexture can set the background color to transparent, which is convenient for blending with the UI. In the example, comment out "this._image.blendMode = BlendMode.Off;". However, if the rendered content contains a transparent map, the display error of the transparent part will occur when mixing with the UI. There are two solutions. The first solution can refer to[Information here](https://blog.uwa4d.com/archives/Severe_MOBA.html), Modify the model or particle shader, and the RenderTexture shader. The second solution is a unique solution provided by FairyGUI, which is to map the background image of the RenderTexture location to the background of the RenderTexture rendering camera, as RenderImage demonstrates:
 
 ```csharp
-    public void SetBackground(GObject image);
+public void SetBackground(GObject image);
     public void SetBackground(GObject image1, GObject image2);
 ```
 
-可以看到，最多可以设置两个图片。如果RenderTexture的背后有超过两个图片的叠加，就无法处理了。这两个图片不需要和RenderTexture在同一个容器里，它们可以在UI的任何层次。
+As you can see, you can set up to two images. If there are more than two images superimposed behind RenderTexture, it cannot be processed. These two images do not need to be in the same container as RenderTexture, they can be at any level of the UI.
 
-## 插入Canvas
+## Insert Canvas
 
-FairyGUI无论从功能上还是效率上，都能满足所有大部分UI设计的需求，因此在使用FairyGUI的项目里，很少会有需要再使用UGUI的情况。大部分UGUI需要用插件完成的功能，FairyGUI均已经内置，而且很多可以在编辑器零脚本完成。如果确实需要用到一些UGUI的插件，并且不方便移植，FairyGUI也提供了方案插入UGUI的Canvas到FairyGUI的显示层次中。步骤如下：
+FairyGUI can meet all the requirements of most UI design, both in terms of function and efficiency. Therefore, in projects using FairyGUI, it is rarely necessary to use UGUI again. Most of UGUI's functions need to be completed with plug-ins. FairyGUI is already built in, and many can be completed in the editor with zero scripts. If you really need to use some UGUI plug-ins, and it is not easy to port, FairyGUI also provides a solution to insert UGUI's Canvas into FairyGUI's display level. Proceed as follows:
 
-1. 设置Canvas的Render Mode为WorldSpace，Event Camera为Stage Camera。
-2. 删除Canvas Scaler组件（如果有）。
-3. 使用GoWrapper包装Canvas：
+1. Set Render Mode of Canvas to WorldSpace and Event Camera to Stage Camera.
+2. Remove the Canvas Scaler component (if any).
+3. Wrap Canvas with GoWrapper:
 
-  ```csharp
-    GameObject canvasObject;
-    GoWrapper gw = new GoWrapper(canvasObject);
-  ```
+```csharp
+GameObject canvasObject;
+  GoWrapper gw = new GoWrapper(canvasObject);
+```

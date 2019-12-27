@@ -4,107 +4,107 @@ type: guide_editor
 order: 1
 ---
 
-通过主菜单“文件->项目设置”打开项目设置对话框。
+Open the Project Settings dialog via the main menu "File-> Project Settings".
 
 ![](../../images/QQ20191209-143604.png)
 
-## 基本
+## General
 
 ![](../../images/QQ20191209-144109.png)
 
-- `项目名称` 在这里修改UI项目的名称。
-- `项目类型` UI项目类型，即UI实际运行的平台。你可以在这里任意切换。不同的平台在显示效果、发布结果上有一定的差别。
+- `project name`Modify the name of the UI project here.
+- `project type`UI project type, that is, the platform on which the UI actually runs. You can switch arbitrarily here. Different platforms have certain differences in display effects and release results.
 
-## 默认值
+## Defaults
 
 ![](../../images/QQ20191209-144336.png)
 
-**注意：这些参数是编辑器内的默认值，与运行时无关。运行时需要用`UIConfig`重新进行全局的设置。而且后者的设置也不一定需要和这里的设置相同。**
+**Note: These parameters are the default values in the editor and have nothing to do with runtime. Need to run`UIConfig`Redo the global settings. And the latter setting does not necessarily need to be the same as the setting here.**
 
-- `字体` 设置所有文本的默认字体。**可以直接输入字体名称**，也可以点击“A”按钮选择系统中的字体。如果你需要使用ttf文件，请先在操作系统中安装该文件（一般双击ttf文件即可），再在这里选择（需要重启编辑器才能看到新安装的字体）。这个字体设置仅用于编辑器内，运行时具体使用什么字体，需要使用`UIConfig.defaultFont`设定。为了使编辑器效果与运行时效果一致，应该尽量选择相同的字体或者形态相近的字体。
+- `Font`Sets the default font for all text. **Can enter font name directly**You can also click the "A" button to select the font in the system. If you need to use a ttf file, please install the file in the operating system (usually double-click the ttf file), and then select it here (you need to restart the editor to see the newly installed fonts). This font setting is only used in the editor. What font should be used at runtime?`UIConfig.defaultFont`set up. In order to make the editor effect consistent with the runtime effect, you should try to choose the same font or a font with a similar shape.
 
-- `字体大小` 设置在舞台中新建文本时的默认字体大小。
+- `font size`Sets the default font size when new text is created on the Stage.
 
-- `禁用字体渲染位置优化` 该选项仅适用于Egret和Laya版本。勾选后，FairyGUI将使用系统渲染文本的默认位置，不再进行自动的优化。这个差别这对于微软雅黑特别明显。这个选项可以帮助解决部分H5引擎渲染字体位置的问题。
+- `Disable font rendering position optimization`This option is only available for Egret and Laya versions. When checked, FairyGUI will use the default position of the system for rendering text, and no automatic optimization will be performed. This difference is particularly obvious for Microsoft Yahei. This option can help solve the problem of font position in some H5 engines.
 
-- `字体颜色` 设置在舞台中新建文本时的默认颜色。
+- `font color`Sets the default color when new text is created on the Stage.
 
-- `默认轴心` 可以为舞台中新放置的元件设定默认的轴心。
-  - `左上角` 轴心位置在左上角，这是软件的默认设置。
-  - `中心作为轴心` 轴心位置在中心。 
-  - `中心作为锚点` 轴心位置在中心，且把锚点也设置为中心，也就是元件的原点在中心。
+- `Default axis`You can set a default axis for newly placed components on the Stage.
+   - `Top left corner`The axis position is in the upper left corner, which is the software's default setting.
+   - `Center as axis`The axis position is in the center.
+   - `Center as anchor`The axis position is at the center, and the anchor point is also set to the center, that is, the origin of the component is at the center.
 
-- `垂直滚动条` `水平滚动条` 设置制作UI时所有带滚动功能的容器需要使用的滚动条资源。这就是说，你将一个组件或者一个列表的“溢出处理”设置为“垂直滚动”、“水平滚动”或者“自由滚动”后，不需要每次设置滚动条，自动就会使用这里设置的滚动条资源。如果某个组件需要使用和全局设置不一样的滚动条，编辑器也提供了的单独的设置，[后面的章节](scrollpane.html)会另外说明。这个设置仅用于编辑器内，运行时使用`UIConfig.horizontalScrollBar`和`UIConfig.verticalScrollBar`设定。
+- `Vertical scroll bar` `Horizontal scroll bar`Set the scrollbar resources that need to be used by all containers with scrolling functions when making UI. That is to say, after you set the "overflow processing" of a component or a list to "vertical scrolling", "horizontal scrolling" or "free scrolling", you do not need to set the scroll bar every time, and the scrolling set here will be automatically used Resources. If a component requires a different scroll bar than the global settings, the editor also provides separate settings,[Later chapters](scrollpane.html)Will be explained separately. This setting is only used in the editor and is used at runtime`UIConfig.horizontalScrollBar``And UIConfig.verticalScrollBar`set up.
 
-- `滚动条显示` 滚动条的显示策略。这是全局设置，也可以在滚动容器属性里单独设置。 这个设置仅用于编辑器内，运行时使用`UIConfig.defaultScrollBarDisplay`设定。
-  - `可见` 表示滚动条始终显示。
-  - `滚动时显示` 表示滚动条只有在滚动时，或者鼠标在滚动容器视口内才会显示（PC），其他情况下则自动隐藏。
-  - `隐藏` 表示滚动条始终隐藏，这种情况滚动条也不占用视口位置。
+- `Scroll bar display`Display strategy for scroll bars. This is a global setting and can also be set individually in the scroll container properties. This setting is only used in the editor and is used at runtime`UIConfig.defaultScrollBarDisplay`set up.
+   - `visible`Indicates that the scroll bar is always displayed.
+   - `Show while scrolling`Indicates that the scroll bar will be displayed (PC) only when scrolling or the mouse is in the scroll container viewport, otherwise it will be hidden automatically.
+   - `hide`Indicates that the scroll bar is always hidden, in which case the scroll bar does not occupy the viewport position.
 
-- `TIPS组件` 设定用于显示TIPS的组件。用法参考[这里](object.html#其他)。
+- `TIPS components`Set the component used to display TIPS. [Usage reference here](object.html#其他)。
 
-- `按钮点击声音` 设定按钮的默认点击声音。设置后，所有按钮点击都会播放这个声效，除非按钮自己独立设置另外的声效。这个设置仅用于编辑器内，运行时使用`UIConfig.buttonSound`设定。
+- `Button click sound`Sets the default click sound for buttons. After setting, all button clicks will play this sound effect, unless the button itself sets another sound effect. This setting is only used in the editor and is used at runtime`UIConfig.buttonSound`set up.
 
-## 快捷菜单
+## Quick menu
 
 ![](../../images/QQ20191209-154324.png)
 
-- `文字大小` 一个游戏使用的字体大小通常有几种固定的方案，这里定义好后，当任何地方需要输入字体大小时，就可以直接在下拉菜单选择。
+- `font size`There are usually several fixed font sizes for a game. Once defined here, when you need to enter the font size anywhere, you can directly select it from the drop-down menu.
 
-- `字体` 一个游戏使用的字体通常有几种固定的方案，这里定义好后，当任何地方需要输入字体时，就可以直接在下拉菜单选择。
+- `Font`There are usually several fixed schemes for the fonts used in a game. After being defined here, when you need to enter a font anywhere, you can directly select it from the drop-down menu.
 
-- `颜色` 一个游戏使用的颜色通常有几种方案，这里定义好后，当任何地方需要输入颜色时，就可以直接在下拉菜单选择。
+- `colour`There are usually several schemes of colors used in a game. After being defined here, when you need to enter a color anywhere, you can directly select it from the drop-down menu.
 
-## 适配测试
+## Adaptation settings
 
 ![](../../images/QQ20191209-154501.png)
 
-- `缩放模式` 设置物理屏幕和逻辑屏幕的映射关系。
-  - `根据屏幕大小缩放` 按适配模式对物理屏幕进行缩放，得到逻辑屏幕。
-  - `不缩放` 物理屏幕与逻辑屏幕一致。
+- `Zoom mode`Set the mapping relationship between physical screens and logical screens.
+   - `Scale according to screen size`The physical screen is scaled according to the adaptation mode to obtain a logical screen.
+   - `No scaling`The physical screen is the same as the logical screen.
 
-- `适配模式` 设置计算全局缩放系数的方式。当缩放模式为“根据屏幕大小缩放”才有效。
-  - `适应宽度和高度` 取宽和高比例较小的进行缩放。例如，设计分辨率是960x640，设备分辨率是1280×720，那么可以得到宽边的比例是1280/960=1.33，高边的比例是720/640=1.125，最后取较小的1.125作为全局缩放系数。这种缩放方式保证内容缩放后始终在屏幕内，如果有留边，则留边部分可以通过关联系统进一步处理。这种方式是适应性很强的处理方式。
-  - `适应宽度` 固定取宽的比例进行缩放，高边可能会超出屏幕，这种方式需要设计师在设计时就有目的地设计安全区域。
-  - `适应高度` 固定取高的比例进行缩放。宽边可能会超出屏幕，这种方式需要设计师在设计时就有目的地设计安全区域。
+- `Adaptation mode`Sets how the global scaling factor is calculated. Only effective when the zoom mode is "Zoom according to screen size".
+   - `Adapt to width and height`Take the smaller ratio of width and height to zoom. For example, if the design resolution is 960x640 and the device resolution is 1280 × 720, then the ratio of the wide side is 1280/960 = 1.33, the ratio of the high side is 720/640 = 1.125, and the smaller 1.125 is taken as the global scale coefficient. This zooming method ensures that the content is always in the screen after zooming. If there is a margin, the margin can be further processed by the relation system. This method is a very adaptive processing method.
+   - `Adapted width`The fixed width ratio is used for scaling. The high side may extend beyond the screen. This method requires the designer to design the safe area purposefully.
+   - `Adapt to height`Fixed taking a high proportion to scale. The wide edge may extend beyond the screen, which requires the designer to purposefully design a safe area when designing.
 
-- `设计分辨率` 通常我们会选择一个固定的分辨率进行UI设计和制作，这个分辨率称为设计分辨率。例如1136×640,1280×720都是比较常用的设计分辨率。选定一个设计分辨率后，最大的UI界面（通常就是全屏界面）的大小就限制在这个分辨率。
+- `Design resolution`Usually we choose a fixed resolution for UI design and production, this resolution is called design resolution. For example, 1136 × 640 and 1280 × 720 are more common design resolutions. After selecting a design resolution, the size of the largest UI interface (usually a full-screen interface) is limited to this resolution.
 
-关于适配，更详细的解析请阅读[适配](adaptation.html)。
+For more detailed analysis, please read[adaptation](adaptation.html)。
 
-## 项目分支
+## Project branch
 
 ![](../../images/QQ20191209-160403.png)
 
-- ![](../../images/QQ20191209-160453.png) 新建分支。
-- ![](../../images/QQ20191209-160516.png) 重命名分支。
-- ![](../../images/QQ20191209-160522.png) 删除分支。
+- ![](../../images/QQ20191209-160453.png)Create a new branch.
+- ![](../../images/QQ20191209-160516.png)Rename the branch.
+- ![](../../images/QQ20191209-160522.png)Delete branch.
 
-关于分支，更详细的解析请阅读[分支](branch.html)。
+For more detailed analysis, please read[Branch](branch.html)。
 
-## 多国语言
+## i18n settings
 
 ![](../../images/QQ20191209-160649.png)
 
-- ![](../../images/QQ20191209-160453.png) 增加语言文件，点击后会要求从文件系统选择一个语言文件。
-- ![](../../images/QQ20191209-160522.png) 移除语言文件，只会移除记录，不会删除实际的文件。
-- ![](../../images/QQ20191209-160735.png) 新建语言文件，点击后将创建一个新的语言文件。
-- ![](../../images/QQ20191209-160746.png) 刷新所有语言文件，这个刷新功能只对字符串进行增删，但不会做修改。这种机制保护已经翻译的内容在刷新时不会被冲掉。举例说明：
-  项目内有一个组件C，它的内容是两个文本，分别是“t1:测试1，t2:测试2”，现在有一个语言文件en，它有两个字符串，分别对应了两个文本内容，并且它们已经被翻译成英文，内容为：“s1:test1，s2:test2”。观察以下操作对语言文件的影响：
-  - 把t1的文本改成“测试2”，然后点击刷新。语言文件en不会有变化，s1的值依然是“test1”。
-  - 把t1删掉，然后刷新所有语言文件。语言文件en里的s1会被删掉。
-  - 增加一个“t3:测试3”，语言文件en的内容更新为“s1:test1，s2:test2，s3:测试3”。
+- ![](../../images/QQ20191209-160453.png)Add a language file. After clicking, you will be asked to select a language file from the file system.
+- ![](../../images/QQ20191209-160522.png)Removing a language file will only remove the record, not the actual file.
+- ![](../../images/QQ20191209-160735.png)Create a new language file. Click it to create a new language file.
+- ![](../../images/QQ20191209-160746.png)Refresh all language files. This refresh function only adds or deletes strings, but does not modify them. This mechanism protects translated content from being flushed when refreshed. for example:
+There is a component C in the project, and its content is two texts, which are "t1: test 1, t2: test 2". Now there is a language file en, which has two strings, which correspond to two text contents. , And they have been translated into English with the content: "s1: test1, s2: test2". Observe the effects of the following operations on the language files:
+   - Change the text of t1 to "Test 2" and click Refresh. The language file en will not change, and the value of s1 will still be "test1".
+   - Delete t1 and refresh all language files. The s1 in the language file en is deleted.
+   - Add a "t3: test3", and the content of the language file en is updated to "s1: test1, s2: test2, s3: test3".
 
-关于多国语言，更详细的解析请阅读[多国语言](i18n.html)。
+For more details, please read[multi-lingual](i18n.html)。
 
-## 自定义属性
+## Custom properties
 
 ![](../../images/QQ20191209-160831.png)
 
-自定义属性是用户自定义的一些Key-Value集合。
+Custom attributes are user-defined Key-Value collections.
 
-自定义属性目前有两个用途：
-1. 在插件中可以利用。
-2. 控制器可以定义首页为这里的Key值，则组件创建时，控制器将自动切换到名称为Value的页面。参考[这里](controller.html#控制器设计)。
+Custom properties currently serve two purposes:
+1. Available in plugins.
+2. The controller can define the homepage as the Key value here. When the component is created, the controller will automatically switch to the page named Value. [Reference here](controller.html#Controller-design)。
 
-这里的设定仅用于编辑器内使用，运行时需要用代码重新设置，API是`UIPackage.SetVar`。
+The settings here are only used in the editor, and need to be reset with code when running. The API is`UIPackage.SetVar`。

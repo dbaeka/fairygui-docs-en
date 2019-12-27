@@ -1,260 +1,259 @@
 ---
-title: Basics
+title: Basis
 type: guide_unity
 order: 0
 ---
 
-## 加载UI包
+## Load UI package
 
-Unity项目载入UI包有以下几种方式，开发者可以根据项目需要选择其中一种或者多种方式混搭使用：
+There are several ways to load a UI package into a Unity project. Developers can choose one or more of them to mix and match according to the needs of the project:
 
-1. 将打包后的文件直接发布到Unity的Resources目录或者其子目录下，
+1. Publish the packaged files directly to Unity's Resources directory or its subdirectories,
 
    ![](../../images/20180908225713.png)
 
-   这种方式处理的UI包，如果使用UIPanel显示UI，不需要任何代码载入包，UIPanel会自动载入；如果是动态创建UI，则要使用代码载入包：
+   For UI packages processed in this way, if you use UIPanel to display the UI, you do not need any code to load the package, and UIPanel will automatically load it; if you create the UI dynamically, you need to use code to load the package:
 
    ```csharp
-    //demo就是发布时填写的文件名
-    UIPackage.AddPackage("demo");
-    
-    //如果在子目录下
-    UIPackage.AddPackage("路径/demo");
+   // demo is the file name filled in when publishing
+ UIPackage.AddPackage ("demo");
 
-    //如果不放到Resources或者其子目录下，可以传入全路径，但这种方法只能在Editor里使用
-    UIPackage.AddPackage("Assets/SomePath/Package1");
+ // if in a subdirectory
+ UIPackage.AddPackage ("path/demo");
+
+ // If you do not put it in Resources or its subdirectories, you can pass in the full path, but this method can only be used in Editor
+ UIPackage.AddPackage ("Assets/SomePath/Package1");
    ```
-   AddPackage会先使用传入的路径作为key进行检测，如果这个包已经添加，则不会重复添加。
+   AddPackage will first use the passed path as the key for detection. If the package has already been added, it will not be added repeatedly.
 
-2. 将发布后的文件打包为两个AssetBundle，即定义文件和资源各打包为一个bundle(desc_bundle+res_bundle)。这样做的好处是一般UI的更新都是修改元件位置什么的，不涉及图片资源的更新，那么只需要重新打包和推送desc_bundle就行了，不需要让玩家更新通常体积比较大的res_bundle，节省流量。打包程序由开发者按照自己熟悉的方式自行实现。以demo为例，请遵循以下规则打包：
-   - demo_fui.bytes单独打包为desc_bundle；
-   - 其他资源（demo_atlas0.png等），打包到res_bundle。
-
-   这种方式处理的UI包，必须使用代码载入：
+2. Package the published file into two AssetBundles, that is, the definition file and the resources are packaged into a bundle (desc_bundle + res_bundle). The advantage of this is that the general UI update is to modify the position of the component, and does not involve the update of image resources. Then you only need to repackage and push desc_bundle. You do not need to let players update the res_bundle, which is usually relatively large, and save traffic. The packager is implemented by the developer in a manner familiar to him. Take demo as an example, please follow these rules to package:
+   - demo_fui.bytes is packaged separately as desc_bundle;
+   - Other resources (demo_atlas0.png, etc.) are packaged into res_bundle.
+   UI packages processed this way must be loaded using code:
 
    ```csharp
-    //desc_bundle和res_boundle的载入由开发者自行实现。
-    UIPackage.AddPackage(desc_bundle, res_bundle);
+   // desc_bundle and res_boundle are loaded by the developer.
+ UIPackage.AddPackage (desc_bundle, res_bundle);
    ```
-   使用这种方式AddPackage，没有排重检测机制，需要你自己保证。
+   In this way AddPackage, there is no re-ranking detection mechanism, you need to guarantee it yourself.
 
-3. 将发布后的文件打包为一个AssetBundle。打包程序由开发者按照自己熟悉的方式自行实现。以demo为例，将demo_fui.bytes和其他资源（demo_atlas0.png等），都放入bundle。
- 
-   这种方式处理的UI包，必须使用代码载入：
+3. Package the published file into an AssetBundle. The packager is implemented by the developer in a manner familiar to him. Take demo as an example, put demo_fui.bytes and other resources (demo_atlas0.png, etc.) into the bundle.
+
+   UI packages processed this way must be loaded using code:
 
    ```csharp
-    //bundle的载入由开发者自行实现。
-    UIPackage.AddPackage(bundle);
+   // Bundle loading is implemented by the developer.
+ UIPackage.AddPackage (bundle);
    ```
-   使用这种方式AddPackage，没有排重检测机制，需要你自己保证。
+   In this way AddPackage, there is no re-ranking detection mechanism, you need to guarantee it yourself.
 
-## 卸载UI包
+## Uninstall UI pack
 
-当一个包不再使用时，可以将其卸载。
+When a package is no longer used, it can be uninstalled.
 
 ```csharp
-    //这里可以使用包的id，包的名称，包的路径，均可以
-    UIPackage.RemovePackage("package");
+// Here you can use the package id, package name, and package path.
+    UIPackage.RemovePackage ("package");
 ```
 
-包卸载后，所有包里包含的贴图等资源均会被卸载，由包里创建出来的组件也无法显示正常（虽然不会报错），所以这些组件应该（或已经）被销毁。
-一般不建议包进行频繁装载卸载，因为每次装载卸载必然是要消耗CPU时间（意味着耗电）和产生大量GC的。UI系统占用的内存是可以精确估算的，你可以按照包的使用频率设定哪些包是常驻内存的（建议尽量多）。
+After the package is uninstalled, all the resources such as textures contained in the package will be uninstalled, and the components created in the package will not display properly (although no error will be reported), so these components should (or have been) destroyed.
+Frequent loading and unloading of packages is generally not recommended, because each loading and unloading must consume CPU time (meaning power consumption) and generate a lot of GC. The memory occupied by the UI system can be accurately estimated. You can set which packages are resident in memory according to the frequency of use of the packages (as much as possible is recommended).
 
-## 包内存管理
+## Package memory management
 
-1. AddPackage只有用到才会载入贴图、声音等资源。如果你需要提前全部载入，调用`UIPackage.LoadAllAssets`。
+1. AddPackage only loads resources such as textures and sounds when used. If you need to load all in advance, call`UIPackage.LoadAllAssets`。
 
-2. 如果UIPackage是从AssetBundle中载入的，在RemovePackage时AssetBundle才会被Unload(true)。如果你确认所有资源都已经载入了（例如调用了LoadAllAssets），也可以自行卸载AssetBundle。如果你的ab是自行管理，不希望FairyGUI做任何处理的，可以设置`UIPackage.unloadBundleByFGUI`为false。
+2. If UIPackage is loaded from AssetBundle, AssetBundle will be Unloaded (true) when RemovePackage is removed. If you confirm that all resources have been loaded (for example, LoadAllAssets is called), you can also uninstall AssetBundle yourself. If your ab is managed by yourself and you don't want FairyGUI to do any processing, you can set`UIPackage.unloadBundleByFGUI`Is false.
 
-3. 调用`UIPackage.UnloadAssets`可以只释放UI包的资源，而不移除包，也不需要卸载从UI包中创建的UI界面（这些界面你仍然可以调用显示，不会报错，但图片显示空白）。当包需要恢复使用时，调用`UIPackage.ReloadAssets`恢复资源，那些从这个UI包创建的UI界面能够自动恢复正常显示。如果包是从AssetBundle载入的，那么在UnloadAssets时AssetBundle会被Unload(true)，所以在ReloadAssets时，必须调用ReloadAssets一个带参数的重载并提供新的AssetBundle实例。
+3. transfer`UIPackage.UnloadAssets`You can only release the resources of the UI package without removing the package, and there is no need to uninstall the UI interface created from the UI package (you can still call and display these interfaces without error, but the image is blank). When the package needs to be resumed, call`UIPackage.ReloadAssets`Restore resources. Those UI interfaces created from this UI package can automatically resume normal display. If the package is loaded from AssetBundle, then AssetBundle will be Unload (true) when UnloadAssets, so when ReloadAssets, you must call ReloadAssets with a parameter overload and provide a new AssetBundle instance.
 
 ## UIPanel
 
-在Unity中使用编辑器制作的界面有两种方式，第一种是使用UIPanel。
+There are two ways to use the editor-made interface in Unity. The first is to use UIPanel.
 
-只需3步就可以使用将编辑器中制作好的界面放入到Unity的场景中。
+It only takes 3 steps to put the interface made in the editor into the scene of Unity.
 
-1. 从GameObject菜单中选择FairyGUI->UIPanel：
+1. Select FairyGUI-> UIPanel from the GameObject menu:
 
-  ![](../../images/20160322182202.png)
+![](../../images/20160322182202.png)
 
-2. 在Inspector里点击PackageName或者ComponentName，将弹出选择组件的窗口：
+2. Click PackageName or ComponentName in the Inspector. A window for selecting components will pop up:
 
-  ![](../../images/20170808213542.png)
+![](../../images/20170808213542.png)
 
-3. 这个窗口里列出了所有工程里能找到的UI包，选择一个包和组件，然后点击OK。（如果这里找不到你的UI包，可以尝试点击Refresh刷新）。
+3. This window lists all UI packages that can be found in the project. Select a package and component and click OK. (If you can't find your UI package here, you can try clicking Refresh).
 
-  可以看到，UI组件的内容显示出来了。（注意：Unity4版本目前不支持显示内容，只能显示线框）
+As you can see, the content of the UI component is displayed. (Note: Unity4 currently does not support displaying content, only wireframes can be displayed)
 
-  ![](../../images/2016-03-22_182614.png)
+![](../../images/2016-03-22_182614.png)
 
-如果UI包修改了，或者其他一些情况导致UIPanel显示不正常，可以使用下面的菜单刷新：
+If the UI package is modified, or some other conditions cause the UIPanel to display abnormally, you can use the following menu to refresh:
 
 ![](../../images/2017-08-08_213749.png)
 
-运行时，获得UIPanel的UI的方式是：
+When running, the way to get the UIPanel UI is:
 
 ```csharp
-    UIPanel panel = gameObject.GetComponent<UIPanel>();
+UIPanel panel = gameObject.GetComponent<UIPanel>();
     GComponent view = panel.ui;
 ```
 
-UIPanel在GameObject销毁时（手动销毁或者过场景等）会一并销毁。
+UIPanel will be destroyed when the GameObject is destroyed (manually destroyed or over the scene)
 
-UIPane只保存了UI包的名称和组件的名称，它不对纹理或其他资源产生任何引用，也就是UI使用的资源不会包含在场景数据中。
+UIPane only saves the name of the UI package and the name of the component. It does not make any reference to textures or other resources, that is, the resources used by the UI will not be included in the scene data.
 
-在编辑状态下，无论UI组件引用了哪些UI包的资源，包括放置在Resources目录下的和不放置在Resources下的，都能够正确显示。**但当运行后，UIPanel只能自动载入放置在Resources目录或其子目录下的UI包，也只会载入自身所在的UI包，其他情况的UI包（例如引用到的UI包或打包到AssetBundle的UI包）不能自动载入**。你需要在UIPanel创建前使用UIPackage.AddPackage准备好这类UI包。UIPanel在Start事件或者第一次访问UIPanel.ui属性时创建UI界面，你仍然有机会在Awake里完成这些操作。
+In the edit state, no matter which UI package resources are referenced by the UI component, including those placed in the Resources directory and those not placed under Resources, they can be displayed correctly. **However, when running, UIPanel can only automatically load UI packages placed in the Resources directory or its subdirectories. It will also only load the UI packages in which it is located. In other cases, UI packages such as referenced UI packages or AssetBundle UI package) cannot be loaded automatically**。 You need to use UIPackage.AddPackage to prepare such UI packages before UIPanel is created. UIPanel creates a UI interface when the Start event or the UIPanel.ui property is accessed for the first time. You still have the opportunity to complete these operations in Awake.
 
-下面是UIPanel的一些属性说明：
+Here are some properties of UIPanel:
 
-- `Package Name` UI组件所在的包名称。注意，这里只是保存一个名称，并没有实际引用到任何UI数据。
+- `Package Name`The package name where the UI component is located. Note that this just saves a name and does not actually reference any UI data.
 
-- `Component Name` UI组件的名称。注意，这里只是保存一个名称，并没有实际引用到任何UI数据。
+- `Component Name`The name of the UI component. Note that this just saves a name and does not actually reference any UI data.
 
-- `Render Mode` 有三种：
-  - `Screen Space Overlay` 默认值，表示这个UI在屏幕空间显示，这时Transform的Scale将被锁定，而且不建议修改Transform中的其他内容（让他们保持为0）。如果要修改面板在屏幕上的位置，使用UI Transform（参考下面关于UI Transform的说明）。
-  - `Screen Space Camera` 表示这个UI在屏幕空间显示，但不使用FairyGUI默认的正交相机，而是使用指定的正交相机。
-  - `World Space` 表示这个UI在世界空间显示，由透视相机渲染。默认的使用场景的主相机，如果不是，那么设置Render Camera。当使用这种模式时，使用Transfrom修改UI在世界空间中的位置、缩放、旋转。但你仍然可以使用UI Transform。
+- `Render Mode`There are three types:
+   - `Screen Space Overlay`The default value indicates that the UI is displayed in screen space. At this time, the Scale of the Transform will be locked, and it is not recommended to modify other contents of the Transform (keep them to 0). If you want to modify the position of the panel on the screen, use UI Transform (refer to the description of UI Transform below).
+   - `Screen Space Camera`Indicates that this UI is displayed in screen space, but does not use FairyGUI's default orthogonal camera, but uses the specified orthogonal camera.
+   - `World Space`Indicates that this UI is displayed in world space and is rendered by a perspective camera. Use the scene's main camera by default. If not, set Render Camera. When using this mode, use Transfrom to modify the UI's position, zoom, and rotation in world space. But you can still use UI Transform.
 
-注意：Render Mode只定义了FairyGUI对待这个UI的方式，通常是坐标相关的操作（如点击检测等），但和渲染无关。UI由哪个相机渲染是由GameObject的layer决定的。所以如果发现UI没有显示出来，可以检查一下GameObject的layer是否正确。例如如果是Screen Space，GameObject应该在UI层，如果是WorldSpace，则是在Default层或者其他自定义的层次。
+Note: Render Mode only defines the way FairyGUI treats this UI, which is usually coordinate-related operations (such as click detection, etc.), but has nothing to do with rendering. Which camera the UI renders is determined by the layer of the GameObject. So if you find that the UI is not displayed, you can check whether the layer of the GameObject is correct. For example, if it is Screen Space, GameObject should be in the UI layer, if it is WorldSpace, it should be in the Default layer or other custom layers.
 
-- `Render Camera` 当Render Mode是Screen Space Camera或者World Space时可以设置。如果不设置，默认为场景的主相机。注意，当RenderMode为WorldSpace时，如果这里没有设置相机，那么场景里一定要有主相机，否则UI无法点击。
+- `Render Camera`Can be set when Render Mode is Screen Space Camera or World Space. If not set, it defaults to the main camera of the scene. Note that when RenderMode is WorldSpace, if there is no camera set here, then there must be a main camera in the scene, otherwise the UI cannot be clicked.
 
-- `Sorting Order` 调整UIPanel的显示顺序。越大的显示在越前面。
+- `Sorting Order`Adjust the display order of UIPanel. The larger the display is, the more advanced.
 
-- `Fairy Batching` 是否启用Fairy Batching。关于Fairy Batching请参考[DrawCall 优化](drawcall.html)。切换这个值，可以在编辑模式下实时看到DrawCall的变化（切换后点击一下Game，Stat里显示的内容才会更新），这可以使你更加容易决定是否启用这项技术。
+- `Fairy Batching`Whether to enable Fairy Batching. Please refer to Fairy Batching[DrawCall optimization](drawcall.html)。 Switching this value, you can see the changes of DrawCall in real time in the edit mode (click the game after switching, the content displayed in Stat will be updated), which can make it easier for you to decide whether to enable this technology.
 
-- `Touch Disabled` 勾选后，将关闭点击检测。当这个UI没有可交互的内容时可以勾选以提高点击检测时的性能。例如头顶血条这些类型的UI，就可以勾选。
+- `Touch Disabled`When checked, click detection will be turned off. This UI can be ticked when there is no interactive content to improve the performance of click detection. For example, these types of UI can be checked.
 
-- `UI Transform` 当Render Mode是Screen Space时可以使用这里的设置调整UI在屏幕上的位置。你仍然可以调整UIPanel的Transform改变UI的位置，但我不建议你这样做，因为Transform中的坐标位置是没有经过不同分辨率自适应的调整的。当Render Mode是World Space时，建议使用Transform设置UI的位置，你仍然可以调整UIPanel的Transform改变UI的位置，但调整的效果可能不那么直观。同时你可以使用Scene视图中下图所示的原点调整UI Transform的位置属性：
+- `UI Transform`When Render Mode is Screen Space, you can use this setting to adjust the position of the UI on the screen. You can still adjust the UIPanel's Transform to change the position of the UI, but I don't recommend you do this, because the coordinate position in the Transform is not adaptively adjusted at different resolutions. When Render Mode is World Space, it is recommended to use Transform to set the position of the UI. You can still adjust the UIPanel's Transform to change the position of the UI, but the effect of the adjustment may not be so intuitive. At the same time, you can use the origin shown in the Scene view to adjust the position property of the UI Transform:
 
 ![](../../images/2016-03-23_123617.png)
 
-- `Fit Screen` 这里可以设置UIPanel适配屏幕。
-  - `Fit Size` UI将铺满屏幕。
-  - `Fit Width And Set Middle` UI将横向铺满屏幕，然后上下居中。
-  - `Fit Height And Set Center` UI将纵向铺满屏幕，然后左右居中。
+- `Fit Screen`Here you can set the UIPanel adaptation screen.
+   - `Fit Size`The UI will fill the screen.
+   - `Fit Width And Set Middle`The UI will fill the screen horizontally and then center up and down.
+   - `Fit Height And Set Center`The UI will fill the screen vertically, then center it left and right.
 
-这里提供的选项不多，因为FairyGUI推荐的是在FairyGUI编辑器中整体设计，而不是在Unity里摆放小元件。例如如果需要不同的UI在屏幕上的各个位置布局，你应该在FairyGUI编辑器中创建一个全屏大小的组件，然后在里面放置各个子组件，再用关联控制布局；最后将这个全屏组件放置到Unity，将Fit Screen设置为Fit Size即可。错误的做法是把各个子组件放置到Unity里再布局。
+There are not many options provided here, because FairyGUI recommends the overall design in the FairyGUI editor, rather than placing small components in Unity. For example, if you need different UI layouts at various positions on the screen, you should create a full-screen component in the FairyGUI editor, then place each sub-component inside, and then use the relation to control the layout; finally, place this full-screen component in Unity Just set the Fit Screen to Fit Size. The wrong way is to put each sub-component in Unity and then lay it out.
 
-- `HitTest Mode` 这里可以设置UIPanel处理鼠标或触摸事件的方式。
-  - `Default` 这是默认的方式。FairyGUI会用内置的机制检测鼠标或触摸动作，不使用射线，UIPanel也不需要创建碰撞体，效率比较高。
-  - `Raycast` 在这种方式下，UIPanel将自动创建碰撞体，并且使用射线方式进行点击检测。这种方式适合于UIPanel还需要和其他3D对象互动的情况。对于设置为使用Raycast进行点击测试的UIPanel，你可以使用HitTestContext.layerMask排除掉一些不关心的层。
+- `HitTest Mode`Here you can set how the UIPanel handles mouse or touch events.
+   - `Default`This is the default way. FairyGUI uses built-in mechanisms to detect mouse or touch actions. It does not use rays, and UIPanel does not need to create collision objects, which is more efficient.
+   - `Raycast`In this way, UIPanel will automatically create a collision volume and use ray mode for click detection. This method is suitable for situations where UIPanel also needs to interact with other 3D objects. For UIPanels set up for click testing with Raycast, you can use HitTestContext.layerMask to exclude some layers that you don't care about.
 
-- `Set Native Children Order` 可以在UIPanel对象下直接挂其他3D对象，例如模型、粒子等（注意设置他们的layer和UIPanel的相同），然后勾选这个选项后，就可以让这些3D对象显示在UIPanel的层次上。相当于把外部的3D对象插入到UI层次中。但这些3D对象只能显示在这个UIPanel的内容上面，不能和这个UIPanel里面的内容穿插。一般这个功能用在制作UI中使用的特效时，方便查看最终的显示结果，也可以用来观察调整模型在UI相机下的缩放倍数。
+- `Set Native Children Order`You can directly hang other 3D objects under the UIPanel object, such as models, particles, etc. (note that their layer is the same as that of the UIPanel), and then check this option to enable these 3D objects to be displayed on the UIPanel level. Equivalent to inserting external 3D objects into the UI hierarchy. However, these 3D objects can only be displayed on the contents of this UIPanel, and cannot be interspersed with the contents of this UIPanel. Generally, this function is used to make special effects used in the UI, which is convenient for viewing the final display results, and can also be used to observe the adjustment of the model's zoom factor under the UI camera.
 
-**动态创建UIPanel**
+**Create UIPanel dynamically**
 
-UIPanel也可以在游戏中创建，为任意游戏对象动态挂接UI界面，例如：
-
-```csharp
-    //UIPanel的生命周期将和yourGameObject保持一致。再次提醒，注意yourGameObject的layer。
-    UIPanel panel = yourGameObject.AddComponent<UIPanel>();
-    panel.packageName = “包名”;
-    panel.componentName = “组件名”;
-
-    //下面这是设置选项非必须，注意很多属性都要在container上设置，而不是UIPanel
-    
-    //设置renderMode的方式
-    panel.container.renderMode = RenderMode.WorldSpace;
-
-    //设置renderCamera的方式
-    panel.container.renderCamera = ...;
-    
-    //设置fairyBatching的方式
-    panel.container.fairyBatching = true;
-    
-    //设置sortingOrder的方式
-    panel.SetSortingOrder(1, true);
-    
-    //设置hitTestMode的方式
-    panel.SetHitTestMode(HitTestMode.Default);
-    
-    //最后，创建出UI
-    panel.CreateUI();
-```
-
-**UIPanel的排序**
-
-UIPanel在屏幕上的显示顺序是由他的sortingOrder属性决定的。sortingOrder越大，显示在越前面（越靠近屏幕）。但这里的排序是指同一个相机下的UIPanel。如果两个UIPanel由不同的相机渲染，那么他们的显示层次首先是由相机的深度（Depth）决定的，渲染相机深度较大的UIPanel一定显示在前面。
-
-对于RenderMode为ScreenSpace的UIPanel，特别的，1000是一个特殊的层次，它表示2D UI（GRoot）的显示层次，也就是说，sortingOrder大于1000的UIPanel会显示在2D UI的上面，小于1000的都显示在2D UI的下面。
-
-对于RenderMode为WorldSpace的UIPanel，也就是我们常说的3D UI（例如：头顶血条），如果希望通过z值来进行排序，而不是sortingOrder值，可以先将这一类UIPanel的sortingOrder设置为一个相同的值，例如100，然后调用：
+UIPanel can also be created in the game, dynamically attaching the UI interface for any game object, for example:
 
 ```csharp
-    //对sortingOrder为100的UIPanel按z进行排序，z值越小，显示在越前面。
-    Stage.inst.SortWorldSpacePanelsByZOrder(100);
+// The life cycle of UIPanel will be consistent with yourGameObject. Again, pay attention to the layer of yourGameObject.
+    UIPanel panel = yourGameObject.AddComponent <UIPanel> ();
+    panel.packageName = "package name";
+    panel.componentName = "component name";
+
+    // The following is not necessary to set the options. Note that many properties must be set on the container, not the UIPanel.
+    
+    // The way to set renderMode
+    panel.container.renderMode = RenderMode.WorldSpace;
+
+    // The way to set renderCamera
+    panel.container.renderCamera = ...;
+    
+    // The way to set fairyBatching
+    panel.container.fairyBatching = true;
+    
+    // Set the sorting order
+    panel.SetSortingOrder (1, true);
+    
+    // The way to set hitTestMode
+    panel.SetHitTestMode (HitTestMode.Default);
+    
+    // Finally, create the UI
+    panel.CreateUI ();
 ```
 
-这个方法有一个List.Sort的排序消耗，不建议每帧调用，可以隔一段时间，或者在对象位置改变后才调用。
+**UIPanel sorting**
 
-**关于HUD**
+The display order of UIPanel on the screen is determined by his sortOrder property. The larger the sortingOrder is, the more it is displayed (closer to the screen). But the ordering here refers to the UIPanel under the same camera. If two UIPanels are rendered by different cameras, their display level is first determined by the depth of the camera (Depth), and UIPanels with larger rendering cameras must be displayed in front.
 
-UIPanel可以用来制作头顶血条。要注意的是：
-1. 放在3D对象上的UIPanel是无法和其他UIPanel进行DrawCall合并的，因此如果同屏人物很多，DC就很高。这个无法避免。如果一定要合并DC，那改用2D UI，把这些HUD对象都放到同一层里，然后与3D对象同步位置。至于近大远小之类的，要不自己按距离算scale，要不就别管了。EmitNumbers这个Demo就演示了怎样用2D UI和3D对象同步坐标。
-2. UIPanel没有自动面向屏幕的功能，自行挂脚本实现，使用LookAt一般就可以。
+For UIPanel with RenderMode of ScreenSpace, in particular, 1000 is a special level, which represents the display level of 2D UI (GRoot), that is, UIPanel with sorting order greater than 1000 will be displayed on top of 2D UI, and those less than 1000 are displayed Below the 2D UI.
 
-## 动态创建UI
-
-在很多情况下，你并不需要将UI界面放到场景中。另外一种常用的创建UI对象的方式是：
+For a UIPanel with RenderMode of WorldSpace, which is what we often say 3D UI (for example, a blood bar above the head), if you want to sort by z value instead of sortOrder value, you can first set the sortOrder of this type of UIPanel to the same Value, such as 100, and then call:
 
 ```csharp
-    GComponent view = UIPackage.CreateObject(“包名”, “组件名”).asCom;
-    
-    //以下几种方式都可以将view显示出来：
-    
-    //1，直接加到GRoot显示出来
-    GRoot.inst.AddChild(view);
-    
-    //2，使用窗口方式显示
-    aWindow.contentPane = view;
-    aWindow.Show();
-    
-    //3，加到其他组件里
-    aComponnent.AddChild(view);
+// Sort UIPanels with a sorting order of 100 by z. The smaller the z value, the higher the display.
+    Stage.inst.SortWorldSpacePanelsByZOrder (100);
 ```
 
-如果界面内容过多，创建时可能引起卡顿，FairyGUI提供了异步创建UI的方式，异步创建方式下，每帧消耗的CPU时间将受到控制，但创建时间也会比同步创建稍长一点。例如：
+This method has a sorting cost of List.Sort. It is not recommended to call it every frame. It can be called after a period of time or after the position of the object changes.
+
+**About HUD**
+
+UIPanel can be used to make blood strips overhead. To be careful of:
+1. A UIPanel placed on a 3D object cannot be merged with other UIPanels by DrawCall, so if there are many characters on the same screen, the DC is very high. This cannot be avoided. If you must merge DCs, use 2D UI instead, put these HUD objects in the same layer, and then synchronize the position with 3D objects. As for things like near big, far small, etc., you have to calculate the scale by distance yourself, or leave it alone. The EmitNumbers demo demonstrates how to use 2D UI and 3D objects to synchronize coordinates.
+2. UIPanel does not have the function of automatically facing the screen. It can be implemented by suspending the script by itself. It is generally possible to use LookAt.
+
+## Create UI dynamically
+
+In many cases, you don't need to put the UI interface into the scene. Another common way to create UI objects is:
 
 ```csharp
-    UIPackage.CreateObjectAsync("包名","组件名", MyCreateObjectCallback);
-
-    void MyCreateObjectCallback(GObject obj)
-    {
-    }
+GComponent view = UIPackage.CreateObject ("package name", "component name").asCom;
+    
+    // The following methods can display the view:
+    
+    // 1, directly added to GRoot and displayed
+    GRoot.inst.AddChild (view);
+    
+    // 2, use window display
+    aWindow.contentPane = view;
+    aWindow.Show ();
+    
+    // 3, add to other components
+    aComponnent.AddChild (view);
 ```
 
-动态创建的界面不会自动销毁，例如一个背包窗口，你并不需要在每次过场景都销毁。如果要销毁界面，需要手工调用Dispose方法，例如
+If there is too much content in the interface, it may cause a freeze when creating. FairyGUI provides a way to create the UI asynchronously. Under the asynchronous creation mode, the CPU time consumed by each frame will be controlled, but the creation time will be slightly longer than the synchronous creation. E.g:
 
 ```csharp
-    view.Dispose();
+UIPackage.CreateObjectAsync ("package name", "component name", MyCreateObjectCallback);
+
+    void MyCreateObjectCallback (GObject obj)
+    {
+    }
 ```
 
-**使用UIPanel和UIPackage.CreateObject的场合和注意事项**
+The dynamically created interface will not be destroyed automatically, such as a backpack window, you do not need to destroy it every time you go through the scene. If you want to destroy the interface, you need to manually call the Dispose method, for example
 
-UIPanel最常用的地方就是3D UI。他可以方便地将UI挂到任意GameObject上。当然，UIPanel在2D UI中也可以使用，他的优点是可以直接摆放在场景中，符合Unity的ECS架构。缺点是这种用法对UI管理带来很多麻烦，特别是对中大型游戏。
+```csharp
+view.Dispose ();
+```
 
-使用UIPackage.CreateObject可以使用代码创建任何界面，可以应用在传统的设计模式中，Lua支持也十分方便。不过必须要小心处理生成的对象的生命周期，因为它需要手动显式销毁，并且永远不要将使用CreateObject创建出来的对象挂到其他一些普通GameObject上，否则那些GameObject销毁时会一并销毁这个UI里的GameObject，但这个UI又还处于正常使用状态，就会出现空引用错误。
+**Occasions and considerations when using UIPanel and UIPackage.CreateObject**
 
-## GameObject和UI节点的关联
+UIPanel is the most commonly used 3D UI. He can easily hang the UI on any GameObject. Of course, UIPanel can also be used in 2D UI. His advantage is that it can be placed directly in the scene and conforms to the ECS architecture of Unity. The disadvantage is that this usage brings a lot of trouble to UI management, especially for medium and large games.
 
-使用GObject.displayObject.gameObject，很容易获得一个UI节点对应的GameObject；但有些情况下，需要通过GameObject反推到UI节点，例如：
-- 调试的时候希望在Inspector能看到GameObject对应的UI节点信息；
-- 做UI自动化测试时，例如使用网易AirTest这样的UI自动化方案时，需要通过GameObject获取到UI节点。
+Using UIPackage.CreateObject, you can create any interface using code, which can be used in traditional design patterns. Lua support is also very convenient. However, you must be careful about the life cycle of the generated object, because it needs to be manually destroyed explicitly, and you should never hang objects created using CreateObject to some other ordinary GameObject, otherwise those GameObjects will be destroyed in this UI together. GameObject, but this UI is still in normal use, and a null reference error will occur.
 
-出于节省内存的考虑，FairyGUI默认是没有给每个GameObject挂上能提供对应UI节点的信息的Mono组件的。从SDK 3.2.0版本开始，可以通过定义一个宏 **FAIRYGUI_TEST** 来实现这些需求。定义这个宏后，当在Scene里点击GameObject时，在Inspector里可以查看Display Object Info这个组件的内容：
+## Association of GameObject and UI node
+
+Using GObject.displayObject.gameObject, it is easy to get the GameObject corresponding to a UI node; but in some cases, you need to push back to the UI node through GameObject, for example:
+- When debugging, I hope to see the UI node information corresponding to the GameObject in the Inspector;
+- When doing UI automation testing, for example, when using a UI automation solution such as NetEase AirTest, you need to obtain UI nodes through GameObject.
+
+In order to save memory, FairyGUI does not attach a Mono component that can provide the information of the corresponding UI node to each GameObject by default. Since SDK 3.2.0, you can define a macro**FAIRYGUI_TEST**To fulfill these needs. After defining this macro, when you click GameObject in Scene, you can view the content of the Display Object Info component in the inspector:
 
 ![](../../images/20181116175512.png)
 
-当然，也可以在这里修改它的内容。
+Of course, you can also modify its content here.
 
-注意，一个GObject可能会由多个GameObject组合，如果选择一个GameObject，只有第一栏信息，没有出现第二栏信息，说明它不是UI节点的主GameObject。
+Note that a GObject may be composed of multiple GameObjects. If you select a GameObject, only the first column of information and no second column of information appear, indicating that it is not the main GameObject of the UI node.
 
-下面的代码演示了怎样获取一个GameObject对应的UI节点并修改它的文本：
+The following code shows how to get the UI node corresponding to a GameObject and modify its text:
 
 ```
-    DisplayObjectInfo info = gameObject.GetComponent<DisplayObjectInfo>(); 
+DisplayObjectInfo info = gameObject.GetComponent<DisplayObjectInfo>(); 
 
     GObject obj = GRoot.inst.DisplayObjectToGObject(info.displayObject);
     obj.text = "Hello";
@@ -262,33 +261,32 @@ UIPanel最常用的地方就是3D UI。他可以方便地将UI挂到任意GameOb
 
 ## Stage Camera
 
-当添加UIPanel后，或者第一次动态创建UI时，场景里会自动新增一个“Stage Camera”。这是默认的UI相机。你也可以手动在场景里增加这个UI相机：
+When a UIPanel is added, or when the UI is dynamically created for the first time, a "Stage Camera" is automatically added to the scene. This is the default UI camera. You can also manually add this UI camera to the scene:
 
 ![](../../images/2017-08-09_174219.png)
 
-“Stage Camera”一般不需要修改它的属性，除了下面这个：
+"Stage Camera" generally does not need to modify its properties, except for the following:
 
-- `Constant Size` 是否使用固定的相机大小。默认是true。这个选项仅影响粒子效果的缩放。当取值为true时，屏幕放大或缩小，粒子效果也会随着放大和缩小，这适用于手机游戏；当取值为false时，屏幕放大或缩小，粒子效果不会随着放大和缩小，这适用于PC游戏。
+- `Constant Size`Whether to use a fixed camera size. The default is true. This option only affects the scaling of the particle effect. When the value is true, the screen is enlarged or reduced, and the particle effect will also be enlarged and reduced, which is suitable for mobile games. When the value is false, the screen is enlarged or reduced, and the particle effect will not be enlarged and reduced. This applies to PC games.
 
 ## UIContentScaler
 
-UIContentScaler组件是用来设置适配的。在启动场景里任何一个GameObject挂上UIContentScaler组件即可。并不需要每个场景都挂。
-**使用UIContentScaler和使用GRoot.inst.setContentScaleFactor的效果是完全一样的，选择其中一种方式设置适配即可。**
+The UIContentScaler component is used to set the adaptation. Just hook up the UIContentScaler component to any GameObject in the startup scene. It is not necessary to hang every scene.**Using UIContentScaler has the same effect as using GRoot.inst.setContentScaleFactor, choose one of the methods to set the adaptation.**
 
 ![](../../images/2016-03-23_125255.png)
 
-- `Scale Mode` 缩放模式。
-  - `Constant Pixel Size` 不进行缩放。UI按1：1呈现。
-  - `Scale With Screen Size` 根据屏幕大小进行缩放。
-  - `Constant Physical Size` 暂不支持。
-- `Screen Match Mode` 适配模式。参考上面API的说明。
-- `Design Resolution X` `Design Resolution Y` 涉及分辨率的宽和高。
-- `Ignore Orientation` 通常我们设置一个设计分辨率时，FairyGUI会自动根据横竖屏设置调整设计分辨率的屏幕方向，以保证屏幕在旋转时全局缩放系数保证不变。如果你是设计PC上的程序，可能这个特性不是你需要的，那么可以勾选此选项关闭这个功能。
+- `Scale Mode`Zoom mode.
+   - `Constant Pixel Size`No scaling is performed. The UI is rendered 1: 1.
+   - `Scale With Screen Size`Scale according to screen size.
+   - `Constant Physical Size`Not supported at this time.
+- `Screen Match Mode`Adaptation mode. Refer to the description of the API above.
+- `Design Resolution X` `Design Resolution Y`Involves the width and height of the resolution.
+- `Ignore Orientation`Generally, when we set a design resolution, FairyGUI will automatically adjust the screen orientation of the design resolution according to the horizontal and vertical screen settings to ensure that the global zoom factor remains the same when the screen is rotated. If you are designing a program on your PC, maybe this feature is not what you need, then you can check this option to turn off this feature.
 
 ## UIConfig
 
-UIConfig组件用于设置一些全局的参数。使用UIConfig组件和在代码中使用UIConfig类设置全局参数效果是一样的。但有一个区别是使用代码去设置那么编辑模式就看不到正确的效果了，例如你用UIConfig.defaultFont去设置默认字体，那么UIPanel在编辑模式显示的字体效果就不对，只有运行后才对。解决方案就是使用UIConfig组件。在场景里选择任意一个对象，挂上UIConfig组件，修改相应的选项即可。
+The UIConfig component is used to set some global parameters. Using the UIConfig component is the same as setting the global parameters in the code using the UIConfig class. However, there is a difference in that the code mode is used to set the edit mode, and the correct effect is not seen. For example, if you use UIConfig.defaultFont to set the default font, the font effect displayed by the UIPanel in the edit mode is incorrect, and only after running. The solution is to use UIConfig components. Select any object in the scene, hang the UIConfig component, and modify the corresponding options.
 
-UIConfig组件还可以加载包，点击`Preload Packages`下面的Add即可。
+UIConfig component can also load packages, click`Preload Packages`Add below.
 
 ![](../../images/2016-04-06_095535.png)

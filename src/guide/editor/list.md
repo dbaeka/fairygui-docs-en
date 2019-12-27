@@ -4,234 +4,234 @@ type: guide_editor
 order: 28
 ---
 
-列表是组件的一种特殊扩展。点击侧工具栏的![](../../images/sidetb_06.png)按钮生成一个列表。
+Lists are a special extension of components. Click on the side toolbar![](../../images/sidetb_06.png)Button to generate a list.
 
-## 列表属性
+## List properties
 
-在舞台上点中一个列表，右边属性栏显示的是列表的属性：
+Click a list on the stage, and the property bar on the right shows the properties of the list:
 
 ![](../../images/QQ20191211-162009.png)
 
-- `列表布局` 目前支持的列表有五种。
-  - `单列` 每行一个item，竖向排列。
-  - `单行` 每列一个item，横向排列。
-  - `横向流动` item横向依次排列，到底视口右侧边缘或到达指定的列数，自动换行继续排列。
- - `竖向流动` item竖向依次排列，到底视口底部边缘或到达指定的行数，返回顶部开启新的一列继续排列。
- - `分页` 视口宽度x视口高度作为单页大小，横向排列各个页面。每页中，item横向依次排列，到底视口右侧边缘或到达指定的列数，自动换行继续排列。当新的一行超出视口高度或到达指定的行数，则进入下一页。**注意，分页只是列表的排列方式，不代表列表就是按页滚动。分页滚动需要在滚动属性里设置。**
+- `List layout`There are currently five supported lists.
+   - `Single row`One item per line, arranged vertically.
+   - `Single line`One item per column, arranged horizontally.
+   - `Lateral flow`The items are arranged horizontally in order. The right edge of the bottom viewport or the specified number of columns is reached, and the automatic line wrapping continues.
+- `Vertical flow`The items are arranged vertically in sequence, bottom edge of the viewport or reaches the specified number of rows, return to the top and open a new column to continue the arrangement.
+- `Pagination`Viewport width x viewport height as a single page size, each page is arranged horizontally. In each page, the items are arranged horizontally in order, and the right edge of the bottom viewport or the specified number of columns is reached, and automatic line wrapping continues. When the new line exceeds the viewport height or reaches the specified number of lines, it advances to the next page. **Note that pagination is just the way the list is arranged. It does not mean that the list is scrolled by page. Pagination scrolling needs to be set in the scroll properties.**
 
-- `行数` `列数` 这个选项只对横向流动、竖向流动和分页的布局有效。如果不指定（设置为0），则一直排到边缘才换行，否则，必须每行的数量到达设定的值才换行。
+- `Number of lines` ``Number of Columns This option is only valid for horizontal flow, vertical flow, and paged layouts. If it is not specified (set to 0), the line will be wrapped until the edge, otherwise, the number of each line must reach the set value before the line is wrapped.
 
-- `行距` `列距` 每行/每列之间的距离。可以为负数。
+- `Line spacing` ``Column distance The distance between each row / column. Can be negative.
 
-- `对齐` 列表在横向和纵向上的对齐方式。注意，对齐方式的应用有前置条件。例如，如果列表是单列布局，并且设置了“自动调整列表项目大小”，那么在横向上item总是自动填满列表宽度的，那么横向上的对齐就没有作用了。
+- `Aligned`The alignment of the list in landscape and portrait. Note that there are preconditions for the application of alignment. For example, if the list is a single-column layout and "Automatically adjust list item size" is set, then the item always fills the list width automatically in the horizontal direction, so the horizontal alignment has no effect.
 
-- `溢出处理` 表示超出列表矩形区域的内容的处理方式。
- - `可见` 表示超出列表矩形区域的内容保持可见。
- - `隐藏` 表示超出列表矩形区域的内容不可见，相当于对列表应用了一个矩形遮罩。
- - `垂直滚动` `水平滚动` `自由滚动` 详细说明在[滚动容器](scrollpane.html)。注意：列表的“布局”和“溢出处理”是独立的设置，如果两者不匹配可能达不到预期的效果。例如，对于一个单行排列的列表，如果选择“垂直滚动”，那滚动是没有效果的。
+- `Overflow handling`Indicates how to handle content that exceeds the rectangular area of the list.
+- `visible`Indicates that content beyond the rectangular area of the list remains visible.
+- `hide`Indicates that content beyond the rectangular area of the list is not visible, which is equivalent to applying a rectangular mask to the list.
+- `Vertical scroll` `Horizontal scroll` ``Free scrolling detailed in[Rolling container](scrollpane.html)。 Note: The "layout" and "overflow handling" of the list are independent settings. If the two do not match, the expected effect may not be achieved. For example, for a single-line list, if you select "Scroll Vertically", scrolling has no effect.
 
-- `渲染顺序` 定义item的显示顺序与它的列表中的顺序的关系。详细说明在[渲染顺序](component.html#渲染顺序)
- - `升序` 这是默认行为。item索引越大，显示在越前面。
- - `降序` item索引越小，显示在越前面。
- - `拱形` 自定义一个显示在最前的索引，例如2，则第三个项目显示在最前面，排列在它前面的和后面的item依次显示在后面。
+- `Rendering order`Defines the relationship between the display order of items and the order in its list. Detailed instructions[Rendering order](component.html#渲染顺序)
+- `Ascending order`This is the default behavior. The larger the item index, the more advanced it is.
+- `Descending`The smaller the item index, the earlier it is displayed.
+- `Arched`Customize an index that is displayed at the front, such as 2, the third item is displayed at the front, and items that are arranged in front of it and the items that are behind are displayed in order.
 
-- `选择模式` 支持四种选择模式：无，单选，多选（使用shift键），多选（单击选择）。**item要参与到单选有一个前提，是必须为单选按钮，如果不是单选按钮，则不会参与到选择模式中。**单选是指同一时间只能有一个item被选中；多选则允许有多个，多选的操作方式有两种，一种是使用shift键进行多选，不过这需要键盘的支持，不适合移动设备；另一种是每个item单击即选中，再单击就取消选中的方式，不需要键盘的支持。
+- `Select mode`Supports four selection modes: none, single selection, multiple selection (using the shift key), and multiple selection (click to select). ** item has a prerequisite to participate in the radio. It must be a radio button. If it is not a radio button, it will not participate in the selection mode. ** Single selection means that only one item can be selected at a time; multiple selection allows multiple selections. There are two ways to operate multiple selections. One is to use the shift key for multiple selections. Not suitable for mobile devices; the other is that each item is clicked to select it, and then clicked to deselect it, without the support of the keyboard.
 
-- `选择控制` 可以绑定一个控制器。这样当列表选中项目发生改变时，控制器也同时跳转到相同索引的页面。反之亦然，如果控制器跳转到某个页面，那么列表也同时选定相同索引的项目。
+- `Selection control`You can bind a controller. In this way, when the selected item in the list changes, the controller also jumps to the page with the same index at the same time. Vice versa, if the controller jumps to a certain page, the list also selects the items with the same index at the same time.
 
-- `分页控制` 可以绑定一个控制器。当列表发生翻页滚动时（溢出处理必须为三种滚动之一，滚动必须勾选为页面模式），控制器也同时跳转到相同索引（页码）的页面。反之亦然，如果控制器跳转到某个页面，那么列表也同时滚动到相同索引（页码）的页面。
+- `Paging control`You can bind a controller. When the list page is scrolled (the overflow processing must be one of the three types of scrolling, and the scrolling must be checked as the page mode), the controller also jumps to the page with the same index (page number) at the same time. Vice versa, if the controller jumps to a page, the list also scrolls to the same index (page number).
 
-- `边缘` 设定列表四周的留空。一般用在“溢出处理”为“隐藏”或者“滚动”的情况。`边缘虚化`目前只有在Unity平台支持。如果列表发生了对内容的剪裁，则可以在边缘产生虚化的效果，增强用户体验。这个值应该比较大才能看出效果，例如50。
+- `edge`Leave blank around the list. Generally used when the "overflow processing" is "hidden" or "scrolling". `Edge blur`Currently only supported on the Unity platform. If the list is clipped to the content, it can produce a blurred effect at the edges and enhance the user experience. This value should be relatively large to see the effect, such as 50.
 
-- `树视图` 勾选后列表将使用树结构组织它的内容。请参考[树](tree.html)。
+- `Tree view`When checked, the list will use a tree structure to organize its contents. [Please refer to the tree](tree.html)。
 
-- `项目资源` 这里设置列表默认使用的item类型。但FairyGUI的列表可以支持多种资源混排，并不是只支持单一的item类型。
+- `Project resources`This sets the item type used by default for the list. But FairyGUI's list can support a variety of resource mixing, not just a single item type.
 
-点击![](../../images/QQ20191211-161858.png)后弹出二级界面：
+Click![](../../images/QQ20191211-161858.png)After the secondary interface pops up:
 
 ![](../../images/QQ20191211-162506.png)
 
-- `自动调整列表项目大小` 如果勾选:
-  1. 列表布局为单列，则列表项目的宽度自动设置为列表显示区域的宽度；
-  2. 列表布局为单行，则列表项目的高度自动设置为列表显示区域的高度；
-  3. 列表布局为水平流动，且设置了列数时，则每行内的列表项目的宽度自动调整使行宽与列表显示区域的宽度相等；
-  4. 列表布局为垂直流动，且设置了行数时，则每列内的项目的高度自动调整使行高与列表显示区域的高度相等；
-  5. 列表布局为分页，则3、4规则均适用。
+- `Automatically resize list items`If checked:
+   1. The list layout is a single column, the width of the list items is automatically set to the width of the list display area;
+   2. The list layout is a single line, and the height of the list item is automatically set to the height of the list display area;
+   3. When the list layout is horizontal and the number of columns is set, the width of the list items in each row is automatically adjusted to make the row width equal to the width of the list display area;
+   4. When the list layout is vertical flow and the number of rows is set, the height of the items in each column is automatically adjusted to make the row height equal to the height of the list display area;
+   5. The list layout is pagination, and rules 3 and 4 are applicable.
 
-- `折叠隐藏的项目` 如果勾选，当某个item不可见时（visible=false），列表不会为他留位置，也就是排版时会忽略这个item；如果不勾选，在列表会为这个item保留位置，显示效果就是一个空白的占位。API是foldInvisibleItems。
+- `Collapse hidden items`If checked, when an item is not visible (visible = false), the list will not leave a place for him, that is, the item will be ignored during typesetting; if not checked, the place will be reserved for the item in the list, showing the effect Just a blank placeholder. API 是 foldInvisibleItems。
 
-- `点击项目时自动滚动到它全部可见` 勾选后，当点击某个item时，如果这个item处于部分显示状态，那么列表将会自动滚动到整个item显示完整。如果你的列表有超过列表视口大小的item，建议不要勾选，不然行为会很怪异。API是scrollItemToViewOnClick。
+- `Automatically scroll to all visible when clicking on an item`When checked, when an item is clicked, if the item is partially displayed, the list will automatically scroll to the entire item and display complete. If your list has items that exceed the list viewport size, it is recommended not to check it, otherwise the behavior will be weird. The API is scrollItemToViewOnClick.
 
-点击“编辑列表”后显示对话框：
+Click "Edit List" to display the dialog box:
 
 ![](../../images/QQ20191211-163009.png)
 
-点击增加，将增加一个由“项目资源”指定的item，如果你的列表需要多种资源混合，可以先新增一个item，再从库中拖动组件到“资源”栏中替换默认的资源。
+Click Add to add an item specified by "Project Resources". If your list requires multiple resources to be mixed, you can add an item first, and then drag components from the library to the "Resources" column to replace the default resources.
 
-表格内可编辑item的标题、图标和名称属性，其它属性则可以选中item后，在右侧的检查器内修改。
+The title, icon, and name attributes of the item can be edited in the table. For other attributes, you can select the item and modify it in the inspector on the right.
 
-“发布时自动清空”表示这里编辑的列表数据在最终发布时不会包含到发布结果中，也就是列表数据仅作编辑器预览用途。
+"Automatically clear when publishing" means that the list data edited here will not be included in the publishing results when it is finally published, that is, the list data is only used for editor preview purposes.
 
 ## GList
 
-### 管理列表内容
+### Manage list content
 
-列表对应的类型是GList。在FairyGUI中，列表的本质就是一个组件，GList也是从GComponent派生来的，所以你可以用GComponent的API直接访问列表内的内容，例如可以用GetChild或者GetChildAt访问列表内的项目；也可以用AddChild添加一个item。这部分的API可以参考GComponent的[显示列表管理](component.html#GComponent)。
+The corresponding type of the list is GList. In FairyGUI, the essence of a list is a component. GList is also derived from GComponent, so you can use GComponent's API to directly access the contents of the list. For example, you can use GetChild or GetChildAt to access the items in the list; you can also use AddChild to add An item. This part of the API can refer to GComponent[Display list management](component.html#GComponent)。
 
-当你对列表增删改后，列表是自动排列和刷新的，不需要调用任何API。自动排列时会根据列表的布局设置item的坐标、大小和深度，所以不要自行设置item的位置，也不要设置sortingOrder尝试去控制item的深度。除了一个例外，垂直布局的列表只会自动设置item的y坐标，如果你需要item有一个水平位移的效果，你仍然可以修改item的x值。水平布局的也是一样道理。
+When you add, delete, or modify a list, the list is automatically sorted and refreshed without calling any API. During the automatic arrangement, the coordinates, size, and depth of the items are set according to the layout of the list, so do not set the position of the items yourself, or set the sorting order to try to control the depth of the items. With one exception, the vertical layout list will only set the item's y coordinate automatically. If you need the item to have a horizontal displacement effect, you can still modify the item's x value. The same goes for horizontal layout.
 
-这个排列和刷新发生在本帧绘制之前，如果你希望立刻访问item的正确坐标，那么可以调用`EnsureBoundsCorrect`通知GList立刻重排。EnsureBoundsCorrect是一个友好的函数，你不用担心重复调用会有额外性能消耗。
+This permutation and refresh occurs before drawing this frame. If you want to immediately access the correct coordinates of the item, you can call`EnsureBoundsCorrect`Tell GList to reorder immediately. EnsureBoundsCorrect is a friendly function, you don't need to worry about the extra performance cost of repeated calls.
 
-在实际应用中，列表的内容通常被频繁的更新。典型的用法就是当接收到后台数据时，将列表清空，然后再重新添加所有项目。如果每次都创建和销毁UI对象，将消耗很大的CPU和内存。因此，GList内建了对象池。
+In practical applications, the contents of the list are frequently updated. The typical usage is to clear the list when background data is received, and then add all items again. If you create and destroy UI objects every time, it will consume a lot of CPU and memory. Therefore, GList has a built-in object pool.
 
-使用对象池后的显示列表管理方法：
+Management method of display list after using object pool:
 
-- `AddItemFromPool` 从池里取出（如果有）或者新建一个对象，添加到列表中。如果不使用参数，则使用列表的“项目资源”的设置；也可以指定一个URL，创建指定的对象。
+- `AddItemFromPool`Remove from the pool (if any) or create a new object and add it to the list. If you do not use parameters, the settings of the "Project Resources" of the list are used; you can also specify a URL to create the specified object.
 
-- `GetFromPool`从池里取出（如果有）或者新建一个对象。
+- `GetFromPool`Remove from the pool (if any) or create a new object.
 
-- `ReturnToPool` 将对象返回池里。
+- `ReturnToPool`Return the object to the pool.
 
-- `RemoveChildToPool` 删除一个item，并将对象返回池里。
+- `RemoveChildToPool`Delete an item and return the object to the pool.
 
-- `RemoveChildToPoolAt` 删除一个指定位置的item，并将对象返回池里。
+- `RemoveChildToPoolAt`Deletes an item at a specified location and returns the object to the pool.
 
-- `RemoveChildrenToPool` 删除一个范围内的item，或者全部删除，并将删除的对象都返回池里
+- `RemoveChildrenToPool`Delete a range of items, or delete all, and return the deleted objects to the pool
 
-聪明的你应该能知道，AddItemFromPool = GetFromPool + AddChild  ， RemoveChildToPool = RemoveChild + ReturnToPool。
+You should be smart enough to know that AddItemFromPool = GetFromPool + AddChild, RemoveChildToPool = RemoveChild + ReturnToPool.
 
-当应用到池时，我们就应该非常小心，一个不停增长的池那将是游戏的灾难，但如果不使用池，对游戏性能也会有影响。
-以下是几种错误用法的举例：
+When applied to the pool, we should be very careful. A constantly growing pool will be a disaster for the game, but if the pool is not used, it will also affect the performance of the game.
+Here are some examples of incorrect usage:
 
-错误示例1：
+Error example 1:
 
 ```csharp
-    GObject obj = UIPackage.CreateObject(...);
+GObject obj = UIPackage.CreateObject(...);
     aList.AddChild(obj);
     
     aList.RemoveChildrenToPool();
 ```
 
-添加对象时不使用池，但最后清除列表时却放到池里。这段代码持续运行，对象池将不断增大，可能造成内存溢出。
-正确的做法：应从池中创建对象。将AddChild改成AddItemFromPool。
+The pool is not used when adding objects, but is placed in the pool when the list is finally cleared. This code continues to run, the object pool will continue to grow, which may cause memory overflow.
+Correct way: Objects should be created from the pool. Change AddChild to AddItemFromPool.
 
-错误示例2：
+Error example 2:
 
 ```csharp
-    for(int i=0;i<10;i++)
+for(int i=0;i<10;i++)
         aList.AddItemFromPool();
 
     aList.RemoveChildren();
 ```
 
-这里添加了10个item，但移除时并没有保存他们的引用，也没有放回到池里，这样就造成了内存泄漏。将aList.RemoveChildren改成aList.RemoveChildrenToPool();
+10 items were added here, but their references were not saved when they were removed, and they were not put back in the pool, which caused a memory leak. Change aList.RemoveChildren to aList.RemoveChildrenToPool ();
 
-**移除和销毁是两回事。**当你把item从列表移除时，如果以后不再使用，那么还应该销毁；如果还需要用，那么请保存它的引用。**但如果放入了池，切勿再销毁item**。
+** Removal and destruction are two different things. ** When you remove an item from the list, it should be destroyed if it is no longer used; if you still need it, please save its reference. **But if you put it in the pool, do not destroy the item anymore**。
 
-### 使用回调函数修改列表
+### Modifying the list with a callback function
 
-当添加大量item时，除了用循环方式AddChild或AddItemFromPool外，还可以使用另一种回调的方式。首先为列表定义一个回调函数，例如
+When adding a large number of items, in addition to the circular method AddChild or AddItemFromPool, you can also use another callback method. First define a callback function for the list, for example
 
 ```csharp
-    void RenderListItem(int index, GObject obj)
+void RenderListItem(int index, GObject obj)
     {
         GButton button = obj.asButton;
         button.title = ""+index;
     }
 ```
 
-然后设置这个函数为列表的渲染函数：
+Then set this function to the list rendering function:
 
 ```csharp
-    //Unity/Cry/MonoGame
-    aList.itemRenderer = RenderListItem;
-    
-    //AS3
-    aList.itemRenderer = renderListItem;
-    
-    //Egret
-    aList.itemRenderer = renderListItem;
-    aList.callbackThisObj = this;
-    
-    //Laya。（注意，最后一个参数必须为false！）
-    aList.itemRenderer = Handler.create(this, this.renderListItem, null, false);
+// Unity / Cry / Mono Game
+    aList.itemRenderer = RenderListItem;
+    
+    // AS3
+    aList.itemRenderer = renderListItem;
+    
+    // Egret
+    aList.itemRenderer = renderListItem;
+    aList.callbackThisObj = this;
+    
+    // Laya. (Note that the last parameter must be false!)
+    aList.itemRenderer = Handler.create (this, this.renderListItem, null, false);
 
-    //Cocos2dx
-    aList->itemRenderer = CC_CALLBACK_2(AClass::renderListItem, this);
+    // Cocos2dx
+    aList-> itemRenderer = CC_CALLBACK_2 (AClass :: renderListItem, this);
 
-    //CocosCreator
-    aList.itemRenderer = this.renderListItem.bind(this);
+    // CocosCreator
+    aList.itemRenderer = this.renderListItem.bind (this);
 ```
 
-最后直接设置列表中的项目总数，这样列表就会调整当前列表容器的对象数量，然后调用回调函数渲染item。
+Finally, directly set the total number of items in the list, so that the list will adjust the number of objects in the current list container, and then call the callback function to render the item.
 
 ```csharp
-    //创建100个对象，注意这里不能使用numChildren，numChildren是只读的。
-    
-    aList.numItems = 10;
+// Create 100 objects. Note that numChildren cannot be used here. NumChildren is read-only.
+    
+    aList.numItems = 10;
 ```
 
-如果新设置的项目数小于当前的项目数，那么多出来的item将放回池里。
+If the number of newly set items is less than the current number of items, the extra items will be put back into the pool.
 
-使用这种方式生成的列表，如果你需要更新某个item，自行调用RenderListItem(索引，GetChildAt(索引))就可以了。
+Using the list generated in this way, if you need to update an item, you can call RenderListItem (Index, GetChildAt (Index)) by yourself.
 
-### 列表自动大小
+### List autosize
 
-严格来说，列表没有自动大小的功能。但GList提供了API根据item的数量设置列表大小。当你填充完列表的数据后，可以调用GList.ResizeToFit，这样列表的大小就会修改为最适合的大小，容纳指定的item数量。如果不指定item数量，则列表扩展大小至显示所有item。
+Strictly speaking, lists don't have auto-size capabilities. But GList provides API to set the list size according to the number of items. After you have filled the data of the list, you can call GList.ResizeToFit, so that the size of the list will be modified to the most suitable size to accommodate the specified number of items. If you do not specify the number of items, the list is expanded to show all items.
 
-### 事件
+### Event
 
-点击列表内的某一个item触发事件：
+Click on an item in the list to trigger the event:
 
 ```csharp
-    //Unity/Cry/MonoGame, EventContext.data就是当前被点击的item对象
-    list.onClickItem.Add(onClickItem);
-    
-    //AS3, ItemEvent.itemObject就是当前被点击的对象
-    list.addEventListener(ItemEvent.CLICK, onClickItem);
-    
-    //Egret，ItemEvent.itemObject就是当前被点击的对象
-    list.addEventListener(ItemEvent.CLICK, this.onClickItem, this);
-    
-    //Laya, onClickItem方法的第一个参数就是当前被点击的对象
-    list.on(fairygui.Events.CLICK_ITEM, this, this.onClickItem);
+// Unity / Cry / MonoGame, EventContext.data is the item object that is currently clicked
+    list.onClickItem.Add (onClickItem);
+    
+    // AS3, ItemEvent.itemObject is the currently clicked object
+    list.addEventListener (ItemEvent.CLICK, onClickItem);
+    
+    // Egret, ItemEvent.itemObject is the currently clicked object
+    list.addEventListener (ItemEvent.CLICK, this.onClickItem, this);
+    
+    // Laya, the first parameter of the onClickItem method is the currently clicked object
+    list.on (fairygui.Events.CLICK_ITEM, this, this.onClickItem);
 
-    //Cocos2dx，EventContext.getData()就是当前被点击的item对象
-    list->addEventListener(UIEventType::ClickItem, CC_CALLBACK_1(AClass::onClickItem, this));
+    // Cocos2dx, EventContext.getData () is the item object that is currently clicked
+    list-> addEventListener (UIEventType :: ClickItem, CC_CALLBACK_1 (AClass :: onClickItem, this));
 
-    //CocosCreator, onClickItem的第一个参数就是当前被点击的对象，可选的第二个对象是fgui.Event。
-    list.on(fgui.Event.CLICK_ITEM, this.onClickItem, this);
+    // CocosCreator, the first parameter of onClickItem is the currently clicked object, and the optional second object is fgui.Event.
+    list.on (fgui.Event.CLICK_ITEM, this.onClickItem, this);
 ```
 
-从上面的代码可以看出，事件回调里都可以方便的获得当前点击的对象。如果要获得索引，那么可以使用GetChildIndex。
+As can be seen from the above code, the current click object can be easily obtained in the event callback. If you want to get the index, you can use GetChildIndex.
 
-## 虚拟列表
+## Virtual list
 
-如果列表的item数量特别多时，例如几百上千，为每一条项目创建实体的显示对象将非常消耗时间和资源。FairyGUI的列表内置了虚拟机制，也就是它只为显示范围内的item创建实体对象，并通过动态设置数据的方式实现大容量列表。
+If the number of items in the list is particularly large, such as hundreds or thousands, creating a display object of an entity for each item will consume time and resources. FairyGUI's list has a built-in virtual mechanism, that is, it only creates entity objects for items within the display range, and implements large-capacity lists by dynamically setting data.
 
-启用虚拟列表有几个条件：
+There are several conditions for enabling virtual lists:
 
-- 需要定义itemRenderer。
-- 需要开启滚动。溢出处理不是滚动的列表不能开启虚拟。
-- 需要设置好列表的“项目资源”。可以在编辑器内设置，也可以调用GList.defaultItem设置。
+- Need to define itemRenderer.
+- Scrolling needs to be turned on. Overflow handling is not scrolling and the list cannot be virtualized.
+- Need to set up the "Project Resources" of the list. Can be set in the editor, or you can call GList.defaultItem settings.
 
-满足条件后可以开启列表的虚拟功能：
+After the conditions are met, the virtual function of the list can be turned on:
 
 ```csharp
-    aList.SetVirtual();
+aList.SetVirtual ();
 ```
 
-**提示：虚拟功能只能开启，不能关闭。**
+**Tip: The virtual function can only be turned on and cannot be turned off.**
 
-虚拟列表的性能和itemRenderer的处理逻辑密切相关，你应该尽量简化这里面的逻辑，协程、IO、高密度计算这类操作不应该在这里出现，否则会出现卡顿。如果需要在itemRenderer里发起异步操作，切勿让异步操作保存ITEM实例，并且在回调中直接修改ITEM实例，正确的做法是让异步操作保存ITEM的索引，异步操作完成后，查询这个索引的ITEM是否有对应的显示对象，有则更新，如果没有，放弃更新。
-另外，itemRenderer里也不应该有new等会产生GC的操作，因为在滚动的过程中，itemRenderer调用的频率会非常高。
+The performance of the virtual list is closely related to the processing logic of itemRenderer. You should try to simplify the logic inside. Coroutines, IO, and high-density calculations should not appear here. Otherwise, there will be stuttering. If you need to initiate an asynchronous operation in itemRenderer, do not let the asynchronous operation save the ITEM instance, and modify the ITEM instance directly in the callback. The correct method is to let the asynchronous operation save the ITEM index. After the asynchronous operation is completed, check whether the ITEM of this index is checked. If there is a corresponding display object, update if there is one. If not, discard the update.
+In addition, the itemRenderer should not have operations such as new that will cause GC, because the itemRenderer will be called very frequently during the scrolling process.
 
-在虚拟列表里，ITEM是复用的，当一个ITEM需要被刷新时，itemRenderer就会被调用，你无需关心这个调用的时机，也不能依赖这个时机。请注意，如果在itemRenderer你使用Add进行事件的侦听操作，**绝不可以使用临时函数或者lamba表达式**。下面举例子说明一下。
+In the virtual list, ITEM is reused. When an ITEM needs to be refreshed, the itemRenderer will be called. You don't need to care about the timing of this call, nor can you rely on this timing. Please note that if you use Add to listen for events in itemRenderer,**Never use temporary functions or lamba expressions**。 The following example illustrates this.
 
-C#参考：
+C # reference:
 
 ```csharp
-    void EventCallback()
+void EventCallback()
     {
     }
 
@@ -241,101 +241,101 @@ C#参考：
     {
         GButton btn = obj.asCom.GetChild("btn").asButton;
 
-        //错误！，临时函数会造成添加多次回调。Lua里使用“function() end”类似。
-        btn.onClick.Add(()=> { });
+        //错误！ Temporary functions will cause multiple callbacks to be added. Lua uses "function () end" similarly.
+        btn.onClick.Add (() => {});
 
-        //可以，同一个方法只会添加一次。但直接使用方法名会生成几十B的GC。
-        btn.onClick.Add(EventCallback);
+        // Yes, the same method will only be added once. But using the method name directly will generate tens of B of GC.
+        btn.onClick.Add (EventCallback);
 
-        //正确，callback是缓存的代理实例，不会产生GC。
-        btn.onClick.Add(callback);
+        // Correct, callback is a cached proxy instance and does not generate GC.
+        btn.onClick.Add (callback);
 
-        //正确，使用Set设置可以保证不会重复添加。
-        btn.onClick.Set(callback);
+        // Correct, use Set to ensure that it will not be added repeatedly.
+        btn.onClick.Set (callback);
 
-        //错误！，不能对ITEM使用onClick.Set，你需要用GList.onClickItem
-        obj.onClick.Set(EventCallback);
-    }
+        //error! , You cannot use onClick.Set for ITEM, you need to use GList.onClickItem
+        obj.onClick.Set (EventCallback);
+    }
 ```
 
-AS3/Starling/Egret/Laya参考：
+AS3 / Starling / Egret / Laya Reference:
 
 ```csharp
-    //
-    private function EventCallback(evt:Event):void
-    {
-    }
+//
+    private function EventCallback (evt: Event): void
+    {
+    }
 
-    private function onRenderItem(index:int, obj:GObject):void
-    {
-        var btn:GButton = obj.asCom.getChild("btn").asButton;
+    private function onRenderItem (index: int, obj: GObject): void
+    {
+        var btn: GButton = obj.asCom.getChild ("btn"). asButton;
 
-        //错误，这里不应该使用临时函数
-        btn.addClickListener(function():void {});
+        // Error, temporary functions should not be used here
+        btn.addClickListener (function (): void (});
 
-        //正确，同一个方法只会添加一次
-        btn.addClickListener(EventCallback); 
-    }
+        // correct, the same method will only be added once
+        btn.addClickListener (EventCallback);
+    }
 ```
 
-在虚拟列表中，显示对象和item的数量在数量上和顺序上是不一致的，item的数量可以通过numItems获得，而显示对象的数量可以由组件的API numChildren获得。
+In the virtual list, the number and order of display objects and items are inconsistent. The number of items can be obtained through numItems, and the number of display objects can be obtained through the component's API numChildren.
 
-在虚拟列表中，需要注意item索引和显示对象索引的区分。通过selectedIndex获得的值是item的索引，而非显示对象的索引。AddSelection/RemoveSelection等API同样需要的是item的索引。项目索引和对象索引的转换可以通过以下两个方法完成：
+In the virtual list, it is necessary to pay attention to the distinction between the item index and the display object index. The value obtained by selectedIndex is the index of the item, not the index of the display object. AddSelection / RemoveSelection and other APIs also need the index of the item. The conversion of the item index and the object index can be completed by the following two methods:
 
 ```csharp
-    //转换项目索引为显示对象索引。
-    int childIndex = aList.ItemIndexToChildIndex(1);
-    
-    //转换显示对象索引为项目索引。
-    int itemIndex = aList.ChildIndexToItemIndex(1);
+// Convert the item index to the display object index.
+    int childIndex = aList.ItemIndexToChildIndex (1);
+    
+    // Convert the display object index to the item index.
+    int itemIndex = aList.ChildIndexToItemIndex (1);
 ```
 
-使用虚拟列表时，我们很少会需要访问屏外对象。如果你确实需要获得列表中指定索引的某一个项目的显示对象，例如第500个，因为当前这个item是不在视口的，对于虚拟列表，不在视口的对象是没有对应的显示对象的，那么你需要先让列表滚动到目标位置。例如：
+When using virtual lists, we rarely need to access off-screen objects. If you really need to get the display object of an item at the specified index in the list, such as the 500th, because the current item is not in the viewport, for a virtual list, there is no corresponding display object for the object not in the viewport, You need to scroll the list to the target position first. E.g:
 
 ```csharp
-    //这里要注意，因为我们要立即访问新滚动位置的对象，所以第二个参数scrollItToView不能为true，即不使用动画效果
-    aList.ScrollToView(500);
-    
-    //转换到显示对象索引
-    int index = aList.ItemIndexToChildIndex(500);
-    
-    //这就是你要的第500个对象
-    GObject obj = aList.GetChildAt(index);
+// Note here, because we want to access the object at the new scroll position immediately, the second parameter scrollItToView cannot be true, that is, no animation effect is used
+    aList.ScrollToView (500);
+    
+    // Convert to display object index
+    int index = aList.ItemIndexToChildIndex (500);
+    
+    // This is the 500th object you want
+    GObject obj = aList.GetChildAt (index);
 ```
 
-虚拟列表的本质是数据和渲染分离，经常有人问怎样删除、或者修改虚拟列表的项目，答案就是先修改你的数据，然后刷新列表就可以了，不需要获得某个item对象来处理。
-刷新虚拟列表的方式有两种：
+The essence of a virtual list is the separation of data and rendering. People often ask how to delete or modify the items of the virtual list. The answer is to modify your data first, then refresh the list.
+There are two ways to refresh the virtual list:
 
-- 使用numItems重新设置数量。
+- Use numItems to reset the number.
 - GList.RefreshVirtualList。
 
-**不允许使用AddChild或RemoveChild对虚拟列表增删对象。如果要清空列表，必须要通过设置numItems=0，而不是RemoveChildren。**
+**AddChild or RemoveChild is not allowed to add or delete objects from the virtual list. If you want to clear the list, you must set numItems = 0 instead of RemoveChildren.**
 
-虚拟列表支持可变大小的item，可以通过两种方式动态改变item的大小：
+The virtual list supports variable-size items. There are two ways to dynamically change the size of an item:
 
-- 在itemRenderer的内部使用width、height或SetSize改变item的大小。
-- item建立对内部元件的关联，然后在itemRenderer里修改内容触发内部元件的改变，从而自动改变item高度。例如item建立了一个对内部某个可变高度文本的高高关联，这样当文本改变时，item的高度自动改变。
+- Use item width, height, or SetSize inside the itemRenderer to change the size of the item.
+- The item establishes an relation with the internal component, and then changes the content in the itemRenderer to trigger the change of the internal component, thereby automatically changing the item height. For example, item establishes a height-to-height relation with a variable-height text inside, so that when the text changes, the height of the item automatically changes.
 
-**除这两种方式外，不可以通过其他在itemRenderer外的方式改变item大小，否则虚拟列表排列会错乱。但你可以通过调用RefreshVirtualList强制触发itemRenderer。**
+**In addition to these two methods, you cannot change the item size in other ways than itemRenderer, otherwise the virtual list will be arranged in disorder. But you can force the itemRenderer to be triggered by calling RefreshVirtualList.**
 
-虚拟列表支持不同类型的item混合。首先为列表定义一个回调函数，例如
+A virtual list supports a mix of different types of items. First define a callback function for the list, for example
 
 ```csharp
-    //根据索引的不同，返回不同的资源URL
-    string GetListItemResource(int index)
-    {
-        Message msg = _messages[index];
-        if (msg.fromMe)
-            return "ui://Emoji/chatRight";
-        else
-            return "ui://Emoji/chatLeft";
-    }
+// Returns different resource URLs based on different indexes
+    string GetListItemResource (int index)
+    {
+        Message msg = _messages [index];
+        if (msg.fromMe)
+            return "ui://Emoji/chatRight";
+        else
+            return "ui://Emoji/chatLeft";
+    }
 ```
 
-然后设置这个函数为列表的item提供者：
+Then set this function as the item provider for the list:
 
 ```csharp
-    //Unity/Cry
+//Unity/Cry
     aList.itemProvider = GetListItemResource;
 
     //AS3
@@ -345,27 +345,27 @@ AS3/Starling/Egret/Laya参考：
     aList.itemProvider = getListItemResource;
     aList.callbackThisObj = this;
 
-    //Laya。（注意，最后一个参数必须为false！）
-    aList.itemProvider = Handler.create(this, this.getListItemResource, null, false);
+    //Laya。 (Note that the last parameter must be false!)
+    aList.itemProvider = Handler.create (this, this.getListItemResource, null, false);
 
-    //Cocos2dx
-    aList->itemProvider = CC_CALLBACK_1(AClass::getListItemResource, this);
+    // Cocos2dx
+    aList-> itemProvider = CC_CALLBACK_1 (AClass :: getListItemResource, this);
 
-    //CocosCreator
-    aList.itemProvider = this.getListItemResource.bind(this);
+    // CocosCreator
+    aList.itemProvider = this.getListItemResource.bind (this);
 ```
 
-对于横向流动、竖向流动和分页的列表，与非虚拟列表具有流动特性不同，虚拟列表每行或每列的item个数都是固定的。列表在初始化时会创建一个默认的item用于测算这个数量。
-如果你仍然需要每行或每列不等item数量的排版，且必须使用虚拟化，那么可以插入一些用于占位的空组件或者空图形，并根据实际需要设置他们的宽度，从而实现那种排版效果。
+For lists with horizontal flow, vertical flow, and paging, unlike non-virtual lists, which have flow characteristics, the number of items in each row or column of a virtual list is fixed. When the list is initialized, a default item is created to measure this number.
+If you still need to typeset the number of items per row or column and must use virtualization, then you can insert some empty components or empty graphics for placeholders and set their width according to actual needs to achieve that kind of Typographic effect.
 
-## 循环列表
+## Loop list
 
-循环列表是指首尾相连的列表，循环列表必须是虚拟列表。启用循环列表的方法为:
+A circular list is a list that is connected end to end. The circular list must be a virtual list. To enable the circular list:
 
 ```csharp
-    aList.SetVirtualAndLoop()。
+aList.SetVirtualAndLoop().
 ```
 
-循环列表只支持单行或者单列的布局，不支持流动布局和分页布局。
-因为循环列表是首尾相连的，指定一个item索引可能出现在不同的位置，所以需要指定滚定位置时，尽量避免使用item索引。例如，如果需要循环列表左/上滚一格或者右/下滚一格，最好的办法就是调用ScrollPane的API：ScrollLeft/ScrollRight/ScrollUp/ScrollDown
-循环列表的特性与虚拟列表一致，在此不再赘述。
+The loop list only supports single-row or single-column layouts. It does not support flow layouts and page layouts.
+Because the loop list is connected end to end, specifying an item index may appear in different positions, so when you need to specify the rolling position, try to avoid using the item index. For example, if you need to scroll the list one space left / up or right / down, the best way is to call the ScrollPane API: ScrollLeft / ScrollRight / ScrollUp / ScrollDown
+The characteristics of the circular list are the same as those of the virtual list, and will not be repeated here.

@@ -6,18 +6,18 @@
         <title>FairyGUI - Label</title>
     
         <meta charset="utf-8">
-        <meta name="description" content="FairyGUI Manual">
-        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Manual">
+        <meta name="description" content="FairyGUI Docs">
+        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Docs">
         
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
         <meta property="og:title" content="-LabelFairyGUI">
-        <meta property="og:description" content="FairyGUI Manual">
+        <meta property="og:description" content="FairyGUI Docs">
 
         <meta name="twitter:card" content="summary">
         <meta name="twitter:title" content="Label — FairyGUI">
-        <meta name="twitter:description" content="FairyGUI Manual">
+        <meta name="twitter:description" content="FairyGUI Docs">
 
       <!--  <link href='//fonts.proxy.ustclug.org/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
 
@@ -65,7 +65,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/docs/guide/editor/index.html" class="sidebar-link">Basics</a>
+	                    <a href="/docs/guide/editor/index.html" class="sidebar-link">Basis</a>
 	                </li>
 	            
 	                
@@ -120,7 +120,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/docs/guide/editor/richtext.html" class="sidebar-link">RichText</a>
+	                    <a href="/docs/guide/editor/richtext.html" class="sidebar-link">Rich Text</a>
 	                </li>
 	            
 	                
@@ -274,7 +274,7 @@
 	                <li><h3>SDK - Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/index.html" class="sidebar-link">Basics</a>
+	                    <a href="/docs/guide/unity/index.html" class="sidebar-link">Basis</a>
 	                </li>
 	            
 	                
@@ -292,7 +292,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/font.html" class="sidebar-link">Font</a>
+	                    <a href="/docs/guide/unity/font.html" class="sidebar-link">Fonts</a>
 	                </li>
 	            
 	                
@@ -310,7 +310,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/insert3d.html" class="sidebar-link">Insert 3D/Canvas</a>
+	                    <a href="/docs/guide/unity/insert3d.html" class="sidebar-link">Insert 3D</a>
 	                </li>
 	            
 	                
@@ -354,37 +354,37 @@
     
       <h1>Label</h1>
     
-    <p>标签组件非常简单，它没有特殊的行为，他可以通过放入title元件和icon元件为组件提供标题和图标属性。</p>
-<h2 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h2><p>可以通过两种方式创建标签组件。</p>
+    <p>The label component is very simple. It has no special behavior. It can provide the title and icon attributes for the component by placing the title and icon components.</p>
+<h2 id="Create-label"><a href="#Create-label" class="headerlink" title="Create label"></a>Create label</h2><p>There are two ways to create a label component.</p>
 <ul>
-<li>点击主菜单“资源”-&gt;“新建标签”。</li>
-<li>新建一个组件，然后在组件属性里选择扩展为“标签”。</li>
+<li>Click on the main menu “Resources”-&gt; “New Tab”.</li>
+<li>Create a new component and select Expand to “Label” in the component properties.</li>
 </ul>
-<h2 id="制作说明"><a href="#制作说明" class="headerlink" title="制作说明"></a>制作说明</h2><ul>
-<li><p><code>title</code> 可以是普通文本，富文本，也可以是标签、按钮。</p>
+<h2 id="Instructions"><a href="#Instructions" class="headerlink" title="Instructions"></a>Instructions</h2><ul>
+<li><p><code>title</code>Can be plain text, rich text, labels, buttons.</p>
 </li>
-<li><p><code>icon</code> 可以是装载器，也可以是标签、按钮。</p>
+<li><p><code>icon</code>It can be a loader, or a label or button.</p>
 </li>
 </ul>
-<p>注意：标签组件内并非只能有“title”和“icon”，你可以放置任何元件，例如放置任意多的文本、装载器等。“title”和“icon”的设定只是用于标签组件在编辑器实例化时能够直观设置而已。</p>
-<h2 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h2><p>在舞台上选中一个标签组件，右边的属性面板列表出现：</p>
+<p>Note: There are not only “title” and “icon” in the label component, you can place any component, such as placing as many texts, loaders, etc. The “title” and “icon” settings are only used for the label component to be set intuitively when the editor is instantiated.</p>
+<h2 id="Instance-properties"><a href="#Instance-properties" class="headerlink" title="Instance properties"></a>Instance properties</h2><p>Select a label component on the stage, and the property panel list on the right appears:</p>
 <p><img src="../../images/QQ20191211-161806.png" alt=""></p>
 <ul>
-<li><p><code>标题</code> 设置的文本将赋值到标签组件内的“title”元件的文本属性。如果不存在“title”元件，则什么事都不会发生。</p>
+<li><p><code>title</code>The set text is assigned to the text property of the “title” element inside the label component. If the “title” element does not exist, nothing will happen.</p>
 </li>
-<li><p><code>标题颜色</code> 默认的标题颜色是标签组件内的“title”元件的文字颜色，勾选后，可以修改文字颜色。如果不存在“title”元件，则什么事都不会发生。</p>
+<li><p><code>Title color</code>The default title color is the text color of the “title” element in the label component. After checking, you can modify the text color. If the “title” element does not exist, nothing will happen.</p>
 </li>
-<li><p><code>字体大小</code> 默认的字体大小是标签组件内的“title”元件的字体大小，勾选后，可以修改字体大小。如果不存在“title”元件，则什么事都不会发生。</p>
+<li><p><code>font size</code>The default font size is the font size of the “title” element in the label component. After checking, you can modify the font size. If the “title” element does not exist, nothing will happen.</p>
 </li>
-<li><p><code>图标</code> 设置的URL将赋值到标签组件内的“icon”元件的图标属性。如果不存在“icon”元件，则什么事都不会发生。</p>
+<li><p><code>icon</code>The set URL will be assigned to the icon attribute of the “icon” element in the label component. If the “icon” element does not exist, nothing will happen.</p>
 </li>
 </ul>
-<p>如果“title”是输入文本，则属性面板内会出现<img src="../../images/QQ20191211-161858.png" alt="">按钮，点击后出现输入设置面板。设置方法可参考文本的教程。</p>
-<h2 id="GLabel"><a href="#GLabel" class="headerlink" title="GLabel"></a>GLabel</h2><p>设置标签的标题或者图标，你不需要强制对象为GLabel的类型，直接用GObject提供的接口就可以，例如：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GObject obj = gcom.GetChild(<span class="string">"n1"</span>);</div><div class="line">obj.text = <span class="string">"hello"</span>;</div><div class="line">obj.icon = <span class="string">"ui://包名/图片名"</span>;</div></pre></td></tr></table></figure>
-<p>修改标题颜色可以这样：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GLabel label = gcom.GetChild(<span class="string">"n1"</span>).asLabel;</div><div class="line">lable.titleColor = ...;</div></pre></td></tr></table></figure>
-<p>另外，标签也是一个标准的组件，因此GComponent的所有方法都是可以使用的，例如你可以用GetChild访问任何子组件。</p>
+<p>If “title” is input text, it will appear in the properties panel<img src="../../images/QQ20191211-161858.png" alt="">Button, click to enter the input settings panel. The setting method can refer to the text tutorial.</p>
+<h2 id="GLabel"><a href="#GLabel" class="headerlink" title="GLabel"></a>GLabel</h2><p>Set the title or icon of the label. You don’t need to force the object to be the type of GLabel. You can use the interface provided by GObject directly, for example:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GObject obj = gcom.GetChild (<span class="string">"n1"</span>);</div><div class="line">    obj.text = <span class="string">"hello"</span>;</div><div class="line">    obj.icon = <span class="string">"ui://package name/image name"</span>;</div></pre></td></tr></table></figure>
+<p>Modify the title color like this:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GLabel label = gcom.GetChild(<span class="string">"n1"</span>).asLabel;</div><div class="line">    lable.titleColor = ...;</div></pre></td></tr></table></figure>
+<p>In addition, the label is also a standard component, so all methods of GComponent are available. For example, you can use GetChild to access any child component.</p>
 
     
     <div class="footer">

@@ -6,107 +6,107 @@ order: 90
 
 ## PaintMode
 
-FairyGUI可以使一个显示对象进入`绘画模式`，简单的说就是将目标对象整体画到一张纹理上，然后就可以操作这个纹理实现一些特殊的效果。以下的功能都依赖这种模式：
+FairyGUI can make a display object enter`Painting mode`In simple terms, the target object is drawn on a texture, and then the texture can be manipulated to achieve some special effects. The following functions all rely on this model:
 
-- 组件的BlendMode不为默认值“Normal”。
-- 对组件使用任意滤镜；
-- 对任意对象使用模糊滤镜；
-- 组件设置了倾斜；
-- 使用了2D模拟3D透视功能，即GObject.perspective = true;
-- 曲面UI
+- The BlendMode of the component is not the default value "Normal".
+- Use arbitrary filters on components;
+- Use blur filters on arbitrary objects;
+- Component is tilted;
+- The 2D simulation 3D perspective function is used, that is, GObject.perspective = true;
+- Curved UI
 
-绘画模式功能依赖一个额外的相机，以及特别定义的两个Layer。相机是**自动生成**的，名字是CaptureCamera，你不需要访问和操作它。两个Layer的名字是`VUI`和`Hidden VUI`，如果Unity里没有定义这两个Layer，就会出现警告：
+The painting mode feature relies on an additional camera and two layers that are specifically defined. Camera is**Automatic generated**Yes, the name is CaptureCamera, you don't need to access and manipulate it. The names of the two layers are```FUNNY 和 Hidden FUNNY`If these two layers are not defined in Unity, a warning will appear:
 
 ```
 Please define two layers named 'VUI' and 'Hidden VUI' "
 ```
 
-这时你要在Layer定义里加上他们，避免出现这个警告。这两个Layer可以随便定义到没使用的层序号（默认是30和31），但要注意所有相机（除了CaptureCamera，它是自动的，不用管）的Culling Mask都**不选择**这两个层。
+At this point you should add them to the Layer definition to avoid this warning. These two Layers can be freely defined to the unused layer serial number (the default is 30 and 31), but pay attention to the Culling Mask of all cameras (except CaptureCamera, which is automatic, regardless of)**Not choose**These two layers.
 
-除了上面提到的功能会使对象进入绘画模式外，也可以调用API手动触发：
-
-```csharp
-    //进入绘画模式
-    EnterPaintingMode(int requestorId, Margin? margin);
-
-    //离开绘画模式
-    LeavePaintingMode(int requestorId);
-```
-
-- `requestorId` 请求者id。当多个请求要求显示对象进入绘画模式时，可以用这个id区分。取值是1、2、4、8、16以此类推。1024内内部保留。用户自定义的id从1024开始。
-- `margin` 纹理四周的留空。如果特殊处理后的内容大于原内容，那么这里的设置可以使纹理扩大。
-
-**如果目标对象使用了自定义遮罩，则需要额外的设置才能显示正常。**
+In addition to the functions mentioned above, the object will enter the painting mode, and it can also be triggered manually by calling the API:
 
 ```csharp
-    UIConfig.depthSupportForPaitingMode = true;
+// Enter painting mode
+    EnterPaintingMode (int requestorId, Margin? margin);
+
+    // Leave painting mode
+    LeavePaintingMode (int requestorId);
 ```
 
-## 组件截图
+- `requestorId`Requester id. When multiple requests require the display object to enter painting mode, this id can be used to distinguish. The values are 1, 2, 4, 8, 16 and so on. Internal hold within 1024. The user-defined id starts from 1024.
+- `margin`Leave blank around the texture. If the content after special processing is larger than the original content, then the setting here can make the texture larger.
 
-使用下面的方法可以实现对组件截图的功能。原理是使用FairyGUI提供的`绘画模式`功能。
+**If the target object uses a custom mask, additional settings are required to display properly.**
 
 ```csharp
-    GObject aObject;
-    DisplayObject dObject = aObject.displayObject;
-    dObject.EnterPaintingMode(1024, null);
-
-    //纹理将在本帧渲染后才能更新，所以访问纹理的代码需要延迟到下一帧执行。
-    yield return null;
-
-    RenderTexture tex = (RenderTexture)dObject.paintingGraphics.texture.nativeTexture;
-    //得到tex后，你可以使用Unity的方法保存为图片或者进行其他处理。具体处理略。
-
-    //处理结束后结束绘画模式。id要和Enter方法的对应。
-    dObject.LeavePaintingMode(1024);
+UIConfig.depthSupportForPaitingMode = true;
 ```
 
-## 表情显示和输入
+## Component screenshot
 
-FairyGUI支持表情显示和直接输入，即表情图片直接在输入状态下就显示在输入框中，支持PC上的输入，也支持手机原生键盘的输入。例如：
+Use the following methods to achieve the function of screenshots of components. The principle is provided by FairyGUI`Painting mode`Features.
+
+```csharp
+GObject aObject;
+    DisplayObject dObject = aObject.displayObject;
+    dObject.EnterPaintingMode (1024, null);
+
+    // The texture will not be updated until this frame is rendered, so the code that accesses the texture needs to be delayed until the next frame is executed.
+    yield return null;
+
+    RenderTexture tex = (RenderTexture) dObject.paintingGraphics.texture.nativeTexture;
+    // After getting tex, you can use Unity's method to save as an image or do other processing. The specific treatment is omitted.
+
+    // End the painting mode after the processing ends. The id must correspond to the Enter method.
+    dObject.LeavePaintingMode (1024);
+```
+
+## Emoji display and input
+
+FairyGUI supports emoticon display and direct input, that is, the emoticon image is displayed in the input box directly in the input state. It supports input on the PC and also supports input from the phone's native keyboard. E.g:
 
 ![](../../images/20170924151030.png)
 
-使用办法是为富文本或者输入文本定义emojies集合。
+The usage method is to define the emojies collection for rich text or input text.
 
 ```csharp
-    Dictionay<uint, Emoji> emojies = new Dictionary<uint, Emoji>();
-    //unicodeValue是字符的unicode编码，imageURL是图片路径
-    emojies.Add(unicodeValue, new Emoji(imageURL));
+Dictionay <uint, Emoji> emojies = new Dictionary <uint, Emoji> ();
+    // unicodeValue is the unicode encoding of the character, imageURL is the image path
+    emojies.Add (unicodeValue, new Emoji (imageURL));
 
-    GRichTextField richTextField;
-    richTextField.emojies = emojies;
+    GRichTextField richTextField;
+    richTextField.emojies = emojies;
 
-    GTextInput textInput;
-    textInput.emojies = emojies;
+    GTextInput textInput;
+    textInput.emojies = emojies;
 ```
 
-每个表情对应一个Unicode编码。表情的来源有两种，一是自定义的表情，另外是手机键盘上自带的表情。
+Each expression corresponds to a Unicode encoding. There are two types of expressions, one is a custom expression, and the other is the expression that comes with the phone's keyboard.
 
-对于自定义的表情，你可以用任意字符作为表情的代码，可以选取一些几乎不会被用户直接输入的字符。
+For a custom expression, you can use any character as the code for the expression, and you can select some characters that are hardly input by the user directly.
 
-对于手机键盘上的表情，一般是使用UCS32编码，即4个字节的Unicode编码。这和我们通常使用的UTF8或者UCS16不同。一般我们在代码里使用的字符，无论是英文还是中文，都可以使用一个char表达，但4字节的Unicode编码在C#需要两个char表达，称为Surrogate Pair。丢掉任何一个char都会造成编码错误。
+For expressions on the keyboard of mobile phones, UCS32 encoding is generally used, that is, 4-byte Unicode encoding. This is different from the UTF8 or UCS16 we usually use. Generally, the characters we use in the code, whether English or Chinese, can be expressed using a char, but the 4-byte Unicode encoding requires two char expressions in C #, which is called Surrogate Pair. Losing any char will cause encoding errors.
 
-例如Unicode编码0x1f600对应的表情为：![](../../images/20170924153658.png)
+For example, the expression corresponding to the Unicode encoding 0x1f600 is:![](../../images/20170924153658.png)
 
-注册这个表情：
+Register this expression:
 
 ```csharp
-    emojies.Add(0x1f600, new Emoji("ui://Emojies/1f600"));
+emojies.Add(0x1f600, new Emoji("ui://Emojies/1f600"));
 ```
 
-IOS上常用的Unicode编码和表情图片资源可以从这里下载：[http://res.fairygui.com/ios-emoji.zip](http://res.fairygui.com/ios-emoji.zip "ios-emoji.zip")
+Common Unicode encoding and emoji image resources on IOS can be downloaded from here:[http://res.fairygui.com/ios-emoji.zip](http://res.fairygui.com/ios-emoji.zip "ios-emoji.zip")
 
-需要注意，0x1f600的Unicode编码在C#里是用两个char表达，即"\U0001f600"，但不代表这两个char的整数值是0x1和0xf600。如果需要对含UCS32编码的文本进行网络传输或者数据库保存，需要确保你的网络层或者数据库接口支持这种编码。可以百度获得这种编码的详细处理方式，关键字是“ios 表情编码”。
+It should be noted that the Unicode encoding of 0x1f600 is expressed by two chars in C #, that is, "\ U0001f600", but it does not mean that the integer values of these two chars are 0x1 and 0xf600. If you need to transfer text or database storage to UCS32 encoded text, you need to ensure that your network layer or database interface supports this encoding. You can get the detailed processing method of this encoding in Baidu. The keyword is "ios emoticon encoding".
 
-UGUI自带的文字组件没有表情的处理，所以Unity屏蔽了表情的输入。如果要打开这个功能，需要修改Xcode项目下/Classes/UI/Keyboard.mm文件，将FILTER_EMOJIS_IOS_KEYBOARD宏修改为0。
+The text component that comes with UGUI has no processing of expressions, so Unity blocks the input of expressions. If you want to turn on this function, you need to modify the /Classes/UI/Keyboard.mm file in the Xcode project and change the FILTER_EMOJIS_IOS_KEYBOARD macro to 0.
 
-## 阿拉伯语言文字显示
+## Arabic language text display
 
-FairyGUI支持从右向左的阿拉伯语言文字显示。如果需要打开此功能，使用源码版本的，需要在Unity Player Settings的Scripting Define Symbols里增加RTL_TEXT_SUPPORT；使用DLL版本的，请自行编译包含这个功能的DLL，或者向谷主索取。
+FairyGUI supports Arabic language text display from right to left. If you need to turn on this function and use the source version, you need to add RTL_TEXT_SUPPORT in the Scripting Define Symbols of Unity Player Settings; if you use the DLL version, please compile the DLL that contains this function yourself, or ask the owner
 
 ![](../../images/20180319022527.png)
 
-## UI自动化测试
+## UI Automation Test
 
-FairyGUI提供了自动化测试工具[AirTest](http://airtest.netease.com/)的SDK，方便接入自动化测试。可以从[这里](https://github.com/AirtestProject/Poco-SDK/tree/master/Unity3D)下载使用。使用时要注意在Scripting Define Symbols里填入FAIRYGUI_TEST。
+FairyGUI provides automated testing tools[AirTest](http://airtest.netease.com/)SDK for easy access to automated testing. [](https://github.com/AirtestProject/Poco-SDK/tree/master/Unity3D)You can download it from here. Please pay attention to fill in FAIRYGUI_TEST in Scripting Define Symbols when using.

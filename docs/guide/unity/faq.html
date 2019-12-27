@@ -6,18 +6,18 @@
         <title>FairyGUI - FAQ</title>
     
         <meta charset="utf-8">
-        <meta name="description" content="FairyGUI Manual">
-        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Manual">
+        <meta name="description" content="FairyGUI Docs">
+        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Docs">
         
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
         <meta property="og:title" content="-FAQFairyGUI">
-        <meta property="og:description" content="FairyGUI Manual">
+        <meta property="og:description" content="FairyGUI Docs">
 
         <meta name="twitter:card" content="summary">
         <meta name="twitter:title" content="FAQ — FairyGUI">
-        <meta name="twitter:description" content="FairyGUI Manual">
+        <meta name="twitter:description" content="FairyGUI Docs">
 
       <!--  <link href='//fonts.proxy.ustclug.org/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
 
@@ -65,7 +65,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/docs/guide/editor/index.html" class="sidebar-link">Basics</a>
+	                    <a href="/docs/guide/editor/index.html" class="sidebar-link">Basis</a>
 	                </li>
 	            
 	                
@@ -120,7 +120,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/docs/guide/editor/richtext.html" class="sidebar-link">RichText</a>
+	                    <a href="/docs/guide/editor/richtext.html" class="sidebar-link">Rich Text</a>
 	                </li>
 	            
 	                
@@ -274,7 +274,7 @@
 	                <li><h3>SDK - Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/index.html" class="sidebar-link">Basics</a>
+	                    <a href="/docs/guide/unity/index.html" class="sidebar-link">Basis</a>
 	                </li>
 	            
 	                
@@ -292,7 +292,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/font.html" class="sidebar-link">Font</a>
+	                    <a href="/docs/guide/unity/font.html" class="sidebar-link">Fonts</a>
 	                </li>
 	            
 	                
@@ -310,7 +310,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/insert3d.html" class="sidebar-link">Insert 3D/Canvas</a>
+	                    <a href="/docs/guide/unity/insert3d.html" class="sidebar-link">Insert 3D</a>
 	                </li>
 	            
 	                
@@ -354,52 +354,52 @@
     
       <h1>FAQ</h1>
     
-    <h2 id="提示旧的包格式"><a href="#提示旧的包格式" class="headerlink" title="提示旧的包格式"></a>提示旧的包格式</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">FairyGUI: old package format found in &apos;XXXX&apos;</div></pre></td></tr></table></figure>
-<p>你使用了新版本的SDK(&gt;=3.0)，但编辑器导出的格式是XML格式。新版本SDK已经不再支持这种格式，请在发布对话框，全局设置，勾选“使用二进制格式”。详情参考<a href="../editor/upgrade_binary_format.html">升级到二进制格式</a></p>
-<h2 id="包已经正确放置到Unity项目里，但包-组件对话框看不到这个包以及它里面的组件"><a href="#包已经正确放置到Unity项目里，但包-组件对话框看不到这个包以及它里面的组件" class="headerlink" title="包已经正确放置到Unity项目里，但包/组件对话框看不到这个包以及它里面的组件"></a>包已经正确放置到Unity项目里，但包/组件对话框看不到这个包以及它里面的组件</h2><p>请检查包文件的名字是不是xxx_fui这样子，是的话那就是你已经使用了二进制的包格式，但SDK还是老版本的，请使用3.0以上的SDK。</p>
-<h2 id="UI包加载失败"><a href="#UI包加载失败" class="headerlink" title="UI包加载失败"></a>UI包加载失败</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">FairyGUI: invalid package &apos;XXXX&apos;, </div><div class="line">if the files is checked out from git, </div><div class="line">make sure to disable autocrlf option!</div></pre></td></tr></table></figure>
-<p>如果你使用的FairyGUI编辑器版本小于3.1.5，那么包描述文件的格式为纯文本，当这个文件从GIT上拉下来时，有可能由于GIT的自动转换换行符功能导致文件内容发生变化从而造成FairyGUI识别错误。解决办法是关闭GIT的自动转换换行符功能，然后再重新拉一次下来。</p>
-<p>如果你使用的FairyGUI编辑器版本大于等于3.1.5，那么包描述文件的格式已修改为二进制，不再受GIT的影响。仍然出现这个错误的原因是新的格式需要Unity SDK 1.8.3或以上版本支持。旧版本无法识别这个格式，就会报这个错误。解决办法是升级你的Unity SDK，升级你的Unity SDK，升级你的Unity SDK，重要事情说三遍。<br>如果暂时不想升级，可以修改xxx.fairy（你的项目描述文件），将里面的<code>version=&quot;3.1&quot;</code>改成<code>version=&quot;3&quot;</code>，这样编辑器就会使用旧的文本格式发布。</p>
-<p>除了上面这个错误，如果包仍然不能加载，检查包名和路径是否正确，特别要注意包只能放置在Resources目录或者它的子目录下，否则就只能打AB包。再看看是不是Unity的项目放置在了带中文名称的目录，这都有可能造成载入失败。</p>
-<h2 id="显示白屏-提示atlas-not-found"><a href="#显示白屏-提示atlas-not-found" class="headerlink" title="显示白屏/提示atlas not found"></a>显示白屏/提示atlas not found</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">FairyGUI: texture &apos;atlas0.png&apos; not found in xxx</div></pre></td></tr></table></figure>
-<p>Unity5.5版本开始，纹理设置新增了<a href="http://ask.fairygui.com/?/question/1" target="_blank" rel="external">TextureShape</a>属性，把他设置为2d就可以了。 </p>
-<h2 id="运行报错且看不到界面，但编辑模式没问题"><a href="#运行报错且看不到界面，但编辑模式没问题" class="headerlink" title="运行报错且看不到界面，但编辑模式没问题"></a>运行报错且看不到界面，但编辑模式没问题</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Create Component1@Package1 failed!</div></pre></td></tr></table></figure>
-<p>这种错误一般是因为使用UIPanel，原因可能有：</p>
+    <h2 id="Tips-for-old-package-formats"><a href="#Tips-for-old-package-formats" class="headerlink" title="Tips for old package formats"></a>Tips for old package formats</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">FairyGUI: old package format found in &apos;XXXX&apos;</div></pre></td></tr></table></figure>
+<p>You used the new version of the SDK (&gt; = 3.0), but the format exported by the editor is XML. The new version of the SDK no longer supports this format. Please select “Use Binary Format” globally in the release dialog. For details<a href="../editor/upgrade_binary_format.html">Upgrade to binary format</a></p>
+<h2 id="The-package-has-been-correctly-placed-in-the-Unity-project-but-the-package-component-dialog-cannot-see-the-package-and-its-components"><a href="#The-package-has-been-correctly-placed-in-the-Unity-project-but-the-package-component-dialog-cannot-see-the-package-and-its-components" class="headerlink" title="The package has been correctly placed in the Unity project, but the package / component dialog cannot see the package and its components"></a>The package has been correctly placed in the Unity project, but the package / component dialog cannot see the package and its components</h2><p>Please check if the package file name is like xxx_fui. If yes, it means that you have used the binary package format, but the SDK is still an old version. Please use SDK 3.0 or above.</p>
+<h2 id="UI-package-failed-to-load"><a href="#UI-package-failed-to-load" class="headerlink" title="UI package failed to load"></a>UI package failed to load</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">FairyGUI: invalid package &apos;XXXX&apos;, </div><div class="line">if the files is checked out from git, </div><div class="line">make sure to disable autocrlf option!</div></pre></td></tr></table></figure>
+<p>If the version of FairyGUI editor you are using is less than 3.1.5, the format of the package description file is plain text. When this file is pulled from GIT, the file content may be changed due to GIT’s automatic line break conversion function. FairyGUI recognizes errors. The solution is to turn off GIT’s automatic conversion line break function, and then pull it down again.</p>
+<p>If the version of FairyGUI editor you are using is greater than or equal to 3.1.5, then the format of the package description file has been changed to binary and is no longer affected by GIT. This error still occurs because the new format requires Unity SDK 1.8.3 or later. This error is reported if the old version does not recognize the format. The solution is to upgrade your Unity SDK, upgrade your Unity SDK, upgrade your Unity SDK, and say the important thing three times.<br>If you do not want to upgrade for the time being, you can modify xxx.fairy (your project description file)<code>version=&quot;3.1&quot;</code>Change to<code>version=&quot;3&quot;</code>So that the editor is published using the old text format.</p>
+<p>In addition to the above error, if the package still fails to load, check whether the package name and path are correct. In particular, pay attention to the package can only be placed in the Resources directory or its subdirectories, otherwise you can only play AB packages. Let’s see if the Unity project is placed in a directory with a Chinese name. This may cause the loading to fail.</p>
+<h2 id="Show-white-screen-tips-atlas-not-found"><a href="#Show-white-screen-tips-atlas-not-found" class="headerlink" title="Show white screen / tips atlas not found"></a>Show white screen / tips atlas not found</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">FairyGUI: texture &apos;atlas0.png&apos; not found in xxx</div></pre></td></tr></table></figure>
+<p>Beginning in Unity 5.5, texture settings have been added<a href="http://ask.fairygui.com/?/question/1" target="_blank" rel="external">TextureShape</a>Property, just set it to 2d.</p>
+<h2 id="Running-error-and-can’t-see-the-interface-but-the-editing-mode-is-OK"><a href="#Running-error-and-can’t-see-the-interface-but-the-editing-mode-is-OK" class="headerlink" title="Running error and can’t see the interface, but the editing mode is OK"></a>Running error and can’t see the interface, but the editing mode is OK</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Create Component1@Package1 failed!</div></pre></td></tr></table></figure>
+<p>This kind of error is generally due to the use of UIPanel. The reasons may be:</p>
 <ol>
-<li>你的UI包没有正确放置到<strong>Resources</strong>目录，或者Resources拼错了！太多新手犯这样的错误。</li>
-<li>如果有跨包引用，需要使用AddPackage手动载入依赖包，并且注意，AddPackage必须在UIPanel创建之前，建议放到Awake。</li>
-<li>如果包发布后移动过位置，或者修改过名称，重新设置一下UIPanel的包和组件名。</li>
+<li>Your UI package is not placed properly<strong>Resources</strong>Directory, or Resources misspelled! Too many novices make such mistakes.</li>
+<li>If there are cross-package references, you need to use AddPackage to manually load dependent packages, and note that AddPackage must be placed in Awake before UIPanel is created.</li>
+<li>If the location has been moved or the name has been changed after the package is released, reset the UIPanel package and component names.</li>
 </ol>
-<h2 id="显示不出图片-文字，但没有报错"><a href="#显示不出图片-文字，但没有报错" class="headerlink" title="显示不出图片/文字，但没有报错"></a>显示不出图片/文字，但没有报错</h2><p>项目中没有放置FairyGUI的着色器，即插件里Resources/Shaders里的着色器。请重新安装插件。</p>
-<h2 id="UI显示有重复，或者UI销毁后依然显示"><a href="#UI显示有重复，或者UI销毁后依然显示" class="headerlink" title="UI显示有重复，或者UI销毁后依然显示"></a>UI显示有重复，或者UI销毁后依然显示</h2><ol>
-<li>场景里没有放置主相机。</li>
-<li>主相机的ClearFlags错误设置为了Depth。</li>
-<li>场景里还有其他相机，且它的Culling Mask设置勾选了UI。</li>
+<h2 id="No-image-text-displayed-but-no-error"><a href="#No-image-text-displayed-but-no-error" class="headerlink" title="No image / text displayed, but no error"></a>No image / text displayed, but no error</h2><p>The shader of FairyGUI is not placed in the project, that is, the shader in Resources / Shaders in the plugin. Please reinstall the plugin.</p>
+<h2 id="UI-display-is-duplicated-or-still-displayed-after-UI-is-destroyed"><a href="#UI-display-is-duplicated-or-still-displayed-after-UI-is-destroyed" class="headerlink" title="UI display is duplicated, or still displayed after UI is destroyed"></a>UI display is duplicated, or still displayed after UI is destroyed</h2><ol>
+<li>The main camera is not placed in the scene.</li>
+<li>The ClearFlags of the main camera is incorrectly set to Depth.</li>
+<li>There are other cameras in the scene, and its Culling Mask setting has UI checked.</li>
 </ol>
-<h2 id="突然出现文字都变成紫色，然后又恢复正常"><a href="#突然出现文字都变成紫色，然后又恢复正常" class="headerlink" title="突然出现文字都变成紫色，然后又恢复正常"></a>突然出现文字都变成紫色，然后又恢复正常</h2><p>参考<a href="font.html#常见问题">字体</a>。</p>
-<h2 id="层级显示错误"><a href="#层级显示错误" class="headerlink" title="层级显示错误"></a>层级显示错误</h2><p>如果你看到了层级错乱的情况出现，那多半是因为fairyBatching的影响。在<a href="drawcall.html">DrawCall优化</a>这篇教程里已经有提到，这里再说明一下。</p>
-<p>对于打开了fairyBatching的组件，当开发者自己调用SetPosition等API改变子元件或者孙子元件的位置、大小，旋转或缩放，并不会自动触发深度调整，例如一个图片原来显示在一个窗口里的顶层，你用Tween将它从原来的位置移到另外一个位置，这个图片就有可能被窗口里的其他元素遮挡。这时开发者需要手动触发深度调整，例如：</p>
+<h2 id="Suddenly-the-text-turns-purple-and-then-returns-to-normal"><a href="#Suddenly-the-text-turns-purple-and-then-returns-to-normal" class="headerlink" title="Suddenly the text turns purple and then returns to normal"></a>Suddenly the text turns purple and then returns to normal</h2><p><a href="font.html#常见问题">Reference font</a>。</p>
+<h2 id="Hierarchy-display-error"><a href="#Hierarchy-display-error" class="headerlink" title="Hierarchy display error"></a>Hierarchy display error</h2><p>If you see the level of disorder, it is mostly due to the impact of fairyBatching. in<a href="drawcall.html">DrawCall optimization</a>As mentioned in this tutorial, I will explain it here.</p>
+<p>For components with fairBatching turned on, when developers call APIs such as SetPosition to change the position, size, rotation, or scaling of child or grandchildren components, depth adjustments are not automatically triggered. For example, an image was originally displayed on the top level of a window. If you use Tween to move it from the original position to another position, the image may be obscured by other elements in the window. At this time, the developer needs to manually trigger the depth adjustment, for example:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aObject.InvalidateBatchingState();</div></pre></td></tr></table></figure>
-<p>这个API并不需要由开启了fairyBatching的组件调用，aObject可以是任何一个内含的元件。并且你可以在任何时间调用，每帧调用也可以，只要你确认是需要。它的消耗不算大，但也不能说没有。</p>
-<p>如果是动效过程观察到这种情况，设置动效的invalidateBatchingEveryFrame=true即可。</p>
-<h2 id="图片拼接-平铺有缝"><a href="#图片拼接-平铺有缝" class="headerlink" title="图片拼接/平铺有缝"></a>图片拼接/平铺有缝</h2><p>双击图片，在图片属性对话框中勾选“重复边缘像素”。</p>
-<h2 id="场景里出现CaptureCamera"><a href="#场景里出现CaptureCamera" class="headerlink" title="场景里出现CaptureCamera"></a>场景里出现CaptureCamera</h2><p>参考<a href="special.html#PaintMode">PaintMode</a></p>
-<h2 id="出现需要定义层的警告"><a href="#出现需要定义层的警告" class="headerlink" title="出现需要定义层的警告"></a>出现需要定义层的警告</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Please define two layers named &apos;VUI&apos; and &apos;Hidden VUI&apos; &quot;</div></pre></td></tr></table></figure>
-<p>参考<a href="special.html#PaintMode">PaintMode</a></p>
-<h2 id="放置UI到其他Layer"><a href="#放置UI到其他Layer" class="headerlink" title="放置UI到其他Layer"></a>放置UI到其他Layer</h2><p>可以的，但你需要使用源码版本。将StageCamera.cs里的LayerName改掉就行了。</p>
-<h2 id="Stage-LateUpdate函数CPU占用过高"><a href="#Stage-LateUpdate函数CPU占用过高" class="headerlink" title="Stage.LateUpdate函数CPU占用过高"></a>Stage.LateUpdate函数CPU占用过高</h2><p>Stage.LateUpdate不但包含了FairyGUI自身的消耗，而且因为他是发出事件的源头，所以也包含了事件处理逻辑的消耗 。所以进入Deep Profiler模式，展开Stage.LateUpdate，查看你的事件处理函数的消耗。FairyGUI自身的消耗是在Container.Update下，在非Deep Profiler模式下是很少的（注意：Deep Profile下的数据只能看占比值，不能看绝对值，因为这种Profile模式自身产生的消耗也是很大的）。</p>
-<h2 id="DrawCall过高"><a href="#DrawCall过高" class="headerlink" title="DrawCall过高"></a>DrawCall过高</h2><p>开启了FairyBatching后，仍然觉得DrawCall过高的话，可以使用Unity的工具Frame Debugger排查。可以看看是不是过多的使用了遮罩（溢出隐藏、滚动），或者<strong>元件之间不合理的重叠</strong>。另外大段文本、图片平铺、使用滤镜、BlendMode也会阻断DrawCall的合并。</p>
-<h2 id="UI包卸载后在Profiler里看到依然有Asset没释放"><a href="#UI包卸载后在Profiler里看到依然有Asset没释放" class="headerlink" title="UI包卸载后在Profiler里看到依然有Asset没释放"></a>UI包卸载后在Profiler里看到依然有Asset没释放</h2><p>这可能是Unity编辑器自身对贴图等资源的引用。真实运行环境不会有。</p>
-<h2 id="有长按事件吗"><a href="#有长按事件吗" class="headerlink" title="有长按事件吗"></a>有长按事件吗</h2><p>长按处理使用LongPressGesture。</p>
-<h2 id="FairyGUI和UGUI可以共存吗"><a href="#FairyGUI和UGUI可以共存吗" class="headerlink" title="FairyGUI和UGUI可以共存吗"></a>FairyGUI和UGUI可以共存吗</h2><p>可以的。参考教程<a href="insert3d.html">插入模型/粒子/Canvas</a>。</p>
-<h2 id="Lua不能侦听事件"><a href="#Lua不能侦听事件" class="headerlink" title="Lua不能侦听事件"></a>Lua不能侦听事件</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">LuaException: Delegate FairyGUI.EventCallback1 not register</div></pre></td></tr></table></figure>
-<p>如果你确认已经执行了Gen Delegates，那么唯一可能的原因就是DelegateFactory没有init，请检查第三方框架的问题。</p>
-<h2 id="FairyGUI支持XLua吗"><a href="#FairyGUI支持XLua吗" class="headerlink" title="FairyGUI支持XLua吗"></a>FairyGUI支持XLua吗</h2><p>无论tolua、slua还是xlua，都是C# binding的方案。FairyGUI是使用C#写的，且没有引用到除了系统库、Unity库外的任何第三方库，所以不存在不支持某某lua的说法。xlua和FairyGUI结合使用的例子可以百度“FairyGUI xlua”。</p>
-<h2 id="使用UIConfig-buttonSoundVolume改变全局按钮音量无效"><a href="#使用UIConfig-buttonSoundVolume改变全局按钮音量无效" class="headerlink" title="使用UIConfig.buttonSoundVolume改变全局按钮音量无效"></a>使用UIConfig.buttonSoundVolume改变全局按钮音量无效</h2><p>UIConfig.buttonSoundVolume仅用于初始化设置，后续改变是无效的。如果要控制全局声音的开关或音量，可以这样：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//开关声音</span></div><div class="line">GRoot.inst.EnabledSound();</div><div class="line">GRoot.inst.DisableSound();</div><div class="line"></div><div class="line"><span class="comment">//调整全局声音音量，这个包括按钮声音和动效播放的声音</span></div><div class="line">GRoot.inst.soundVolume = <span class="number">0.5</span>f;</div></pre></td></tr></table></figure>
-<h2 id="FairyGUI可以播放视频吗"><a href="#FairyGUI可以播放视频吗" class="headerlink" title="FairyGUI可以播放视频吗"></a>FairyGUI可以播放视频吗</h2><p>播放视频的功能Unity有提供，不需要FairyGUI支持。你可以使用一个Loader，然后将视频对象的texture赋值给Loader就可以了。</p>
-<h2 id="可以用代码创建动效吗"><a href="#可以用代码创建动效吗" class="headerlink" title="可以用代码创建动效吗"></a>可以用代码创建动效吗</h2><p>动效（Transition）是为了编辑器里可视化设计提出的一个概念。如果你是全部用代码来设计UI元件的动作，那就不需要用动效了，直接用Tween来完成。可以用DoTween或者FairyGUI内置的GTween。</p>
-<h2 id="创建的Tweener调用kill-false-时偶尔会将正在播放的其他动效暂停"><a href="#创建的Tweener调用kill-false-时偶尔会将正在播放的其他动效暂停" class="headerlink" title="创建的Tweener调用kill(false)时偶尔会将正在播放的其他动效暂停"></a>创建的Tweener调用kill(false)时偶尔会将正在播放的其他动效暂停</h2><p>GTweener是重用的。注意检查你的所有代码，不要重用或者误用GTweener实例，也就是说，Tween一旦结束，GTweener实例就不要再使用了，更加不要去kill。一般建议不要保存GTweener实例。</p>
+<p>This API does not need to be called by a component with fairBatching turned on, aObject can be any of the included components. And you can call it at any time, every frame, as long as you confirm that it is needed. Its consumption is not large, but it cannot be said that it is not.</p>
+<p>If this is observed during the transition process, set invalidateBatchingEveryFrame = true for transition.</p>
+<h2 id="Image-stitching-tiling"><a href="#Image-stitching-tiling" class="headerlink" title="Image stitching / tiling"></a>Image stitching / tiling</h2><p>Double-click the image, and check “Repeat edge pixels” in the image properties dialog box.</p>
+<h2 id="CaptureCamera-appears-in-the-scene"><a href="#CaptureCamera-appears-in-the-scene" class="headerlink" title="CaptureCamera appears in the scene"></a>CaptureCamera appears in the scene</h2><p>reference<a href="special.html#PaintMode">PaintMode</a></p>
+<h2 id="A-warning-appears-that-a-layer-needs-to-be-defined"><a href="#A-warning-appears-that-a-layer-needs-to-be-defined" class="headerlink" title="A warning appears that a layer needs to be defined"></a>A warning appears that a layer needs to be defined</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Please define two layers named &apos;VUI&apos; and &apos;Hidden VUI&apos; &quot;</div></pre></td></tr></table></figure>
+<p>reference<a href="special.html#PaintMode">PaintMode</a></p>
+<h2 id="Drop-UI-to-other-layers"><a href="#Drop-UI-to-other-layers" class="headerlink" title="Drop UI to other layers"></a>Drop UI to other layers</h2><p>Yes, but you need to use the source version. Just change the LayerName in StageCamera.cs.</p>
+<h2 id="Stage-LateUpdate-function-CPU-usage-is-too-high"><a href="#Stage-LateUpdate-function-CPU-usage-is-too-high" class="headerlink" title="Stage.LateUpdate function CPU usage is too high"></a>Stage.LateUpdate function CPU usage is too high</h2><p>Stage.LateUpdate not only contains the consumption of FairyGUI itself, but because it is the source of emitting events, it also includes the consumption of event processing logic. So enter Deep Profiler mode, expand Stage.LateUpdate, and check the consumption of your event handler. FairyGUI’s own consumption is very small under Container.Update in non-Deep Profiler mode (Note: The data in Deep Profile can only be viewed as a percentage value, not an absolute value, because the consumption of this profile mode itself is also very big).</p>
+<h2 id="DrawCall-is-too-high"><a href="#DrawCall-is-too-high" class="headerlink" title="DrawCall is too high"></a>DrawCall is too high</h2><p>After opening FairyBatching, if you still feel that DrawCall is too high, you can use the Unity tool Frame Debugger to troubleshoot. You can see if there are too many masks (overflow hiding, scrolling), or<strong>Unreasonable overlap between components</strong>。 In addition, large sections of text, image tiling, using filters, and BlendMode will also block the merging of DrawCall.</p>
+<h2 id="After-uninstalling-the-UI-package-I-still-see-Assets-not-released-in-the-Profiler"><a href="#After-uninstalling-the-UI-package-I-still-see-Assets-not-released-in-the-Profiler" class="headerlink" title="After uninstalling the UI package, I still see Assets not released in the Profiler"></a>After uninstalling the UI package, I still see Assets not released in the Profiler</h2><p>This may be a reference to resources such as textures by the Unity editor itself. There will be no real operating environment.</p>
+<h2 id="Is-there-a-long-press-event"><a href="#Is-there-a-long-press-event" class="headerlink" title="Is there a long press event"></a>Is there a long press event</h2><p>Long press processing uses LongPressGesture.</p>
+<h2 id="Can-FairyGUI-and-UGUI-coexist"><a href="#Can-FairyGUI-and-UGUI-coexist" class="headerlink" title="Can FairyGUI and UGUI coexist"></a>Can FairyGUI and UGUI coexist</h2><p>Yes. Reference tutorial<a href="insert3d.html">Insert Model / Particle / Canvas</a>。</p>
+<h2 id="Lua-cannot-listen-for-events"><a href="#Lua-cannot-listen-for-events" class="headerlink" title="Lua cannot listen for events"></a>Lua cannot listen for events</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">LuaException: Delegate FairyGUI.EventCallback1 not register</div></pre></td></tr></table></figure>
+<p>If you confirm that Gen Delegates has been executed, then the only possible reason is that the DelegateFactory does not have init. Please check for problems with third-party frameworks.</p>
+<h2 id="Does-FairyGUI-support-XLua"><a href="#Does-FairyGUI-support-XLua" class="headerlink" title="Does FairyGUI support XLua"></a>Does FairyGUI support XLua</h2><p>No matter tolua, slua or xlua, all are C # binding schemes. FairyGUI is written in C # and does not reference any third-party libraries except system libraries and Unity libraries, so there is no such thing as not supporting Lua. An example of the combination of xlua and FairyGUI can be Baidu “FairyGUI xlua”.</p>
+<h2 id="Using-UIConfig-buttonSoundVolume-to-change-global-button-volume-has-no-effect"><a href="#Using-UIConfig-buttonSoundVolume-to-change-global-button-volume-has-no-effect" class="headerlink" title="Using UIConfig.buttonSoundVolume to change global button volume has no effect"></a>Using UIConfig.buttonSoundVolume to change global button volume has no effect</h2><p>UIConfig.buttonSoundVolume is only used to initialize settings, and subsequent changes are invalid. If you want to control the volume or volume of the global sound, you can do this:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Switch sound</span></div><div class="line">    GRoot.inst.EnabledSound ();</div><div class="line">    GRoot.inst.DisableSound ();</div><div class="line"></div><div class="line">    <span class="comment">// Adjust the global sound volume, this includes the button sound and the sound played by the effect</span></div><div class="line">    GRoot.inst.soundVolume = <span class="number">0.5</span>f;</div></pre></td></tr></table></figure>
+<h2 id="Can-FairyGUI-play-videos"><a href="#Can-FairyGUI-play-videos" class="headerlink" title="Can FairyGUI play videos"></a>Can FairyGUI play videos</h2><p>The video playback function is provided by Unity and does not require FairyGUI support. You can use a Loader and assign the texture of the video object to the Loader.</p>
+<h2 id="Can-I-create-transition-with-code"><a href="#Can-I-create-transition-with-code" class="headerlink" title="Can I create transition with code"></a>Can I create transition with code</h2><p>Transition is a concept proposed for visual design in the editor. If you are designing UI element actions entirely in code, then you do n’t need to use dynamic effects, just use Tween to complete it. You can use DoTween or FairweGUI’s built-in GTween.</p>
+<h2 id="Created-Tweener-calls-kill-false-occasionally-to-pause-other-transitions-being-played"><a href="#Created-Tweener-calls-kill-false-occasionally-to-pause-other-transitions-being-played" class="headerlink" title="Created Tweener calls kill (false) occasionally to pause other transitions being played"></a>Created Tweener calls kill (false) occasionally to pause other transitions being played</h2><p>GTweener is reused. Be careful to check all your code, don’t reuse or misuse the GTweener instance, that is, once Tween ends, don’t use the GTweener instance again, let alone kill. It is generally recommended not to save GTweener instances.</p>
 
     
     <div class="footer">

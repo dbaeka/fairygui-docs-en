@@ -4,101 +4,101 @@ type: guide_editor
 order: 33
 ---
 
-窗口是组件的一种特殊扩展。编辑器内并没有窗口的概念，因为窗口可以设置任意组件作为它的显示内容。窗口=内容组件+窗口管理API。
+A window is a special extension of a component. There is no concept of a window in the editor, because a window can set any component as its display content. Window = content component + window management API.
 
-## 设计窗口
+## Design window
 
-窗口内容组件需要在编辑器编辑好。通常窗口会包括一个可用于拖动的标题栏，关闭按钮等。FairyGUI使用约定名称将一些常见的窗口功能和我们定义的组件关联起来。首先，窗口内容组件内需要放置一个名称为`frame`的组件，这个组件将作为窗口的背景，或者成为框架。这个组件的的扩展通常选择为“标签”。
+The window content component needs to be edited in the editor. Usually the window will include a title bar for dragging, a close button, etc. FairyGUI uses convention names to associate some common window functions with our defined components. First of all, a name needs to be placed in the window content component as`frame`This component will be the background of the window or the frame. Extensions for this component are usually chosen as "tags".
 
 ![](../../images/QQ20191211-221804.png)
 
-这个frame组件的制作方式为：
+The production method of this frame component is:
 
-- `closeButton` 一个名称为closeButton的按钮将自动作为窗口的关闭按钮。
+- `closeButton`A button named closeButton will automatically act as the window's close button.
 
-- `dragArea` 一个名称为dragArea的图形（类型设置为空白）将自动作为窗口的检测拖动区域，当用户在此区域内按住并拖动时，窗口随之被拖动。
+- `spoil`A graphic named dragArea (type is set to blank) will be automatically used as the detection drag area of the window. When the user presses and drags in this area, the window will be dragged accordingly.
 
-- `contentArea` 一个名称为contentArea的图形（类型设置为空白）将作为窗口的主要内容区域，这个区域只用于ShowModalWait。当调用ShowModalWait时，窗口会被锁定，如果设定了contentArea，则只锁定contentArea指定的区域，否则锁定整个窗口。如果你希望窗口在modalWait状态下依然能够拖动和关闭，那么就不要让contentArea覆盖标题栏区域。
+- `contentArea`A graphic named contentArea (type set to blank) will be used as the main content area of the window, this area is only used for ShowModalWait. When ShowModalWait is called, the window is locked. If contentArea is set, only the area specified by contentArea is locked, otherwise the entire window is locked. If you want the window to be able to drag and close in the modalWait state, then don't let the contentArea cover the title bar area.
 
-注意以上的约定均为可选，是否含有组件frame，或者组件frame里是否含有约定的功能组件，并不会影响窗口的正常显示和关闭。
+Note that the above conventions are optional. Whether the component frame or the component frame contains the agreed functional components will not affect the normal display and close of the window.
 
-## 使用窗口
+## Use window
 
-内容组件制作好后，运行时就可以使用以下的方式创建和使用窗口：
+After the content components are created, the runtime can create and use windows in the following ways:
 
 ```csharp
-    Window win = new Window();
-    win.contentPane = UIPackage.CreateObject("包名", "内容组件名").asCom;
-    win.Show();
+Window win = new Window ();
+    win.contentPane = UIPackage.CreateObject ("package name", "content component name"). asCom;
+    win.Show ();
 ```
 
-另外，FairyGUI还提供了一套机制用于窗口动态创建。动态创建是指初始时仅指定窗口需要使用的资源，等窗口需要显示时才实际开始构建窗口的内容。首先需要在窗口的构造函数中调用`AddUISource`。这个方法需要一个`IUISource`类型的参数，而IUISource是一个接口，用户需要自行实现载入相关UI包的逻辑。当窗口第一次显示之前，IUISource的加载方法将会被调用，并等待载入完成后才返回执行`OnInit`，然后窗口才会显示。
+In addition, FairyGUI also provides a set of mechanisms for dynamic window creation. Dynamic creation refers to specifying only the resources that the window needs to use initially, and actually starting to build the content of the window when the window needs to be displayed. First need to be called in the window's constructor`AddUISource`。 This method requires a`IUISource`Type parameters, and IUISource is an interface, and users need to implement the logic of loading related UI packages by themselves. When the window is displayed for the first time, the loading method of IUISource will be called, and wait for the loading to complete before returning to execution.`OnInit`And then the window will be displayed.
 
-调用`Show`显示窗口的流程：
+transfer`Show`Process of displaying window:
 
 ![](../../images/ddd.png)
 
-如果你需要窗口显示时播放动画效果，那么覆盖`DoShowAnimation`编写你的动画代码，并且在动画结束后调用onShown。
-覆盖`OnShown`编写其他需要在窗口显示时处理的业务逻辑。
+If you need to play the animation effect when the window is displayed, then override`DoShowAnimation`Write your animation code and call onShown after the animation ends.
+cover`OnShown`Write other business logic that needs to be handled when the window is displayed.
 
-调用`Hide`隐藏窗口的流程：
+transfer`Hide`Process of hiding window:
 
 ![](../../images/ddd2.png)
 
-如果你需要窗口隐藏时播放动画效果，那么覆盖`DoHideAnimation`编写你的动画代码，并且在动画结束时调用`HideImmediately`（**注意不是直接调用onHide！**）。
-覆盖`OnHide`编写其他需要在窗口隐藏时处理的业务逻辑。
+If you need to play the animation effect when the window is hidden, then override`DoHideAnimation`Write your animation code and call it at the end of the animation`HideImmediately`（**Note that onHide is not called directly!**).
+cover`one hydrochloride`Write other business logic that needs to be handled when the window is hidden.
 
 ## Window
 
-- `Show` 显示窗口。
+- `Show`The window is displayed.
 
-- `Hide` 隐藏窗口。窗口并不会销毁，只是隐藏。
+- `Hide`Hide the window. The window is not destroyed, it is just hidden.
 
-- `isShowing` 获取窗口是否显示。
+- `isShowing`Gets whether the window is displayed.
 
-- `modal` 设置窗口是否模态窗口。模态窗口将阻止用户点击任何模态窗口后面的内容。当模态窗口显示时，模态窗口背后可以自动覆盖一层灰色的颜色，这个颜色可以自定义：
+- `capital`Sets whether the window is a modal window. A modal window will prevent users from clicking on anything behind the modal window. When the modal window is displayed, a layer of gray color can be automatically covered behind the modal window. This color can be customized:
 
-  ```csharp
-    //Unity
-    UIConfig.modalLayerColor = new Color(0f, 0f, 0f, 0.4f);
-    
-    //AS3
-    UIConfig.modalLayerColor = 0x333333;
-    UIConfig.modalLayerAlpha = 0.2;
-  ```
+   ```csharp
+   //Unity
+  UIConfig.modalLayerColor = new Color(0f, 0f, 0f, 0.4f);
 
-  如果你不需要这个灰色效果，那么把透明度设置为0即可。
+  //AS3
+  UIConfig.modalLayerColor = 0x333333;
+  UIConfig.modalLayerAlpha = 0.2;
+   ```
 
-- `ShowModalWait` 锁定窗口，不允许任何操作。锁定时可以显示一个提示，这个提示的资源由下面的设置指定：
+   If you don't need this gray effect, then set the transparency to 0.
 
-  ```csharp
-      UIConfig.windowModalWaiting = "ui://包名/组件名";
-  ```
+- `ShowModalWait`The window is locked and no operations are allowed. When locked, a prompt can be displayed. The resources of this prompt are specified by the following settings:
 
-  这个组件会调整和contentArea相同的大小。
+   ```csharp
+   UIConfig.windowModalWaiting = "ui://package name/component name";
+   ```
 
-- `CloseModalWait` 取消窗口的锁定。
+   This component will be resized to the same size as the contentArea.
 
-## 窗口管理
+- `CloseModalWait`Unlock the window.
 
-GRoot里提供了一些窗口管理的常用API。
+## Window management
 
-- `BringToFront` 把窗口提到所有窗口的最前面。
-- `CloseAllWindows` 隐藏所有窗口。注意不是销毁。
-- `CloseAllExceptModals` 隐藏所有非模态窗口。
-- `GetTopWindow` 返回当前显示在最上面的窗口。
-- `hasModalWindow` 当前是否有模态窗口在显示。
+GRoot provides some common APIs for window management.
 
-**直接加组件到GRoot，和使用Window有什么区别？**
+- `BringToFront`Bring the window to the front of all windows.
+- `CloseAllWindows`Hide all windows. Attention is not destruction.
+- `CloseAllExceptModals`Hide all modeless windows.
+- `GetTopWindow`Returns the window that is currently displayed at the top.
+- `hasModalWindow`Whether any modal windows are currently displayed.
 
-GRoot是2D UI的根容器。当我们通过UIPackage.CreateObject创建出顶级UI界面后，将它添加到GRoot下。例如游戏的登录界面、主界面等，这类界面的特点是在游戏的底层，且比较固定。
+**Adding components directly to GRoot, what is the difference between using Windows?**
 
-Window的本质也是通过UIPackage.CreateObject动态创建的顶级UI界面，但它提供了常用的窗口特性，比如自动排序，显示/隐藏流程，模式窗口等。适用于游戏的对话框界面，例如人物状态、背包、商城之类。这类界面的特点是在游戏的上层，且切换频繁。
+GRoot is the root container for 2D UI. After we create the top-level UI interface through UIPackage.CreateObject, add it to GRoot. For example, the game's login interface, main interface, etc. This type of interface is characterized by the bottom layer of the game and is relatively fixed.
 
-**窗口自动排序**
+The essence of Window is also the top-level UI interface dynamically created through UIPackage.CreateObject, but it provides commonly used window features, such as automatic sorting, show / hide processes, modal windows, etc. Dialog interface for games, such as character status, backpack, mall, etc. This type of interface is characterized by being on top of the game and switching frequently.
 
-默认情况下，Window是具有点击自动排序功能的，也就是说，你点击一个窗口，系统会自动把窗口提到所有窗口的最前面，这也是所有窗口系统的规范。但你可以关闭这个功能：
+**Automatic window sorting**
+
+By default, Window has a click auto-sort function, that is, if you click a window, the system will automatically bring the window to the front of all windows, which is also the specification of all window systems. But you can turn off this feature:
 
 ```csharp
-    UIConfig.bringWindowToFrontOnClick = false;
+UIConfig.bringWindowToFrontOnClick = false;
 ```

@@ -4,41 +4,41 @@ type: guide_editor
 order: 31
 ---
 
-在UI系统中我们经常需要弹出一些组件，这些组件在用户点击空白地方的情况下就会自动消失。FairyGUI内置了这个功能。
+In the UI system, we often need to pop up some components, and these components will automatically disappear when the user clicks on a blank space. FairyGUI has this feature built in.
 
-## Popup 管理
+## Popup management
 
-弹出和关闭Popup的API在GRoot中提供。
+The API to pop and close Popup is provided in GRoot.
 
-- `ShowPopup` 弹出一个组件。如果指定了目标，则会调整弹出的位置到目标的下方，形成一个下拉的效果。同时提供了参数可以用来指定是向上弹出或者向下弹出。FairyGUI会根据组件的大小自动计算弹出位置，以确保组件显示不会超出屏幕。例如：
+- `ShowPopup`Pop up a component. If a target is specified, the pop-up position will be adjusted below the target, forming a drop-down effect. Parameters are also provided to specify whether to pop up or pop down. FairyGUI automatically calculates the pop-up position based on the size of the component to ensure that the component display does not exceed the screen. E.g:
 
-    ```csharp
-        //弹出在当前鼠标位置
-        GRoot.inst.ShowPopup(aComponent);
+   ```csharp
+   // popup at current mouse position
+    GRoot.inst.ShowPopup (aComponent);
 
-        //弹出在aButton的下方
-        GRoot.inst.ShowPopup(aComponent, aButton);
+    // pop up below aButton
+    GRoot.inst.ShowPopup (aComponent, aButton);
 
-        //弹出在自定义的位置
-        GRoot.inst.ShowPopup(aComponent);
-        aComponent.SetXY(100, 100);
-    ```
+    // popup at custom position
+    GRoot.inst.ShowPopup (aComponent);
+    aComponent.SetXY (100, 100);
+   ```
 
-    窗口也可以通过ShowPopup弹出，这样弹出的窗口也具有了点击空白关闭的特性：
+   The window can also be popped up through ShowPopup, so the pop-up window also has the feature of clicking blank to close:
 
-    ```csharp
-        Window aWindow;
-        GRoot.inst.ShowPopup(aWindow);
+   ```csharp
+   Window aWindow;
+    GRoot.inst.ShowPopup (aWindow);
 
-        //和使用aWindow.Show显示窗口的唯一区别就是多了点击空白关闭的功能，其它用法没有任何区别。
-    ```
+    // The only difference from using aWindow.Show to display the window is that it has the function of clicking blank to close, there is no difference in other usage.
+   ```
 
-- `HidePopup` 默认情况下，用户点击空白地方就会自动关闭弹出的组件。也可以调用此API手工关闭。可以指定需要关闭的Popup，不指定参数时，所有当前的弹出都关闭。
+- `HidePopup`By default, the pop-up component is automatically closed when the user clicks on a blank space. You can also call this API to close it manually. You can specify the Popup that needs to be closed. When no parameter is specified, all current popups are closed.
 
-点击空白处后弹出框会自动关闭，如果要获得这个关闭的通知，可以监听移出舞台的事件，例如：
+The pop-up box will automatically close when you click on the blank space. If you want to be notified of this shutdown, you can listen to the event of moving out of the stage, for example:
 
 ```csharp
-    //Unity/Cry
+//Unity/Cry
     aComponent.onRemoveFromStage.Add(onPopupClosed);
 
     //AS3
@@ -59,44 +59,44 @@ order: 31
 
 ## PopupMenu
 
-PopupMenu是FairyGUI提供的一个工具类，用于实现弹出菜单。首先需要在编辑器制作一个菜单组件，点击“资源->新建弹出菜单..."，然后根据向导完成。菜单组件里的关键元素是命名为`list`的列表组件，列表的溢出处理模式应该选择为可见，因为一般来说，菜单都是显示全部item的，不需要滚动。
+PopupMenu is a tool class provided by FairyGUI for implementing popup menus. First you need to make a menu component in the editor, click "Resources-> New Popup Menu ...", and then follow the wizard to complete. The key element in the menu component is named`list`For the list component, the overflow processing mode of the list should be selected as visible, because in general, the menu displays all items without scrolling.
 
-菜单组件制作完成后，可以在代码里生成和调用这个菜单。
+After making the menu component, this menu can be generated and called in the code.
 
-首先设置全局的菜单资源：
+First set the global menu resources:
 ```csharp
-    UIConfig.popupMenu = "ui://包名/菜单组件名";
-    
-    //如果有设计分隔条
-    UIConfig.popupMenu_seperator = "ui://包名/菜单分隔条";
+UIConfig.popupMenu = "ui://package name/menu component name";
+    
+    // if there is a design divider
+    UIConfig.popupMenu_seperator = "ui://package name/menu separator";
 ```
 
 ```csharp
-    //如果构造函数不带参数，则表示使用UIConfig.popupMenu里定义的资源。
-    //也可以带一个参数，指定这个菜单使用的菜单组件资源
-    PopupMenu menu = new PopupMenu();
+// If the constructor takes no parameters, it means using the resources defined in UIConfig.popupMenu.
+    / / Can also take a parameter, specify the menu component resources used by this menu
+    PopupMenu menu = new PopupMenu ();
 
-    //如果要修改菜单的宽度。
-    menu.contentPane.width = 300;
+    // If you want to modify the width of the menu.
+    menu.contentPane.width = 300;
 
-    //添加一个菜单item，并注册点击回调函数
-    GButton item = menu.AddItem("标题", MenuItemCallback);
-    item.name = "item1";
+    // Add a menu item and register the click callback function
+    GButton item = menu.AddItem ("Title", MenuItemCallback);
+    item.name = "item1";
 
-    //点击回调函数，context.data是当前被点击的item
-    void MenuItemCallback(EventContext context)
-    {
-        GButton item = (GButton)context.data);
-        Debug.Log(item.name);
-    }
+    // click callback function, context.data is the item that is currently clicked
+    void MenuItemCallback (EventContext context)
+    {
+        GButton item = (GButton) context.data);
+        Debug.Log (item.name);
+    }
 
-    //CocosCreator版本的回调函数，第一个参数就是被点击的item
-    MenuItemCallback(item, evt) {
-    }
+    // CocosCreator version callback function, the first parameter is the clicked item
+    MenuItemCallback (item, evt) {
+    }
 
-    //添加分隔条
-    menu.AddSeperator();
+    // Add divider
+    menu.AddSeperator ();
 
-    //设置菜单项变灰
-    menu.SetItemGrayed("item1", true);
+    // Setting menu items are grayed out
+    menu.SetItemGrayed ("item1", true);
 ```

@@ -4,42 +4,41 @@ type: guide_editor
 order: 27
 ---
 
-与很多UI框架使用皮肤机制定义滚动条不同，在FairyGUI中，滚动条是可以随心设计的。
-[滚动容器](scrollpane.html)和滚动条是独立的，也就是说，即使没有滚动条，滚动容器也能完成滚动的功能。
-注意：滚动条不能直接拖到舞台上使用，永远不要这样做。
+Unlike many UI frameworks, which use skin mechanisms to define scroll bars, in FairyGUI, scroll bars can be freely designed.[Rolling container](scrollpane.html)It is independent from the scroll bar, that is, even if there is no scroll bar, the scroll container can complete the scrolling function.
+Note: The scroll bar cannot be dragged directly onto the stage, never do it.
 
-## 创建滚动条
+## Create scroll bar
 
-可以通过两种方式创建滚动条组件。
+There are two ways to create a scroll bar component.
 
-- 点击主菜单“资源”->“新建滚动条”，然后按照向导的提示一步步完成。
+- Click on the main menu "Resources"-> "New Scroll Bar" and follow the wizard's prompts step by step to complete.
 
-  ![](../../images/QQ20191211-181917.png)
+   ![](../../images/QQ20191211-181917.png)
 
-- 新建一个组件，然后在组件属性里选择扩展为“滚动条”。
+- Create a new component and select Expand to "Scrollbar" in the component properties.
 
-## 设计属性
+## Edit-mode properties
 
-在组件编辑状态下，滚动条组件的属性面板是：
+In the component editing state, the properties panel of the scrollbar component is:
 
 ![](../../images/QQ20191211-181948.png)
 
-- `固定的滚动滑块大小` 一般来说，滚动条中间的滚动滑块会随着滚动区域的大小的不同而伸缩。如果滚动区域比较小，则滑块会比较大；如果滚动区域比较大，则滑块会比较小。如果你需要任何时候滑块都相同大小，那么可以勾选这个选项。勾选后，滑块的大小将保持他原来的大小。
+- `Fixed scroll slider size`Generally speaking, the scroll slider in the middle of the scroll bar will expand and contract with the size of the scroll area. If the scroll area is small, the slider will be larger; if the scroll area is larger, the slider will be smaller. Check this option if you want the sliders to be the same size at all times. When checked, the size of the slider will remain at its original size.
 
-## 制作说明
+## Instructions
 
-- `arrow1` 如果是水平滚动条，它表示左边的箭头按钮；如果是垂直滚动条，它表示上边的箭头按钮。它是可选的，如果你的滚动条没有箭头按钮，那么可以忽略。
+- `arrow1`If it is a horizontal scroll bar, it means the left arrow button; if it is a vertical scroll bar, it means the upper arrow button. It is optional and can be ignored if your scrollbar does not have an arrow button.
 - 
-- `arrow2` 如果是水平滚动条，它表示右边的箭头按钮；如果是垂直滚动条，它表示下边的箭头按钮。它是可选的，如果你的滚动条没有箭头按钮，那么可以忽略。
+- `arrow2`If it is a horizontal scroll bar, it indicates the right arrow button; if it is a vertical scroll bar, it indicates the lower arrow button. It is optional and can be ignored if your scrollbar does not have an arrow button.
 
-- `grip` 表示滚动条中间的滑块按钮。
+- `grip`Represents the slider button in the middle of the scroll bar.
 
-- `bar` 这个限制区域表示滚动滑块上下或者左右时滑动的范围，一般用一个空白的图形来表示就可以了，只作占位用途，没有实际渲染效果。
+- `bar`This restricted area indicates the range of the slider when sliding up and down or left and right. Generally, it is indicated by a blank graphic. It is only used for placeholders and has no actual rendering effect.
 
-## 实例属性
+## Instance properties
 
-滚动条有两种方法使用，一种是在“项目属性”->“预览设置”里设成为全局滚动条资源；另一种是在滚动容器的属性里设置。无论哪种方式，滚动条都是自动创建，然后根据滚动容器的属性调整的（参考[滚动容器](scrollpane.html)，你无法选定滚动条组件进行属性设置。
+There are two ways to use the scroll bar, one is to set it as a global scroll bar resource in "Project Properties"-> "Preview Settings"; the other is to set it in the properties of the scroll container. Either way, the scroll bar is created automatically and then adjusted according to the properties of the scroll container (see[Rolling container](scrollpane.html)You cannot select the scroll bar component for setting properties.
 
 ## GScrollBar
 
-运行时滚动条组件的类型是GScrollBar，但你不需要访问GScrollBar对象。所有滚动相关的操作都通过ScrollPane完成，参考[滚动容器](scrollpane.html)。
+The type of the scrollbar component at runtime is GScrollBar, but you don't need to access the GScrollBar object. All scroll related operations are done through ScrollPane, see[Rolling container](scrollpane.html)。

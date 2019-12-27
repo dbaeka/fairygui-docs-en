@@ -4,53 +4,53 @@ type: guide_editor
 order: 2
 ---
 
-## 包的定义
+## Definition of package
 
-FairyGUI是以包为单位组织资源的。包在文件系统中体现为一个目录。assets目录下每个子目录都表示一个包。**包内的每个资源都有一个是否导出的属性，一个包只能使用其他包设置为已导出的资源，而不设置为导出的资源是不可访问的。同时，只有设置为导出的组件才可以使用代码动态创建。**已导出的资源在资源库显示时，图标右下角有一个小红点。
+FairyGUI organizes resources in packages. A package is represented as a directory in the file system. Each subdirectory under the assets directory represents a package. ** Each resource in a package has an attribute of whether to export it. A package can only be set as an exported resource using other packages, and it is not accessible if it is not set as an exported resource. At the same time, only components set to export can be dynamically created using code. ** When exported assets are displayed in the Asset Library, there is a small red dot in the lower right corner of the icon.
 
-每个包里都有一个package.xml文件，它是包的数据库文件。如果这个文件被破坏，那么包的内容将无法读取。在多人协作的情况下，如果在拉取package.xml时出现冲突，请先处理好冲突，再在编辑器内刷新包。
+Each package has a package.xml file, which is the database file for the package. If this file is corrupted, the contents of the package will be unreadable. In the case of multi-person collaboration, if there is a conflict when pulling package.xml, please resolve the conflict before refreshing the package in the editor.
 
-包发布后可以得到一个描述文件和一张或多张纹理集，**不同平台的文件数量和打包方式有差别**。
+After the package is released, you can get a description file and one or more texture sets.**The number of files and packaging methods are different on different platforms**。
 
-## 包的依赖
+## Package dependencies
 
-FairyGUI是不处理包之间的依赖关系的，如果B包导出了一个元件B1，而A包的A1元件使用了元件B1，那么在创建A1之前，必须保证B包已经被载入，否则A1里的B1不能正确显示（但不会影响程序正常运行）。**这个载入需要由开发者手动调用，FairyGUI不会自动载入。**
+FairyGUI does not deal with the dependencies between packages. If package B exports a component B1 and component A1 of package A uses component B1, then before creating A1, you must ensure that package B has been loaded, otherwise A1 B1 cannot be displayed correctly (but it will not affect the normal operation of the program). **This loading needs to be called manually by the developer, FairyGUI will not load automatically.**
 
-在代码里，可以通过以下API查询包之间的依赖关系：
+In the code, you can query the dependencies between packages through the following API:
 
 ```csharp
-    var dependencies = UIPackage.dependencies;
-    foreach(var kv in dependencies)
-    {
-        Debug.Log(kv["id"]); //依赖包的id
-        Debug.Log(kv["name"]); //依赖包的名称
-    }
+var dependencies = UIPackage.dependencies;
+    foreach (var kv in dependencies)
+    {
+        Debug.Log (kv ["id"]); // id of the dependent package
+        Debug.Log (kv ["name"]); // Name of the dependent package
+    }
 ```
 
-## 划分包的原则
+## Principles of dividing packages
 
-如何划分包，有一个原则，就是不要建立交叉的引用关系。例如避免A包使用B包的资源，B包使用C包的资源这类情况。我们一般都建立一个或多个公共包，把整个项目需要频繁使用到的资源放在这里，把一些基础组件，例如按钮、滚动条、窗口背景等也放到这里。其他包需要使用时直接从公共包拖入就可以了。除了公共包，其他包相互之间尽量不发生引用关系。简洁的依赖关系可以使程序员更轻松地控制UI资源的载入和卸载。
+How to divide the package, one principle is not to establish a cross-reference relationship. For example, avoid the situation where package A uses resources of package B, and package B uses resources of package C. We generally set up one or more public packages, put the resources that are frequently used by the entire project here, and put some basic components, such as buttons, scroll bars, window backgrounds, etc. here. When other packages need to be used, drag them directly from the public package. Except for public packages, other packages try not to reference each other. Concise dependencies make it easier for programmers to control the loading and unloading of UI resources.
 
-包划分的粒度一般没有一个硬性的规定。在具体实践中，有不同的方案，比如有的人喜欢分的比较细，一个模块一个包；有的人喜欢包少一点，就把不同UI模块的资源和组件都堆在一起。这些方案对UI的运行性能影响都不大。但是图片资源尽量不要太分散，因为不同包的图片是不能打在同一张纹理集上的，如果资源太分散，可能造成纹理集的留空过多，浪费空间。
+The granularity of package division generally does not have a hard and fast rule. In specific practice, there are different schemes. For example, some people prefer to divide each module into one package. Some people prefer a smaller package, so they put together the resources and components of different UI modules. These solutions have little impact on the performance of the UI. However, try not to spread the image resources too much, because different packages of images cannot be used on the same texture set. If the resources are too scattered, the texture set may be left blank and waste space.
 
-## 资源URL地址
+## Resource URL
 
-在FairyGUI中，每一个资源都有一个URL地址。选中一个资源，右键菜单，选择“复制URL”，就可以得到资源的URL地址。无论在编辑器中还是在代码里，都可以通过这个URL引用资源。例如设置一个按钮的图标，你可以直接从库中拖入，也可以手工粘贴这个URL地址。这个URL是一串编码，并不可读，在开发中使用会造成阅读困难，所以我们通常使用另外一种格式：ui://包名/资源名。两种URL格式是通用的，一种不可读，但不受包或资源重命名的影响；另一种则可读性较高。
+In FairyGUI, every resource has a URL. Select a resource, Context the menu, and select "Copy URL" to get the URL address of the resource. Whether in the editor or in the code, you can reference the resource through this URL. For example, to set a button icon, you can drag it directly from the library, or you can manually paste the URL address. This URL is a string of encodings and is not readable. It is difficult to read in development, so we usually use another format: ui:// package name / resource name. The two URL formats are universal, one is unreadable but is not affected by package or resource renaming; the other is more readable.
 
-**注意：“ui://包名/资源名”这个格式的地址是不包含文件夹的，只需要用到包名和资源名。**
+**Note: The address in the format "ui://package name/resource name" does not include the folder, only the package name and resource name are needed.**
 
-运行时要获得指定对象的URL地址，可以使用如下方法：
+To obtain the URL address of the specified object at runtime, you can use the following methods:
 
-  ```csharp
-    //对象的URL地址
-    Debug.Log(aObject.resourceURL);
+```csharp
+// URL address of the object
+  Debug.Log (aObject.resourceURL);
 
-    //对象在资源库中的名称
-    Debug.Log(aObject.packageItem.name);
+  // The name of the object in the resource library
+  Debug.Log (aObject.packageItem.name);
 
-    //对象所在包的名称
-    Debug.Log(aObject.packageItem.owner.name);
+  // The name of the package where the object is located
+  Debug.Log (aObject.packageItem.owner.name);
 
-    //根据URL获得资源名称
-    Debug.Log(UIPackage.GetItemByURL(resourceURL).name);
-  ```
+  // Get the resource name based on the URL
+  Debug.Log (UIPackage.GetItemByURL (resourceURL) .name);
+```

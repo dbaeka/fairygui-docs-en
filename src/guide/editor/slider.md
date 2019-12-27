@@ -4,75 +4,75 @@ type: guide_editor
 order: 26
 ---
 
-滑动条与进度条相似，不过滑动条增加了一个“把”按钮可以让玩家拖动它改变进度条的值。
+The slider is similar to the progress bar, but the slider has a "button" button that allows the player to drag it to change the value of the progress bar.
 
-## 创建滑动条
+## Create slider
 
-可以通过两种方式创建滑动条组件。
+There are two ways to create a slider component.
 
-- 点击主菜单“资源”->“新建滑动条”，然后按照向导的提示一步步完成。
+- Click the main menu "Resources"-> "New Slider" and follow the wizard's prompts step by step to complete.
 
-  ![](../../images/QQ20191211-205435.png)
+   ![](../../images/QQ20191211-205435.png)
 
-- 新建一个组件，然后在组件属性里选择扩展为“滑动条”。
+- Create a new component and select Expand to "Slider" in the component properties.
 
-## 设计属性
+## Edit-mode properties
 
-在组件编辑状态下，滑动条组件的属性面板是：
+In the component editing state, the properties panel of the slider component is:
 
 ![](../../images/QQ20191211-205508.png)
 
-- `标题类型` 如果组件内有名称为“title”的元件，则进度条可以显示一个表达当前进度的文字。
-  - `百分比` 显示当前进度的百分比，例如“88%”。
-  - `当前值/最大值` 例如“50/100”。
-  - `当前值` 例如“50”。
-  - `最大值` 例如“10000”。
+- `Title type`If there is a component named "title" in the component, the progress bar can display a text expressing the current progress.
+   - `percentage`Displays the current progress percentage, such as "88%".
+   - `Current value / maximum value`For example "50/100".
+   - `The current value`For example "50".
+   - `Max`For example "10000".
 
-- `反向` 对于横向的滑动条，一般来说，进度越大，伸缩条越向右延伸，如果是反向的，则伸缩条右边缘固定，进度越大，伸缩条越往左延伸；对于纵向的滑动条，一般来说，进度越大，伸缩条越向下延伸，如果是反向的，则伸缩条底边缘固定，进度越大，伸缩条越往上延伸。
+- `Reverse`For horizontal sliders, in general, the larger the progress, the more the telescopic bar extends to the right. If it is reversed, the right edge of the telescopic bar is fixed. The larger the progress, the more the telescopic bar extends to the left. For the vertical slider, In general, the larger the progress, the more the telescopic bar extends downward. If it is reversed, the bottom edge of the telescopic bar is fixed. The larger the progress, the more the telescopic bar extends upward.
 
-- `整数输入` 勾选后，当滑动条被用户滑动时，最后只会停止在整数位置上，也就是滑动条的值始终是整数。这个功能可用于实现分级的滑动条。API是wholeNumbers。
+- `Integer input`When checked, when the slider is swiped by the user, it will only stop at the integer position, that is, the value of the slider is always an integer. This feature can be used to implement hierarchical sliders. The API is wholeNumbers.
 
-- `允许通过点击更改` 勾选后，直接点击滑动条就可以改变滑动条的值；如果不勾选，则只能拖动滑块改变滑动条的值。API是changeOnClick。
+- `Allow changes with a click`After checking, you can directly change the value of the slider by clicking the slider; if you do not check, you can only drag the slider to change the value of the slider. The API is changeOnClick.
 
-## 制作方法
+## Instructions
 
-- `bar` 当进度改变时，改变“bar”对象的宽度。一般用于横向的进度条。注意：一定要设置bar对象的宽度为进度条处于最大值时的宽度。
+- `bar`When the progress changes, change the width of the "bar" object. Generally used for horizontal progress bar. Note: Be sure to set the width of the bar object to the width when the progress bar is at its maximum.
 
-  “bar”元件可以是任何类型，不限制于图片。
+   The "bar" element can be of any type and is not limited to images.
 
-- `bar_v` 当进度改变时，改变“bar_v”对象的高度。一般用于纵向的进度条。注意：一定要设置bar_v对象的高度为进度条处于最大值时的高度。
+- `bar_v`When the progress changes, change the height of the "bar_v" object. Generally used for vertical progress bar. Note: Be sure to set the height of the bar_v object to the height when the progress bar is at its maximum.
 
-  “bar_v”元件可以是任何类型，不限制于图片。
+   The "bar_v" element can be of any type and is not limited to images.
 
-- `grip` 用于拖动的按钮。注意：grip按钮应该与bar对象建立一个关联，并放置在进度条处于最大值时的位置。这个关联是：
-  正向：grip左左关联到bar或者顶顶关联到bar_v；
-  反向：grip顶顶关联到bar或者底底关联到bar_v。
+- `grip`Button for dragging. Note: The grip button should be associated with the bar object and placed where the progress bar is at its maximum. This relation is:
+Forward: The left and right grips are associated with bar or the top is associated with bar_v;
+Reverse: The top of the grip is associated with bar or the bottom is associated with bar_v.
 
-- `title` 可以是装载器，也可以是标签、按钮。用于显示进度的标题。显示的内容由“标题类型”决定。
- 
-## 实例属性
+- `title`It can be a loader, or a label or button. A title to display progress. What is displayed is determined by the "Title Type".
 
-在舞台上选中一个滑动条组件，右边的属性面板列表出现：
+## Instance properties
+
+Select a slider component on the stage, and the property panel list on the right appears:
 
 ![](../../images/QQ20191211-212644.png)
 
-- `最小值` 最小进度值。
+- `Minimum value`The minimum progress value.
 
-- `最大值` 最大进度值。
+- `Max`The maximum progress value.
 
-- `当前值` 当前进度。
+- `The current value`Current progress.
 
 ## GSlider
 
 ```csharp
-    GSlider slider = gcom.GetChild("n1").asSlider;
+GSlider slider = gcom.GetChild("n1").asSlider;
     slider.value = 50;
 ```
 
-滑动条进度改变时有通知事件：
+There are notification events when the slider progress changes:
 
 ```csharp
-    //Unity/Cry
+//Unity/Cry
     slider.onChanged.Add(onChanged);
 
     //AS3

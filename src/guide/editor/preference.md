@@ -4,28 +4,28 @@ type: guide_editor
 order: 38
 ---
 
-Windows用户通过主菜单“编辑->首选项”打开偏好设置对话框；
-Mac用户通过主菜单“FairyGUI编辑器->首选项”打开偏好设置对话框。
+Windows users open the preferences dialog via the main menu "Edit-> Preferences";
+Mac users open the Preferences dialog box via the main menu "FairyGUI Editor-> Preferences".
 
-## 通用
+## Common
 
 ![](../../images/QQ20191210-002148.png)
 
-- `界面语言` 设置编辑器的界面语言。
+- `Interface language`Set the editor interface language.
 
-- `版本更新` 设置是否自动更新软件。
+- `new version update`Set whether to update the software automatically.
 
-- `发布按钮` 设置主工具栏上发布按钮的功能。
-  - `发布当前包` 发布当前的活跃包（如果编辑器焦点在资源库，则活跃包是指资源库当前选中的资源所在的包；如果编辑器焦点在文档视图，则活跃包是指当前正在编辑的组件所在的包）。
-  - `发布所有修改过的包` 发布当前的活跃包，以及所有修改过但未曾发布的包。
-  - `发布所有包` 发布所有的包。
+- `Post button`Sets the function of the Publish button on the main toolbar.
+   - `Publish the current package`Publish the current active package (if the editor focuses on the resource library, the active package refers to the package where the resource currently selected is in the resource library; if the editor focuses on the document view, the active package refers to the package where the component currently being edited is located ).
+   - `Publish all modified packages`Publish the current active package, as well as all packages that have been modified but never released.
+   - `Publish all packages`Publish all packages.
 
-- `发布前自动保存` 设置发布前是否自动保存所有已修改但未保存的文档。
+- `Auto-save before publishing`Set whether to automatically save all modified but unsaved documents before publishing.
 
-## 热键设置
+## Hotkey settings
 
 ![](../../images/QQ20191210-002316.png)
 
-在这里可以为常用功能指定新的热键。“复制/粘贴/剪切/全选/取消全选/撤销/重做”这些功能的热键不可修改，其他功能则可以点击热键链接修改。
+Here you can assign new hotkeys for frequently used functions. The hotkeys of "Copy / Paste / Cut / Select All / Unselect All / Undo / Redo" cannot be modified. Other functions can be modified by clicking the hotkey link.
 
-编辑器对Ctrl键和Command键不做区分，他们是等效的。
+The editor does not distinguish between the Ctrl and Command keys, they are equivalent.

@@ -6,18 +6,18 @@
         <title>FairyGUI - ScrollBar</title>
     
         <meta charset="utf-8">
-        <meta name="description" content="FairyGUI Manual">
-        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Manual">
+        <meta name="description" content="FairyGUI Docs">
+        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Docs">
         
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
         <meta property="og:title" content="-ScrollBarFairyGUI">
-        <meta property="og:description" content="FairyGUI Manual">
+        <meta property="og:description" content="FairyGUI Docs">
 
         <meta name="twitter:card" content="summary">
         <meta name="twitter:title" content="ScrollBar — FairyGUI">
-        <meta name="twitter:description" content="FairyGUI Manual">
+        <meta name="twitter:description" content="FairyGUI Docs">
 
       <!--  <link href='//fonts.proxy.ustclug.org/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
 
@@ -65,7 +65,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/docs/guide/editor/index.html" class="sidebar-link">Basics</a>
+	                    <a href="/docs/guide/editor/index.html" class="sidebar-link">Basis</a>
 	                </li>
 	            
 	                
@@ -120,7 +120,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/docs/guide/editor/richtext.html" class="sidebar-link">RichText</a>
+	                    <a href="/docs/guide/editor/richtext.html" class="sidebar-link">Rich Text</a>
 	                </li>
 	            
 	                
@@ -274,7 +274,7 @@
 	                <li><h3>SDK - Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/index.html" class="sidebar-link">Basics</a>
+	                    <a href="/docs/guide/unity/index.html" class="sidebar-link">Basis</a>
 	                </li>
 	            
 	                
@@ -292,7 +292,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/font.html" class="sidebar-link">Font</a>
+	                    <a href="/docs/guide/unity/font.html" class="sidebar-link">Fonts</a>
 	                </li>
 	            
 	                
@@ -310,7 +310,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/insert3d.html" class="sidebar-link">Insert 3D/Canvas</a>
+	                    <a href="/docs/guide/unity/insert3d.html" class="sidebar-link">Insert 3D</a>
 	                </li>
 	            
 	                
@@ -354,32 +354,32 @@
     
       <h1>ScrollBar</h1>
     
-    <p>与很多UI框架使用皮肤机制定义滚动条不同，在FairyGUI中，滚动条是可以随心设计的。<br><a href="scrollpane.html">滚动容器</a>和滚动条是独立的，也就是说，即使没有滚动条，滚动容器也能完成滚动的功能。<br>注意：滚动条不能直接拖到舞台上使用，永远不要这样做。</p>
-<h2 id="创建滚动条"><a href="#创建滚动条" class="headerlink" title="创建滚动条"></a>创建滚动条</h2><p>可以通过两种方式创建滚动条组件。</p>
+    <p>Unlike many UI frameworks, which use skin mechanisms to define scroll bars, in FairyGUI, scroll bars can be freely designed.<a href="scrollpane.html">Rolling container</a>It is independent from the scroll bar, that is, even if there is no scroll bar, the scroll container can complete the scrolling function.<br>Note: The scroll bar cannot be dragged directly onto the stage, never do it.</p>
+<h2 id="Create-scroll-bar"><a href="#Create-scroll-bar" class="headerlink" title="Create scroll bar"></a>Create scroll bar</h2><p>There are two ways to create a scroll bar component.</p>
 <ul>
-<li><p>点击主菜单“资源”-&gt;“新建滚动条”，然后按照向导的提示一步步完成。</p>
-<p><img src="../../images/QQ20191211-181917.png" alt=""></p>
+<li><p>Click on the main menu “Resources”-&gt; “New Scroll Bar” and follow the wizard’s prompts step by step to complete.</p>
+<p> <img src="../../images/QQ20191211-181917.png" alt=""></p>
 </li>
-<li><p>新建一个组件，然后在组件属性里选择扩展为“滚动条”。</p>
+<li><p>Create a new component and select Expand to “Scrollbar” in the component properties.</p>
 </li>
 </ul>
-<h2 id="设计属性"><a href="#设计属性" class="headerlink" title="设计属性"></a>设计属性</h2><p>在组件编辑状态下，滚动条组件的属性面板是：</p>
+<h2 id="Edit-mode-properties"><a href="#Edit-mode-properties" class="headerlink" title="Edit-mode properties"></a>Edit-mode properties</h2><p>In the component editing state, the properties panel of the scrollbar component is:</p>
 <p><img src="../../images/QQ20191211-181948.png" alt=""></p>
 <ul>
-<li><code>固定的滚动滑块大小</code> 一般来说，滚动条中间的滚动滑块会随着滚动区域的大小的不同而伸缩。如果滚动区域比较小，则滑块会比较大；如果滚动区域比较大，则滑块会比较小。如果你需要任何时候滑块都相同大小，那么可以勾选这个选项。勾选后，滑块的大小将保持他原来的大小。</li>
+<li><code>Fixed scroll slider size</code>Generally speaking, the scroll slider in the middle of the scroll bar will expand and contract with the size of the scroll area. If the scroll area is small, the slider will be larger; if the scroll area is larger, the slider will be smaller. Check this option if you want the sliders to be the same size at all times. When checked, the size of the slider will remain at its original size.</li>
 </ul>
-<h2 id="制作说明"><a href="#制作说明" class="headerlink" title="制作说明"></a>制作说明</h2><ul>
-<li><code>arrow1</code> 如果是水平滚动条，它表示左边的箭头按钮；如果是垂直滚动条，它表示上边的箭头按钮。它是可选的，如果你的滚动条没有箭头按钮，那么可以忽略。</li>
+<h2 id="Instructions"><a href="#Instructions" class="headerlink" title="Instructions"></a>Instructions</h2><ul>
+<li><code>arrow1</code>If it is a horizontal scroll bar, it means the left arrow button; if it is a vertical scroll bar, it means the upper arrow button. It is optional and can be ignored if your scrollbar does not have an arrow button.</li>
 <li></li>
-<li><p><code>arrow2</code> 如果是水平滚动条，它表示右边的箭头按钮；如果是垂直滚动条，它表示下边的箭头按钮。它是可选的，如果你的滚动条没有箭头按钮，那么可以忽略。</p>
+<li><p><code>arrow2</code>If it is a horizontal scroll bar, it indicates the right arrow button; if it is a vertical scroll bar, it indicates the lower arrow button. It is optional and can be ignored if your scrollbar does not have an arrow button.</p>
 </li>
-<li><p><code>grip</code> 表示滚动条中间的滑块按钮。</p>
+<li><p><code>grip</code>Represents the slider button in the middle of the scroll bar.</p>
 </li>
-<li><p><code>bar</code> 这个限制区域表示滚动滑块上下或者左右时滑动的范围，一般用一个空白的图形来表示就可以了，只作占位用途，没有实际渲染效果。</p>
+<li><p><code>bar</code>This restricted area indicates the range of the slider when sliding up and down or left and right. Generally, it is indicated by a blank graphic. It is only used for placeholders and has no actual rendering effect.</p>
 </li>
 </ul>
-<h2 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h2><p>滚动条有两种方法使用，一种是在“项目属性”-&gt;“预览设置”里设成为全局滚动条资源；另一种是在滚动容器的属性里设置。无论哪种方式，滚动条都是自动创建，然后根据滚动容器的属性调整的（参考<a href="scrollpane.html">滚动容器</a>，你无法选定滚动条组件进行属性设置。</p>
-<h2 id="GScrollBar"><a href="#GScrollBar" class="headerlink" title="GScrollBar"></a>GScrollBar</h2><p>运行时滚动条组件的类型是GScrollBar，但你不需要访问GScrollBar对象。所有滚动相关的操作都通过ScrollPane完成，参考<a href="scrollpane.html">滚动容器</a>。</p>
+<h2 id="Instance-properties"><a href="#Instance-properties" class="headerlink" title="Instance properties"></a>Instance properties</h2><p>There are two ways to use the scroll bar, one is to set it as a global scroll bar resource in “Project Properties”-&gt; “Preview Settings”; the other is to set it in the properties of the scroll container. Either way, the scroll bar is created automatically and then adjusted according to the properties of the scroll container (see<a href="scrollpane.html">Rolling container</a>You cannot select the scroll bar component for setting properties.</p>
+<h2 id="GScrollBar"><a href="#GScrollBar" class="headerlink" title="GScrollBar"></a>GScrollBar</h2><p>The type of the scrollbar component at runtime is GScrollBar, but you don’t need to access the GScrollBar object. All scroll related operations are done through ScrollPane, see<a href="scrollpane.html">Rolling container</a>。</p>
 
     
     <div class="footer">

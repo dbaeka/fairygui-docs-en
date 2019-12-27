@@ -6,18 +6,18 @@
         <title>FairyGUI - Cocos2dx</title>
     
         <meta charset="utf-8">
-        <meta name="description" content="FairyGUI Manual">
-        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Manual">
+        <meta name="description" content="FairyGUI Docs">
+        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Docs">
         
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
         <meta property="og:title" content="-Cocos2dxFairyGUI">
-        <meta property="og:description" content="FairyGUI Manual">
+        <meta property="og:description" content="FairyGUI Docs">
 
         <meta name="twitter:card" content="summary">
         <meta name="twitter:title" content="Cocos2dx — FairyGUI">
-        <meta name="twitter:description" content="FairyGUI Manual">
+        <meta name="twitter:description" content="FairyGUI Docs">
 
       <!--  <link href='//fonts.proxy.ustclug.org/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
 
@@ -65,7 +65,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/docs/guide/editor/index.html" class="sidebar-link">Basics</a>
+	                    <a href="/docs/guide/editor/index.html" class="sidebar-link">Basis</a>
 	                </li>
 	            
 	                
@@ -120,7 +120,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/docs/guide/editor/richtext.html" class="sidebar-link">RichText</a>
+	                    <a href="/docs/guide/editor/richtext.html" class="sidebar-link">Rich Text</a>
 	                </li>
 	            
 	                
@@ -274,7 +274,7 @@
 	                <li><h3>SDK - Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/index.html" class="sidebar-link">Basics</a>
+	                    <a href="/docs/guide/unity/index.html" class="sidebar-link">Basis</a>
 	                </li>
 	            
 	                
@@ -292,7 +292,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/font.html" class="sidebar-link">Font</a>
+	                    <a href="/docs/guide/unity/font.html" class="sidebar-link">Fonts</a>
 	                </li>
 	            
 	                
@@ -310,7 +310,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/insert3d.html" class="sidebar-link">Insert 3D/Canvas</a>
+	                    <a href="/docs/guide/unity/insert3d.html" class="sidebar-link">Insert 3D</a>
 	                </li>
 	            
 	                
@@ -354,24 +354,24 @@
     
       <h1>Cocos2dx</h1>
     
-    <h2 id="运行Demo"><a href="#运行Demo" class="headerlink" title="运行Demo"></a>运行Demo</h2><ol>
-<li>从GitHub Clone或者直接下载FairyGUI-cocos2dx。</li>
-<li><p>下载3.x版本cocos2dx命名成cocos2d放在Example根目录。cocos2dx源码需要改动一处地方才能通过编译，打开2d/CCLabel.h，大约在672行，为updateBMFontScale函数打上virtual修饰符。即</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">virtual void updateBMFontScale();</div></pre></td></tr></table></figure>
-</li>
-<li><p>使用Visual Studio打开Examples/proj.win32/Examples.sln，然后直接运行Demo。</p>
-</li>
-<li>Demo的UI工程在Examples/UIProject下。结合UI工程和例子代码可以了解到FairyGUI在Cocos2dx下的使用方法。</li>
+    <h2 id="Run-Demo"><a href="#Run-Demo" class="headerlink" title="Run Demo"></a>Run Demo</h2><ol>
+<li>Download FairyGUI-cocos2dx from GitHub Clone or directly.</li>
+<li>Download the 3.x version of cocos2dx and name it cocos2d and place it in the Example root directory. The cocos2dx source code needs a change to compile. Open 2d / CCLabel.h, about 672 lines, and add the virtual modifier to the updateBMFontScale function. which is</li>
 </ol>
-<h2 id="加入FairyGUI到你的项目"><a href="#加入FairyGUI到你的项目" class="headerlink" title="加入FairyGUI到你的项目"></a>加入FairyGUI到你的项目</h2><p>将libfairygui加入到你的WorkSpace里，然后添加引用即可。libfairygui是一个静态库，最后链接到你的程序里。</p>
-<h2 id="关于GRoot"><a href="#关于GRoot" class="headerlink" title="关于GRoot"></a>关于GRoot</h2><p>GRoot是UI的根对象，我们可以像Demo那样，每个场景都创建一个GRoot对象。GRoot::getInstance()（或者简单的使用UIRoot这个宏）指向的是最后创建的GRoot对象，一般来说就是当前Scene包含的GRoot对象。Cocos2dx在切换Scene时Scene里的一切东西都会销毁，也包括加入到Scene里的GRoot。如果你想避免界面的重复创建，一个GRoot在不同Scene里公用，那么可以自己对GRoot retain。切换场景后自行add GRoot到Scene即可。</p>
-<h2 id="事件机制"><a href="#事件机制" class="headerlink" title="事件机制"></a>事件机制</h2><p>与事件相关的API有</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">addEventListener</span>(<span class="params"><span class="keyword">int</span> eventType, <span class="keyword">const</span> EventCallback&amp; callback</span>)</span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">addEventListener</span>(<span class="params"><span class="keyword">int</span> eventType, <span class="keyword">const</span> EventCallback&amp; callback, <span class="keyword">const</span> EventTag&amp; tag</span>)</span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">removeEventListener</span>(<span class="params"><span class="keyword">int</span> eventType</span>)</span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">removeEventListener</span>(<span class="params"><span class="keyword">int</span> eventType, <span class="keyword">const</span> EventTag&amp; tag</span>)</span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">removeEventListeners</span>(<span class="params"></span>)</span>;</div></pre></td></tr></table></figure>
-<p><code>eventType</code> 一个事件类型常量，定义在event/UIEventType.h里。<br><code>callback</code> 回调函数，可以用CC_CALLBACK_1宏来定义，也可以用Lambda表达式。<br><code>tag</code> 如果事件注册后要进行remove操作，那么add的时候必须标识这个事件。这里的机制是调用者提供一个EventTag。EventTag可以用整形，或者一个指针地址来构造，例如可以直接传递this。特别地，0表示没有EventTag，也就是不要使用0作为特殊的EventTag。</p>
-<h2 id="Lua-Binding"><a href="#Lua-Binding" class="headerlink" title="Lua Binding"></a>Lua Binding</h2><p>FairyGUI-cocos2dx只提供了C++版本，Lua Binding需要由你自行完成。或者参考网上的资料，例如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">virtual void updateBMFontScale();</div></pre></td></tr></table></figure>
 <ol>
-<li><a href="https://github.com/zhongfq/cocos-lua" target="_blank" rel="external">Cocos-lua</a></li>
-<li><a href="https://www.jianshu.com/p/547e584e05d8" target="_blank" rel="external">FairyGUI在Cocos2d-x下的多平台接入和lua绑定</a></li>
+<li>Use Visual Studio to open Examples / proj.win32 / Examples.sln and run Demo directly.</li>
+<li>Demo UI project is under Examples / UIProject. Combining UI project and example code, you can learn how to use FairyGUI under Cocos2dx.</li>
+</ol>
+<h2 id="Add-FairyGUI-to-your-project"><a href="#Add-FairyGUI-to-your-project" class="headerlink" title="Add FairyGUI to your project"></a>Add FairyGUI to your project</h2><p>Add libfairygui to your WorkSpace and add references. libfairygui is a static library that is finally linked into your program.</p>
+<h2 id="About-GRoot"><a href="#About-GRoot" class="headerlink" title="About GRoot"></a>About GRoot</h2><p>GRoot is the root object of the UI. We can create a GRoot object for each scene like Demo. GRoot :: getInstance () (or simply use the UIRoot macro) points to the last GRoot object created, which is generally the GRoot object contained in the current Scene. When Cocos2dx switches Scenes, everything in the Scene will be destroyed, including GRoot added to the Scene. If you want to avoid repeated creation of the interface, a GRoot is used in different Scenes, then you can retain GRoot yourself. After switching scenes, you can add GRoot to Scene by yourself.</p>
+<h2 id="Event-mechanism"><a href="#Event-mechanism" class="headerlink" title="Event mechanism"></a>Event mechanism</h2><p>Event related APIs are</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">addEventListener</span>(<span class="params"><span class="keyword">int</span> eventType, <span class="keyword">const</span> EventCallback&amp; callback</span>)</span>;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">addEventListener</span>(<span class="params"><span class="keyword">int</span> eventType, <span class="keyword">const</span> EventCallback&amp; callback, <span class="keyword">const</span> EventTag&amp; tag</span>)</span>;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">removeEventListener</span>(<span class="params"><span class="keyword">int</span> eventType</span>)</span>;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">removeEventListener</span>(<span class="params"><span class="keyword">int</span> eventType, <span class="keyword">const</span> EventTag&amp; tag</span>)</span>;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">removeEventListeners</span>(<span class="params"></span>)</span>;</div></pre></td></tr></table></figure>
+<p><code>eventType</code>An event type constant, defined in event / UIEventType.h.<code>callback</code>The callback function can be defined with the CC_CALLBACK_1 macro or a Lambda expression.<code>tag</code>If the remove operation is to be performed after the event registration, then the event must be identified when adding. The mechanism here is that the caller provides an EventTag. EventTag can be constructed using integers or a pointer address, for example, this can be passed directly. In particular, 0 means that there is no EventTag, that is, do not use 0 as a special EventTag.</p>
+<h2 id="Lua-Binding"><a href="#Lua-Binding" class="headerlink" title="Lua Binding"></a>Lua Binding</h2><p>FairyGUI-cocos2dx only provides C ++ version, Lua Binding needs to be completed by you. Or refer to online materials, such as:</p>
+<ol>
+<li><a href="https://github.com/zhongfq/cocos-lua" target="_blank" rel="external">Cocos-taking</a></li>
+<li><a href="https://www.jianshu.com/p/547e584e05d8" target="_blank" rel="external">FairyGUI multi-platform access and lua binding under Cocos2d-x</a></li>
 </ol>
 
     

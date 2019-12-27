@@ -1,231 +1,217 @@
 ---
-title: RichText
+title: Rich Text
 type: guide_editor
 order: 16
 ---
 
-富文本与普通文本的区别在于：
+The difference between rich text and ordinary text is:
 
-- 普通文本不支持交互，鼠标/触摸感应是关闭的；富文本支持。
-- 普通文本不支持链接和图文混排；富文本支持。
-- 普通文本不支持HTML语法（但可以使用UBB实现不同样式）；富文本支持。
+- Normal text does not support interaction, mouse / touch sensing is off; rich text support.
+- Normal text does not support linking and graphic mixing; rich text support.
+- Normal text does not support HTML syntax (but different styles can be implemented using UBB); rich text support.
 
-点击主工具栏中的![](../../images/sidetb_04.png)按钮，生成一个富文本。
+Click in the main toolbar![](../../images/sidetb_04.png)Button to generate a rich text.
 
-## 实例属性
+## Instance properties
 
 ![](../../images/QQ20191211-171911.png)
 
-- ![](../../images/texttb_01.png) 设置文本支持UBB语法。使用UBB语法可以使单个文本包含多种样式，例如字体大小，颜色等。请参考[UBB语法](text.html#UBB语法)。
+- ![](../../images/texttb_01.png)Set text to support UBB syntax. Using UBB syntax can make a single text contain multiple styles, such as font size, color, etc. [Please refer to UBB syntax](text.html#UBB语法)。
 
-- ![](../../images/texttb_02.png) 选中后，文本可以使用{count=100}这样的语法表达一个文本参数。请参考[文本模板](text.html#文本模板)。
+- ![](../../images/texttb_02.png)When selected, the text can express a text parameter using syntax such as {count = 100}. [Please refer to the text template](text.html#文本模板)。
 
-- ![](../../images/texttb_03.png) 设置文本为单行。单行文本不会自动换行，换行符也被忽略。
+- ![](../../images/texttb_03.png)Set the text to a single line. Single-line text does not wrap automatically, and newline characters are ignored.
 
-- ![](../../images/texttb_04.png) 设置文本为粗体。
+- ![](../../images/texttb_04.png)Set the text to bold.
 
-- ![](../../images/texttb_05.png) 设置文本为斜体。
+- ![](../../images/texttb_05.png)Set the text to italic.
 
-- ![](../../images/texttb_06.png) 设置文本为下划线。
+- ![](../../images/texttb_06.png)Set the text to underline.
 
-- ![](../../images/texttb_07.png) 表示文本只用作编辑器预览用途，发布时将会自动清除。
+- ![](../../images/texttb_07.png)Indicates that the text is only used as an editor preview and will be automatically cleared when publishing.
 
-- `文本` 设置文本内容。富文本可直接使用[HTML语法](#HTML语法)。当需要换行时，在编辑器里可以**直接按回车**，或者使用html标签“&lt;br/&gt;”亦可。代码赋值需要换行可以用“\n”。某些引擎，例如LayaAir，可能不支持回车符换行，可以使用&lt;br/&gt;试试。
+- `text`Set the text content. Rich text can be used directly[HTML syntax](#HTML语法)。 When a new line is needed, you can do it in the editor**Press enter directly**, Or use the html tag "& lt; br / & gt;". The code assignment requires a newline. You can use "\ n". Some engines, such as LayaAir, may not support a carriage return and line feed. Try using & lt; br / & gt ;.
 
-- `字体` 设置文字使用的字体。**你不需要每个文本设置一次字体。**在项目属性里可以设置项目中所有文本默认使用的字体。运行时则通过`UIConfig.defaultFont`统一设置。如果需要使用位图字体，可以从资源库中把字体资源拖动到这里。如果使用TTF字体，那么你需要将字体安装到操作系统，然后再在这里输入字体名称，或者点击旁边的A按钮进行选择。
+- `Font`Set the font used for text. ** You don't need to set the font once for each text. ** In the project properties, you can set the default font used for all text in the project. When running`UIConfig.defaultFont`Uniform settings. If you need to use bitmap fonts, you can drag font resources from the resource library here. If you use TTF fonts, then you need to install the fonts into the operating system, then enter the font name here, or click the A button next to it to select.
 
-- `字体大小` 设置文字使用的字号。如果使用的是位图字体，你需要对位图字体设置“允许动态改变字号”，这里的选项才有效。
+- `font size`Sets the font size used for text. If you are using a bitmap font, you need to set "Allow dynamic font size change" for the bitmap font for the options here to be effective.
 
-- `颜色` 设置文字颜色。如果使用的是位图字体，你需要对位图字体设置“允许动态改变颜色”，这里的选项才有效。
+- `colour`Set the text color. If you are using a bitmap font, you need to set "Allow dynamic color changes" to the bitmap font for this option to take effect.
 
-- `行距` 每行的像素间距。
+- `Line spacing`The pixel pitch of each row.
 
-- `字距` 每个字符的像素间距。*（目前H5类引擎均不支持）*
+- `Kerning`Pixel pitch for each character. *(Neither H5 engines are currently supported)*
 
-- `自动大小` 
-  - `自动宽度和高度` 文本不会自动换行，宽度和高度都增长到容纳全部文本。
-  - `自动高度` 文本使用固定宽度排版，到达宽度后自动换行，高度增长到容纳全部文本。
-  - `自动收缩` 文本使用固定宽度排版，到达宽度后文本自动缩小，使所有文本依然全部显示。如果内容宽度小于文本宽度，则不做任何处理。
-  - `无` 文本使用固定宽度和高度排版，不会自动换行。
+- `Auto size`
+   - `Auto width and height`The text does not wrap, and both the width and height grow to fit the entire text.
+   - `Automatic height`The text is typeset with a fixed width, and it wraps automatically when it reaches the width, and the height grows to accommodate the entire text.
+   - `Automatic shrink`The text is typeset with a fixed width. When the width is reached, the text is automatically reduced so that all text is still displayed. If the content width is less than the text width, no processing is done.
+   - `no`Text is typeset with fixed width and height and does not wrap automatically.
 
-- `对齐` 设置文本的对齐。
+- `Aligned`Set the alignment of the text.
 
-- `描边` 设置文本的描边效果。描边粗细数值不能过大，否则效果会比较奇怪。描边在各个引擎实现的方式不同，效果也不同，编辑器的效果也仅供参考。
+- `Stroke`Sets the stroke effect of the text. The stroke weight value cannot be too large, otherwise the effect will be strange. Strokes are implemented differently in each engine, and the effects are different, and the effects of the editor are for reference only.
 
-- `投影` 设置文本的投影效果。投影效果可以看做是简化的描边效果，描边是所有方向，投影只有一个方向。投影和描边共用一个颜色设置。
+- `projection`Sets the drop shadow effect of the text. The projection effect can be regarded as a simplified stroke effect. The stroke is in all directions, and the projection has only one direction. Projection and stroke share a single color setting.
 
 ## GRichTextField
 
-富文本支持动态创建，例如：
+Rich text supports dynamic creation, for example:
 
 ```csharp
-    GRichTextField aRichTextField = new GRichTextField();
-    aRichTextField.SetSize(100,100);
-    aRichTextField.text = "<a href='xxx'>Hello World</a>";
+GRichTextField aRichTextField = new GRichTextField (); aRichTextField.SetSize (100,100); aRichTextField.text = &quot; <a href='xxx'>Hello World</a> &quot;;
 ```
 
-侦听富文本中链接点击的方法是（这个事件是冒泡的，也就是你可以不在富文本上侦听，在它的父元件或者祖父元件上侦听都是可以的）：
+The method to listen for link clicks in rich text is (this event is bubbling, that is, you can not listen on rich text, you can listen on its parent or grandfather components):
 
 ```csharp
-    //Unity/Cry/MonoGame, EventContext里的data就是href值。
-    aRichTextField.onClickLink.Add(onClickLink);
+// Unity / Cry / MonoGame, the data in the EventContext is the href value.
+    aRichTextField.onClickLink.Add (onClickLink);
 
-    //AS3/Egret，TextEvent.text就是href值。
-    aRichTextField.addEventListener(TextEvent.LINK, onClickLink);
+    // AS3 / Egret, TextEvent.text is the href value.
+    aRichTextField.addEventListener (TextEvent.LINK, onClickLink);
 
-    //Egret，TextEvent.text就是href值。
-    aRichTextField.addEventListener(TextEvent.LINK, this.onClickLink, this);
+    // Egret, TextEvent.text is the href value.
+    aRichTextField.addEventListener (TextEvent.LINK, this.onClickLink, this);
 
-    //Laya, onClickLink的参数就是href值。
-    aRichTextField.on(laya.events.Event.LINK,this,this.onClickLink);
+    // Laya, the parameter of onClickLink is the href value.
+    aRichTextField.on (laya.events.Event.LINK, this, this.onClickLink);
 
-    //Cocos2dx，EventContext.getDataValue().asString()就是href的值。
-    aRichTextField->addEventListener(UIEventType::ClickLink, CC_CALLBACK_1(AClass::onClickLink, this));
+    // Cocos2dx, EventContext.getDataValue ().asString () is the value of href.
+    aRichTextField-> addEventListener (UIEventType :: ClickLink, CC_CALLBACK_1 (AClass :: onClickLink, this));
 
-    //CocosCreator，onClickLink的第一个参数就是href值，可选的第二个参数是fgui.Event
-    aRichTextField.on(fgui.Event.LINK, this.onClickLink, this);    
+    // CocosCreator, the first parameter of onClickLink is the href value, and the optional second parameter is fgui.Event
+    aRichTextField.on (fgui.Event.LINK, this.onClickLink, this);
 ```
 
-富文本最重要的功能是支持HTML解析和渲染。普通的文本样式标签，例如`FONT`、`B`、`I`、`U`这些一般都能很好的支持。其他一些对象标签，例如`A`、`IMG`等在各个引擎中支持的力度有所不同：
+The most important feature of rich text is support for HTML parsing and rendering. Plain text style tags, such as`FONT`、`B`、`I`、``These are generally well supported. Some other object tags, such as`A`、``IMG and others support different strengths in each engine:
 
-- `AS3/Starling` 支持`A`标签和`IMG`标签，支持混排UI库里的图片/动画和外部图片。支持定制超级链接的样式：
+- `AS3/Starling```Support A tags and``IMG tags, support for shuffled images / movieclips and external images in the UI library. Support for custom hyperlink styles:
 
-    ```csharp
-        aRichTextField.ALinkFormat = new TextFormat(...);
-        aRichTextField.AHoverFormat = new TextFormat(...);
-    ```
+   ```csharp
+   aRichTextField.ALinkFormat = new TextFormat (...);
+    aRichTextField.AHoverFormat = new TextFormat (...);
+   ```
 
-- `Egret` 支持`A`标签。不支持图文混排。
+- ``Egret support``A label. Mixed graphics and text are not supported.
 
-- `Laya` 支持`A`标签和`IMG`标签，只支持混排外部图片，**不支持UI库里的图片和动画**。Laya版本的GRichTextField的实质是包装了Laya的HTMLDivElement，可以通过以下方式访问：
+- ``Laya support```A label and IMG`Tags, only supports mixing external images,**Does not support images and movieclips in the UI library**。 The essence of the Laya version of GRichTextField is to wrap Laya's HTMLDivElement, which can be accessed in the following ways:
 
-    ```csharp
-        var div:HtmlDivElement = aRichTextField.div;
-    ```
+   ```csharp
+   var div: HtmlDivElement = aRichTextField.div;
+   ```
 
-- `Unity` 支持`A`、`IMG`、`INPUT`、`SELECT`，`P`等。请参考[这里](#HTML语法)
+- ``Unity support`A`、`IMG`、`INPUT`、`SELECT`，``P and so on. [Please refer here](#HTML语法)
 
-- `Cocos Creator` 支持 `A`、`IMG`。支持包里的和外部的图片，但不支持动画（动画显示成单帧）。Creator版本的GRichTextField的实质是包装了cc.RichText。
+- `Cocos Creator``Support A`、`IMG`。 Supports package and external images, but does not support movieclip (movieclip is displayed as a single frame). The essence of the Creator version of GRichTextField is to wrap cc.RichText.
 
-## HTML语法
+## HTML syntax
 
-Unity/MonoGame版本对HTML解析有比较完整的支持。
+Unity / MonoGame version has more complete support for HTML parsing.
 
-- `IMG` 支持混排UI库里的图片/动画和外部(网络）图片。加载外部图片的能力可以通过[扩展Loader](loader.html#GLoader)提供。注意，img标签需要使用“/&gt;”结束，而不是“&gt;”。例如：
+- `IMG`Support for shuffled images / movieclips and external (network) images in the UI library. The ability to load external images can be achieved via[Extended Loader](loader.html#GLoader)provide. Note that the img tag needs to end with "/ & gt;", not "& gt;". E.g:
 
-    ```csharp
-        <img src='ui://包名/图片名'/>
+   ```csharp
+   <img src='ui://package name/image name'/> // You can also specify the size of the image <img src='ui://package name/image name' width='20' height='20'/> // You can also specify the size of the image with a percentage <img src='ui://package name/image name' width='50%' height='50%'/>
+   ```
 
-        //还可以指定图片的大小
-        <img src='ui://包名/图片名' width='20' height='20'/>
+- `A`Display a hyperlink. E.g:
 
-        //还可以用百分比指定图片的大小
-        <img src='ui://包名/图片名' width='50%' height='50%'/>
-    ```
+   ```csharp
+   <a href='xxx'>link text</a>
+   ```
 
-- `A` 显示一个超级链接。例如：
+   Supports defining the style of hyperlinks. If it is modified globally, you can use the static properties of HtmlParseOptions, for example:
 
-    ```csharp
-        <a href='xxx'>link text</a>
-    ```
+   ```csharp
+   // Note: Global settings should be called before creating rich text.
+    // Set whether all links in the entire project are underlined
+    HtmlParseOptions.DefaultLinkUnderline = false;
 
-    支持定义超级链接的样式。如果是全局修改，可以使用HtmlParseOptions的静态属性，例如：
+    // Set the color of the hyperlink
+    HtmlParseOptions.DefaultLinkColor = ...;
+    HtmlParseOptions.DefaultLinkBgColor = ...;
+    HtmlParseOptions.DefaultLinkHoverBgColor = ...;
+   ```
 
-    ```csharp
-        //注意：全局设置应该在创建富文本之前调用。
-        //设置整个项目中所有链接是否带下划线
-        HtmlParseOptions.DefaultLinkUnderline = false;
+   If you just want to define a single rich text link style, then you can:
 
-        //设置超级链接的颜色
-        HtmlParseOptions.DefaultLinkColor = ...;
-        HtmlParseOptions.DefaultLinkBgColor = ...;
-        HtmlParseOptions.DefaultLinkHoverBgColor = ...;
-    ```
+   ```csharp
+   HtmlParseOptions options = aRichTextField.richTextField.htmlParseOptions;
+    options.linkUnderline = false;
+    options.linkColor = ...;
+    options.linkBgColor = ...;
+    options.linkHoverBgColor = ...;
+   ```
 
-    如果你只想定义单个富文本的链接样式，那么可以这样：
+   If each link in the same text needs a different color, wrap it around with a color label around the link label.
 
-    ```csharp
-        HtmlParseOptions options = aRichTextField.richTextField.htmlParseOptions;
-        options.linkUnderline = false;
-        options.linkColor = ...;
-        options.linkBgColor = ...;
-        options.linkHoverBgColor = ...;
-    ```
+- `INPUT`The following syntaxes are supported:
 
-    如果同一个文本内的各个链接都需要不同颜色，那么在链接标签外围用颜色标签包住就行了。
+   ```csharp
+   // show a button <input type='button' value='标题'/> // Show an input box <input type='text' value='文本内容'/>
+   ```
 
-- `INPUT` 支持显示以下语法：
+   If you need to display the button, you need to define the resource corresponding to the button first, otherwise it cannot be displayed. E.g:
 
-    ```csharp
-        //显示一个按钮
-        <input type='button' value='标题'/>
+   ```csharp
+   HtmlButton.resource = "ui:// package name / button name";
+   ```
 
-        //显示一个输入框
-        <input type='text' value='文本内容'/>
-    ```
+   For the input box, you can define the border color and border size of the input box, for example:
 
-    如果需要显示按钮，需要先定义按钮对应的资源，否则无法显示。例如：
+   ```csharp
+   HtmlInput.defaultBorderSize = 2;
+    HtmlInput.defaultBorderColor = ...;
+   ```
 
-    ```csharp
-        HtmlButton.resource = "ui://包名/按钮名";
-    ```
+- `SELECT`Use this tab to display a drop-down selection box. E.g:
 
-    对于输入框，可以定义输入框的边框颜色和边框大小，例如：
+   ```csharp
+   <select name=''>
+        <option value='1'>1</option>
+        <option value='2'>2</option>
+    </select>
+   ```
 
-    ```csharp
-        HtmlInput.defaultBorderSize = 2;
-        HtmlInput.defaultBorderColor = ...;
-    ```
+   Before using the drop-down box, you need to define the resources corresponding to the drop-down box, otherwise it cannot be displayed. E.g:
 
-- `SELECT` 是使用该标签可以显示一个下拉选择框。例如：
+   ```csharp
+   HtmlSelect.resource = "ui:// package name / drop-down box component name";
+   ```
 
-    ```csharp
-        <select name=''>
-            <option value='1'>1</option>
-            <option value='2'>2</option>
-        </select>
-    ```
+- `P`For example, to display a centered image:
 
-    在使用下拉框前，需要先定义下拉框对应的资源，否则无法显示。例如：
+   ```csharp
+   <p align='center'><img src=''/></p>
+   ```
 
-    ```csharp
-        HtmlSelect.resource = "ui://包名/下拉框组件名";
-    ```
+   By default, GRichTextField treats text as an HTML fragment, that is, it retains whitespace characters such as spaces and carriage returns. If you want to treat it as complete HTML without leaving blanks, you can use the following methods:
 
-- `P` 例如显示一张居中的图片：
+   - Use HtmlParseOptions:
+   ```csharp
+   HtmlParseOptions options = aRichTextField.richTextField.htmlParseOptions;
+    options.ignoreWhiteSpace = true;
+   ```
 
-    ```csharp
-        <p align='center'><img src=''/></p>
-    ```
+   - Wrap text content with HTML or BODY tags, for example:
+   ```csharp
+   aRichTextField.text = &quot; <body> text </body> &quot;;
+   ```
 
-    默认情况下，GRichTextField将文本当做HTML片段处理，即对于空格、回车等空白字符是保留的。如果你希望当做完整的HTML处理，不保留空白，可以用以下几种方式：
-
-  - 使用HtmlParseOptions：
-
-  ```csharp
-      HtmlParseOptions options = aRichTextField.richTextField.htmlParseOptions;
-      options.ignoreWhiteSpace = true;  
-  ```
-
-  - 将文本内容使用HTML或BODY标签包裹，例如：
-
-  ```csharp
-      aRichTextField.text = "<body>text  </body>";
-  ```
-
-如果要访问HTML中的对象，可以使用以下的方式：
+If you want to access objects in HTML, you can use the following methods:
 
 ```csharp
-    //当前文本中具有的HTML元素数量
-    int cnt = aRichTextField.richTextField.htmlElementCount;
+// Number of HTML elements in the current text
+    int cnt = aRichTextField.richTextField.htmlElementCount;
 
-    //获得指定索引的HTML元素，0=<index<cnt
-    HtmlElement element = aRichTextField.richTextField.GetHtmlElementAt(index);
+    // Get the HTML element with the specified index, 0 = <index <cnt
+    HtmlElement element = aRichTextField.richTextField.GetHtmlElementAt (index);
 
-    //获得指定名称的HTML元素。名称由HTML元素里的name属性指定。
-    element = aRichTextField.richTextField.GetHtmlElement(elementName);
+    // Get the HTML element with the specified name. The name is specified by the name attribute in the HTML element.
+    element = aRichTextField.richTextField.GetHtmlElement (elementName);
 
-    //获得HTML元素对应的HTML对象。HTML对象的类型有HtmlImage、HtmlLink、HtmlInput等。
+    // Get the HTML object corresponding to the HTML element. HTML对象的类型有HtmlImage、HtmlLink、HtmlInput等。
     IHtmlObject htmlObject = (IHtmlObject)element.htmlObject;
     if(element.type==HtmlElementType.Image)
     {
@@ -233,21 +219,21 @@ Unity/MonoGame版本对HTML解析有比较完整的支持。
     }
 ```
 
-又例如，如果要制作鼠标移到链接上显示信息的效果：
+As another example, if you want to make the effect of moving the mouse over a link to display information:
 
 ```csharp
-    int cnt = richText.htmlObjectCount;
-    for(int i=0;i<cnt;i++) 
-    {
-        IHtmlObject obj = richText.GetHtmlObjectAt(i);
-        if(obj is HtmlLink) 
-        {
-            ((HtmlLink)obj).shape.onRollOver.Add(onLinkRollOver);
-            ((HtmlLink)obj).shape.onRollOut.Add(onLinkRollOut);
-        }
-    }
+int cnt = richText.htmlObjectCount;
+    for (int i = 0; i <cnt; i ++)
+    {
+        IHtmlObject obj = richText.GetHtmlObjectAt (i);
+        if (obj is HtmlLink)
+        {
+            ((HtmlLink) obj) .shape.onRollOver.Add (onLinkRollOver);
+            ((HtmlLink) obj) .shape.onRollOut.Add (onLinkRollOut);
+        }
+    }
 
-    //你可以在RollOver和RollOut的处理里调用GRoot.inst.ShowPopup、GRoot.inst.ShowTooltips或者其他处理。
+    // You can call GRoot.inst.ShowPopup, GRoot.inst.ShowTooltips or other processing in the processing of RollOver and RollOut.
 ```
 
-你也可以扩展实现自己的IHtmlObject。你需要自己实现一个IHtmlPageContext接口，然后赋值给RichTextField的htmlPageContext属性。详细可阅读源码。
+You can also extend and implement your own IHtmlObject. You need to implement an IHtmlPageContext interface yourself and assign it to the htmlPageContext property of the RichTextField. Read the source code for details.

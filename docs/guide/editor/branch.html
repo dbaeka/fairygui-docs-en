@@ -6,18 +6,18 @@
         <title>FairyGUI - Branch</title>
     
         <meta charset="utf-8">
-        <meta name="description" content="FairyGUI Manual">
-        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Manual">
+        <meta name="description" content="FairyGUI Docs">
+        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Docs">
         
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
         <meta property="og:title" content="-BranchFairyGUI">
-        <meta property="og:description" content="FairyGUI Manual">
+        <meta property="og:description" content="FairyGUI Docs">
 
         <meta name="twitter:card" content="summary">
         <meta name="twitter:title" content="Branch — FairyGUI">
-        <meta name="twitter:description" content="FairyGUI Manual">
+        <meta name="twitter:description" content="FairyGUI Docs">
 
       <!--  <link href='//fonts.proxy.ustclug.org/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
 
@@ -65,7 +65,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/docs/guide/editor/index.html" class="sidebar-link">Basics</a>
+	                    <a href="/docs/guide/editor/index.html" class="sidebar-link">Basis</a>
 	                </li>
 	            
 	                
@@ -120,7 +120,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/docs/guide/editor/richtext.html" class="sidebar-link">RichText</a>
+	                    <a href="/docs/guide/editor/richtext.html" class="sidebar-link">Rich Text</a>
 	                </li>
 	            
 	                
@@ -274,7 +274,7 @@
 	                <li><h3>SDK - Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/index.html" class="sidebar-link">Basics</a>
+	                    <a href="/docs/guide/unity/index.html" class="sidebar-link">Basis</a>
 	                </li>
 	            
 	                
@@ -292,7 +292,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/font.html" class="sidebar-link">Font</a>
+	                    <a href="/docs/guide/unity/font.html" class="sidebar-link">Fonts</a>
 	                </li>
 	            
 	                
@@ -310,7 +310,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/insert3d.html" class="sidebar-link">Insert 3D/Canvas</a>
+	                    <a href="/docs/guide/unity/insert3d.html" class="sidebar-link">Insert 3D</a>
 	                </li>
 	            
 	                
@@ -354,54 +354,54 @@
     
       <h1>Branch</h1>
     
-    <p>分支功能用于实现项目的多态设计，例如多国语言版本下UI的差别，又例如多个渠道版本下UI的差别。</p>
-<p>网络上可以搜索到不少这方面的方案，总的来说可以分成两类，一类是各种语言版本建立完全独立的工程，另一类是通过代码或者配置文件进行运行时调整。前者会给迭代带来很高的代价，后者则完全依赖程序员，无法在设计期所见即所得。</p>
-<p>FairyGUI解决这类问题的方案是分支，在设计期完全所见即所得，可以直接在FairyGUI编辑器看到各个版本的效果。</p>
-<h2 id="分支机制"><a href="#分支机制" class="headerlink" title="分支机制"></a>分支机制</h2><p>分支的用途是对主干进行部分修改。我们都是首先在主干上开发，然后在项目的任何阶段，都可以建立任意多个分支。<strong>注意，它和代码仓库中的分支概念不一样。UI分支不包含主干的资源，它只放置与主干有差别的内容。</strong></p>
+    <p>The branch function is used to implement the polymorphic design of the project, such as the differences in the UI in multiple language versions, and the differences in the UI in multiple channel versions.</p>
+<p>There are many solutions that can be searched on the Internet. In general, they can be divided into two categories. One is the establishment of completely independent projects in various language versions, and the other is the runtime adjustment through code or configuration files. The former will bring a high price to iteration, while the latter is completely dependent on the programmer and cannot be WYSIWYG during design.</p>
+<p>FairyGUI’s solution to this kind of problem is a branch, which is completely WYSIWYG during the design period. You can directly see the effect of each version in the FairyGUI editor.</p>
+<h2 id="Branching-mechanism"><a href="#Branching-mechanism" class="headerlink" title="Branching mechanism"></a>Branching mechanism</h2><p>The purpose of a branch is to make partial modifications to the trunk. We all develop on the trunk first, and then at any stage of the project, we can establish any number of branches. <strong>Note that it is not the same as the branch concept in the code warehouse. The UI branch does not contain the resources of the trunk, it only places content that is different from the trunk.</strong></p>
 <p><img src="../../images/QQ20191210-162300.png" alt=""></p>
-<p>这种机制不但作用于图片，也同样作用于组件和字体等所有类型资源。例如，如果有一个需求，某个UI界面，在不同分支下，整个界面的布局完全不同。那么我们同样可以在分支下放置相同路径和名称的组件。又例如，我们常用的位图字体在国际化时，也要面临不同语言使用不同素材的问题，而分支机制也支持位图字体。</p>
-<h2 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h2><p>在“项目设置-&gt;分支”里点击<img src="../../images/QQ20191209-160453.png" alt="">创建一个新分支。分支的名称建议使用英文。</p>
-<p>分支创建后，在项目主目录会增加一个新的资源目录。假设分支名称是en，那么它的资源文件夹为“项目主目录/assets_en”。新分支创建后这个目录是空的，下面我们还要给包创建分支。</p>
-<p>首先在主工具栏切换项目到分支：</p>
+<p>This mechanism works not only for images, but also for all types of resources, such as components and fonts. For example, if there is a requirement, the layout of the entire interface is completely different under different branches of a UI interface. Then we can also place components with the same path and name under the branch. As another example, when internationalizing our commonly used bitmap fonts, we also face the problem of using different materials in different languages, and the branching mechanism also supports bitmap fonts.</p>
+<h2 id="Create-branch"><a href="#Create-branch" class="headerlink" title="Create branch"></a>Create branch</h2><p>Click on “Project Settings-&gt; Branch”<img src="../../images/QQ20191209-160453.png" alt="">Create a new branch. The name of the branch is suggested to be in English.</p>
+<p>After the branch is created, a new resource directory is added to the project home directory. Assuming the branch name is en, its resource folder is “project home directory / assets_en”. This directory is empty after the new branch is created. Next, we will create a branch for the package.</p>
+<p>First switch the project to the branch in the main toolbar:</p>
 <p><img src="../../images/QQ20191210-201635.png" alt=""></p>
-<p>然后在资源库里右键点击包，在右键菜单里选择“创建分支”。</p>
+<p>Then Context the package in the repository and select “Create Branch” from the context menu.</p>
 <p><img src="../../images/QQ20191210-205005.png" alt=""></p>
-<p>这样指定包就有了一个en的分支。这时在“项目主目录/assets_en”内也增加了一个新目录，目录包就是包名，如图所示：</p>
+<p>The specified package has an en branch. At this time, a new directory is also added in the “project main directory / assets_en”, and the directory package is the package name, as shown in the figure:</p>
 <p><img src="../../images/QQ20191210-205055.png" alt=""></p>
-<p>其中package_branch.xml是分支的数据库文件，和<a href="package.html#包的定义">package.xml</a>是类似的功能。</p>
-<h2 id="资源映射"><a href="#资源映射" class="headerlink" title="资源映射"></a>资源映射</h2><p>在编辑器内，分支就和包里的一个普通的文件夹没有任何区别，你可以向这个文件夹添加资源，也可以从其他地方移入或者粘贴资源，没有任何限制。按照分支的机制，分支和主干的资源只要路径和名称完全一致，他们就会自动建立一个映射关系。</p>
-<p><strong>演示一</strong></p>
-<p>向主干导入一个face.png <img src="../../images/QQ20191210-210524.png" alt="">，分支也导入一个face.png <img src="../../images/QQ20191210-210605.png" alt="">，然后在主干上新建一个组件Component1，把主干的face.png拖进去：</p>
+<p>Where package_branch.xml is the database file for the branch, and<a href="package.html#包的定义">package.xml</a>Is a similar function.</p>
+<h2 id="Resource-mapping"><a href="#Resource-mapping" class="headerlink" title="Resource mapping"></a>Resource mapping</h2><p>In the editor, the branch is no different from a normal folder in the package. You can add resources to this folder, and you can also move or paste resources from other places without any restrictions. According to the mechanism of the branch, as long as the path and name of the resources of the branch and the trunk are exactly the same, they will automatically establish a mapping relationship.</p>
+<p><strong>Demo one</strong></p>
+<p>Import a face.png to the trunk<img src="../../images/QQ20191210-210524.png" alt="">, Branch also imports a face.png<img src="../../images/QQ20191210-210605.png" alt="">, And then create a new component Component1 on the trunk, drag the trunk’s face.png into it:</p>
 <p><img src="../../images/QQ20191210-210734.png" alt=""></p>
-<p>然后在主工具栏切换分支到en，可以看到Component1的显示变成：</p>
+<p>Then switch the branch to en in the main toolbar, and you can see that the display of Component1 becomes:</p>
 <p><img src="../../images/QQ20191210-210845.png" alt=""></p>
-<p>这就是分支的机制的最简单的一个演示。</p>
-<p><strong>演示二</strong></p>
-<p>下面我们再来演示一下直接将整个组件做分支。在分支en下新建一个组件，名称也为Component1，这样主干/Component1和en/Component1就建立一个映射。</p>
-<p>我们切换分支到en，<strong>如果直接打开主干/Component1，你会发现舞台的内容是不会直接显示成en/Component1的，这是因为你是直接打开主干/Component1进行编辑。</strong></p>
-<p>现在我们在主干上新建一个Component2，然后拖入主干的Component1，我们再切换分支到en，这时就可以发现Component2内的Component1已经显示为en/Component2的内容了。</p>
-<p><strong>演示三</strong></p>
-<p>我们在资源库中直接把en/face删除，你会发现主干/Component1中显示的图片会立刻切换回主干的face图片。这说明主干和分支的关系是弱连接，如果这种连接关系存在，则分支起作用；如果不存在，是不会不影响主干的内容的。</p>
-<h2 id="分支与控制器首页"><a href="#分支与控制器首页" class="headerlink" title="分支与控制器首页"></a>分支与控制器首页</h2><p>在实际应用中，我们还会遇到在不同版本下，界面上的某些元件需要微调的情况。如果我们按上述方案建立一个组件的分支，那么每次界面需要修改时，同步修改所有分支也会成为一个负担。对于这种微小的差异，我们引入了控制器首页与分支名称匹配的机制。</p>
+<p>This is the simplest demonstration of the branching mechanism.</p>
+<p><strong>Demo two</strong></p>
+<p>Let’s demonstrate how to branch the entire component directly. Create a new component under the branch en, also named Component1, so that a mapping is established between the trunk / Component1 and en / Component1.</p>
+<p>We switch branches to en,<strong>If you directly open the trunk / Component1, you will find that the content of the stage will not be directly displayed as en / Component1, because you directly open the trunk / Component1 for editing.</strong></p>
+<p>Now we create a new Component2 on the trunk, and then drag into the component1 of the trunk, and then we switch to branch, then we can find that Component1 in Component2 has been displayed as the content of en / Component2.</p>
+<p><strong>Demo three</strong></p>
+<p>We directly delete en / face in the resource library, and you will find that the image displayed in trunk / Component1 will immediately switch back to the trunk’s face image. This shows that the relationship between the trunk and the branch is a weak connection. If this connection exists, the branch works; if it does not exist, it will not affect the content of the trunk.</p>
+<h2 id="Branches-and-Controllers-Home"><a href="#Branches-and-Controllers-Home" class="headerlink" title="Branches and Controllers Home"></a>Branches and Controllers Home</h2><p>In practical applications, we will also encounter the situation that some components on the interface need to be fine-tuned under different versions. If we establish a branch of a component according to the above scheme, each time the interface needs to be modified, it will also become a burden to modify all branches simultaneously. For this slight difference, we introduced a mechanism for the controller home page to match the branch name.</p>
 <p><img src="../../images/QQ20191210-221456.png" alt=""></p>
-<p>如上图，控制器的首页设置为“匹配分支名称”，然后设定了索引1的页面的名称为en。那么<strong>当组件创建的时候</strong>，如果当前分支是en，控制器就会自动切换到索引为1的页面；如果当前分支不是en，那控制器还是停留在索引为0的页面。</p>
-<p><strong>演示四</strong></p>
+<p>As shown above, the home page of the controller is set to “match branch name”, and then the name of the page with index 1 is set to en. Then<strong>When the component is created</strong>If the current branch is en, the controller will automatically switch to the page with index 1. If the current branch is not en, the controller will stay on the page with index 0.</p>
+<p><strong>Demo four</strong></p>
 <p><img src="../../images/QQ20191210-224850.png" alt=""></p>
-<p>在主干/Component1里，我们已经按上图定义好了控制器的首页，并且给图片加了一个位置控制，然后点测试（控制器首页功能必须在测试中才有效）：</p>
+<p>In trunk / Component1, we have defined the home page of the controller as shown above, and added a position control to the image, and then click test (the controller home page function must be valid during the test):</p>
 <p><img src="../../images/2019-12-10-22_52_42.gif" alt=""></p>
-<p>可以看到当分支切换时，c1的首页发生了改变，图片的位置也随之发生了改变。<strong>（注意：分支切换并不能直接导致控制器的改变，编辑器内的分支切换实际上是重新启动了测试，也就是组件是重新创建的，所以首页功能起到作用）。</strong></p>
-<h2 id="发布分支"><a href="#发布分支" class="headerlink" title="发布分支"></a>发布分支</h2><p>分支发布处理方式有两种：</p>
+<p>It can be seen that when the branch is switched, the first page of c1 changes, and the position of the image changes accordingly. <strong>(Note: The branch switch does not directly cause the controller to change. The branch switch in the editor actually restarts the test, that is, the component is re-created, so the home page function works.)</strong></p>
+<h2 id="Release-branch"><a href="#Release-branch" class="headerlink" title="Release branch"></a>Release branch</h2><p>There are two ways to handle branch releases:</p>
 <ul>
-<li><p><code>主干包含所有分支</code> 发布结果包含主干以及所有分支的内容。发布的内容放置在“发布路径”，而非“分支发布路径”。使用这种处理方式，可以在运行时再决定切换到哪个分支。</p>
-<p>例如主干有一个face.png，分支en也有一个face.png，那么发布结果就含有两个face.png。运行时实际显示哪个图片，由代码设置的活跃分支名称决定。</p>
+<li><p><code>Trunk contains all branches</code>The release results include the content of the trunk and all branches. The published content is placed on the “release path”, not the “branch release path”. With this approach, you can decide which branch to switch to at runtime.</p>
+<p> For example, the trunk has a face.png and the branch en also has a face.png. Then the release result contains two face.png. Which image is actually displayed at runtime is determined by the active branch name set by the code.</p>
 </li>
-<li><p><code>主干合并活跃分支</code> 发布结果包含主干合并当前活跃分支后的内容。也就是说，无论当前分支是什么，发布结果首先都包含所有主干的内容，然后查看哪些资源有分支映射关系的，就用分支的代替主干的。当主工具栏上分支的设置为主干时，发布出来的结果放置在“发布路径”；当设置为某个分支时，发布出来的结果放置在“分支发布路径/分支名称”。</p>
-<p>例如主干有一个face.png，分支en也有一个face.png，如果主工具栏上分支的设置为主干，那么发布出来的结果放置在“发布路径”，包里的face.png是主干的face.png；如果主工具栏上分支的设置为en，那么发布出来的结果放置在“分支发布路径/en”，包里的face.png是分支en里的face.png。</p>
+<li><p><code>Trunk merge active branch</code>The release results contain the content of the trunk merged with the currently active branch. In other words, no matter what the current branch is, the release result first contains all the trunk content, and then to see which resources have branch mappings, the branch is used instead of the trunk. When the branch setting on the main toolbar is set to trunk, the published results are placed in the “release path”; when set to a branch, the published results are placed in “branch release path / branch name”.</p>
+<p> For example, the trunk has a face.png, and the branch en also has a face.png. If the branch setting on the main toolbar is set to trunk, then the published results are placed in the “release path”, and the face.png in the package is the trunk’s face. png; if the branch is set to en on the main toolbar, the results of the release are placed in “branch release path / en”, and the face.png in the package is the face.png in the branch en.</p>
 </li>
 </ul>
-<h2 id="运行时使用分支"><a href="#运行时使用分支" class="headerlink" title="运行时使用分支"></a>运行时使用分支</h2><p>无论分支使用哪种方式发布，运行时都要通过代码设置正确的分支名称。</p>
+<h2 id="Using-branches-at-runtime"><a href="#Using-branches-at-runtime" class="headerlink" title="Using branches at runtime"></a>Using branches at runtime</h2><p>No matter which way the branch is released, the runtime must set the correct branch name through code.</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">UIPackage.branch = <span class="string">"en"</span>;</div></pre></td></tr></table></figure>
-<p>设置分支名称可以在AddPackage之后，但应该在创建任何UI之前。</p>
+<p>Setting the branch name can be after AddPackage, but should be before any UI is created.</p>
 
     
     <div class="footer">

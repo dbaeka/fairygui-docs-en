@@ -6,18 +6,18 @@
         <title>FairyGUI - Tree</title>
     
         <meta charset="utf-8">
-        <meta name="description" content="FairyGUI Manual">
-        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Manual">
+        <meta name="description" content="FairyGUI Docs">
+        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Docs">
         
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
         <meta property="og:title" content="-TreeFairyGUI">
-        <meta property="og:description" content="FairyGUI Manual">
+        <meta property="og:description" content="FairyGUI Docs">
 
         <meta name="twitter:card" content="summary">
         <meta name="twitter:title" content="Tree — FairyGUI">
-        <meta name="twitter:description" content="FairyGUI Manual">
+        <meta name="twitter:description" content="FairyGUI Docs">
 
       <!--  <link href='//fonts.proxy.ustclug.org/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
 
@@ -65,7 +65,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/docs/guide/editor/index.html" class="sidebar-link">Basics</a>
+	                    <a href="/docs/guide/editor/index.html" class="sidebar-link">Basis</a>
 	                </li>
 	            
 	                
@@ -120,7 +120,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/docs/guide/editor/richtext.html" class="sidebar-link">RichText</a>
+	                    <a href="/docs/guide/editor/richtext.html" class="sidebar-link">Rich Text</a>
 	                </li>
 	            
 	                
@@ -274,7 +274,7 @@
 	                <li><h3>SDK - Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/index.html" class="sidebar-link">Basics</a>
+	                    <a href="/docs/guide/unity/index.html" class="sidebar-link">Basis</a>
 	                </li>
 	            
 	                
@@ -292,7 +292,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/font.html" class="sidebar-link">Font</a>
+	                    <a href="/docs/guide/unity/font.html" class="sidebar-link">Fonts</a>
 	                </li>
 	            
 	                
@@ -310,7 +310,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/insert3d.html" class="sidebar-link">Insert 3D/Canvas</a>
+	                    <a href="/docs/guide/unity/insert3d.html" class="sidebar-link">Insert 3D</a>
 	                </li>
 	            
 	                
@@ -354,52 +354,52 @@
     
       <h1>Tree</h1>
     
-    <p>树是列表的一种特例。是组件的一种特殊扩展。勾选列表属性的<img src="../../images/QQ20191212-104005.png" alt="">，使列表变成一棵树。</p>
-<h2 id="树属性"><a href="#树属性" class="headerlink" title="树属性"></a>树属性</h2><p>点击树视图右侧的<img src="../../images/QQ20191211-161858.png" alt="">按钮显示如下界面：</p>
+    <p>Trees are a special case of lists. Is a special extension of a component. Tick List Properties<img src="../../images/QQ20191212-104005.png" alt="">To make the list a tree.</p>
+<h2 id="Tree-properties"><a href="#Tree-properties" class="headerlink" title="Tree properties"></a>Tree properties</h2><p>Click to the right of the tree view<img src="../../images/QQ20191211-161858.png" alt="">The button displays the following interface:</p>
 <p><img src="../../images/QQ20191212-105754.png" alt=""></p>
 <ul>
-<li><p><code>每级缩进</code> 树节点的深度每增加一级，向右缩进的像素距离。例如，如果每级缩进是15像素，树节点的层级是3级，那么树节点的缩进是15*3=45像素。</p>
+<li><p><code>Indent each level</code>The distance in pixels of the tree node is indented to the right for each additional level of depth. For example, if the indentation of each level is 15 pixels, and the level of the tree node is 3 levels, then the indentation of the tree node is 15 * 3 = 45 pixels.</p>
 </li>
-<li><p><code>点击文件夹时展开/折叠</code> 点击文件夹节点时是否自动展开或者折叠这个这个节点。</p>
+<li><p><code>Expand / collapse when clicking on a folder</code>Whether to automatically expand or collapse this node when clicking on a folder node.</p>
 <ul>
-<li><code>否</code> 没有动作。</li>
-<li><code>单击</code> 在单击时动作。</li>
-<li><code>双击</code> 在双击时动作。</li>
+<li><code>no</code>No action.</li>
+<li><code>Click</code>Action when clicked.</li>
+<li><code>Double click</code>Action when double-clicked.</li>
 </ul>
 </li>
 </ul>
-<p>激活树视图后，编辑列表项目的界面也有了变化，如下图：</p>
+<p>After activating the tree view, the interface for editing list items has also changed, as shown below:</p>
 <p><img src="../../images/QQ20191212-112139.png" alt=""></p>
-<p>最右侧增加了“层级”设置。顶层节点为0级，增加一级则表示是上一级的子节点。</p>
-<p>参考下图，层级与节点的对应关系：</p>
+<p>The “Hierarchy” setting has been added to the far right. The top node is level 0, and adding one level indicates that it is a child node of the previous level.</p>
+<p>Refer to the following figure, the correspondence between levels and nodes:</p>
 <p><img src="../../images/QQ20191212-112117.png" alt=""></p>
-<h2 id="树节点设计"><a href="#树节点设计" class="headerlink" title="树节点设计"></a>树节点设计</h2><p>树节点设计有几个约定的规则：</p>
+<h2 id="Tree-node-design"><a href="#Tree-node-design" class="headerlink" title="Tree node design"></a>Tree node design</h2><p>There are several agreed rules for tree node design:</p>
 <ol>
-<li><p>名称为<code>expanded</code>的控制器（可选）。如果节点是文件夹节点，当节点展开时，这个控制器自动切换页面到1；当节点折叠时，自动切换页面到0。你可以使用此控制器控制节点在这两种状态下的形态。<br>如果树节点内有放置按钮（这个按钮应该是复选按钮）用于展开和折叠，那么应该将这个按钮和控制器连接，如下图：</p>
+<li><p>Name is<code>expanded</code>Controller (optional). If the node is a folder node, when the node is expanded, this controller automatically switches the page to 1; when the node is collapsed, it automatically switches the page to 0. You can use this controller to control the shape of the node in these two states.<br>If there is a placement button in the tree node (this button should be a check button) for expanding and collapsing, then this button should be connected to the controller, as shown below:</p>
 <p><img src="../../images/QQ20191212-114818.png" alt=""></p>
 </li>
-<li><p>名称为<code>leaf</code>的控制器（可选）。如果节点是文件夹节点，那么这个控制器的页面是0；如果节点是叶节点，那么这个控制器的页面是1。你可以使用此控制器控制这两种不同类型节点的形态。</p>
+<li><p>Name is<code>leaf</code>Controller (optional). If the node is a folder node, then the page of this controller is 0; if the node is a leaf node, then the page of this controller is 1. You can use this controller to control the morphology of these two different types of nodes.</p>
 </li>
-<li><p>名称为<code>indent</code>的对象将用于设置缩进（可选）。假设某节点的缩进是45像素，那么indent对象的宽度会被设置为45。</p>
+<li><p>Name is<code>indent</code>The object will be used to set the indentation (optional).assuming the indentation of a node is 45 pixels, the width of the indent object will be set to 45.</p>
 </li>
 </ol>
-<h2 id="GTree"><a href="#GTree" class="headerlink" title="GTree"></a>GTree</h2><p>当一个列表激活树视图后，它在代码中的对象就是GTree。GTree继承自GList，所以GList的所有API也适用于GTree，不过GTree目前<strong>不支持虚拟化</strong>。</p>
+<h2 id="GTree"><a href="#GTree" class="headerlink" title="GTree"></a>GTree</h2><p>When a list activates the tree view, its object in the code is GTree. GTree inherits from GList, so all APIs of GList also apply to GTree, but GTree currently<strong>Does not support virtualization</strong>。</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GTree aTree = aComponent.GetChild(<span class="string">"tree"</span>).asTree;</div><div class="line">GTreeNode rootNode = aTree.rootNode;</div></pre></td></tr></table></figure>
-<p>这里rootNode是树的根节点，它是一个“假”的节点，不可见。</p>
-<p>创建并添加节点：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GTreeNode aNode = <span class="keyword">new</span> GTreeNode(<span class="literal">true</span>); <span class="comment">//true表示文件夹节点，false表示叶节点</span></div><div class="line">rootNode.AddChild(aNode);</div></pre></td></tr></table></figure>
-<p>渲染节点的方式有两种：</p>
+<p>Here rootNode is the root node of the tree, it is a “fake” node and is not visible.</p>
+<p>Create and add nodes:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GTreeNode aNode = <span class="keyword">new</span> GTreeNode (<span class="literal">true</span>); <span class="comment">// true indicates a folder node, false indicates a leaf node</span></div><div class="line">rootNode.AddChild (aNode);</div></pre></td></tr></table></figure>
+<p>There are two ways to render nodes:</p>
 <ol>
-<li><p>直接操作节点对应的组件。</p>
- <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GComponent obj = aNode.cell;</div><div class="line">obj.GetChild(<span class="string">"abc"</span>).text = <span class="string">"hello"</span>;</div></pre></td></tr></table></figure>
-<p> <strong>这种方式一定要是节点已经在树里了才能使用，也就是已经AddChild了</strong>。</p>
+<li><p>Directly operate the component corresponding to the node.</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">   GComponent obj = aNode.cell;</div><div class="line">obj.GetChild(<span class="string">"abc"</span>).text = <span class="string">"hello"</span>;</div></pre></td></tr></table></figure>
+<p><strong>This method must be used if the node is already in the tree, which is already AddChild</strong>。</p>
 </li>
-<li><p>通过回调函数操作。</p>
- <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aTree.treeNodeRender = RenderTreeNode;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">RenderTreeNode</span>(<span class="params">GTreeNode node, GComponent obj</span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li><p>Operate through callback functions.</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">   aTree.treeNodeRender = RenderTreeNode;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">RenderTreeNode</span> (<span class="params">GTreeNode node, GComponent obj</span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>响应树节点点击，和列表响应item的处理方式一样，都是监听<code>onClickItem</code>事件，可以参考<a href="list.html#事件">这里</a>。在得到点击的item对象后，要获得其对应的GTreeNode对象，可以用API<code>GObject.treeNode</code>获得。</p>
-<p>GTree还有一个特别的回调：<code>treeNodeWillExpand</code>，它在TreeNode即将展开或者收缩时回调触发。你可以在回调中动态增加子节点。</p>
+<p>Clicking on the response tree node is the same as processing the list response item, and it is listening<code>onClickItem</code>Event, you can refer<a href="list.html#Event">Here</a>。 After getting the clicked item object, to get its corresponding GTreeNode object, you can use the API<code>GObject.treeNode</code>obtain.</p>
+<p>GTree also has a special callback:<code>treeNodeWillExpand</code>It fires when the TreeNode is about to expand or shrink. You can add child nodes dynamically in the callback.</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aTree.treeNodeWillExpand = onExpand;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">onExpand</span>(<span class="params">GTreeNode node, <span class="keyword">bool</span> expand</span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
     

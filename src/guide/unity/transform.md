@@ -4,74 +4,74 @@ type: guide_unity
 order: 5
 ---
 
-## 坐标原点
+## Coordinate origin
 
-FairyGUI是以屏幕左上角为原点的，Unity的屏幕坐标是以左下角为原点的。一般这个转换都不需要开发者干预，如果确实需要进行这两者的转换，可以用：
+FairyGUI uses the upper left corner of the screen as the origin, and Unity's screen coordinates use the lower left corner as the origin. Generally, this conversion does not require developer intervention. If you really need to convert these two, you can use:
 
 ```csharp
-    //Unity的屏幕坐标系，以左下角为原点
-    Vector2 pos = Input.mousePosition;
+// Unity's screen coordinate system, with the bottom left corner as the origin
+    Vector2 pos = Input.mousePosition;
 
-    //转换为FairyGUI的屏幕坐标
-    pos.y = Screen.height - pos.y;
+    // Convert to screen coordinates of FairyGUI
+    pos.y = Screen.height-pos.y;
 ```
 
-## 坐标转换
+## Coordinate transformation
 
-GObject里的x/y/position值都是**局部坐标**，也就是相对于父元件的偏移。GObject没有提供直接的属性获得对象的全局坐标，但提供了方法进行转换。
+The x / y / position values in GObject are all**Local coordinates**, Which is the offset from the parent component. GObject does not provide direct properties to obtain the global coordinates of the object, but provides methods to convert.
 
-**请注意：一个对象，本地（Local）坐标的原点是(0,0)，不是(x,y)，(x,y)是在父元件的坐标，不是自己的本地坐标。**
+**Please note: For an object, the origin of the local coordinates is (0,0), not (x, y), (x, y) is the coordinates of the parent component, not its own local coordinates.**
 
-如果要获得任意一个UI元件在屏幕上的坐标，可以用：
+If you want to get the coordinates of any UI element on the screen, you can use:
 
 ```csharp
-    Vector2 screenPos = aObject.LocalToGlobal(Vector2.zero);
+Vector2 screenPos = aObject.LocalToGlobal(Vector2.zero);
 ```
 
-（注意，这里说的屏幕，是指FairyGUI语义中的屏幕，是以屏幕左上角为原点的，不是指Unity语义中的屏幕）
+(Note that the screen mentioned here refers to the screen in FairyGUI semantics, with the upper left corner of the screen as the origin, not the screen in Unity semantics)
 
-相反，如果要获取屏幕坐标在UI元件上的局部坐标，可以用：
+Conversely, if you want to get the local coordinates of the screen coordinates on the UI element, you can use:
 
 ```csharp
-    Vector2 localPos = aObject.GlobalToLocal(screenPos);
+Vector2 localPos = aObject.GlobalToLocal(screenPos);
 ```
 
-如果有UI适配导致的全局缩放，那么逻辑屏幕大小和物理屏幕大小不一致，逻辑屏幕的坐标就是GRoot里的坐标。如果要进行局部坐标与逻辑屏幕坐标的转换，可以用：
+If there is global scaling caused by UI adaptation, then the logical screen size is not the same as the physical screen size, and the coordinates of the logical screen are the coordinates in GRoot. If you want to convert local coordinates to logical screen coordinates, you can use:
 
 ```csharp
-    //物理屏幕坐标转换为逻辑屏幕坐标
-    Vector2 logicScreenPos = GRoot.inst.GlobalToLocal(screenPos);
-    
-    //UI元件坐标与逻辑屏幕坐标之间的转换
-    aObject.LocalToRoot(pos);
-    aObject.RootToLocal(pos);
+// Physical screen coordinates are converted to logical screen coordinates
+    Vector2 logicScreenPos = GRoot.inst.GlobalToLocal (screenPos);
+    
+    // Transition between UI element coordinates and logical screen coordinates
+    aObject.LocalToRoot (pos);
+    aObject.RootToLocal (pos);
 ```
 
-**注意，我们在编辑器里定义的，代码里处理的，一般就是指这个逻辑屏幕坐标。**
+**Note that what we define in the editor and what is handled in the code generally refers to this logical screen coordinate.**
 
-如果要转换任意两个UI对象间的坐标，例如需要知道A里面的坐标(10,10)在B里面的位置，可以用：
+If you want to transform the coordinates between any two UI objects, for example, you need to know the position of coordinate (10,10) in A in B, you can use:
 
 ```csharp
-    Vector2 posInB = aObject.TransformPoint(new Vector2(10,10), bObject);
+Vector2 posInB = aObject.TransformPoint(new Vector2(10,10), bObject);
 ```
 
-## 与世界空间坐标转换
+## Conversion with world space coordinates
 
-如果要转换世界空间的坐标到UI里的坐标，需要先将世界空间的坐标转换为屏幕坐标，再继续转换，例如：
+If you want to convert the coordinates of the world space to the coordinates in the UI, you need to convert the coordinates of the world space to the screen coordinates first, and then continue to convert, for example:
 
 ```csharp
-    Vector3 screenPos = Camera.main.WorldToScreenPoint(worldPos);
-    //原点位置转换
-    screenPos.y = Screen.height - screenPos.y; 
-    Vector2 pt = GRoot.inst.GlobalToLocal(screenPos);
+Vector3 screenPos = Camera.main.WorldToScreenPoint (worldPos);
+    // origin position conversion
+    screenPos.y = Screen.height-screenPos.y;
+    Vector2 pt = GRoot.inst.GlobalToLocal (screenPos);
 ```
 
-如果要转换UI里的坐标到世界空间的坐标，需要先将UI里的坐标转换为屏幕坐标，再继续转换，例如：
+If you want to convert the coordinates in the UI to the coordinates in the world space, you need to convert the coordinates in the UI to the screen coordinates before continuing the conversion, for example:
 
 ```csharp
-    Vector2 screenPos = GRoot.inst.LocalToGlobal(pos);
-    //原点位置转换
-    screenPos.y = Screen.height - screenPos.y; 
-    一般情况下，还需要提供距离摄像机视野正前方distance长度的参数作为screenPos.z(如果需要，将screenPos改为Vector3类型）
-    Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
+Vector2 screenPos = GRoot.inst.LocalToGlobal (pos);
+    // origin position conversion
+    screenPos.y = Screen.height-screenPos.y;
+    In general, you also need to provide the parameter of the distance length from the front of the camera's field of view as screenPos.z (if needed, change the screenPos to Vector3 type)
+    Vector3 worldPos = Camera.main.ScreenToWorldPoint (screenPos);
 ```

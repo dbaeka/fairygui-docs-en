@@ -4,161 +4,160 @@ type: guide_editor
 order: 10
 ---
 
-每个舞台中的组成元素我们称之为元件，元件的类型有很多，他们是：
-- `基础元件` 图片、图形、动画、装载器、文本、富文本、组、组件。
-- `组合型元件` 标签、按钮、下拉框、滚动条、滑动条、进度条。
-- `特殊元件` 列表。
+The constituent elements in each stage are called components. There are many types of components. They are:
+- `Basic element`Images, graphics, movieclips, loaders, text, rich text, groups, components.
+- `Combination element`Labels, buttons, drop-down boxes, scroll bars, sliders, progress bars.
+- `Special element`List.
 
-在舞台上选中任意一个元件，右边的属性栏出现共同的属性设置面板有:
+Select any component on the stage, and common property setting panels appear in the property bar on the right:
 
-## 基础属性
+## Basic properties
 
 ![](../../images/QQ20191211-163851.png)
 
-- `名称` 设置元件的名称。运行时可以通过GetChild(名称)获得这个元件。元件允许重名，但编辑器会在显示列表视图提示你有重名情况出现，你可以忽略这个提示。
-  
-  ![](../../images/QQ20191211-163950.png)
+- `Name`Set the name of the component. This component can be obtained at runtime by GetChild (name). The component allows duplicate names, but the editor will prompt you with duplicate names in the display list view. You can ignore this prompt.
 
-- `位置` 设置元件的XY坐标。
+   ![](../../images/QQ20191211-163950.png)
 
-- `尺寸` 设置元件的宽度和高度。
+- `Position`Set the XY coordinates of the component.
 
-- `原大小` 勾选原大小可以使元件大小恢复到素材的原始大小。当素材被外部修改后，例如一张图片素材，被设计师从50x50变成100x100，如果这里勾选着原大小，则元件的宽高也自动变成100x100；如果这里没有勾选，则元件的宽高将保持50x50，图片发生缩放。
+- `Size`Set the width and height of the component.
 
-- `保持比例` 在设计时，保持元件的长宽比例不变，也即是修改宽或高时，高或宽将同时变化。这是辅助设计功能，运行时没有效果。如果你希望一个图片在运行时能保持比例，那可以把图片放入装载器，把装载器的填充处理设置为“适应高度”或者“适应宽度”。
+- `Source size`Check the original size to restore the component size to the original size of the material. When the material is modified externally, for example, an image material, it is changed from 50x50 to 100x100 by the designer. If the original size is checked here, the width and height of the component will automatically become 100x100. The width and height will remain 50x50, and the image will be scaled.
 
-- `尺寸` 勾选尺寸右侧的箭头，显示尺寸限制的输入界面。0表示不限制。注意：修改尺寸限制不会修改当前的宽高，即使当前的宽高值超出限制值。
+- `Keep ratio`When designing, keep the length-width ratio of the component unchanged, that is, when changing the width or height, the height or width will change at the same time. This is a design aid and has no effect at runtime. If you want an image to maintain its proportions at runtime, you can put the image into the loader and set the fill processing of the loader to "fit to height" or "fit to width".
 
-- `缩放` Scale与宽高都同样可以改变元件的显示大小，他们的不同之处在于：
+- `Size`Check the arrow to the right of the size to display the size limit input interface. 0 means unlimited. Note: Modifying the size limit does not modify the current width and height, even if the current width and height value exceeds the limit value.
 
-  - Scale是整体直接缩放，而宽高是改变元件的包围大小。例如，一个设置了九宫格的图片，如果改变它的Scale值，九宫格不会起作用，如果改变图片的宽高，则九宫格起作用。又例如，一个组件，如果改变它的Scale值，则组件作为一个整体放大或缩小，它里面的关联关系不会发生作用；如果改变组件的宽高，则只是组件的矩形范围增大或缩小，他里面的内容并不会自动增大或缩小，要依靠关联功能进行调整。所以记住一个原则：**布局用宽高，做效果用Scale。**
+- `Scale`Scale and width and height can also change the display size of the component. The difference is that:
 
-  - 关联系统只对元件的宽高有效，不计入Scale的影响。
+   - Scale is the overall direct scaling, while width and height change the enclosing size of the component. For example, for a image with a 9-grid grid set, if you change its Scale value, the 9-grid grid will not work. If you change the width and height of the image, the 9-grid grid will work. For another example, if a component changes its Scale value, the component as a whole will be enlarged or reduced, and its relationship will not take effect; if the width and height of the component are changed, only the rectangular area of the component is increased or reduced The content in it does not automatically increase or decrease, it depends on the correlation function to adjust. So remember one principle:**Use width and height for layout and Scale for effects.**
 
-- `倾斜` 设置元件的倾斜值。 对于Unity平台，你可以放心地对图片、动画、装载器使用倾斜，这几乎不会带来额外消耗，但对于其他类型的元件，例如组件，请谨慎使用。组件的倾斜需要使用到FairyGUI提供的PaintMode技术，目标组件会转化为RenderTexture，再应用倾斜，这会有一定的内存消耗。务必阅读[PaintMode](../unity/special.html#PaintMode)
+   - The correlation system is only valid for the width and height of the component, and does not count the effect of Scale.
 
-- `轴心` 旋转、缩放、倾斜这些变换时的轴心点。取值范围是0~1。例如X=0.5，Y=0.5表示中心位置。点击右边的小三角形可以快速设置一些常用的值，比如中心，左下角，右下角等。
+- `Skew`Sets the tilt value of the component. For the Unity platform, you can safely use tilt for images, movieclips, and loaders, which will bring almost no extra cost, but for other types of components, such as components, please use it with caution. The tilt of the component needs to use the PaintMode technology provided by FairyGUI. The target component will be converted to RenderTexture, and then tilt will be applied, which will have a certain memory consumption. Be sure to read[PaintMode](../unity/special.html#PaintMode)
 
-- `同时作为锚点` 勾选这个选项后，元件的原点位置将设置为轴心所在的位置。默认情况下，每个元件的(0,0)都是在左上角；勾选了轴心同时作为锚点后，则元件的(0,0)在轴心的位置。
+- `Pivot`Rotate, scale, and tilt the pivot points of these transformations. The value ranges from 0 to 1. For example, X = 0.5 and Y = 0.5 represent the center position. Click the small triangle on the right to quickly set some commonly used values, such as center, lower left corner, lower right corner, etc.
 
-- `透明度` 设置元件的透明度。0表示全透明，1表示全不透明。
+- `As anchor`When this option is checked, the origin position of the component will be set to the position of the axis. By default, (0,0) of each component is in the upper left corner; when the axis is also selected as the anchor point, the (0,0) of the component is at the position of the axis.
 
-- `旋转` 设置元件的旋转角度，单位是度（degree）。正数表示顺时针旋转，负数表示逆时针旋转。
+- `Alpha`Sets the transparency of the symbol. 0 means fully transparent and 1 means fully opaque.
 
-- `不可见` 使元件处于不可见状态。在编辑状态下，即使勾选了，元件依然是可见的，只有预览状态和运行状态，才生效。
+- `Rotation`Sets the rotation angle of the component in degrees. Positive numbers indicate clockwise rotation, negative numbers indicate counterclockwise rotation.
 
-- `变灰` 使元件呈现一个灰度的效果。默认情况下，FairyGUI会使用一个颜色滤镜为其生成灰度效果。但对于组件，除了使用颜色滤镜使其整体改变灰度，还可以自定义效果。例如，一个按钮组件，由底图和上面的图片文字组成。左边是正常状态，中间是设置了“变灰”后的效果。如果我们只是希望处于变灰状态时，只要图片文字变灰，不希望底图变灰，那么可以像右图那样，在组件里定义一个名称为“grayed”的控制器，由这个控制器去控制具体变灰的状态。定义了这个名称的控制器后，默认的整体变灰效果消失。
+- `Invisible`Make the component invisible. In the edit state, even if it is checked, the component is still visible. Only the preview state and running state are effective.
 
-  ![](../../images/20170727093435.png)
+- `Grayed`Gives the component a grayscale effect. By default, FairyGUI uses a color filter to generate a grayscale effect for it. But for components, in addition to using color filters to change the overall grayscale, you can also customize the effect. For example, a button component consists of a basemap and the text of the image above. The left side is the normal state, and the middle is the effect after "graying" is set. If we just want to be grayed out, as long as the image text is grayed out, and we don't want the base image to be grayed out, then we can define a controller named "grayed" in the component like the image on the right, and this controller will control Concrete grayed out state. When a controller with this name is defined, the default overall graying effect disappears.
 
-- `不可触摸` 使元件处于不可交互的状态。鼠标点击和触摸屏触摸都不会有任何事件产生。注意：图片、普通文本（不包括输入文本和富文本）、动画是永远不可触摸的。如果要对他们侦听点击事件，请转换为组件，或者使用富文本、装载器(GLoader)。
+   ![](../../images/20170727093435.png)
 
-## 效果属性
+- `touchable`Make the component non-interactive. Neither mouse clicks nor touch screen touches will generate any events. Note: images, plain text (excluding input text and rich text), and movieclip are never touchable. If you want to listen to click events on them, convert to components, or use a rich text, GLoader.
+
+## Effect properties
 
 ![](../../images/QQ20191211-164300.png)
 
-- `BlendMode` 这个提供了一部分的混合选项设置。对于Unity平台，对图片、动画、文字，你可以放心地修改它们的BlendMode。但对于组件，请谨慎使用。组件的BlendMode需要使用到FairyGUI提供的PaintMode技术，目标组件会转化为RenderTexture，再使用混合选项，这会有一定的内存消耗。务必阅读[PaintMode](../unity/special.html#PaintMode)
+- `BlendMode`This provides part of the blending options setting. For the Unity platform, you can safely modify the BlendMode of images, movieclips, and text. But for components, use with caution. The BlendMode of the component needs to use the PaintMode technology provided by FairyGUI. The target component will be converted to RenderTexture, and then use the hybrid option, which will have a certain memory consumption. Be sure to read[PaintMode](../unity/special.html#PaintMode)
 
-  Unity的Blend效果与编辑器中的预览可能会有差别。开发者可以通过使用以下代码重定义混合效果。注意：设置了特别BlendMode的显示对象无法与其他显示对象合并Draw Call。
+   The Blend effect in Unity may be different from the preview in the editor. Developers can redefine the blending effect by using the following code. Note: Display objects with a special BlendMode cannot be combined with other display objects.
 
-  ```csharp
-    BlendModeUtils.Override(BlendMode.Add,
-        UnityEngine.Rendering.BlendMode.XX, UnityEngine.Rendering.BlendMode.XX);
-  ```
+   ```csharp
+   BlendModeUtils.Override(BlendMode.Add,
+      UnityEngine.Rendering.BlendMode.XX, UnityEngine.Rendering.BlendMode.XX);
+   ```
 
-- `滤镜` 目前编辑器支持两种滤镜的定义，颜色滤镜和模糊滤镜。对于H5类平台，请谨慎使用滤镜，因为会带来一定的消耗；对于Unity平台，你可以放心地对图片、动画、装载器使用颜色滤镜，这几乎不会带来额外消耗，但对于其他类型的元件，例如组件，请谨慎使用。组件的滤镜需要使用到FairyGUI提供的PaintMode技术，目标组件会转化为RenderTexture，再使用滤镜，这会有一定的内存消耗。务必阅读[PaintMode](../unity/special.html#PaintMode)
+- `Filter`Currently the editor supports the definition of two filters, the color filter and the blur filter. For H5 platforms, please use filters with caution, because it will bring some consumption; for Unity platform, you can safely use color filters for images, movieclips, and loaders, which will bring almost no additional consumption, but for Use other types of components, such as components, with caution. The filter of the component needs to use the PaintMode technology provided by FairyGUI. The target component will be converted to RenderTexture, and then the filter will be used, which will have a certain memory consumption. Be sure to read[PaintMode](../unity/special.html#PaintMode)
 
-  注意：设置了滤镜的显示对象无法与其他显示对象合并Draw Call。
+   Note: Display objects with filters cannot be combined with other display objects.
 
-## 其他
+## Other properties
 
 ![](../../images/QQ20191211-164316.png)
 
 - `Tooltips`
 
-  Tooltips的作用：当鼠标移到元件范围内时，弹出一个文本提示，移出元件范围后，文本提示自动消失。使用Tooltips要按照下面几个步骤准备：
-  1. 制作一个组件，这个组件的“扩展”属性需要定义为“标签”，以便系统将TIPS文本设置到标签的“标题”属性中。
-  2. 打开编辑器主菜单“文件->项目设置”，然后在弹出的对话框里选择“默认值”，右边面板会出现一个“TIPS组件”的设置，将你制作好的标签组件拖入。
-  3. 完成上面两步后编辑器就可以正常使用Tooltips预览。但运行时需要使用代码再次设置：
+   The role of Tooltips: When the mouse moves over the component range, a text prompt pops up. After moving out of the component range, the text tip disappears automatically. To use Tooltips, follow these steps:
+   1. Make a component. The "extended" attribute of this component needs to be defined as "label" so that the system sets the TIPS text to the "title" attribute of the label.
+   2. Open the editor's main menu "File-> Project Settings", and select "Default" in the pop-up dialog box. A "TIPS component" setting will appear on the right panel. Drag the label component you made into it.
+   3. After completing the above two steps, the editor can use Tooltips preview normally. But the runtime needs to be set again using code:
+   ```csharp
+   UIConfig.tooltipsWin = "ui://package name/component name";
+   ```
 
-  ```csharp
-      UIConfig.tooltipsWin = "ui://包名/组件名";
-  ```
+- `Custom data`
 
-- `自定义数据`
-
-  可以设置一个自定义的数据，这个数据FairyGUI不做解析，按原样发布到最后的描述文件中。开发者可以在运行时获取。获取方式是：`GObject.data`或`GObject.userData`（Cocos2dx、Vision）。
+   You can set a custom data. This data is not parsed by FairyGUI, and is published to the final description file as it is. Developers can get it at runtime. The way to get it is:`GObject.data`or`GObject.userData`（Cocos2dx、Vision）。
 
 ## GObject
 
-- `设置坐标` SetXY、SetPosition或者单独设置x、y。
+- `Set coordinates`SetXY, SetPosition or set x and y individually.
 
-- `设置大小` SetSize或者单独设置width、height。SetSize还可以带第三个参数：
-
-```csharp
-   //忽略轴心的影响，即在设置了轴心的情况下，改变大小也不会同时改变坐标。
-   aObject.SetSize(100,100,true);
-```
-
-- `设置大小限制` minWidth、maxWidth、minHeight、maxHeight。
-
-- `设置Scale` SetScale或者单独设置scaleX、scaleY。
-
-- `设置轴心` SetPivot或者单独设置pivotX、pivotY。
+- `Set size`SetSize or set width and height individually. SetSize can also take a third parameter:
 
 ```csharp
-    aObject.SetPivot(0.5f, 0.5f); //设置轴心
-    aObject.SetPivot(0.5f, 0.5f, true); //设置轴心，并同时作为锚点
+// Ignore the influence of the axis, that is, if the axis is set, changing the size will not change the coordinates at the same time.
+   aObject.SetSize (100,100, true);
 ```
 
-- `设置可见` visible = true/false。注意：即使对象设置visible=false，它仍然在显示列表中，所以仍然会消耗一定的计算资源（但不会消耗渲染资源），所以如果是长期的隐藏，建议移出显示列表，即RemoveFromParent。另外，不要和显示控制器混淆，两者是独立的。即使对象的visible=true,如果不在显示控制器的指定页面里，对象仍然是不可见的。
+- `Set size limit`minWidth、maxWidth、minHeight、maxHeight。
 
-- `设置交互` touchable = true/false。
+- `Setting up Scale`SetScale or set scaleX and scaleY individually.
 
-- `设置变灰` grayed = true/false。
+- `Set axis`SetPivot or individually set pivotX, pivotY.
 
-- `设置激活` enabled = true/false。 元件的激活状态其实是由变灰+不可触摸共同组成。
- 
 ```csharp
-    //等同于调用GObject.grayed = true + GObject.touchable = false
-    aObject.enabled = false; 
+aObject.SetPivot (0.5f, 0.5f); // Set the axis
+    aObject.SetPivot (0.5f, 0.5f, true); // Set the axis and use it as the anchor point
 ```
 
-- `设置旋转` rotation。Unity版本还支持rotationX和rotationY。2D UI由正交相机渲染，设置rotationX或rotationY可以有旋转效果，但无透视效果。FairyGUI提供了透视模拟的功能。例如：
+- `Settings visible`visible = true/false。 Note: Even if the object is set to visible = false, it is still in the display list, so it still consumes some computing resources (but does not consume rendering resources), so if it is hidden for a long time, it is recommended to remove the display list, that is, RemoveFromParent. In addition, do not confuse with the display controller, the two are independent. Even if the object is visible = true, if it is not in the specified page of the display controller, the object is still invisible.
 
-  ```csharp
-    //设置对象实用透视模拟
-    aObject.displayObject.perspective = true;
-    //可以设置相机距离
-    aObject.displayObject.focalLength = 2000;
+- `Set up interaction`touchable = true/false。
 
-    //此时旋转X轴或Y轴可以有透视效果。
-    aObject.rotaionX = 30;
-  ```
+- `Settings grayed out`grayed = true/false。
 
-- `获得原生对象` displayObject/node*(CocosCreator)*。例如：
+- `Set activation`enabled = true/false。 The activation state of the element is actually composed of graying out + non-touchable.
 
-  ```csharp
-    //获取原生对象
-    DisplayObject displayObject = aObject.displayObject;
+```csharp
+// equivalent to calling GObject.grayed = true + GObject.touchable = false
+    aObject.enabled = false;
+```
 
-    //CococCreator获取原生对象
-    let node:cc.Node = aObject.node;
+- `Set rotation`rotation。 Unity version also supports rotationX and rotationY. The 2D UI is rendered by an orthogonal camera. Setting rotationX or rotationY can have a rotation effect, but no perspective effect. FairyGUI provides the function of perspective simulation. E.g:
 
-    //Unity版本获取GameObject
-    GameObject go = displayObject.gameObject;
-  ```
+   ```csharp
+   // Set the practical perspective simulation of the object
+  aObject.displayObject.perspective = true;
+  // Can set camera distance
+  aObject.displayObject.focalLength = 2000;
 
-- `销毁` Dispose。销毁对象，当对象不再使用可以调用它，且必须调用。注意：纹理、声音等这些公共资源是由UIPackage管理的，销毁对象不会回收这些资源。如果要回收这些资源，应该使用UIPackage.RemovePackage。
+  // At this time, rotating the X or Y axis can have a perspective effect.
+  aObject.rotaionX = 30;
+   ```
 
-- `resourceURL` 对象在资源库中的URL地址。只有图片、动画、组件这些有链接资源的对象才能获得这个URL值。可以用这个URL比较两个组件对象是不是由同一个组件资源构建的。URL是内部编码格式，不可读，如果要获得资源名称，可以使用下面的方法：
+- `Get native object`displayObject/node*(CocosCreator)*。 E.g:
 
-  ```csharp
-    //对象在资源库中的名称
-    Debug.Log(aObject.packageItem.name);
+   ```csharp
+   // Get the native object
+  DisplayObject displayObject = aObject.displayObject;
 
-    //根据URL获得资源名称
-    Debug.Log(UIPackage.GetItemByURL(resourceURL).name);
-  ```
+  // CococCreator gets the native object
+  let node: cc.Node = aObject.node;
 
-- `onStage` 获取对象是否在舞台上。对象是否在舞台上受多种因素影响，例如对象是否在显示列表中，是否被显示控制器隐藏，是否被组的显示控制隐藏等。
+  // Unity version gets GameObject
+  GameObject go = displayObject.gameObject;
+   ```
+
+- `destroy`Dispose. Destroy the object, and it must be called when the object is no longer used. Note: Textures, sounds and other public resources are managed by UIPackage. Destroying objects will not recycle these resources. If you want to recycle these resources, you should use UIPackage.RemovePackage.
+
+- `resourceURL`The URL address of the object in the resource library. Only images, movieclips, components and other objects with linked resources can get this URL value. You can use this URL to compare whether two component objects are constructed from the same component resource. The URL is internally encoded and unreadable. If you want to get the resource name, you can use the following methods:
+
+   ```csharp
+   // The name of the object in the resource library
+  Debug.Log (aObject.packageItem.name);
+
+  // Get the resource name based on the URL
+  Debug.Log (UIPackage.GetItemByURL (resourceURL) .name);
+   ```
+
+- `onStage`Gets whether the object is on the stage. Whether an object is on the stage is affected by many factors, such as whether the object is in the display list, whether it is hidden by the display controller, or whether it is hidden by the group's display control.

@@ -4,85 +4,85 @@ type: guide_editor
 order: 17
 ---
 
-在舞台上选定一个或多个元件，然后按Ctrl+G，就可以建立一个组。 FairyGUI的组有两种类型，`普通组`和`高级组`。
+Select one or more symbols on the Stage and press Ctrl + G to create a group. There are two types of FairyGUI groups,`normal group and advanced group`。
 
-## 普通组
+## Normal group
 
-普通组仅在编辑时有效，是辅助你进行UI设计的。普通组发布后不存在，也就是在运行时无法访问到普通组。
+The normal group is only valid during editing, and it assists you in UI design. The common group does not exist after it is published, that is, the common group cannot be accessed at runtime.
 
-普通组的作用有：
-1. 可以整体一起移动；
-2. 可以整体一起调整深度；
-3. 可以整体复制和粘贴。
-4. 双击组，进入组内部后，可以随意调整各个元件的深度，不影响组外的东西。
-5. 当组大小改变时，组内的内容将同时增大或者缩小。
+The roles of the general group are:
+1. Can move together as a whole;
+2. You can adjust the depth together;
+3. Can be copied and pasted as a whole.
+4. Double-click the group to enter the inside of the group, you can adjust the depth of each element at will, without affecting the things outside the group.
+5. When the group size changes, the content in the group will increase or decrease at the same time.
 
-普通组的属性面板：
+Properties panel for common groups:
 
 ![](../../images/QQ20191211-151543.png)
 
-- `名称` 可以给普通组取名，用途也仅仅是辅助设计。
+- `name`You can name common groups and use them only as an aid to design.
 
-## 高级组
+## Advanced group
 
-高级组除了具有普通组所有的功能外，它在发布后仍然保留，也就是在运行时可以通过代码访问高级组对象。所以它可以像一个普通元件那样设置关联和属性控制。
+The advanced group has all the functions of the normal group, but it is retained after the release, that is, the advanced group object can be accessed through code at runtime. So it can set relations and attribute control like a normal component.
 
-高级组的作用有：
-1. 可以设置可见性。如果组不可见，则组内的所有元件均不可见。
-2. 设置属性控制。高级组支持的属性控制有：显示控制，位置控制，大小控制。
-3. 设置关联。
-4. 设置布局。
+The role of the advanced group is:
+1. You can set visibility. If the group is not visible, all components within the group are not visible.
+2. Set property controls. The advanced group supports attribute control: display control, position control, size control.
+3. Set up the relations.
+4. Set the layout.
 
-高级组的属性面板：
+Advanced group properties panel:
 
 ![](../../images/QQ20191211-151618.png)
 
-- `布局` 高级组具有简单的布局功能。
-  
-  - `无` 没有布局。没有布局的高级组是不会自动计算包围的，这是为了提高运行性能。因为没有布局的高级组一般只用来做显隐用途。
+- `layout`The advanced group has simple layout features.
 
-  - `水平布局`
+   - `no`No layout. Advanced groups without layouts will not automatically calculate enclosing, this is to improve running performance. Because the advanced group without layout is generally only used for explicit and implicit purposes.
 
-    组内的元件按照他们在容器中的显示顺序水平依次排列，他们之间的间隔由列距指定。当组的宽度改变时，每个元件都**按比例增大**，然后重新排列，列距保持不变。当组内的元件自身的宽度改变时，组自动按规则重新排列。
+   - `Horizontal layout`
 
-  - `垂直布局`
+      The elements in the group are arranged horizontally in the order they are displayed in the container, and the interval between them is specified by the column spacing. When the width of the group changes, each element is**Increase proportionally**, And then rearranged, the column spacing remains the same. When the width of the components in the group changes, the group automatically rearranges according to the rules.
 
-    组件的元件按照他们在容器中的显示顺序垂直依次排列，他们之间的间隔由行距指定。当组的高度改变时，每个元件都**按比例增大**，然后重新排列，行距保持不变。当组内的元件自身的高度改变时，组自动按规则重新排列。
+   - `Vertical layout`
 
-- `排除隐藏的对象`
-  
-  决定高级组在应用布局时，是否为隐藏的对象保留位置。如果勾选了这个选项，那么隐藏的对象就不会参与排列。
+      The components of an assembly are arranged vertically in the order in which they appear in the container, and the spacing between them is specified by the line spacing. When the height of the group changes, each element**Increase proportionally**, Then rearrange them, leaving the line spacing unchanged. When the height of the components in the group changes, the group is automatically rearranged according to the rules.
 
-- `禁用自动计算包围`
+- `Exclude hidden objects`
 
-  一般情况下，有布局的高级组是自动计算包围的，也就是说，高级组的大小由组内元素决定。勾选这个选项后，高级组的大小就可以随意指定，不再受组内元素的影响。这用于实现这样一类需求：动态建立一个高级组，设定了固定大小后，无论往组里添加多少元件，这些元件都自动伸缩，且严格按布局排列。
+   Determines whether the advanced group reserves positions for hidden objects when applying layouts. If this option is checked, hidden objects will not participate in the arrangement.
 
-- `仅伸缩指定索引元件`
+- `Disable automatic bracketing`
 
-  一般情况下，有布局的高级组在拉伸时，组内的元素是均匀拉伸的。但在某些需求下，会要求只有一个元件拉伸，而其他元件大小保持不变。这里可以指定这样一个元件的索引实现需求。
+   In general, advanced groups with layouts are automatically calculated by enclosing, that is, the size of the advanced group is determined by the elements within the group. When this option is checked, the size of the advanced group can be arbitrarily specified and is no longer affected by the elements in the group. This is used to achieve such a type of requirement: dynamically set up an advanced group. After a fixed size is set, no matter how many components are added to the group, these components automatically expand and contract, and are arranged strictly in layout.
 
-**演示一**
+- `Scale only specified index elements`
 
-这是一个无布局的组，可以看到，组大小改变时，里面的方块大小同时改变，但位置不变。
+   In general, when an advanced group with a layout is stretched, the elements in the group are stretched uniformly. However, under certain requirements, only one component is required to be stretched, while other components remain the same size. Here you can specify the index implementation requirements for such a component.
+
+**Demo one**
+
+This is a group without layout. As you can see, when the group size changes, the size of the squares in it changes at the same time, but the position remains the same.
 
 ![](../../images/gaollg17.gif)
 
-这是一个水平布局的组，可以与上图比较一下差别。
+This is a group with a horizontal layout, which can be compared with the image above.
 
 ![](../../images/gaollg18.gif)
 
-**演示二**
+**Demo two**
 
-如果组内有设置了大小限制的元件，那么组大小改变时，这些元件的大小限制依然生效，在以下的例子中，由于左右两个色块被限制了大小，所以组变大时，只有中间的色块改变大小。
+If there are components in the group that have a size limit set, then the size limit of these components will still take effect when the group size is changed. In the following example, because the left and right color blocks are limited in size, when the group becomes larger, only the middle The color blocks change size.
 
 ![](../../images/gaollg19.gif)
 
 ## GGroup
 
-高级组可以在运行时通过代码访问。但要注意的是，组不是容器，它并没有维护一个组内元件的列表。如果你需要遍历组内的所有元件，你需要遍历容器组件的所有孩子，测试他们group属性。代码如下：
+Advanced groups are accessible through code at runtime. Note, however, that groups are not containers; they do not maintain a list of components within a group. If you need to iterate through all the elements in a group, you need to iterate through all the children of the container component and test their group property. code show as below:
 
 ```csharp
-    GGroup aGroup = gcom.GetChild("groupName").asGroup;
+GGroup aGroup = gcom.GetChild("groupName").asGroup;
     int cnt = gcom.numChildren;
     for(int i=0;i<cnt;i++)
     {
@@ -91,4 +91,4 @@ order: 17
     }
 ```
 
-**必须注意，对于没有布局的高级组，运行时是不会自动改变大小的，也就是无论组内的元素怎么变动，这种高级组的大小是不会自动改变的！** 如果确实需要改变，那么只能自行调用GGroup.EnsureBoundsCorrect。
+**It must be noted that for advanced groups without layout, the runtime will not automatically change the size, that is, no matter how the elements in the group change, the size of this advanced group will not automatically change! **If you really need to change, you can only call GGroup.EnsureBoundsCorrect yourself.

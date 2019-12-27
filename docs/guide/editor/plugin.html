@@ -6,18 +6,18 @@
         <title>FairyGUI - Plugin</title>
     
         <meta charset="utf-8">
-        <meta name="description" content="FairyGUI Manual">
-        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Manual">
+        <meta name="description" content="FairyGUI Docs">
+        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Docs">
         
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
         <meta property="og:title" content="-PluginFairyGUI">
-        <meta property="og:description" content="FairyGUI Manual">
+        <meta property="og:description" content="FairyGUI Docs">
 
         <meta name="twitter:card" content="summary">
         <meta name="twitter:title" content="Plugin — FairyGUI">
-        <meta name="twitter:description" content="FairyGUI Manual">
+        <meta name="twitter:description" content="FairyGUI Docs">
 
       <!--  <link href='//fonts.proxy.ustclug.org/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
 
@@ -65,7 +65,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/docs/guide/editor/index.html" class="sidebar-link">Basics</a>
+	                    <a href="/docs/guide/editor/index.html" class="sidebar-link">Basis</a>
 	                </li>
 	            
 	                
@@ -120,7 +120,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/docs/guide/editor/richtext.html" class="sidebar-link">RichText</a>
+	                    <a href="/docs/guide/editor/richtext.html" class="sidebar-link">Rich Text</a>
 	                </li>
 	            
 	                
@@ -274,7 +274,7 @@
 	                <li><h3>SDK - Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/index.html" class="sidebar-link">Basics</a>
+	                    <a href="/docs/guide/unity/index.html" class="sidebar-link">Basis</a>
 	                </li>
 	            
 	                
@@ -292,7 +292,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/font.html" class="sidebar-link">Font</a>
+	                    <a href="/docs/guide/unity/font.html" class="sidebar-link">Fonts</a>
 	                </li>
 	            
 	                
@@ -310,7 +310,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/insert3d.html" class="sidebar-link">Insert 3D/Canvas</a>
+	                    <a href="/docs/guide/unity/insert3d.html" class="sidebar-link">Insert 3D</a>
 	                </li>
 	            
 	                
@@ -354,30 +354,30 @@
     
       <h1>Plugin</h1>
     
-    <p>编辑器支持插件。插件可以实现以下这些功能：</p>
+    <p>The editor supports plugins. Plugins can implement these functions:</p>
 <ol>
-<li>显示自定义的视图。（限专业版）</li>
-<li>显示自定义的Inspector。（限专业版）</li>
-<li>自定义菜单。</li>
-<li>导入资源。</li>
-<li>添加元件到舞台，以及设置舞台上的元件的属性。（限专业版）</li>
-<li>插入自定义操作到发布流程。例如自定义发布代码。</li>
+<li>Display a custom view. (Professional Edition only)</li>
+<li>Display the custom Inspector. (Professional Edition only)</li>
+<li>Custom menu.</li>
+<li>Import resources.</li>
+<li>Add symbols to the stage, and set the properties of symbols on the stage. (Professional Edition only)</li>
+<li>Insert custom actions into the publishing process. Such as custom publishing code.</li>
 </ol>
-<h2 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h2><p>目前插件只支持AS3语言开发。</p>
+<h2 id="Develop"><a href="#Develop" class="headerlink" title="Develop"></a>Develop</h2><p>Currently the plugin only supports AS3 language development.</p>
 <ol>
-<li>从<a href="https://github.com/fairygui/FairyGUI-Editor/tree/master/plugin" target="_blank" rel="external">仓库</a>下载最新版本的插件接口和示例。</li>
-<li>使用你熟悉的AS3开发工具创建一个<strong>库项目</strong>，并将下载的插件接口放入工程内。</li>
-<li>设置libs/FairyGUI-as3.swc为外部链接，即不打包到最终的swc中。这点很重要。</li>
-<li>插件入口在PlugInMain这个类里。</li>
-<li><code>fairygui.plugin</code>下的接口是旧版本的接口，社区版用户只能访问这部分接口。</li>
-<li><code>fairygui.editor.api</code>下的接口是5.x版本的接口，只有专业版用户才能使用。</li>
+<li><a href="https://github.com/fairygui/FairyGUI-Editor/tree/master/plugin" target="_blank" rel="external"></a>Download the latest version of the plug-in interface and examples from the repository.</li>
+<li>Create one using your familiar AS3 development tools<strong>Library item</strong>And put the downloaded plug-in interface into the project.</li>
+<li>Set libs / FairyGUI-as3.swc as an external link, that is, do not package it into the final swc. This is very important.</li>
+<li>The plugin entry is in the class PlugInMain.</li>
+<li><code>fairygui.plugin</code>The interface below is the interface of the old version, and the community version users can only access this part of the interface.</li>
+<li><code>fairygui.editor.api</code>The interface below is the 5.x interface, which can only be used by professional users.</li>
 </ol>
-<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>将生成的插件swc拷贝到插件目录，也就是在软件安装目录/plugins下。<br>点击菜单“工具-&gt;插件管理”，弹出窗口如下图：</p>
+<h2 id="Deploy"><a href="#Deploy" class="headerlink" title="Deploy"></a>Deploy</h2><p>Copy the generated plug-in swc to the plug-in directory, that is, under the software installation directory / plugins.<br>Click the menu “Tools-&gt; Plugin Management”, the pop-up window is as follows:</p>
 <p><img src="../../images/QQ20191210-144149.png" alt=""></p>
-<p>如果从列表里看到你的插件的名字，说明安装已成功。</p>
-<h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><p>可以通过输出信息到控制台进行调试。</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
-<li><a href="http://ask.fairygui.com/?/question/5" target="_blank" rel="external">编辑器插件怎么写？</a></li>
+<p>If you see the name of your plugin in the list, the installation was successful.</p>
+<h2 id="Debug"><a href="#Debug" class="headerlink" title="Debug"></a>Debug</h2><p>You can debug by outputting information to the console.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
+<li><a href="http://ask.fairygui.com/?/question/5" target="_blank" rel="external">How to write an editor plugin?</a></li>
 <li><a href="https://github.com/ZxIce/FairyGUIToLua" target="_blank" rel="external">FairyGUIToLua</a></li>
 </ol>
 

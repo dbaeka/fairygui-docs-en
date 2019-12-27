@@ -4,217 +4,216 @@ type: guide_editor
 order: 34
 ---
 
-FairyGUI不仅提供了静态UI的编辑功能，而且提供了强大的动效编辑功能，让你的UI可以轻松动起来。
+FairyGUI not only provides the editing function of static UI, but also provides powerful dynamic editing functions to make your UI easy to move.
 
-## 名称解释
+## Name explanation
 
-- `时间轴` 元件一个属性的变化构成一条时间轴。例如一个组件，他的位置的变化可以成为一条时间轴。
+- `Timeline`A change in an attribute of a component forms a timeline. For a component, the change in its position can become a timeline.
 
-- `帧` 时间轴由一个或多个帧做成。
+- `frame`The timeline is made up of one or more frames.
 
-- `关键帧` 时间轴上有很多帧，但不是所有帧都可以调整元件的属性。可以调整元件属性的帧叫“关键帧”。其他普通帧是自动生成的过渡。关键帧与普通帧在显示上的区别是中心多了个白点：![](../../images/20170808103109.png)。
+- `Keyframe`There are many frames on the timeline, but not all frames can adjust the properties of a symbol. Frames whose component properties can be adjusted are called "key frames". Other normal frames are automatically generated transitions. The difference between the display of key frames and ordinary frames is that there is a white dot in the center:![](../../images/20170808103109.png)。
 
-- `Tween` 在两个关键帧之间生成插值动画效果。Tween的显示为：![](../../images/20170808103354.png)，即有一个箭头连接两个关键帧。
+- `Tween`Generates an interpolation animation effect between two keyframes. Tween shows:![](../../images/20170808103354.png)That is, there is an arrow connecting two key frames.
 
-## 编辑动效
+## Edit transition
 
-在动效列表视图，创建新动效或者双击某个动效后进入到动效编辑模式。
+In the transition list view, create a new transition or double-click on an transition to enter transition editing mode.
 
-要退出动效编辑模式，点击舞台右上方的按钮：
+To exit transition editing mode, click the button at the top right of the stage:
 
 ![](../../images/QQ20191212-093756.png)。
 
-在动效编辑时，不能增加和删除元件，不能修改控制器。如果当前帧的属性类型不是“改变位置”，那么无法移动元件；如果当前帧的属性类型“改变大小”，那么无法改变元件的大小。
+During dynamic editing, you cannot add and delete components, and you cannot modify the controller. If the attribute type of the current frame is not "Change Position", then the component cannot be moved; if the attribute type of the current frame is "Change Size", then the size of the component cannot be changed.
 
-在舞台上选中一个元件后（或不选中任何元件，在舞台空白处右键），从右键菜单中创建时间轴：
+After selecting a symbol on the stage (or unselecting any symbol, Context in the blank space of the stage), create a timeline from the context menu:
 
 ![](../../images/QQ20191211-235703.png)
 
-不同的元件可以创建的类型有所不同。
+Different types can be created with different components.
 
-- `改变位置` 改变元件的位置（x，y）。
-- `改变大小` 改变元件的宽和高（width、height）。
-- `改变透明度` 改变元件的透明度（alpha）。
-- `改变旋转` 改变元件的旋转（rotation）。
-- `改变缩放` 改变元件的缩放（scaleX，scaleY）。
-- `改变倾斜` 改变元件的倾斜（skewX，skewY）。
-- `改变颜色` 对图片、文字、装载器有效，改变它们的颜色（color）属性。
-- `改变动画` 对动画、装载器有效，改变动画当前的播放状态（playing），或者设置当前帧（frame）。使用这个功能可以使动效轻松地和序列帧动画结合做复杂效果。
-- `改变轴心` 改变元件的轴心（pivotX，pivotY）。一般来说，轴心应该设置为元件的固定属性，而不是在动效里临时改变。这里只是给出一个途径，使用的情景不多。
-- `改变可见性` 改变元件的可见性（visible）。
-- `播放动效` 对组件有效，播放该组件定义的一个动效。如果当前没有选中任何元件，则播放当前容器组件的一个动效。这可以实现类似于动效嵌套的功能。例如，如果动效中有一段效果是需要循环播放的，那我们可以把它做成单独一个动效，然后再用这里的方法嵌套进来。
-- `播放声音` 播放一个音效。
-- `播放震动` 元件显示一个震动效果。
-- `改变颜色滤镜` 改变元件的颜色滤镜。
-- `改变文本` 改变文本、标签、按钮、下拉框等这些带有标题属性的Text值。
-- `改变图标` 改变装载器、标签、按钮、下拉框等这些带有图标属性的URL值。
+- `Change position`Change the position of the component (x, y).
+- `Change size`Change the width and height of the component (width, height).
+- `Change transparency`Change the transparency (alpha) of the symbol.
+- `Change rotation`Change the rotation of the component.
+- `Change zoom`Change the scale of the component (scaleX, scaleY).
+- `Change tilt`Change the tilt of the component (skewX, skewY).
+- `Change color`Valid for images, text, and loaders. Change their color attributes.
+- `Change animation`Valid for movieclip and loader, change the current playing state of the animation (playing), or set the current frame (frame). Use this feature to easily combine animation with sequence frame animations to make complex effects.
+- `Change axis`Change the axis of the component (pivotX, pivotY). In general, the axis should be set to a fixed property of the component, not to change it temporarily in the transition. Here is just a way, not many scenarios are used.
+- `Change visibility`Change the visibility of components.
+- `Play transition`Valid for the component, playing an transition defined by the component. If no symbol is currently selected, an transition of the current container component is played. This can achieve functions similar to dynamic nesting. For example, if a certain effect in the transition needs to be played in a loop, we can make it into a single transition and then use this method to nest it.
+- `Play sound`Play a sound effect.
+- `Play vibration`The component displays a vibration effect.
+- `Change color filter`Change the color filter of the component.
+- `Change text`Change text, label, button, drop-down box, etc. Text value with title attribute.
+- `Change icon`Change loader, label, button, drop-down box and other URL values with icon attributes.
 
-**注意：“组”支持的动效类型很少，如果需要复杂的动作，请改用组件。**
+**Note: There are very few transition types supported by Groups. If you need complex actions, use components instead.**
 
-## 动效属性
+## Transition properties
 
 ![](../../images/QQ20191212-001434.png)
 
-- `帧频` 可按需求选择24、30或60。编辑期时设定的帧频和最终的运行帧频并不相关，但更大的帧密度对制作更精细的动画有帮助。
-- `忽略显示控制器影响` 勾选后，动效开始时所有参与此动效的元件不受显示控制器的控制，也就是不会被显示控制器隐藏。动效结束后恢复控制。
-- `容器组件不可见时自动停止` 当组件移出舞台时，自动停止播放动效，节省CPU资源。
-- `自动播放` 当组件被加到舞台时，自动开始播放动效。
-  - `重复次数` 自动播放的重复次数。
-  - `延迟` 自动播放的延迟。单位秒。
+- `Frame rate`You can choose 24, 30 or 60 according to your needs. The frame rate set during the editing period is not related to the final running frame rate, but a higher frame density is helpful for making finer transitions.
+- `Ignore display controller effects`When checked, all components participating in the transition at the beginning of the transition are not controlled by the display controller, that is, they will not be hidden by the display controller. Control resumes after the effect is over.
+- `Stop automatically when container component is not visible`When the component moves out of the stage, it automatically stops playing transitions, saving CPU resources.
+- `Autoplay`When the component is added to the stage, the transition will start playing automatically.
+   - `repeat times`Number of repeats for autoplay.
+   - `delay`Autoplay delay. Unit of second.
 
-## 帧属性
+## Frame properties
 
 ![](../../images/QQ20191212-001552.png)
 
-- `标签` 设置帧的标签，一个任意的字符串，标识这个帧，用于代码里访问。
+- `label`Set the label of the frame, an arbitrary string, identifying this frame, for access in the code.
 
-- `Tween` 勾选后从这个关键帧到下一个关键帧建立一个Tween。如果没有下一个关键帧，那么这个Tween是无效的。
+- `Tween`Check this box to create a Tween from this keyframe to the next keyframe. If there is no next key frame, then this Tween is invalid.
 
-- `缓动函数` 时间/速度曲线。详细请参考 [图解](../../images/20170802000005.jpg) [示例](https://greensock.com/ease-visualizer)。
+- `Easing function`Time / speed curve. Please refer to details[Graphic](../../images/20170802000005.jpg) [Example](https://greensock.com/ease-visualizer)。
 
-- `重复` 重复播放的次数。-1表示循环。
+- `repeat`The number of repeated playbacks. -1 means loop.
 
-- `yoyo` 往返播放的效果。默认循环播放的效果是从起点到终点，然后又从起点到终点。勾选yoyo后，循环播放的效果是从起点到终点，再从终点到起点，依次类推。
+- `yoyo`The effect of playing back and forth. The effect of the default loop playback is from the start point to the end point, and then from the start point to the end point. After selecting yoyo, the effect of loop playback is from the start point to the end point, then from the end point to the start point, and so on.
 
-## 帧数据
+## Frame data
 
-不同的帧类型有不同的数据。这里只介绍改变位置一种类型。
+Different frame types have different data. Only one type of changing position is introduced here.
 
 ![](../../images/QQ20191212-001721.png)
 
-- `X` `Y` 修改关键帧的值。输入框前面的勾表示，如果不勾选，则不修改元件当前的属性值。
+- `X` ``Y Modify the value of the keyframe. The check mark in front of the input box indicates that if it is not checked, the current attribute value of the component will not be modified.
 
-  这里有一个关键点要注意。举个例子说明。当前元件的X是50，不勾选。动效结束时设置X为100，有勾选。则动效播放第一次时元件从50运动到100。动效播放第二次时，第一帧的X值是没有勾选的，也就是使用当前值，那就是100，那么动效的效果是从100运动到100，也就是看不到任何表现。这是动效的设计问题。这个勾选的功能一般只用在不参与动效的属性值。例如元件只做水平运动，那么可以不勾选Y，方便以后调整Y值时不影响动效。
+   There is one key point to note here. Take an example. The X of the current component is 50. Uncheck it. Set X to 100 at the end of the transition, and check it. The first time the transition is played, the component moves from 50 to 100. When the transition is played for the second time, the X value of the first frame is unchecked, that is, the current value is used, that is, 100. Then the effect of the transition is from 100 to 100, which means that no performance is seen. This is a matter of dynamic design. This checked function is generally only used for attribute values that are not involved in transition. For example, if the component only moves horizontally, you can leave the box unchecked to make it easier to adjust the Y value without affecting the motion.
 
-- `使用百分比记录坐标` 用百分比方式记录坐标值。例如元件放置在容器水平中心时，x值就记录为50%。当进入到这帧时，无论容器的尺寸是多少，元件的坐标依然为中心即50%的位置。
+- `Recording coordinates using percentages`Coordinate values are recorded as a percentage. For example, when the component is placed in the horizontal center of the container, the x value is recorded as 50%. When entering this frame, no matter what the size of the container, the coordinates of the component are still at the center, which is 50% of the position.
 
-- `使用引导线` 如果需要元件做曲线运动，那么可以勾选这个选项。
+- `Use guides`If you want the component to do curve motion, you can check this option.
 
-引导线功能必须配合Tween使用，在Tween的开始关键帧勾选引导线功能。
+The guideline function must be used in conjunction with Tween. Check the guideline function at the start key frame of Tween.
 
-通过以下两种方式进入编辑引导线模式：
-- 点击右侧图标 ![](../../images/QQ20191212-093212.png)。
-- 双击舞台上的元件。
+Enter edit guide mode in two ways:
+- Click on the right icon![](../../images/QQ20191212-093212.png)。
+- Double-click the symbol on the Stage.
 
-通过以下三种方式退出编辑引导线模式：
+Exit Edit Guideline mode in three ways:
 
-- 选中其他元件或其他关键帧。
-- 双击舞台空白。
-- 右键点击舞台空白，选择右键菜单中的“退出”。
+- Select other symbols or other keyframes.
+- Double-click on the stage blank.
+- Context on the stage blank and select "Exit" from the context menu.
 
-引导线编辑界面如下：
+The guideline editing interface is as follows:
 
 ![](../../images/QQ20191212-094415.png)
 
-1. 路径点。可以按住路径点并拖动从而改变它的坐标，也可以在属性面板直接输入它的坐标：
-   ![](../../images/QQ20191212-100249.png)
+1. Waypoint. You can change the coordinates by holding down the path point and dragging it, or you can enter its coordinates directly in the properties panel:![](../../images/QQ20191212-100249.png)
 
-   增加路径点：右键点击舞台空白，在菜单中选择“增加点”；
+   Add waypoints: Context on the stage blank and select "Add Points" from the menu;
 
-   删除路径点：右键点击路径点，在菜单中选择“删除点”。
+   Delete a waypoint: Context the waypoint and choose "Delete Point" from the menu.
 
-2. 控制点。可以按住控制点并拖动从而改变它的坐标，也可以在属性面板直接输入它的坐标。每个路径点都有两个控制点，他们之间用白线连接，拖动其中一个控制点时，另一个控制点也会同时移动，这种机制可以使曲线在这个点平滑变化。
+2. Control point. You can hold the control point and drag to change its coordinates, or you can enter its coordinates directly in the properties panel. Each path point has two control points. They are connected by a white line. When one of the control points is dragged, the other control point also moves at the same time. This mechanism can make the curve change smoothly at this point.
 
-  如果需要取消这个平滑功能，在右键菜单中不勾选“平滑”：
+If you need to cancel this smoothing function, uncheck "Smooth" in the context menu:
 
-  ![](../../images/QQ20191212-094429.png)
+![](../../images/QQ20191212-094429.png)
 
-  这时再移动控制点，会发现两个控制台不再同时移动，这样曲线可以做较大的转折：
+At this time, if you move the control point again, you will find that the two consoles no longer move at the same time, so that the curve can make a larger turn:
 
-  ![](../../images/QQ20191212-094654.png)
+![](../../images/QQ20191212-094654.png)
 
 ## Transition
 
-动效的播放在代码中启动，例如：
+Transition playback is started in the code, for example:
 
 ```csharp
-    Transition trans = aComponent.GetTransition(“peng”);
+Transition trans = aComponent.GetTransition(“peng”);
     trans.Play();
 ```
 
-Play有多种原型，例如可以重复播放一定次数，可以在播放结束时回调等。例如：
+Play has a variety of prototypes, for example, it can be played a certain number of times, and it can be called back when the playback ends. E.g:
 
 ```csharp
-    //结束时有一个回调，但需注意，如果动效里有嵌套的动效，或者有循环的内容，必须是等全部都结束后才会回调。
-    trans.Play(callback);
+// There is a callback at the end, but it should be noted that if there is a nested transition in the transition or there is a loop content, it will not be called back until all are finished.
+    trans.Play (callback);
 ```
 
-例如可以播放动效的一部分，通过指定时间范围，例如：
+For example, you can play part of the transition by specifying a time range, such as:
 
 ```csharp
-    //播放0.5秒-1.5秒部分的动效，即0.5秒（包含）-1.5秒（包含）之间的所有帧。
-    trans.Play(1, 0, 0.5, 1.5);
+// Play the transition from 0.5 seconds to 1.5 seconds, that is, all frames between 0.5 seconds (inclusive) and 1.5 seconds (inclusive).
+    trans.Play (1, 0, 0.5, 1.5);
 ```
-时间范围可以硬编码，也可以通过标签指定，通过GetLabelTime可以获得某个标签所在时间点。
+The time range can be hard-coded or specified by a label. You can get the time point of a label through GetLabelTime.
 
-也可以倒着放，但要注意倒着放之前需要先执行一次正着放。例如：
-
-```csharp
-    trans.playReverse();
-```
-
-动效可以暂停，例如：
+It is also possible to place it upside down, but note that you need to perform an upright placement before placing it upside down. E.g:
 
 ```csharp
-    //暂停动效播放
-    trans.setPaused(true);
-
-    //恢复动效播放
-    trans.setPaused(false);
+trans.playReverse();
 ```
 
-要中途停止动效的播放，可以调用：
+Transition can be paused, for example:
 
 ```csharp
-    trans.Stop();
+// Pause transition
+    trans.setPaused (true);
+
+    // Resume transition playback
+    trans.setPaused (false);
 ```
 
-Stop方法也可以带参数，原型是：
+To stop the transition playback in the middle, you can call:
 
 ```csharp
-    public void Stop(bool setToComplete, bool processCallback);
+trans.Stop();
 ```
 
-`setToComplete`表示是否将组件的状态设置到播放完成的状态，如果否，组件的状态就会停留在当前时间。`processCallback`是否调用Play方法传入的回调函数。
-
-注意：UI动效播放完毕后，组件的状态将停留在最后一帧，而不是回到第一帧，如果你希望动效播放完后组件的状态复原到播放前，你需要最后添加一帧重新设置组件的状态。例如一个动效，设计是透明度经过1秒从1变到0，那么动效播放结束后透明度就是0。有人会问怎样才能让动效播放完了回到第一帧，也就是透明度要等于1，那很简单，在透明度时间轴最后加一帧，设置透明度为1，那么动效播放完了透明度就是1了。
-
-如果需要修改某个关键帧的属性值，可以使用：
+The Stop method can also take parameters. The prototype is:
 
 ```csharp
-    //例如某帧的标签为aa，这帧是设置某个元件的XY值的，将XY的数值改为100,200。
-    trans.SetValue("aa", 100, 200);
+public void Stop(bool setToComplete, bool processCallback);
 ```
 
-可以修改某个Tween的持续时间，但修改某个Tween的时间**不会**使后续的Tween推迟。例如：
+`setToComplete`Indicates whether to set the status of the component to the completed status. If not, the status of the component stays at the current time. `processCallback`Whether to call the callback function passed by the Play method.
+
+Note: After the UI transition is finished playing, the state of the component will stay at the last frame, instead of returning to the first frame. If you want the state of the component to return to the state before playing after the transition is played, you need to add a frame again Sets the status of the component. For example, for a motion effect, the design is to change the transparency from 1 to 0 after 1 second, then the transparency will be 0 after the transition effect ends. Some people will ask how to make the transition go back to the first frame, that is, the transparency must be equal to 1, which is very simple. Add a frame at the end of the transparency timeline and set the transparency to 1. Then the transparency is 1 after the transition is finished .
+
+If you need to modify the attribute value of a keyframe, you can use:
 
 ```csharp
-    //修改某个Tween的持续时间为0.5秒。注意，标签应该定在Tween的开始关键帧上。
-    trans.SetDuration("aa", 0.5f);
+// For example, the label of a frame is aa, this frame is set to the XY value of a certain element, and the XY value is changed to 100,200.
+    trans.SetValue ("aa", 100, 200);
 ```
 
-可以在动效运行到某帧时触发一个回调，例如：
+Can modify the duration of a Tween, but modify the time of a Tween**will not**Postponing subsequent Tween. E.g:
 
 ```csharp
-    //运行到标签为aa的关键帧时，触发一个callback的回调。
-    trans.SetHook("aa", callback);
+// Modify the duration of a Tween to 0.5 seconds. Note that the label should be on the start key of Tween.
+    trans.SetDuration ("aa", 0.5f);
 ```
 
-可以修改动效某个标签对应动效片段的目标对象，但必须注意，**要在动效停止状态下调用**，例如：
+You can trigger a callback when the transition reaches a certain frame, for example:
 
 ```csharp
-    trans.SetTarget("aa", newTarget);
+// When the key frame labeled aa is run, a callback is triggered.
+    trans.SetHook ("aa", callback);
 ```
 
-在Unity中，动效的播放速度默认是不受Time.timeScale影响的，但你也可以设定它受影响：
+You can modify the target object of a motion effect tag for a motion effect, but you must be aware that**To be called when the transition is stopped**,E.g:
 
 ```csharp
-    trans.ignoreEngineTimeScale = false;
+trans.SetTarget ("aa", newTarget);
 ```
 
-也可以单独设置动效的timeScale，例如：
+In Unity, the transition playback speed is not affected by Time.timeScale by default, but you can also set it to be affected:
 
 ```csharp
-    //动效播放的速度将会是原来的一半。
-    trans.timeScale = 0.5f;
+trans.ignoreEngineTimeScale = false;
+```
+
+You can also set the dynamic timeScale separately, for example:
+
+```csharp
+// The transition playback speed will be half of the original speed.
+    trans.timeScale = 0.5f;
 ```

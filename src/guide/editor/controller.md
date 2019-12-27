@@ -4,268 +4,268 @@ type: guide_editor
 order: 20
 ---
 
-控制器是FairyGUI核心功能之一，它为UI制作中以下类似需求提供了支持：
+The controller is one of the core functions of FairyGUI, which provides support for the following similar requirements in UI production:
 
-- 分页 一个组件可以由多个页面组成。
+- Pagination A component can consist of multiple pages.
 
-- 按钮状态 按钮通常有按下、鼠标悬浮等多个状态，我们可以利用控制器为每个状态安排不同的显示内容。
+- Button states Buttons usually have multiple states such as pressed and mouse hover. We can use the controller to arrange different display contents for each state.
 
-- 属性变化 利用控制器，我们可以使元件具有多个不同的形态，并且可以方便地切换。
+- Attribute change With the controller, we can make the component have multiple different shapes, and can easily switch.
 
-## 控制器设计
+## Controller design
 
-每个组件都可以创建一个或多个控制器，如下图所示：
+Each component can create one or more controllers, as shown in the following figure:
 
 ![](../../images/QQ20191211-121854.png)
 
-1. 点击控制器名称，显示控制器设计界面。
-2. 点击控制器页面按钮，切换页面。
-3. 增加控制器。
+1. Click the controller name to display the controller design interface.
+2. Click the controller page button to switch pages.
+3. Add controller.
 
-控制器设计页面如下：
+The controller design page is as follows:
 
 ![](../../images/QQ20191211-122014.png)
 
-- `名称` 控制器的名称。同一组件内的控制器请不要同名。
+- `name`The name of the controller. Do not use the same name for controllers in the same component.
 
-- `备注名` 控制器的备注名，用于加强理解。
+- `Remark name`Controller's remark name for better understanding.
 
-- `首页` 控制器创建后的默认页面。
-  - `第一页` 这是默认值。一般控制器创建后都是在第一页（索引为0的页面）。
-  - `指定页面` 可以指定某个页面。
-  - `匹配分支名称` 跳转到名称和活跃分支名称相同的页面。假设第3页的名称是en，而当前分支是en，那么控制器创建后就自动跳转到第3页。
-  - `匹配变量名称 ` 跳转到名称和指定变量值相同的页面。见下例：
-  
-    ![](../../images/QQ20191211-134436.png)
+- `Home`The default page after the controller is created.
+   - `First page`This is the default value. Generally, after the controller is created, it is on the first page (the page with index 0).
+   - `Specify page`You can specify a page.
+   - `Match branch name`Jump to a page with the same name as the active branch. Assuming the name of page 3 is en and the current branch is en, the controller will automatically jump to page 3 after the controller is created.
+   - `Match variable name`Jump to a page with the same name as the specified variable value. See the following example:
 
-    在编辑器内，变量可以在“项目设置->自定义属性”里定义。**在代码里，变量需要通过UIPackage.SetVar定义。**
+      ![](../../images/QQ20191211-134436.png)
 
-- `导出为组件属性` 勾选后，当组件在编辑器里被实例化时，这个控制器将显示在组件的自定义属性面板上。见下例：
+      In the editor, variables can be defined in "Project Settings-> Custom Properties". **In the code, variables need to be defined through UIPackage.SetVar.**
 
-  ![](../../images/QQ20191211-134850.png) 
+- `Export as component properties`When checked, this controller will be displayed on the component's custom properties panel when the component is instantiated in the editor. See the following example:
 
-  ![](../../images/QQ20191211-134931.png)
+   ![](../../images/QQ20191211-134850.png)
 
-  可以看到，属性名称使用的是控制器的“备注名”，如果“备注名”为空，则使用控制器的名称。
+   ![](../../images/QQ20191211-134931.png)
 
-- `自动调整单选组对象层次` 勾选后，组件内所有属于此控制器控制的单选按钮，选中状态的单选按钮自动调整到其他按钮的前面。例如，3个按钮是互相重叠的，在未勾选此选项时效果如左图，勾选后效果如右图：
+   It can be seen that the attribute name uses the controller's "Remark Name". If the "Remark Name" is empty, the controller name is used.
 
-  ![](../../images/20170802231656.png) ![](../../images/20170802231712.png)
+- `Automatically adjust radio group object hierarchy`When checked, all radio buttons in the component that are controlled by this controller are automatically adjusted to the front of other buttons. For example, the 3 buttons overlap each other. When this option is not checked, the effect is as shown on the left, and when checked, the effect is shown as the right:
 
-- `页面管理` 增加、插入、删除页面，以及调整页面顺序。
-  
-  ![](../../images/QQ20191211-135229.png)
+   ![](../../images/20170802231656.png) ![](../../images/20170802231712.png)
 
-- `按钮模板` 点击![](../../images/QQ20191211-135449.png)，这是快速创建按钮控制器的一种方式。在弹出的菜单中选择一种按钮页面模式后，控制器的名称自动变成“button”，然后自动添加模板中包含的页面。
+- `Page management`Add, insert, delete pages, and adjust page order.
 
-- `动作` 可以定义页面切换时执行一系列动作。详细请参考[控制器动作](#控制器动作)。
+   ![](../../images/QQ20191211-135229.png)
 
-## 控制器动作
+- `Button template`Click![](../../images/QQ20191211-135449.png)This is a way to quickly create a button controller. After selecting a button page mode in the pop-up menu, the name of the controller automatically becomes "button", and then the pages included in the template are automatically added.
 
-可以定义页面切换时执行一系列动作。
+- `action`You can define a series of actions to be performed when the page is switched. Please refer to details[Controller action](#Controller-action)。
+
+## Controller action
+
+You can define a series of actions to be performed when the page is switched.
 
 ![](../../images/QQ20191211-135643.png)
 
-目前支持两种动作，播放动效和切换页面。
+Currently supports two actions, playing transition and switching pages.
 
-1. 播放动效：指定页面变换时播放一个动效。点击![](../../images/QQ20191211-161858.png)进行更精细的设置：
+1. Play transition: Specifies to play an transition when the page changes. Click![](../../images/QQ20191211-161858.png)Make finer settings:
 
    ![](../../images/QQ20191211-135920.png)
 
-   - `重复次数` 设定动效播放的次数。-1表示循环播放。
+   - `repeat times`Set the number of transitions. -1 means loop playback.
 
-   - `延迟` 设定动效延迟多少秒开始播放。
+   - `delay`Sets how many seconds the transition is delayed to start playback.
 
-   - `离开页面时停止` 如果离开页面时动效仍然在播放，勾选这个选项后将强制停止动效，不勾选的话动效会继续播放到停止（如果是循环的那就一直不会停止）。
+   - `Stop when leaving the page`If the transition is still playing when you leave the page, check this option to forcibly stop the transition. If you don't check this, the transition will continue to play until it stops (if it is a loop, it will never stop).
 
-2. 切换页面：可以切换其他控制器，实现一个控制器的联动功能。甚至可以设置孩子组件的控制器，前提是该孩子组件的控制器已经设置为“导出为组件属性”。目标页面有两个特殊的
-选项：`相同索引的页面`和`相同名称的页面`。利用这个特殊的选项可以使两个控制器完全同步。
+2. Switch page: You can switch other controllers to realize the linkage function of one controller. You can even set the controller of a child component, provided that the controller of the child component is already set to "Export as component property". The target page has two special
+Options:`Pages with the same index``And a page of the same name`。 With this special option, the two controllers can be fully synchronized.
 
-## 属性控制
+## Attribute control
 
-创建了控制器后，下面介绍怎么使用控制器。控制器是通过各个元件的属性控制设置发生作用。
+After creating the controller, here's how to use the controller. The controller works by controlling the properties of each component.
 
-在舞台选定一个元件，可以看到在右边的属性栏出现“属性控制”的面板：
+Select a component on the stage, you can see the "Properties Control" panel appears in the right property bar:
 
 ![](../../images/QQ20191211-140114.png)
 
-### 显示控制
+### Display control
 
-显示控制指示该元件只有在控制器的活动页面属于参与页面之一时才显示，否则不显示。如果参与页面为空，则显示控制不起作用，元件将一直显示。
+The display control indicates that the component is displayed only when the active page of the controller belongs to one of the participating pages, otherwise it is not displayed. If the participation page is empty, the display control has no effect and the component will always be displayed.
 
-设置显示控制的方式：
+Set the display control mode:
 
 ![](../../images/QQ20191211-140327.png)
 
-左边选择控制器，右边勾选参与页面。
+Select the controller on the left and check the participation page on the right.
 
-备注：
-1. 显示控制不使用元件本身的可见属性(visible)，两者是独立的，最终是否可见是两者的“与”逻辑结果。
+Remarks:
+1. The display control does not use the visible property of the component itself. The two are independent. Whether they are visible in the end is the logical result of the AND logic.
 
-2. 当元件不可见时，它并不会被容器(GComponent)的显示列表剔除，但FairyGUI底层会处理，使不可见的元件不占用渲染资源。不受控制器干扰的显示列表保证了任何时候都可以通过GetChild访问到需要的元件。
+2. When the component is not visible, it will not be removed from the display list of the container (GComponent), but the underlying layer of FairyGUI will handle it so that invisible components do not take up rendering resources. The display list that is not disturbed by the controller ensures that the required components can be accessed at any time through GetChild.
 
-3. 有需要时可以通过显示列表视图上的 ![](../../images/hierarchytb_03.png)屏蔽显示控制器。
+3. If necessary, you can display the![](../../images/hierarchytb_03.png)Shield display controller.
 
-   假设现在有两个元件A和B，都使用了显示控制，而他们在不同的页面显示。现在想将他们对齐一下，这显然做不到，因为他们不会同时显示，那只能手动填写他们的坐标了，或者将显示控制先取消掉，对齐好了再设置回来。这显然太麻烦，编辑器已经为你考虑到了这一点。
+   Suppose there are now two components A and B, both using display controls, and they are displayed on different pages. Now I want to align them, this is obviously not possible, because they will not be displayed at the same time, then they can only fill in their coordinates manually, or cancel the display control, align it and set it back. This is obviously too cumbersome, and the editor has taken this into account for you.
 
-   点击“屏蔽控制器”后，所有被控制器隐藏的元件都能显示出来，你就可以方便地应用对齐，或者选中这些元件进行批量的操作了。
+   After clicking "Shield Controller", all the components hidden by the controller can be displayed, you can easily apply the alignment, or select these components for batch operations.
 
-   这个功能只是辅助UI编辑的，所以只在设计的时候有效，实际运行时并没有屏蔽功能。
+   This function only assists UI editing, so it is only effective at design time, and there is no shielding function in actual operation.
 
-### 显示控制-2
+### Display Control-2
 
-显示控制-2一般和显示控制搭配使用，它可以实现两个控制器控制一个元件显隐的需求。特别还提供了一个逻辑关系的选项，可以选择“与”或者“或”。
+Display control-2 is generally used in conjunction with display control. It can achieve the needs of two controllers to control the display of a component. It also provides a logical relationship option, you can choose "AND" or "OR".
 
 ![](../../images/QQ20191211-140706.png)
 
-### 位置控制
+### Position control
 
-位置控制是指该元件在不同控制器页面中可以具有不同的XY坐标。
+Position control means that the component can have different XY coordinates in different controller pages.
 
-设置控制器后，在不同的控制器页面，你可以调整目标元件的X、Y属性值，编辑器会自动记录元件在不同页面的属性值，无需额外操作。
+After setting the controller, on different controller pages, you can adjust the X and Y attribute values of the target component. The editor will automatically record the attribute values of the component on different pages without additional operations.
 
-位置控制支持动画效果。选中![](../../images/QQ20191211-142518.png)后，当控制器页面改变时，元件不是立刻设置新的坐标，而是使用一个缓动到达新的值。点击![](../../images/QQ20191211-142602.png)可以设置缓动参数：
+Position control supports transition effects. Selected![](../../images/QQ20191211-142518.png)Later, when the controller page changes, the component does not set new coordinates immediately, but uses an easing to reach the new value. Click![](../../images/QQ20191211-142602.png)You can set the easing parameters:
 
 ![](../../images/QQ20191211-142615.png)
 
-- `持续时间` 整个缓动过程持续的时间，单位秒。
-- `延迟时间` 控制器页面切换后，延迟一定时间再开始缓动。单位秒。
-- `缓动函数` 时间/速度曲线。详细请参考 [图解](../../images/20170802000005.jpg) [示例](https://greensock.com/ease-visualizer)。
+- `duration`Duration of the entire easing process, in seconds.
+- `delay`After the controller page is switched, delay for a certain time before starting easing. Unit of second.
+- `Easing function`Time / speed curve. Please refer to details[Graphic](../../images/20170802000005.jpg) [Example](https://greensock.com/ease-visualizer)。
 
-位置控制器支持使用百分比记录坐标。选中![](../../images/QQ20191211-145146.png)后，坐标数值将使用百分比记录。例如元件放置在组件水平中心时，x值就记录为50%。当组件大小改变时，切换控制器页面后元件的坐标依然是中心即50%的位置。
+The position controller supports the use of percentages to record coordinates. Selected![](../../images/QQ20191211-145146.png)Later, the coordinate values will be recorded using percentages. For example, when the component is placed at the horizontal center of the component, the x value is recorded as 50%. When the component size is changed, the coordinates of the components after switching the controller page are still the center, that is, 50% of the position.
 
-**位置控制和关联系统的关系**
+**Relationship between position control and correlation system**
 
-假设控制器C1有2个页面P1和P2，元件N现在设置了位置控制，在P1页面的坐标是V1（50，50），在P2页面的坐标是V2（100，100）。元件N设置了对容器组件右右的关联关系。控制器现在处于P1页，坐标为（50，50）。
+Assume that the controller C1 has two pages P1 and P2, and the component N is now set to position control. The coordinates on the page P1 are V1 (50, 50) and the coordinates on the page P2 are V2 (100, 100). Element N sets the right-to-right relation relationship with the container component. The controller is now on page P1 with coordinates (50, 50).
 
-现在容器组件大小发生改变，元件N的坐标被关联系统修改为（70，70），这时V1更新为（70，70），V2也同时自动更新为（120，120）。**也就是说，关联系统的动作会应用到所有页面保存的坐标中。**
+Now the size of the container component changes, the coordinate of the component N is modified to (70, 70) by the correlation system, at this time V1 is updated to (70, 70), and V2 is also automatically updated to (120, 120). **In other words, the actions of the correlation system are applied to the coordinates saved on all pages.**
 
-### 大小控制
+### Size control
 
-大小控制是指该元件在不同控制器页面中可以具有不同的宽和高以及Scale值。
+Size control means that the component can have different width and height and Scale values in different controller pages.
 
-设置控制器后，在不同的控制器页面，你可以调整目标元件的宽、高、ScaleX、ScaleY属性值，编辑器会自动记录元件在不同页面的属性值。
+After setting the controller, on different controller pages, you can adjust the width, height, ScaleX, and ScaleY property values of the target component, and the editor will automatically record the component property values on different pages.
 
-大小控制支持动画效果。缓动的设置方式与位置控制是相同的，请参考位置控制。
+The size control supports transition effects. The setting method of easing is the same as that of position control, please refer to position control.
 
-### 颜色控制
+### Color control
 
-颜色控制是指该元件在不同控制器页面中可以具有不同的颜色。只有图片元件（对应图片的变色设置）、文本/富文本元件（对应文字的颜色）和装载器元件（对应载入的图片或动画的变色设置）才支持颜色控制。
+Color control means that the component can have different colors in different controller pages. Only image components (corresponding to the color setting of the image), text / rich text components (corresponding to the color of the text), and loader components (corresponding to the color changing settings of the loaded image or transition) support color control.
 
-设置控制器后，在不同的控制器页面，你可以调整目标元件的颜色值，编辑器会自动记录元件在不同页面的属性值。
+After setting the controller, in different controller pages, you can adjust the color value of the target component, and the editor will automatically record the attribute values of the component on different pages.
 
-颜色控制支持动画效果。缓动的设置方式与位置控制是相同的，请参考位置控制。
+Color controls support transition effects. The setting method of easing is the same as that of position control, please refer to position control.
 
-### 外观控制
+### Look control
 
-外观控制是指该元件不同控制器页面中可以对具有不同的透明度、变灰、旋转和不可触摸属性。
+Appearance control refers to the different controller pages of the element that can have different transparency, graying, rotation, and non-touch properties.
 
-设置控制器后，在不同的控制器页面，你可以调整目标元件的透明度、变灰、旋转和不可触摸属性值，编辑器会自动记录元件在不同页面的属性值。
+After setting the controller, you can adjust the transparency, graying, rotation, and non-touchable property values of the target component on different controller pages. The editor will automatically record the component's property values on different pages.
 
-外观控制支持动画效果。但只有透明度和旋转参与缓动，变灰和不可触摸都是立刻设置的。缓动的设置方式与位置控制是相同的，请参考位置控制。
+Appearance controls support transition effects. But only transparency and rotation participate in easing, graying and untouchable are set immediately. The setting method of easing is the same as that of position control, please refer to position control.
 
-### 文本控制
+### Text control
 
-文本控制是指该元件在不同控制器页面中可以具有不同的文本。文本/富文本元件（对应文字的颜色）、标签组件、按钮组件和下拉框组件才支持文本控制。
+Text control means that the component can have different text in different controller pages. Only text / rich text components (corresponding to the color of the text), label components, button components, and drop-down box components support text control.
 
-设置控制器后，在不同的控制器页面，你可以调整目标元件的文本属性或标题属性，编辑器会自动记录元件在不同页面的属性值。
+After setting the controller, in different controller pages, you can adjust the text or title attributes of the target component, and the editor will automatically record the attribute values of the component on different pages.
 
-### 图标控制
+### Icon control
 
-图标控制是指该元件在不同控制器页面中可以具有不同的图标。只有装载器元件、标签组件、按钮组件才支持图标控制。
+Icon control means that the component can have different icons in different controller pages. Only loader components, label components, and button components support icon control.
 
-设置控制器后，在不同的控制器页面，你可以调整目标元件的URL属性或图标属性，编辑器会自动记录元件在不同页面的属性值。
+After setting the controller, on different controller pages, you can adjust the URL or icon properties of the target component, and the editor will automatically record the property values of the component on different pages.
 
-### 动画控制
+### transition control
 
-动画控制是指该元件在不同控制器页面中可以具有不同的动画相关设置。只有动画和装载器才支持动画控制。
+transition control means that the component can have different transition-related settings in different controller pages. Only transition and loader support transition control.
 
-设置控制器后，在不同的控制器页面，你可以调整目标元件的“播放”和“帧”属性，编辑器会自动记录元件在不同页面的属性值。
+After setting the controller, you can adjust the "play" and "frame" properties of the target component on different controller pages, and the editor will automatically record the property values of the component on different pages.
 
-### 字体大小控制
+### Font size control
 
-字体大小是指该元件在不同控制器页面中可以具有不同的字体大小。只有文本、富文本、标签和按钮才支持字体大小控制。
+Font size means that the component can have different font sizes in different controller pages. Only text, rich text, labels, and buttons support font size control.
 
-设置控制器后，在不同的控制器页面，你可以调整目标元件的“字体大小”属性，编辑器会自动记录元件在不同页面的属性值。
+After setting the controller, you can adjust the "font size" property of the target component on different controller pages, and the editor will automatically record the property values of the component on different pages.
 
-## 和按钮的联动
+## Linkage with button
 
-控制器可以与按钮联动，当普通按钮被按下，或单选/复选按钮选中状态变化时，控制器的页面随之改变。选择一个按钮元件，在右边的“连接”属性设置里，可以设置一个控制器以及一个该控制器的页面：
+The controller can be linked with the buttons. When the normal button is pressed, or the radio / check button selection status changes, the controller's page changes accordingly. Select a button component. In the "connection" property setting on the right, you can set a controller and a page for the controller:
 
 ![](../../images/QQ20191211-145553.png)
 
-设置完成后，根据按钮的类型不同会有不同的反应：
+After the setting is completed, there will be different reactions depending on the type of button:
 
-- 普通按钮 当按钮被点击时，控制器调转到指定的页面。
+- Normal button When the button is clicked, the controller goes to the specified page.
 
-- 单选按钮 当按钮状态从不选中变成选中时，使控制器跳转到指定的页面。
-  当控制器从其他页面切换到指定页面时，按钮变为选中状态。
-  当控制器从指定页面切换到其他页面时，按钮变成不选中状态。
+- Radio button When the state of the button changes from unselected to selected, the controller jumps to the specified page.
+When the controller switches from another page to the specified page, the button becomes selected.
+When the controller switches from the specified page to another page, the button becomes unselected.
 
-  这个特性一般用来实现单选组（RadioGroup）
-  假设目前有3个单选按钮，他们是互斥的，也就是同一时间只有一个按钮是选中状态。这样的设计通常称为单选组。我们可以新建一个含有3个页面的控制器，将每个按钮的单选控制分别连接到这个控制器的3个页面，就实现了这个单选组。
+   This feature is generally used to implement radio groups
+Suppose there are currently 3 radio buttons, they are mutually exclusive, that is, only one button is selected at the same time. Such designs are often called radio groups. We can create a controller with 3 pages, and connect the radio control of each button to the 3 pages of this controller respectively to achieve this radio group.
 
-  ![](../../images/QQ20191211-145638.png)
+   ![](../../images/QQ20191211-145638.png)
 
-  在程序中，要获得或设置哪个按钮被选中也非常简单，使用控制器的selectedIndex或者selectedPage方法就可以了。
+   In the program, it is also very easy to get or set which button is selected, using the controller's selectedIndex or selectedPage method.
 
-  如果再将其他元件的属性控制绑定到这个控制器，例如将各种UI内容使用显示控制安排到各个页面后，那么一个传统意义上的TabControl也实现了。FairyGUI没有TabControl，RadioGroup这些复合组件，因为FairyGUI把这一切的设计自由度都交给了你，无需固化的组件。
+   If the attribute control of other components is bound to this controller, such as arranging various UI content using display controls to various pages, then a traditional TabControl is also implemented. FairyGUI does not have TabControl, RadioGroup and other composite components, because FairyGUI gives you all the design freedom, no need to solidify the components.
 
-  如果你的单选组的按钮个数不确定，或者数量很多，那也可以使用列表的方式解决。选择模式为“单选”的列表就相同于一个单选组。详细请阅读列表教程。
+   If the number of buttons in your radio group is uncertain, or there are many, you can also use the list method. A list whose selection mode is "single choice" is the same as a single choice group. Please read the list tutorial for details.
 
-- 复选按钮 当按钮状态从不选中变成选中时，使控制器跳转到指定的页面。
-  当按钮状态从选中变成不选中时，使控制器跳转到除指定页面外的另外一个页面。例如如果控制器具有页面0和1，指定页面是0，当按钮状态从选中变成不选中时，控制器跳转到页面1。
-  当控制器从其他页面切换到指定页面时，按钮变为选中状态；
-  当控制器从指定页面切换到其他页面时，按钮变成不选中状态。
+- Check button When the state of the button changes from unselected to selected, the controller jumps to the specified page.
+When the button status changes from selected to unselected, the controller jumps to a page other than the specified page. For example, if the controller has pages 0 and 1, and the specified page is 0, when the button status changes from selected to unselected, the controller jumps to page 1.
+When the controller switches from other pages to the specified page, the button becomes selected;
+When the controller switches from the specified page to another page, the button becomes unselected.
 
-## 和列表的联动
+## Link with list
 
-列表的“选择控制”可以绑定一个控制器：
+The "selection control" of the list can be bound to a controller:
 
 ![](../../images/QQ20191211-145743.png)
 
-这样当列表选择发生改变时，控制器也同时跳转到相同索引的页面。反之亦然，如果控制器跳转到某个页面，那么列表也同时选定相同索引的项目。
+In this way, when the list selection changes, the controller also jumps to the page with the same index at the same time. Vice versa, if the controller jumps to a certain page, the list also selects the items with the same index at the same time.
 
-## 和分页滚动的联动
+## Linking with page scrolling
 
-溢出处理为“滚动”的组件或列表，如果同时设置了滚动为“页面模式”，那么可以为它们指定一个“分页控制”。
+Components or lists whose overflow processing is "scrolling". If scrolling is also set to "page mode", you can specify a "paging control" for them.
 
 ![](../../images/QQ20191211-145802.png)
 
-这样当滚动发生翻页时，控制器也同时跳转到相同索引的页面。反之亦然，如果控制器跳转到某个页面，那么滚动容器同时滚动到相同索引的页面。
+In this way, when the page is scrolled, the controller also jumps to the page with the same index. Vice versa, if the controller jumps to a page, the scroll container scrolls to the same index page at the same time.
 
-## 和下拉框的联动
+## Linkage with the drop-down box
 
-下拉框的“选择控制”可以绑定一个控制器：
+The "select control" of the drop-down box can be bound to a controller:
 
 ![](../../images/QQ20191211-145743.png)
 
-这样当下拉框选择发生改变时，控制器也同时跳转到相同索引的页面。反之亦然，如果控制器跳转到某个页面，那么下拉框也同时选定相同索引的项目。
+In this way, when the drop-down box selection changes, the controller also jumps to the page with the same index at the same time. Vice versa, if the controller jumps to a certain page, the drop-down box also selects the item with the same index at the same time.
 
 ## Controller
 
-运行时，控制器常用的API有：
+When running, the APIs commonly used by controllers are:
 
 ```csharp
-    Controller c1 = aComponent.GetController("c1");
-    
-    //通过索引设置控制器的活动页面
-    c1.selectedIndex = 1;
+Controller c1 = aComponent.GetController ("c1");
+    
+    // Set the controller's active page by index
+    c1.selectedIndex = 1;
 
-    //如果希望改变控制器时不触发Change事件
-    c1.setSelectedIndex(1);
+    // If you do not want to trigger the Change event when you change the controller
+    c1.setSelectedIndex (1);
 
-    //也可以使用页面的名称设置
-    c1.selectedPage = "page_name";
+    // can also be set using the name of the page
+    c1.selectedPage = "page_name";
 
-    //获得控制器当前的活动页面
-    Debug.Log(c1.selectedIndex); 
+    // Get the current active page of the controller
+    Debug.Log (c1.selectedIndex);
 ```
 
-控制器改变时有通知事件：
+There are notification events when the controller changes:
 
 ```csharp
-    //Unity/Cry/MonoGame
+//Unity/Cry/MonoGame
     c1.onChanged.Add(onChanged);
 
     //AS3
@@ -284,10 +284,10 @@ order: 20
     c1.on(fgui.Event.STATUS_CHANGED, this.onChanged, this);
 ```
 
-改变控制器页面时，与之连接的属性控制可能带有缓动，如果你要获得缓动结束的通知，可以侦听GearStop事件：
+When changing the controller page, the property control connected to it may have easing. If you want to be notified of the end of the easing, you can listen to the GearStop event:
 
 ```csharp
-    //Unity/Cry/MonoGame
+//Unity/Cry/MonoGame
     aObject.OnGearStop.Add(OnGearStop);
 
     //Egret
@@ -303,35 +303,35 @@ order: 20
     c1.on(fgui.Event.GEAR_STOP, this.onGearStop, this);
 ```
 
-如果你正在做界面的初始化，可能不希望出现任何缓动。可以这样做：
+If you are initializing the interface, you may not want any easing. This can be done:
 
 ```csharp
-    //禁止所有控制器引起的缓动
-    GearBase.disableAllTweenEffect = true; 
-    c1.selectedIndex = 1;
-    //记住要复原
-    GearBase.disableAllTweenEffect = false;
+// Prohibit easing caused by all controllers
+    GearBase.disableAllTweenEffect = true;
+    c1.selectedIndex = 1;
+    // remember to restore
+    GearBase.disableAllTweenEffect = false;
 ```
 
-通过代码设置按钮与控制器的联动的方式是（**一般没有此必要，尽量在编辑器设计完成**）：
+The way to set the linkage between the button and the controller through code is (**Generally not necessary, try to complete the design in the editor**）：
 
 ```csharp
-    button.relatedcontroller = aController;
+button.relatedcontroller = aController;
     button.relatedPageId = aController.GetPageId(1);
 ```
 
-可以用代码设置属性控制：（**一般没有此必要，尽量在编辑器设计完成**）：
+You can set the property control with code: (**Generally not necessary, try to complete the design in the editor**）：
 
 ```csharp
-    //GearXXX对象是控制器和属性之间的连接。0-显示控制，1-位置控制，2-大小控制，
-    // 3-外观控制，4-颜色控制，5-动画控制，6-文字控制，7-图标控制
-    GearDisplay gearDisplay = obj.GetGear(0);
+// GearXXX objects are connections between controllers and properties. 0-display control, 1-position control, 2-size control,
+    // 3-appearance control, 4-color control, 5-transition control, 6-text control, 7-icon control
+    GearDisplay gearDisplay = obj.GetGear (0);
 
-    gearDisplay.controller = obj.parent.GetController("c1");
-    //注意这里是页面的id，不是索引或者名称。可以通过Controller.GetPageIdByName转换。
-    gearDisplay.pages = new string[] { ... }; 
+    gearDisplay.controller = obj.parent.GetController ("c1");
+    // Note that here is the id of the page, not the index or name. Can be converted by Controller.GetPageIdByName.
+    gearDisplay.pages = new string [] {...};
 
-    GearXY gearXY = obj.GetGear(1);
-    gearXY.tweenConfig.duration = 0.5f;
+    GearXY gearXY = obj.GetGear (1);
+    gearXY.tweenConfig.duration = 0.5f;
 ```
 

@@ -6,18 +6,18 @@
         <title>FairyGUI - i18n</title>
     
         <meta charset="utf-8">
-        <meta name="description" content="FairyGUI Manual">
-        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Manual">
+        <meta name="description" content="FairyGUI Docs">
+        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Docs">
         
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
         <meta property="og:title" content="-i18nFairyGUI">
-        <meta property="og:description" content="FairyGUI Manual">
+        <meta property="og:description" content="FairyGUI Docs">
 
         <meta name="twitter:card" content="summary">
         <meta name="twitter:title" content="i18n — FairyGUI">
-        <meta name="twitter:description" content="FairyGUI Manual">
+        <meta name="twitter:description" content="FairyGUI Docs">
 
       <!--  <link href='//fonts.proxy.ustclug.org/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
 
@@ -65,7 +65,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/docs/guide/editor/index.html" class="sidebar-link">Basics</a>
+	                    <a href="/docs/guide/editor/index.html" class="sidebar-link">Basis</a>
 	                </li>
 	            
 	                
@@ -120,7 +120,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/docs/guide/editor/richtext.html" class="sidebar-link">RichText</a>
+	                    <a href="/docs/guide/editor/richtext.html" class="sidebar-link">Rich Text</a>
 	                </li>
 	            
 	                
@@ -274,7 +274,7 @@
 	                <li><h3>SDK - Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/index.html" class="sidebar-link">Basics</a>
+	                    <a href="/docs/guide/unity/index.html" class="sidebar-link">Basis</a>
 	                </li>
 	            
 	                
@@ -292,7 +292,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/font.html" class="sidebar-link">Font</a>
+	                    <a href="/docs/guide/unity/font.html" class="sidebar-link">Fonts</a>
 	                </li>
 	            
 	                
@@ -310,7 +310,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/insert3d.html" class="sidebar-link">Insert 3D/Canvas</a>
+	                    <a href="/docs/guide/unity/insert3d.html" class="sidebar-link">Insert 3D</a>
 	                </li>
 	            
 	                
@@ -354,30 +354,30 @@
     
       <h1>i18n</h1>
     
-    <p>对UI多国语言的支持，FairyGUI提供了这样一种方案：把界面上的所有文字导出到一个文件，然后把这个文件提交翻译，运行时动态载入翻译好的文件，由SDK完成界面文字的替换。</p>
-<p>也就是说，FairyGUI的方案是先拼界面，再翻译；对比先制作好语言文件，再为控件指定字符串id这种方案，显然前者在拼界面时效率更高，遇到界面需重构时前者的便利程度更加吊打后者。</p>
-<p>编辑器导出的语言文件目前只支持xml格式，后续会支持excel等格式。xml格式可能不太方便翻译人员处理，如果需要，请参考下面xml格式的说明，自制一个excel和xml的转换工具。</p>
-<h2 id="生成语言文件"><a href="#生成语言文件" class="headerlink" title="生成语言文件"></a>生成语言文件</h2><p>点击菜单“工具”-&gt;”字符串导入与导出”，弹出窗口如下图：</p>
+    <p>For UI multi-language support, FairyGUI provides such a solution: export all text on the interface to a file, then submit this file for translation, dynamically load the translated file at runtime, and replace the interface text by SDK .</p>
+<p>In other words, FairyGUI’s solution is to spell the interface first, and then translate; compared to the solution of making a language file first and then specifying a string id for the control, it is clear that the former is more efficient when spelling the interface, and when the interface needs to be refactored The former is more convenient than the latter.</p>
+<p>The language files exported by the editor currently only support xml format, and will support formats such as excel in the future. The xml format may not be convenient for translators to handle. If necessary, please refer to the description of the xml format below to make an excel and xml conversion tool.</p>
+<h2 id="Generate-language-files"><a href="#Generate-language-files" class="headerlink" title="Generate language files"></a>Generate language files</h2><p>Click the menu “Tools”-&gt; “String Import and Export”, the pop-up window is as follows:</p>
 <p><img src="../../images/QQ20191210-152604.png" alt=""></p>
 <ul>
-<li><p><code>不导出已标记为发布时清空的内容</code> 例如文本，设置了发布时清空，如果这里勾选了，那么这个文本就不会出现在语言文件里。</p>
+<li><p><code>Do not export content that has been marked as emptied when published</code>For example, the text is set to be cleared when publishing. If checked here, this text will not appear in the language file.</p>
 </li>
-<li><p><code>如果导出目标文件已存在，与目标文件合并</code> 这个选项表示，比如现在导出内容中包含1个id为x1的字符串，值为a，而目标文件也存在一个id为x1的字符串，值为b，则导出的结果文件里，x1的值为b。</p>
+<li><p><code>If the export destination file already exists, merge with the destination file</code>This option means, for example, that the exported content now contains a string with id x1, the value is a, and the target file also has a string with id x1, and the value is b, then the value of x1 in the exported result file Is b.</p>
 </li>
 </ul>
-<p>使用”导出所有字符串到文件“功能，完成后得到一个xml文件，</p>
+<p>Use “Export all strings to a file” function, and get an xml file after completion,</p>
 <p><img src="../../images/20170807165753.png" alt=""></p>
-<p>这个文件包含了在UI上出现的所有文字（排除了纯阿拉伯数字）。<code>name</code>是字符串的唯一id，它与界面中出现的所有文本一一对应，这个id不能破坏；<code>mz</code>是控件的名称，它仅用于提示，或者助记，底层不使用它，即使删掉也不影响。</p>
-<h2 id="在编辑器内使用语言文件"><a href="#在编辑器内使用语言文件" class="headerlink" title="在编辑器内使用语言文件"></a>在编辑器内使用语言文件</h2><p>在项目设置-&gt;多国语言里，点击<img src="../../images/QQ20191209-160453.png" alt="">，然后选择上面导出的语言文件。这两个步骤也可以简化为一步，直接点击<img src="../../images/QQ20191209-160735.png" alt="">即可。</p>
-<p>添加了一个或多个语言文件后，在主工具栏就可以切换当前界面使用的语言：</p>
+<p>This file contains all the text that appears on the UI (excluding pure Arabic numerals). <code>name</code>Is the unique id of the string, which corresponds to all the text appearing in the interface, this id cannot be destroyed;<code>mz</code>Is the name of the control. It is only used for prompts or mnemonics. It is not used by the bottom layer, even if deleted.</p>
+<h2 id="Using-language-files-in-the-editor"><a href="#Using-language-files-in-the-editor" class="headerlink" title="Using language files in the editor"></a>Using language files in the editor</h2><p>In Project Settings-&gt; Multi-Language, click<img src="../../images/QQ20191209-160453.png" alt="">And select the language file exported above. These two steps can also be reduced to one step, click directly<img src="../../images/QQ20191209-160735.png" alt="">Just fine.</p>
+<p>After adding one or more language files, you can switch the language used in the current interface in the main toolbar:</p>
 <p><img src="../../images/QQ20191210-155300.png" alt=""></p>
-<p><strong>语言文件只在预览时生效，编辑时文本内容是不会改变的</strong>。在预览时，可以直接修改语言文件的内容，然后点击主工具栏的<img src="../../images/QQ20191210-155735.png" alt="">，就可以实时反馈你的修改，如下图：</p>
+<p><strong>Language files only take effect during preview, text content will not change during editing</strong>。 When previewing, you can directly modify the content of the language file, and then click the<img src="../../images/QQ20191210-155735.png" alt="">, You can feedback your changes in real time, as shown below:</p>
 <p><img src="../../images/640.gif" alt=""></p>
-<h2 id="代码加载语言文件"><a href="#代码加载语言文件" class="headerlink" title="代码加载语言文件"></a>代码加载语言文件</h2><p>运行时动态加载语言文件：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity</span></div><div class="line"><span class="keyword">string</span> fileContent; <span class="comment">//自行载入语言文件，这里假设已载入到此变量</span></div><div class="line">FairyGUI.Utils.XML xml = <span class="keyword">new</span> FairyGUI.Utils.XML(fileContent);</div><div class="line">UIPackage.SetStringsSource(xml);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line"><span class="keyword">var</span> fileContent:String;<span class="comment">//自行载入语言文件，这里假设已载入到此变量</span></div><div class="line"><span class="keyword">var</span> xml:XML = <span class="keyword">new</span> XML(fileContent);</div><div class="line">UIPackage.setStringsSource(xml);</div></pre></td></tr></table></figure>
-<p><strong>注意：语言文件要在创建UI前载入，不支持实时切换语言文件。如果要在游戏中切换语言，那只能先销毁所有UI，卸载所有包。</strong></p>
-<h2 id="全部替换"><a href="#全部替换" class="headerlink" title="全部替换"></a>全部替换</h2><p>翻译好的语言文件，可以导入回编辑器，直接替换掉原来的文本内容。这适用于复制一个UI项目用于其他语言的情况。</p>
-<p>点击菜单“工具”-&gt;”字符串导入与导出”，然后选择“从文件中导入字符串，覆盖包中的文本”。这个功能会修改掉所有文本的内容，请谨慎操作。</p>
+<h2 id="Load-language-file"><a href="#Load-language-file" class="headerlink" title="Load language file"></a>Load language file</h2><p>Load language files dynamically at runtime:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Unity</span></div><div class="line">    <span class="keyword">string</span> fileContent; <span class="comment">// Load the language file by yourself, here it is assumed that it has been loaded into this variable</span></div><div class="line">    FairyGUI.Utils.XML xml = <span class="keyword">new</span> FairyGUI.Utils.XML (fileContent);</div><div class="line">    UIPackage.SetStringsSource (xml);</div><div class="line"></div><div class="line">    <span class="comment">// AS3</span></div><div class="line">    <span class="keyword">var</span> fileContent: String; <span class="comment">// Load the language file by yourself, it is assumed here that this variable has been loaded</span></div><div class="line">    <span class="keyword">var</span> xml: XML = <span class="keyword">new</span> XML (fileContent);</div><div class="line">    UIPackage.setStringsSource (xml);</div></pre></td></tr></table></figure>
+<p><strong>Note: The language file should be loaded before the UI is created. It does not support real-time language switching. If you want to switch languages in the game, you can only destroy all UI and uninstall all packages.</strong></p>
+<h2 id="Replace-all"><a href="#Replace-all" class="headerlink" title="Replace all"></a>Replace all</h2><p>The translated language files can be imported back into the editor and directly replace the original text content. This applies when copying a UI item for other languages.</p>
+<p>Click the menu “Tools”-&gt; “String Import and Export”, and then select “Import strings from a file and overwrite the text in the package”. This function will modify all text content, please proceed with caution.</p>
 
     
     <div class="footer">

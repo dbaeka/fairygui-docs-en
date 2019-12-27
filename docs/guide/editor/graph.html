@@ -6,18 +6,18 @@
         <title>FairyGUI - Graph</title>
     
         <meta charset="utf-8">
-        <meta name="description" content="FairyGUI Manual">
-        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Manual">
+        <meta name="description" content="FairyGUI Docs">
+        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Docs">
         
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
         <meta property="og:title" content="-GraphFairyGUI">
-        <meta property="og:description" content="FairyGUI Manual">
+        <meta property="og:description" content="FairyGUI Docs">
 
         <meta name="twitter:card" content="summary">
         <meta name="twitter:title" content="Graph — FairyGUI">
-        <meta name="twitter:description" content="FairyGUI Manual">
+        <meta name="twitter:description" content="FairyGUI Docs">
 
       <!--  <link href='//fonts.proxy.ustclug.org/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
 
@@ -65,7 +65,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/docs/guide/editor/index.html" class="sidebar-link">Basics</a>
+	                    <a href="/docs/guide/editor/index.html" class="sidebar-link">Basis</a>
 	                </li>
 	            
 	                
@@ -120,7 +120,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/docs/guide/editor/richtext.html" class="sidebar-link">RichText</a>
+	                    <a href="/docs/guide/editor/richtext.html" class="sidebar-link">Rich Text</a>
 	                </li>
 	            
 	                
@@ -274,7 +274,7 @@
 	                <li><h3>SDK - Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/index.html" class="sidebar-link">Basics</a>
+	                    <a href="/docs/guide/unity/index.html" class="sidebar-link">Basis</a>
 	                </li>
 	            
 	                
@@ -292,7 +292,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/font.html" class="sidebar-link">Font</a>
+	                    <a href="/docs/guide/unity/font.html" class="sidebar-link">Fonts</a>
 	                </li>
 	            
 	                
@@ -310,7 +310,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/insert3d.html" class="sidebar-link">Insert 3D/Canvas</a>
+	                    <a href="/docs/guide/unity/insert3d.html" class="sidebar-link">Insert 3D</a>
 	                </li>
 	            
 	                
@@ -354,48 +354,48 @@
     
       <h1>Graph</h1>
     
-    <p>FairyGUI支持生成简单的图形。 点击侧工具栏的<img src="../../images/sidetb_05.png" alt="">按钮生成一个图形。</p>
-<h2 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h2><p><img src="../../images/QQ20191211-150148.png" alt=""></p>
+    <p>FairyGUI supports generating simple graphics. Click on the side toolbar<img src="../../images/sidetb_05.png" alt="">The button generates a graphic.</p>
+<h2 id="Instance-properties"><a href="#Instance-properties" class="headerlink" title="Instance properties"></a>Instance properties</h2><p><img src="../../images/QQ20191211-150148.png" alt=""></p>
 <ul>
-<li><p><code>图形</code> 选择形状为矩形、圆形、正多边形、多边形或者“无”。“无”表示这是一个空的图形，他不消耗任何显示资源，通常用作一个占位的用途。详细可见下面的介绍。</p>
+<li><p><code>Graphics</code>Select the shape as Rectangle, Circle, Regular Polygon, Polygon, or None. “None” indicates that this is an empty graphic. It does not consume any display resources and is usually used as a placeholder. See details below.</p>
 </li>
-<li><p><code>线条大小</code> 形状的描边大小。0则表示不描边。</p>
+<li><p><code>Line size</code>The stroke size of the shape. 0 means no stroke.</p>
 </li>
-<li><p><code>线条颜色</code> 形状的描边颜色。</p>
+<li><p><code>Line color</code>The stroke color of the shape.</p>
 </li>
-<li><p><code>填充颜色</code> 形状的填充颜色。如果你希望绘制中空的图形，那把填充颜色的透明度设置为0即可。</p>
+<li><p><code>Fill color</code>The fill color of the shape. If you want to draw a hollow shape, set the fill color transparency to 0.</p>
 </li>
-<li><p><code>圆角</code> 一个整数或者4个用逗号分隔的整数。例如“4”，表示矩形的四个角均为半径为4的圆角。例如“2,1,1,4”，则指定了每个角的半径。</p>
+<li><p><code>Fillet</code>An integer or 4 comma-separated integers. For example, “4” indicates that the four corners of the rectangle are rounded corners with a radius of 4. For example, “2,1,1,4” specifies the radius of each corner.</p>
 </li>
-<li><p><code>边数</code> 表示正多边形的边数。</p>
+<li><p><code>Number of edges</code>Represents the number of sides of a regular polygon.</p>
 </li>
-<li><p><code>旋转</code> 设置一个正多边形的旋转角度。</p>
+<li><p><code>Spin</code>Sets the rotation angle of a regular polygon.</p>
 </li>
 </ul>
-<h2 id="编辑多边形"><a href="#编辑多边形" class="headerlink" title="编辑多边形"></a>编辑多边形</h2><p>当图形类型为多边形或正多边形时，双击元件，或者点击<img src="../../images/QQ20191211-150632.png" alt="">按钮进入图形编辑。</p>
+<h2 id="Edit-polygon"><a href="#Edit-polygon" class="headerlink" title="Edit polygon"></a>Edit polygon</h2><p>When the graphic type is polygon or regular polygon, double-click the component, or click<img src="../../images/QQ20191211-150632.png" alt="">Button to enter graphic editing.</p>
 <p><img src="../../images/QQ20191211-150726.png" alt=""></p>
-<p>常用的操作有：</p>
+<p>Common operations are:</p>
 <ol>
-<li>拖动圆点调整顶点位置；</li>
-<li>左键点击一个圆点，在检查器里改变点的坐标数值；</li>
-<li>右键点击舞台，选择右键菜单中的“增加顶点”；</li>
-<li>右键点击一个圆点，选择右键菜单中的“删除顶点”；</li>
-<li>在检查器里勾选“锁定形状”，然后通过第1或者第2种方法改变某个顶点位置，其他顶点会同时改变位置，相当于一个整体移动所有顶点的效果。</li>
+<li>Drag the dots to adjust the vertex position;</li>
+<li>Left-click a dot and change the coordinate value of the point in the inspector;</li>
+<li>Context on the stage and select “Add Vertex” from the context menu;</li>
+<li>Context a dot and select “Delete Vertex” from the context menu;</li>
+<li>Select “Lock Shape” in the inspector, and then change the position of a vertex by the first or second method. The other vertices will change the position at the same time, which is equivalent to moving all the vertices as a whole.</li>
 </ol>
-<p>编辑完毕后，双击舞台空白处退出图形编辑模式。</p>
-<p><strong>如果图形是正多边形，则顶点位置只能沿着轴线移动。</strong></p>
-<h2 id="占位"><a href="#占位" class="headerlink" title="占位"></a>占位</h2><p>前面提到，空白的图形可以用作一个占位的用途，运行中可能用其他对象替换这个空白图形。FairyGUI的显示对象与原生显示对象混合使用时就需要用到这种空白的图形。</p>
-<p>举例：现在要在UI中放置入一个原生的对象aSprite，则可以在适当位置放入一个空白的图形，假设对象为holder，那么代码里可以这样写：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">holder.SetNativeObject(aSprite);</div></pre></td></tr></table></figure>
-<p>这样就把aSprite放到了holder所在的位置和深度上。 通过这样的办法，任何原生显示对象都可以轻松插入到FairyGUI的显示列表中。</p>
-<p>如果SetNativeObject被重复调用，则前一个设置对象被销毁，插入新的对象。</p>
-<p>对于Laya、Cocos2dx和CocosCreator平台，他们的节点都是可以随时加入子对象的，因此不需要使用setNativeObject。你可以随时使用holder.displayObject.addChild（Laya）或者holder.node.addChild（Creator）进行挂接原生节点的操作。</p>
-<h2 id="GGraph"><a href="#GGraph" class="headerlink" title="GGraph"></a>GGraph</h2><p>图形支持动态创建，<strong>动态创建图形需要注意一定要设置图形的大小，否则显示不出来</strong>。例如：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GGraph holder = <span class="keyword">new</span> GGraph();</div><div class="line">holder.SetSize(<span class="number">100</span>, <span class="number">100</span>);</div><div class="line">holder.DrawRect(...);</div><div class="line">aComponent.AddChild(holder);</div></pre></td></tr></table></figure>
-<p>使用正多边形制作雷达图时，可以通过API<code>distances</code>控制各个顶点的幅度。这是一个浮点类型的数组，数组大小应该和顶点数量相等。每个值的取值范围是0-1。</p>
-<p>Unity平台没有矢量绘制引擎，因此是通过生成网格来模拟的。以下是Unity里运用GGraph对象的一些技巧：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//传入多边形的各个顶点绘制多边形，注意点必须是顺时针方向传入！！</span></div><div class="line">aGraph.shape.DrawPolygon(<span class="keyword">new</span> Vector2[] &#123; ...&#125; &#125;, <span class="keyword">new</span> Color[] &#123; ... &#125;;</div><div class="line"></div><div class="line"><span class="comment">//绘制一个渐变色的矩形</span></div><div class="line">aGraph.shape.DrawRect(<span class="number">0</span>, <span class="keyword">new</span> Color[] &#123; ... &#125;);</div></pre></td></tr></table></figure>
-<p>更多的绘制方法可以参考Demo-Basics-Graph。</p>
+<p>After editing, double-click the blank space on the stage to exit the graphic editing mode.</p>
+<p><strong>If the shape is a regular polygon, the vertex position can only move along the axis.</strong></p>
+<h2 id="Placeholder"><a href="#Placeholder" class="headerlink" title="Placeholder"></a>Placeholder</h2><p>As mentioned earlier, a blank graphic can be used as a placeholder. It may be replaced with other objects during operation. FairyGUI display objects need to use such blank graphics when they are mixed with native display objects.</p>
+<p>Example: Now to put a native object aSprite in the UI, you can put a blank graphic in the appropriate position, assuming the object is a holder, then the code can be written like this:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">holder.SetNativeObject (aSprite);</div></pre></td></tr></table></figure>
+<p>This puts aSprite at the position and depth of the holder. In this way, any native display object can be easily inserted into FairyGUI’s display list.</p>
+<p>If SetNativeObject is called repeatedly, the previous set object is destroyed and a new object is inserted.</p>
+<p>For Laya, Cocos2dx and CocosCreator platforms, all their nodes can join child objects at any time, so there is no need to use setNativeObject. You can use holder.displayObject.addChild (Laya) or holder.node.addChild (Creator) at any time to mount the native node.</p>
+<h2 id="GGraph"><a href="#GGraph" class="headerlink" title="GGraph"></a>GGraph</h2><p>Graphics support dynamic creation,<strong>Dynamic creation of graphics requires attention to the size of the graphics, otherwise it will not be displayed</strong>。 E.g:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GGraph holder = <span class="keyword">new</span> GGraph();</div><div class="line">    holder.SetSize(<span class="number">100</span>, <span class="number">100</span>);</div><div class="line">    holder.DrawRect(...);</div><div class="line">    aComponent.AddChild(holder);</div></pre></td></tr></table></figure>
+<p>When using a regular polygon to make a radar chart, you can use the API<code>distances</code>Controls the amplitude of each vertex. This is a floating-point array. The size of the array should be equal to the number of vertices. The range of each value is 0-1.</p>
+<p>The Unity platform does not have a vector rendering engine, so it is simulated by generating a mesh. Here are some tips for using GGraph objects in Unity:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Draw the polygon at each vertex of the polygon. Note that the point must be passed in clockwise! !!</span></div><div class="line">    aGraph.shape.DrawPolygon (<span class="keyword">new</span> Vector2 [] &#123;...&#125;&#125;, <span class="keyword">new</span> Color [] &#123;...&#125;;</div><div class="line"></div><div class="line">    <span class="comment">// Draw a gradient colored rectangle</span></div><div class="line">    aGraph.shape.DrawRect (<span class="number">0</span>, <span class="keyword">new</span> Color [] &#123;...&#125;);</div></pre></td></tr></table></figure>
+<p>For more drawing methods, please refer to Demo-Basics-Graph.</p>
 
     
     <div class="footer">

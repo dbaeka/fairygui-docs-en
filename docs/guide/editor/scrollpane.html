@@ -6,18 +6,18 @@
         <title>FairyGUI - ScrollPane</title>
     
         <meta charset="utf-8">
-        <meta name="description" content="FairyGUI Manual">
-        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Manual">
+        <meta name="description" content="FairyGUI Docs">
+        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Docs">
         
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
         <meta property="og:title" content="-ScrollPaneFairyGUI">
-        <meta property="og:description" content="FairyGUI Manual">
+        <meta property="og:description" content="FairyGUI Docs">
 
         <meta name="twitter:card" content="summary">
         <meta name="twitter:title" content="ScrollPane — FairyGUI">
-        <meta name="twitter:description" content="FairyGUI Manual">
+        <meta name="twitter:description" content="FairyGUI Docs">
 
       <!--  <link href='//fonts.proxy.ustclug.org/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
 
@@ -65,7 +65,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/docs/guide/editor/index.html" class="sidebar-link">Basics</a>
+	                    <a href="/docs/guide/editor/index.html" class="sidebar-link">Basis</a>
 	                </li>
 	            
 	                
@@ -120,7 +120,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/docs/guide/editor/richtext.html" class="sidebar-link">RichText</a>
+	                    <a href="/docs/guide/editor/richtext.html" class="sidebar-link">Rich Text</a>
 	                </li>
 	            
 	                
@@ -274,7 +274,7 @@
 	                <li><h3>SDK - Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/index.html" class="sidebar-link">Basics</a>
+	                    <a href="/docs/guide/unity/index.html" class="sidebar-link">Basis</a>
 	                </li>
 	            
 	                
@@ -292,7 +292,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/font.html" class="sidebar-link">Font</a>
+	                    <a href="/docs/guide/unity/font.html" class="sidebar-link">Fonts</a>
 	                </li>
 	            
 	                
@@ -310,7 +310,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/insert3d.html" class="sidebar-link">Insert 3D/Canvas</a>
+	                    <a href="/docs/guide/unity/insert3d.html" class="sidebar-link">Insert 3D</a>
 	                </li>
 	            
 	                
@@ -354,84 +354,85 @@
     
       <h1>ScrollPane</h1>
     
-    <h2 id="滚动属性"><a href="#滚动属性" class="headerlink" title="滚动属性"></a>滚动属性</h2><p>对组件或者列表设置了“溢出处理”为“水平滚动”、“垂直滚动”，“自由滚动”后，组件或者列表即成为滚动容器。点击“溢出处理”旁边的<img src="../../images/QQ20191211-161858.png" alt="">按钮，可以设置详细的滚动的相关属性。</p>
+    <h2 id="Scroll-property"><a href="#Scroll-property" class="headerlink" title="Scroll property"></a>Scroll property</h2><p>After the component or list is set to “overflow processing” as “horizontal scroll”, “vertical scroll”, and “free scroll”, the component or list becomes a scroll container. Click next to “Overflow Handling”<img src="../../images/QQ20191211-161858.png" alt="">Button, you can set detailed scroll related properties.</p>
 <p><img src="../../images/QQ20191211-182032.png" alt=""></p>
 <ul>
-<li><p><code>滚动条显示</code> 滚动条的显示策略。</p>
+<li><p><code>Scroll bar display</code>Display strategy for scroll bars.</p>
 <ul>
-<li><code>默认</code> 使用全局设置，编辑器在主菜单“文件-&gt;项目属性-&gt;预览设置”里设置，运行时则需要通过<code>UIConfig.defaultScrollBarDisplay</code>设置。</li>
-<li><code>可见</code> 表示滚动条一直显示。</li>
-<li><code>滚动时显示</code> 表示滚动条只有在滚动时才会显示，或者鼠标移入滚动区域时显示（PC上），其他情况下自动隐藏。</li>
-<li><code>隐藏</code> 表示滚动条一直不可见的状态。</li>
+<li><code>`By default, the global settings are used. The editor is set in the main menu &quot;File-&gt; Project Properties-&gt; Preview Settings&quot;. When running, you need to go through</code>UIConfig.defaultScrollBarDisplay`Settings.</li>
+<li><code>visible</code>Indicates that the scroll bar is always displayed.</li>
+<li><code>Show while scrolling</code>Indicates that the scroll bar will only be displayed when scrolling, or when the mouse moves into the scrolling area (on a PC), otherwise it will be hidden automatically.</li>
+<li><code>hide</code>Indicates that the scroll bar is always invisible.</li>
 </ul>
 </li>
-<li><p><code>边缘回弹效果</code> 滚动到达边缘时是否允许继续滑动/拖动一定距离，表现一个回弹的效果。一般在移动平台上使用，PC上较少。<strong>有些开发者会提出为什么我的滚动容器里内容没超出视口，却依然能滚动，这其实是边缘回弹效果。</strong></p>
+<li><p><code>Edge rebound effect</code>Whether to allow sliding / dragging a certain distance when the scroll reaches the edge, showing a rebound effect. Generally used on mobile platforms, less on PCs. <strong>Some developers will ask why the content in my scroll container does not exceed the viewport, but still scrolls. This is actually the edge rebound effect.</strong></p>
 </li>
-<li><p><code>触摸滚动效果</code> 是否允许用户直接拖拽滚动区域内的内容。一般在移动平台上使用，PC上较少，PC上一般需要拖动滚动条，或使用鼠标滚轮。</p>
+<li><p><code>Touch scroll effect</code>Whether to allow the user to directly drag the content in the scroll area. Generally used on mobile platforms, less on PC, generally need to drag the scroll bar on the PC, or use the mouse wheel.</p>
 </li>
-<li><p><code>滚动条组件</code> 设置滚动条资源。一般不需要设置，全局有一个设置，在主菜单“文件-&gt;项目属性-&gt;默认值”里。如果你要使用不同于全局设置的滚动条资源，那么在这里设置。</p>
+<li><p><code>Scroll bar component</code>Set the scroll bar resource. Generally, there is no need to set it. There is a global setting, which is in the main menu “File-&gt; Project Properties-&gt; Default Value”. If you want to use a different scrollbar resource than the global setting, then set it here.</p>
 </li>
-<li><p><code>定位</code> 可以设置滚动条在容器中的位置，这是一个相对于正常位置的偏移值。</p>
+<li><p><code>Positioning</code>You can set the position of the scroll bar in the container, which is an offset value from the normal position.</p>
 </li>
-<li><p><code>下拉/上拉刷新组件</code> 设置上拉刷新或下拉刷新时需要显示的组件。下面是下拉刷新的效果：</p>
-<p><img src="../../images/gaollg12.gif" alt=""></p>
+<li><p><code>Pull-down / pull-up refresh component</code>Set the components to be displayed when pull-up refresh or pull-down refresh. Here is the effect of the drop-down refresh:</p>
+<p> <img src="../../images/gaollg12.gif" alt=""></p>
 </li>
-<li><p><code>将垂直滚动条显示在左边</code> 设置垂直滚动条显示在容器的左边，而不是在容器的右边。</p>
+<li><p><code>Display vertical scroll bar on the left</code>Sets the vertical scroll bar to appear to the left of the container, not to the right of the container.</p>
 </li>
-<li><p><code>仅在内容溢出时才显示滚动条</code> 只有当容器内的内容超出视口区域时，才显示滚动条，否则隐藏。注意：即使是不显示，滚动条还是有预留的占位的，这个和“滚动条显示”设置为“隐藏”不相同，后者是完全取消滚动条的占位的。</p>
+<li><p><code>Show scrollbar only when content overflows</code>The scroll bar is displayed only when the content inside the container exceeds the viewport area, otherwise it is hidden. Note: Even if it is not displayed, the scroll bar still has a reserved placeholder. This is not the same as “Scrollbar Display” set to “Hide”, which completely cancels the placeholder of the scroll bar.</p>
 </li>
-<li><p><code>滚动位置自动贴近元件</code> 在滚动结束后，保证滚动位置刚好处于任意元件的上边缘（或左边缘）。</p>
+<li><p><code>Scroll position close to component automatically</code>After scrolling, make sure that the scroll position is just above the top (or left) edge of any component.</p>
 </li>
-<li><p><code>页面模式</code> 以视口大小为页面大小，每次滚动的距离是一页。一般在移动平台上使用，PC上较少，拖动滚动条进行滚动操作与这个模式冲突。</p>
+<li><p><code>Page mode</code>The viewport size is the page size, and the distance per scroll is one page. Generally used on mobile platforms, less on the PC, dragging the scroll bar for scrolling operations conflicts with this mode.</p>
 </li>
-<li><p><code>禁用惯性</code> 当用手拖拽内容一段距离，并释放手指后，系统会根据手指移动的速度计算出一个速率，然后滚动会按照将此速率衰减到零的方式慢慢停下来，这称为惯性滚动。如果不需要此特性，可以关闭。这个功能是和“触摸滚动效果”配合使用的。</p>
+<li><p><code>Disable inertia</code>When dragging the content with a hand for a distance and releasing the finger, the system will calculate a rate based on the speed of the finger movement, and then the scroll will slowly stop in a manner that attenuates this rate to zero, which is called inertial scrolling. If you do not need this feature, you can turn it off. This function is used in conjunction with the “touch scroll effect”.</p>
 </li>
-<li><p><code>禁用剪裁</code> 一般情况下，容器会对超出视口的内容进行剪裁。特殊情况下，例如，如果一个列表的item组件自身就是滚动容器，那么item组件可以关闭剪裁。因为大量的剪裁会消耗很多的系统性能。</p>
+<li><p><code>Disable Clipping</code>In general, the container clips content beyond the viewport. In special cases, for example, if a list’s item component is itself a scroll container, then the item component can turn off clipping. Because a lot of tailoring will consume a lot of system performance.</p>
 </li>
-<li><p><code>浮动显示</code> 勾选后，滚动条不占据视口的位置，而是直接覆盖在视口上面。例如一个适用于手机的滚动条，它是细条且半透明的，只在滚动时才显示出来，用于提示滚动位置。那么我们把它设置为“浮动”，这样就不会挤占视口的显示空间。</p>
+<li><p><code>Floating display</code>When checked, the scrollbar does not occupy the position of the viewport, but directly covers the viewport. For example, a scroll bar for mobile phones is thin and translucent. It is only displayed when scrolling, and is used to indicate the scroll position. Then we set it to “floating” so that it does not crowd out the display space of the viewport.</p>
 </li>
 </ul>
-<h2 id="ScrollPane"><a href="#ScrollPane" class="headerlink" title="ScrollPane"></a>ScrollPane</h2><p>当组件的“溢出处理”设置为“滚动”后，可以通过<code>GComponent.scrollPane</code>使用滚动相关的功能，例如：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">ScrollPane scrollPane =  aComponent.scrollPane;</div><div class="line"><span class="comment">//设置滚动位置为100像素</span></div><div class="line">scrollPane.posX = <span class="number">100</span>;</div><div class="line"></div><div class="line"><span class="comment">//滚动到中间位置，带动画过程</span></div><div class="line">scrollPane.SetPercX(<span class="number">0.5</span>f, <span class="literal">true</span>);</div></pre></td></tr></table></figure>
-<p>当你增删子组件后，或者移动子组件的位置、调整子组件的大小，容器是自动更新滚动区域的，不需要调用任何API。这个刷新发生在本帧绘制之前。如果你希望立刻访问子元件的正确坐标，那么可以调用<code>EnsureBoundsCorrect</code>通知GComponent立刻重排。EnsureBoundsCorrect是一个友好的函数，你不用担心重复调用会有额外性能消耗。</p>
-<p>ScrollPane中常用的API有：</p>
+<h2 id="ScrollPane"><a href="#ScrollPane" class="headerlink" title="ScrollPane"></a>ScrollPane</h2><p>When the component’s “overflow processing” is set to “rolling”,<code>GComponent.scrollPane</code>Use scroll-related functions, such as:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">ScrollPane scrollPane = aComponent.scrollPane;</div><div class="line">    <span class="comment">// Set the scroll position to 100 pixels</span></div><div class="line">    scrollPane.posX = <span class="number">100</span>;</div><div class="line"></div><div class="line">    <span class="comment">// Scroll to the middle position with animation process</span></div><div class="line">    scrollPane.SetPercX (<span class="number">0.5</span>f, <span class="literal">true</span>);</div></pre></td></tr></table></figure>
+<p>After you add or delete subcomponents, or move the position of the subcomponent, adjust the size of the subcomponent, the container automatically updates the scroll area, and does not need to call any API. This refresh occurs before drawing this frame. If you want immediate access to the correct coordinates of the child element, you can call<code>EnsureBoundsCorrect</code>Notifies GComponent to reorder immediately. EnsureBoundsCorrect is a friendly function, you don’t need to worry about the extra performance cost of repeated calls.</p>
+<p>The commonly used APIs in ScrollPane are:</p>
 <ul>
-<li><p><code>viewWidth</code> <code>viewHeight</code> 视口宽度和高度。</p>
+<li><p><code>viewWidth</code> <code>viewHeight</code>Viewport width and height.</p>
 </li>
-<li><p><code>contentWidth</code> <code>contentHeight</code> 内容高度和宽度。</p>
+<li><p><code>contentWidth</code> <code>contentHeight</code>Content height and width.</p>
 </li>
-<li><p><code>percX</code> <code>percY</code> <code>SetPercX</code> <code>SetPercY</code> 获得或设置滚动的位置，以百分比来计算，取值范围是0-1。如果希望滚动条从当前值到设置值有一个动态变化的过程，可以使用Set方法，它们提供了一个是否使用缓动的参数。</p>
+<li><p><code>percX</code> <code>percY</code> <code>SetPercX</code> <code>SetPercY</code>Gets or sets the scroll position, calculated as a percentage, and the value range is 0-1. If you want the scroll bar to change dynamically from the current value to the set value, you can use the Set method, which provides a parameter for whether to use easing.</p>
 </li>
-<li><p><code>posX</code> <code>posY</code> <code>SetPosX</code> <code>SetPosY</code> 获得或设置滚动的位置，以绝对像素值来计算。取值范围是0-最大滚动距离。垂直最大滚动距离=（内容高度-视口高度），水平最大滚动距离=（内容宽度-视口宽度）。如果希望滚动条从当前值到设置值有一个动态变化的过程，可以使用Set方法，它们提供了一个是否使用缓动的参数。</p>
+<li><p><code>posX</code> <code>posY</code> <code>SetPosX</code> <code>SetPosY</code>Gets or sets the position of the scroll, calculated in absolute pixel values. The value range is 0-maximum scroll distance. Maximum vertical scroll distance = (content height-viewport height), maximum horizontal scroll distance = (content width-viewport width). If you want the scroll bar to change dynamically from the current value to the set value, you can use the Set method, which provides a parameter for whether to use easing.</p>
 </li>
-<li><p><code>currentPageX</code> <code>currentPageY</code> <code>setCurrentPageX</code> <code>setCurrentPageY</code> 如果滚动设置为页面模式，那么可以通过这些方法设置或者获得当前的页面索引。如果要获得页面数量，可以用contentWidth/viewWidth或者contentHeight/viewHeight。</p>
+<li><p><code>currentPageX</code> <code>currentPageY</code> <code>setCurrentPageX</code> <code>setCurrentPageY</code>If scroll is set to page mode, you can set or get the current page index through these methods. If you want to get the number of pages, you can use contentWidth / viewWidth or contentHeight / viewHeight.</p>
 </li>
-<li><p><code>ScrollLeft</code> <code>ScrollRight</code> <code>ScrollUp</code> <code>ScrollDown</code> 向指定方向滚动N*<code>scrollStep</code>。例如，如果scrollStep=20，那么ScrollLeft(1)表示向左滚动20像素，ScrollLeft(2)表示向左滚动40像素。注意：如果滚动属性设置了贴近元件，例如元件大小为41像素，则需要滚动距离超过20像素，才能真正发生滚动，那么如果调用ScrollLeft(1)，在scrollStep=20的情况下，会导致看不到任何效果。<br>如果滚动设置为页面模式，那这几个API也有“翻一页”的作用。</p>
+<li><p><code>ScrollLeft</code> <code>ScrollRight</code> <code>ScrollUp</code> <code>ScrollDown</code>Scroll N * in the specified direction<code>scrollStep</code>。 For example, if scrollStep = 20, then ScrollLeft (1) means scroll 20 pixels to the left, and ScrollLeft (2) means scroll 40 pixels to the left. Note: If the scroll property is set close to the component, for example, the size of the component is 41 pixels, the scroll distance needs to be more than 20 pixels in order to actually scroll. If ScrollLeft (1) is called, scrollStep = 20 will cause the To any effect.<br>If scroll is set to page mode, then these APIs also have the function of “turning a page”.</p>
 </li>
-<li><p><code>ScrollToView</code> 调整滚动位置，使指定的元件出现在视口内。</p>
+<li><p><code>ScrollToView</code>Adjust the scroll position so that the specified component appears in the viewport.</p>
 </li>
-<li><p><code>touchEffect</code> 打开或关闭触摸滚动功能。关闭触摸滚动后，用户就不能拖拽视口进行滚动了。这个功能可以在编辑器里设置，如果编辑器里设置的是“默认”，则使用UIConfig.defaultScrollTouchEffect。</p>
+<li><p><code>touchEffect</code>Turn the touch scroll function on or off. When touch scrolling is turned off, users cannot drag the viewport to scroll. This function can be set in the editor. If “default” is set in the editor, use UIConfig.defaultScrollTouchEffect.</p>
 </li>
-<li><p><code>scrollStep</code> 这个值是指滚动“一格”的距离。这个距离有三个用途：a）scrollUp/scrollDown/scrollLeft/scrollRight； b）点击滚动条的箭头按钮； c）鼠标滚轮，鼠标滚轮滚一次的距离是scrollStep*2。</p>
+<li><p><code>scrollStep</code>This value refers to the distance by which “one space” is scrolled. This distance has three purposes: a) scrollUp / scrollDown / scrollLeft / scrollRight; b) click the arrow button of the scroll bar; c) the mouse wheel, the distance that the mouse wheel rolls once is scrollStep * 2.</p>
 </li>
-<li><p><code>bounceBackEffect</code> 可以打开或关闭边缘回弹功能。这个功能可以在编辑器里设置，如果编辑器设置的是“默认”，则使用UIConfig.defaultScrollBounceEffect。</p>
+<li><p><code>bounceBackEffect</code>The edge rebound function can be turned on or off. This function can be set in the editor. If the editor is set to “default”, use UIConfig.defaultScrollBounceEffect.</p>
 </li>
-<li><p><code>mouseWheelEnabled</code> 打开或关闭鼠标滚动支持。</p>
+<li><p><code>mouseWheelEnabled</code>Turn mouse scrolling support on or off.</p>
 </li>
-<li><p><code>decelerationRate</code> 减速率，调整这个值可以控制惯性滚动的距离和时间。惯性滚动是指手指拖动一定距离然后释放后，滚动容器内容继续滚动一定距离后停止。越接近1，减速越慢，意味着滑动的时间和距离更长。默认值是UIConfig.defaultScrollDecelerationRate。</p>
+<li><p><code>decelerationRate</code>Deceleration rate. Adjusting this value can control the distance and time of inertial rolling. Inertial scrolling means that after the finger drags a certain distance and then releases, the scroll container content continues to scroll a certain distance and then stops. The closer to 1, the slower the deceleration, which means that the sliding time and distance are longer. The default value is UIConfig.defaultScrollDecelerationRate.</p>
 </li>
-<li><p><code>CancelDragging</code> 当滚动面板处于拖拽滚动状态或即将进入拖拽状态时，可以调用此方法停止或禁止本次拖拽。</p>
+<li><p><code>CancelDragging</code>When the scroll panel is in the dragging scroll state or is about to enter the dragging state, you can call this method to stop or prohibit the dragging.</p>
 </li>
 </ul>
-<p>可以侦听滚动改变，在任何情况下滚动位置改变都会触发这个事件。</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry</span></div><div class="line">scrollPane.onScroll.Add(onScroll);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">scrollPane.addEventListener(Event.SCROLL, onScroll);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">scrollPane.addEventListener(ScrollPane.SCROLL, <span class="keyword">this</span>.onScroll, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya，注意是用组件侦听，不是ScrollPane</span></div><div class="line">aComponent.<span class="keyword">on</span>(fairygui.Events.SCROLL, <span class="keyword">this</span>, <span class="keyword">this</span>.onScroll);</div><div class="line"></div><div class="line"><span class="comment">//Cocos2dx，注意是用组件侦听，不是ScrollPane</span></div><div class="line">aComponent-&gt;addEventListener(UIEventType::Scroll, CC_CALLBACK_1(AClass::onScroll, this));</div><div class="line"></div><div class="line"><span class="comment">//CocosCreator，注意使用组件侦听，不是ScrollPane</span></div><div class="line">aComponent.<span class="keyword">on</span>(fgui.Event.SCROLL, <span class="keyword">this</span>.onScroll, <span class="keyword">this</span>);</div></pre></td></tr></table></figure>
-<p>和滚动相关的事件还有：</p>
+<p>You can listen for scroll changes, and in any case the scroll position change will trigger this event.</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Unity / Cry</span></div><div class="line">    scrollPane.onScroll.Add (onScroll);</div><div class="line"></div><div class="line">    <span class="comment">// AS3</span></div><div class="line">    scrollPane.addEventListener (Event.SCROLL, onScroll);</div><div class="line"></div><div class="line">    <span class="comment">// Egret</span></div><div class="line">    scrollPane.addEventListener (ScrollPane.SCROLL, <span class="keyword">this</span>.onScroll, <span class="keyword">this</span>);</div><div class="line"></div><div class="line">    <span class="comment">// Laya, pay attention to listening with components, not ScrollPane</span></div><div class="line">    aComponent.<span class="keyword">on</span> (fairygui.Events.SCROLL, <span class="keyword">this</span>, <span class="keyword">this</span>.onScroll);</div><div class="line"></div><div class="line">    <span class="comment">// Cocos2dx, pay attention to listening with components, not ScrollPane</span></div><div class="line">    aComponent-&gt; addEventListener (UIEventType :: Scroll, CC_CALLBACK_1 (AClass :: onScroll, this));</div><div class="line"></div><div class="line">    <span class="comment">// CocosCreator, pay attention to using component listening, not ScrollPane</span></div><div class="line">    aComponent.<span class="keyword">on</span> (fgui.Event.SCROLL, <span class="keyword">this</span>.onScroll, <span class="keyword">this</span>);</div></pre></td></tr></table></figure>
+<p>Events related to scrolling:</p>
 <ul>
-<li><code>ScrollEnd</code> 惯性滚动结束后回调。</li>
-<li><code>PullDownRelease</code> 下拉刷新回调。</li>
-<li><code>PullUpRelease</code> 上拉刷新回调。</li>
+<li><code>ScrollEnd</code>Callback after inertia scrolling is over.</li>
+<li><code>PullDownRelease</code>Drop-down refresh callback.</li>
+<li><code>PullUpRelease</code>Pull-up refresh callback.</li>
 </ul>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry</span></div><div class="line">scrollPane.onScrollEnd.Add(onScrollEnd);</div><div class="line">scrollPane.onPullDownRelease.Add(onPullDownRelease);</div><div class="line">scrollPane.onPullUpRelease.Add(onPullUpRelease);</div><div class="line"></div><div class="line"><span class="comment">//AS3</span></div><div class="line">scrollPane.addEventListener(ScrollPane.SCROLL_END, onScrollEnd);</div><div class="line">scrollPane.addEventListener(ScrollPane.PULL_DOWN_RELEASE, onPullDownRelease);</div><div class="line">scrollPane.addEventListener(ScrollPane.PULL_UP_RELEASE, onPullUpRelease);</div><div class="line"></div><div class="line"><span class="comment">//Egret</span></div><div class="line">scrollPane.addEventListener(ScrollPane.SCROLL_END, <span class="keyword">this</span>.onScrollEnd, <span class="keyword">this</span>);</div><div class="line">scrollPane.addEventListener(ScrollPane.PULL_DOWN_RELEASE, <span class="keyword">this</span>.onPullDownRelease, <span class="keyword">this</span>);</div><div class="line">scrollPane.addEventListener(ScrollPane.PULL_UP_RELEASE, <span class="keyword">this</span>.onPullUpRelease, <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">//Laya，注意是用组件侦听，不是ScrollPane</span></div><div class="line">aComponent.<span class="keyword">on</span>(fairygui.Events.SCROLL_END, <span class="keyword">this</span>, <span class="keyword">this</span>.onScrollEnd);</div><div class="line">aComponent.<span class="keyword">on</span>(fairygui.Events.PULL_DOWN_RELEASE, <span class="keyword">this</span>, <span class="keyword">this</span>.onPullDownRelease);</div><div class="line">aComponent.<span class="keyword">on</span>(fairygui.Events.PULL_UP_RELEASE, <span class="keyword">this</span>, <span class="keyword">this</span>.onPullUpRelease);</div><div class="line"></div><div class="line"><span class="comment">//Cocos2dx，注意是用组件侦听，不是ScrollPane</span></div><div class="line">aComponent-&gt;addEventListener(UIEventType::ScrollEnd, CC_CALLBACK_1(AClass::onScrollEnd, this));</div><div class="line">aComponent-&gt;addEventListener(UIEventType::PullDownRelease, CC_CALLBACK_1(AClass::onPullDownRelease, this));</div><div class="line">aComponent-&gt;addEventListener(UIEventType::PullUpRelease, CC_CALLBACK_1(AClass::onPullUpRelease, this));</div><div class="line"></div><div class="line"><span class="comment">//CocosCreator，注意使用组件侦听，不是ScrollPane</span></div><div class="line">scrollPane.<span class="keyword">on</span>(fgui.Event.SCROLL_END, <span class="keyword">this</span>.onScrollEnd, <span class="keyword">this</span>);</div><div class="line">scrollPane.<span class="keyword">on</span>(fgui.Event.PULL_DOWN_RELEASE, <span class="keyword">this</span>.onPullDownRelease, <span class="keyword">this</span>);</div><div class="line">scrollPane.<span class="keyword">on</span>(fgui.Event.PULL_UP_RELEASE, <span class="keyword">this</span>.onPullUpRelease, <span class="keyword">this</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry</span></div><div class="line">    scrollPane.onScrollEnd.Add(onScrollEnd);</div><div class="line">    scrollPane.onPullDownRelease.Add(onPullDownRelease);</div><div class="line">    scrollPane.onPullUpRelease.Add(onPullUpRelease);</div><div class="line"></div><div class="line">    <span class="comment">//AS3</span></div><div class="line">    scrollPane.addEventListener(ScrollPane.SCROLL_END, onScrollEnd);</div><div class="line">    scrollPane.addEventListener(ScrollPane.PULL_DOWN_RELEASE, onPullDownRelease);</div><div class="line">    scrollPane.addEventListener(ScrollPane.PULL_UP_RELEASE, onPullUpRelease);</div><div class="line"></div><div class="line">    <span class="comment">//Egret</span></div><div class="line">    scrollPane.addEventListener(ScrollPane.SCROLL_END, <span class="keyword">this</span>.onScrollEnd, <span class="keyword">this</span>);</div><div class="line">    scrollPane.addEventListener(ScrollPane.PULL_DOWN_RELEASE, <span class="keyword">this</span>.onPullDownRelease, <span class="keyword">this</span>);</div><div class="line">    scrollPane.addEventListener(ScrollPane.PULL_UP_RELEASE, <span class="keyword">this</span>.onPullUpRelease, <span class="keyword">this</span>);</div><div class="line"></div><div class="line">    <span class="comment">//Laya，注意是用组件侦听，不是ScrollPane</span></div><div class="line">    aComponent.<span class="keyword">on</span>(fairygui.Events.SCROLL_END, <span class="keyword">this</span>, <span class="keyword">this</span>.onScrollEnd);</div><div class="line">    aComponent.<span class="keyword">on</span>(fairygui.Events.PULL_DOWN_RELEASE, <span class="keyword">this</span>, <span class="keyword">this</span>.onPullDownRelease);</div><div class="line">    aComponent.<span class="keyword">on</span>(fairygui.Events.PULL_UP_RELEASE, <span class="keyword">this</span>, <span class="keyword">this</span>.onPullUpRelease);</div><div class="line"></div><div class="line">    <span class="comment">//Cocos2dx，注意是用组件侦听，不是ScrollPane</span></div><div class="line">    aComponent-&gt;addEventListener(UIEventType::ScrollEnd, CC_CALLBACK_1(AClass::onScrollEnd, this));</div><div class="line">    aComponent-&gt;addEventListener(UIEventType::PullDownRelease, CC_CALLBACK_1(AClass::onPullDownRelease, this));</div><div class="line">    aComponent-&gt;addEventListener(UIEventType::PullUpRelease, CC_CALLBACK_1(AClass::onPullUpRelease, this));</div><div class="line"></div><div class="line">    <span class="comment">//CocosCreator，注意使用组件侦听，不是ScrollPane</span></div><div class="line">    scrollPane.<span class="keyword">on</span>(fgui.Event.SCROLL_END, <span class="keyword">this</span>.onScrollEnd, <span class="keyword">this</span>);</div><div class="line">    scrollPane.<span class="keyword">on</span>(fgui.Event.PULL_DOWN_RELEASE, <span class="keyword">this</span>.onPullDownRelease, <span class="keyword">this</span>);</div><div class="line">    scrollPane.<span class="keyword">on</span>(fgui.Event.PULL_UP_RELEASE, <span class="keyword">this</span>.onPullUpRelease, <span class="keyword">this</span>);</div></pre></td></tr></table></figure>
+
     
     <div class="footer">
       found mistake? Want to participate in editing?

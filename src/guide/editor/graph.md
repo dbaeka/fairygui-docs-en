@@ -4,80 +4,80 @@ type: guide_editor
 order: 13
 ---
 
-FairyGUI支持生成简单的图形。 点击侧工具栏的![](../../images/sidetb_05.png)按钮生成一个图形。
+FairyGUI supports generating simple graphics. Click on the side toolbar![](../../images/sidetb_05.png)The button generates a graphic.
 
-## 实例属性
+## Instance properties
 
 ![](../../images/QQ20191211-150148.png)
 
-- `图形` 选择形状为矩形、圆形、正多边形、多边形或者“无”。“无”表示这是一个空的图形，他不消耗任何显示资源，通常用作一个占位的用途。详细可见下面的介绍。
+- `Graphics`Select the shape as Rectangle, Circle, Regular Polygon, Polygon, or None. "None" indicates that this is an empty graphic. It does not consume any display resources and is usually used as a placeholder. See details below.
 
-- `线条大小` 形状的描边大小。0则表示不描边。
+- `Line size`The stroke size of the shape. 0 means no stroke.
 
-- `线条颜色` 形状的描边颜色。
+- `Line color`The stroke color of the shape.
 
-- `填充颜色` 形状的填充颜色。如果你希望绘制中空的图形，那把填充颜色的透明度设置为0即可。
+- `Fill color`The fill color of the shape. If you want to draw a hollow shape, set the fill color transparency to 0.
 
-- `圆角` 一个整数或者4个用逗号分隔的整数。例如“4”，表示矩形的四个角均为半径为4的圆角。例如“2,1,1,4”，则指定了每个角的半径。
+- `Fillet`An integer or 4 comma-separated integers. For example, "4" indicates that the four corners of the rectangle are rounded corners with a radius of 4. For example, "2,1,1,4" specifies the radius of each corner.
 
-- `边数` 表示正多边形的边数。
+- `Number of edges`Represents the number of sides of a regular polygon.
 
-- `旋转` 设置一个正多边形的旋转角度。
+- `Spin`Sets the rotation angle of a regular polygon.
 
-## 编辑多边形
+## Edit polygon
 
-当图形类型为多边形或正多边形时，双击元件，或者点击![](../../images/QQ20191211-150632.png)按钮进入图形编辑。
+When the graphic type is polygon or regular polygon, double-click the component, or click![](../../images/QQ20191211-150632.png)Button to enter graphic editing.
 
 ![](../../images/QQ20191211-150726.png)
 
-常用的操作有：
-1. 拖动圆点调整顶点位置；
-2. 左键点击一个圆点，在检查器里改变点的坐标数值；
-3. 右键点击舞台，选择右键菜单中的“增加顶点”；
-4. 右键点击一个圆点，选择右键菜单中的“删除顶点”；
-5. 在检查器里勾选“锁定形状”，然后通过第1或者第2种方法改变某个顶点位置，其他顶点会同时改变位置，相当于一个整体移动所有顶点的效果。
+Common operations are:
+1. Drag the dots to adjust the vertex position;
+2. Left-click a dot and change the coordinate value of the point in the inspector;
+3. Context on the stage and select "Add Vertex" from the context menu;
+4. Context a dot and select "Delete Vertex" from the context menu;
+5. Select "Lock Shape" in the inspector, and then change the position of a vertex by the first or second method. The other vertices will change the position at the same time, which is equivalent to moving all the vertices as a whole.
 
-编辑完毕后，双击舞台空白处退出图形编辑模式。
+After editing, double-click the blank space on the stage to exit the graphic editing mode.
 
-**如果图形是正多边形，则顶点位置只能沿着轴线移动。**
+**If the shape is a regular polygon, the vertex position can only move along the axis.**
 
-## 占位
+## Placeholder
 
-前面提到，空白的图形可以用作一个占位的用途，运行中可能用其他对象替换这个空白图形。FairyGUI的显示对象与原生显示对象混合使用时就需要用到这种空白的图形。
+As mentioned earlier, a blank graphic can be used as a placeholder. It may be replaced with other objects during operation. FairyGUI display objects need to use such blank graphics when they are mixed with native display objects.
 
-举例：现在要在UI中放置入一个原生的对象aSprite，则可以在适当位置放入一个空白的图形，假设对象为holder，那么代码里可以这样写：
+Example: Now to put a native object aSprite in the UI, you can put a blank graphic in the appropriate position, assuming the object is a holder, then the code can be written like this:
 
 ```csharp
-    holder.SetNativeObject(aSprite);
+holder.SetNativeObject (aSprite);
 ```
 
-这样就把aSprite放到了holder所在的位置和深度上。 通过这样的办法，任何原生显示对象都可以轻松插入到FairyGUI的显示列表中。
+This puts aSprite at the position and depth of the holder. In this way, any native display object can be easily inserted into FairyGUI's display list.
 
-如果SetNativeObject被重复调用，则前一个设置对象被销毁，插入新的对象。
+If SetNativeObject is called repeatedly, the previous set object is destroyed and a new object is inserted.
 
-对于Laya、Cocos2dx和CocosCreator平台，他们的节点都是可以随时加入子对象的，因此不需要使用setNativeObject。你可以随时使用holder.displayObject.addChild（Laya）或者holder.node.addChild（Creator）进行挂接原生节点的操作。
+For Laya, Cocos2dx and CocosCreator platforms, all their nodes can join child objects at any time, so there is no need to use setNativeObject. You can use holder.displayObject.addChild (Laya) or holder.node.addChild (Creator) at any time to mount the native node.
 
 ## GGraph
 
-图形支持动态创建，**动态创建图形需要注意一定要设置图形的大小，否则显示不出来**。例如：
+Graphics support dynamic creation,**Dynamic creation of graphics requires attention to the size of the graphics, otherwise it will not be displayed**。 E.g:
 
 ```csharp
-    GGraph holder = new GGraph();
+GGraph holder = new GGraph();
     holder.SetSize(100, 100);
     holder.DrawRect(...);
     aComponent.AddChild(holder);
 ```
 
-使用正多边形制作雷达图时，可以通过API`distances`控制各个顶点的幅度。这是一个浮点类型的数组，数组大小应该和顶点数量相等。每个值的取值范围是0-1。
+When using a regular polygon to make a radar chart, you can use the API`distances`Controls the amplitude of each vertex. This is a floating-point array. The size of the array should be equal to the number of vertices. The range of each value is 0-1.
 
-Unity平台没有矢量绘制引擎，因此是通过生成网格来模拟的。以下是Unity里运用GGraph对象的一些技巧：
+The Unity platform does not have a vector rendering engine, so it is simulated by generating a mesh. Here are some tips for using GGraph objects in Unity:
 
 ```csharp
-    //传入多边形的各个顶点绘制多边形，注意点必须是顺时针方向传入！！
-    aGraph.shape.DrawPolygon(new Vector2[] { ...} }, new Color[] { ... };
+// Draw the polygon at each vertex of the polygon. Note that the point must be passed in clockwise! !!
+    aGraph.shape.DrawPolygon (new Vector2 [] {...}}, new Color [] {...};
 
-    //绘制一个渐变色的矩形
-    aGraph.shape.DrawRect(0, new Color[] { ... });
+    // Draw a gradient colored rectangle
+    aGraph.shape.DrawRect (0, new Color [] {...});
 ```
 
-更多的绘制方法可以参考Demo-Basics-Graph。
+For more drawing methods, please refer to Demo-Basics-Graph.

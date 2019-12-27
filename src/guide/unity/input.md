@@ -4,108 +4,106 @@ type: guide_unity
 order: 30
 ---
 
-## 鼠标/触摸输入
+## Mouse / touch input
 
-FairyGUI使用内置的机制进行鼠标和触摸事件的处理，不使用射线。如果确实要使用射线，可以将UIPanel的“HitTest Mode”设置为“Raycast”。无论哪种点击检测模式，下面的事件处理机制都一样。
+FairyGUI uses built-in mechanisms for handling mouse and touch events, without using rays. If you really want to use rays, you can set the UIPanel's "HitTest Mode" to "Raycast". Regardless of the click detection mode, the following event processing mechanism is the same.
 
-如果要区分点击UI还是点击场景里的对象，可以使用下面的方法：
+If you want to distinguish between clicking on the UI or clicking on objects in the scene, you can use the following methods:
 
 ```csharp
-    if(Stage.isTouchOnUI) //点在了UI上
-    {
-    }
-    else //没有点在UI上
-    {
-    }
+if (Stage.isTouchOnUI) // Click on the UI
+    {
+    }
+    else // no point on UI
+    {
+    }
 ```
 
-这种检测不仅适用于点击，也适用于悬停。例如，如果鼠标悬停在UI上，这个判断也是真。**如果你觉得屏幕上都没有UI了这个还是返回真，那就真的是有UI**，特别是全屏界面，没设置穿透时，它的空白区域也是接受输入的。你可以通过打印GRoot.inst.touchTarget检查。
+This detection works not only for clicks but also for hovering. For example, this judgment is also true if the mouse is hovering over the UI. **If you think there is no UI on the screen and this still returns true, then there is really a UI**, Especially the full screen interface, when no penetration is set, its blank area also accepts input. You can check by printing GRoot.inst.touchTarget.
 
-和鼠标/触摸相关的事件有：
+The mouse / touch related events are:
 
-- `onTouchBegin` 鼠标按键按下（左、中、右键），或者手指按下。鼠标按钮可以从context.inputEvent.button获得，0-左键,1-中键,2-右键。
-- `onTouchMove` 鼠标指针移动或者手指在屏幕上移动。这个事件只有两种情况会触发：
-  - 在onTouchBegin里调用了context.CaptureTouch()，那么后续的移动事件都会在这个对象上触发（无论手指或指针位置是不是在该对象上方）。
-  - 舞台的onTouchMove始终会触发，即Stage.inst.onTouchMove，它不需要使用CaptureTouch捕获。在PC平台上鼠标只要移动，就可以触发；在手机平台上，只有手指按下后移动才会触发。
-- `onTouchEnd` 鼠标按键释放或者手指从屏幕上离开。如果鼠标或者触摸位置已经不在组件范围内了，那么组件的TouchEnd事件是不会触发的，如果确实需要，可以在onTouchBegin里调用context.CaptureTouch()请求捕获。
-- `onClick` 鼠标或者手指点击。可以从context.inputEvent.isDoubleClick判断是否双击。
-  **如果你在找长按事件，那么请使用LongPressGesture[(长按手势)](#手势)。**
-  **在手指按下后，如果调用Stage.inst.CancelClick，手指抬起时就不会触发Click事件。**
-- `onRightClick` 鼠标右键点击。
-- `onRollOver` 鼠标或者手指移入一个元件时触发。
-- `onRollOut` 鼠标或者手指移出一个元件时触发。
+- `onTouchBegin`The mouse button is pressed (left, middle, right), or the finger is pressed. Mouse buttons can be obtained from context.inputEvent.button, 0-left button, 1-middle button, 2-right button.
+- `onTouchMove`The mouse pointer moves or your finger moves on the screen. There are only two cases of this event:
+   - If context.CaptureTouch () is called in onTouchBegin, subsequent movement events will be triggered on this object (regardless of whether the position of the finger or pointer is above the object).
+   - The stage's onTouchMove will always fire, Stage.inst.onTouchMove, it does not need to use CaptureTouch to capture. As long as the mouse is moved on the PC platform, it can be triggered; on the mobile platform, it is triggered only when the finger is pressed to move.
+- `onTouchEnd`The mouse button is released or your finger is off the screen. If the mouse or touch position is no longer within the scope of the component, then the component's TouchEnd event will not be triggered. If it is really needed, you can call context.CaptureTouch () in onTouchBegin to request capture.
+- `onClick`Mouse or finger click. You can determine whether you double-clicked from context.inputEvent.isDoubleClick.**If you are looking for a long press event, then use LongPressGesture[(Long press gesture)](#手势)。**
+   **After the finger is pressed, if Stage.inst.CancelClick is called, the Click event will not be triggered when the finger is raised.**
+- `onRightClick`Context.
+- `onRollOver`Fired when the mouse or finger moves into an element.
+- `onRollOut`Fired when the mouse or finger moves out of a component.
 
-在任何事件（即不只是鼠标/触摸相关的事件）回调中都可以获得当前鼠标或手指位置，以及点击的对象，例如：
+You can get the current mouse or finger position and the clicked object in any event (that is, not just mouse / touch related events) callbacks, such as:
 
 ```csharp
-    void AnyEventHandler(EventContext context)
-    {
-        //点击位置，注意是屏幕坐标，要转换本地坐标要使用GlobalToLocal
-        Debug.Log(context.inputEvent.x + ", " + context.inputEvent.y);
+void AnyEventHandler (EventContext context)
+    {
+        // Click the position, pay attention to the screen coordinates. To convert the local coordinates, use GlobalToLocal.
+        Debug.Log (context.inputEvent.x + "," + context.inputEvent.y);
 
-        //获取点击的对象（在鼠标/触摸事件中）
-        Debug.Log((GObject)context.sender);
-        //如果事件是冒泡的，可以获得最底层的对象。但要注意，这里的对象类型是DisplayObject，不是GObject。
-        Debug.Log((DisplayObject)context.initiator);
-    }
+        // Get the clicked object (in mouse / touch event)
+        Debug.Log ((GObject) context.sender);
+        // If the event is bubbling, you can get the lowest level object. But note that the object type here is DisplayObject, not GObject.
+        Debug.Log ((DisplayObject) context.initiator);
+    }
 ```
 
-如果不在事件中，需要获得当前鼠标或者手指的位置，可以用：
+If you are not in the event and need to get the current mouse or finger position, you can use:
 
 ```csharp
-    //这是鼠标的位置，或者最后一个手指的位置
-    Vector2 pos1 = Stage.inst.touchPosition;
+// This is the position of the mouse, or the position of the last finger
+    Vector2 pos1 = Stage.inst.touchPosition;
 
-    //获取指定手指的位置，参数是手指id
-    Vector2 pos2 = Stage.inst.GetTouchPosition(1);
+    // Get the specified finger position, the parameter is the finger id
+    Vector2 pos2 = Stage.inst.GetTouchPosition (1);
 ```
 
-在任何时候，如果需要获得当前点击的对象，或者鼠标下的对象，都可以通过以下的方式获得：
+At any time, if you need to get the current clicked object, or the object under the mouse, you can get it in the following ways:
 
 ```csharp
-    GObject obj = GRoot.inst.touchTarget;
+GObject obj = GRoot.inst.touchTarget;
 
-    //判断是不是在某个组件内
-    Debug.Log(testComponent==obj || testComponent.IsAncestorOf(obj));
+    // determine if it is in a certain component
+    Debug.Log (testComponent == obj || testComponent.IsAncestorOf (obj));
 ```
 
-## 多点触摸
+## Multi-touch
 
-FairyGUI支持多点触摸的处理。每个手指都会按照TouchBegin->TouchMove->TouchEnd流程派发事件，可以使用EventContext.inputEvent.touchId区分不同的手指。一般来说，普通的点击事件无需关心手指id，只有需要用到整个触摸流程的才需要处理。
+FairyGUI supports multi-touch processing. Each finger will dispatch events according to the TouchBegin-> TouchMove-> TouchEnd process. You can use EventContext.inputEvent.touchId to distinguish different fingers. In general, ordinary click events do not need to care about the finger id, only those that need to use the entire touch process need to be processed.
 
 ```csharp
-    //这是当前按下的手指的数量
-    int touchCount = Stage.inst.touchCount;
+// This is the number of fingers currently pressed
+    int touchCount = Stage.inst.touchCount;
 
-    //获得当前所有按下的手指id
-    int[] touchIDs = Stage.inst.GetAllTouch(null);
+    // Get all currently pressed finger ids
+    int [] touchIDs = Stage.inst.GetAllTouch (null);
 ```
 
-如果你不想使用多点触摸功能，可以使用Unity的API：Input.multiTouchEnabled = false关闭。
+If you don't want to use the multi-touch function, you can use Unity's API: Input.multiTouchEnabled = false to turn it off.
 
-## VR输入处理
+## VR input processing
 
-VR里输入一般使用凝视输入，或者手柄输入，针对这些新的输入方式，FairyGUI提供了封装支持，也就是说，在VR应用里，你仍然可以像处理鼠标或者触摸输入一样处理VR的输入，无任何区别，也就是说UI逻辑不需要做任何修改。
+The input in VR generally uses gaze input or handle input. For these new input methods, FairyGUI provides package support. That is to say, in VR applications, you can still handle VR input like mouse or touch input. No difference, which means that the UI logic does not need to be modified.
 
-首先，需要把这些外部输入传入FairyGUI。在Stage类里提供了这些API：
+First, you need to pass these external inputs into FairyGUI. These APIs are provided in the Stage class:
 
 ```csharp
-    public void SetCustomInput(ref RaycastHit hit, bool buttonDown);
+public void SetCustomInput(ref RaycastHit hit, bool buttonDown);
     public void SetCustomInput(ref RaycastHit hit, bool buttonDown, bool buttonUp);
 ```
 
-- `hit` 没有手柄的，这里传入眼睛的射线（其实就是摄像机的射线）击中的目标；有手柄的，传入手柄射线击中的目标。
+- `hit`If there is no handle, here the ray hit by the eye (actually the ray of the camera) hits the target; if there is a handle, the ray hit by the input handle hits the target.
 
-- `buttonDown` 是否有按键按下。对于没有buttonUp参数的API，系统会在下一帧自动模拟一个buttonUp。
+- `buttonDown`Is there a key press? For APIs without a buttonUp parameter, the system will automatically simulate a buttonUp in the next frame.
 
-- `buttonUp` 是否有按键松开。按下、松开整个过程构成一次点击。如果只有按下没有松开，则不会有点击触发，必须注意这一点。
+- `buttonUp`Whether any buttons are released. The whole process of pressing and releasing constitutes one click. If you only press and do not release, there will be no click trigger, you must pay attention to this.
 
-SetCustomInput可以放在Update里调用，而且必须**每帧调用**。如果使用了SetCustomInput，则FairyGUI不再处理鼠标或者触摸输入。
+SetCustomInput can be called in Update and must be**Called every frame**。 If SetCustomInput is used, FairyGUI no longer processes mouse or touch input.
 
-使用示例：
+Example of use:
 
 ```csharp
-
 SteamVR_TrackedObject controller;
 SteamVR_Controller.Device controllerDevice;
 
@@ -127,16 +125,15 @@ void Update()
         Stage.inst.SetCustomInput(rh, trigger_down);
     }
 }
-
 ```
 
 
-## 键盘输入
+## keyboard input
 
-侦听键盘输入的方法是：
+To listen to keyboard input:
 
 ```csharp
-    Stage.inst.onKeyDown.Add(OnKeyDown);
+Stage.inst.onKeyDown.Add(OnKeyDown);
 
     void OnKeyDown(EventContext context)
     {
@@ -144,40 +141,40 @@ void Update()
     }
 ```
 
-在手机上是通过原生的键盘输入。键盘弹出时，派发GTextInput.onFocusIn事件，键盘收回时，派发GTextInput.onFocusOut事件。
+On the phone, it is entered through the native keyboard. When the keyboard pops up, the GTextInput.onFocusIn event is dispatched, and when the keyboard is retracted, the GTextInput.onFocusOut event is dispatched.
 
-Unity在键盘输入时自带了一个额外的输入框，如果你不需要这个输入框，希望像微信那样弹出自己的输入框，你需要自行编写原生代码，FairyGUI这边提供的支持有：
+Unity comes with an extra input box when typing on the keyboard. If you do n’t need this input box and want to pop up your own input box like WeChat, you need to write your own code.
 
 ```csharp
-    //定义自己的键盘
-    KeyBoard yourKeyboard;
+// define your own keyboard
+    KeyBoard yourKeyboard;
 
-    Stage.inst.keyboard = yourKeyboard;
+    Stage.inst.keyboard = yourKeyboard;
 ```
 
-**复制粘贴问题**
+**Copy-paste problem**
 
-当使用DLL形式的插件时，因为DLL默认是为移动平台编译的，所以不支持复制粘贴（如果要支持，需要自己写原生代码支持）。如果是在PC平台上使用时，需要将[CopyPastePatch.cs](https://github.com/fairygui/FairyGUI-unity/blob/master/Examples.Unity5/Assets/FairyGUI/CopyPastePatch.cs)放到工程里，并在游戏启动时调用CopyPastePatch.Apply()，就可以在PC平台激活复制粘贴功能。**如果你是使用源码形式的插件，不需要进行这个处理。**
+When using a plug-in in the form of a DLL, because the DLL is compiled for the mobile platform by default, copy and paste is not supported (if you want to support it, you need to write native code support yourself). If it is used on the PC platform,[CopyPastePatch.cs](https://github.com/fairygui/FairyGUI-unity/blob/master/Examples.Unity5/Assets/FairyGUI/CopyPastePatch.cs)Put it in the project, and call CopyPastePatch.Apply () when the game starts, you can activate the copy and paste function on the PC platform. **If you are using a plugin in source form, you don't need to do this.**
 
-## 手势
+## gesture
 
-FairyGUI提供了手势的支持。使用手势的方式是：
+FairyGUI provides gesture support. The ways to use gestures are:
 
 ```csharp
-    LongPressGesture gesture = new LongPressGesture(targetObject);
+LongPressGesture gesture = new LongPressGesture(targetObject);
     gesture.onAction.Add(OnGestureAction);
 ```
 
-targetObject是接收手势的元件，注意一定要是可触摸的。图片是不可触摸的，一般建议用组件，或者装载器。如果你需要全屏幕监测手势，那么可以直接用GRoot.inst作为targetObject（需1.9.0 SDK或更高版本支持）
+The targetObject is the component that receives the gesture. Note that it must be touchable. The image is not touchable, and it is generally recommended to use components or loaders. If you need to monitor gestures in full screen, you can directly use GRoot.inst as the targetObject (requires 1.9.0 SDK or later)
 
-常用的手势有：
+Common gestures are:
 
-`LongPressGesture` 长按手势。可以设定长按触发的时间，还可以控制长按触发后继续触发通知的时间间隔。
+`LongPressGesture`Long press gesture. You can set the time for the long press trigger, and you can also control the time interval for the notification to continue to be triggered after the long press trigger.
 
-`SwipeGesture` 手指划动手势。
+`SwipeGesture`Finger swipe gesture.
 
-`PinchGesture`两指缩放手势。
+`PinchGesture`Two-finger zoom gesture.
 
-`RotationGesture` 两指旋转手势。
+`RotationGesture`Two-finger rotation gesture.
 
-手势的使用方法可以参考Gesture这个Demo。手势与FairyGUI SDK是非耦合的，也就是说，如果你觉得手势不符合你的要求，你可以复制一个出来自己改自己用。
+Refer to Gesture Demo for gesture usage. Gestures are decoupled from the FairyGUI SDK. That is, if you do n’t think the gestures meet your requirements, you can copy one and use it yourself.

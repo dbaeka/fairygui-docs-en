@@ -4,77 +4,77 @@ type: guide_editor
 order: 25
 ---
 
-进度条的原理很简单，就是按进度改变一个元件的宽度、高度或填充比例。进度条分为两种，横向和纵向的。
+The principle of the progress bar is very simple, that is to change the width, height, or fill ratio of a component according to the progress. There are two types of progress bars, horizontal and vertical.
 
-## 创建进度条
+## Create progressbar
 
-可以通过两种方式创建进度条组件。
+There are two ways to create a progress bar component.
 
-- 点击主菜单“资源”->“新建进度条”，然后按照向导的提示一步步完成。
+- Click the main menu "Resources"-> "New Progress Bar" and follow the wizard's prompts to complete step by step.
 
-  ![](../../images/QQ20191211-181510.png)
+   ![](../../images/QQ20191211-181510.png)
 
-- 新建一个组件，然后在组件属性里选择扩展为“进度条”。
+- Create a new component and select Expand to "Progress Bar" in the component properties.
 
-## 设计属性
+## Edit-mode properties
 
-在组件编辑状态下，进度条组件的属性面板是：
+In the component editing state, the properties panel of the progress bar component is:
 
 ![](../../images/QQ20191211-181600.png)
 
-- `标题类型` 如果组件内有名称为“title”的元件，则进度条可以显示一个表达当前进度的文字。
-  - `百分比` 显示当前进度的百分比，例如“88%”。
-  - `当前值/最大值` 例如“50/100”。
-  - `当前值` 例如“50”。
-  - `最大值` 例如“10000”。
+- `Title type`If there is a component named "title" in the component, the progress bar can display a text expressing the current progress.
+   - `percentage`Displays the current progress percentage, such as "88%".
+   - `Current value / maximum value`For example "50/100".
+   - `The current value`For example "50".
+   - `Max`For example "10000".
 
-- `反向` 对于横向的进度条，一般来说，进度越大，伸缩条越向右延伸，如果是反向的，则伸缩条右边缘固定，进度越大，伸缩条越往左延伸；对于纵向的进度条，一般来说，进度越大，伸缩条越向下延伸，如果是反向的，则伸缩条底边缘固定，进度越大，伸缩条越往上延伸。
+- `Reverse`For a horizontal progress bar, in general, the larger the progress, the more the telescopic bar extends to the right. If it is reversed, the right edge of the telescopic bar is fixed. The larger the progress, the more the telescopic bar extends to the left. For a vertical progress bar, In general, the larger the progress, the more the telescopic bar extends downward. If it is reversed, the bottom edge of the telescopic bar is fixed. The larger the progress, the more the telescopic bar extends upward.
 
-  比较以下两个进度条，第一个是正常的进度条，第二个是反向的。
+   Compare the following two progress bars. The first is the normal progress bar and the second is the reverse.
 
-  ![](../../images/gaollg7.gif)
-  ![](../../images/gaollg8.gif)
+   ![](../../images/gaollg7.gif)
+   ![](../../images/gaollg8.gif)
 
-## 制作说明
+## Instructions
 
-- `bar` 当进度改变时，改变“bar”对象的宽度。一般用于横向的进度条。注意：一定要设置bar对象的宽度为进度条处于最大值时的宽度。
+- `bar`When the progress changes, change the width of the "bar" object. Generally used for horizontal progress bar. Note: Be sure to set the width of the bar object to the width when the progress bar is at its maximum.
 
-  “bar”元件可以是任何类型，不限制于图片。
+   The "bar" element can be of any type and is not limited to images.
 
-  特别的，如果“bar”对象是具有特殊填充模式的图片或者装载器，进度改变时，将改变它的填充比例，而不是宽度。
+   In particular, if the "bar" object is an image or loader with a special fill mode, when the progress changes, it will change its fill ratio, not the width.
 
-- `bar_v` 当进度改变时，改变“bar_v”对象的高度。一般用于纵向的进度条。注意：一定要设置bar_v对象的高度为进度条处于最大值时的高度。
+- `bar_v`When the progress changes, change the height of the "bar_v" object. Generally used for vertical progress bar. Note: Be sure to set the height of the bar_v object to the height when the progress bar is at its maximum.
 
-  “bar_v”元件可以是任何类型，不限制于图片。
+   The "bar_v" element can be of any type and is not limited to images.
 
-  特别的，如果“bar_v”对象是具有特殊填充模式的图片或者装载器，进度改变时，将改变它的填充比例，而不是宽度。
+   In particular, if the "bar_v" object is an image or loader with a special fill mode, when the progress changes, it will change its fill ratio, not the width.
 
-- `title` 可以是装载器，也可以是标签、按钮。用于显示进度的标题。显示的内容由“标题类型”决定。
+- `title`It can be a loader, or a label or button. A title to display progress. What is displayed is determined by the "Title Type".
 
-- `ani` 是一个动画对象。当进度改变时，修改动画的帧索引等于进度值（0-100）。
+- `years`Is an movieclip object. When the progress changes, the frame index of the modified movieclip is equal to the progress value (0-100).
 
-可以利用关联做出效果更丰富的进度条组件，例如下面这个进度条，会动的小松鼠建立了一个和bar部件“右->右”的关联，这样当进度变化时，小松鼠也跟着动了。
+You can use the relation to make a richer progress bar component. For example, the following progress bar, the moving squirrel establishes an relation with the bar component "right-> right", so when the progress changes, the squirrel also follows Already.
 
 ![](../../images/2016-01-11_225610.jpg)
 
-## 实例属性
+## Instance properties
 
-在舞台上选中一个进度条组件，右边的属性面板列表出现：
+Select a progress bar component on the stage, and the property panel list on the right appears:
 
 ![](../../images/QQ20191211-181531.png)
 
-- `最小值` 最小进度值。
+- `Minimum value`The minimum progress value.
 
-- `最大值` 最大进度值。
+- `Max`The maximum progress value.
 
-- `当前值` 当前进度。
+- `The current value`Current progress.
 
 ## GProgressBar
 
 ```csharp
-    GProgressBar pb = gcom.GetChild("n1").asProgress;
-    pb.value = 50;
+GProgressBar pb = gcom.GetChild ("n1").asProgress;
+    pb.value = 50;
 
-    //如果想改变进度值有一个动态的过程
-    pb.TweenValue(50, 0.5f);
+    // If you want to change the progress value, there is a dynamic process
+    pb.TweenValue (50, 0.5f);
 ```

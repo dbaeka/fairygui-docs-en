@@ -6,18 +6,18 @@
         <title>FairyGUI - Loader</title>
     
         <meta charset="utf-8">
-        <meta name="description" content="FairyGUI Manual">
-        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Manual">
+        <meta name="description" content="FairyGUI Docs">
+        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Docs">
         
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
         <meta property="og:title" content="-LoaderFairyGUI">
-        <meta property="og:description" content="FairyGUI Manual">
+        <meta property="og:description" content="FairyGUI Docs">
 
         <meta name="twitter:card" content="summary">
         <meta name="twitter:title" content="Loader — FairyGUI">
-        <meta name="twitter:description" content="FairyGUI Manual">
+        <meta name="twitter:description" content="FairyGUI Docs">
 
       <!--  <link href='//fonts.proxy.ustclug.org/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
 
@@ -65,7 +65,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/docs/guide/editor/index.html" class="sidebar-link">Basics</a>
+	                    <a href="/docs/guide/editor/index.html" class="sidebar-link">Basis</a>
 	                </li>
 	            
 	                
@@ -120,7 +120,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/docs/guide/editor/richtext.html" class="sidebar-link">RichText</a>
+	                    <a href="/docs/guide/editor/richtext.html" class="sidebar-link">Rich Text</a>
 	                </li>
 	            
 	                
@@ -274,7 +274,7 @@
 	                <li><h3>SDK - Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/index.html" class="sidebar-link">Basics</a>
+	                    <a href="/docs/guide/unity/index.html" class="sidebar-link">Basis</a>
 	                </li>
 	            
 	                
@@ -292,7 +292,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/font.html" class="sidebar-link">Font</a>
+	                    <a href="/docs/guide/unity/font.html" class="sidebar-link">Fonts</a>
 	                </li>
 	            
 	                
@@ -310,7 +310,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/insert3d.html" class="sidebar-link">Insert 3D/Canvas</a>
+	                    <a href="/docs/guide/unity/insert3d.html" class="sidebar-link">Insert 3D</a>
 	                </li>
 	            
 	                
@@ -354,66 +354,67 @@
     
       <h1>Loader</h1>
     
-    <p>装载器的用途是动态载入资源。点击主工具栏中的<img src="../../images/sidetb_07.png" alt="">按钮，生成一个装载器。</p>
-<h2 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h2><p><img src="../../images/QQ20191211-163313.png" alt=""></p>
+    <p>The purpose of the loader is to dynamically load resources. Click in the main toolbar<img src="../../images/sidetb_07.png" alt="">Button to generate a loader.</p>
+<h2 id="Instance-properties"><a href="#Instance-properties" class="headerlink" title="Instance properties"></a>Instance properties</h2><p><img src="../../images/QQ20191211-163313.png" alt=""></p>
 <ul>
-<li><p><code>URL</code> URL指向的资源可以是图片、动画或者组件。如果选中<img src="../../images/QQ20191211-163332.png" alt="">，则发布时会自动清空这里设置的值。</p>
+<li><p><code>URL</code>The resource pointed to by the URL can be an image, movieclip, or component. If selected<img src="../../images/QQ20191211-163332.png" alt="">, The value set here will be automatically cleared when publishing.</p>
 </li>
-<li><p><code>自动大小</code> 设置装载器是否根据内容的大小自动调整自身的大小。例如，如果图片的大小是100x100，则装载器的大小自动变成100x100。</p>
+<li><p><code>Auto size</code>Sets whether the loader automatically resizes itself based on the size of the content. For example, if the size of the image is 100x100, the size of the loader automatically becomes 100x100.</p>
 </li>
-<li><p><code>填充处理</code> 当需要显示的图片或动画与装载器大小不相同时使用的缩放策略。</p>
+<li><p><code>Fill processing</code>The zoom strategy to use when the image or movieclip to be displayed is not the same size as the loader.</p>
 <ul>
-<li><code>无</code> 内容不会发生任何缩放。</li>
-<li><code>等比缩放（显示全部）</code> 按照最小比率缩放，不变形，一边可能留空白。</li>
-<li><code>等比缩放（无边框）</code> 按照最大比率缩放，不变形，一边可能超出装载器矩形范围。</li>
-<li><code>等比缩放（适应高度）</code> 内容高度占满装载器高度，宽度等比缩放。</li>
-<li><code>等比缩放（适应宽度）</code> 内容宽度占满装载器宽度，高度等比缩放。</li>
-<li><code>自由缩放</code> 内容缩放至占满装载器矩形范围，不保持比例。</li>
+<li><code>no</code>The content does not undergo any scaling.</li>
+<li><code>Proportional zoom (show all)</code>Scale at the minimum ratio without distortion, and one side may be left blank.</li>
+<li><code>Proportional scaling (borderless)</code>Scaled at maximum ratio without distortion, one side may exceed the loader rectangle.</li>
+<li><code>Proportional scaling (adapt to height)</code>The content height fills the loader height, and the width is scaled proportionally.</li>
+<li><code>Proportional scaling (fit to width)</code>The content width occupies the loader width, and the height is scaled proportionally.</li>
+<li><code>Free scaling</code>The content is scaled to fill the rectangle of the loader without maintaining proportions.<br>Remarks:</li>
 </ul>
-<p>备注：</p>
 <ol>
-<li><strong>如果设置了自动大小，那这个填充处理就无意义了。因为这个选项只是当装载器大小与内容大小不一致时的处理方式。</strong></li>
-<li><strong>装载器没有剪裁功能，如果要剪裁超出部分，需要把装载器放入一个溢出隐藏的组件。</strong></li>
+<li><strong>If auto size is set, this padding process is meaningless. Because this option is only handled when the loader size does not match the content size.</strong></li>
+<li><strong>The loader does not have a trimming function. If you want to trim the excess, you need to put the loader into an overflow hidden component.</strong></li>
 </ol>
 </li>
-<li><p><code>仅允许缩小</code> 勾选后，在处理<code>填充处理</code>时，装载器加载的内容将永远不被放大，但可以被缩小。</p>
-</li>
-<li><p><code>对齐</code> 设置装载器内容的对齐方式。</p>
-</li>
-<li><p><code>帧</code> 如果内容是动画，可以设置动画的当前帧。如果内容是图片，这个设置无意义。</p>
-</li>
-<li><p><code>播放</code> 如果内容是动画，可以设置动画是播放还是停止，如果内容是图片，这个设置无意义。</p>
-</li>
-<li><p><code>颜色</code> 修改颜色，使装载器的内容产生变色的效果。</p>
-</li>
-<li><p><code>亮度</code> 调整明暗。这个实际是通过修改<code>颜色</code>属性实现的，和设置颜色为灰阶颜色一样的效果。</p>
-</li>
-<li><p><code>填充方法</code> 设置填充方法可以实现图片的一些裁剪效果。详细说明请参考图片的<a href="image.html#实例属性">填充方法</a>。</p>
-</li>
 </ul>
-<h2 id="GLoader"><a href="#GLoader" class="headerlink" title="GLoader"></a>GLoader</h2><p>装载器支持动态创建，动态创建装载器一定要设置装载器的大小，否则显示不出来。例如：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GLoader aLoader = <span class="keyword">new</span> GLoader();</div><div class="line">aLoader.SetSize(<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">aLoader.url = <span class="string">"ui://包名/图片名"</span>;</div></pre></td></tr></table></figure>
-<p>GLoader可以载入图片、动画和组件。如果是UI包里的资源，那么通过“ui://包名/图片名”这种格式的地址就可以载入。但实际项目中，可能我们还需要载入和显示一些不在UI包里的，我们称之为“外部”的图片。默认的GLoader具有有限度的的加载外部资源的能力，它们是：</p>
 <ul>
-<li>AS3 使用flash.display.Loader加载的外部资源。</li>
-<li>Starling 使用flash.display.Loader加载的位图资源。加载后转化为Texture。</li>
-<li>Egret 使用egret.RES.getResAsync加载的外部位图资源。</li>
-<li>Layabox 使用Laya.loader.load加载的外部资源。</li>
-<li>Unity 使用Resources.Load加载的外部贴图资源。</li>
-</ul>
-<p>例如：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//AS3，加载一个网络图片</span></div><div class="line">aLoader.url = “http:<span class="comment">//www.fairygui.com/logo.png”;</span></div><div class="line"></div><div class="line"><span class="comment">//Egret，这里demoRes是resources.json里定义的一个资源</span></div><div class="line">aLoader.url = “demoRes”;</div><div class="line"></div><div class="line"><span class="comment">//Unity, 这里加载的是路径为Assets/Resources/demo/aimage的一个贴图</span></div><div class="line">aLoader.url = “demo/aimage”;</div></pre></td></tr></table></figure>
-<p>如果这些默认的外部加载机制不能满足你的需求，例如，你希望从AssetBundle中获取资源，或者你需要加入缓存机制（这是有必要的，如果需要重复加载，建议做缓存），或者需要控制素材的生命期（这也是必要的，因为GLoader不会销毁外部载入的资源），那么你需要扩展GLoader。</p>
-<ol>
-<li><p>首先编写你的Loader类，有两个重点方法需要重写：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">class</span> <span class="title">MyGLoader</span>  : <span class="title">GLoader</span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">override</span> <span class="keyword">protected</span> function <span class="title">LoadExternal</span>(<span class="params"></span>)</span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        <span class="comment">/*</span></div><div class="line"><span class="comment">        开始外部载入，地址在url属性</span></div><div class="line"><span class="comment">        载入完成后调用OnExternalLoadSuccess</span></div><div class="line"><span class="comment">        载入失败调用OnExternalLoadFailed</span></div><div class="line"><span class="comment"></span></div><div class="line"><span class="comment">        注意：如果是外部载入，在载入结束后，调用OnExternalLoadSuccess或OnExternalLoadFailed前，</span></div><div class="line"><span class="comment">        比较严谨的做法是先检查url属性是否已经和这个载入的内容不相符。</span></div><div class="line"><span class="comment">        如果不相符，表示loader已经被修改了。</span></div><div class="line"><span class="comment">        这种情况下应该放弃调用OnExternalLoadSuccess或OnExternalLoadFailed。</span></div><div class="line"><span class="comment">        */</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">override</span> <span class="keyword">protected</span> function <span class="title">FreeExternal</span>(<span class="params">NTexture texture</span>)</span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        <span class="comment">//释放外部载入的资源</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li><p><code>Allow only zoom out</code>After checking, during processing<code>Fill processing</code>The content loaded by the loader will never be enlarged, but can be reduced.</p>
 </li>
-<li><p>注册我们要使用的Loader类。注册完成后，游戏中<strong>所有装载器</strong>都变成由MyGLoader实例化产生。</p>
+<li><p><code>Aligned</code>Sets the alignment of the loader contents.</p>
+</li>
+<li><p><code>frame</code>If the content is an movieclip, you can set the current frame of the movieclip. If the content is a image, this setting is meaningless.</p>
+</li>
+<li><p><code>Play</code>If the content is an movieclip, you can set whether the movieclip is played or stopped. If the content is an image, this setting is meaningless.</p>
+</li>
+<li><p><code>colour</code>Modify the color to change the color of the loader.</p>
+</li>
+<li><p><code>brightness</code>Adjust the light and shade. This is actually modified by<code>colour</code>The property achieves the same effect as setting the color to grayscale.</p>
+</li>
+<li><p><code>Filling method</code>Setting the fill method can achieve some cropping effects of the image. For details, please refer to the image<a href="image.html#实例属性">Filling method</a>。</p>
+</li>
+</ul>
+<h2 id="GLoader"><a href="#GLoader" class="headerlink" title="GLoader"></a>GLoader</h2><p>The loader supports dynamic creation. The size of the loader must be set dynamically, otherwise it will not be displayed. E.g:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GLoader aLoader = <span class="keyword">new</span> GLoader ();</div><div class="line">    aLoader.SetSize (<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">    aLoader.url = <span class="string">"ui://package name/image name"</span>;</div></pre></td></tr></table></figure>
+<p>GLoader can load images, movieclips and components. If it is a resource in a UI package, it can be loaded by using the format of “ui://package name/image name”. But in actual projects, we may also need to load and display some images that are not in the UI package, which we call “external”. The default GLoader has a limited ability to load external resources. They are:</p>
+<ul>
+<li>AS3 uses flash.display.Loader to load external resources.</li>
+<li>Starling uses bitmap resources loaded by flash.display.Loader. Converted into Texture after loading.</li>
+<li>Egret uses egret.RES.getResAsync to load external bitmap resources.</li>
+<li>Layabox uses Laya.loader.load to load external resources.</li>
+<li>Unity uses Resources.Load to load external texture resources.</li>
+</ul>
+<p>E.g:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// AS3, load a network image</span></div><div class="line">    aLoader.url = <span class="string">"http://www.fairygui.com/logo.png"</span>;</div><div class="line"></div><div class="line">    <span class="comment">// Egret, here demoRes is a resource defined in resources.json</span></div><div class="line">    aLoader.url = <span class="string">"demoRes"</span>;</div><div class="line"></div><div class="line">    <span class="comment">// Unity, here is a texture with the path Assets / Resources / demo / aimage</span></div><div class="line">    aLoader.url = <span class="string">"demo/aimage"</span>;</div></pre></td></tr></table></figure>
+<p>If these default external loading mechanisms cannot meet your needs, for example, you want to get resources from AssetBundle, or you need to add a cache mechanism (this is necessary, if you need to load repeatedly, it is recommended to cache), or you need to control the material Lifetime (this is also necessary because GLoader does not destroy externally loaded resources), then you need to extend GLoader.</p>
+<ol>
+<li>First write your Loader class. There are two important methods to override:</li>
+</ol>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">class</span> <span class="title">MyGLoader</span>: <span class="title">GLoader</span></div><div class="line">  &#123;</div><div class="line">      <span class="function"><span class="keyword">override</span> <span class="keyword">protected</span> function <span class="title">LoadExternal</span> (<span class="params"></span>)</span></div><div class="line"><span class="function">      </span>&#123;</div><div class="line">          / *</div><div class="line">          Start external loading, the address <span class="keyword">is</span> <span class="keyword">in</span> the url property</div><div class="line">          Call OnExternalLoadSuccess after loading <span class="keyword">is</span> complete</div><div class="line">          Load failed call OnExternalLoadFailed</div><div class="line"></div><div class="line">          Note: If it <span class="keyword">is</span> external loading, after loading <span class="keyword">is</span> finished, before calling OnExternalLoadSuccess or OnExternalLoadFailed,</div><div class="line">          A more rigorous approach <span class="keyword">is</span> to first check <span class="keyword">if</span> the url attribute does not match the loaded content.</div><div class="line">          If they <span class="keyword">do</span> not match, the loader has been modified.</div><div class="line">          In <span class="keyword">this</span> <span class="keyword">case</span>, you should give up calling OnExternalLoadSuccess or OnExternalLoadFailed.</div><div class="line">          * /</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="function"><span class="keyword">override</span> <span class="keyword">protected</span> function <span class="title">FreeExternal</span> (<span class="params">NTexture texture</span>)</span></div><div class="line"><span class="function">      </span>&#123;</div><div class="line">          <span class="comment">// Release externally loaded resources</span></div><div class="line">      &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>Register the Loader class we want to use. After registration is complete, in-game<strong>All loaders</strong>All become instantiated by MyGLoader.</li>
+</ol>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">UIObjectFactory.SetLoaderExtension(<span class="keyword">typeof</span>(MyGLoader));</div></pre></td></tr></table></figure>
-<p>在Unity平台中，如果在某些特殊场合需要将Texture2D对象赋予给GLoader，例如一个视频贴图，那么可以这样做：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//必须注意GLoader不管理外部对象的生命周期，不会主动销毁your_Texture2D</span></div><div class="line">aLoader.texture = <span class="keyword">new</span> NTexture(your_Texture2D);</div></pre></td></tr></table></figure>
-</li>
-</ol>
+<p>In the Unity platform, if you need to assign a Texture2D object to GLoader on some special occasions, such as a video map, you can do this:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// It must be noted that GLoader does not manage the life cycle of external objects and will not actively destroy your_Texture2D</span></div><div class="line">  aLoader.texture = <span class="keyword">new</span> NTexture (your_Texture2D);</div></pre></td></tr></table></figure>
 
     
     <div class="footer">

@@ -4,54 +4,54 @@ type: guide_editor
 order: 22
 ---
 
-标签组件非常简单，它没有特殊的行为，他可以通过放入title元件和icon元件为组件提供标题和图标属性。
+The label component is very simple. It has no special behavior. It can provide the title and icon attributes for the component by placing the title and icon components.
 
-## 创建标签
+## Create label
 
-可以通过两种方式创建标签组件。
+There are two ways to create a label component.
 
-- 点击主菜单“资源”->“新建标签”。
-- 新建一个组件，然后在组件属性里选择扩展为“标签”。
+- Click on the main menu "Resources"-> "New Tab".
+- Create a new component and select Expand to "Label" in the component properties.
 
-## 制作说明
+## Instructions
 
-- `title` 可以是普通文本，富文本，也可以是标签、按钮。
+- `title`Can be plain text, rich text, labels, buttons.
 
-- `icon` 可以是装载器，也可以是标签、按钮。
+- `icon`It can be a loader, or a label or button.
 
-注意：标签组件内并非只能有“title”和“icon”，你可以放置任何元件，例如放置任意多的文本、装载器等。“title”和“icon”的设定只是用于标签组件在编辑器实例化时能够直观设置而已。
+Note: There are not only "title" and "icon" in the label component, you can place any component, such as placing as many texts, loaders, etc. The "title" and "icon" settings are only used for the label component to be set intuitively when the editor is instantiated.
 
-## 实例属性
+## Instance properties
 
-在舞台上选中一个标签组件，右边的属性面板列表出现：
+Select a label component on the stage, and the property panel list on the right appears:
 
 ![](../../images/QQ20191211-161806.png)
 
-- `标题` 设置的文本将赋值到标签组件内的“title”元件的文本属性。如果不存在“title”元件，则什么事都不会发生。
+- `title`The set text is assigned to the text property of the "title" element inside the label component. If the "title" element does not exist, nothing will happen.
 
-- `标题颜色` 默认的标题颜色是标签组件内的“title”元件的文字颜色，勾选后，可以修改文字颜色。如果不存在“title”元件，则什么事都不会发生。
+- `Title color`The default title color is the text color of the "title" element in the label component. After checking, you can modify the text color. If the "title" element does not exist, nothing will happen.
 
-- `字体大小` 默认的字体大小是标签组件内的“title”元件的字体大小，勾选后，可以修改字体大小。如果不存在“title”元件，则什么事都不会发生。
+- `font size`The default font size is the font size of the "title" element in the label component. After checking, you can modify the font size. If the "title" element does not exist, nothing will happen.
 
-- `图标` 设置的URL将赋值到标签组件内的“icon”元件的图标属性。如果不存在“icon”元件，则什么事都不会发生。
+- `icon`The set URL will be assigned to the icon attribute of the "icon" element in the label component. If the "icon" element does not exist, nothing will happen.
 
-如果“title”是输入文本，则属性面板内会出现![](../../images/QQ20191211-161858.png)按钮，点击后出现输入设置面板。设置方法可参考文本的教程。
+If "title" is input text, it will appear in the properties panel![](../../images/QQ20191211-161858.png)Button, click to enter the input settings panel. The setting method can refer to the text tutorial.
 
 ## GLabel
 
-设置标签的标题或者图标，你不需要强制对象为GLabel的类型，直接用GObject提供的接口就可以，例如：
+Set the title or icon of the label. You don't need to force the object to be the type of GLabel. You can use the interface provided by GObject directly, for example:
 
 ```csharp
-    GObject obj = gcom.GetChild("n1");
-    obj.text = "hello";
-    obj.icon = "ui://包名/图片名";
+GObject obj = gcom.GetChild ("n1");
+    obj.text = "hello";
+    obj.icon = "ui://package name/image name";
 ```
 
-修改标题颜色可以这样：
+Modify the title color like this:
 
 ```csharp
-    GLabel label = gcom.GetChild("n1").asLabel;
+GLabel label = gcom.GetChild("n1").asLabel;
     lable.titleColor = ...;
 ```
 
-另外，标签也是一个标准的组件，因此GComponent的所有方法都是可以使用的，例如你可以用GetChild访问任何子组件。
+In addition, the label is also a standard component, so all methods of GComponent are available. For example, you can use GetChild to access any child component.

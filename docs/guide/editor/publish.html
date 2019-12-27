@@ -6,18 +6,18 @@
         <title>FairyGUI - Publish</title>
     
         <meta charset="utf-8">
-        <meta name="description" content="FairyGUI Manual">
-        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Manual">
+        <meta name="description" content="FairyGUI Docs">
+        <meta name="keywords" content="FairyGUI,FGUI,FairyGUI Docs">
         
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <meta property="og:type" content="article">
         <meta property="og:title" content="-PublishFairyGUI">
-        <meta property="og:description" content="FairyGUI Manual">
+        <meta property="og:description" content="FairyGUI Docs">
 
         <meta name="twitter:card" content="summary">
         <meta name="twitter:title" content="Publish — FairyGUI">
-        <meta name="twitter:description" content="FairyGUI Manual">
+        <meta name="twitter:description" content="FairyGUI Docs">
 
       <!--  <link href='//fonts.proxy.ustclug.org/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
 
@@ -65,7 +65,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/docs/guide/editor/index.html" class="sidebar-link">Basics</a>
+	                    <a href="/docs/guide/editor/index.html" class="sidebar-link">Basis</a>
 	                </li>
 	            
 	                
@@ -120,7 +120,7 @@
 	            
 	                
 	                <li>
-	                    <a href="/docs/guide/editor/richtext.html" class="sidebar-link">RichText</a>
+	                    <a href="/docs/guide/editor/richtext.html" class="sidebar-link">Rich Text</a>
 	                </li>
 	            
 	                
@@ -274,7 +274,7 @@
 	                <li><h3>SDK - Unity</h3></li>
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/index.html" class="sidebar-link">Basics</a>
+	                    <a href="/docs/guide/unity/index.html" class="sidebar-link">Basis</a>
 	                </li>
 	            
 	                
@@ -292,7 +292,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/font.html" class="sidebar-link">Font</a>
+	                    <a href="/docs/guide/unity/font.html" class="sidebar-link">Fonts</a>
 	                </li>
 	            
 	                
@@ -310,7 +310,7 @@
 	                
 	                
 	                <li>
-	                    <a href="/docs/guide/unity/insert3d.html" class="sidebar-link">Insert 3D/Canvas</a>
+	                    <a href="/docs/guide/unity/insert3d.html" class="sidebar-link">Insert 3D</a>
 	                </li>
 	            
 	                
@@ -354,165 +354,164 @@
     
       <h1>Publish</h1>
     
-    <p>通过主工具栏<img src="../../images/maintb_15.png" alt="">按钮, 或主菜单文件-&gt;发布设置”打开发布设置对话框。</p>
+    <p>Via the main toolbar<img src="../../images/maintb_15.png" alt="">Button, or main menu File-&gt; Publish Settings “to open the Publish Settings dialog box.</p>
 <p><img src="../../images/QQ20191210-002744.png" alt=""></p>
 <ol>
-<li>包列表。</li>
-<li>切换包设置和全局设置。</li>
-<li>设置内容。</li>
-<li>功能按钮。<ul>
-<li><code>全部发布</code> 发布所有包。</li>
-<li><code>仅发布定义</code> 发布包列表中当前选中的包，但仅发布定义，不重新生成纹理集。通常发布的内容包括素材（图片、声音等）和定义文件， 如果你没有增删改素材，那么你可以仅发布定义文件，避免了重新生成图集带来的时间消耗。</li>
-<li><code>发布</code> 发布包列表中选中的包。</li>
+<li>Package list.</li>
+<li>Switch package settings and global settings.</li>
+<li>Set the content.</li>
+<li>function button.<ul>
+<li><code>Post all</code>Publish all packages.</li>
+<li><code>Post definition only</code>Publish the currently selected package in the package list, but only publish the definition, without regenerating the texture set. Usually published content includes materials (images, sounds, etc.) and definition files. If you have not added, deleted, or modified materials, you can only publish definition files to avoid the time consumption caused by regenerating the atlas.</li>
+<li><code>release</code>Publish the selected packages in the package list.</li>
 </ul>
 </li>
 </ol>
-<h2 id="全局设置"><a href="#全局设置" class="headerlink" title="全局设置"></a>全局设置</h2><h3 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h3><p><img src="../../images/QQ20191210-111342.png" alt=""></p>
+<h2 id="Global-Settings"><a href="#Global-Settings" class="headerlink" title="Global Settings"></a>Global Settings</h2><h3 id="Packing"><a href="#Packing" class="headerlink" title="Packing"></a>Packing</h3><p><img src="../../images/QQ20191210-111342.png" alt=""></p>
 <ul>
-<li><p><code>发布路径</code> 发布结果放置的目录。发布路径支持相对于项目根目录的相对路径和绝对路径。相对路径需要手工输入，不能通过“浏览”按钮选择。<strong>注意：如果你的UI项目同时在Windows和Mac下使用，路径分割符应该使用”/“而不是”\”</strong>。</p>
-<p>发布路径支持使用变量，变量用中括号包围，例如：/home/zhansan/{publish_file_name}。支持的变量名：</p>
+<li><p><code>File path</code>The directory where the publication results are placed. The release path supports relative and absolute paths relative to the project root. Relative paths need to be entered manually and cannot be selected via the “Browse” button. <strong>Note: If your UI project is used under both Windows and Mac, the path separator should use “/“ instead of “\”</strong>。</p>
+<p> The release path supports the use of variables, which are enclosed in square brackets, for example: / home / zhansan / {publish_file_name}. Supported variable names:</p>
 <ul>
-<li><code>publish_file_name</code> 表示发布的文件名。</li>
-<li>“<a href="project_settings.html#自定义属性">项目设置-自定义属性</a>”里定义的属性。假设自定义属性里有var1，那么路径里可以使用{var1}。</li>
+<li><code>publish_file_name</code>Represents the published file name.</li>
+<li>“<a href="project_settings.html#自定义属性">Project Settings-Custom Properties</a>“. Assuming there is var1 in the custom attribute, then {var1} can be used in the path.</li>
 </ul>
 </li>
-<li><p><code>分支发布路径</code> 分支发布结果放置的目录。分支发布路径同样支持相对路径，也支持变量。</p>
+<li><p><code>Branch release path</code>Directory where branch release results are placed. Branch release paths also support relative paths and variables.</p>
 </li>
-<li><p><code>扩展名</code> 发布后描述文件的扩展名。不是所有引擎允许修改扩展名，例如Unity，固定为bytes，不能修改。对于H5类游戏引擎，小游戏不支持默认的fui扩展名，可以在这里修改为小游戏支持的扩展名（自行查阅小游戏文档）。</p>
+<li><p><code>extension name</code>The extension of the description file after publishing. Not all engines allow extensions to be modified, such as Unity, which is fixed to bytes and cannot be modified. For H5 game engines, mini-games do not support the default fui extension. You can modify the extensions to the mini-game extensions (please consult the mini-game documentation yourself).</p>
 </li>
-<li><p><code>两个压缩包</code> 可以选择打包成一个压缩包或者两个压缩包。这个选项只有Flash引擎可用。“两个包”表示将XML定义和图片等资源分开。这样做的好处是如果只修改了组件，没有加入新的素材或删除素材，则可以只发布和推送定义包给用户，减少用户的流量消耗。</p>
+<li><p><code>Two compressed packages</code>You can choose to pack into one or two compressed packages. This option is only available for the Flash engine. “Two packages” means separating resources such as XML definitions and images. The advantage of this is that if only the component is modified, no new material is added or deleted, you can only publish and push the definition package to the user, reducing the user’s traffic consumption.</p>
 </li>
-<li><p><code>使用二进制格式</code> 编辑器从3.9.0版本起，支持了新的发布格式，即二进制格式。和以往使用的XML格式不同，二进制格式更加紧凑，解析时更快，而且占用的内存和产生的内存垃圾更少。除非是旧项目无法升级，一般都建议勾选二进制格式。</p>
+<li><p><code>Use binary format</code>The editor supports the new release format, namely the binary format, starting from version 3.9.0. Unlike the XML format used in the past, the binary format is more compact, parses faster, and takes up less memory and generates less memory garbage. Unless the old project cannot be upgraded, it is generally recommended to check the binary format.</p>
 </li>
-<li><p><code>压缩描述文件</code>  Laya/Egret/CocosCreateor项目提供了这样一个发布选项，通过此选项可以控制发布的描述文件是否压缩。默认是压缩的。如果你已经使用了web服务器的gzip压缩功能，又或者是打包时会自行压缩（例如小游戏），那可以选择不压缩的格式，避免重复压缩。</p>
+<li><p><code>Compressed description file</code>The Laya / Egret / CocosCreateor project provides such a publishing option, through which you can control whether the published description file is compressed. Compressed by default. If you have used the gzip compression function of the web server, or it will compress itself when it is packaged (such as a small game), you can choose an uncompressed format to avoid repeated compression.</p>
 </li>
-<li><p><code>分支处理</code> 发布过程中分支的处理方式。详细用法请参考<a href="branch.html">分支</a>。</p>
+<li><p><code>Branch processing</code>How branches are handled during the release process. Please refer to detailed usage<a href="branch.html">Branch</a>。</p>
 </li>
-<li><p><code>其他分辨率</code> 勾选允许同时发布的高清素材后缀。例如，如果资源库中存在a.png和a@2x.png，如果勾选了“@2x”，那两个文件都会发布；如果没有勾选，则只有a.png会发布。这个选项会同时影响适配测试，也就是说这里勾选了选项，适配测试里也会自动使用合适的高清资源。</p>
+<li><p><code>Other resolutions</code>Tick Allow HD material suffixes for simultaneous publishing. For example, if a.png and a@2x.png exist in the resource library, if “@ 2x” is checked, both files will be published; if not checked, only a.png will be published. This option will also affect the adaptation test, that is to say, if the option is checked here, the appropriate HD resources will be automatically used in the adaptation test.</p>
 </li>
 </ul>
-<h3 id="纹理集"><a href="#纹理集" class="headerlink" title="纹理集"></a>纹理集</h3><p><img src="../../images/QQ20191210-115537.png" alt=""></p>
+<h3 id="Atlas-settings"><a href="#Atlas-settings" class="headerlink" title="Atlas settings"></a>Atlas settings</h3><p><img src="../../images/QQ20191210-115537.png" alt=""></p>
 <ul>
-<li><p><code>最大尺寸</code> 限制纹理集的最大尺寸，一般选择2048即可。</p>
+<li><p><code>biggest size</code>Limit the maximum size of the texture set, generally 2048 can be selected.</p>
 </li>
-<li><p><code>超出后自动分页</code> 当一张纹理集容不下所有图片，自动创建多个分页。例如，如果一张纹理集能容纳下所有图片，那么得到的文件是atlas0.png；如果不能容纳下，那么得到的文件是atlas0_1.png,atlas0_2.png…。</p>
-<p><strong>注意：纹理集分页和多个纹理集的概念不同。多个纹理集是指用户自行划分纹理集；分页是指单个纹理集超出负荷时自动分页的机制。</strong></p>
-<p>使用自动分页时，有一个特别的问题需要注意：<strong>动画和位图字体不支持纹理分页，也就是说，当纹理设置了自动分页时，如果动画或者位图字体被分布到不同的纹理集页面，发布时就会提示错误。这时你可以安排动画放置到单独的纹理集，或者和其他动画放在同一个纹理集上。</strong></p>
+<li><p><code>Automatic paging after exceeding</code>When a texture can’t fit all the images, multiple pagination is automatically created. For example, if a texture set can hold all the images, the resulting file is atlas0.png; if it cannot, then the resulting file is atlas0_1.png, atlas0_2.png …</p>
+<p> <strong>Note: The concept of texture set paging and multiple texture sets is different. Multiple texture sets refer to the user’s own division of texture sets; paging refers to the mechanism of automatic paging when a single texture set is overloaded.</strong></p>
+<p> When using automatic paging, there is a special problem to be aware of:<strong>Movieclip and bitmap fonts do not support texture pagination, that is, when the texture is set to automatic paging, if the movieclip or bitmap font is distributed to different texture set pages, an error will be prompted when publishing. At this time you can arrange the movieclip to be placed on a separate texture set, or on the same texture set as other movieclips.</strong></p>
 </li>
-<li><p><code>尺寸选项</code> 当纹理集需要压缩为特殊格式，例如ETC，ETC2时，通常对纹理集尺寸有特殊要求。</p>
+<li><p><code>Size options</code>When the texture set needs to be compressed into a special format, such as ETC, ETC2, there are usually special requirements for the size of the texture set.</p>
 <ul>
-<li><code>2的n次幂</code> 限定输出纹理集的尺寸为2的n次幂，例如256，1024，2048这样。</li>
-<li><code>4的倍数</code> 限定输出纹理集的尺寸为4的倍数。</li>
-<li><code>不限制</code> 不限制输出纹理集的尺寸。</li>
+<li><code>Power of n</code>Limit the size of the output texture set to the power of n, such as 256, 1024, and 2048.</li>
+<li><code>4 multiples</code>Limits the size of the output texture set to a multiple of 4.</li>
+<li><code>not limited</code>Does not limit the size of the output texture set.</li>
 </ul>
 </li>
-<li><p><code>正方形</code> 勾选后，限制输出纹理集的宽和高相等。</p>
+<li><p><code>square</code>When checked, restricts the width and height of the output texture set to be equal.</p>
 </li>
-<li><p><code>允许旋转</code> 允许旋转图片以达到更大的纹理集空间利用率。</p>
+<li><p><code>Allow rotation</code>Allows you to rotate the image to achieve greater texture set space utilization.</p>
 </li>
-<li><p><code>裁剪图片边缘空白</code> 发布时自动将图片周边的全透明像素剪裁，这个功能对开发者是透明的，不影响图片的正常使用。高版本的SDK才支持，如果你已经升级了SDK，建议开启此选项提高纹理集空间利用率。</p>
+<li><p><code>Cropped image margins</code>Automatically crop all transparent pixels around the image when publishing. This feature is transparent to the developer and does not affect the normal use of the image. It is only supported by higher versions of the SDK. If you have upgraded the SDK, it is recommended to enable this option to improve the texture set space utilization.</p>
 </li>
 </ul>
-<h3 id="图片质量"><a href="#图片质量" class="headerlink" title="图片质量"></a>图片质量</h3><p><img src="../../images/QQ20191210-121158.png" alt=""></p>
-<p>仅在不使用纹理集的平台（例如Flash平台、Haxe平台）可见。由于这类平台发布后都是单独的图片，可以在这里指定图片的默认质量。图片的质量也可以单独指定，在资源库里双击图片进行设置。</p>
+<h3 id="Image-quality"><a href="#Image-quality" class="headerlink" title="Image quality"></a>Image quality</h3><p><img src="../../images/QQ20191210-121158.png" alt=""></p>
+<p>Visible only on platforms that do not use texture sets (eg Flash, Haxe). Since these platforms are released as separate images, the default quality of the images can be specified here. The quality of the image can also be specified separately. Double-click the image in the resource library to set it.</p>
 <ul>
-<li><p><code>JPEG品质</code> JPEG品质，0-100。</p>
+<li><p><code>JPEG quality</code>JPEG quality, 0-100.</p>
 </li>
-<li><p><code>压缩PNG</code> 是否将PNG图片压缩为PNG8。</p>
+<li><p><code>Compress PNG</code>Whether to compress PNG images to PNG8.</p>
 </li>
 </ul>
-<h3 id="发布代码"><a href="#发布代码" class="headerlink" title="发布代码"></a>发布代码</h3><p><img src="../../images/QQ20191210-121815.png" alt=""></p>
+<h3 id="Publish-code"><a href="#Publish-code" class="headerlink" title="Publish code"></a>Publish code</h3><p><img src="../../images/QQ20191210-121815.png" alt=""></p>
 <ul>
-<li><p><code>允许发布代码</code> 是否生成绑定的代码。生成绑定的代码可以更直观地访问组件的各个节点，但会造成美术工作和程序员工作的耦合。</p>
-<p>包设置里也有允许发布代码的开关。如果这里不勾选，那么所有包都不会发布代码。如果这里勾选，那么由包设置的开关决定该包是否发布代码。</p>
+<li><p><code>Allow code posting</code>Whether to generate bound code. Generated binding code can more intuitively access the various nodes of the component, but will cause the coupling of art work and programmer work.</p>
+<p> There are also switches in the package settings that allow code to be published. If unchecked here, all packages will not publish code. If checked here, the switch set by the package determines whether the package publishes code.</p>
 </li>
-<li><p><code>发布路径</code> 发布的代码保存的路径。发布路径支持相对路径和绝对路径，也支持变量。</p>
+<li><p><code>File path</code>The path where the published code is saved. The release path supports relative and absolute paths, as well as variables.</p>
 </li>
-<li><p><code>组件名前缀</code> 给每个组件生成的类名加上前缀。例如如果组件名为“Component1”，这里设置前缀为“T”，那么最后生成的类名为“TComponent1”。前缀可以为空。注意，如果组件名是中文，会被自动转换为拼音。</p>
+<li><p><code>Component name prefix</code>Prefix the class names generated by each component. For example, if the component name is “Component1” and the prefix is set to “T”, then the final generated class name is “TComponent1”. The prefix can be empty. Note that if the component name is Chinese, it will be automatically converted to Pinyin.</p>
 </li>
-<li><p><code>成员名称前缀</code> 给组件里每个元件的名称前加上前缀。例如如果元件名称为“n10”，这里设置前缀为“m_”，那么最后生成的类成员的名称为“m_n10”。前缀可以为空，但不建议这样做。因为元件名称很可能和类的一些属性和方法名称冲突。例如，如果元件名称为“icon”，那就和GObject的icon属性冲突了。</p>
+<li><p><code>Member name prefix</code>Prefix the name of each component in the assembly. For example, if the component name is “n10” and the prefix is set to “m_”, then the name of the last generated class member is “m_n10”. The prefix can be empty, but this is not recommended. Because the component name is likely to conflict with some attribute and method names of the class. For example, if the component name is “icon”, it conflicts with the GObject’s icon property.</p>
 </li>
-<li><p><code>不生成使用默认名称的成员</code> 勾选后，对于”n1”,”n2”等这种系统自动生成的名称，或者“title”，“icon”等这种扩展组件里约定的名称，将不会为这些名称的元件生成成员获取代码。如果一个组件里，全部都是这些名称的元件，那么整个组件都不会生成代码。例如，一个按钮，里面只有名称为“title”和“icon”的元件，则不会为这个按钮生成代码，因为使用基类GButton已经足够。</p>
+<li><p><code>Do not generate members with default names</code>When checked, for system-generated names such as “n1”, “n2”, or the names agreed in such extension components as “title” and “icon”, member acquisition will not be generated for components with these names Code. If all the components with these names are in a component, no code will be generated for the entire component. For example, a button with only the components named “title” and “icon” will not generate code for this button, because it is sufficient to use the base class GButton.</p>
+</li>
+<li><p><code>Get member object by name</code>If unchecked, the index is used to obtain the child object when the component is initialized; if checked, the name is used to obtain the child object. The former is highly efficient and recommended; the latter is more compatible. For example, if the order of the components is adjusted, no exceptions will occur.</p>
+</li>
+<li><p><code>Package name</code>For AS3 code, the package of the released code; for C # code, the namespace of the released code; for Typscript code, the module of the released code; for C ++ code, the namespace of the released code.</p>
+</li>
+<li><p><code>Code type</code>For the Laya engine, you can choose the code type.</p>
 <ul>
-<li><code>使用名称获取成员对象</code> 如果不勾选，组件初始化时使用索引获得子对象；如果勾选，则使用名称获得子对象。前者效率高，推荐使用；后者则兼容性较好，例如，如果调整了元件的顺序，不会发生异常。</li>
-</ul>
-</li>
-<li><p><code>包名称</code> 对于AS3代码，是指发布的代码的package；对于C#代码，是指发布的代码的namespace；对于Typscript代码，是指发布的代码的module；对于C++代码，是指发布的代码的namespace。</p>
-</li>
-<li><p><code>代码类型</code> 对于Laya引擎，你可以选择代码类型。</p>
-<ul>
-<li><code>AS3</code> 发布AS3代码。</li>
-<li><code>TypeScript（LayaAir1.x）</code> 发布适用LayaAir1.x版本的代码。</li>
-<li><code>TypeScript（LayaAir2.0）</code> 发布适用LayaAir2版本的代码，代码的命名空间是fairygui。</li>
-<li><code>TypeScript</code> 发布适用LayaAir2版本的代码，代码的命名空间是fgui。如果你用的是最新版本的SDK，那么请选择这个。</li>
+<li><code>AS3</code>Release AS3 code.</li>
+<li><code>TypeScript（LayaAir1.x）</code>Post code for LayaAir 1.x.</li>
+<li><code>TypeScript（LayaAir2.0）</code>Publish the code for LayaAir2 version, the namespace of the code is fairygui.</li>
+<li><code>TypeScript</code>Publish the code applicable to LayaAir2 version, the namespace of the code is fgui. If you are using the latest SDK, then select this.</li>
 </ul>
 </li>
 </ul>
-<p>发布出来的代码包含一个XXXBinder文件和多个类文件。注意：</p>
+<p>The released code contains a XXXBinder file and multiple class files. note:</p>
 <ol>
-<li><strong>在使用绑定类之前，一定要调用<code>XXXBinder.BindAll</code>，并且在创建任何UI之前调用。</strong></li>
-<li><strong>使用绑定类创建UI的API是<code>CreateInstance</code>，不能直接new。</strong></li>
+<li><strong>Before using the binding class, be sure to call<code>XXXBinder.BindAll</code>And is called before any UI is created.</strong></li>
+<li><strong>The API for creating UI using binding classes is<code>CreateInstance</code>, Cannot be new directly.</strong></li>
 </ol>
-<p>举例：<br><figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//首先要调用BindAll。发布出来的代码有个名字为XXXBinder的文件</span></div><div class="line"><span class="comment">//注意：一定要在启动时调用。</span></div><div class="line">XXXBinder.BindAll();</div><div class="line"></div><div class="line"><span class="comment">//创建UI界面。注意：不是直接new XXX。</span></div><div class="line">XXX view = XXX.CreateInstance();</div><div class="line">view.m_n10.text = ...;</div></pre></td></tr></table></figure></p>
-<p>发布代码时会用到代码模板。代码模板在编辑器安装目录下的template目录下。如果你需要自定义模板，<strong>需要将template目录拷贝到UI项目的根目录下，再做修改</strong>。模板里支持的参数有：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Component.template</div><div class="line">-------------</div><div class="line">&#123;packageName&#125; UI模块名</div><div class="line">&#123;componentName&#125; UI组件父类名</div><div class="line">&#123;className&#125; UI组件类名</div><div class="line">&#123;uiPkgName&#125; UI资源包名</div><div class="line">&#123;uiResName&#125;UI资源名</div><div class="line">&#123;uiPath&#125; UI资源路径</div><div class="line"></div><div class="line">Binder.template</div><div class="line">-------------</div><div class="line">&#123;className&#125;  UI模块名+<span class="string">"Binder"</span></div><div class="line">&#123;packageName&#125; UI模块名</div></pre></td></tr></table></figure>
-<h2 id="包设置"><a href="#包设置" class="headerlink" title="包设置"></a>包设置</h2><h3 id="打包-1"><a href="#打包-1" class="headerlink" title="打包"></a>打包</h3><p><img src="../../images/QQ20191210-004107.png" alt=""></p>
+<p>For example:<br><figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// First call BindAll. The released code has a file named XXXBinder</span></div><div class="line">    <span class="comment">// Note: Be sure to call it at startup.</span></div><div class="line">    XXXBinder.BindAll ();</div><div class="line"></div><div class="line">    <span class="comment">// Create UI interface. Note: Not directly new XXX.</span></div><div class="line">    XXX view = XXX.CreateInstance ();</div><div class="line">    view.m_n10.text = ...;</div></pre></td></tr></table></figure></p>
+<p>Code templates are used when publishing code. The code template is in the template directory under the editor installation directory. If you need custom templates,<strong>The template directory needs to be copied to the root directory of the UI project, and then modified</strong>。 The parameters supported in the template are:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Component.template</div><div class="line">    -------------</div><div class="line">    &#123;packageName&#125; UI module name</div><div class="line">    &#123;componentName&#125; UI component parent <span class="keyword">class</span> <span class="title">name</span></div><div class="line">    &#123;className&#125; UI component <span class="keyword">class</span> <span class="title">name</span></div><div class="line">    &#123;uiPkgName&#125; UI resource package name</div><div class="line">    &#123;uiResName&#125; UI resource name</div><div class="line">    &#123;uiPath&#125; UI resource path</div><div class="line">    </div><div class="line">    Binder.template</div><div class="line">    -------------</div><div class="line">    &#123;className&#125; UI module name + <span class="string">"Binder"</span></div><div class="line">    &#123;packageName&#125; UI module name</div></pre></td></tr></table></figure>
+<h2 id="Package-settings"><a href="#Package-settings" class="headerlink" title="Package settings"></a>Package settings</h2><h3 id="Packing-1"><a href="#Packing-1" class="headerlink" title="Packing"></a>Packing</h3><p><img src="../../images/QQ20191210-004107.png" alt=""></p>
 <ul>
-<li><code>文件名</code> 包的发布文件名。这个文件名与包名称可以不同，如果这里留空，那么使用包的名称。<strong>当我们载入包时，需要使用这里设定的文件名，而当创建对象时，需要使用包名称</strong>。例如</li>
+<li><code>file name</code>The release file name of the package. This file name can be different from the package name. If left blank, the package name is used. <strong>When we load the package, we need to use the file name set here, and when we create the object, we need to use the package name</strong>。 E.g</li>
 </ul>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//这里的file_name是发布的文件名。</span></div><div class="line">UIPackage.AddPackage(<span class="string">'file_name'</span>); </div><div class="line"></div><div class="line"><span class="comment">//这里的Package1是包的名称。</span></div><div class="line">UIPackage.CreateObject(<span class="string">"Package1','Component1');</span></div></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// here file_name is the name of the published file.</span></div><div class="line">    UIPackage.AddPackage (<span class="string">'file_name'</span>);</div><div class="line"></div><div class="line">    <span class="comment">// Here Package1 is the name of the package.</span></div><div class="line">    UIPackage.CreateObject (<span class="string">"Package1 ',' Component1 ');</span></div></pre></td></tr></table></figure>
 <ul>
-<li><p><code>发布路径</code> 发布结果放置的路径。参考全局设置。</p>
+<li><p><code>File path</code>The path where the publication results will be placed. See Global Settings.</p>
 </li>
-<li><p><code>分支发布路径</code> 分支发布结果放置的路径。参考全局设置。</p>
+<li><p><code>Branch path</code>Path where branch release results are placed. See Global Settings.</p>
 </li>
-<li><p><code>使用全局配置</code> 如果勾选，<code>发布路径</code>和<code>分支发布路径</code>都使用全局配置里的设置，本页面的设置无效。</p>
+<li><p><code>Use global configuration</code>If checked,<code>Release path</code>with<code>Branch release path</code>The settings in the global configuration are used. The settings on this page are invalid.</p>
 </li>
-<li><p><code>两个压缩包</code> 可以选择打包成一个压缩包或者两个压缩包。这个选项只有Flash和Haxe平台可用。参考全局设置。</p>
-</li>
-</ul>
-<h3 id="纹理集-1"><a href="#纹理集-1" class="headerlink" title="纹理集"></a>纹理集</h3><p><img src="../../images/QQ20191210-104113.png" alt=""></p>
-<ul>
-<li><p><code>使用全局配置</code> 如果勾选，纹理集设置都使用全局配置里的设置，本页面的设置无效。参考全局设置。</p>
-</li>
-<li><p><code>分离Alpha通道</code> 这个选项仅适用于Unity平台。通过此方法，可以在Unity里将原纹理集设置为不支持Alpha通道的格式（例如ETC1）以减少内存占用。FairyGUI-unity SDK提供了专门的着色器进行混合。</p>
+<li><p><code>Two compressed packages</code>You can choose to pack into one or two compressed packages. This option is only available on Flash and Haxe platforms. See Global Settings.</p>
 </li>
 </ul>
-<p>点击“纹理集定义”按钮，显示如下对话框：</p>
+<h3 id="Atlas-settings-1"><a href="#Atlas-settings-1" class="headerlink" title="Atlas settings"></a>Atlas settings</h3><p><img src="../../images/QQ20191210-104113.png" alt=""></p>
+<ul>
+<li><p><code>Use global configuration</code>If checked, the texture set settings use the settings in the global configuration, and the settings on this page are invalid. See Global Settings.</p>
+</li>
+<li><p><code>Separating Alpha Channel</code>This option is only available on the Unity platform. With this method, you can set the original texture set to a format that does not support Alpha channels in Unity (such as ETC1) to reduce memory consumption. The FairyGUI-unity SDK provides specialized shaders for blending.</p>
+</li>
+</ul>
+<p>Click the “Texture Set Definition” button to display the following dialog box:</p>
 <p><img src="../../images/QQ20191210-133419.png" alt=""></p>
-<p>对于支持纹理集的平台，你可以规划图片放到不同的纹理集内。这项功能的意义在于：</p>
+<p>For platforms that support texture sets, you can plan to put images in different texture sets. The significance of this feature is:</p>
 <ul>
-<li>图片太大太多，假设纹理集最大支持2048×2048（这个可调整），超出此范围则需要用到多个纹理集；</li>
-<li>图片用途不一致，例如一张尺寸比较大的色彩丰富的背景图就不适合和色彩比较单一的UI素材放到一起，这样会使最终发布的png图片过大。将超大尺寸背景图单独放一张纹理集是一个比较好的解决方案；</li>
-<li>图片的特性不一致，例如在Unity平台里，你可以为纹理集设置单独的Filter Mode、压缩格式等等。</li>
+<li>The image is too large, assuming that the texture set supports a maximum of 2048 × 2048 (this can be adjusted), beyond this range, you need to use multiple texture sets;</li>
+<li>The use of the images is inconsistent. For example, a large-sized and colorful background image is not suitable to be placed with UI materials with a single color. This will make the final png image too large. It is a good solution to put a large-size background image in a separate texture set;</li>
+<li>The characteristics of the images are inconsistent. For example, in the Unity platform, you can set a separate Filter Mode, compression format, and so on for the texture set.</li>
 </ul>
-<p>左边视图是纹理集列表，默认定义了编号从0至10共11张纹理集。</p>
-<p>右边视图是选中纹理集包含的资源。</p>
+<p>The left view is a list of texture sets. By default, there are 11 texture sets numbered from 0 to 10.</p>
+<p>The right view is the resources contained in the selected texture set.</p>
 <ul>
-<li><p><code>纹理集最大编号</code> 如果有需要，修改这里的数值，扩充纹理集数量。</p>
+<li><p><code>Texture set maximum number</code>If necessary, modify the value here to expand the number of texture sets.</p>
 </li>
-<li><p><code>压缩PNG</code> 将纹理集使用PNG8格式压缩。这个压缩方式能大大降低PNG文件大小，但也会使图片失真比较严重，特别是色彩比较丰富，或者含有渐变的图片，请谨慎使用。Unity引擎不要使用这个压缩功能，因为Unity对纹理集的压缩应该在Unity里设置，Unity在打包时会自动根据设置的格式压缩纹理集，使用这里的压缩除了降低图片质量外没有任何减少文件体积的作用。</p>
-</li>
-</ul>
-<h3 id="发布代码-1"><a href="#发布代码-1" class="headerlink" title="发布代码"></a>发布代码</h3><p><img src="../../images/QQ20191210-134442.png" alt=""></p>
-<ul>
-<li><p><code>为本包生成代码</code> 为本包生成代码。生成代码的作用请参考全局设置。注意，即使这个勾选了，如果全局设置里没有勾选，最后也不会生成代码。</p>
-</li>
-<li><p><code>发布路径</code> 发布结果放置的路径。参考全局设置。</p>
-</li>
-<li><p><code>使用全局配置</code> 如果勾选，<code>发布路径</code>使用全局配置里的设置，本页面的设置无效。</p>
+<li><p><code>Compress PNG</code>Compress the texture set using PNG8 format. This compression method can greatly reduce the size of the PNG file, but it will also cause serious distortion of the image, especially with rich colors or images with gradients. Please use it with caution. The Unity engine should not use this compression function, because Unity’s texture set compression should be set in Unity. When packaging, Unity will automatically compress the texture set according to the set format. Using this compression does not reduce the file size in addition to reducing the image quality effect.</p>
 </li>
 </ul>
-<h3 id="资源排除设置"><a href="#资源排除设置" class="headerlink" title="资源排除设置"></a>资源排除设置</h3><p><img src="../../images/QQ20191210-134653.png" alt=""></p>
-<p>如果一些素材，只用于测试用途，例如一个装载器，放一个图片进去只用于看效果，但这个图片是不随包发布的（后续可能通过外部加载），那么可以在这个界面里将这个图片拖入，那么发布时就不会包含这个图片了。</p>
-<h2 id="命令行发布"><a href="#命令行发布" class="headerlink" title="命令行发布"></a>命令行发布</h2><p>除了在编辑器内点击发布按钮发布外，还支持通过命令行发布。但目前命令行发布还存在一个缺陷，就是运行成功和失败都没有反馈，所以请谨慎使用。</p>
+<h3 id="Publish-code-1"><a href="#Publish-code-1" class="headerlink" title="Publish code"></a>Publish code</h3><p><img src="../../images/QQ20191210-134442.png" alt=""></p>
+<ul>
+<li><p><code>Generate code for this package</code>Generate code for this package. Refer to Global Settings for the role of the generated code. Note that even if this is checked, if it is not checked in the global settings, no code will be generated at the end.</p>
+</li>
+<li><p><code>Release path</code>The path where the publication results will be placed. See Global Settings.</p>
+</li>
+<li><p><code>Use global configuration</code>If checked,<code>Release path</code>Using the settings in the global configuration, the settings on this page are invalid.</p>
+</li>
+</ul>
+<h3 id="Exclusion-settings"><a href="#Exclusion-settings" class="headerlink" title="Exclusion settings"></a>Exclusion settings</h3><p><img src="../../images/QQ20191210-134653.png" alt=""></p>
+<p>If some materials are only used for testing purposes, such as a loader, put an image into it only to see the effect, but this image is not released with the package (there may be external loading later), then you can put this image in this interface Drag in, then this image will not be included when publishing.</p>
+<h2 id="Command-line-publishing"><a href="#Command-line-publishing" class="headerlink" title="Command line publishing"></a>Command line publishing</h2><p>In addition to clicking the publish button in the editor, publishing via the command line is also supported. However, there is still a flaw in the command line release, that is, there is no feedback on the success or failure of the command line, so please use it with caution.</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">FairyGUI-Editor -p project_desc_file [-b package_names] [-t branch_name] [-x callback] [-o output_path]</div></pre></td></tr></table></figure>
 <ul>
-<li><code>project_desc_file</code> 项目描述文件路径，例如d:\a\1.fairy。</li>
-<li><code>package_names</code> 可选。不提供则为所有包，多个包用逗号隔开。</li>
-<li><code>branch_name</code> 可选。分支名称。不提供则发布主干。</li>
-<li><code>callback</code> 可选。发布完毕后调用这个程序。</li>
-<li><code>output_path</code> 可选。如果指定，则覆盖项目里的设置，直接使用这里指定的位置。</li>
+<li><code>project_desc_file</code>Project description file path, such as d: \ a \ 1.fairy.</li>
+<li><code>package_names</code>Optional. If it is not provided, it is all packages, and multiple packages are separated by commas.</li>
+<li><code>branch_name</code>Optional. Branch name. If not provided, the trunk is published.</li>
+<li><code>callback</code>Optional. Call this program after publishing.</li>
+<li><code>output_path</code>Optional. If specified, it overrides the settings in the project and uses the location specified here directly.</li>
 </ul>
 
     

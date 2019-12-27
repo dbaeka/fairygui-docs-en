@@ -4,25 +4,25 @@ type: guide_editor
 order: 32
 ---
 
-## 自由拖放
+## Free drag and drop
 
-使一个元件能够被拖动，很简单，设置draggable属性就可以了，例如：
+To make a component draggable, it's very simple, just set the draggable property, for example:
 
 ```csharp
-    aObject.draggable = true;
+aObject.draggable = true;
 ```
 
-设置后当玩家按住元件，就可以随意拖动它。可以设置一个矩形限制拖动范围：
+After setting, when the player holds the component, they can drag it at will. You can set a rectangle to limit the drag range:
 
 ```csharp
-    //注意这里的矩形范围使用的是舞台上的坐标，不是元件的本地坐标。
-    aObject.dragBounds = new Rect(100,100,200,200);
+// Note that the rectangular range here uses the coordinates on the stage, not the local coordinates of the component.
+    aObject.dragBounds = new Rect (100,100,200,200);
 ```
 
-拖动开始、拖动的过程和拖动结束都可以获得通知：
+You can get notifications about the start of dragging, the process of dragging, and the end of dragging:
 
 ```csharp
-    //Unity/Cry
+//Unity/Cry
     aObject.onDragStart.Add(onDragStart);
     aObject.onDragMove.Add(onDragMove);
     aObject.onDragEnd.Add(onDragEnd);
@@ -50,98 +50,98 @@ order: 32
     //CocosCreator
     aObject.on(fgui.Event.DRAG_START, this.onDragStart, this);
     aObject.on(fgui.Event.DRAG_MOVING, this.onDragMove, this);
-    aObject.on(fgui.Event.DRAG_END, this.onDragEnd, this);  
+    aObject.on(fgui.Event.DRAG_END, this.onDragEnd, this);
 ```
 
-## 转换拖动
+## Alternative drag
 
-如果不希望点击元件的任何地方都可以拖动，那么可以用转换拖动的方式。例如FairyGUI里的窗口，点击它的标题栏，就可以拖动窗口，我们以这个为例子分析怎么实现：
+If you don't want to click anywhere on the component and drag it, you can use alternative drag. For example, the window in FairyGUI, click its title bar, you can drag the window, we use this as an example to analyze how to achieve:
 
 ```csharp
-    //设置拖动区域为可拖动，然后侦听拖动开始事件
-    _dragArea.draggable = true;
-    _dragArea.onDragStart.Add(onDragStart);
+// Set the drag area to be draggable, and then listen for the drag start event
+    _dragArea.draggable = true;
+    _dragArea.onDragStart.Add (onDragStart);
 
-    //Unity/Cry/MonoGame
-    void onDragStart(EventContext context)
-    {
-        //取消掉源拖动，也就是_dragArea不会被实际拖动
-        context.PreventDefault();
-    
-        //设置窗口处于拖动状态。context.data是手指的id。
-        this.StartDrag((int)context.data);
-    }
+    // Unity / Cry / MonoGame
+    void onDragStart (EventContext context)
+    {
+        // Cancel the source drag, that is, _dragArea will not be dragged actually
+        context.PreventDefault ();
+    
+        // Set the window to be dragged. context.data is the id of the finger.
+        this.StartDrag ((int) context.data);
+    }
 
-    //Laya
-    onDragStart(evt:laya.events.Event) {
-        var obj: fairygui.GObject = fairygui.GObject.cast(evt.currentTarget);
+    // Laya
+    onDragStart (evt: laya.events.Event) {
+        var obj: fairygui.GObject = fairygui.GObject.cast (evt.currentTarget);
 
-        //取消对原目标的拖动，换成一个替代品
-        obj.stopDrag();
+        // Cancel the original target and replace it with a substitute
+        obj.stopDrag ();
 
-        this.startDrag();
-    }
+        this.startDrag ();
+    }
 
-    //CocosCreator
-    onDragStart(evt:fgui.Event) {
-        let obj:fgui.GObject = fgui.GObject.cast(evt.currentTarget);
-        
-        //取消对原目标的拖动，换成一个替代品
-        obj.stopDrag();
+    // CocosCreator
+    onDragStart (evt: fgui.Event) {
+        let obj: fgui.GObject = fgui.GObject.cast (evt.currentTarget);
+        
+        // Cancel the original target and replace it with a substitute
+        obj.stopDrag ();
 
-        this.startDrag();
-    }
+        this.startDrag ();
+    }
 ```
 
-通过以上的方式，实现当_dragArea被尝试拖动时，会转换为Window自身的拖动。
+In the above way, when _dragArea is attempted to be dragged, it will be converted to the drag of the Window itself.
 
-## 替身拖动
+## Substitute drag
 
-拖动只能在元件的父组件内移动，如果你需要在全屏幕内移动，那么需要用到替身拖动。替身拖动的启动方式需要先作转换：
+Dragging can only be moved within the parent component of the component. If you need to move within the full screen, you need to use dragging by substitute. The startup method of avatar drag needs to be converted first:
 
 ```csharp
-    aObject.draggable = true;
-    aObject.onDragStart.Add(onDragStart);
+aObject.draggable = true;
+    aObject.onDragStart.Add (onDragStart);
 
-    //Unity/Cry/MonoGame
-    void onDragStart(EventContext context)
-    {
-        //取消掉源拖动
-        context.PreventDefault();
-    
-        //icon是这个对象的替身图片，userData可以是任意数据，底层不作解析。context.data是手指的id。
-        DragDropManager.inst.StartDrag(null, icon, userData, (int)context.data);
-    }
+    // Unity / Cry / MonoGame
+    void onDragStart (EventContext context)
+    {
+        // Cancel source drag
+        context.PreventDefault ();
+    
+        // icon is the avatar image of this object, userData can be arbitrary data, and the underlying layer does not parse it. context.data is the id of the finger.
+        DragDropManager.inst.StartDrag (null, icon, userData, (int) context.data);
+    }
 ```
 
-使用了替身拖动后，如果要检测拖动结束，不能再监听原来的对象，而应该使用：
+After using the double drag, if you want to detect the end of the drag, you can no longer listen to the original object, you should use:
 
 ```csharp
-    //Unity/Cry/MonoGame
+//Unity/Cry/MonoGame
     DragDropManager.inst.dragAgent.onDragEnd.Add(onDragEnd);
 
     //CocosCreator
     DragDropManager.inst.dragAgent.on(fgui.Event.DRAG_END, this.onDragEnd, this);
 ```
 
-DragDropManager还提供了常用的拖->放功能，如果一个组件需要接收其他元件拖动到它里面并释放的事件，可以使用：
+DragDropManager also provides the commonly used drag-> drop function. If a component needs to receive events that other components drag into it and release, you can use:
 
 ```csharp
-    aComponent.onDrop.Add(onDrop);
+aComponent.onDrop.Add (onDrop);
 
-    //Unity/Cry/MonoGame
-    void onDrop(EventContext context)
-    {
-        //这里context.data就是StartDrag里传入的userData
-        Debug.Log(context.data);
-    }
+    // Unity / Cry / MonoGame
+    void onDrop (EventContext context)
+    {
+        // here context.data is the userData passed in StartDrag
+        Debug.Log (context.data);
+    }
 
-    //CocosCreator
-    void onDrop(dropTarget:fgui.GObject, userData:any) {
-        //这里sourceData是StartDrag传入的userData
-    }
+    // CocosCreator
+    void onDrop (dropTarget: fgui.GObject, userData: any) {
+        // here sourceData is the userData passed in by StartDrag
+    }
 ```
 
-DragDropManager使用了一个图片资源表达替身，这个图片是用装载器显示的。这个装载器是DragDropManager.inst.dragAgent，你可以调整它的参数以适应实际项目需求。
+DragDropManager uses an image resource to represent the alias. This image is displayed by the loader. This loader is DragDropManager.inst.dragAgent, you can adjust its parameters to fit the actual project needs.
 
-如果你的替身不是一个图片那么简单，比如你需要用一个组件作为替身，那么你可以定义自己的DragDropManager，直接复制一个DragDropManager，在上面修改写你自己的逻辑，然后使用你这个DragDropManager即可。DragDropManager这个类的设计就没有考虑到所有实际情况的，它只是作为一个参考。
+If your stand-in is not as simple as an image, for example, you need to use a component as a stand-in, then you can define your own DragDropManager, copy a DragDropManager directly, modify and write your own logic on it, and then use your DragDropManager. The design of the DragDropManager class does not take into account all practical situations, it is only used as a reference.

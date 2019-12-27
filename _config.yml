@@ -92,6 +92,10 @@ markdown:
   breaks: true
   smartLists: true
   smartypants: true
+  render:
+    quotes: '""‘’'
+  anchors:
+      permalinkSymbol: #
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
