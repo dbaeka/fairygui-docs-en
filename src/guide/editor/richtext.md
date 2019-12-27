@@ -84,26 +84,26 @@ The method to listen for link clicks in rich text is (this event is bubbling, th
     aRichTextField.on (fgui.Event.LINK, this.onClickLink, this);
 ```
 
-The most important feature of rich text is support for HTML parsing and rendering. Plain text style tags, such as`FONT`、`B`、`I`、``These are generally well supported. Some other object tags, such as`A`、``IMG and others support different strengths in each engine:
+The most important feature of rich text is support for HTML parsing and rendering. Plain text style tags, such as`FONT`、`B`、`I`， These are generally well supported. Some other object tags, such as`A`、`IMG` and others support different strengths in each engine:
 
-- `AS3/Starling```Support A tags and``IMG tags, support for shuffled images / movieclips and external images in the UI library. Support for custom hyperlink styles:
+- `AS3/Starling` Support `A` tags and `IMG` tags, support for shuffled images / movieclips and external images in the UI library. Support for custom hyperlink styles:
 
    ```csharp
    aRichTextField.ALinkFormat = new TextFormat (...);
     aRichTextField.AHoverFormat = new TextFormat (...);
    ```
 
-- ``Egret support``A label. Mixed graphics and text are not supported.
+- `Egret` Support `A` label. Mixed graphics and text are not supported.
 
-- ``Laya support```A label and IMG`Tags, only supports mixing external images,**Does not support images and movieclips in the UI library**。 The essence of the Laya version of GRichTextField is to wrap Laya's HTMLDivElement, which can be accessed in the following ways:
+- `Laya` Support `A` label and IMG`Tags, only supports mixing external images, **Does not support images and movieclips in the UI library**。 The essence of the Laya version of GRichTextField is to wrap Laya's HTMLDivElement, which can be accessed in the following ways:
 
    ```csharp
    var div: HtmlDivElement = aRichTextField.div;
    ```
 
-- ``Unity support`A`、`IMG`、`INPUT`、`SELECT`，``P and so on. [Please refer here](#HTML语法)
+- `Unity` Support `A`、`IMG`、`INPUT`、`SELECT`，`P` and so on. [Please refer here](#HTML-syntax)
 
-- `Cocos Creator``Support A`、`IMG`。 Supports package and external images, but does not support movieclip (movieclip is displayed as a single frame). The essence of the Creator version of GRichTextField is to wrap cc.RichText.
+- `Cocos Creator` Support `A`、`IMG`。 Supports package and external images, but does not support movieclip (movieclip is displayed as a single frame). The essence of the Creator version of GRichTextField is to wrap cc.RichText.
 
 ## HTML syntax
 
