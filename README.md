@@ -1,6 +1,6 @@
-# FairyGUI.io tutorial documentation
+# FairyGUI tutorials
 
-This is the FairyGUI tutorial documentation site, which is built using [hexo] (http://hexo.io/). The contents of the document are written in the "src" folder using the Markdown format.
+This is the FairyGUI tutorials site, which is built using [hexo] (http://hexo.io/). The contents of the document are written in the "src" folder using the Markdown format.
 
 ## Build the local document environment
 
