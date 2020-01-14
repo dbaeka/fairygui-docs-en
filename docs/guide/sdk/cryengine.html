@@ -354,17 +354,22 @@
     
       <h1>Cry Engine</h1>
     
-    <h2 id="Load-UI-package"><a href="#Load-UI-package" class="headerlink" title="Load UI package"></a>Load UI package</h2><p>Publish the packaged file directly to the Assets directory or its subdirectory of the Cry project.</p>
+    <h2 id="Load UI package"><a class="header-anchor" href="#Load UI package">¶</a> Load UI package</h2>
+<p>Publish the packaged file directly to the Assets directory or its subdirectory of the Cry project.</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// demo is the file name filled in when publishing</span></div><div class="line">    UIPackage.AddPackage (<span class="string">"demo"</span>);</div><div class="line">    </div><div class="line">    <span class="comment">// if in a subdirectory</span></div><div class="line">    UIPackage.AddPackage (<span class="string">"path/demo"</span>);</div></pre></td></tr></table></figure>
-<h2 id="Uninstall-UI-pack"><a href="#Uninstall-UI-pack" class="headerlink" title="Uninstall UI pack"></a>Uninstall UI pack</h2><p>When a package is no longer used, it can be uninstalled.</p>
+<h2 id="Uninstall UI pack"><a class="header-anchor" href="#Uninstall UI pack">¶</a> Uninstall UI pack</h2>
+<p>When a package is no longer used, it can be uninstalled.</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Here you can use the package id, package name, and package path.</span></div><div class="line">    UIPackage.RemovePackage (<span class="string">"package"</span>);</div></pre></td></tr></table></figure>
-<p>After the package is uninstalled, all the resources such as textures contained in the package will be uninstalled, and the components created in the package will not display properly (although no error will be reported), so these components should (or have been) destroyed.<br>Frequent loading and unloading of packages is generally not recommended, because each loading and unloading must consume CPU time (meaning power consumption) and generate a lot of GC. The memory occupied by the UI system can be accurately estimated. You can set which packages are resident in memory according to the frequency of use of the packages (as much as possible is recommended).</p>
-<h2 id="Create-UI"><a href="#Create-UI" class="headerlink" title="Create UI"></a>Create UI</h2><figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GComponent view = UIPackage.CreateObject (<span class="string">"package name"</span>, <span class="string">"component name"</span>).asCom;</div><div class="line">    </div><div class="line">    <span class="comment">// The following methods can display the view:</span></div><div class="line">    </div><div class="line">    <span class="comment">// 1, directly added to GRoot and displayed</span></div><div class="line">    GRoot.inst.AddChild (view);</div><div class="line">    </div><div class="line">    <span class="comment">// 2, use window display</span></div><div class="line">    aWindow.contentPane = view;</div><div class="line">    aWindow.Show ();</div><div class="line">    </div><div class="line">    <span class="comment">// 3, add to other components</span></div><div class="line">    aComponnent.AddChild (view);</div></pre></td></tr></table></figure>
+<p>After the package is uninstalled, all the resources such as textures contained in the package will be uninstalled, and the components created in the package will not display properly (although no error will be reported), so these components should (or have been) destroyed.<br>
+Frequent loading and unloading of packages is generally not recommended, because each loading and unloading must consume CPU time (meaning power consumption) and generate a lot of GC. The memory occupied by the UI system can be accurately estimated. You can set which packages are resident in memory according to the frequency of use of the packages (as much as possible is recommended).</p>
+<h2 id="Create UI"><a class="header-anchor" href="#Create UI">¶</a> Create UI</h2>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GComponent view = UIPackage.CreateObject (<span class="string">"package name"</span>, <span class="string">"component name"</span>).asCom;</div><div class="line">    </div><div class="line">    <span class="comment">// The following methods can display the view:</span></div><div class="line">    </div><div class="line">    <span class="comment">// 1, directly added to GRoot and displayed</span></div><div class="line">    GRoot.inst.AddChild (view);</div><div class="line">    </div><div class="line">    <span class="comment">// 2, use window display</span></div><div class="line">    aWindow.contentPane = view;</div><div class="line">    aWindow.Show ();</div><div class="line">    </div><div class="line">    <span class="comment">// 3, add to other components</span></div><div class="line">    aComponnent.AddChild (view);</div></pre></td></tr></table></figure>
 <p>If the content of the interface is too much, it may cause a freeze when creating. FairyGUI provides a way to create the UI asynchronously. In the asynchronous creation mode, the CPU resources consumed by each frame will be controlled, but the creation time will be slightly longer than the synchronous creation. E.g:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">UIPackage.CreateObjectAsync (<span class="string">"package name"</span>, <span class="string">"component name"</span>, MyCreateObjectCallback);</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">MyCreateObjectCallback</span> (<span class="params">GObject obj</span>)</span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <p>The dynamically created interface will not be destroyed automatically, such as a backpack window, you do not need to destroy it every time you go through the scene. If you want to destroy the interface, you need to manually call the Dispose method, for example</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">view.Dispose ();</div></pre></td></tr></table></figure>
-<h2 id="coordinate-system"><a href="#coordinate-system" class="headerlink" title="coordinate system"></a>coordinate system</h2><p>The x / y / position values in GObject are all<strong>Local coordinates</strong>, Which is the offset from the parent component. GObject does not provide direct properties to obtain the global coordinates of the object, but provides methods to convert.</p>
+<h2 id="coordinate system"><a class="header-anchor" href="#coordinate system">¶</a> coordinate system</h2>
+<p>The x / y / position values in GObject are all<strong>Local coordinates</strong>, Which is the offset from the parent component. GObject does not provide direct properties to obtain the global coordinates of the object, but provides methods to convert.</p>
 <p>If you want to get the coordinates of any UI element on the screen, you can use:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Vector2 screenPos = aObject.LocalToGlobal(Vector2.zero);</div></pre></td></tr></table></figure>
 <p>Conversely, if you want to get the local coordinates of the screen coordinates on the UI element, you can use:</p>
@@ -374,16 +379,20 @@
 <p><strong>Note that what we define in the editor and what is handled in the code generally refers to this logical screen coordinate.</strong></p>
 <p>If you want to transform the coordinates between any two UI objects, for example, you need to know the position of coordinate (10,10) in A in B, you can use:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Vector2 posInB = aObject.TransformPoint(bObject, <span class="keyword">new</span> Vector2(<span class="number">10</span>,<span class="number">10</span>));</div></pre></td></tr></table></figure>
-<h2 id="Event-system"><a href="#Event-system" class="headerlink" title="Event system"></a>Event system</h2><p><code>EventDispatcher</code>Is the center of event distribution, GObject is an EventDispatcher. Each event type corresponds to one<code>EventListener</code>To receive events and call handlers.</p>
+<h2 id="Event system"><a class="header-anchor" href="#Event system">¶</a> Event system</h2>
+<p><code>EventDispatcher</code>Is the center of event distribution, GObject is an EventDispatcher. Each event type corresponds to one<code>EventListener</code>To receive events and call handlers.</p>
 <p>For example, write processing logic for a component click:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aObject.onClick.Add(aCallback);</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">aCallback</span>(<span class="params"></span>)</span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        <span class="comment">//some logic</span></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<h3 id="Bubbling-and-catching"><a href="#Bubbling-and-catching" class="headerlink" title="Bubbling and catching"></a>Bubbling and catching</h3><p>Some special events, such as mouse / touch events, have the characteristics of passing to the parent component. This passing process is called bubbling. For example, when a finger touches the A component, the A component triggers the TouchBegin event, then the parent component B of the A component triggers the TouchBegin event, and then the parent component C of the B component also triggers the TouchBegin event, and so on until the root of the stage. This design guarantees that all related display objects have the opportunity to handle touch events, not just the topmost display object.</p>
+<h3 id="Bubbling and catching"><a class="header-anchor" href="#Bubbling and catching">¶</a> Bubbling and catching</h3>
+<p>Some special events, such as mouse / touch events, have the characteristics of passing to the parent component. This passing process is called bubbling. For example, when a finger touches the A component, the A component triggers the TouchBegin event, then the parent component B of the A component triggers the TouchBegin event, and then the parent component C of the B component also triggers the TouchBegin event, and so on until the root of the stage. This design guarantees that all related display objects have the opportunity to handle touch events, not just the topmost display object.</p>
 <p>The bubbling process can be interrupted. By calling EventContext.StopPropagation (), the bubbling can be stopped to advance to the parent component.</p>
 <p>As can be seen from the bubbling process above, the order of event processing should be: A’s listeners-&gt; B’s listeners-&gt; C’s listeners. There is also a mechanism that allows any object on the link to process events in advance. This is event capture. . Event capture is reversed. For example, in the above example, C captures the event first, then B, and then A. So the complete sequence of all event processing should be:</p>
 <p>C’s capture listeners-&gt;B’s capture listeners-&gt;A’s capture listeners-&gt;A’s listeners-&gt;B’s listeners-&gt;C’s listeners</p>
-<p>Capturing delivery chains cannot be aborted, and bubbling delivery chains can be aborted with StopPropagation.<br>Event capture is designed to allow parent components to inspect events over child and grandchild components.</p>
+<p>Capturing delivery chains cannot be aborted, and bubbling delivery chains can be aborted with StopPropagation.<br>
+Event capture is designed to allow parent components to inspect events over child and grandchild components.</p>
 <p>Not all events have a bubbling design. In non-bubbling events, capture callbacks are better than ordinary callbacks, nothing more, and can be used as a priority feature.</p>
-<h3 id="Event-callback-function"><a href="#Event-callback-function" class="headerlink" title="Event callback function"></a>Event callback function</h3><p>Each event can register one or more callback functions. The function prototype is:</p>
+<h3 id="Event callback function"><a class="header-anchor" href="#Event callback function">¶</a> Event callback function</h3>
+<p>Each event can register one or more callback functions. The function prototype is:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">EventCallback0</span>(<span class="params"></span>)</span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">EventCallback1</span>(<span class="params">EventContext context</span>)</span>;</div></pre></td></tr></table></figure>
 <p>The two forms of use are the same, the difference is that there is no parameter or a parameter, just for convenience to write less when you do not need to use EventContext.</p>
 <p>There is no way to directly pass custom parameters into the callback function. But it can be achieved indirectly in three ways:</p>
@@ -392,49 +401,68 @@
 <li>Use lamba expressions, for example:</li>
 </ol>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">a.onClick.Add(()=&gt;&#123; ... &#125;);</div></pre></td></tr></table></figure>
-<ol>
+<ol start="3">
 <li>Put the variable in the data property of the display object. E.g:</li>
 </ol>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">a.data = ...;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">aCallback</span>(<span class="params">EventContext context</span>)</span></div><div class="line"><span class="function">  </span>&#123;</div><div class="line">      Debug.Log(context.sender.data)</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-<h3 id="EventListener"><a href="#EventListener" class="headerlink" title="EventListener"></a>EventListener</h3><ul>
+<h3 id="EventListener"><a class="header-anchor" href="#EventListener">¶</a> EventListener</h3>
+<ul>
 <li><code>Add</code> <code>Remove</code>Add or delete a callback.</li>
 <li><code>AddCapture</code> <code>RemoveCapture</code>Add or delete a capture period callback.</li>
 </ul>
-<h3 id="EventContext"><a href="#EventContext" class="headerlink" title="EventContext"></a>EventContext</h3><p>EventContext is the parameter type of the callback function.</p>
+<h3 id="EventContext"><a class="header-anchor" href="#EventContext">¶</a> EventContext</h3>
+<p>EventContext is the parameter type of the callback function.</p>
 <ul>
-<li><p><code>sends</code>Get the distributor of the event.</p>
+<li>
+<p><code>sends</code>Get the distributor of the event.</p>
 </li>
-<li><p><code>initiator</code>Get the originator of the event. Generally, the distributor and originator of an event are the same, but if the event has bubbling, it may not be the same. Refer to the bubble description below.</p>
+<li>
+<p><code>initiator</code>Get the originator of the event. Generally, the distributor and originator of an event are the same, but if the event has bubbling, it may not be the same. Refer to the bubble description below.</p>
 </li>
-<li><p><code>type</code>Event type.</p>
+<li>
+<p><code>type</code>Event type.</p>
 </li>
-<li><p><code>inputEvent</code>If the event is a keyboard / touch / mouse event, you can get the relevant data of this type of event by accessing the inputEvent object.</p>
+<li>
+<p><code>inputEvent</code>If the event is a keyboard / touch / mouse event, you can get the relevant data of this type of event by accessing the inputEvent object.</p>
 </li>
-<li><p><code>data</code>The data of the event. Depending on the event, it can have different meanings.</p>
+<li>
+<p><code>data</code>The data of the event. Depending on the event, it can have different meanings.</p>
 </li>
-<li><p><code>StopPropagation</code>Click the area of the child node, the parent node can also receive touch events, which is the characteristic of event bubbling. If you do not want to pass to the parent node, you can call this method.</p>
+<li>
+<p><code>StopPropagation</code>Click the area of the child node, the parent node can also receive touch events, which is the characteristic of event bubbling. If you do not want to pass to the parent node, you can call this method.</p>
 </li>
-<li><p><code>CaptureTouch</code>When the left mouse button is released or the finger is raised, if the mouse or touch position is no longer within the component’s range, the component’s TouchEnd event will not be triggered. If you really need it, you can request a capture. Inside the TouchBegin event handler, you can call context.CaptureTouch (), so that no matter where the mouse is released (even if it is not in the object area), the object’s onTouchEnd will be called. Note that it only takes effect once.<br>After 1.9.1 SDK, if CaptureTouch is called, the GObject.onTouchMove event will be triggered before the finger (or the left mouse button) is raised (regardless of the position of the finger or pointer above the object), until the left mouse button is released or Lift your finger.</p>
+<li>
+<p><code>CaptureTouch</code>When the left mouse button is released or the finger is raised, if the mouse or touch position is no longer within the component’s range, the component’s TouchEnd event will not be triggered. If you really need it, you can request a capture. Inside the TouchBegin event handler, you can call context.CaptureTouch (), so that no matter where the mouse is released (even if it is not in the object area), the object’s onTouchEnd will be called. Note that it only takes effect once.<br>
+After 1.9.1 SDK, if CaptureTouch is called, the GObject.onTouchMove event will be triggered before the finger (or the left mouse button) is raised (regardless of the position of the finger or pointer above the object), until the left mouse button is released or Lift your finger.</p>
 </li>
-<li><p><code>UncaptureTouch</code>Cancels the capture of touch events initiated by CaptureTouch.</p>
+<li>
+<p><code>UncaptureTouch</code>Cancels the capture of touch events initiated by CaptureTouch.</p>
 </li>
 </ul>
-<h3 id="InputEvent"><a href="#InputEvent" class="headerlink" title="InputEvent"></a>InputEvent</h3><p>For keyboard events and mouse / touch events, you can get the relevant data of such events through EventContext.inputEvent.</p>
+<h3 id="InputEvent"><a class="header-anchor" href="#InputEvent">¶</a> InputEvent</h3>
+<p>For keyboard events and mouse / touch events, you can get the relevant data of such events through EventContext.inputEvent.</p>
 <ul>
-<li><p><code>x</code> ``y The position of the mouse or finger; this is the stage coordinates, because the UI may be scaled due to self-adaptation, so if you want to convert to the coordinates in the UI element, use GObject.GlobalToLocal transformation.</p>
+<li>
+<p><code>x</code> ``y The position of the mouse or finger; this is the stage coordinates, because the UI may be scaled due to self-adaptation, so if you want to convert to the coordinates in the UI element, use GObject.GlobalToLocal transformation.</p>
 </li>
-<li><p><code>keyCode</code>Key code.</p>
+<li>
+<p><code>keyCode</code>Key code.</p>
 </li>
-<li><p><code>modifiers</code>See InputModifierFlags.</p>
+<li>
+<p><code>modifiers</code>See InputModifierFlags.</p>
 </li>
-<li><p><code>mouseWheelDelta</code>Mouse wheel scroll value.</p>
+<li>
+<p><code>mouseWheelDelta</code>Mouse wheel scroll value.</p>
 </li>
-<li><p><code>touchId</code>Finger ID associated with the current event; on PC platforms, this value is 0, meaningless.</p>
+<li>
+<p><code>touchId</code>Finger ID associated with the current event; on PC platforms, this value is 0, meaningless.</p>
 </li>
-<li><p><code>isDoubleClick</code>Whether to double-click.</p>
+<li>
+<p><code>isDoubleClick</code>Whether to double-click.</p>
 </li>
 </ul>
-<h2 id="Mouse-touch-input"><a href="#Mouse-touch-input" class="headerlink" title="Mouse / touch input"></a>Mouse / touch input</h2><p>If you want to distinguish between clicking on the UI or clicking on objects in the scene, you can use the following methods:</p>
+<h2 id="Mouse / touch input"><a class="header-anchor" href="#Mouse / touch input">¶</a> Mouse / touch input</h2>
+<p>If you want to distinguish between clicking on the UI or clicking on objects in the scene, you can use the following methods:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">if</span> (Stage.isTouchOnUI) <span class="comment">// Click on the UI</span></div><div class="line">    &#123;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="comment">// no point on UI</span></div><div class="line">    &#123;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <p>This detection works not only for clicks but also for hovering. For example, this judgment is also true if the mouse is hovering over the UI.</p>
 <p>The mouse / touch related events are:</p>
@@ -451,9 +479,10 @@
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// This is the position of the mouse, or the position of the last finger</span></div><div class="line">    Vector2 pos1 = Stage.inst.touchPosition;</div><div class="line"></div><div class="line">    <span class="comment">// Get the specified finger position, the parameter is the finger id</span></div><div class="line">    Vector2 pos2 = Stage.inst.GetTouchPosition (<span class="number">1</span>);</div></pre></td></tr></table></figure>
 <p>At any time, if you need to get the current clicked object, or the object under the mouse, you can get it in the following ways:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GObject obj = GRoot.inst.touchTarget;</div><div class="line"></div><div class="line">    <span class="comment">// determine if it is in a certain component</span></div><div class="line">    Debug.Log (testComponent.IsAncestorOf (obj));</div></pre></td></tr></table></figure>
-<h2 id="keyboard-input"><a href="#keyboard-input" class="headerlink" title="keyboard input"></a>keyboard input</h2><p>To listen to keyboard input:</p>
+<h2 id="keyboard input"><a class="header-anchor" href="#keyboard input">¶</a> keyboard input</h2>
+<p>To listen to keyboard input:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Stage.inst.onKeyDown.Add(OnKeyDown);</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnKeyDown</span>(<span class="params">EventContext context</span>)</span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        Debug.Log(context.inputEvent.keyCode);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
     
     <div class="footer">
       found mistake? Want to participate in editing?

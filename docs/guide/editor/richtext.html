@@ -361,35 +361,50 @@
 <li>Normal text does not support HTML syntax (but different styles can be implemented using UBB); rich text support.</li>
 </ul>
 <p>Click in the main toolbar<img src="../../images/sidetb_04.png" alt="">Button to generate a rich text.</p>
-<h2 id="Instance-properties"><a href="#Instance-properties" class="headerlink" title="Instance properties"></a>Instance properties</h2><p><img src="../../images/QQ20191211-171911.png" alt=""></p>
+<h2 id="Instance properties"><a class="header-anchor" href="#Instance properties">¶</a> Instance properties</h2>
+<p><img src="../../images/QQ20191211-171911.png" alt=""></p>
 <ul>
-<li><p><img src="../../images/texttb_01.png" alt="">Set text to support UBB syntax. Using UBB syntax can make a single text contain multiple styles, such as font size, color, etc. <a href="text.html#UBB语法">Please refer to UBB syntax</a>。</p>
+<li>
+<p><img src="../../images/texttb_01.png" alt="">Set text to support UBB syntax. Using UBB syntax can make a single text contain multiple styles, such as font size, color, etc. <a href="text.html#UBB%E8%AF%AD%E6%B3%95">Please refer to UBB syntax</a>。</p>
 </li>
-<li><p><img src="../../images/texttb_02.png" alt="">When selected, the text can express a text parameter using syntax such as {count = 100}. <a href="text.html#文本模板">Please refer to the text template</a>。</p>
+<li>
+<p><img src="../../images/texttb_02.png" alt="">When selected, the text can express a text parameter using syntax such as {count = 100}. <a href="text.html#%E6%96%87%E6%9C%AC%E6%A8%A1%E6%9D%BF">Please refer to the text template</a>。</p>
 </li>
-<li><p><img src="../../images/texttb_03.png" alt="">Set the text to a single line. Single-line text does not wrap automatically, and newline characters are ignored.</p>
+<li>
+<p><img src="../../images/texttb_03.png" alt="">Set the text to a single line. Single-line text does not wrap automatically, and newline characters are ignored.</p>
 </li>
-<li><p><img src="../../images/texttb_04.png" alt="">Set the text to bold.</p>
+<li>
+<p><img src="../../images/texttb_04.png" alt="">Set the text to bold.</p>
 </li>
-<li><p><img src="../../images/texttb_05.png" alt="">Set the text to italic.</p>
+<li>
+<p><img src="../../images/texttb_05.png" alt="">Set the text to italic.</p>
 </li>
-<li><p><img src="../../images/texttb_06.png" alt="">Set the text to underline.</p>
+<li>
+<p><img src="../../images/texttb_06.png" alt="">Set the text to underline.</p>
 </li>
-<li><p><img src="../../images/texttb_07.png" alt="">Indicates that the text is only used as an editor preview and will be automatically cleared when publishing.</p>
+<li>
+<p><img src="../../images/texttb_07.png" alt="">Indicates that the text is only used as an editor preview and will be automatically cleared when publishing.</p>
 </li>
-<li><p><code>text</code>Set the text content. Rich text can be used directly<a href="#HTML语法">HTML syntax</a>。 When a new line is needed, you can do it in the editor<strong>Press enter directly</strong>, Or use the html tag “&amp; lt; br / &amp; gt;”. The code assignment requires a newline. You can use “\ n”. Some engines, such as LayaAir, may not support a carriage return and line feed. Try using &amp; lt; br / &amp; gt ;.</p>
+<li>
+<p><code>text</code>Set the text content. Rich text can be used directly<a href="#HTML%E8%AF%AD%E6%B3%95">HTML syntax</a>。 When a new line is needed, you can do it in the editor<strong>Press enter directly</strong>, Or use the html tag &quot;&amp; lt; br / &amp; gt;&quot;. The code assignment requires a newline. You can use &quot;\ n&quot;. Some engines, such as LayaAir, may not support a carriage return and line feed. Try using &amp; lt; br / &amp; gt ;.</p>
 </li>
-<li><p><code>Font</code>Set the font used for text. <strong> You don’t need to set the font once for each text. </strong> In the project properties, you can set the default font used for all text in the project. When running<code>UIConfig.defaultFont</code>Uniform settings. If you need to use bitmap fonts, you can drag font resources from the resource library here. If you use TTF fonts, then you need to install the fonts into the operating system, then enter the font name here, or click the A button next to it to select.</p>
+<li>
+<p><code>Font</code>Set the font used for text. ** You don’t need to set the font once for each text. ** In the project properties, you can set the default font used for all text in the project. When running<code>UIConfig.defaultFont</code>Uniform settings. If you need to use bitmap fonts, you can drag font resources from the resource library here. If you use TTF fonts, then you need to install the fonts into the operating system, then enter the font name here, or click the A button next to it to select.</p>
 </li>
-<li><p><code>font size</code>Sets the font size used for text. If you are using a bitmap font, you need to set “Allow dynamic font size change” for the bitmap font for the options here to be effective.</p>
+<li>
+<p><code>font size</code>Sets the font size used for text. If you are using a bitmap font, you need to set &quot;Allow dynamic font size change&quot; for the bitmap font for the options here to be effective.</p>
 </li>
-<li><p><code>colour</code>Set the text color. If you are using a bitmap font, you need to set “Allow dynamic color changes” to the bitmap font for this option to take effect.</p>
+<li>
+<p><code>colour</code>Set the text color. If you are using a bitmap font, you need to set &quot;Allow dynamic color changes&quot; to the bitmap font for this option to take effect.</p>
 </li>
-<li><p><code>Line spacing</code>The pixel pitch of each row.</p>
+<li>
+<p><code>Line spacing</code>The pixel pitch of each row.</p>
 </li>
-<li><p><code>Kerning</code>Pixel pitch for each character. <em>(Neither H5 engines are currently supported)</em></p>
+<li>
+<p><code>Kerning</code>Pixel pitch for each character. <em>(Neither H5 engines are currently supported)</em></p>
 </li>
-<li><p><code>Auto size</code></p>
+<li>
+<p><code>Auto size</code></p>
 <ul>
 <li><code>Auto width and height</code>The text does not wrap, and both the width and height grow to fit the entire text.</li>
 <li><code>Automatic height</code>The text is typeset with a fixed width, and it wraps automatically when it reaches the width, and the height grows to accommodate the entire text.</li>
@@ -397,68 +412,83 @@
 <li><code>no</code>Text is typeset with fixed width and height and does not wrap automatically.</li>
 </ul>
 </li>
-<li><p><code>Aligned</code>Set the alignment of the text.</p>
+<li>
+<p><code>Aligned</code>Set the alignment of the text.</p>
 </li>
-<li><p><code>Stroke</code>Sets the stroke effect of the text. The stroke weight value cannot be too large, otherwise the effect will be strange. Strokes are implemented differently in each engine, and the effects are different, and the effects of the editor are for reference only.</p>
+<li>
+<p><code>Stroke</code>Sets the stroke effect of the text. The stroke weight value cannot be too large, otherwise the effect will be strange. Strokes are implemented differently in each engine, and the effects are different, and the effects of the editor are for reference only.</p>
 </li>
-<li><p><code>projection</code>Sets the drop shadow effect of the text. The projection effect can be regarded as a simplified stroke effect. The stroke is in all directions, and the projection has only one direction. Projection and stroke share a single color setting.</p>
+<li>
+<p><code>projection</code>Sets the drop shadow effect of the text. The projection effect can be regarded as a simplified stroke effect. The stroke is in all directions, and the projection has only one direction. Projection and stroke share a single color setting.</p>
 </li>
 </ul>
-<h2 id="GRichTextField"><a href="#GRichTextField" class="headerlink" title="GRichTextField"></a>GRichTextField</h2><p>Rich text supports dynamic creation, for example:</p>
+<h2 id="GRichTextField"><a class="header-anchor" href="#GRichTextField">¶</a> GRichTextField</h2>
+<p>Rich text supports dynamic creation, for example:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GRichTextField aRichTextField = <span class="keyword">new</span> GRichTextField (); aRichTextField.SetSize (<span class="number">100</span>,<span class="number">100</span>); aRichTextField.text = &amp;quot; &lt;a href=<span class="string">'xxx'</span>&gt;Hello World&lt;/a&gt; &amp;quot;;</div></pre></td></tr></table></figure>
 <p>The method to listen for link clicks in rich text is (this event is bubbling, that is, you can not listen on rich text, you can listen on its parent or grandfather components):</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Unity / Cry / MonoGame, the data in the EventContext is the href value.</span></div><div class="line">    aRichTextField.onClickLink.Add (onClickLink);</div><div class="line"></div><div class="line">    <span class="comment">// AS3 / Egret, TextEvent.text is the href value.</span></div><div class="line">    aRichTextField.addEventListener (TextEvent.LINK, onClickLink);</div><div class="line"></div><div class="line">    <span class="comment">// Egret, TextEvent.text is the href value.</span></div><div class="line">    aRichTextField.addEventListener (TextEvent.LINK, <span class="keyword">this</span>.onClickLink, <span class="keyword">this</span>);</div><div class="line"></div><div class="line">    <span class="comment">// Laya, the parameter of onClickLink is the href value.</span></div><div class="line">    aRichTextField.<span class="keyword">on</span> (laya.events.Event.LINK, <span class="keyword">this</span>, <span class="keyword">this</span>.onClickLink);</div><div class="line"></div><div class="line">    <span class="comment">// Cocos2dx, EventContext.getDataValue ().asString () is the value of href.</span></div><div class="line">    aRichTextField-&gt; addEventListener (UIEventType :: ClickLink, CC_CALLBACK_1 (AClass :: onClickLink, this));</div><div class="line"></div><div class="line">    <span class="comment">// CocosCreator, the first parameter of onClickLink is the href value, and the optional second parameter is fgui.Event</span></div><div class="line">    aRichTextField.<span class="keyword">on</span> (fgui.Event.LINK, <span class="keyword">this</span>.onClickLink, <span class="keyword">this</span>);</div></pre></td></tr></table></figure>
 <p>The most important feature of rich text is support for HTML parsing and rendering. Plain text style tags, such as<code>FONT</code>、<code>B</code>、<code>I</code>， These are generally well supported. Some other object tags, such as<code>A</code>、<code>IMG</code> and others support different strengths in each engine:</p>
 <ul>
-<li><p><code>AS3/Starling</code> Support <code>A</code> tags and <code>IMG</code> tags, support for shuffled images / movieclips and external images in the UI library. Support for custom hyperlink styles:</p>
+<li>
+<p><code>AS3/Starling</code> Support <code>A</code> tags and <code>IMG</code> tags, support for shuffled images / movieclips and external images in the UI library. Support for custom hyperlink styles:</p>
  <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aRichTextField.ALinkFormat = <span class="keyword">new</span> TextFormat (...);</div><div class="line">    aRichTextField.AHoverFormat = <span class="keyword">new</span> TextFormat (...);</div></pre></td></tr></table></figure>
 </li>
-<li><p><code>Egret</code> Support <code>A</code> label. Mixed graphics and text are not supported.</p>
+<li>
+<p><code>Egret</code> Support <code>A</code> label. Mixed graphics and text are not supported.</p>
 </li>
-<li><p><code>Laya</code> Support <code>A</code> label and IMG`Tags, only supports mixing external images, <strong>Does not support images and movieclips in the UI library</strong>。 The essence of the Laya version of GRichTextField is to wrap Laya’s HTMLDivElement, which can be accessed in the following ways:</p>
+<li>
+<p><code>Laya</code> Support <code>A</code> label and IMG`Tags, only supports mixing external images, <strong>Does not support images and movieclips in the UI library</strong>。 The essence of the Laya version of GRichTextField is to wrap Laya’s HTMLDivElement, which can be accessed in the following ways:</p>
  <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> div: HtmlDivElement = aRichTextField.div;</div></pre></td></tr></table></figure>
 </li>
-<li><p><code>Unity</code> Support <code>A</code>、<code>IMG</code>、<code>INPUT</code>、<code>SELECT</code>，<code>P</code> and so on. <a href="#HTML-syntax">Please refer here</a></p>
+<li>
+<p><code>Unity</code> Support <code>A</code>、<code>IMG</code>、<code>INPUT</code>、<code>SELECT</code>，<code>P</code> and so on. <a href="#HTML-syntax">Please refer here</a></p>
 </li>
-<li><p><code>Cocos Creator</code> Support <code>A</code>、<code>IMG</code>。 Supports package and external images, but does not support movieclip (movieclip is displayed as a single frame). The essence of the Creator version of GRichTextField is to wrap cc.RichText.</p>
+<li>
+<p><code>Cocos Creator</code> Support <code>A</code>、<code>IMG</code>。 Supports package and external images, but does not support movieclip (movieclip is displayed as a single frame). The essence of the Creator version of GRichTextField is to wrap cc.RichText.</p>
 </li>
 </ul>
-<h2 id="HTML-syntax"><a href="#HTML-syntax" class="headerlink" title="HTML syntax"></a>HTML syntax</h2><p>Unity / MonoGame version has more complete support for HTML parsing.</p>
+<h2 id="HTML syntax"><a class="header-anchor" href="#HTML syntax">¶</a> HTML syntax</h2>
+<p>Unity / MonoGame version has more complete support for HTML parsing.</p>
 <ul>
-<li><p><code>IMG</code>Support for shuffled images / movieclips and external (network) images in the UI library. The ability to load external images can be achieved via<a href="loader.html#GLoader">Extended Loader</a>provide. Note that the img tag needs to end with “/ &amp; gt;”, not “&amp; gt;”. E.g:</p>
+<li>
+<p><code>IMG</code>Support for shuffled images / movieclips and external (network) images in the UI library. The ability to load external images can be achieved via<a href="loader.html#GLoader">Extended Loader</a>provide. Note that the img tag needs to end with &quot;/ &amp; gt;&quot;, not &quot;&amp; gt;&quot;. E.g:</p>
  <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">&lt;img src=<span class="string">'ui://package name/image name'</span>/&gt; <span class="comment">// You can also specify the size of the image &lt;img src='ui://package name/image name' width='20' height='20'/&gt; // You can also specify the size of the image with a percentage &lt;img src='ui://package name/image name' width='50%' height='50%'/&gt;</span></div></pre></td></tr></table></figure>
 </li>
-<li><p><code>A</code>Display a hyperlink. E.g:</p>
+<li>
+<p><code>A</code>Display a hyperlink. E.g:</p>
  <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">&lt;a href=<span class="string">'xxx'</span>&gt;link text&lt;/a&gt;</div></pre></td></tr></table></figure>
-<p> Supports defining the style of hyperlinks. If it is modified globally, you can use the static properties of HtmlParseOptions, for example:</p>
+<p>Supports defining the style of hyperlinks. If it is modified globally, you can use the static properties of HtmlParseOptions, for example:</p>
  <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Note: Global settings should be called before creating rich text.</span></div><div class="line">    <span class="comment">// Set whether all links in the entire project are underlined</span></div><div class="line">    HtmlParseOptions.DefaultLinkUnderline = <span class="literal">false</span>;</div><div class="line"></div><div class="line">    <span class="comment">// Set the color of the hyperlink</span></div><div class="line">    HtmlParseOptions.DefaultLinkColor = ...;</div><div class="line">    HtmlParseOptions.DefaultLinkBgColor = ...;</div><div class="line">    HtmlParseOptions.DefaultLinkHoverBgColor = ...;</div></pre></td></tr></table></figure>
-<p> If you just want to define a single rich text link style, then you can:</p>
+<p>If you just want to define a single rich text link style, then you can:</p>
  <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">HtmlParseOptions options = aRichTextField.richTextField.htmlParseOptions;</div><div class="line">    options.linkUnderline = <span class="literal">false</span>;</div><div class="line">    options.linkColor = ...;</div><div class="line">    options.linkBgColor = ...;</div><div class="line">    options.linkHoverBgColor = ...;</div></pre></td></tr></table></figure>
-<p> If each link in the same text needs a different color, wrap it around with a color label around the link label.</p>
+<p>If each link in the same text needs a different color, wrap it around with a color label around the link label.</p>
 </li>
-<li><p><code>INPUT</code>The following syntaxes are supported:</p>
+<li>
+<p><code>INPUT</code>The following syntaxes are supported:</p>
  <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// show a button &lt;input type='button' value='标题'/&gt; // Show an input box &lt;input type='text' value='文本内容'/&gt;</span></div></pre></td></tr></table></figure>
-<p> If you need to display the button, you need to define the resource corresponding to the button first, otherwise it cannot be displayed. E.g:</p>
+<p>If you need to display the button, you need to define the resource corresponding to the button first, otherwise it cannot be displayed. E.g:</p>
  <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">HtmlButton.resource = <span class="string">"ui:// package name / button name"</span>;</div></pre></td></tr></table></figure>
-<p> For the input box, you can define the border color and border size of the input box, for example:</p>
+<p>For the input box, you can define the border color and border size of the input box, for example:</p>
  <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">HtmlInput.defaultBorderSize = <span class="number">2</span>;</div><div class="line"> HtmlInput.defaultBorderColor = ...;</div></pre></td></tr></table></figure>
 </li>
-<li><p><code>SELECT</code>Use this tab to display a drop-down selection box. E.g:</p>
+<li>
+<p><code>SELECT</code>Use this tab to display a drop-down selection box. E.g:</p>
  <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">&lt;<span class="keyword">select</span> name=<span class="string">''</span>&gt;</div><div class="line">     &lt;option <span class="keyword">value</span>=<span class="string">'1'</span>&gt;<span class="number">1</span>&lt;/option&gt;</div><div class="line">     &lt;option <span class="keyword">value</span>=<span class="string">'2'</span>&gt;<span class="number">2</span>&lt;/option&gt;</div><div class="line"> &lt;/<span class="keyword">select</span>&gt;</div></pre></td></tr></table></figure>
-<p> Before using the drop-down box, you need to define the resources corresponding to the drop-down box, otherwise it cannot be displayed. E.g:</p>
+<p>Before using the drop-down box, you need to define the resources corresponding to the drop-down box, otherwise it cannot be displayed. E.g:</p>
  <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">HtmlSelect.resource = <span class="string">"ui:// package name / drop-down box component name"</span>;</div></pre></td></tr></table></figure>
 </li>
-<li><p><code>P</code>For example, to display a centered image:</p>
+<li>
+<p><code>P</code>For example, to display a centered image:</p>
  <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">&lt;p align=<span class="string">'center'</span>&gt;&lt;img src=<span class="string">''</span>/&gt;&lt;/p&gt;</div></pre></td></tr></table></figure>
-<p> By default, GRichTextField treats text as an HTML fragment, that is, it retains whitespace characters such as spaces and carriage returns. If you want to treat it as complete HTML without leaving blanks, you can use the following methods:</p>
+<p>By default, GRichTextField treats text as an HTML fragment, that is, it retains whitespace characters such as spaces and carriage returns. If you want to treat it as complete HTML without leaving blanks, you can use the following methods:</p>
 <ul>
-<li><p>Use HtmlParseOptions:</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">HtmlParseOptions options = aRichTextField.richTextField.htmlParseOptions;</div><div class="line">    options.ignoreWhiteSpace = <span class="literal">true</span>;</div></pre></td></tr></table></figure>
-</li>
-<li><p>Wrap text content with HTML or BODY tags, for example:</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aRichTextField.text = &amp;quot; &lt;body&gt; text &lt;/body&gt; &amp;quot;;</div></pre></td></tr></table></figure>
-</li>
+<li>Use HtmlParseOptions:</li>
 </ul>
+ <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">HtmlParseOptions options = aRichTextField.richTextField.htmlParseOptions;</div><div class="line">    options.ignoreWhiteSpace = <span class="literal">true</span>;</div></pre></td></tr></table></figure>
+<ul>
+<li>Wrap text content with HTML or BODY tags, for example:</li>
+</ul>
+ <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aRichTextField.text = &amp;quot; &lt;body&gt; text &lt;/body&gt; &amp;quot;;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>If you want to access objects in HTML, you can use the following methods:</p>
@@ -466,7 +496,7 @@
 <p>As another example, if you want to make the effect of moving the mouse over a link to display information:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">int</span> cnt = richText.htmlObjectCount;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;cnt; i ++)</div><div class="line">    &#123;</div><div class="line">        IHtmlObject obj = richText.GetHtmlObjectAt (i);</div><div class="line">        <span class="keyword">if</span> (obj <span class="keyword">is</span> HtmlLink)</div><div class="line">        &#123;</div><div class="line">            ((HtmlLink) obj) .shape.onRollOver.Add (onLinkRollOver);</div><div class="line">            ((HtmlLink) obj) .shape.onRollOut.Add (onLinkRollOut);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// You can call GRoot.inst.ShowPopup, GRoot.inst.ShowTooltips or other processing in the processing of RollOver and RollOut.</span></div></pre></td></tr></table></figure>
 <p>You can also extend and implement your own IHtmlObject. You need to implement an IHtmlPageContext interface yourself and assign it to the htmlPageContext property of the RichTextField. Read the source code for details.</p>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
     
     <div class="footer">
       found mistake? Want to participate in editing?

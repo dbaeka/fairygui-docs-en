@@ -357,28 +357,34 @@
     <p>For UI multi-language support, FairyGUI provides such a solution: export all text on the interface to a file, then submit this file for translation, dynamically load the translated file at runtime, and replace the interface text by SDK .</p>
 <p>In other words, FairyGUI’s solution is to spell the interface first, and then translate; compared to the solution of making a language file first and then specifying a string id for the control, it is clear that the former is more efficient when spelling the interface, and when the interface needs to be refactored The former is more convenient than the latter.</p>
 <p>The language files exported by the editor currently only support xml format, and will support formats such as excel in the future. The xml format may not be convenient for translators to handle. If necessary, please refer to the description of the xml format below to make an excel and xml conversion tool.</p>
-<h2 id="Generate-language-files"><a href="#Generate-language-files" class="headerlink" title="Generate language files"></a>Generate language files</h2><p>Click the menu “Tools”-&gt; “String Import and Export”, the pop-up window is as follows:</p>
+<h2 id="Generate language files"><a class="header-anchor" href="#Generate language files">¶</a> Generate language files</h2>
+<p>Click the menu &quot;Tools&quot;-&gt; &quot;String Import and Export&quot;, the pop-up window is as follows:</p>
 <p><img src="../../images/QQ20191210-152604.png" alt=""></p>
 <ul>
-<li><p><code>Do not export content that has been marked as emptied when published</code>For example, the text is set to be cleared when publishing. If checked here, this text will not appear in the language file.</p>
+<li>
+<p><code>Do not export content that has been marked as emptied when published</code>For example, the text is set to be cleared when publishing. If checked here, this text will not appear in the language file.</p>
 </li>
-<li><p><code>If the export destination file already exists, merge with the destination file</code>This option means, for example, that the exported content now contains a string with id x1, the value is a, and the target file also has a string with id x1, and the value is b, then the value of x1 in the exported result file Is b.</p>
+<li>
+<p><code>If the export destination file already exists, merge with the destination file</code>This option means, for example, that the exported content now contains a string with id x1, the value is a, and the target file also has a string with id x1, and the value is b, then the value of x1 in the exported result file Is b.</p>
 </li>
 </ul>
-<p>Use “Export all strings to a file” function, and get an xml file after completion,</p>
+<p>Use &quot;Export all strings to a file&quot; function, and get an xml file after completion,</p>
 <p><img src="../../images/20170807165753.png" alt=""></p>
 <p>This file contains all the text that appears on the UI (excluding pure Arabic numerals). <code>name</code>Is the unique id of the string, which corresponds to all the text appearing in the interface, this id cannot be destroyed;<code>mz</code>Is the name of the control. It is only used for prompts or mnemonics. It is not used by the bottom layer, even if deleted.</p>
-<h2 id="Using-language-files-in-the-editor"><a href="#Using-language-files-in-the-editor" class="headerlink" title="Using language files in the editor"></a>Using language files in the editor</h2><p>In Project Settings-&gt; Multi-Language, click<img src="../../images/QQ20191209-160453.png" alt="">And select the language file exported above. These two steps can also be reduced to one step, click directly<img src="../../images/QQ20191209-160735.png" alt="">Just fine.</p>
+<h2 id="Using language files in the editor"><a class="header-anchor" href="#Using language files in the editor">¶</a> Using language files in the editor</h2>
+<p>In Project Settings-&gt; Multi-Language, click<img src="../../images/QQ20191209-160453.png" alt="">And select the language file exported above. These two steps can also be reduced to one step, click directly<img src="../../images/QQ20191209-160735.png" alt="">Just fine.</p>
 <p>After adding one or more language files, you can switch the language used in the current interface in the main toolbar:</p>
 <p><img src="../../images/QQ20191210-155300.png" alt=""></p>
 <p><strong>Language files only take effect during preview, text content will not change during editing</strong>。 When previewing, you can directly modify the content of the language file, and then click the<img src="../../images/QQ20191210-155735.png" alt="">, You can feedback your changes in real time, as shown below:</p>
 <p><img src="../../images/640.gif" alt=""></p>
-<h2 id="Load-language-file"><a href="#Load-language-file" class="headerlink" title="Load language file"></a>Load language file</h2><p>Load language files dynamically at runtime:</p>
+<h2 id="Load language file"><a class="header-anchor" href="#Load language file">¶</a> Load language file</h2>
+<p>Load language files dynamically at runtime:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Unity</span></div><div class="line">    <span class="keyword">string</span> fileContent; <span class="comment">// Load the language file by yourself, here it is assumed that it has been loaded into this variable</span></div><div class="line">    FairyGUI.Utils.XML xml = <span class="keyword">new</span> FairyGUI.Utils.XML (fileContent);</div><div class="line">    UIPackage.SetStringsSource (xml);</div><div class="line"></div><div class="line">    <span class="comment">// AS3</span></div><div class="line">    <span class="keyword">var</span> fileContent: String; <span class="comment">// Load the language file by yourself, it is assumed here that this variable has been loaded</span></div><div class="line">    <span class="keyword">var</span> xml: XML = <span class="keyword">new</span> XML (fileContent);</div><div class="line">    UIPackage.setStringsSource (xml);</div></pre></td></tr></table></figure>
 <p><strong>Note: The language file should be loaded before the UI is created. It does not support real-time language switching. If you want to switch languages in the game, you can only destroy all UI and uninstall all packages.</strong></p>
-<h2 id="Replace-all"><a href="#Replace-all" class="headerlink" title="Replace all"></a>Replace all</h2><p>The translated language files can be imported back into the editor and directly replace the original text content. This applies when copying a UI item for other languages.</p>
-<p>Click the menu “Tools”-&gt; “String Import and Export”, and then select “Import strings from a file and overwrite the text in the package”. This function will modify all text content, please proceed with caution.</p>
-
+<h2 id="Replace all"><a class="header-anchor" href="#Replace all">¶</a> Replace all</h2>
+<p>The translated language files can be imported back into the editor and directly replace the original text content. This applies when copying a UI item for other languages.</p>
+<p>Click the menu &quot;Tools&quot;-&gt; &quot;String Import and Export&quot;, and then select &quot;Import strings from a file and overwrite the text in the package&quot;. This function will modify all text content, please proceed with caution.</p>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
     
     <div class="footer">
       found mistake? Want to participate in editing?

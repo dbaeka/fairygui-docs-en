@@ -354,20 +354,23 @@
     
       <h1>Input</h1>
     
-    <h2 id="Mouse-touch-input"><a href="#Mouse-touch-input" class="headerlink" title="Mouse / touch input"></a>Mouse / touch input</h2><p>FairyGUI uses built-in mechanisms for handling mouse and touch events, without using rays. If you really want to use rays, you can set the UIPanel’s “HitTest Mode” to “Raycast”. Regardless of the click detection mode, the following event processing mechanism is the same.</p>
+    <h2 id="Mouse / touch input"><a class="header-anchor" href="#Mouse / touch input">¶</a> Mouse / touch input</h2>
+<p>FairyGUI uses built-in mechanisms for handling mouse and touch events, without using rays. If you really want to use rays, you can set the UIPanel’s &quot;HitTest Mode&quot; to &quot;Raycast&quot;. Regardless of the click detection mode, the following event processing mechanism is the same.</p>
 <p>If you want to distinguish between clicking on the UI or clicking on objects in the scene, you can use the following methods:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">if</span> (Stage.isTouchOnUI) <span class="comment">// Click on the UI</span></div><div class="line">    &#123;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="comment">// no point on UI</span></div><div class="line">    &#123;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <p>This detection works not only for clicks but also for hovering. For example, this judgment is also true if the mouse is hovering over the UI. <strong>If you think there is no UI on the screen and this still returns true, then there is really a UI</strong>, Especially the full screen interface, when no penetration is set, its blank area also accepts input. You can check by printing GRoot.inst.touchTarget.</p>
 <p>The mouse / touch related events are:</p>
 <ul>
 <li><code>onTouchBegin</code>The mouse button is pressed (left, middle, right), or the finger is pressed. Mouse buttons can be obtained from context.inputEvent.button, 0-left button, 1-middle button, 2-right button.</li>
-<li><code>onTouchMove</code>The mouse pointer moves or your finger moves on the screen. There are only two cases of this event:<ul>
+<li><code>onTouchMove</code>The mouse pointer moves or your finger moves on the screen. There are only two cases of this event:
+<ul>
 <li>If context.CaptureTouch () is called in onTouchBegin, subsequent movement events will be triggered on this object (regardless of whether the position of the finger or pointer is above the object).</li>
 <li>The stage’s onTouchMove will always fire, Stage.inst.onTouchMove, it does not need to use CaptureTouch to capture. As long as the mouse is moved on the PC platform, it can be triggered; on the mobile platform, it is triggered only when the finger is pressed to move.</li>
 </ul>
 </li>
 <li><code>onTouchEnd</code>The mouse button is released or your finger is off the screen. If the mouse or touch position is no longer within the scope of the component, then the component’s TouchEnd event will not be triggered. If it is really needed, you can call context.CaptureTouch () in onTouchBegin to request capture.</li>
-<li><code>onClick</code>Mouse or finger click. You can determine whether you double-clicked from context.inputEvent.isDoubleClick.<strong>If you are looking for a long press event, then use LongPressGesture<a href="#手势">(Long press gesture)</a>。</strong><br> <strong>After the finger is pressed, if Stage.inst.CancelClick is called, the Click event will not be triggered when the finger is raised.</strong></li>
+<li><code>onClick</code>Mouse or finger click. You can determine whether you double-clicked from context.inputEvent.isDoubleClick.<strong>If you are looking for a long press event, then use LongPressGesture<a href="#%E6%89%8B%E5%8A%BF">(Long press gesture)</a>。</strong><br>
+<strong>After the finger is pressed, if Stage.inst.CancelClick is called, the Click event will not be triggered when the finger is raised.</strong></li>
 <li><code>onRightClick</code>Context.</li>
 <li><code>onRollOver</code>Fired when the mouse or finger moves into an element.</li>
 <li><code>onRollOut</code>Fired when the mouse or finger moves out of a component.</li>
@@ -378,31 +381,38 @@
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// This is the position of the mouse, or the position of the last finger</span></div><div class="line">    Vector2 pos1 = Stage.inst.touchPosition;</div><div class="line"></div><div class="line">    <span class="comment">// Get the specified finger position, the parameter is the finger id</span></div><div class="line">    Vector2 pos2 = Stage.inst.GetTouchPosition (<span class="number">1</span>);</div></pre></td></tr></table></figure>
 <p>At any time, if you need to get the current clicked object, or the object under the mouse, you can get it in the following ways:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GObject obj = GRoot.inst.touchTarget;</div><div class="line"></div><div class="line">    <span class="comment">// determine if it is in a certain component</span></div><div class="line">    Debug.Log (testComponent == obj || testComponent.IsAncestorOf (obj));</div></pre></td></tr></table></figure>
-<h2 id="Multi-touch"><a href="#Multi-touch" class="headerlink" title="Multi-touch"></a>Multi-touch</h2><p>FairyGUI supports multi-touch processing. Each finger will dispatch events according to the TouchBegin-&gt; TouchMove-&gt; TouchEnd process. You can use EventContext.inputEvent.touchId to distinguish different fingers. In general, ordinary click events do not need to care about the finger id, only those that need to use the entire touch process need to be processed.</p>
+<h2 id="Multi-touch"><a class="header-anchor" href="#Multi-touch">¶</a> Multi-touch</h2>
+<p>FairyGUI supports multi-touch processing. Each finger will dispatch events according to the TouchBegin-&gt; TouchMove-&gt; TouchEnd process. You can use EventContext.inputEvent.touchId to distinguish different fingers. In general, ordinary click events do not need to care about the finger id, only those that need to use the entire touch process need to be processed.</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// This is the number of fingers currently pressed</span></div><div class="line">    <span class="keyword">int</span> touchCount = Stage.inst.touchCount;</div><div class="line"></div><div class="line">    <span class="comment">// Get all currently pressed finger ids</span></div><div class="line">    <span class="keyword">int</span> [] touchIDs = Stage.inst.GetAllTouch (<span class="literal">null</span>);</div></pre></td></tr></table></figure>
 <p>If you don’t want to use the multi-touch function, you can use Unity’s API: Input.multiTouchEnabled = false to turn it off.</p>
-<h2 id="VR-input-processing"><a href="#VR-input-processing" class="headerlink" title="VR input processing"></a>VR input processing</h2><p>The input in VR generally uses gaze input or handle input. For these new input methods, FairyGUI provides package support. That is to say, in VR applications, you can still handle VR input like mouse or touch input. No difference, which means that the UI logic does not need to be modified.</p>
+<h2 id="VR input processing"><a class="header-anchor" href="#VR input processing">¶</a> VR input processing</h2>
+<p>The input in VR generally uses gaze input or handle input. For these new input methods, FairyGUI provides package support. That is to say, in VR applications, you can still handle VR input like mouse or touch input. No difference, which means that the UI logic does not need to be modified.</p>
 <p>First, you need to pass these external inputs into FairyGUI. These APIs are provided in the Stage class:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SetCustomInput</span>(<span class="params"><span class="keyword">ref</span> RaycastHit hit, <span class="keyword">bool</span> buttonDown</span>)</span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SetCustomInput</span>(<span class="params"><span class="keyword">ref</span> RaycastHit hit, <span class="keyword">bool</span> buttonDown, <span class="keyword">bool</span> buttonUp</span>)</span>;</div></pre></td></tr></table></figure>
 <ul>
-<li><p><code>hit</code>If there is no handle, here the ray hit by the eye (actually the ray of the camera) hits the target; if there is a handle, the ray hit by the input handle hits the target.</p>
+<li>
+<p><code>hit</code>If there is no handle, here the ray hit by the eye (actually the ray of the camera) hits the target; if there is a handle, the ray hit by the input handle hits the target.</p>
 </li>
-<li><p><code>buttonDown</code>Is there a key press? For APIs without a buttonUp parameter, the system will automatically simulate a buttonUp in the next frame.</p>
+<li>
+<p><code>buttonDown</code>Is there a key press? For APIs without a buttonUp parameter, the system will automatically simulate a buttonUp in the next frame.</p>
 </li>
-<li><p><code>buttonUp</code>Whether any buttons are released. The whole process of pressing and releasing constitutes one click. If you only press and do not release, there will be no click trigger, you must pay attention to this.</p>
+<li>
+<p><code>buttonUp</code>Whether any buttons are released. The whole process of pressing and releasing constitutes one click. If you only press and do not release, there will be no click trigger, you must pay attention to this.</p>
 </li>
 </ul>
 <p>SetCustomInput can be called in Update and must be<strong>Called every frame</strong>。 If SetCustomInput is used, FairyGUI no longer processes mouse or touch input.</p>
 <p>Example of use:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">SteamVR_TrackedObject controller;</div><div class="line">SteamVR_Controller.Device controllerDevice;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    controller = ...</div><div class="line">    controllerDevice = ...</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>) </span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    Vector3 pos = controller.transform.position;</div><div class="line">    Vector3 dir = controller.transform.forward;</div><div class="line">    <span class="keyword">bool</span> trigger_down = controllerDevice.GetPress(Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger);</div><div class="line"></div><div class="line">    RaycastHit rh;</div><div class="line">    <span class="keyword">if</span> (Physics.Raycast(pos, dir, <span class="keyword">out</span> rh))</div><div class="line">    &#123;</div><div class="line">        Stage.inst.SetCustomInput(rh, trigger_down);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="keyboard-input"><a href="#keyboard-input" class="headerlink" title="keyboard input"></a>keyboard input</h2><p>To listen to keyboard input:</p>
+<h2 id="keyboard input"><a class="header-anchor" href="#keyboard input">¶</a> keyboard input</h2>
+<p>To listen to keyboard input:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Stage.inst.onKeyDown.Add(OnKeyDown);</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnKeyDown</span>(<span class="params">EventContext context</span>)</span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        Debug.Log(context.inputEvent.keyCode);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <p>On the phone, it is entered through the native keyboard. When the keyboard pops up, the GTextInput.onFocusIn event is dispatched, and when the keyboard is retracted, the GTextInput.onFocusOut event is dispatched.</p>
 <p>Unity comes with an extra input box when typing on the keyboard. If you do n’t need this input box and want to pop up your own input box like WeChat, you need to write your own code.</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// define your own keyboard</span></div><div class="line">    KeyBoard yourKeyboard;</div><div class="line"></div><div class="line">    Stage.inst.keyboard = yourKeyboard;</div></pre></td></tr></table></figure>
 <p><strong>Copy-paste problem</strong></p>
 <p>When using a plug-in in the form of a DLL, because the DLL is compiled for the mobile platform by default, copy and paste is not supported (if you want to support it, you need to write native code support yourself). If it is used on the PC platform,<a href="https://github.com/fairygui/FairyGUI-unity/blob/master/Examples.Unity5/Assets/FairyGUI/CopyPastePatch.cs" target="_blank" rel="external">CopyPastePatch.cs</a>Put it in the project, and call CopyPastePatch.Apply () when the game starts, you can activate the copy and paste function on the PC platform. <strong>If you are using a plugin in source form, you don’t need to do this.</strong></p>
-<h2 id="gesture"><a href="#gesture" class="headerlink" title="gesture"></a>gesture</h2><p>FairyGUI provides gesture support. The ways to use gestures are:</p>
+<h2 id="gesture"><a class="header-anchor" href="#gesture">¶</a> gesture</h2>
+<p>FairyGUI provides gesture support. The ways to use gestures are:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">LongPressGesture gesture = <span class="keyword">new</span> LongPressGesture(targetObject);</div><div class="line">    gesture.onAction.Add(OnGestureAction);</div></pre></td></tr></table></figure>
 <p>The targetObject is the component that receives the gesture. Note that it must be touchable. The image is not touchable, and it is generally recommended to use components or loaders. If you need to monitor gestures in full screen, you can directly use GRoot.inst as the targetObject (requires 1.9.0 SDK or later)</p>
 <p>Common gestures are:</p>
@@ -411,7 +421,7 @@
 <p><code>PinchGesture</code>Two-finger zoom gesture.</p>
 <p><code>RotationGesture</code>Two-finger rotation gesture.</p>
 <p>Refer to Gesture Demo for gesture usage. Gestures are decoupled from the FairyGUI SDK. That is, if you do n’t think the gestures meet your requirements, you can copy one and use it yourself.</p>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
     
     <div class="footer">
       found mistake? Want to participate in editing?

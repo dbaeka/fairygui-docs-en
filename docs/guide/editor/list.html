@@ -355,53 +355,81 @@
       <h1>List</h1>
     
     <p>Lists are a special extension of components. Click on the side toolbar<img src="../../images/sidetb_06.png" alt="">Button to generate a list.</p>
-<h2 id="List-properties"><a href="#List-properties" class="headerlink" title="List properties"></a>List properties</h2><p>Click a list on the stage, and the property bar on the right shows the properties of the list:</p>
+<h2 id="List properties"><a class="header-anchor" href="#List properties">¶</a> List properties</h2>
+<p>Click a list on the stage, and the property bar on the right shows the properties of the list:</p>
 <p><img src="../../images/QQ20191211-162009.png" alt=""></p>
 <ul>
-<li><code>List layout</code>There are currently five supported lists.<ul>
+<li>
+<p><code>List layout</code>There are currently five supported lists.</p>
+<ul>
 <li><code>Single row</code>One item per line, arranged vertically.</li>
 <li><code>Single line</code>One item per column, arranged horizontally.</li>
 <li><code>Lateral flow</code>The items are arranged horizontally in order. The right edge of the bottom viewport or the specified number of columns is reached, and the automatic line wrapping continues.</li>
 </ul>
 </li>
-<li><code>Vertical flow</code>The items are arranged vertically in sequence, bottom edge of the viewport or reaches the specified number of rows, return to the top and open a new column to continue the arrangement.</li>
-<li><p><code>Pagination</code>Viewport width x viewport height as a single page size, each page is arranged horizontally. In each page, the items are arranged horizontally in order, and the right edge of the bottom viewport or the specified number of columns is reached, and automatic line wrapping continues. When the new line exceeds the viewport height or reaches the specified number of lines, it advances to the next page. <strong>Note that pagination is just the way the list is arranged. It does not mean that the list is scrolled by page. Pagination scrolling needs to be set in the scroll properties.</strong></p>
+<li>
+<p><code>Vertical flow</code>The items are arranged vertically in sequence, bottom edge of the viewport or reaches the specified number of rows, return to the top and open a new column to continue the arrangement.</p>
 </li>
-<li><p><code>Number of lines</code> ``Number of Columns This option is only valid for horizontal flow, vertical flow, and paged layouts. If it is not specified (set to 0), the line will be wrapped until the edge, otherwise, the number of each line must reach the set value before the line is wrapped.</p>
+<li>
+<p><code>Pagination</code>Viewport width x viewport height as a single page size, each page is arranged horizontally. In each page, the items are arranged horizontally in order, and the right edge of the bottom viewport or the specified number of columns is reached, and automatic line wrapping continues. When the new line exceeds the viewport height or reaches the specified number of lines, it advances to the next page. <strong>Note that pagination is just the way the list is arranged. It does not mean that the list is scrolled by page. Pagination scrolling needs to be set in the scroll properties.</strong></p>
 </li>
-<li><p><code>Line spacing</code> ``Column distance The distance between each row / column. Can be negative.</p>
+<li>
+<p><code>Number of lines</code> ``Number of Columns This option is only valid for horizontal flow, vertical flow, and paged layouts. If it is not specified (set to 0), the line will be wrapped until the edge, otherwise, the number of each line must reach the set value before the line is wrapped.</p>
 </li>
-<li><p><code>Aligned</code>The alignment of the list in landscape and portrait. Note that there are preconditions for the application of alignment. For example, if the list is a single-column layout and “Automatically adjust list item size” is set, then the item always fills the list width automatically in the horizontal direction, so the horizontal alignment has no effect.</p>
+<li>
+<p><code>Line spacing</code> ``Column distance The distance between each row / column. Can be negative.</p>
 </li>
-<li><p><code>Overflow handling</code>Indicates how to handle content that exceeds the rectangular area of the list.</p>
+<li>
+<p><code>Aligned</code>The alignment of the list in landscape and portrait. Note that there are preconditions for the application of alignment. For example, if the list is a single-column layout and &quot;Automatically adjust list item size&quot; is set, then the item always fills the list width automatically in the horizontal direction, so the horizontal alignment has no effect.</p>
 </li>
-<li><code>visible</code>Indicates that content beyond the rectangular area of the list remains visible.</li>
-<li><code>hide</code>Indicates that content beyond the rectangular area of the list is not visible, which is equivalent to applying a rectangular mask to the list.</li>
-<li><p><code>Vertical scroll</code> <code>Horizontal scroll</code> ``Free scrolling detailed in<a href="scrollpane.html">Rolling container</a>。 Note: The “layout” and “overflow handling” of the list are independent settings. If the two do not match, the expected effect may not be achieved. For example, for a single-line list, if you select “Scroll Vertically”, scrolling has no effect.</p>
+<li>
+<p><code>Overflow handling</code>Indicates how to handle content that exceeds the rectangular area of the list.</p>
 </li>
-<li><p><code>Rendering order</code>Defines the relationship between the display order of items and the order in its list. Detailed instructions<a href="component.html#渲染顺序">Rendering order</a></p>
+<li>
+<p><code>visible</code>Indicates that content beyond the rectangular area of the list remains visible.</p>
 </li>
-<li><code>Ascending order</code>This is the default behavior. The larger the item index, the more advanced it is.</li>
-<li><code>Descending</code>The smaller the item index, the earlier it is displayed.</li>
-<li><p><code>Arched</code>Customize an index that is displayed at the front, such as 2, the third item is displayed at the front, and items that are arranged in front of it and the items that are behind are displayed in order.</p>
+<li>
+<p><code>hide</code>Indicates that content beyond the rectangular area of the list is not visible, which is equivalent to applying a rectangular mask to the list.</p>
 </li>
-<li><p><code>Select mode</code>Supports four selection modes: none, single selection, multiple selection (using the shift key), and multiple selection (click to select). <strong> item has a prerequisite to participate in the radio. It must be a radio button. If it is not a radio button, it will not participate in the selection mode. </strong> Single selection means that only one item can be selected at a time; multiple selection allows multiple selections. There are two ways to operate multiple selections. One is to use the shift key for multiple selections. Not suitable for mobile devices; the other is that each item is clicked to select it, and then clicked to deselect it, without the support of the keyboard.</p>
+<li>
+<p><code>Vertical scroll</code> <code>Horizontal scroll</code> ``Free scrolling detailed in<a href="scrollpane.html">Rolling container</a>。 Note: The &quot;layout&quot; and &quot;overflow handling&quot; of the list are independent settings. If the two do not match, the expected effect may not be achieved. For example, for a single-line list, if you select &quot;Scroll Vertically&quot;, scrolling has no effect.</p>
 </li>
-<li><p><code>Selection control</code>You can bind a controller. In this way, when the selected item in the list changes, the controller also jumps to the page with the same index at the same time. Vice versa, if the controller jumps to a certain page, the list also selects the items with the same index at the same time.</p>
+<li>
+<p><code>Rendering order</code>Defines the relationship between the display order of items and the order in its list. Detailed instructions<a href="component.html#%E6%B8%B2%E6%9F%93%E9%A1%BA%E5%BA%8F">Rendering order</a></p>
 </li>
-<li><p><code>Paging control</code>You can bind a controller. When the list page is scrolled (the overflow processing must be one of the three types of scrolling, and the scrolling must be checked as the page mode), the controller also jumps to the page with the same index (page number) at the same time. Vice versa, if the controller jumps to a page, the list also scrolls to the same index (page number).</p>
+<li>
+<p><code>Ascending order</code>This is the default behavior. The larger the item index, the more advanced it is.</p>
 </li>
-<li><p><code>edge</code>Leave blank around the list. Generally used when the “overflow processing” is “hidden” or “scrolling”. <code>Edge blur</code>Currently only supported on the Unity platform. If the list is clipped to the content, it can produce a blurred effect at the edges and enhance the user experience. This value should be relatively large to see the effect, such as 50.</p>
+<li>
+<p><code>Descending</code>The smaller the item index, the earlier it is displayed.</p>
 </li>
-<li><p><code>Tree view</code>When checked, the list will use a tree structure to organize its contents. <a href="tree.html">Please refer to the tree</a>。</p>
+<li>
+<p><code>Arched</code>Customize an index that is displayed at the front, such as 2, the third item is displayed at the front, and items that are arranged in front of it and the items that are behind are displayed in order.</p>
 </li>
-<li><p><code>Project resources</code>This sets the item type used by default for the list. But FairyGUI’s list can support a variety of resource mixing, not just a single item type.</p>
+<li>
+<p><code>Select mode</code>Supports four selection modes: none, single selection, multiple selection (using the shift key), and multiple selection (click to select). ** item has a prerequisite to participate in the radio. It must be a radio button. If it is not a radio button, it will not participate in the selection mode. ** Single selection means that only one item can be selected at a time; multiple selection allows multiple selections. There are two ways to operate multiple selections. One is to use the shift key for multiple selections. Not suitable for mobile devices; the other is that each item is clicked to select it, and then clicked to deselect it, without the support of the keyboard.</p>
+</li>
+<li>
+<p><code>Selection control</code>You can bind a controller. In this way, when the selected item in the list changes, the controller also jumps to the page with the same index at the same time. Vice versa, if the controller jumps to a certain page, the list also selects the items with the same index at the same time.</p>
+</li>
+<li>
+<p><code>Paging control</code>You can bind a controller. When the list page is scrolled (the overflow processing must be one of the three types of scrolling, and the scrolling must be checked as the page mode), the controller also jumps to the page with the same index (page number) at the same time. Vice versa, if the controller jumps to a page, the list also scrolls to the same index (page number).</p>
+</li>
+<li>
+<p><code>edge</code>Leave blank around the list. Generally used when the &quot;overflow processing&quot; is &quot;hidden&quot; or &quot;scrolling&quot;. <code>Edge blur</code>Currently only supported on the Unity platform. If the list is clipped to the content, it can produce a blurred effect at the edges and enhance the user experience. This value should be relatively large to see the effect, such as 50.</p>
+</li>
+<li>
+<p><code>Tree view</code>When checked, the list will use a tree structure to organize its contents. <a href="tree.html">Please refer to the tree</a>。</p>
+</li>
+<li>
+<p><code>Project resources</code>This sets the item type used by default for the list. But FairyGUI’s list can support a variety of resource mixing, not just a single item type.</p>
 </li>
 </ul>
 <p>Click<img src="../../images/QQ20191211-161858.png" alt="">After the secondary interface pops up:</p>
 <p><img src="../../images/QQ20191211-162506.png" alt=""></p>
 <ul>
-<li><p><code>Automatically resize list items</code>If checked:</p>
+<li>
+<p><code>Automatically resize list items</code>If checked:</p>
 <ol>
 <li>The list layout is a single column, the width of the list items is automatically set to the width of the list display area;</li>
 <li>The list layout is a single line, and the height of the list item is automatically set to the height of the list display area;</li>
@@ -410,45 +438,58 @@
 <li>The list layout is pagination, and rules 3 and 4 are applicable.</li>
 </ol>
 </li>
-<li><p><code>Collapse hidden items</code>If checked, when an item is not visible (visible = false), the list will not leave a place for him, that is, the item will be ignored during typesetting; if not checked, the place will be reserved for the item in the list, showing the effect Just a blank placeholder. API 是 foldInvisibleItems。</p>
+<li>
+<p><code>Collapse hidden items</code>If checked, when an item is not visible (visible = false), the list will not leave a place for him, that is, the item will be ignored during typesetting; if not checked, the place will be reserved for the item in the list, showing the effect Just a blank placeholder. API 是 foldInvisibleItems。</p>
 </li>
-<li><p><code>Automatically scroll to all visible when clicking on an item</code>When checked, when an item is clicked, if the item is partially displayed, the list will automatically scroll to the entire item and display complete. If your list has items that exceed the list viewport size, it is recommended not to check it, otherwise the behavior will be weird. The API is scrollItemToViewOnClick.</p>
+<li>
+<p><code>Automatically scroll to all visible when clicking on an item</code>When checked, when an item is clicked, if the item is partially displayed, the list will automatically scroll to the entire item and display complete. If your list has items that exceed the list viewport size, it is recommended not to check it, otherwise the behavior will be weird. The API is scrollItemToViewOnClick.</p>
 </li>
 </ul>
-<p>Click “Edit List” to display the dialog box:</p>
+<p>Click &quot;Edit List&quot; to display the dialog box:</p>
 <p><img src="../../images/QQ20191211-163009.png" alt=""></p>
-<p>Click Add to add an item specified by “Project Resources”. If your list requires multiple resources to be mixed, you can add an item first, and then drag components from the library to the “Resources” column to replace the default resources.</p>
+<p>Click Add to add an item specified by &quot;Project Resources&quot;. If your list requires multiple resources to be mixed, you can add an item first, and then drag components from the library to the &quot;Resources&quot; column to replace the default resources.</p>
 <p>The title, icon, and name attributes of the item can be edited in the table. For other attributes, you can select the item and modify it in the inspector on the right.</p>
-<p>“Automatically clear when publishing” means that the list data edited here will not be included in the publishing results when it is finally published, that is, the list data is only used for editor preview purposes.</p>
-<h2 id="GList"><a href="#GList" class="headerlink" title="GList"></a>GList</h2><h3 id="Manage-list-content"><a href="#Manage-list-content" class="headerlink" title="Manage list content"></a>Manage list content</h3><p>The corresponding type of the list is GList. In FairyGUI, the essence of a list is a component. GList is also derived from GComponent, so you can use GComponent’s API to directly access the contents of the list. For example, you can use GetChild or GetChildAt to access the items in the list; you can also use AddChild to add An item. This part of the API can refer to GComponent<a href="component.html#GComponent">Display list management</a>。</p>
+<p>&quot;Automatically clear when publishing&quot; means that the list data edited here will not be included in the publishing results when it is finally published, that is, the list data is only used for editor preview purposes.</p>
+<h2 id="GList"><a class="header-anchor" href="#GList">¶</a> GList</h2>
+<h3 id="Manage list content"><a class="header-anchor" href="#Manage list content">¶</a> Manage list content</h3>
+<p>The corresponding type of the list is GList. In FairyGUI, the essence of a list is a component. GList is also derived from GComponent, so you can use GComponent’s API to directly access the contents of the list. For example, you can use GetChild or GetChildAt to access the items in the list; you can also use AddChild to add An item. This part of the API can refer to GComponent<a href="component.html#GComponent">Display list management</a>。</p>
 <p>When you add, delete, or modify a list, the list is automatically sorted and refreshed without calling any API. During the automatic arrangement, the coordinates, size, and depth of the items are set according to the layout of the list, so do not set the position of the items yourself, or set the sorting order to try to control the depth of the items. With one exception, the vertical layout list will only set the item’s y coordinate automatically. If you need the item to have a horizontal displacement effect, you can still modify the item’s x value. The same goes for horizontal layout.</p>
 <p>This permutation and refresh occurs before drawing this frame. If you want to immediately access the correct coordinates of the item, you can call<code>EnsureBoundsCorrect</code>Tell GList to reorder immediately. EnsureBoundsCorrect is a friendly function, you don’t need to worry about the extra performance cost of repeated calls.</p>
 <p>In practical applications, the contents of the list are frequently updated. The typical usage is to clear the list when background data is received, and then add all items again. If you create and destroy UI objects every time, it will consume a lot of CPU and memory. Therefore, GList has a built-in object pool.</p>
 <p>Management method of display list after using object pool:</p>
 <ul>
-<li><p><code>AddItemFromPool</code>Remove from the pool (if any) or create a new object and add it to the list. If you do not use parameters, the settings of the “Project Resources” of the list are used; you can also specify a URL to create the specified object.</p>
+<li>
+<p><code>AddItemFromPool</code>Remove from the pool (if any) or create a new object and add it to the list. If you do not use parameters, the settings of the &quot;Project Resources&quot; of the list are used; you can also specify a URL to create the specified object.</p>
 </li>
-<li><p><code>GetFromPool</code>Remove from the pool (if any) or create a new object.</p>
+<li>
+<p><code>GetFromPool</code>Remove from the pool (if any) or create a new object.</p>
 </li>
-<li><p><code>ReturnToPool</code>Return the object to the pool.</p>
+<li>
+<p><code>ReturnToPool</code>Return the object to the pool.</p>
 </li>
-<li><p><code>RemoveChildToPool</code>Delete an item and return the object to the pool.</p>
+<li>
+<p><code>RemoveChildToPool</code>Delete an item and return the object to the pool.</p>
 </li>
-<li><p><code>RemoveChildToPoolAt</code>Deletes an item at a specified location and returns the object to the pool.</p>
+<li>
+<p><code>RemoveChildToPoolAt</code>Deletes an item at a specified location and returns the object to the pool.</p>
 </li>
-<li><p><code>RemoveChildrenToPool</code>Delete a range of items, or delete all, and return the deleted objects to the pool</p>
+<li>
+<p><code>RemoveChildrenToPool</code>Delete a range of items, or delete all, and return the deleted objects to the pool</p>
 </li>
 </ul>
 <p>You should be smart enough to know that AddItemFromPool = GetFromPool + AddChild, RemoveChildToPool = RemoveChild + ReturnToPool.</p>
-<p>When applied to the pool, we should be very careful. A constantly growing pool will be a disaster for the game, but if the pool is not used, it will also affect the performance of the game.<br>Here are some examples of incorrect usage:</p>
+<p>When applied to the pool, we should be very careful. A constantly growing pool will be a disaster for the game, but if the pool is not used, it will also affect the performance of the game.<br>
+Here are some examples of incorrect usage:</p>
 <p>Error example 1:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GObject obj = UIPackage.CreateObject(...);</div><div class="line">    aList.AddChild(obj);</div><div class="line">    </div><div class="line">    aList.RemoveChildrenToPool();</div></pre></td></tr></table></figure>
-<p>The pool is not used when adding objects, but is placed in the pool when the list is finally cleared. This code continues to run, the object pool will continue to grow, which may cause memory overflow.<br>Correct way: Objects should be created from the pool. Change AddChild to AddItemFromPool.</p>
+<p>The pool is not used when adding objects, but is placed in the pool when the list is finally cleared. This code continues to run, the object pool will continue to grow, which may cause memory overflow.<br>
+Correct way: Objects should be created from the pool. Change AddChild to AddItemFromPool.</p>
 <p>Error example 2:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</div><div class="line">        aList.AddItemFromPool();</div><div class="line"></div><div class="line">    aList.RemoveChildren();</div></pre></td></tr></table></figure>
 <p>10 items were added here, but their references were not saved when they were removed, and they were not put back in the pool, which caused a memory leak. Change aList.RemoveChildren to aList.RemoveChildrenToPool ();</p>
-<p><strong> Removal and destruction are two different things. </strong> When you remove an item from the list, it should be destroyed if it is no longer used; if you still need it, please save its reference. <strong>But if you put it in the pool, do not destroy the item anymore</strong>。</p>
-<h3 id="Modifying-the-list-with-a-callback-function"><a href="#Modifying-the-list-with-a-callback-function" class="headerlink" title="Modifying the list with a callback function"></a>Modifying the list with a callback function</h3><p>When adding a large number of items, in addition to the circular method AddChild or AddItemFromPool, you can also use another callback method. First define a callback function for the list, for example</p>
+<p>** Removal and destruction are two different things. ** When you remove an item from the list, it should be destroyed if it is no longer used; if you still need it, please save its reference. <strong>But if you put it in the pool, do not destroy the item anymore</strong>。</p>
+<h3 id="Modifying the list with a callback function"><a class="header-anchor" href="#Modifying the list with a callback function">¶</a> Modifying the list with a callback function</h3>
+<p>When adding a large number of items, in addition to the circular method AddChild or AddItemFromPool, you can also use another callback method. First define a callback function for the list, for example</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">RenderListItem</span>(<span class="params"><span class="keyword">int</span> index, GObject obj</span>)</span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        GButton button = obj.asButton;</div><div class="line">        button.title = <span class="string">""</span>+index;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <p>Then set this function to the list rendering function:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Unity / Cry / Mono Game</span></div><div class="line">    aList.itemRenderer = RenderListItem;</div><div class="line">    </div><div class="line">    <span class="comment">// AS3</span></div><div class="line">    aList.itemRenderer = renderListItem;</div><div class="line">    </div><div class="line">    <span class="comment">// Egret</span></div><div class="line">    aList.itemRenderer = renderListItem;</div><div class="line">    aList.callbackThisObj = <span class="keyword">this</span>;</div><div class="line">    </div><div class="line">    <span class="comment">// Laya. (Note that the last parameter must be false!)</span></div><div class="line">    aList.itemRenderer = Handler.create (<span class="keyword">this</span>, <span class="keyword">this</span>.renderListItem, <span class="literal">null</span>, <span class="literal">false</span>);</div><div class="line"></div><div class="line">    <span class="comment">// Cocos2dx</span></div><div class="line">    aList-&gt; itemRenderer = CC_CALLBACK_2 (AClass :: renderListItem, this);</div><div class="line"></div><div class="line">    <span class="comment">// CocosCreator</span></div><div class="line">    aList.itemRenderer = <span class="keyword">this</span>.renderListItem.bind (<span class="keyword">this</span>);</div></pre></td></tr></table></figure>
@@ -456,21 +497,25 @@
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Create 100 objects. Note that numChildren cannot be used here. NumChildren is read-only.</span></div><div class="line">    </div><div class="line">    aList.numItems = <span class="number">10</span>;</div></pre></td></tr></table></figure>
 <p>If the number of newly set items is less than the current number of items, the extra items will be put back into the pool.</p>
 <p>Using the list generated in this way, if you need to update an item, you can call RenderListItem (Index, GetChildAt (Index)) by yourself.</p>
-<h3 id="List-autosize"><a href="#List-autosize" class="headerlink" title="List autosize"></a>List autosize</h3><p>Strictly speaking, lists don’t have auto-size capabilities. But GList provides API to set the list size according to the number of items. After you have filled the data of the list, you can call GList.ResizeToFit, so that the size of the list will be modified to the most suitable size to accommodate the specified number of items. If you do not specify the number of items, the list is expanded to show all items.</p>
-<h3 id="Event"><a href="#Event" class="headerlink" title="Event"></a>Event</h3><p>Click on an item in the list to trigger the event:</p>
+<h3 id="List autosize"><a class="header-anchor" href="#List autosize">¶</a> List autosize</h3>
+<p>Strictly speaking, lists don’t have auto-size capabilities. But GList provides API to set the list size according to the number of items. After you have filled the data of the list, you can call GList.ResizeToFit, so that the size of the list will be modified to the most suitable size to accommodate the specified number of items. If you do not specify the number of items, the list is expanded to show all items.</p>
+<h3 id="Event"><a class="header-anchor" href="#Event">¶</a> Event</h3>
+<p>Click on an item in the list to trigger the event:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Unity / Cry / MonoGame, EventContext.data is the item object that is currently clicked</span></div><div class="line">    list.onClickItem.Add (onClickItem);</div><div class="line">    </div><div class="line">    <span class="comment">// AS3, ItemEvent.itemObject is the currently clicked object</span></div><div class="line">    list.addEventListener (ItemEvent.CLICK, onClickItem);</div><div class="line">    </div><div class="line">    <span class="comment">// Egret, ItemEvent.itemObject is the currently clicked object</span></div><div class="line">    list.addEventListener (ItemEvent.CLICK, <span class="keyword">this</span>.onClickItem, <span class="keyword">this</span>);</div><div class="line">    </div><div class="line">    <span class="comment">// Laya, the first parameter of the onClickItem method is the currently clicked object</span></div><div class="line">    list.<span class="keyword">on</span> (fairygui.Events.CLICK_ITEM, <span class="keyword">this</span>, <span class="keyword">this</span>.onClickItem);</div><div class="line"></div><div class="line">    <span class="comment">// Cocos2dx, EventContext.getData () is the item object that is currently clicked</span></div><div class="line">    list-&gt; addEventListener (UIEventType :: ClickItem, CC_CALLBACK_1 (AClass :: onClickItem, this));</div><div class="line"></div><div class="line">    <span class="comment">// CocosCreator, the first parameter of onClickItem is the currently clicked object, and the optional second object is fgui.Event.</span></div><div class="line">    list.<span class="keyword">on</span> (fgui.Event.CLICK_ITEM, <span class="keyword">this</span>.onClickItem, <span class="keyword">this</span>);</div></pre></td></tr></table></figure>
 <p>As can be seen from the above code, the current click object can be easily obtained in the event callback. If you want to get the index, you can use GetChildIndex.</p>
-<h2 id="Virtual-list"><a href="#Virtual-list" class="headerlink" title="Virtual list"></a>Virtual list</h2><p>If the number of items in the list is particularly large, such as hundreds or thousands, creating a display object of an entity for each item will consume time and resources. FairyGUI’s list has a built-in virtual mechanism, that is, it only creates entity objects for items within the display range, and implements large-capacity lists by dynamically setting data.</p>
+<h2 id="Virtual list"><a class="header-anchor" href="#Virtual list">¶</a> Virtual list</h2>
+<p>If the number of items in the list is particularly large, such as hundreds or thousands, creating a display object of an entity for each item will consume time and resources. FairyGUI’s list has a built-in virtual mechanism, that is, it only creates entity objects for items within the display range, and implements large-capacity lists by dynamically setting data.</p>
 <p>There are several conditions for enabling virtual lists:</p>
 <ul>
 <li>Need to define itemRenderer.</li>
 <li>Scrolling needs to be turned on. Overflow handling is not scrolling and the list cannot be virtualized.</li>
-<li>Need to set up the “Project Resources” of the list. Can be set in the editor, or you can call GList.defaultItem settings.</li>
+<li>Need to set up the &quot;Project Resources&quot; of the list. Can be set in the editor, or you can call GList.defaultItem settings.</li>
 </ul>
 <p>After the conditions are met, the virtual function of the list can be turned on:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aList.SetVirtual ();</div></pre></td></tr></table></figure>
 <p><strong>Tip: The virtual function can only be turned on and cannot be turned off.</strong></p>
-<p>The performance of the virtual list is closely related to the processing logic of itemRenderer. You should try to simplify the logic inside. Coroutines, IO, and high-density calculations should not appear here. Otherwise, there will be stuttering. If you need to initiate an asynchronous operation in itemRenderer, do not let the asynchronous operation save the ITEM instance, and modify the ITEM instance directly in the callback. The correct method is to let the asynchronous operation save the ITEM index. After the asynchronous operation is completed, check whether the ITEM of this index is checked. If there is a corresponding display object, update if there is one. If not, discard the update.<br>In addition, the itemRenderer should not have operations such as new that will cause GC, because the itemRenderer will be called very frequently during the scrolling process.</p>
+<p>The performance of the virtual list is closely related to the processing logic of itemRenderer. You should try to simplify the logic inside. Coroutines, IO, and high-density calculations should not appear here. Otherwise, there will be stuttering. If you need to initiate an asynchronous operation in itemRenderer, do not let the asynchronous operation save the ITEM instance, and modify the ITEM instance directly in the callback. The correct method is to let the asynchronous operation save the ITEM index. After the asynchronous operation is completed, check whether the ITEM of this index is checked. If there is a corresponding display object, update if there is one. If not, discard the update.<br>
+In addition, the itemRenderer should not have operations such as new that will cause GC, because the itemRenderer will be called very frequently during the scrolling process.</p>
 <p>In the virtual list, ITEM is reused. When an ITEM needs to be refreshed, the itemRenderer will be called. You don’t need to care about the timing of this call, nor can you rely on this timing. Please note that if you use Add to listen for events in itemRenderer,<strong>Never use temporary functions or lamba expressions</strong>。 The following example illustrates this.</p>
 <p>C # reference:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">EventCallback</span>(<span class="params"></span>)</span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    EventCallback0 callback = EventCallback;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnRenderItem</span>(<span class="params"><span class="keyword">int</span> index, GObject obj</span>)</span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        GButton btn = obj.asCom.GetChild(<span class="string">"btn"</span>).asButton;</div><div class="line"></div><div class="line">        <span class="comment">//错误！ Temporary functions will cause multiple callbacks to be added. Lua uses "function () end" similarly.</span></div><div class="line">        btn.onClick.Add (() =&gt; &#123;&#125;);</div><div class="line"></div><div class="line">        <span class="comment">// Yes, the same method will only be added once. But using the method name directly will generate tens of B of GC.</span></div><div class="line">        btn.onClick.Add (EventCallback);</div><div class="line"></div><div class="line">        <span class="comment">// Correct, callback is a cached proxy instance and does not generate GC.</span></div><div class="line">        btn.onClick.Add (callback);</div><div class="line"></div><div class="line">        <span class="comment">// Correct, use Set to ensure that it will not be added repeatedly.</span></div><div class="line">        btn.onClick.Set (callback);</div><div class="line"></div><div class="line">        <span class="comment">//error! , You cannot use onClick.Set for ITEM, you need to use GList.onClickItem</span></div><div class="line">        obj.onClick.Set (EventCallback);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
@@ -481,7 +526,8 @@
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Convert the item index to the display object index.</span></div><div class="line">    <span class="keyword">int</span> childIndex = aList.ItemIndexToChildIndex (<span class="number">1</span>);</div><div class="line">    </div><div class="line">    <span class="comment">// Convert the display object index to the item index.</span></div><div class="line">    <span class="keyword">int</span> itemIndex = aList.ChildIndexToItemIndex (<span class="number">1</span>);</div></pre></td></tr></table></figure>
 <p>When using virtual lists, we rarely need to access off-screen objects. If you really need to get the display object of an item at the specified index in the list, such as the 500th, because the current item is not in the viewport, for a virtual list, there is no corresponding display object for the object not in the viewport, You need to scroll the list to the target position first. E.g:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Note here, because we want to access the object at the new scroll position immediately, the second parameter scrollItToView cannot be true, that is, no animation effect is used</span></div><div class="line">    aList.ScrollToView (<span class="number">500</span>);</div><div class="line">    </div><div class="line">    <span class="comment">// Convert to display object index</span></div><div class="line">    <span class="keyword">int</span> index = aList.ItemIndexToChildIndex (<span class="number">500</span>);</div><div class="line">    </div><div class="line">    <span class="comment">// This is the 500th object you want</span></div><div class="line">    GObject obj = aList.GetChildAt (index);</div></pre></td></tr></table></figure>
-<p>The essence of a virtual list is the separation of data and rendering. People often ask how to delete or modify the items of the virtual list. The answer is to modify your data first, then refresh the list.<br>There are two ways to refresh the virtual list:</p>
+<p>The essence of a virtual list is the separation of data and rendering. People often ask how to delete or modify the items of the virtual list. The answer is to modify your data first, then refresh the list.<br>
+There are two ways to refresh the virtual list:</p>
 <ul>
 <li>Use numItems to reset the number.</li>
 <li>GList.RefreshVirtualList。</li>
@@ -497,11 +543,15 @@
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Returns different resource URLs based on different indexes</span></div><div class="line">    <span class="function"><span class="keyword">string</span> <span class="title">GetListItemResource</span> (<span class="params"><span class="keyword">int</span> index</span>)</span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        Message msg = _messages [index];</div><div class="line">        <span class="keyword">if</span> (msg.fromMe)</div><div class="line">            <span class="keyword">return</span> <span class="string">"ui://Emoji/chatRight"</span>;</div><div class="line">        <span class="keyword">else</span></div><div class="line">            <span class="keyword">return</span> <span class="string">"ui://Emoji/chatLeft"</span>;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <p>Then set this function as the item provider for the list:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry</span></div><div class="line">    aList.itemProvider = GetListItemResource;</div><div class="line"></div><div class="line">    <span class="comment">//AS3</span></div><div class="line">    aList.itemProvider = getListItemResource;</div><div class="line"></div><div class="line">    <span class="comment">//Egret</span></div><div class="line">    aList.itemProvider = getListItemResource;</div><div class="line">    aList.callbackThisObj = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">    <span class="comment">//Laya。 (Note that the last parameter must be false!)</span></div><div class="line">    aList.itemProvider = Handler.create (<span class="keyword">this</span>, <span class="keyword">this</span>.getListItemResource, <span class="literal">null</span>, <span class="literal">false</span>);</div><div class="line"></div><div class="line">    <span class="comment">// Cocos2dx</span></div><div class="line">    aList-&gt; itemProvider = CC_CALLBACK_1 (AClass :: getListItemResource, this);</div><div class="line"></div><div class="line">    <span class="comment">// CocosCreator</span></div><div class="line">    aList.itemProvider = <span class="keyword">this</span>.getListItemResource.bind (<span class="keyword">this</span>);</div></pre></td></tr></table></figure>
-<p>For lists with horizontal flow, vertical flow, and paging, unlike non-virtual lists, which have flow characteristics, the number of items in each row or column of a virtual list is fixed. When the list is initialized, a default item is created to measure this number.<br>If you still need to typeset the number of items per row or column and must use virtualization, then you can insert some empty components or empty graphics for placeholders and set their width according to actual needs to achieve that kind of Typographic effect.</p>
-<h2 id="Loop-list"><a href="#Loop-list" class="headerlink" title="Loop list"></a>Loop list</h2><p>A circular list is a list that is connected end to end. The circular list must be a virtual list. To enable the circular list:</p>
+<p>For lists with horizontal flow, vertical flow, and paging, unlike non-virtual lists, which have flow characteristics, the number of items in each row or column of a virtual list is fixed. When the list is initialized, a default item is created to measure this number.<br>
+If you still need to typeset the number of items per row or column and must use virtualization, then you can insert some empty components or empty graphics for placeholders and set their width according to actual needs to achieve that kind of Typographic effect.</p>
+<h2 id="Loop list"><a class="header-anchor" href="#Loop list">¶</a> Loop list</h2>
+<p>A circular list is a list that is connected end to end. The circular list must be a virtual list. To enable the circular list:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aList.SetVirtualAndLoop().</div></pre></td></tr></table></figure>
-<p>The loop list only supports single-row or single-column layouts. It does not support flow layouts and page layouts.<br>Because the loop list is connected end to end, specifying an item index may appear in different positions, so when you need to specify the rolling position, try to avoid using the item index. For example, if you need to scroll the list one space left / up or right / down, the best way is to call the ScrollPane API: ScrollLeft / ScrollRight / ScrollUp / ScrollDown<br>The characteristics of the circular list are the same as those of the virtual list, and will not be repeated here.</p>
-
+<p>The loop list only supports single-row or single-column layouts. It does not support flow layouts and page layouts.<br>
+Because the loop list is connected end to end, specifying an item index may appear in different positions, so when you need to specify the rolling position, try to avoid using the item index. For example, if you need to scroll the list one space left / up or right / down, the best way is to call the ScrollPane API: ScrollLeft / ScrollRight / ScrollUp / ScrollDown<br>
+The characteristics of the circular list are the same as those of the virtual list, and will not be repeated here.</p>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
     
     <div class="footer">
       found mistake? Want to participate in editing?

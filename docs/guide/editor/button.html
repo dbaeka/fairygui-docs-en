@@ -355,72 +355,96 @@
       <h1>Button</h1>
     
     <p>Buttons are the most commonly used extension components in FairyGUI. It is used for multiple purposes, such as RadioButton, Checkbox, List Item, etc. in the traditional UI framework, all of which are buttons in FairyGUI.</p>
-<h2 id="Create-button"><a href="#Create-button" class="headerlink" title="Create button"></a>Create button</h2><p>There are two ways to create a button component.</p>
+<h2 id="Create button"><a class="header-anchor" href="#Create button">¶</a> Create button</h2>
+<p>There are two ways to create a button component.</p>
 <ul>
-<li><p>Click the main menu “Resources-&gt; New button” and follow the wizard’s prompts step by step to complete.</p>
-<p> <img src="../../images/QQ20191210-233538.png" alt=""></p>
+<li>
+<p>Click the main menu &quot;Resources-&gt; New button&quot; and follow the wizard’s prompts step by step to complete.</p>
+<p><img src="../../images/QQ20191210-233538.png" alt=""></p>
 </li>
-<li><p>Create a new component and select Expand to “Button” in the component properties. Then create a controller and click<img src="../../images/QQ20191210-233616.png" alt="">, Select a button template.</p>
+<li>
+<p>Create a new component and select Expand to &quot;Button&quot; in the component properties. Then create a controller and click<img src="../../images/QQ20191210-233616.png" alt="">, Select a button template.</p>
 </li>
 </ul>
-<h2 id="Edit-mode-properties"><a href="#Edit-mode-properties" class="headerlink" title="Edit-mode properties"></a>Edit-mode properties</h2><p>In the component editing state, the properties panel of the button component is:</p>
+<h2 id="Edit-mode properties"><a class="header-anchor" href="#Edit-mode properties">¶</a> Edit-mode properties</h2>
+<p>In the component editing state, the properties panel of the button component is:</p>
 <p><img src="../../images/QQ20191210-233721.png" alt=""></p>
 <ul>
-<li><p><code>mode</code>There are three button mode options.</p>
+<li>
+<p><code>mode</code>There are three button mode options.</p>
 <ul>
 <li><code>Ordinary button</code>Use for click response, stateless.</li>
-<li><code>single button</code>There is a state of being selected. After being clicked, it will be selected, and click again to remain selected. If you want to implement a radio button group, you can bind the “connection” property of multiple radio buttons to the same controller. For details, refer to <a href="controller.html#Linkage-with-button">Controller</a>。</li>
+<li><code>single button</code>There is a state of being selected. After being clicked, it will be selected, and click again to remain selected. If you want to implement a radio button group, you can bind the &quot;connection&quot; property of multiple radio buttons to the same controller. For details, refer to <a href="controller.html#Linkage-with-button">Controller</a>。</li>
 <li><code>Check button</code>There is a state of being selected. After being clicked, it is selected, and then clicked to become unselected.</li>
 </ul>
 </li>
-<li><p><code>sound</code>Set the sound effect when the button is clicked. If all buttons share a sound effect, there is no need to set each button, there is a global setting in the project properties dialog.</p>
+<li>
+<p><code>sound</code>Set the sound effect when the button is clicked. If all buttons share a sound effect, there is no need to set each button, there is a global setting in the project properties dialog.</p>
 </li>
-<li><p><code>volume</code>Set the playback volume of the button click sound. 0-100。</p>
+<li>
+<p><code>volume</code>Set the playback volume of the button click sound. 0-100。</p>
 </li>
-<li><p><code>Press effect</code>The controller can be used to control the shape of the buttons on different pages at will, but for convenience, several commonly used button pressing effects are built in.</p>
+<li>
+<p><code>Press effect</code>The controller can be used to control the shape of the buttons on different pages at will, but for convenience, several commonly used button pressing effects are built in.</p>
 <ul>
 <li><code>Zoom</code>The button becomes larger or smaller when pressed. Push-to-zoom is achieved by changing the ScaleX and ScaleY of the button component. Note: After the zoom is set, the axis will be automatically set to (0.5, 0.5) when the button is initialized. <strong>(Except for the Unity platform, other platforms may have a set to make the press smaller. When pressed exactly on the edge of the button, there will be a press effect, but the click event is not triggered. The solution is to use a larger press than a smaller press. If you must press it to become smaller, it is recommended that the threshold value is not too large, it can be slightly effective,)</strong></li>
 <li><code>darken</code>The button appears dimmed when pressed. Dimming is actually achieved by changing the color of all images in the button component.<strong>If you also have separate settings for the color of the image inside the button, this may conflict and cause the color settings to be lost.</strong></li>
 </ul>
 </li>
 </ul>
-<h2 id="Instructions"><a href="#Instructions" class="headerlink" title="Instructions"></a>Instructions</h2><ul>
-<li><p><code>button</code>The button controller must be named “button”. If you don’t need the button to have a special effect, then this controller is not necessary.</p>
-<p> Description of each page of the button controller:</p>
-<p> <code>up</code>Normal state of the button;<code>down</code>The state when the normal button is pressed / the state when the radio or multi-select button is selected;<code>over</code>The state when the mouse pointer is hovering over the button;<code>selectedOver</code>The state of the mouse pointer when the radio button or multi-select button is selected;<code>disabled</code>State when the button is unavailable;<code>selectedDisabled</code>The state of a button when it is unavailable when a radio or multi-select button is selected.</p>
-<p> Usually we design a 4-state button, use up / down / over / selectedOver. If it is used on a mobile device, then use up / down. When the button is unavailable, FairyGUI provides a default grayed-out effect. If you don’t want this effect, you should use disabled and selectedDisabled for design.</p>
+<h2 id="Instructions"><a class="header-anchor" href="#Instructions">¶</a> Instructions</h2>
+<ul>
+<li>
+<p><code>button</code>The button controller must be named &quot;button&quot;. If you don’t need the button to have a special effect, then this controller is not necessary.</p>
+<p>Description of each page of the button controller:</p>
+<p><code>up</code>Normal state of the button;<code>down</code>The state when the normal button is pressed / the state when the radio or multi-select button is selected;<code>over</code>The state when the mouse pointer is hovering over the button;<code>selectedOver</code>The state of the mouse pointer when the radio button or multi-select button is selected;<code>disabled</code>State when the button is unavailable;<code>selectedDisabled</code>The state of a button when it is unavailable when a radio or multi-select button is selected.</p>
+<p>Usually we design a 4-state button, use up / down / over / selectedOver. If it is used on a mobile device, then use up / down. When the button is unavailable, FairyGUI provides a default grayed-out effect. If you don’t want this effect, you should use disabled and selectedDisabled for design.</p>
 </li>
-<li><p><code>title</code>Can be plain text, rich text, labels, buttons.</p>
+<li>
+<p><code>title</code>Can be plain text, rich text, labels, buttons.</p>
 </li>
-<li><p><code>icon</code>It can be a loader, or a label or button.</p>
+<li>
+<p><code>icon</code>It can be a loader, or a label or button.</p>
 </li>
 </ul>
-<p>Note: There is not only “title” and “icon” inside the button component, you can place any component, such as placing as many texts, loaders, etc. The “title” and “icon” settings are only used for the button components to be intuitively set when the editor is instantiated.</p>
-<h2 id="Instance-properties"><a href="#Instance-properties" class="headerlink" title="Instance properties"></a>Instance properties</h2><p>Select a button component on the stage, and the property panel list on the right appears:</p>
+<p>Note: There is not only “title” and “icon” inside the button component, you can place any component, such as placing as many texts, loaders, etc. The &quot;title&quot; and &quot;icon&quot; settings are only used for the button components to be intuitively set when the editor is instantiated.</p>
+<h2 id="Instance properties"><a class="header-anchor" href="#Instance properties">¶</a> Instance properties</h2>
+<p>Select a button component on the stage, and the property panel list on the right appears:</p>
 <p><img src="../../images/QQ20191211-093100.png" alt=""></p>
 <ul>
-<li><p><code>status</code>The radio button or multi-select button can set whether the button is selected. Ordinary button properties have no meaning.</p>
+<li>
+<p><code>status</code>The radio button or multi-select button can set whether the button is selected. Ordinary button properties have no meaning.</p>
 </li>
-<li><p><code>title</code>The set text will be assigned to the text property of the “title” element inside the button component. If the “title” element does not exist, nothing will happen.</p>
+<li>
+<p><code>title</code>The set text will be assigned to the text property of the &quot;title&quot; element inside the button component. If the &quot;title&quot; element does not exist, nothing will happen.</p>
 </li>
-<li><p><code>Title when selected</code>When the button is selected, set the text property of the “title” component to the value set here; when the button is not selected, restore the value of the original title property.</p>
+<li>
+<p><code>Title when selected</code>When the button is selected, set the text property of the &quot;title&quot; component to the value set here; when the button is not selected, restore the value of the original title property.</p>
 </li>
-<li><p><code>Title color</code>The default title color is the text color of the “title” element in the button component. After checking, you can modify the text color. If the “title” element does not exist, nothing will happen.</p>
+<li>
+<p><code>Title color</code>The default title color is the text color of the &quot;title&quot; element in the button component. After checking, you can modify the text color. If the &quot;title&quot; element does not exist, nothing will happen.</p>
 </li>
-<li><p><code>font size</code>The default font size is the font size of the “title” element in the button component. After checking, you can modify the font size. If the “title” element does not exist, nothing will happen.</p>
+<li>
+<p><code>font size</code>The default font size is the font size of the &quot;title&quot; element in the button component. After checking, you can modify the font size. If the &quot;title&quot; element does not exist, nothing will happen.</p>
 </li>
-<li><p><code>icon</code>The set URL will be assigned to the icon attribute of the “icon” element in the button component. If the “icon” element does not exist, nothing will happen.</p>
+<li>
+<p><code>icon</code>The set URL will be assigned to the icon attribute of the &quot;icon&quot; element in the button component. If the &quot;icon&quot; element does not exist, nothing will happen.</p>
 </li>
-<li><p><code>Icon when selected</code>When the button is selected, the icon attribute of the “icon” element in the button component is set to the value set here; when the button is not selected, the original icon attribute value is restored.</p>
+<li>
+<p><code>Icon when selected</code>When the button is selected, the icon attribute of the &quot;icon&quot; element in the button component is set to the value set here; when the button is not selected, the original icon attribute value is restored.</p>
 </li>
-<li><p><code>Click sound</code>After ticking, you can reset the click sound of the button, which overrides the setting of the button during the design period.</p>
+<li>
+<p><code>Click sound</code>After ticking, you can reset the click sound of the button, which overrides the setting of the button during the design period.</p>
 </li>
-<li><p><code>volume</code>Set the playback volume of the button click sound. 0-100。</p>
+<li>
+<p><code>volume</code>Set the playback volume of the button click sound. 0-100。</p>
 </li>
-<li><p><code>connection</code>The controller can be linked with buttons. See <a href="controller.html#Linkage-with-button">controller</a></p>
+<li>
+<p><code>connection</code>The controller can be linked with buttons. See <a href="controller.html#Linkage-with-button">controller</a></p>
 </li>
 </ul>
-<h2 id="GButton"><a href="#GButton" class="headerlink" title="GButton"></a>GButton</h2><p>Set the button’s title or icon. You don’t even need to force the object to be the type of GButton. You can use the interface provided by GObject directly, for example:</p>
+<h2 id="GButton"><a class="header-anchor" href="#GButton">¶</a> GButton</h2>
+<p>Set the button’s title or icon. You don’t even need to force the object to be the type of GButton. You can use the interface provided by GObject directly, for example:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GObject obj = gcom.GetChild (<span class="string">"n1"</span>);</div><div class="line">    obj.text = <span class="string">"hello"</span>;</div><div class="line">    obj.icon = <span class="string">"ui://package name/image name"</span>;</div></pre></td></tr></table></figure>
 <p>If it is a radio or multi-select button, the following method sets whether it is selected:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">button.selected = <span class="literal">true</span>;</div></pre></td></tr></table></figure>
@@ -438,7 +462,7 @@
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Simulate the trigger click, there will only be a triggered performance, and changing the button state will not trigger listening for the button click event.</span></div><div class="line">    button.FireClick (<span class="literal">true</span>);</div><div class="line"></div><div class="line">    <span class="comment">// If the click event is to be triggered at the same time, an additional call is required: (only Unity / Cry examples, other platforms study it themselves)</span></div><div class="line">    button.onClick.Call ();</div></pre></td></tr></table></figure>
 <p>There are notification events when the radio button and radio button state change:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry/MonoGame</span></div><div class="line">    button.onChanged.Add(onChanged);</div><div class="line"></div><div class="line">    <span class="comment">//AS3</span></div><div class="line">    button.addEventListener(StateChangeEvent.CHANGED, onChanged);</div><div class="line"></div><div class="line">    <span class="comment">//Egret</span></div><div class="line">    button.addEventListener(StateChangeEvent.CHANGED, <span class="keyword">this</span>.onChanged, <span class="keyword">this</span>);</div><div class="line"></div><div class="line">    <span class="comment">//Laya</span></div><div class="line">    button.<span class="keyword">on</span>(fairygui.Events.STATE_CHANGED, <span class="keyword">this</span>, <span class="keyword">this</span>.onChanged);</div><div class="line"></div><div class="line">    <span class="comment">//Cocos2dx</span></div><div class="line">    button-&gt;addEventListener(UIEventType::Changed, CC_CALLBACK_1(AClass::onChanged, this));</div><div class="line"></div><div class="line">    <span class="comment">//CocosCreator</span></div><div class="line">    button.<span class="keyword">on</span>(fgui.Event.STATUS_CHANGED, <span class="keyword">this</span>.onChanged, <span class="keyword">this</span>);</div></pre></td></tr></table></figure>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
     
     <div class="footer">
       found mistake? Want to participate in editing?

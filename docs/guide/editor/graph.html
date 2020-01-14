@@ -355,48 +355,59 @@
       <h1>Graph</h1>
     
     <p>FairyGUI supports generating simple graphics. Click on the side toolbar<img src="../../images/sidetb_05.png" alt="">The button generates a graphic.</p>
-<h2 id="Instance-properties"><a href="#Instance-properties" class="headerlink" title="Instance properties"></a>Instance properties</h2><p><img src="../../images/QQ20191211-150148.png" alt=""></p>
+<h2 id="Instance properties"><a class="header-anchor" href="#Instance properties">¶</a> Instance properties</h2>
+<p><img src="../../images/QQ20191211-150148.png" alt=""></p>
 <ul>
-<li><p><code>Graphics</code>Select the shape as Rectangle, Circle, Regular Polygon, Polygon, or None. “None” indicates that this is an empty graphic. It does not consume any display resources and is usually used as a placeholder. See details below.</p>
+<li>
+<p><code>Graphics</code>Select the shape as Rectangle, Circle, Regular Polygon, Polygon, or None. &quot;None&quot; indicates that this is an empty graphic. It does not consume any display resources and is usually used as a placeholder. See details below.</p>
 </li>
-<li><p><code>Line size</code>The stroke size of the shape. 0 means no stroke.</p>
+<li>
+<p><code>Line size</code>The stroke size of the shape. 0 means no stroke.</p>
 </li>
-<li><p><code>Line color</code>The stroke color of the shape.</p>
+<li>
+<p><code>Line color</code>The stroke color of the shape.</p>
 </li>
-<li><p><code>Fill color</code>The fill color of the shape. If you want to draw a hollow shape, set the fill color transparency to 0.</p>
+<li>
+<p><code>Fill color</code>The fill color of the shape. If you want to draw a hollow shape, set the fill color transparency to 0.</p>
 </li>
-<li><p><code>Fillet</code>An integer or 4 comma-separated integers. For example, “4” indicates that the four corners of the rectangle are rounded corners with a radius of 4. For example, “2,1,1,4” specifies the radius of each corner.</p>
+<li>
+<p><code>Fillet</code>An integer or 4 comma-separated integers. For example, &quot;4&quot; indicates that the four corners of the rectangle are rounded corners with a radius of 4. For example, &quot;2,1,1,4&quot; specifies the radius of each corner.</p>
 </li>
-<li><p><code>Number of edges</code>Represents the number of sides of a regular polygon.</p>
+<li>
+<p><code>Number of edges</code>Represents the number of sides of a regular polygon.</p>
 </li>
-<li><p><code>Spin</code>Sets the rotation angle of a regular polygon.</p>
+<li>
+<p><code>Spin</code>Sets the rotation angle of a regular polygon.</p>
 </li>
 </ul>
-<h2 id="Edit-polygon"><a href="#Edit-polygon" class="headerlink" title="Edit polygon"></a>Edit polygon</h2><p>When the graphic type is polygon or regular polygon, double-click the component, or click<img src="../../images/QQ20191211-150632.png" alt="">Button to enter graphic editing.</p>
+<h2 id="Edit polygon"><a class="header-anchor" href="#Edit polygon">¶</a> Edit polygon</h2>
+<p>When the graphic type is polygon or regular polygon, double-click the component, or click<img src="../../images/QQ20191211-150632.png" alt="">Button to enter graphic editing.</p>
 <p><img src="../../images/QQ20191211-150726.png" alt=""></p>
 <p>Common operations are:</p>
 <ol>
 <li>Drag the dots to adjust the vertex position;</li>
 <li>Left-click a dot and change the coordinate value of the point in the inspector;</li>
-<li>Context on the stage and select “Add Vertex” from the context menu;</li>
-<li>Context a dot and select “Delete Vertex” from the context menu;</li>
-<li>Select “Lock Shape” in the inspector, and then change the position of a vertex by the first or second method. The other vertices will change the position at the same time, which is equivalent to moving all the vertices as a whole.</li>
+<li>Context on the stage and select &quot;Add Vertex&quot; from the context menu;</li>
+<li>Context a dot and select &quot;Delete Vertex&quot; from the context menu;</li>
+<li>Select &quot;Lock Shape&quot; in the inspector, and then change the position of a vertex by the first or second method. The other vertices will change the position at the same time, which is equivalent to moving all the vertices as a whole.</li>
 </ol>
 <p>After editing, double-click the blank space on the stage to exit the graphic editing mode.</p>
 <p><strong>If the shape is a regular polygon, the vertex position can only move along the axis.</strong></p>
-<h2 id="Placeholder"><a href="#Placeholder" class="headerlink" title="Placeholder"></a>Placeholder</h2><p>As mentioned earlier, a blank graphic can be used as a placeholder. It may be replaced with other objects during operation. FairyGUI display objects need to use such blank graphics when they are mixed with native display objects.</p>
+<h2 id="Placeholder"><a class="header-anchor" href="#Placeholder">¶</a> Placeholder</h2>
+<p>As mentioned earlier, a blank graphic can be used as a placeholder. It may be replaced with other objects during operation. FairyGUI display objects need to use such blank graphics when they are mixed with native display objects.</p>
 <p>Example: Now to put a native object aSprite in the UI, you can put a blank graphic in the appropriate position, assuming the object is a holder, then the code can be written like this:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">holder.SetNativeObject (aSprite);</div></pre></td></tr></table></figure>
 <p>This puts aSprite at the position and depth of the holder. In this way, any native display object can be easily inserted into FairyGUI’s display list.</p>
 <p>If SetNativeObject is called repeatedly, the previous set object is destroyed and a new object is inserted.</p>
 <p>For Laya, Cocos2dx and CocosCreator platforms, all their nodes can join child objects at any time, so there is no need to use setNativeObject. You can use holder.displayObject.addChild (Laya) or holder.node.addChild (Creator) at any time to mount the native node.</p>
-<h2 id="GGraph"><a href="#GGraph" class="headerlink" title="GGraph"></a>GGraph</h2><p>Graphics support dynamic creation,<strong>Dynamic creation of graphics requires attention to the size of the graphics, otherwise it will not be displayed</strong>。 E.g:</p>
+<h2 id="GGraph"><a class="header-anchor" href="#GGraph">¶</a> GGraph</h2>
+<p>Graphics support dynamic creation,<strong>Dynamic creation of graphics requires attention to the size of the graphics, otherwise it will not be displayed</strong>。 E.g:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GGraph holder = <span class="keyword">new</span> GGraph();</div><div class="line">    holder.SetSize(<span class="number">100</span>, <span class="number">100</span>);</div><div class="line">    holder.DrawRect(...);</div><div class="line">    aComponent.AddChild(holder);</div></pre></td></tr></table></figure>
 <p>When using a regular polygon to make a radar chart, you can use the API<code>distances</code>Controls the amplitude of each vertex. This is a floating-point array. The size of the array should be equal to the number of vertices. The range of each value is 0-1.</p>
 <p>The Unity platform does not have a vector rendering engine, so it is simulated by generating a mesh. Here are some tips for using GGraph objects in Unity:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Draw the polygon at each vertex of the polygon. Note that the point must be passed in clockwise! !!</span></div><div class="line">    aGraph.shape.DrawPolygon (<span class="keyword">new</span> Vector2 [] &#123;...&#125;&#125;, <span class="keyword">new</span> Color [] &#123;...&#125;;</div><div class="line"></div><div class="line">    <span class="comment">// Draw a gradient colored rectangle</span></div><div class="line">    aGraph.shape.DrawRect (<span class="number">0</span>, <span class="keyword">new</span> Color [] &#123;...&#125;);</div></pre></td></tr></table></figure>
 <p>For more drawing methods, please refer to Demo-Basics-Graph.</p>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
     
     <div class="footer">
       found mistake? Want to participate in editing?

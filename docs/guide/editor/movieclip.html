@@ -354,58 +354,80 @@
     
       <h1>MovieClip</h1>
     
-    <h2 id="Create-movieclip"><a href="#Create-movieclip" class="headerlink" title="Create movieclip"></a>Create movieclip</h2><p>The editor supports creating, editing, and using sequence frame movieclips. There are several ways to create a sequence frame movieclip:</p>
+    <h2 id="Create movieclip"><a class="header-anchor" href="#Create movieclip">¶</a> Create movieclip</h2>
+<p>The editor supports creating, editing, and using sequence frame movieclips. There are several ways to create a sequence frame movieclip:</p>
 <ol>
-<li><p>Use movieclip editing tools such as Adobe Animate CC / Flash to make movieclips, export the description file with plist or eas extension and related maps (should be placed in the same directory), and then drag the description file (only description file, not map) The editor can generate movieclip material.</p>
+<li>
+<p>Use movieclip editing tools such as Adobe Animate CC / Flash to make movieclips, export the description file with plist or eas extension and related maps (should be placed in the same directory), and then drag the description file (only description file, not map) The editor can generate movieclip material.</p>
 </li>
-<li><p>Click the menu “Resources”-&gt; “New movieclip”, or click the main toolbar<img src="../../images/maintb_09.png" alt="">Button to create a new blank movieclip. Then click “Import image Sequence” in the movieclip editing interface to import multiple images.</p>
+<li>
+<p>Click the menu &quot;Resources&quot;-&gt; &quot;New movieclip&quot;, or click the main toolbar<img src="../../images/maintb_09.png" alt="">Button to create a new blank movieclip. Then click &quot;Import image Sequence&quot; in the movieclip editing interface to import multiple images.</p>
 </li>
-<li><p>Drag a GIF file directly into the editor, and the GIF will be automatically converted into a sequence frame movieclip.</p>
+<li>
+<p>Drag a GIF file directly into the editor, and the GIF will be automatically converted into a sequence frame movieclip.</p>
 </li>
-<li><p>Flash projects support direct import and use of SWF files.</p>
+<li>
+<p>Flash projects support direct import and use of SWF files.</p>
 </li>
 </ol>
 <p>Regardless of how the movieclip is created, in the editor, the movieclip material exists as a single file (with the extension jta). In other words, no matter whether the movieclip is created from the image file in the library or imported from the outside, there will no longer be a dependency on a single image. For example, if you drag an image from the asset library into the movieclip editor to create the movieclip, after the creation is complete, these images have no relationship with the movieclip anymore. If you want to set the texture set of the movieclip, set the movieclip in the movieclip editor. The settings for those images are invalid.</p>
-<h2 id="Edit-movieclip"><a href="#Edit-movieclip" class="headerlink" title="Edit movieclip"></a>Edit movieclip</h2><p>In the resource library or on the stage, double-click the movieclip to enter the movieclip property setting dialog box:</p>
+<h2 id="Edit movieclip"><a class="header-anchor" href="#Edit movieclip">¶</a> Edit movieclip</h2>
+<p>In the resource library or on the stage, double-click the movieclip to enter the movieclip property setting dialog box:</p>
 <p><img src="../../images/QQ20191211-163721.png" alt=""></p>
 <ul>
-<li><p><code>Frame rate</code>Available in 24, 30 and 60. It can be modified according to the settings of the source movieclip.</p>
+<li>
+<p><code>Frame rate</code>Available in 24, 30 and 60. It can be modified according to the settings of the source movieclip.</p>
 </li>
-<li><p><code>Play interval</code>How many frames to play a image at. Increasing or decreasing this value can reduce or increase the speed of movieclip playback.</p>
+<li>
+<p><code>Play interval</code>How many frames to play a image at. Increasing or decreasing this value can reduce or increase the speed of movieclip playback.</p>
 </li>
-<li><p><code>Cycle delay</code>When the movieclip is over, how many frames to pause before restarting the playback.</p>
+<li>
+<p><code>Cycle delay</code>When the movieclip is over, how many frames to pause before restarting the playback.</p>
 </li>
-<li><p><code>This frame is delayed</code>How many frames to pause after playing the current frame before continuing playback.</p>
+<li>
+<p><code>This frame is delayed</code>How many frames to pause after playing the current frame before continuing playback.</p>
 </li>
-<li><p><code>Swing play</code>The default playback format is to play from the first frame to the last frame, and then play from the first frame to the last frame in the next loop. If the swing play is checked, the first frame is played to the last frame, and then the last frame is played back to the first frame in reverse order, and so on.</p>
+<li>
+<p><code>Swing play</code>The default playback format is to play from the first frame to the last frame, and then play from the first frame to the last frame in the next loop. If the swing play is checked, the first frame is played to the last frame, and then the last frame is played back to the first frame in reverse order, and so on.</p>
 </li>
-<li><p><code>Texture set</code>Sets the movieclip to publish to the specified texture set. <strong>movieclip does not support texture paging, that is, when the texture is set to automatic paging, if the movieclip is distributed to different texture set pages, a display error will occur at runtime. At this time you can arrange the movieclip to be placed on a separate texture set, or on the same texture set as other movieclips.</strong></p>
+<li>
+<p><code>Texture set</code>Sets the movieclip to publish to the specified texture set. <strong>movieclip does not support texture paging, that is, when the texture is set to automatic paging, if the movieclip is distributed to different texture set pages, a display error will occur at runtime. At this time you can arrange the movieclip to be placed on a separate texture set, or on the same texture set as other movieclips.</strong></p>
 </li>
-<li><p><code>Allow smoothing</code>It indicates whether the movieclip is smoothed when stretched. If this movieclip is used to make a character in a pixel game, you may need to turn off smoothing, otherwise you should generally turn it on. This option is not available for platforms such as Unity that use texture sets.</p>
+<li>
+<p><code>Allow smoothing</code>It indicates whether the movieclip is smoothed when stretched. If this movieclip is used to make a character in a pixel game, you may need to turn off smoothing, otherwise you should generally turn it on. This option is not available for platforms such as Unity that use texture sets.</p>
 </li>
 </ul>
 <p>function button:</p>
 <ul>
-<li><p><code>Import image sequence</code>Update movieclip from sequence images.</p>
+<li>
+<p><code>Import image sequence</code>Update movieclip from sequence images.</p>
 </li>
-<li><p><code>Import Sprite Table</code>Import movieclip files exported by Adobe Animate CC or other movieclip tools.</p>
+<li>
+<p><code>Import Sprite Table</code>Import movieclip files exported by Adobe Animate CC or other movieclip tools.</p>
 </li>
-<li><p><code>Export image sequence</code>Export the movieclip as a sequence of images.</p>
+<li>
+<p><code>Export image sequence</code>Export the movieclip as a sequence of images.</p>
 </li>
 </ul>
-<h2 id="Instance-properties"><a href="#Instance-properties" class="headerlink" title="Instance properties"></a>Instance properties</h2><p>Select an movieclip on the stage, and the property panel list on the right appears:</p>
+<h2 id="Instance properties"><a class="header-anchor" href="#Instance properties">¶</a> Instance properties</h2>
+<p>Select an movieclip on the stage, and the property panel list on the right appears:</p>
 <p><img src="../../images/QQ20191211-163804.png" alt=""></p>
 <ul>
-<li><p><code>frame</code>Set the current frame.</p>
+<li>
+<p><code>frame</code>Set the current frame.</p>
 </li>
-<li><p><code>Play</code>Sets whether the movieclip is playing.</p>
+<li>
+<p><code>Play</code>Sets whether the movieclip is playing.</p>
 </li>
-<li><p><code>colour</code>Modify the value of each color channel of the movieclip to make the movieclip change color.</p>
+<li>
+<p><code>colour</code>Modify the value of each color channel of the movieclip to make the movieclip change color.</p>
 </li>
-<li><p><code>brightness</code>Adjust the brightness of the movieclip. This is actually modified by<code>colour</code>The property achieves the same effect as setting the color to grayscale.</p>
+<li>
+<p><code>brightness</code>Adjust the brightness of the movieclip. This is actually modified by<code>colour</code>The property achieves the same effect as setting the color to grayscale.</p>
 </li>
 </ul>
-<h2 id="GMovieClip"><a href="#GMovieClip" class="headerlink" title="GMovieClip"></a>GMovieClip</h2><p>We generally do not use new directly to create movieclips, and there is rarely a need to create movieclips separately. It is usually placed directly in other components as a constituent element. If you really need to instantiate an movieclip, you can use the following methods:</p>
+<h2 id="GMovieClip"><a class="header-anchor" href="#GMovieClip">¶</a> GMovieClip</h2>
+<p>We generally do not use new directly to create movieclips, and there is rarely a need to create movieclips separately. It is usually placed directly in other components as a constituent element. If you really need to instantiate an movieclip, you can use the following methods:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GMovieClip aMovie = UIPackage.CreateObject (<span class="string">"package name"</span>, <span class="string">"movieclip name"</span>).asMovieClip;</div></pre></td></tr></table></figure>
 <p>The commonly used APIs are:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aMovie.playing = <span class="literal">false</span>; <span class="comment">// Switch playback and stop status</span></div><div class="line">    aMovie.frame = <span class="number">5</span>; <span class="comment">// If the movieclip is stopped, you can set the frame to stop at</span></div></pre></td></tr></table></figure>
@@ -415,7 +437,7 @@
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Return to play head</span></div><div class="line">    ((MovieClip) aMovie.displayObject) .Rewind ();</div></pre></td></tr></table></figure>
 <p>You can get a callback notification when the movieclip is completed: (If it is looped, the playback is not completed until all the loops are completed)</p>
 <figure class="highlight"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry</span></div><div class="line">    aMovie.onPlayEnd.Add(...);</div><div class="line"></div><div class="line">    <span class="comment">//AS3</span></div><div class="line">    aMovie.setPlaySettings(..., callback);</div><div class="line"></div><div class="line">    <span class="comment">//Egret</span></div><div class="line">    aMovie.setPlaySettings(..., callback, <span class="keyword">this</span>);</div><div class="line"></div><div class="line">    <span class="comment">//Laya</span></div><div class="line">    aMovie.setPlaySettings(..., Handler.create(callback, <span class="keyword">this</span>));</div><div class="line"></div><div class="line">    <span class="comment">//Cocos2dx</span></div><div class="line">    aMovie-&gt;setPlaySettings(..., CC_CALLBACK_0(AClass::onPlayComplete, this));</div></pre></td></tr></table></figure>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
     
     <div class="footer">
       found mistake? Want to participate in editing?

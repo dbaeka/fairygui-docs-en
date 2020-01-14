@@ -355,37 +355,47 @@
       <h1>Label</h1>
     
     <p>The label component is very simple. It has no special behavior. It can provide the title and icon attributes for the component by placing the title and icon components.</p>
-<h2 id="Create-label"><a href="#Create-label" class="headerlink" title="Create label"></a>Create label</h2><p>There are two ways to create a label component.</p>
+<h2 id="Create label"><a class="header-anchor" href="#Create label">¶</a> Create label</h2>
+<p>There are two ways to create a label component.</p>
 <ul>
-<li>Click on the main menu “Resources”-&gt; “New Tab”.</li>
-<li>Create a new component and select Expand to “Label” in the component properties.</li>
+<li>Click on the main menu &quot;Resources&quot;-&gt; &quot;New Tab&quot;.</li>
+<li>Create a new component and select Expand to &quot;Label&quot; in the component properties.</li>
 </ul>
-<h2 id="Instructions"><a href="#Instructions" class="headerlink" title="Instructions"></a>Instructions</h2><ul>
-<li><p><code>title</code>Can be plain text, rich text, labels, buttons.</p>
+<h2 id="Instructions"><a class="header-anchor" href="#Instructions">¶</a> Instructions</h2>
+<ul>
+<li>
+<p><code>title</code>Can be plain text, rich text, labels, buttons.</p>
 </li>
-<li><p><code>icon</code>It can be a loader, or a label or button.</p>
+<li>
+<p><code>icon</code>It can be a loader, or a label or button.</p>
 </li>
 </ul>
-<p>Note: There are not only “title” and “icon” in the label component, you can place any component, such as placing as many texts, loaders, etc. The “title” and “icon” settings are only used for the label component to be set intuitively when the editor is instantiated.</p>
-<h2 id="Instance-properties"><a href="#Instance-properties" class="headerlink" title="Instance properties"></a>Instance properties</h2><p>Select a label component on the stage, and the property panel list on the right appears:</p>
+<p>Note: There are not only &quot;title&quot; and &quot;icon&quot; in the label component, you can place any component, such as placing as many texts, loaders, etc. The &quot;title&quot; and &quot;icon&quot; settings are only used for the label component to be set intuitively when the editor is instantiated.</p>
+<h2 id="Instance properties"><a class="header-anchor" href="#Instance properties">¶</a> Instance properties</h2>
+<p>Select a label component on the stage, and the property panel list on the right appears:</p>
 <p><img src="../../images/QQ20191211-161806.png" alt=""></p>
 <ul>
-<li><p><code>title</code>The set text is assigned to the text property of the “title” element inside the label component. If the “title” element does not exist, nothing will happen.</p>
+<li>
+<p><code>title</code>The set text is assigned to the text property of the &quot;title&quot; element inside the label component. If the &quot;title&quot; element does not exist, nothing will happen.</p>
 </li>
-<li><p><code>Title color</code>The default title color is the text color of the “title” element in the label component. After checking, you can modify the text color. If the “title” element does not exist, nothing will happen.</p>
+<li>
+<p><code>Title color</code>The default title color is the text color of the &quot;title&quot; element in the label component. After checking, you can modify the text color. If the &quot;title&quot; element does not exist, nothing will happen.</p>
 </li>
-<li><p><code>font size</code>The default font size is the font size of the “title” element in the label component. After checking, you can modify the font size. If the “title” element does not exist, nothing will happen.</p>
+<li>
+<p><code>font size</code>The default font size is the font size of the &quot;title&quot; element in the label component. After checking, you can modify the font size. If the &quot;title&quot; element does not exist, nothing will happen.</p>
 </li>
-<li><p><code>icon</code>The set URL will be assigned to the icon attribute of the “icon” element in the label component. If the “icon” element does not exist, nothing will happen.</p>
+<li>
+<p><code>icon</code>The set URL will be assigned to the icon attribute of the &quot;icon&quot; element in the label component. If the &quot;icon&quot; element does not exist, nothing will happen.</p>
 </li>
 </ul>
-<p>If “title” is input text, it will appear in the properties panel<img src="../../images/QQ20191211-161858.png" alt="">Button, click to enter the input settings panel. The setting method can refer to the text tutorial.</p>
-<h2 id="GLabel"><a href="#GLabel" class="headerlink" title="GLabel"></a>GLabel</h2><p>Set the title or icon of the label. You don’t need to force the object to be the type of GLabel. You can use the interface provided by GObject directly, for example:</p>
+<p>If &quot;title&quot; is input text, it will appear in the properties panel<img src="../../images/QQ20191211-161858.png" alt="">Button, click to enter the input settings panel. The setting method can refer to the text tutorial.</p>
+<h2 id="GLabel"><a class="header-anchor" href="#GLabel">¶</a> GLabel</h2>
+<p>Set the title or icon of the label. You don’t need to force the object to be the type of GLabel. You can use the interface provided by GObject directly, for example:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GObject obj = gcom.GetChild (<span class="string">"n1"</span>);</div><div class="line">    obj.text = <span class="string">"hello"</span>;</div><div class="line">    obj.icon = <span class="string">"ui://package name/image name"</span>;</div></pre></td></tr></table></figure>
 <p>Modify the title color like this:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GLabel label = gcom.GetChild(<span class="string">"n1"</span>).asLabel;</div><div class="line">    lable.titleColor = ...;</div></pre></td></tr></table></figure>
 <p>In addition, the label is also a standard component, so all methods of GComponent are available. For example, you can use GetChild to access any child component.</p>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
     
     <div class="footer">
       found mistake? Want to participate in editing?

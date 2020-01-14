@@ -354,94 +354,118 @@
     
       <h1>Project Settings</h1>
     
-    <p>Open the Project Settings dialog via the main menu “File-&gt; Project Settings”.</p>
+    <p>Open the Project Settings dialog via the main menu &quot;File-&gt; Project Settings&quot;.</p>
 <p><img src="../../images/QQ20191209-143604.png" alt=""></p>
-<h2 id="General"><a href="#General" class="headerlink" title="General"></a>General</h2><p><img src="../../images/QQ20191209-144109.png" alt=""></p>
+<h2 id="General"><a class="header-anchor" href="#General">¶</a> General</h2>
+<p><img src="../../images/QQ20191209-144109.png" alt=""></p>
 <ul>
 <li><code>project name</code>Modify the name of the UI project here.</li>
 <li><code>project type</code>UI project type, that is, the platform on which the UI actually runs. You can switch arbitrarily here. Different platforms have certain differences in display effects and release results.</li>
 </ul>
-<h2 id="Defaults"><a href="#Defaults" class="headerlink" title="Defaults"></a>Defaults</h2><p><img src="../../images/QQ20191209-144336.png" alt=""></p>
+<h2 id="Defaults"><a class="header-anchor" href="#Defaults">¶</a> Defaults</h2>
+<p><img src="../../images/QQ20191209-144336.png" alt=""></p>
 <p><strong>Note: These parameters are the default values in the editor and have nothing to do with runtime. Need to run<code>UIConfig</code>Redo the global settings. And the latter setting does not necessarily need to be the same as the setting here.</strong></p>
 <ul>
-<li><p><code>Font</code>Sets the default font for all text. <strong>Can enter font name directly</strong>You can also click the “A” button to select the font in the system. If you need to use a ttf file, please install the file in the operating system (usually double-click the ttf file), and then select it here (you need to restart the editor to see the newly installed fonts). This font setting is only used in the editor. What font should be used at runtime?<code>UIConfig.defaultFont</code>set up. In order to make the editor effect consistent with the runtime effect, you should try to choose the same font or a font with a similar shape.</p>
+<li>
+<p><code>Font</code>Sets the default font for all text. <strong>Can enter font name directly</strong>You can also click the &quot;A&quot; button to select the font in the system. If you need to use a ttf file, please install the file in the operating system (usually double-click the ttf file), and then select it here (you need to restart the editor to see the newly installed fonts). This font setting is only used in the editor. What font should be used at runtime?<code>UIConfig.defaultFont</code>set up. In order to make the editor effect consistent with the runtime effect, you should try to choose the same font or a font with a similar shape.</p>
 </li>
-<li><p><code>font size</code>Sets the default font size when new text is created on the Stage.</p>
+<li>
+<p><code>font size</code>Sets the default font size when new text is created on the Stage.</p>
 </li>
-<li><p><code>Disable font rendering position optimization</code>This option is only available for Egret and Laya versions. When checked, FairyGUI will use the default position of the system for rendering text, and no automatic optimization will be performed. This difference is particularly obvious for Microsoft Yahei. This option can help solve the problem of font position in some H5 engines.</p>
+<li>
+<p><code>Disable font rendering position optimization</code>This option is only available for Egret and Laya versions. When checked, FairyGUI will use the default position of the system for rendering text, and no automatic optimization will be performed. This difference is particularly obvious for Microsoft Yahei. This option can help solve the problem of font position in some H5 engines.</p>
 </li>
-<li><p><code>font color</code>Sets the default color when new text is created on the Stage.</p>
+<li>
+<p><code>font color</code>Sets the default color when new text is created on the Stage.</p>
 </li>
-<li><p><code>Default axis</code>You can set a default axis for newly placed components on the Stage.</p>
+<li>
+<p><code>Default axis</code>You can set a default axis for newly placed components on the Stage.</p>
 <ul>
 <li><code>Top left corner</code>The axis position is in the upper left corner, which is the software’s default setting.</li>
 <li><code>Center as axis</code>The axis position is in the center.</li>
 <li><code>Center as anchor</code>The axis position is at the center, and the anchor point is also set to the center, that is, the origin of the component is at the center.</li>
 </ul>
 </li>
-<li><p><code>Vertical scroll bar</code> <code>Horizontal scroll bar</code>Set the scrollbar resources that need to be used by all containers with scrolling functions when making UI. That is to say, after you set the “overflow processing” of a component or a list to “vertical scrolling”, “horizontal scrolling” or “free scrolling”, you do not need to set the scroll bar every time, and the scrolling set here will be automatically used Resources. If a component requires a different scroll bar than the global settings, the editor also provides separate settings,<a href="scrollpane.html">Later chapters</a>Will be explained separately. This setting is only used in the editor and is used at runtime<code>UIConfig.horizontalScrollBar``And UIConfig.verticalScrollBar</code>set up.</p>
+<li>
+<p><code>Vertical scroll bar</code> <code>Horizontal scroll bar</code>Set the scrollbar resources that need to be used by all containers with scrolling functions when making UI. That is to say, after you set the &quot;overflow processing&quot; of a component or a list to &quot;vertical scrolling&quot;, &quot;horizontal scrolling&quot; or &quot;free scrolling&quot;, you do not need to set the scroll bar every time, and the scrolling set here will be automatically used Resources. If a component requires a different scroll bar than the global settings, the editor also provides separate settings,<a href="scrollpane.html">Later chapters</a>Will be explained separately. This setting is only used in the editor and is used at runtime<code>UIConfig.horizontalScrollBar``And UIConfig.verticalScrollBar</code>set up.</p>
 </li>
-<li><p><code>Scroll bar display</code>Display strategy for scroll bars. This is a global setting and can also be set individually in the scroll container properties. This setting is only used in the editor and is used at runtime<code>UIConfig.defaultScrollBarDisplay</code>set up.</p>
+<li>
+<p><code>Scroll bar display</code>Display strategy for scroll bars. This is a global setting and can also be set individually in the scroll container properties. This setting is only used in the editor and is used at runtime<code>UIConfig.defaultScrollBarDisplay</code>set up.</p>
 <ul>
 <li><code>visible</code>Indicates that the scroll bar is always displayed.</li>
 <li><code>Show while scrolling</code>Indicates that the scroll bar will be displayed (PC) only when scrolling or the mouse is in the scroll container viewport, otherwise it will be hidden automatically.</li>
 <li><code>hide</code>Indicates that the scroll bar is always hidden, in which case the scroll bar does not occupy the viewport position.</li>
 </ul>
 </li>
-<li><p><code>TIPS components</code>Set the component used to display TIPS. <a href="object.html#其他">Usage reference here</a>。</p>
+<li>
+<p><code>TIPS components</code>Set the component used to display TIPS. <a href="object.html#%E5%85%B6%E4%BB%96">Usage reference here</a>。</p>
 </li>
-<li><p><code>Button click sound</code>Sets the default click sound for buttons. After setting, all button clicks will play this sound effect, unless the button itself sets another sound effect. This setting is only used in the editor and is used at runtime<code>UIConfig.buttonSound</code>set up.</p>
-</li>
-</ul>
-<h2 id="Quick-menu"><a href="#Quick-menu" class="headerlink" title="Quick menu"></a>Quick menu</h2><p><img src="../../images/QQ20191209-154324.png" alt=""></p>
-<ul>
-<li><p><code>font size</code>There are usually several fixed font sizes for a game. Once defined here, when you need to enter the font size anywhere, you can directly select it from the drop-down menu.</p>
-</li>
-<li><p><code>Font</code>There are usually several fixed schemes for the fonts used in a game. After being defined here, when you need to enter a font anywhere, you can directly select it from the drop-down menu.</p>
-</li>
-<li><p><code>colour</code>There are usually several schemes of colors used in a game. After being defined here, when you need to enter a color anywhere, you can directly select it from the drop-down menu.</p>
+<li>
+<p><code>Button click sound</code>Sets the default click sound for buttons. After setting, all button clicks will play this sound effect, unless the button itself sets another sound effect. This setting is only used in the editor and is used at runtime<code>UIConfig.buttonSound</code>set up.</p>
 </li>
 </ul>
-<h2 id="Adaptation-settings"><a href="#Adaptation-settings" class="headerlink" title="Adaptation settings"></a>Adaptation settings</h2><p><img src="../../images/QQ20191209-154501.png" alt=""></p>
+<h2 id="Quick menu"><a class="header-anchor" href="#Quick menu">¶</a> Quick menu</h2>
+<p><img src="../../images/QQ20191209-154324.png" alt=""></p>
 <ul>
-<li><p><code>Zoom mode</code>Set the mapping relationship between physical screens and logical screens.</p>
+<li>
+<p><code>font size</code>There are usually several fixed font sizes for a game. Once defined here, when you need to enter the font size anywhere, you can directly select it from the drop-down menu.</p>
+</li>
+<li>
+<p><code>Font</code>There are usually several fixed schemes for the fonts used in a game. After being defined here, when you need to enter a font anywhere, you can directly select it from the drop-down menu.</p>
+</li>
+<li>
+<p><code>colour</code>There are usually several schemes of colors used in a game. After being defined here, when you need to enter a color anywhere, you can directly select it from the drop-down menu.</p>
+</li>
+</ul>
+<h2 id="Adaptation settings"><a class="header-anchor" href="#Adaptation settings">¶</a> Adaptation settings</h2>
+<p><img src="../../images/QQ20191209-154501.png" alt=""></p>
+<ul>
+<li>
+<p><code>Zoom mode</code>Set the mapping relationship between physical screens and logical screens.</p>
 <ul>
 <li><code>Scale according to screen size</code>The physical screen is scaled according to the adaptation mode to obtain a logical screen.</li>
 <li><code>No scaling</code>The physical screen is the same as the logical screen.</li>
 </ul>
 </li>
-<li><p><code>Adaptation mode</code>Sets how the global scaling factor is calculated. Only effective when the zoom mode is “Zoom according to screen size”.</p>
+<li>
+<p><code>Adaptation mode</code>Sets how the global scaling factor is calculated. Only effective when the zoom mode is &quot;Zoom according to screen size&quot;.</p>
 <ul>
 <li><code>Adapt to width and height</code>Take the smaller ratio of width and height to zoom. For example, if the design resolution is 960x640 and the device resolution is 1280 × 720, then the ratio of the wide side is 1280/960 = 1.33, the ratio of the high side is 720/640 = 1.125, and the smaller 1.125 is taken as the global scale coefficient. This zooming method ensures that the content is always in the screen after zooming. If there is a margin, the margin can be further processed by the relation system. This method is a very adaptive processing method.</li>
 <li><code>Adapted width</code>The fixed width ratio is used for scaling. The high side may extend beyond the screen. This method requires the designer to design the safe area purposefully.</li>
 <li><code>Adapt to height</code>Fixed taking a high proportion to scale. The wide edge may extend beyond the screen, which requires the designer to purposefully design a safe area when designing.</li>
 </ul>
 </li>
-<li><p><code>Design resolution</code>Usually we choose a fixed resolution for UI design and production, this resolution is called design resolution. For example, 1136 × 640 and 1280 × 720 are more common design resolutions. After selecting a design resolution, the size of the largest UI interface (usually a full-screen interface) is limited to this resolution.</p>
+<li>
+<p><code>Design resolution</code>Usually we choose a fixed resolution for UI design and production, this resolution is called design resolution. For example, 1136 × 640 and 1280 × 720 are more common design resolutions. After selecting a design resolution, the size of the largest UI interface (usually a full-screen interface) is limited to this resolution.</p>
 </li>
 </ul>
 <p>For more detailed analysis, please read<a href="adaptation.html">adaptation</a>。</p>
-<h2 id="Project-branch"><a href="#Project-branch" class="headerlink" title="Project branch"></a>Project branch</h2><p><img src="../../images/QQ20191209-160403.png" alt=""></p>
+<h2 id="Project branch"><a class="header-anchor" href="#Project branch">¶</a> Project branch</h2>
+<p><img src="../../images/QQ20191209-160403.png" alt=""></p>
 <ul>
 <li><img src="../../images/QQ20191209-160453.png" alt="">Create a new branch.</li>
 <li><img src="../../images/QQ20191209-160516.png" alt="">Rename the branch.</li>
 <li><img src="../../images/QQ20191209-160522.png" alt="">Delete branch.</li>
 </ul>
 <p>For more detailed analysis, please read<a href="branch.html">Branch</a>。</p>
-<h2 id="i18n-settings"><a href="#i18n-settings" class="headerlink" title="i18n settings"></a>i18n settings</h2><p><img src="../../images/QQ20191209-160649.png" alt=""></p>
+<h2 id="i18n settings"><a class="header-anchor" href="#i18n settings">¶</a> i18n settings</h2>
+<p><img src="../../images/QQ20191209-160649.png" alt=""></p>
 <ul>
 <li><img src="../../images/QQ20191209-160453.png" alt="">Add a language file. After clicking, you will be asked to select a language file from the file system.</li>
 <li><img src="../../images/QQ20191209-160522.png" alt="">Removing a language file will only remove the record, not the actual file.</li>
 <li><img src="../../images/QQ20191209-160735.png" alt="">Create a new language file. Click it to create a new language file.</li>
-<li><img src="../../images/QQ20191209-160746.png" alt="">Refresh all language files. This refresh function only adds or deletes strings, but does not modify them. This mechanism protects translated content from being flushed when refreshed. for example:<br>There is a component C in the project, and its content is two texts, which are “t1: test 1, t2: test 2”. Now there is a language file en, which has two strings, which correspond to two text contents. , And they have been translated into English with the content: “s1: test1, s2: test2”. Observe the effects of the following operations on the language files:<ul>
-<li>Change the text of t1 to “Test 2” and click Refresh. The language file en will not change, and the value of s1 will still be “test1”.</li>
+<li><img src="../../images/QQ20191209-160746.png" alt="">Refresh all language files. This refresh function only adds or deletes strings, but does not modify them. This mechanism protects translated content from being flushed when refreshed. for example:<br>
+There is a component C in the project, and its content is two texts, which are &quot;t1: test 1, t2: test 2&quot;. Now there is a language file en, which has two strings, which correspond to two text contents. , And they have been translated into English with the content: &quot;s1: test1, s2: test2&quot;. Observe the effects of the following operations on the language files:
+<ul>
+<li>Change the text of t1 to &quot;Test 2&quot; and click Refresh. The language file en will not change, and the value of s1 will still be &quot;test1&quot;.</li>
 <li>Delete t1 and refresh all language files. The s1 in the language file en is deleted.</li>
-<li>Add a “t3: test3”, and the content of the language file en is updated to “s1: test1, s2: test2, s3: test3”.</li>
+<li>Add a &quot;t3: test3&quot;, and the content of the language file en is updated to &quot;s1: test1, s2: test2, s3: test3&quot;.</li>
 </ul>
 </li>
 </ul>
 <p>For more details, please read<a href="i18n.html">multi-lingual</a>。</p>
-<h2 id="Custom-properties"><a href="#Custom-properties" class="headerlink" title="Custom properties"></a>Custom properties</h2><p><img src="../../images/QQ20191209-160831.png" alt=""></p>
+<h2 id="Custom properties"><a class="header-anchor" href="#Custom properties">¶</a> Custom properties</h2>
+<p><img src="../../images/QQ20191209-160831.png" alt=""></p>
 <p>Custom attributes are user-defined Key-Value collections.</p>
 <p>Custom properties currently serve two purposes:</p>
 <ol>
@@ -449,7 +473,7 @@
 <li>The controller can define the homepage as the Key value here. When the component is created, the controller will automatically switch to the page named Value. <a href="controller.html#Controller-design">Reference here</a>。</li>
 </ol>
 <p>The settings here are only used in the editor, and need to be reset with code when running. The API is<code>UIPackage.SetVar</code>。</p>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
     
     <div class="footer">
       found mistake? Want to participate in editing?

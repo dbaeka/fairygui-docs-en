@@ -354,47 +354,62 @@
     
       <h1>ComboBox</h1>
     
-    <h2 id="Create-a-drop-down-box"><a href="#Create-a-drop-down-box" class="headerlink" title="Create a drop-down box"></a>Create a drop-down box</h2><p>There are two ways to create a drop-down box component.</p>
+    <h2 id="Create a drop-down box"><a class="header-anchor" href="#Create a drop-down box">¶</a> Create a drop-down box</h2>
+<p>There are two ways to create a drop-down box component.</p>
 <ul>
-<li>Click the main menu “Resources”-&gt; “New drop-down box”, and follow the wizard’s prompts to complete step by step.</li>
+<li>Click the main menu &quot;Resources&quot;-&gt; &quot;New drop-down box&quot;, and follow the wizard’s prompts to complete step by step.</li>
 </ul>
 <p><img src="../../images/QQ20191211-094805.png" alt=""></p>
 <ul>
-<li>Create a new component, and then select Expand to “drop-down box” in the component properties.</li>
+<li>Create a new component, and then select Expand to &quot;drop-down box&quot; in the component properties.</li>
 </ul>
-<h2 id="Edit-mode-properties"><a href="#Edit-mode-properties" class="headerlink" title="Edit-mode properties"></a>Edit-mode properties</h2><p>In the component editing state, the properties panel of the drop-down box component is:</p>
+<h2 id="Edit-mode properties"><a class="header-anchor" href="#Edit-mode properties">¶</a> Edit-mode properties</h2>
+<p>In the component editing state, the properties panel of the drop-down box component is:</p>
 <p><img src="../../images/QQ20191211-094841.png" alt=""></p>
 <ul>
-<li><p><code>Eject component</code>The component that the drop-down box needs when the option pops up.</p>
-<p> The most basic design of this component is a background + a list. The background associates the width and height of the container component. The list needs to be named “list” and set “project resources”. Generally speaking, the “overflow processing” of the list is set to “vertical scroll”. The list does not require any relation.</p>
-<p> <img src="../../images/QQ20191211-095015.png" alt=""></p>
-<p> When the drop-down box needs to pop up the drop-down list, the width of the pop-up component is automatically set to the width of the drop-down box, then the list data is filled, and the height of the list is adjusted according to the “number of visible items” requirement, and finally displayed.</p>
+<li>
+<p><code>Eject component</code>The component that the drop-down box needs when the option pops up.</p>
+<p>The most basic design of this component is a background + a list. The background associates the width and height of the container component. The list needs to be named &quot;list&quot; and set &quot;project resources&quot;. Generally speaking, the &quot;overflow processing&quot; of the list is set to &quot;vertical scroll&quot;. The list does not require any relation.</p>
+<p><img src="../../images/QQ20191211-095015.png" alt=""></p>
+<p>When the drop-down box needs to pop up the drop-down list, the width of the pop-up component is automatically set to the width of the drop-down box, then the list data is filled, and the height of the list is adjusted according to the &quot;number of visible items&quot; requirement, and finally displayed.</p>
 </li>
 </ul>
-<h2 id="Instructions"><a href="#Instructions" class="headerlink" title="Instructions"></a>Instructions</h2><ul>
-<li><code>button</code>The drop-down box also needs a button controller, because it has the same shape as the button. The drop-down box can be designed as a design button. When the drop-down box is clicked to drop down, the “button” controller will stay on the “down” page. After the drop-down list is retracted, the “button” controller returns to the “up” or “over” page.</li>
+<h2 id="Instructions"><a class="header-anchor" href="#Instructions">¶</a> Instructions</h2>
+<ul>
+<li>
+<p><code>button</code>The drop-down box also needs a button controller, because it has the same shape as the button. The drop-down box can be designed as a design button. When the drop-down box is clicked to drop down, the &quot;button&quot; controller will stay on the &quot;down&quot; page. After the drop-down list is retracted, the &quot;button&quot; controller returns to the &quot;up&quot; or &quot;over&quot; page.</p>
+</li>
 <li></li>
-<li><p><code>title</code>Can be plain text, rich text, labels, buttons.</p>
+<li>
+<p><code>title</code>Can be plain text, rich text, labels, buttons.</p>
 </li>
-<li><p><code>icon</code>It can be a loader, or a label or button.</p>
+<li>
+<p><code>icon</code>It can be a loader, or a label or button.</p>
 </li>
-<li><h2 id="Instance-properties"><a href="#Instance-properties" class="headerlink" title="Instance properties"></a>Instance properties</h2></li>
+<li></li>
 </ul>
+<h2 id="Instance properties"><a class="header-anchor" href="#Instance properties">¶</a> Instance properties</h2>
 <p>Select a drop-down box component on the stage, and the property panel list on the right appears:</p>
 <p><img src="../../images/QQ20191211-095124.png" alt=""></p>
 <ul>
-<li><p><code>title</code>The set text is assigned to the text property of the “title” element inside the label component. If the “title” element does not exist, nothing will happen.</p>
+<li>
+<p><code>title</code>The set text is assigned to the text property of the &quot;title&quot; element inside the label component. If the &quot;title&quot; element does not exist, nothing will happen.</p>
 </li>
-<li><p><code>icon</code>The set URL will be assigned to the icon attribute of the “icon” element in the label component. If the “icon” element does not exist, nothing will happen.</p>
+<li>
+<p><code>icon</code>The set URL will be assigned to the icon attribute of the &quot;icon&quot; element in the label component. If the &quot;icon&quot; element does not exist, nothing will happen.</p>
 </li>
-<li><p><code>Number of visible items</code>The maximum number of items displayed when the drop-down is displayed. For example, if the value set here is 10 and the data of the drop-down box is 100, then the viewport of the drop-down list will be adjusted to display only 10, others need to be scrolled.</p>
+<li>
+<p><code>Number of visible items</code>The maximum number of items displayed when the drop-down is displayed. For example, if the value set here is 10 and the data of the drop-down box is 100, then the viewport of the drop-down list will be adjusted to display only 10, others need to be scrolled.</p>
 </li>
-<li><p><code>Ejection direction</code>The pop-up direction of the drop-down list. If it is automatic, try popping down first, and if the display goes beyond the screen, try popping up.</p>
+<li>
+<p><code>Ejection direction</code>The pop-up direction of the drop-down list. If it is automatic, try popping down first, and if the display goes beyond the screen, try popping up.</p>
 </li>
-<li><p><code>Selection control</code>You can bind a controller. In this way, when the drop-down box selection changes, the controller also jumps to the page with the same index at the same time. Vice versa, if the controller jumps to a certain page, the drop-down box also selects the item with the same index at the same time.</p>
+<li>
+<p><code>Selection control</code>You can bind a controller. In this way, when the drop-down box selection changes, the controller also jumps to the page with the same index at the same time. Vice versa, if the controller jumps to a certain page, the drop-down box also selects the item with the same index at the same time.</p>
 </li>
-<li><p><code>Editing list items</code>After clicking, a dialog box will pop up, you can edit the items in the drop-down list:</p>
-<p> <img src="../../images/QQ20191211-095240.png" alt=""></p>
+<li>
+<p><code>Editing list items</code>After clicking, a dialog box will pop up, you can edit the items in the drop-down list:</p>
+<p><img src="../../images/QQ20191211-095240.png" alt=""></p>
 <ul>
 <li><code>Clear when publishing</code>All items are cleared when publishing, that is, the settings here are only used for preview in the editor.</li>
 <li><code>text</code>Sets the title of this list item.</li>
@@ -403,7 +418,8 @@
 </ul>
 </li>
 </ul>
-<h2 id="GComboBox"><a href="#GComboBox" class="headerlink" title="GComboBox"></a>GComboBox</h2><p>We can edit the items in the drop-down list in the editor, or set them dynamically with code, for example:</p>
+<h2 id="GComboBox"><a class="header-anchor" href="#GComboBox">¶</a> GComboBox</h2>
+<p>We can edit the items in the drop-down list in the editor, or set them dynamically with code, for example:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GComboBox combo = gcom.GetChild (<span class="string">"n1"</span>).asComboBox;</div><div class="line"></div><div class="line">    <span class="comment">// items is an array of list item titles.</span></div><div class="line">    combo.items = <span class="keyword">new</span> <span class="keyword">string</span> [] &#123;<span class="string">"Item 1"</span>, <span class="string">"Item 2"</span>, ...&#125;;</div><div class="line"></div><div class="line">    <span class="comment">// values is optional and represents the value of each list item.</span></div><div class="line">    combo.values = <span class="keyword">new</span> <span class="keyword">string</span> [] &#123;<span class="string">"value1"</span>, <span class="string">"value2"</span>, ...&#125;;</div><div class="line"></div><div class="line">    <span class="comment">// Get the index of the currently selected item</span></div><div class="line">    Debug.Log (combo.selectedIndex);</div><div class="line"></div><div class="line">    <span class="comment">// Get the value of the currently selected item.</span></div><div class="line">    Debug.Log (combo.<span class="keyword">value</span>);</div><div class="line"></div><div class="line">    <span class="comment">// Set the selected item by index</span></div><div class="line">    combo.selectedIndex = <span class="number">1</span>;</div><div class="line"></div><div class="line">    <span class="comment">// Set the selected item by value</span></div><div class="line">    combo.<span class="keyword">value</span> = <span class="string">"value1"</span>;</div></pre></td></tr></table></figure>
 <p>There is a notification event when the drop-down box selection is changed:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry/MonoGame</span></div><div class="line">    combo.onChanged.Add(onChanged);</div><div class="line"></div><div class="line">    <span class="comment">//AS3</span></div><div class="line">    combo.addEventListener(StateChangeEvent.CHANGED, onChanged);</div><div class="line"></div><div class="line">    <span class="comment">//Egret</span></div><div class="line">    combo.addEventListener(fairygui.StateChangeEvent.CHANGED, <span class="keyword">this</span>.onChanged, <span class="keyword">this</span>);</div><div class="line"></div><div class="line">    <span class="comment">//Laya</span></div><div class="line">    combo.<span class="keyword">on</span>(fairygui.Events.STATE_CHANGED, <span class="keyword">this</span>, <span class="keyword">this</span>.onChanged);</div><div class="line"></div><div class="line">    <span class="comment">//Cocos2dx</span></div><div class="line">    combo-&gt;addEventListener(UIEventType::Changed, CC_CALLBACK_1(AClass::onChanged, this));</div><div class="line"></div><div class="line">    <span class="comment">//CocosCreator</span></div><div class="line">    combo.<span class="keyword">on</span>(fgui.Event.STATUS_CHANGED, <span class="keyword">this</span>.onChanged, <span class="keyword">this</span>);</div></pre></td></tr></table></figure>
@@ -411,7 +427,7 @@
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry</span></div><div class="line">    combo.dropdown.onRemoveFromStage.Add(onPopupClosed);</div><div class="line"></div><div class="line">    <span class="comment">//AS3</span></div><div class="line">    combo.dropdown.addEventListener(Event.REMOVED_FROM_STAGE, onPopupClosed);</div><div class="line"></div><div class="line">    <span class="comment">//Egret</span></div><div class="line">    combo.dropdown.addEventListener(egret.Event.REMOVED_FROM_STAGE, <span class="keyword">this</span>.onPopupClosed, <span class="keyword">this</span>);</div><div class="line"></div><div class="line">    <span class="comment">//Laya</span></div><div class="line">    combo.dropdown.<span class="keyword">on</span>(laya.events.Event.UNDISPLAY, <span class="keyword">this</span>, <span class="keyword">this</span>.onPopupClosed);</div><div class="line"></div><div class="line">    <span class="comment">//Cocos2dx</span></div><div class="line">    combo-&gt;getDropdown()-&gt;addEventListener(UIEventType::Exit, CC_CALLBACK_1(AClass::onPopupClosed, this));</div><div class="line"></div><div class="line">    <span class="comment">//CocosCreator</span></div><div class="line">    combo.<span class="keyword">on</span>(fgui.Event.UNDISPLAY, <span class="keyword">this</span>.onPopupClosed, <span class="keyword">this</span>);</div></pre></td></tr></table></figure>
 <p>If you want to close the popup box manually:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GRoot.inst.HidePopup ();</div></pre></td></tr></table></figure>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
     
     <div class="footer">
       found mistake? Want to participate in editing?

@@ -355,30 +355,31 @@
       <h1>Insert 3D</h1>
     
     <p>FairyGUI provides a very complete solution to solve the problem of 3D objects interspersed with UI such as models, particles, and skeleton animation, and supports interspersion with UGUI Canvas.</p>
-<h2 id="Put-directly-into-3D-objects"><a href="#Put-directly-into-3D-objects" class="headerlink" title="Put directly into 3D objects"></a>Put directly into 3D objects</h2><p>This method is to directly render the 3D object with the UI camera. Compared with the RenderTexture solution, it is simple to use and saves memory. The disadvantage is that the 3D object has no perspective under the UI camera.</p>
+<h2 id="Put directly into 3D objects"><a class="header-anchor" href="#Put directly into 3D objects">¶</a> Put directly into 3D objects</h2>
+<p>This method is to directly render the 3D object with the UI camera. Compared with the RenderTexture solution, it is simple to use and saves memory. The disadvantage is that the 3D object has no perspective under the UI camera.</p>
 <p>Inserting 3D objects in the UI requires a graphic placeholder and<code>GoWrapper</code>Object.</p>
 <ol>
 <li>Instantiate your 3D object, for example:</li>
 </ol>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Object prefab = Resources.Load(<span class="string">"Role/npc"</span>);</div><div class="line">  GameObject go = (GameObject)Object.Instantiate(prefab);</div></pre></td></tr></table></figure>
-<ol>
+<ol start="2">
 <li>Set the appropriate position, scale, and rotation for the 3D object.</li>
 </ol>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">go.transform.localPosition = <span class="keyword">new</span> Vector3(<span class="number">61</span>, <span class="number">-89</span>, <span class="number">1000</span>); </div><div class="line">  go.transform.localScale = <span class="keyword">new</span> Vector3(<span class="number">180</span>, <span class="number">180</span>, <span class="number">180</span>);</div><div class="line">  go.transform.localEulerAngles = <span class="keyword">new</span> Vector3(<span class="number">0</span>, <span class="number">100</span>, <span class="number">0</span>);</div></pre></td></tr></table></figure>
 <p>Note: For objects such as models with “thickness” (there is a certain range on the z axis), the z value of localPosition should not be 0. You can set a larger positive value (a positive number means away from the camera). Because Shader has ZTest turned on, if the model’s z-axis coordinate is 0 and the z value of the UI is the same, then his front end may overlap with the UI of the previous layer.</p>
 <p>The scale of the model can be estimated according to this formula: zoom factor = display size (unit pixels) / model size (units meters). For example, if a model is 1 meter high and eventually needs to display 400 pixels high, then you need to zoom in 400 times.</p>
-<ol>
-<li>Place a blank graphic in the UI, assuming the name is “holder”.</li>
+<ol start="2">
+<li>Place a blank graphic in the UI, assuming the name is &quot;holder&quot;.</li>
 </ol>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GGraph holder = view.GetChild(<span class="string">"holder"</span>).asGraph;</div></pre></td></tr></table></figure>
-<ol>
+<ol start="3">
 <li>Construct a GoWrapper object and place it in the holder.</li>
 </ol>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GoWrapper wrapper = <span class="keyword">new</span> GoWrapper(go);</div><div class="line">  holder.SetNativeObject(wrapper);</div></pre></td></tr></table></figure>
 <p><strong>Click processing</strong></p>
 <p>GoWrapper has no size by default, so it cannot handle click events. If you need a click event on the display area of the 3D object, you can place another graphic (with transparency set to 0) on the holder as the click area, or an empty component will do.</p>
 <p><strong>Debugging method</strong></p>
-<p>To insert a 3D object in this way, you need to use code, and you can see the effect at runtime. It is not very intuitive to set the position, rotation, and scaling of the GameObject. FairyGUI provides an intuitive way to hang 3D objects directly under UIPanel objects. <strong>First set the Layer of the 3D object to UI</strong>, And check “Set Native Children Order” in UIPanel. as follows:</p>
+<p>To insert a 3D object in this way, you need to use code, and you can see the effect at runtime. It is not very intuitive to set the position, rotation, and scaling of the GameObject. FairyGUI provides an intuitive way to hang 3D objects directly under UIPanel objects. <strong>First set the Layer of the 3D object to UI</strong>, And check &quot;Set Native Children Order&quot; in UIPanel. as follows:</p>
 <p><img src="../../images/20170809140223.png" alt=""></p>
 <p>But this method GameObject does not move with UIPanel, so it can only be used for debugging purposes. For example, when making particles for UI, this method can be provided to art.</p>
 <p><strong>Update GameObject</strong></p>
@@ -393,7 +394,7 @@
 <p>If the GoWrapper wrapper is used in many places at the same time, and you don’t handle the copying of the material when you instantiate it, then there will be some problems. For example, if a model is displayed on the UI and used in the scene, the UI system needs to modify the material parameters of the model. The root cause of this problem is that GoWrapper uses shared materials by default, which is due to efficiency impact. There are two ways to solve this problem. First, copy the material yourself when you instantiate the object. You need to be careful to avoid excessive copy operations. Second, let GoWrapper copy automatically. This can be called when setting the wrapper object:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// The second parameter is true, which means that the material is copied</span></div><div class="line">    wrapper.setWrapTarget (anotherGameObject, <span class="literal">true</span>);</div></pre></td></tr></table></figure>
 <p><strong>Tailoring</strong></p>
-<p>If you need to trim a 3D object, you can use a custom mask (<strong>Models, particles, skeletal animation, etc.</strong>）。 Reference of using custom mask:<a href="../editor/component.html#遮罩">Component mask</a>。</p>
+<p>If you need to trim a 3D object, you can use a custom mask (<strong>Models, particles, skeletal animation, etc.</strong>）。 Reference of using custom mask:<a href="../editor/component.html#%E9%81%AE%E7%BD%A9">Component mask</a>。</p>
 <p>For example, you need to display the model in the items in a list, and you want the model to be properly hidden when the list is scrolled. In this case, the overflow scroll function of the list itself cannot be used. First convert the list to a component, drag a rectangular graphic inside the component to cover the viewport of the list, and then set this graphic as a custom mask for the component.</p>
 <p>The model’s shader must also be modified accordingly. Add the following code to the Properties section of the model’s shader (see FairyGUI-Image.shader):</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">_StencilComp (<span class="string">"Stencil Comparison"</span>, Float) = <span class="number">8</span></div><div class="line">    _Stencil (<span class="string">"Stencil ID"</span>, Float) = <span class="number">0</span></div><div class="line">    _StencilOp (<span class="string">"Stencil Operation"</span>, Float) = <span class="number">0</span></div><div class="line">    _StencilWriteMask (<span class="string">"Stencil Write Mask"</span>, Float) = <span class="number">255</span></div><div class="line">    _StencilReadMask (<span class="string">"Stencil Read Mask"</span>, Float) = <span class="number">255</span></div></pre></td></tr></table></figure>
@@ -402,18 +403,20 @@
 <p>Finally, set GoWrapper to support custom masks:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">wrapper.supportStencil = <span class="literal">true</span>;</div></pre></td></tr></table></figure>
 <p><strong>Note that if there are multiple objects that are being clipped, their materials cannot share one, otherwise they will display abnormally. The solution is to copy the material. Please refer to the previous paragraph to copy the material.</strong></p>
-<h2 id="Use-RenderTexture"><a href="#Use-RenderTexture" class="headerlink" title="Use RenderTexture"></a>Use RenderTexture</h2><p>Another way to present 3D content on the UI is to use RenderTexture. The steps for using RenderTexture are more complicated. You need to create a new camera to render the target object, and then direct the camera’s output to a RenderTexture. With RenderTexture, we can assign it to Image.texture. Detailed code can refer to<a href="https://github.com/fairygui/FairyGUI-unity/blob/master/Assets/Examples/RenderTexture/RenderImage.cs" target="_blank" rel="external">RenderImage</a>。</p>
-<p>RenderTexture can set the background color to transparent, which is convenient for blending with the UI. In the example, comment out “this._image.blendMode = BlendMode.Off;”. However, if the rendered content contains a transparent map, the display error of the transparent part will occur when mixing with the UI. There are two solutions. The first solution can refer to<a href="https://blog.uwa4d.com/archives/Severe_MOBA.html" target="_blank" rel="external">Information here</a>, Modify the model or particle shader, and the RenderTexture shader. The second solution is a unique solution provided by FairyGUI, which is to map the background image of the RenderTexture location to the background of the RenderTexture rendering camera, as RenderImage demonstrates:</p>
+<h2 id="Use RenderTexture"><a class="header-anchor" href="#Use RenderTexture">¶</a> Use RenderTexture</h2>
+<p>Another way to present 3D content on the UI is to use RenderTexture. The steps for using RenderTexture are more complicated. You need to create a new camera to render the target object, and then direct the camera’s output to a RenderTexture. With RenderTexture, we can assign it to Image.texture. Detailed code can refer to<a href="https://github.com/fairygui/FairyGUI-unity/blob/master/Assets/Examples/RenderTexture/RenderImage.cs" target="_blank" rel="external">RenderImage</a>。</p>
+<p>RenderTexture can set the background color to transparent, which is convenient for blending with the UI. In the example, comment out &quot;this._image.blendMode = BlendMode.Off;&quot;. However, if the rendered content contains a transparent map, the display error of the transparent part will occur when mixing with the UI. There are two solutions. The first solution can refer to<a href="https://blog.uwa4d.com/archives/Severe_MOBA.html" target="_blank" rel="external">Information here</a>, Modify the model or particle shader, and the RenderTexture shader. The second solution is a unique solution provided by FairyGUI, which is to map the background image of the RenderTexture location to the background of the RenderTexture rendering camera, as RenderImage demonstrates:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SetBackground</span>(<span class="params">GObject image</span>)</span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SetBackground</span>(<span class="params">GObject image1, GObject image2</span>)</span>;</div></pre></td></tr></table></figure>
 <p>As you can see, you can set up to two images. If there are more than two images superimposed behind RenderTexture, it cannot be processed. These two images do not need to be in the same container as RenderTexture, they can be at any level of the UI.</p>
-<h2 id="Insert-Canvas"><a href="#Insert-Canvas" class="headerlink" title="Insert Canvas"></a>Insert Canvas</h2><p>FairyGUI can meet all the requirements of most UI design, both in terms of function and efficiency. Therefore, in projects using FairyGUI, it is rarely necessary to use UGUI again. Most of UGUI’s functions need to be completed with plug-ins. FairyGUI is already built in, and many can be completed in the editor with zero scripts. If you really need to use some UGUI plug-ins, and it is not easy to port, FairyGUI also provides a solution to insert UGUI’s Canvas into FairyGUI’s display level. Proceed as follows:</p>
+<h2 id="Insert Canvas"><a class="header-anchor" href="#Insert Canvas">¶</a> Insert Canvas</h2>
+<p>FairyGUI can meet all the requirements of most UI design, both in terms of function and efficiency. Therefore, in projects using FairyGUI, it is rarely necessary to use UGUI again. Most of UGUI’s functions need to be completed with plug-ins. FairyGUI is already built in, and many can be completed in the editor with zero scripts. If you really need to use some UGUI plug-ins, and it is not easy to port, FairyGUI also provides a solution to insert UGUI’s Canvas into FairyGUI’s display level. Proceed as follows:</p>
 <ol>
 <li>Set Render Mode of Canvas to WorldSpace and Event Camera to Stage Camera.</li>
 <li>Remove the Canvas Scaler component (if any).</li>
 <li>Wrap Canvas with GoWrapper:</li>
 </ol>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GameObject canvasObject;</div><div class="line">  GoWrapper gw = <span class="keyword">new</span> GoWrapper(canvasObject);</div></pre></td></tr></table></figure>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
     
     <div class="footer">
       found mistake? Want to participate in editing?

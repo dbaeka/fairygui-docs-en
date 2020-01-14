@@ -354,26 +354,31 @@
     
       <h1>Cocos2dx</h1>
     
-    <h2 id="Run-Demo"><a href="#Run-Demo" class="headerlink" title="Run Demo"></a>Run Demo</h2><ol>
+    <h2 id="Run Demo"><a class="header-anchor" href="#Run Demo">¶</a> Run Demo</h2>
+<ol>
 <li>Download FairyGUI-cocos2dx from GitHub Clone or directly.</li>
 <li>Download the 3.x version of cocos2dx and name it cocos2d and place it in the Example root directory. The cocos2dx source code needs a change to compile. Open 2d / CCLabel.h, about 672 lines, and add the virtual modifier to the updateBMFontScale function. which is</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">virtual void updateBMFontScale();</div></pre></td></tr></table></figure>
-<ol>
+<ol start="3">
 <li>Use Visual Studio to open Examples / proj.win32 / Examples.sln and run Demo directly.</li>
 <li>Demo UI project is under Examples / UIProject. Combining UI project and example code, you can learn how to use FairyGUI under Cocos2dx.</li>
 </ol>
-<h2 id="Add-FairyGUI-to-your-project"><a href="#Add-FairyGUI-to-your-project" class="headerlink" title="Add FairyGUI to your project"></a>Add FairyGUI to your project</h2><p>Add libfairygui to your WorkSpace and add references. libfairygui is a static library that is finally linked into your program.</p>
-<h2 id="About-GRoot"><a href="#About-GRoot" class="headerlink" title="About GRoot"></a>About GRoot</h2><p>GRoot is the root object of the UI. We can create a GRoot object for each scene like Demo. GRoot :: getInstance () (or simply use the UIRoot macro) points to the last GRoot object created, which is generally the GRoot object contained in the current Scene. When Cocos2dx switches Scenes, everything in the Scene will be destroyed, including GRoot added to the Scene. If you want to avoid repeated creation of the interface, a GRoot is used in different Scenes, then you can retain GRoot yourself. After switching scenes, you can add GRoot to Scene by yourself.</p>
-<h2 id="Event-mechanism"><a href="#Event-mechanism" class="headerlink" title="Event mechanism"></a>Event mechanism</h2><p>Event related APIs are</p>
+<h2 id="Add FairyGUI to your project"><a class="header-anchor" href="#Add FairyGUI to your project">¶</a> Add FairyGUI to your project</h2>
+<p>Add libfairygui to your WorkSpace and add references. libfairygui is a static library that is finally linked into your program.</p>
+<h2 id="About GRoot"><a class="header-anchor" href="#About GRoot">¶</a> About GRoot</h2>
+<p>GRoot is the root object of the UI. We can create a GRoot object for each scene like Demo. GRoot :: getInstance () (or simply use the UIRoot macro) points to the last GRoot object created, which is generally the GRoot object contained in the current Scene. When Cocos2dx switches Scenes, everything in the Scene will be destroyed, including GRoot added to the Scene. If you want to avoid repeated creation of the interface, a GRoot is used in different Scenes, then you can retain GRoot yourself. After switching scenes, you can add GRoot to Scene by yourself.</p>
+<h2 id="Event mechanism"><a class="header-anchor" href="#Event mechanism">¶</a> Event mechanism</h2>
+<p>Event related APIs are</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">addEventListener</span>(<span class="params"><span class="keyword">int</span> eventType, <span class="keyword">const</span> EventCallback&amp; callback</span>)</span>;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">addEventListener</span>(<span class="params"><span class="keyword">int</span> eventType, <span class="keyword">const</span> EventCallback&amp; callback, <span class="keyword">const</span> EventTag&amp; tag</span>)</span>;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">removeEventListener</span>(<span class="params"><span class="keyword">int</span> eventType</span>)</span>;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">removeEventListener</span>(<span class="params"><span class="keyword">int</span> eventType, <span class="keyword">const</span> EventTag&amp; tag</span>)</span>;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">removeEventListeners</span>(<span class="params"></span>)</span>;</div></pre></td></tr></table></figure>
 <p><code>eventType</code>An event type constant, defined in event / UIEventType.h.<code>callback</code>The callback function can be defined with the CC_CALLBACK_1 macro or a Lambda expression.<code>tag</code>If the remove operation is to be performed after the event registration, then the event must be identified when adding. The mechanism here is that the caller provides an EventTag. EventTag can be constructed using integers or a pointer address, for example, this can be passed directly. In particular, 0 means that there is no EventTag, that is, do not use 0 as a special EventTag.</p>
-<h2 id="Lua-Binding"><a href="#Lua-Binding" class="headerlink" title="Lua Binding"></a>Lua Binding</h2><p>FairyGUI-cocos2dx only provides C ++ version, Lua Binding needs to be completed by you. Or refer to online materials, such as:</p>
+<h2 id="Lua Binding"><a class="header-anchor" href="#Lua Binding">¶</a> Lua Binding</h2>
+<p>FairyGUI-cocos2dx only provides C ++ version, Lua Binding needs to be completed by you. Or refer to online materials, such as:</p>
 <ol>
 <li><a href="https://github.com/zhongfq/cocos-lua" target="_blank" rel="external">Cocos-taking</a></li>
 <li><a href="https://www.jianshu.com/p/547e584e05d8" target="_blank" rel="external">FairyGUI multi-platform access and lua binding under Cocos2d-x</a></li>
 </ol>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
     
     <div class="footer">
       found mistake? Want to participate in editing?

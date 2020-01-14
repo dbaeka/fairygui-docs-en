@@ -355,64 +355,87 @@
       <h1>Component</h1>
     
     <p>A component is a basic container in FairyGUI. A component can contain one or more base display objects, and it can also contain components.</p>
-<h2 id="Component-properties"><a href="#Component-properties" class="headerlink" title="Component properties"></a>Component properties</h2><p>Click on the stage<strong>Blank space</strong>The property bar on the right shows the properties of the container component:</p>
+<h2 id="Component properties"><a class="header-anchor" href="#Component properties">¶</a> Component properties</h2>
+<p>Click on the stage<strong>Blank space</strong>The property bar on the right shows the properties of the container component:</p>
 <p><img src="../../images/QQ20191211-095458.png" alt=""></p>
 <ul>
-<li><p><code>size</code>Set the width and height of the component.</p>
+<li>
+<p><code>size</code>Set the width and height of the component.</p>
 </li>
-<li><p><code>smallest size</code> <code>biggest size</code>Set the size limit of the component. 0 means no limit. Note: Modifying the size limit does not modify the current width and height, even if the current width and height values exceed the limit.</p>
+<li>
+<p><code>smallest size</code> <code>biggest size</code>Set the size limit of the component. 0 means no limit. Note: Modifying the size limit does not modify the current width and height, even if the current width and height values exceed the limit.</p>
 </li>
-<li><p><code>Axis</code>Rotate, scale, and tilt the pivot points of these transformations. The value ranges from 0 to 1. For example, X = 0.5 and Y = 0.5 represent the center position. Click the small triangle on the right to quickly set some commonly used values, such as center, lower left corner, lower right corner, etc.</p>
+<li>
+<p><code>Axis</code>Rotate, scale, and tilt the pivot points of these transformations. The value ranges from 0 to 1. For example, X = 0.5 and Y = 0.5 represent the center position. Click the small triangle on the right to quickly set some commonly used values, such as center, lower left corner, lower right corner, etc.</p>
 </li>
-<li><p><code>As anchor</code>When this option is checked, the origin position of the component will be set to the position of the axis. By default, (0,0) of each component is in the upper left corner; when the axis is also selected as the anchor point, the (0,0) of the component is at the position of the axis.</p>
+<li>
+<p><code>As anchor</code>When this option is checked, the origin position of the component will be set to the position of the axis. By default, (0,0) of each component is in the upper left corner; when the axis is also selected as the anchor point, the (0,0) of the component is at the position of the axis.</p>
 </li>
-<li><p><code>Initial name</code>When the component is instantiated (within the editor), the component name is automatically set to the value set here. The most common use is that the window frame component is required to be named frame in FairyGUI. Then you create a window frame component and set the “initial name” to frame. Each time you drag in this component, it will automatically get the name No need to modify each time.</p>
+<li>
+<p><code>Initial name</code>When the component is instantiated (within the editor), the component name is automatically set to the value set here. The most common use is that the window frame component is required to be named frame in FairyGUI. Then you create a window frame component and set the &quot;initial name&quot; to frame. Each time you drag in this component, it will automatically get the name No need to modify each time.</p>
 </li>
-<li><p><code>Overflow handling</code>Represents how to handle content that extends beyond the rectangular area of the component. note:<strong>Overflow handling</strong>Dynamic modification in code is not supported.</p>
+<li>
+<p><code>Overflow handling</code>Represents how to handle content that extends beyond the rectangular area of the component. note:<strong>Overflow handling</strong>Dynamic modification in code is not supported.</p>
 </li>
-<li><code>visible</code>Indicates that content beyond the rectangular area of the component remains visible, which is the default behavior.</li>
-<li><code>hide</code>Indicates that content beyond the rectangular area of the component is not visible, which is equivalent to applying a rectangular mask to the component.</li>
-<li><p><code>Vertical scroll</code> <code>Horizontal scroll</code> ``Free scrolling is very different from other UI frameworks. There is no need to drag in scroll controls to achieve scrolling in FairyGUI. For any ordinary component, you only need to set a property to make the component have scrolling function. There are three scrolling options in overflow processing. Free scrolling is scrolling both horizontally and vertically. Detailed instructions<a href="scrollpane.html">Rolling container</a>。</p>
+<li>
+<p><code>visible</code>Indicates that content beyond the rectangular area of the component remains visible, which is the default behavior.</p>
 </li>
-<li><p><code>edge</code>Leave blank around the component. Generally used when the “overflow processing” is “hidden” or “scrolling”. Edge virtualization is currently only supported on the Unity platform. If the component is clipped to the content, it can produce a blurred effect at the edges and enhance the user experience. This value should be relatively large to see the effect, such as 50.</p>
-<p> <img src="../../images/QQ20191211-111027.png" alt=""></p>
+<li>
+<p><code>hide</code>Indicates that content beyond the rectangular area of the component is not visible, which is equivalent to applying a rectangular mask to the component.</p>
 </li>
-<li><p>``Custom masks detailed at<a href="#Mask">Mask</a>。</p>
+<li>
+<p><code>Vertical scroll</code> <code>Horizontal scroll</code> ``Free scrolling is very different from other UI frameworks. There is no need to drag in scroll controls to achieve scrolling in FairyGUI. For any ordinary component, you only need to set a property to make the component have scrolling function. There are three scrolling options in overflow processing. Free scrolling is scrolling both horizontally and vertically. Detailed instructions<a href="scrollpane.html">Rolling container</a>。</p>
+</li>
+<li>
+<p><code>edge</code>Leave blank around the component. Generally used when the &quot;overflow processing&quot; is &quot;hidden&quot; or &quot;scrolling&quot;. Edge virtualization is currently only supported on the Unity platform. If the component is clipped to the content, it can produce a blurred effect at the edges and enhance the user experience. This value should be relatively large to see the effect, such as 50.</p>
+<p><img src="../../images/QQ20191211-111027.png" alt=""></p>
+</li>
+<li>
+<p>``Custom masks detailed at<a href="#Mask">Mask</a>。</p>
 <ul>
 <li><code>Reverse (burrowing)</code></li>
 </ul>
 </li>
-<li><p><code>Click to test</code>Detailed instructions<a href="#Click-Test">Click to test</a>。</p>
+<li>
+<p><code>Click to test</code>Detailed instructions<a href="#Click-Test">Click to test</a>。</p>
 </li>
-<li><p><code>Click through</code>By default, the rectangular area (width x height) of the component will block clicks. When checked, the click event can penetrate the component.<strong>lack of content</strong>Area. Detailed instructions<a href="#Click-through">Click through</a>。</p>
+<li>
+<p><code>Click through</code>By default, the rectangular area (width x height) of the component will block clicks. When checked, the click event can penetrate the component.<strong>lack of content</strong>Area. Detailed instructions<a href="#Click-through">Click through</a>。</p>
 </li>
-<li><p>``The extension is detailed in<a href="#Extension">Extension</a>。</p>
+<li>
+<p>``The extension is detailed in<a href="#Extension">Extension</a>。</p>
 </li>
-<li><p><code>background color</code>Set the background color of the component editing area. It is only used for design assistance. The actual component background is blank and there will be no color. If you need a component to have a realistic background color, you can place a graphic.</p>
+<li>
+<p><code>background color</code>Set the background color of the component editing area. It is only used for design assistance. The actual component background is blank and there will be no color. If you need a component to have a realistic background color, you can place a graphic.</p>
 </li>
 </ul>
-<h2 id="Other-properties"><a href="#Other-properties" class="headerlink" title="Other properties"></a>Other properties</h2><ul>
-<li><p><code>Custom attributes</code>When a component is dragged into other components, the properties that can be set through the inspector are generally fixed. For example, a button, we can change its title, icon, whether to be selected, etc. These are fixed properties provided by the editor. But if I put extra text or loader in the button, and need to set their properties after instantiation, I need to use custom properties to expose the properties of the sub-components and even deeper components of the component.</p>
-<p> Click “Edit” to pop up the following interface:</p>
-<p> <img src="../../images/QQ20191211-111956.png" alt=""></p>
+<h2 id="Other properties"><a class="header-anchor" href="#Other properties">¶</a> Other properties</h2>
 <ul>
-<li><code>Component name</code>The name of the component. You can use “.” To refer to deeper components, such as n0.n1.n2, which means child n2 of child n1 of component n0.</li>
+<li>
+<p><code>Custom attributes</code>When a component is dragged into other components, the properties that can be set through the inspector are generally fixed. For example, a button, we can change its title, icon, whether to be selected, etc. These are fixed properties provided by the editor. But if I put extra text or loader in the button, and need to set their properties after instantiation, I need to use custom properties to expose the properties of the sub-components and even deeper components of the component.</p>
+<p>Click &quot;Edit&quot; to pop up the following interface:</p>
+<p><img src="../../images/QQ20191211-111956.png" alt=""></p>
+<ul>
+<li><code>Component name</code>The name of the component. You can use &quot;.&quot; To refer to deeper components, such as n0.n1.n2, which means child n2 of child n1 of component n0.</li>
 <li><code>Attribute type</code>Two attributes are currently supported: text and icon.</li>
-<li><p><code>Remark</code>Optional. If it is filled, use the content here as the title in the inspector.<br>After the definition, drag the component into other components, you can see that a new panel is added to the inspector on the right:</p>
+<li><code>Remark</code>Optional. If it is filled, use the content here as the title in the inspector.<br>
+After the definition, drag the component into other components, you can see that a new panel is added to the inspector on the right:</li>
+</ul>
 <p><img src="../../images/QQ20191211-112303.png" alt=""></p>
 <p>After checking, you can modify the value here. Custom attributes are only used within the editor. This mechanism is not required at runtime. Because at runtime you can get any object with GetChild.</p>
 </li>
-</ul>
-</li>
-<li><p><code>Custom data</code>You can set a custom data. This data is not parsed by FairyGUI, and is published to the final description file as it is. Developers can get it at runtime. Get it as:</p>
+<li>
+<p><code>Custom data</code>You can set a custom data. This data is not parsed by FairyGUI, and is published to the final description file as it is. Developers can get it at runtime. Get it as:</p>
  <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"> <span class="comment">//Unity/Cry/Laya/Egret</span></div><div class="line">aComponent.baseUserData;</div><div class="line"></div><div class="line"><span class="comment">//Cocos2dx/Vision</span></div><div class="line">aComponent-&gt;getBaseUserData();</div><div class="line"></div><div class="line"><span class="comment">//AS3/Starling</span></div><div class="line">aComponent.packageItem.componentData.@customData;</div></pre></td></tr></table></figure>
-<p> <strong>Custom data is defined in two places</strong>Please note and<a href="object.html#自定义数据">Custom data for components</a>distinguish,</p>
+<p><strong>Custom data is defined in two places</strong>Please note and<a href="object.html#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE">Custom data for components</a>distinguish,</p>
 </li>
 </ul>
-<h2 id="Design-drawing"><a href="#Design-drawing" class="headerlink" title="Design drawing"></a>Design drawing</h2><p><img src="../../images/QQ20191211-111159.png" alt=""></p>
+<h2 id="Design drawing"><a class="header-anchor" href="#Design drawing">¶</a> Design drawing</h2>
+<p><img src="../../images/QQ20191211-111159.png" alt=""></p>
 <p>You can set the design drawing of a component. The design drawing will be displayed on the stage, and can be set to be displayed at the bottom or upper level of the component content. Using design drawings can make the splicing UI faster and more accurate.</p>
 <p>Design drawings are not published to final resources.</p>
-<h2 id="Click-through"><a href="#Click-through" class="headerlink" title="Click through"></a>Click through</h2><p>Within the component, the component displayed in front will receive the click event first. If the element is touchable, the click event ends and no further passes are made.</p>
+<h2 id="Click through"><a class="header-anchor" href="#Click through">¶</a> Click through</h2>
+<p>Within the component, the component displayed in front will receive the click event first. If the element is touchable, the click event ends and no further passes are made.</p>
 <p>The click test is valid (impossible to penetrate) in the range of component width x height, regardless of whether there are sub-components in this range. Take an example.</p>
 <p>Here is component A, 400x400 in size, with 4 white rectangles:</p>
 <p><img src="../../images/2015-12-21_164631.png" alt=""></p>
@@ -425,19 +448,25 @@
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// true means it is not penetrated, false means it is penetrated.</span></div><div class="line">    aComponent.opaque = <span class="literal">false</span>;</div></pre></td></tr></table></figure>
 <p>After the penetration is set, A will receive the click event only when 4 white blocks are clicked. If the green dot is clicked, B will receive the click event. <strong>This feature is especially important when designing some full-screen interfaces. For example, a main interface is added to the stage and set to full screen. If it does not penetrate, then Stage.isTouchOnUI will always return true.</strong></p>
 <p><strong>Note: Images and ordinary texts do not accept clicks. If a component that contains only images or ordinary text is set to click through, then the entire component is completely penetrated and no clicks are intercepted.</strong></p>
-<h2 id="Click-Test"><a href="#Click-Test" class="headerlink" title="Click Test"></a>Click Test</h2><p>For some special needs, click testing in irregular areas is required. FairyGUI provides two solutions to this need:</p>
+<h2 id="Click Test"><a class="header-anchor" href="#Click Test">¶</a> Click Test</h2>
+<p>For some special needs, click testing in irregular areas is required. FairyGUI provides two solutions to this need:</p>
 <ol>
-<li><p>Drag a shape into the component, select the shape as the polygon, and then use the polygon to draw the shape of the irregular area. Finally, in the component’s “click test” property, select this graphic element.</p>
+<li>
+<p>Drag a shape into the component, select the shape as the polygon, and then use the polygon to draw the shape of the irregular area. Finally, in the component’s &quot;click test&quot; property, select this graphic element.</p>
 </li>
-<li><p>If the irregular shape is a shape with holes, such as a ring, it cannot be drawn with graphics. In this case, pixel detection can be used.</p>
+<li>
+<p>If the irregular shape is a shape with holes, such as a ring, it cannot be drawn with graphics. In this case, pixel detection can be used.</p>
 </li>
 </ol>
 <p>First, you need to prepare an image with irregular areas. The opaque pixels in the image represent the areas that are clicked. The transparent pixels represent the areas that are clicked through. The components that are beyond the image range are also transparent areas.</p>
-<p>Drag this image to the stage and select it in the component’s “click to test” property.</p>
+<p>Drag this image to the stage and select it in the component’s &quot;click to test&quot; property.</p>
 <p><strong>Note: This image used for pixel detection can only be placed in the same package as the component, nor can it use the loader, it can only be an image.</strong></p>
-<h2 id="Mask"><a href="#Mask" class="headerlink" title="Mask"></a>Mask</h2><p>There are two types of FairyGUI masks: rectangular masks and custom masks.</p>
-<h3 id="Rectangular-mask"><a href="#Rectangular-mask" class="headerlink" title="Rectangular mask"></a>Rectangular mask</h3><p>Set the component’s “Overflow Handling” to “Hide” or “Scroll”, then the component has a rectangular mask. Areas beyond the component (rectangular area-margins left) are not visible. No matter what platform, this mask is the most efficient.</p>
-<h3 id="Custom-mask"><a href="#Custom-mask" class="headerlink" title="Custom mask"></a>Custom mask</h3><p>You can set a image or graphic in the component as the mask of the component. This kind of mask is generally used Stencil Op technology.</p>
+<h2 id="Mask"><a class="header-anchor" href="#Mask">¶</a> Mask</h2>
+<p>There are two types of FairyGUI masks: rectangular masks and custom masks.</p>
+<h3 id="Rectangular mask"><a class="header-anchor" href="#Rectangular mask">¶</a> Rectangular mask</h3>
+<p>Set the component’s &quot;Overflow Handling&quot; to &quot;Hide&quot; or &quot;Scroll&quot;, then the component has a rectangular mask. Areas beyond the component (rectangular area-margins left) are not visible. No matter what platform, this mask is the most efficient.</p>
+<h3 id="Custom mask"><a class="header-anchor" href="#Custom mask">¶</a> Custom mask</h3>
+<p>You can set a image or graphic in the component as the mask of the component. This kind of mask is generally used Stencil Op technology.</p>
 <p>When using a graph as a mask, the content of the area with the graph<strong><strong>Visible, for example, a circle</strong></strong>Visible, other areas are not visible.</p>
 <p>When using a image as a mask, the content of the area corresponding to the pixels with 0 transparency in the image<strong>Invisible</strong>And vice versa. Content beyond the image area<strong>Invisible</strong>。</p>
 <p>Remarks:</p>
@@ -445,11 +474,12 @@
 <li>To use a custom mask for the Starling platform, you must add it to the application description file:</li>
 </ol>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">&lt;initialWindow&gt;</div><div class="line">      &lt;depthAndStencil&gt;<span class="literal">true</span>&lt;/depthAndStencil&gt;</div><div class="line">  &lt;/initialWindow&gt;</div></pre></td></tr></table></figure>
-<ol>
+<ol start="2">
 <li>The AS3 platform does not support masking with images.</li>
 <li>Unity platform: If you want to set the tilt of components using custom masks, set BlendMode, set filters, or the components in the surface UI contain custom masks, additional settings are required to display properly. Please refer to<a href="../unity/special.html#PaintMode">PaintMode</a></li>
 </ol>
-<h3 id="Reverse-masking-burrowing"><a href="#Reverse-masking-burrowing" class="headerlink" title="Reverse masking (burrowing)"></a>Reverse masking (burrowing)</h3><p>The effect is the opposite of a normal mask, that is, the visible area becomes invisible and the invisible area becomes visible. E.g:</p>
+<h3 id="Reverse masking (burrowing)"><a class="header-anchor" href="#Reverse masking (burrowing)">¶</a> Reverse masking (burrowing)</h3>
+<p>The effect is the opposite of a normal mask, that is, the visible area becomes invisible and the invisible area becomes visible. E.g:</p>
 <p><img src="../../images/20170622162422.png" alt=""></p>
 <p>When using a graph as a mask, the content of the area with a graph<strong>Invisible</strong>For example, a circle is not visible in the circular area and other areas are visible.</p>
 <p>When using an image as a mask, the content of the area corresponding to the pixels with 0 transparency in the image<strong>visible</strong>And vice versa. Content beyond the image area<strong>visible</strong>。</p>
@@ -460,53 +490,64 @@
 <li>A component that defines a mask, its internal components can never be merged with external components, because they have different material properties.</li>
 <li>Only some platforms support reverse masking with images. Please refer to the test results.</li>
 </ol>
-<h2 id="Extension"><a href="#Extension" class="headerlink" title="Extension"></a>Extension</h2><p><img src="../../images/QQ20191211-120901.png" alt=""></p>
-<p>You can see that there are six “extended” options. Components can switch between these “extensions” at will. Which “extension” is chosen, the component has the extended properties and behavior characteristics.</p>
-<p>Let’s take a button as an example to introduce how “extension” works. After selecting “Extended” as the button, you can see the button-related tips and settings appear below the properties panel.</p>
+<h2 id="Extension"><a class="header-anchor" href="#Extension">¶</a> Extension</h2>
+<p><img src="../../images/QQ20191211-120901.png" alt=""></p>
+<p>You can see that there are six &quot;extended&quot; options. Components can switch between these &quot;extensions&quot; at will. Which &quot;extension&quot; is chosen, the component has the extended properties and behavior characteristics.</p>
+<p>Let’s take a button as an example to introduce how &quot;extension&quot; works. After selecting &quot;Extended&quot; as the button, you can see the button-related tips and settings appear below the properties panel.</p>
 <p><img src="../../images/QQ20191211-121438.png" alt=""></p>
-<p>Ignore the setting of the button component here, which will be explained in detail in subsequent tutorials. As you can see, the definition of “extension” in FairyGUI is based on “name convention”. A button can have a title and icon. The title (usually a text) and icon (usually a loader) need to be placed in the component by yourself, and set their names to title and icon, like this:</p>
+<p>Ignore the setting of the button component here, which will be explained in detail in subsequent tutorials. As you can see, the definition of &quot;extension&quot; in FairyGUI is based on &quot;name convention&quot;. A button can have a title and icon. The title (usually a text) and icon (usually a loader) need to be placed in the component by yourself, and set their names to title and icon, like this:</p>
 <p><img src="../../images/2016-01-11_183043.jpg" alt=""></p>
-<p>Then we test this newly made component. Drag the button component to another component and set the “Title” and “Icon”, as shown below</p>
+<p>Then we test this newly made component. Drag the button component to another component and set the &quot;Title&quot; and &quot;Icon&quot;, as shown below</p>
 <p><img src="../../images/QQ20191211-121620.png" alt=""></p>
-<p>The effect came out. This means that the title text is automatically set to the text element named “title” and the icon is automatically set to the loader element named “icon”.</p>
+<p>The effect came out. This means that the title text is automatically set to the text element named &quot;title&quot; and the icon is automatically set to the loader element named &quot;icon&quot;.</p>
 <p>What if there is no loader control named icon in the button component? Then setting the icon has no effect, nothing more. Other conventions are handled the same way. There will be no errors.</p>
-<p>The advantages of FairyGUI’s “extended” functionality can be seen from the design of the buttons. If an editor provides a ready-made button component, no matter how thoughtful the designer thinks, it can’t cover all the requirements. Just one button, the changes you think about may be: whether the icon / icon is on the left or the right / icon and text. Distance / whether text / text color / text size, etc. In FairyGUI, everything in the button component is left to you.</p>
-<p>“Extension” also gives component behavior, specifically to the button, which is to handle various mouse or touch events, change the state when pressed (single / multi-select), play sound when clicked, etc. These are all handled by the “extended” bottom layer. This part also works through “name conventions”. For example, as long as a controller named “button” is provided in the button, when the mouse hovers over the button, the controller will automatically switch to the “over” page; when the mouse is pressed, the controller will automatically switch Go to the “down” page, and so on. What if the button doesn’t provide a controller named “button”? The above behavior will not happen. The button controller is not required, if you don’t need the above behavior, don’t provide it.</p>
-<p>Other types of “extensions” work similarly to buttons. Subsequent documents will detail the properties and behavior of each “extension”.</p>
-<h2 id="GComponent"><a href="#GComponent" class="headerlink" title="GComponent"></a>GComponent</h2><p>Components support dynamic creation, for example:</p>
+<p>The advantages of FairyGUI’s &quot;extended&quot; functionality can be seen from the design of the buttons. If an editor provides a ready-made button component, no matter how thoughtful the designer thinks, it can’t cover all the requirements. Just one button, the changes you think about may be: whether the icon / icon is on the left or the right / icon and text. Distance / whether text / text color / text size, etc. In FairyGUI, everything in the button component is left to you.</p>
+<p>&quot;Extension&quot; also gives component behavior, specifically to the button, which is to handle various mouse or touch events, change the state when pressed (single / multi-select), play sound when clicked, etc. These are all handled by the &quot;extended&quot; bottom layer. This part also works through &quot;name conventions&quot;. For example, as long as a controller named &quot;button&quot; is provided in the button, when the mouse hovers over the button, the controller will automatically switch to the &quot;over&quot; page; when the mouse is pressed, the controller will automatically switch Go to the &quot;down&quot; page, and so on. What if the button doesn’t provide a controller named &quot;button&quot;? The above behavior will not happen. The button controller is not required, if you don’t need the above behavior, don’t provide it.</p>
+<p>Other types of &quot;extensions&quot; work similarly to buttons. Subsequent documents will detail the properties and behavior of each &quot;extension&quot;.</p>
+<h2 id="GComponent"><a class="header-anchor" href="#GComponent">¶</a> GComponent</h2>
+<p>Components support dynamic creation, for example:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GComponent = <span class="keyword">new</span> GComponent ();  </div><div class="line">   gcom.SetSize (<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">   GRoot.inst.AddChild (com);</div></pre></td></tr></table></figure>
 <p>A dynamically created component is an empty component and can serve as a container for other components. A common use case is if you are building a multi-level UI management system, then empty components are a suitable choice for hierarchical containers. Dynamically created components are click-through by default, which means that if you directly create an empty component for receiving clicks, you have to set it like this:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Set the component click to not penetrate.</span></div><div class="line">    gcom.opaque = <span class="literal">true</span>;</div></pre></td></tr></table></figure>
 <p>If you want to create a component in the UI library, you should use this method:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GComponent com = UIPackage.CreateObject (<span class="string">"Package Name"</span>, <span class="string">"Component Name"</span>).asCom;</div><div class="line">   GRoot.inst.AddChild (com);</div></pre></td></tr></table></figure>
 <p>FairyGUI is similar to Flash / Cocos. It uses a tree structure to organize display objects. A container can contain one or more base display objects, and it can also contain containers. This tree structure is called a display list. FairyGUI provides API management display list.</p>
-<h3 id="Display-list-management"><a href="#Display-list-management" class="headerlink" title="Display list management"></a>Display list management</h3><ul>
-<li><p><code>numChildren</code>Get the number of child elements in the container.</p>
+<h3 id="Display list management"><a class="header-anchor" href="#Display list management">¶</a> Display list management</h3>
+<ul>
+<li>
+<p><code>numChildren</code>Get the number of child elements in the container.</p>
 </li>
-<li><p><code>AddChild</code> <code>AddChildAt</code>Add components to the container. The former adds a component to the end of the display list; the latter can specify an index to control where the component is inserted.</p>
+<li>
+<p><code>AddChild</code> <code>AddChildAt</code>Add components to the container. The former adds a component to the end of the display list; the latter can specify an index to control where the component is inserted.</p>
 </li>
-<li><p><code>RemoveChild</code> <code>RemoveChildAt</code> <code>RemoveChildren</code>Remove the component from the container. When a component is removed from a display object, it no longer takes up display resources. However, after the component is removed from the display list, it is not displayed and is not destroyed. If you do not save a reference to this object for subsequent use, or you do not call the object ’s Dispose method to destroy the object, a memory leak will occur.</p>
+<li>
+<p><code>RemoveChild</code> <code>RemoveChildAt</code> <code>RemoveChildren</code>Remove the component from the container. When a component is removed from a display object, it no longer takes up display resources. However, after the component is removed from the display list, it is not displayed and is not destroyed. If you do not save a reference to this object for subsequent use, or you do not call the object ’s Dispose method to destroy the object, a memory leak will occur.</p>
 </li>
-<li><p><code>GetChild</code> <code>GetChildAt</code>Obtain component references by index or name. Component names are allowed to be repeated, in which case GetChild returns the first object that matches the name.</p>
+<li>
+<p><code>GetChild</code> <code>GetChildAt</code>Obtain component references by index or name. Component names are allowed to be repeated, in which case GetChild returns the first object that matches the name.</p>
 </li>
-<li><p><code>GetChildIndex</code>Gets the index of the specified component in the display list.</p>
+<li>
+<p><code>GetChildIndex</code>Gets the index of the specified component in the display list.</p>
 </li>
-<li><p><code>SetChildIndex</code> <code>SwapChildren</code> <code>SwapChildrenAt</code>Sets the index of the component in the display list.</p>
+<li>
+<p><code>SetChildIndex</code> <code>SwapChildren</code> <code>SwapChildrenAt</code>Sets the index of the component in the display list.</p>
 </li>
 </ul>
-<h3 id="Rendering-order"><a href="#Rendering-order" class="headerlink" title="Rendering order"></a>Rendering order</h3><p>In FairyGUI, the display list is organized in a tree structure. The rendering order mentioned below refers to<strong>Same parent component</strong>In the order of arrangement, the components of different parent components cannot be interleaved with each other. This is a prerequisite, please note.</p>
+<h3 id="Rendering order"><a class="header-anchor" href="#Rendering order">¶</a> Rendering order</h3>
+<p>In FairyGUI, the display list is organized in a tree structure. The rendering order mentioned below refers to<strong>Same parent component</strong>In the order of arrangement, the components of different parent components cannot be interleaved with each other. This is a prerequisite, please note.</p>
 <p>The rendering order of a display object depends on the order in its display list, and the larger order is rendered later, that is, displayed earlier. Generally, we use AddChild or SetChildIndex to adjust the rendering order. For example, if you want a component to be displayed at the top of the container, you can call AddChild (component), and AddChild can be called repeatedly. You can also call SetChildIndex to set the specific position of the object in the display list. For example, SetChildIndex (element, 0) can place the element at the bottom.</p>
-<p>There is another factor that can affect the rendering order, which is GObject.sortingOrder. <strong> This attribute is only used for specific purposes, not for general use. It is generally used for functions like fixed pinning. In addition, never use sortingOrder in a list. </strong> The larger the sortingOrder, the later the rendering order is, that is, it is displayed to the front position. In general, sortingOrder is 0, and the rendering order is determined by the order of the display objects in the display list. sortingOrder gives you more control over the rendering order. For example, if you want one component to always stay on top of the other components, you can set its sortOrder to a large integer value so that this component remains on top regardless of how many components the container has added using AddChild. (SortingOrder is inefficient, do not use it for frequent calls)</p>
+<p>There is another factor that can affect the rendering order, which is GObject.sortingOrder. ** This attribute is only used for specific purposes, not for general use. It is generally used for functions like fixed pinning. In addition, never use sortingOrder in a list. ** The larger the sortingOrder, the later the rendering order is, that is, it is displayed to the front position. In general, sortingOrder is 0, and the rendering order is determined by the order of the display objects in the display list. sortingOrder gives you more control over the rendering order. For example, if you want one component to always stay on top of the other components, you can set its sortOrder to a large integer value so that this component remains on top regardless of how many components the container has added using AddChild. (SortingOrder is inefficient, do not use it for frequent calls)</p>
 <p>All of the above mentioned are adjusting the order of the objects in the display list. If you don’t want to adjust the order, you must also adjust the rendering order. The component also provides another way.</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Ascending order. This is the default value. The objects are rendered in ascending order according to the order of the objects in the display list.</span></div><div class="line">    aComponent.childrenRenderOrder = ChildrenRenderOrder.Ascent;</div><div class="line"></div><div class="line">    <span class="comment">// Descending order, the objects are rendered in descending order according to the order in the display list, the effect is that the lower number is displayed in front.</span></div><div class="line">    aComponent.childrenRenderOrder = ChildrenRenderOrder.Descent;</div><div class="line"></div><div class="line">    <span class="comment">// Arch, you need to specify an index of the peak, and render from the two ends to this index position, the effect is that the object at this position is displayed in the front, and the objects on both sides are displayed in order.</span></div><div class="line">    aComponent.childrenRenderOrder = ChildrenRenderOrder.Arch;</div><div class="line">    aComponent.apexIndex = <span class="number">3</span>; <span class="comment">// The object with index 3 is displayed at the front.</span></div></pre></td></tr></table></figure>
-<h3 id="Binding-Extension-Class"><a href="#Binding-Extension-Class" class="headerlink" title="Binding Extension Class"></a>Binding Extension Class</h3><p>You can bind a class as an extension of a component. First, write an extension class:</p>
+<h3 id="Binding Extension Class"><a class="header-anchor" href="#Binding Extension Class">¶</a> Binding Extension Class</h3>
+<p>You can bind a class as an extension of a component. First, write an extension class:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyComponent</span>: <span class="title">GComponent</span></div><div class="line">    &#123;</div><div class="line">        GObject msgObj;</div><div class="line"></div><div class="line">        <span class="comment">// If you need to initialize the contents of the container, you must // in this method, not in the constructor. The parameters of the function prototype of each SDK may be slightly different, please refer to the code hints. In Cocos2dx / CocosCreator, the method name is onConstruct without parameters</span></div><div class="line">        <span class="function"><span class="keyword">override</span> <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">ConstructFromXML</span> (<span class="params">XML xml</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            <span class="keyword">base</span>.ConstructFromXML (xml);</div><div class="line">            </div><div class="line">            <span class="comment">// Continue your initialization here</span></div><div class="line">            msgObj = GetChild (<span class="string">"msg"</span>);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ShowMessage</span> (<span class="params"><span class="keyword">string</span> msg</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            msgObj.text = msg;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <p>Then register your extension class. note,<strong>Must be registered before component build</strong>If you are using UIPanel, it is not early enough to register in Start. You must be in Awake. In short, if the registration is not successful, 90% may be registered after the creation, and 10% may be a URL error. Print URL troubleshooting.</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">UIObjectFactory.SetPackageItemExtension (<span class="string">"ui:// package name / component A"</span>, <span class="keyword">typeof</span> (MyComponent));</div></pre></td></tr></table></figure>
 <p>This binds an implementation class MyComponent for component A. All future objects created by component A (including component A used in the editor) are of type MyComponent. Then we can add API to MyComponent to operate Component A in a more object-oriented way. E.g:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">MyComponent gcom = (MyComponent) UIPackage.CreateObject (<span class="string">"Package name"</span>, <span class="string">"Component A"</span>);</div><div class="line">    gcom.ShowMessage (<span class="string">"Hello world"</span>);</div></pre></td></tr></table></figure>
-<p>Note: If component A is just a normal component and no “extension” is defined, then the base class is GComponent, as shown in the above example; if the extension of component A is a button, then the base class of MyComponent should be GButton, and if the extension is a progress bar , Then the base class should be GProgressBar, and so on. This must not be mistaken, otherwise an error will occur.</p>
-
+<p>Note: If component A is just a normal component and no &quot;extension&quot; is defined, then the base class is GComponent, as shown in the above example; if the extension of component A is a button, then the base class of MyComponent should be GButton, and if the extension is a progress bar , Then the base class should be GProgressBar, and so on. This must not be mistaken, otherwise an error will occur.</p>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
     
     <div class="footer">
       found mistake? Want to participate in editing?

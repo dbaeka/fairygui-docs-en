@@ -354,8 +354,9 @@
     
       <h1>Cocos Creator</h1>
     
-    <h2 id="Run-Demo"><a href="#Run-Demo" class="headerlink" title="Run Demo"></a>Run Demo</h2><ol>
-<li>From GitHub Clone or from<a href="../../product/index.html#CocosCreator SDK">Official website product page</a> Download the example of FairyGUI-cocoscreator directly.</li>
+    <h2 id="Run Demo"><a class="header-anchor" href="#Run Demo">¶</a> Run Demo</h2>
+<ol>
+<li>From GitHub Clone or from[Official website product page](…/…/product/index.html#CocosCreator SDK) Download the example of FairyGUI-cocoscreator directly.</li>
 <li>The SDK is based on Cocos Creator 2.x version, 1.x version is not supported, so please use Creator version 2.0 or above, 2.0.7 or above is recommended.</li>
 <li>Use Cocos Creator to open the downloaded example project.</li>
 <li>You can see the effect by running directly.</li>
@@ -363,20 +364,26 @@
 <li>The examples are written using TS, but the core library is fairygui.js, so there is no problem developing with JS.</li>
 <li>fairygui.js is uncompressed, cocos will compress itself when released, and the final size will be around 300K.</li>
 </ol>
-<h2 id="Load-UI-package"><a href="#Load-UI-package" class="headerlink" title="Load UI package"></a>Load UI package</h2><p>FairyGUI organizes the UI interface by package. A UI package may include one or more interfaces. After each UI package is released, it will get a description file with a suffix of bin file, and one or more images as the texture set. These files need to be placed in the resources directory for dynamic loading. Because in order to avoid complex dependencies, management difficulties will be brought about in the future. Our interface is not directly referenced by things in the scene. A UI package can be loaded and unloaded at any time.</p>
+<h2 id="Load UI package"><a class="header-anchor" href="#Load UI package">¶</a> Load UI package</h2>
+<p>FairyGUI organizes the UI interface by package. A UI package may include one or more interfaces. After each UI package is released, it will get a description file with a suffix of bin file, and one or more images as the texture set. These files need to be placed in the resources directory for dynamic loading. Because in order to avoid complex dependencies, management difficulties will be brought about in the future. Our interface is not directly referenced by things in the scene. A UI package can be loaded and unloaded at any time.</p>
 <p>Publish the package directly to Creator’s assets / resources directory or its subdirectory in FairyGUI editor.</p>
 <p><img src="../../images/20181214102714.png" alt=""></p>
 <p>Note that the image can be set to RAW format, and does not need to be set to Sprite. Because FairyGUI will analyze Sprite by itself.</p>
 <p>There are two ways to load packages in code. One is to load the file, and the other is to let FairyGUI load it by itself. The first way is to make it easier for you to do an overall load mixed with other resources, or to display the needs of progress.</p>
 <p>The first way:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Filled here is relative to the path in resources</span></div><div class="line">    <span class="keyword">let</span> res = [</div><div class="line">        <span class="string">"UI/Bag"</span>, <span class="comment">// Description file</span></div><div class="line">        <span class="string">"UI/Bag_atlas0"</span> <span class="comment">// Texture set</span></div><div class="line">    ];</div><div class="line">    cc.loader.loadResArray (res, function (err, assets) &#123;</div><div class="line">        <span class="comment">// Call addPackage after both are loaded</span></div><div class="line">        fgui.UIPackage.addPackage (<span class="string">"UI/Bag"</span>);</div><div class="line"></div><div class="line">        <span class="comment">// You can start creating the interface in the package below.</span></div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
-<p>The second way:<br><figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Filled here is relative to the path in resources</span></div><div class="line">    fgui.UIPackage.loadPackage (<span class="string">"UI/Bag"</span>, function (err) &#123;</div><div class="line">        <span class="comment">// You don't need to call addPackage here, you can start creating the interface directly.</span></div><div class="line">    &#125;);</div></pre></td></tr></table></figure></p>
-<h2 id="Uninstall-UI-pack"><a href="#Uninstall-UI-pack" class="headerlink" title="Uninstall UI pack"></a>Uninstall UI pack</h2><p>When a package is no longer used, it can be uninstalled.</p>
+<p>The second way:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Filled here is relative to the path in resources</span></div><div class="line">    fgui.UIPackage.loadPackage (<span class="string">"UI/Bag"</span>, function (err) &#123;</div><div class="line">        <span class="comment">// You don't need to call addPackage here, you can start creating the interface directly.</span></div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+<h2 id="Uninstall UI pack"><a class="header-anchor" href="#Uninstall UI pack">¶</a> Uninstall UI pack</h2>
+<p>When a package is no longer used, it can be uninstalled.</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Here you can use the package id, package name, and package path.</span></div><div class="line">    fgui.UIPackage.removePackage (<span class="string">"Bag"</span>);</div></pre></td></tr></table></figure>
-<p>After the package is uninstalled, all the resources such as textures contained in the package will be uninstalled, and the components created in the package will not display properly (although no error will be reported), so these components should (or have been) destroyed.<br>Frequent loading and unloading of packages is generally not recommended, because each loading and unloading must consume CPU time (meaning power consumption) and generate a lot of GC. The memory occupied by the UI system can be accurately estimated. You can set which packages are resident in memory according to the frequency of use of the packages (as much as possible is recommended).</p>
-<h2 id="Create-GRoot"><a href="#Create-GRoot" class="headerlink" title="Create GRoot"></a>Create GRoot</h2><p>Every scene needs to have a GRoot, which is the root node of the UI. After the scene loads, you need to manually create a GRoot.</p>
+<p>After the package is uninstalled, all the resources such as textures contained in the package will be uninstalled, and the components created in the package will not display properly (although no error will be reported), so these components should (or have been) destroyed.<br>
+Frequent loading and unloading of packages is generally not recommended, because each loading and unloading must consume CPU time (meaning power consumption) and generate a lot of GC. The memory occupied by the UI system can be accurately estimated. You can set which packages are resident in memory according to the frequency of use of the packages (as much as possible is recommended).</p>
+<h2 id="Create GRoot"><a class="header-anchor" href="#Create GRoot">¶</a> Create GRoot</h2>
+<p>Every scene needs to have a GRoot, which is the root node of the UI. After the scene loads, you need to manually create a GRoot.</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">fgui.GRoot.create ();</div></pre></td></tr></table></figure>
-<h2 id="Create-UI"><a href="#Create-UI" class="headerlink" title="Create UI"></a>Create UI</h2><figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">let</span> view: fgui.GComponent = fgui.UIPackage.createObject (<span class="string">"package name"</span>, <span class="string">"component name"</span>). asCom;</div><div class="line">    </div><div class="line">    <span class="comment">// The following methods can display the view:</span></div><div class="line">    </div><div class="line">    <span class="comment">// 1, directly added to GRoot and displayed</span></div><div class="line">    fgui.GRoot.inst.addChild (view);</div><div class="line">    </div><div class="line">    <span class="comment">// 2, use window display</span></div><div class="line">    aWindow.contentPane = view;</div><div class="line">    aWindow.show ();</div><div class="line">    </div><div class="line">    <span class="comment">// 3, add to other components</span></div><div class="line">    aComponnent.addChild (view);</div></pre></td></tr></table></figure>
+<h2 id="Create UI"><a class="header-anchor" href="#Create UI">¶</a> Create UI</h2>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">let</span> view: fgui.GComponent = fgui.UIPackage.createObject (<span class="string">"package name"</span>, <span class="string">"component name"</span>). asCom;</div><div class="line">    </div><div class="line">    <span class="comment">// The following methods can display the view:</span></div><div class="line">    </div><div class="line">    <span class="comment">// 1, directly added to GRoot and displayed</span></div><div class="line">    fgui.GRoot.inst.addChild (view);</div><div class="line">    </div><div class="line">    <span class="comment">// 2, use window display</span></div><div class="line">    aWindow.contentPane = view;</div><div class="line">    aWindow.show ();</div><div class="line">    </div><div class="line">    <span class="comment">// 3, add to other components</span></div><div class="line">    aComponnent.addChild (view);</div></pre></td></tr></table></figure>
 <p>If the content of the interface is too much, it may cause a freeze when creating. FairyGUI provides a way to create the UI asynchronously. In the asynchronous creation mode, the CPU resources consumed by each frame will be controlled, but the creation time will be slightly longer than the synchronous creation. E.g:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">let</span> handler = <span class="keyword">new</span> AsyncOperation();</div><div class="line">    </div><div class="line">    fgui.UIPackage.createObjectAsync(<span class="string">"包名"</span>,<span class="string">"组件名"</span>, myCreateObjectCallback);</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">myCreateObjectCallback</span>(<span class="params">obj:fgui.Gobject</span>)</span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <p>The interface is usually closed by hiding, that is:</p>
@@ -385,55 +392,68 @@
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">view.Dispose ();</div></pre></td></tr></table></figure>
 <p>When the scene changes, all interfaces will be destroyed. If you do not want to be destroyed, you need to set the root node to be resident after creating the interface, and be sure to close the interface before switching scenes.</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">cc.game.addPersistNode(view.node);</div></pre></td></tr></table></figure>
-<h2 id="coordinate-system"><a href="#coordinate-system" class="headerlink" title="coordinate system"></a>coordinate system</h2><p>The x / y / position values in GObject are all<strong>Local coordinates</strong>, Which is the offset from the parent component. GObject does not provide direct properties to obtain the global coordinates of the object, but provides methods to convert.</p>
+<h2 id="coordinate system"><a class="header-anchor" href="#coordinate system">¶</a> coordinate system</h2>
+<p>The x / y / position values in GObject are all<strong>Local coordinates</strong>, Which is the offset from the parent component. GObject does not provide direct properties to obtain the global coordinates of the object, but provides methods to convert.</p>
 <p>If you want to get the coordinates of any UI element on the screen, you can use:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">let</span> screenPos:cc.Vec2 = aObject.localToGlobal(cc.Vec2.ZERO);</div></pre></td></tr></table></figure>
 <p>(Note that the screen mentioned here refers to the screen in FairyGUI semantics, with the upper left corner of the screen as the origin, not the screen in Creator semantics)</p>
 <p>Conversely, if you want to get the local coordinates of the screen coordinates on the UI element, you can use:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">let</span> localPos:cc.Vec2 = aObject.globalToLocal(screenPos);</div></pre></td></tr></table></figure>
-<h2 id="Event-system"><a href="#Event-system" class="headerlink" title="Event system"></a>Event system</h2><p>FairyGUI uses Creator’s event system directly, so GObject.on / off is actually implemented through GObject.node.on / off, that is, any event operation can be performed through GObject.node, including custom events. In the event callback, the currentTarget in cc.Event reflects which node this event was dispatched. If you want to get which GObject this node corresponds to, you can use this method:</p>
+<h2 id="Event system"><a class="header-anchor" href="#Event system">¶</a> Event system</h2>
+<p>FairyGUI uses Creator’s event system directly, so GObject.on / off is actually implemented through GObject.node.on / off, that is, any event operation can be performed through GObject.node, including custom events. In the event callback, the currentTarget in cc.Event reflects which node this event was dispatched. If you want to get which GObject this node corresponds to, you can use this method:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">aObject.on(someEventName, this.onHandle, this);</div><div class="line"></div><div class="line">    onHandle(evt:cc.Event) &#123;</div><div class="line">        cc.log(evt.currentTarget); //node对象</div><div class="line">        cc.log(fgui.GObject.cast(evt.currentTarget)); //gobject对象</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<h2 id="Mouse-touch-events"><a href="#Mouse-touch-events" class="headerlink" title="Mouse / touch events"></a>Mouse / touch events</h2><p>For mouse events and touch events, FairyGUI uses custom events. The constants are defined in fgui.Event, which is different from Creator’s own cc.Node.EventType.TOUCH_BEGIN. Please note the difference. Because Creator’s own touch logic is difficult to handle penetration / non-penetration, and custom area clicks.</p>
+<h2 id="Mouse / touch events"><a class="header-anchor" href="#Mouse / touch events">¶</a> Mouse / touch events</h2>
+<p>For mouse events and touch events, FairyGUI uses custom events. The constants are defined in fgui.Event, which is different from Creator’s own cc.Node.EventType.TOUCH_BEGIN. Please note the difference. Because Creator’s own touch logic is difficult to handle penetration / non-penetration, and custom area clicks.</p>
 <p>The mouse / touch event callback function has one parameter: evt: fgui.Event, fgui.Event inherits from cc.Event.</p>
 <ul>
-<li><p><code>TOUCH_BEGIN</code>The mouse button is pressed (left, middle, right), or the finger is pressed. Mouse buttons can be obtained from evt.button, 0-left button, 1-middle button, 2-right button. If it is a touch event, you can get the finger ID from evt.touchId; if it is a mouse event, evt.touchId is always 0.</p>
+<li>
+<p><code>TOUCH_BEGIN</code>The mouse button is pressed (left, middle, right), or the finger is pressed. Mouse buttons can be obtained from evt.button, 0-left button, 1-middle button, 2-right button. If it is a touch event, you can get the finger ID from evt.touchId; if it is a mouse event, evt.touchId is always 0.</p>
 </li>
-<li><p><code>TOUCH_MOVE</code>The mouse pointer moves or your finger moves on the screen. This event will only be triggered in two cases. 1. evt.captureTouch () is called in TOUCH_BEGIN, then subsequent movement events will be triggered on this object (regardless of the position of the finger or pointer above the object). 2. TOUCH_MOVE on GRoot will always trigger, no need to use captureTouch to capture.</p>
+<li>
+<p><code>TOUCH_MOVE</code>The mouse pointer moves or your finger moves on the screen. This event will only be triggered in two cases. 1. evt.captureTouch () is called in TOUCH_BEGIN, then subsequent movement events will be triggered on this object (regardless of the position of the finger or pointer above the object). 2. TOUCH_MOVE on GRoot will always trigger, no need to use captureTouch to capture.</p>
 </li>
-<li><p><code>TOUCH_END</code>The mouse button is released or your finger is off the screen. If the mouse or touch position is no longer within the range of the GObject, then the component’s TouchEnd event will not be triggered. If it is really needed, you can call evt.captureTouch () in TOUCH_BEGIN to request capture.</p>
+<li>
+<p><code>TOUCH_END</code>The mouse button is released or your finger is off the screen. If the mouse or touch position is no longer within the range of the GObject, then the component’s TouchEnd event will not be triggered. If it is really needed, you can call evt.captureTouch () in TOUCH_BEGIN to request capture.</p>
 </li>
-<li><p><code>CLICK</code>Click event. You can determine whether to click or double-click from evt.isDoubleClick. There is a shortcut for listening for click events: GObject.onClick (callback, …), which is simpler than GObject.on (fgui.Event.CLICK, …).</p>
+<li>
+<p><code>CLICK</code>Click event. You can determine whether to click or double-click from evt.isDoubleClick. There is a shortcut for listening for click events: GObject.onClick (callback, …), which is simpler than GObject.on (fgui.Event.CLICK, …).</p>
 </li>
-<li><p><code>ROLL_OVER</code>Fired when the mouse pointer or finger moves into the display object area.</p>
+<li>
+<p><code>ROLL_OVER</code>Fired when the mouse pointer or finger moves into the display object area.</p>
 </li>
-<li><p><code>ROLL_OUT</code>Fired when the mouse pointer or finger moves out of the display object area.</p>
+<li>
+<p><code>ROLL_OUT</code>Fired when the mouse pointer or finger moves out of the display object area.</p>
 </li>
-<li><p><code>MOUSE_WHEEL</code>Mouse scroll event.</p>
+<li>
+<p><code>MOUSE_WHEEL</code>Mouse scroll event.</p>
 </li>
 </ul>
 <p>If you are not in the event callback process and need to get the current mouse or finger position, you can use:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// touchId is the finger id, if you don't care about this, don't pass in</span></div><div class="line">    <span class="keyword">let</span> pos1: cc.Vec2 = fgui.GRoot.inst.getTouchPosition (touchId);</div></pre></td></tr></table></figure>
 <p>At any time, if you need to get the current clicked object, or the object under the mouse, you can get it in the following ways:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">let</span> obj: fgui.GObject = fgui.GRoot.inst.touchTarget;</div><div class="line"></div><div class="line">    <span class="comment">// determine if it is in a certain component</span></div><div class="line">    cc.Log (testComponent.isAncestorOf (obj));</div></pre></td></tr></table></figure>
-<h2 id="Font"><a href="#Font" class="headerlink" title="Font"></a>Font</h2><p>If you want to use ttf fonts, these steps are needed:</p>
+<h2 id="Font"><a class="header-anchor" href="#Font">¶</a> Font</h2>
+<p>If you want to use ttf fonts, these steps are needed:</p>
 <ol>
-<li><p>You first need to get the cc.Font object. Whether you obtain this object from loadRes or directly in the scene through script variables, you can follow the project requirements.</p>
+<li>
+<p>You first need to get the cc.Font object. Whether you obtain this object from loadRes or directly in the scene through script variables, you can follow the project requirements.</p>
 </li>
-<li><p>Use fgui.UIConfig.registerFont to register a cc.Font with a font name used in FairyGUI. Assuming that aFont is the cc.Font object:</p>
+<li>
+<p>Use fgui.UIConfig.registerFont to register a cc.Font with a font name used in FairyGUI. Assuming that aFont is the cc.Font object:</p>
 </li>
 </ol>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">fgui.UIConfig.registerFont(<span class="string">'myfont'</span>, aFont);</div></pre></td></tr></table></figure>
-<ol>
+<ol start="3">
 <li>If this is a global font:</li>
 </ol>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">fgui.UIConfig.defaultFont = <span class="string">'myFont'</span>;</div></pre></td></tr></table></figure>
-<ol>
+<ol start="4">
 <li>If this is a font specified by a certain text, for example:</li>
 </ol>
 <p><img src="../../images/2016-07-06_143622.png" alt=""></p>
-<p>A font with the name “Heihe” is used here. This is a different font from UIConfig.defaultFont, so we need to register this font. which is:</p>
+<p>A font with the name &quot;Heihe&quot; is used here. This is a different font from UIConfig.defaultFont, so we need to register this font. which is:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">fgui.UIConfig.registerFont (<span class="string">'Bold'</span>, aFont);</div></pre></td></tr></table></figure>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
     
     <div class="footer">
       found mistake? Want to participate in editing?

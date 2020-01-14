@@ -354,33 +354,46 @@
     
       <h1>ScrollBar</h1>
     
-    <p>Unlike many UI frameworks, which use skin mechanisms to define scroll bars, in FairyGUI, scroll bars can be freely designed.<a href="scrollpane.html">Rolling container</a>It is independent from the scroll bar, that is, even if there is no scroll bar, the scroll container can complete the scrolling function.<br>Note: The scroll bar cannot be dragged directly onto the stage, never do it.</p>
-<h2 id="Create-scroll-bar"><a href="#Create-scroll-bar" class="headerlink" title="Create scroll bar"></a>Create scroll bar</h2><p>There are two ways to create a scroll bar component.</p>
+    <p>Unlike many UI frameworks, which use skin mechanisms to define scroll bars, in FairyGUI, scroll bars can be freely designed.<a href="scrollpane.html">Rolling container</a>It is independent from the scroll bar, that is, even if there is no scroll bar, the scroll container can complete the scrolling function.<br>
+Note: The scroll bar cannot be dragged directly onto the stage, never do it.</p>
+<h2 id="Create scroll bar"><a class="header-anchor" href="#Create scroll bar">¶</a> Create scroll bar</h2>
+<p>There are two ways to create a scroll bar component.</p>
 <ul>
-<li><p>Click on the main menu “Resources”-&gt; “New Scroll Bar” and follow the wizard’s prompts step by step to complete.</p>
-<p> <img src="../../images/QQ20191211-181917.png" alt=""></p>
+<li>
+<p>Click on the main menu &quot;Resources&quot;-&gt; &quot;New Scroll Bar&quot; and follow the wizard’s prompts step by step to complete.</p>
+<p><img src="../../images/QQ20191211-181917.png" alt=""></p>
 </li>
-<li><p>Create a new component and select Expand to “Scrollbar” in the component properties.</p>
+<li>
+<p>Create a new component and select Expand to &quot;Scrollbar&quot; in the component properties.</p>
 </li>
 </ul>
-<h2 id="Edit-mode-properties"><a href="#Edit-mode-properties" class="headerlink" title="Edit-mode properties"></a>Edit-mode properties</h2><p>In the component editing state, the properties panel of the scrollbar component is:</p>
+<h2 id="Edit-mode properties"><a class="header-anchor" href="#Edit-mode properties">¶</a> Edit-mode properties</h2>
+<p>In the component editing state, the properties panel of the scrollbar component is:</p>
 <p><img src="../../images/QQ20191211-181948.png" alt=""></p>
 <ul>
 <li><code>Fixed scroll slider size</code>Generally speaking, the scroll slider in the middle of the scroll bar will expand and contract with the size of the scroll area. If the scroll area is small, the slider will be larger; if the scroll area is larger, the slider will be smaller. Check this option if you want the sliders to be the same size at all times. When checked, the size of the slider will remain at its original size.</li>
 </ul>
-<h2 id="Instructions"><a href="#Instructions" class="headerlink" title="Instructions"></a>Instructions</h2><ul>
-<li><code>arrow1</code>If it is a horizontal scroll bar, it means the left arrow button; if it is a vertical scroll bar, it means the upper arrow button. It is optional and can be ignored if your scrollbar does not have an arrow button.</li>
+<h2 id="Instructions"><a class="header-anchor" href="#Instructions">¶</a> Instructions</h2>
+<ul>
+<li>
+<p><code>arrow1</code>If it is a horizontal scroll bar, it means the left arrow button; if it is a vertical scroll bar, it means the upper arrow button. It is optional and can be ignored if your scrollbar does not have an arrow button.</p>
+</li>
 <li></li>
-<li><p><code>arrow2</code>If it is a horizontal scroll bar, it indicates the right arrow button; if it is a vertical scroll bar, it indicates the lower arrow button. It is optional and can be ignored if your scrollbar does not have an arrow button.</p>
+<li>
+<p><code>arrow2</code>If it is a horizontal scroll bar, it indicates the right arrow button; if it is a vertical scroll bar, it indicates the lower arrow button. It is optional and can be ignored if your scrollbar does not have an arrow button.</p>
 </li>
-<li><p><code>grip</code>Represents the slider button in the middle of the scroll bar.</p>
+<li>
+<p><code>grip</code>Represents the slider button in the middle of the scroll bar.</p>
 </li>
-<li><p><code>bar</code>This restricted area indicates the range of the slider when sliding up and down or left and right. Generally, it is indicated by a blank graphic. It is only used for placeholders and has no actual rendering effect.</p>
+<li>
+<p><code>bar</code>This restricted area indicates the range of the slider when sliding up and down or left and right. Generally, it is indicated by a blank graphic. It is only used for placeholders and has no actual rendering effect.</p>
 </li>
 </ul>
-<h2 id="Instance-properties"><a href="#Instance-properties" class="headerlink" title="Instance properties"></a>Instance properties</h2><p>There are two ways to use the scroll bar, one is to set it as a global scroll bar resource in “Project Properties”-&gt; “Preview Settings”; the other is to set it in the properties of the scroll container. Either way, the scroll bar is created automatically and then adjusted according to the properties of the scroll container (see<a href="scrollpane.html">Rolling container</a>You cannot select the scroll bar component for setting properties.</p>
-<h2 id="GScrollBar"><a href="#GScrollBar" class="headerlink" title="GScrollBar"></a>GScrollBar</h2><p>The type of the scrollbar component at runtime is GScrollBar, but you don’t need to access the GScrollBar object. All scroll related operations are done through ScrollPane, see<a href="scrollpane.html">Rolling container</a>。</p>
-
+<h2 id="Instance properties"><a class="header-anchor" href="#Instance properties">¶</a> Instance properties</h2>
+<p>There are two ways to use the scroll bar, one is to set it as a global scroll bar resource in &quot;Project Properties&quot;-&gt; &quot;Preview Settings&quot;; the other is to set it in the properties of the scroll container. Either way, the scroll bar is created automatically and then adjusted according to the properties of the scroll container (see<a href="scrollpane.html">Rolling container</a>You cannot select the scroll bar component for setting properties.</p>
+<h2 id="GScrollBar"><a class="header-anchor" href="#GScrollBar">¶</a> GScrollBar</h2>
+<p>The type of the scrollbar component at runtime is GScrollBar, but you don’t need to access the GScrollBar object. All scroll related operations are done through ScrollPane, see<a href="scrollpane.html">Rolling container</a>。</p>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
     
     <div class="footer">
       found mistake? Want to participate in editing?

@@ -355,12 +355,15 @@
       <h1>Tree</h1>
     
     <p>Trees are a special case of lists. Is a special extension of a component. Tick List Properties<img src="../../images/QQ20191212-104005.png" alt="">To make the list a tree.</p>
-<h2 id="Tree-properties"><a href="#Tree-properties" class="headerlink" title="Tree properties"></a>Tree properties</h2><p>Click to the right of the tree view<img src="../../images/QQ20191211-161858.png" alt="">The button displays the following interface:</p>
+<h2 id="Tree properties"><a class="header-anchor" href="#Tree properties">¶</a> Tree properties</h2>
+<p>Click to the right of the tree view<img src="../../images/QQ20191211-161858.png" alt="">The button displays the following interface:</p>
 <p><img src="../../images/QQ20191212-105754.png" alt=""></p>
 <ul>
-<li><p><code>Indent each level</code>The distance in pixels of the tree node is indented to the right for each additional level of depth. For example, if the indentation of each level is 15 pixels, and the level of the tree node is 3 levels, then the indentation of the tree node is 15 * 3 = 45 pixels.</p>
+<li>
+<p><code>Indent each level</code>The distance in pixels of the tree node is indented to the right for each additional level of depth. For example, if the indentation of each level is 15 pixels, and the level of the tree node is 3 levels, then the indentation of the tree node is 15 * 3 = 45 pixels.</p>
 </li>
-<li><p><code>Expand / collapse when clicking on a folder</code>Whether to automatically expand or collapse this node when clicking on a folder node.</p>
+<li>
+<p><code>Expand / collapse when clicking on a folder</code>Whether to automatically expand or collapse this node when clicking on a folder node.</p>
 <ul>
 <li><code>no</code>No action.</li>
 <li><code>Click</code>Action when clicked.</li>
@@ -370,38 +373,46 @@
 </ul>
 <p>After activating the tree view, the interface for editing list items has also changed, as shown below:</p>
 <p><img src="../../images/QQ20191212-112139.png" alt=""></p>
-<p>The “Hierarchy” setting has been added to the far right. The top node is level 0, and adding one level indicates that it is a child node of the previous level.</p>
+<p>The &quot;Hierarchy&quot; setting has been added to the far right. The top node is level 0, and adding one level indicates that it is a child node of the previous level.</p>
 <p>Refer to the following figure, the correspondence between levels and nodes:</p>
 <p><img src="../../images/QQ20191212-112117.png" alt=""></p>
-<h2 id="Tree-node-design"><a href="#Tree-node-design" class="headerlink" title="Tree node design"></a>Tree node design</h2><p>There are several agreed rules for tree node design:</p>
+<h2 id="Tree node design"><a class="header-anchor" href="#Tree node design">¶</a> Tree node design</h2>
+<p>There are several agreed rules for tree node design:</p>
 <ol>
-<li><p>Name is<code>expanded</code>Controller (optional). If the node is a folder node, when the node is expanded, this controller automatically switches the page to 1; when the node is collapsed, it automatically switches the page to 0. You can use this controller to control the shape of the node in these two states.<br>If there is a placement button in the tree node (this button should be a check button) for expanding and collapsing, then this button should be connected to the controller, as shown below:</p>
+<li>
+<p>Name is<code>expanded</code>Controller (optional). If the node is a folder node, when the node is expanded, this controller automatically switches the page to 1; when the node is collapsed, it automatically switches the page to 0. You can use this controller to control the shape of the node in these two states.<br>
+If there is a placement button in the tree node (this button should be a check button) for expanding and collapsing, then this button should be connected to the controller, as shown below:</p>
 <p><img src="../../images/QQ20191212-114818.png" alt=""></p>
 </li>
-<li><p>Name is<code>leaf</code>Controller (optional). If the node is a folder node, then the page of this controller is 0; if the node is a leaf node, then the page of this controller is 1. You can use this controller to control the morphology of these two different types of nodes.</p>
+<li>
+<p>Name is<code>leaf</code>Controller (optional). If the node is a folder node, then the page of this controller is 0; if the node is a leaf node, then the page of this controller is 1. You can use this controller to control the morphology of these two different types of nodes.</p>
 </li>
-<li><p>Name is<code>indent</code>The object will be used to set the indentation (optional).assuming the indentation of a node is 45 pixels, the width of the indent object will be set to 45.</p>
+<li>
+<p>Name is<code>indent</code>The object will be used to set the indentation (optional).assuming the indentation of a node is 45 pixels, the width of the indent object will be set to 45.</p>
 </li>
 </ol>
-<h2 id="GTree"><a href="#GTree" class="headerlink" title="GTree"></a>GTree</h2><p>When a list activates the tree view, its object in the code is GTree. GTree inherits from GList, so all APIs of GList also apply to GTree, but GTree currently<strong>Does not support virtualization</strong>。</p>
+<h2 id="GTree"><a class="header-anchor" href="#GTree">¶</a> GTree</h2>
+<p>When a list activates the tree view, its object in the code is GTree. GTree inherits from GList, so all APIs of GList also apply to GTree, but GTree currently<strong>Does not support virtualization</strong>。</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GTree aTree = aComponent.GetChild(<span class="string">"tree"</span>).asTree;</div><div class="line">GTreeNode rootNode = aTree.rootNode;</div></pre></td></tr></table></figure>
-<p>Here rootNode is the root node of the tree, it is a “fake” node and is not visible.</p>
+<p>Here rootNode is the root node of the tree, it is a &quot;fake&quot; node and is not visible.</p>
 <p>Create and add nodes:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GTreeNode aNode = <span class="keyword">new</span> GTreeNode (<span class="literal">true</span>); <span class="comment">// true indicates a folder node, false indicates a leaf node</span></div><div class="line">rootNode.AddChild (aNode);</div></pre></td></tr></table></figure>
 <p>There are two ways to render nodes:</p>
 <ol>
-<li><p>Directly operate the component corresponding to the node.</p>
+<li>
+<p>Directly operate the component corresponding to the node.</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">   GComponent obj = aNode.cell;</div><div class="line">obj.GetChild(<span class="string">"abc"</span>).text = <span class="string">"hello"</span>;</div></pre></td></tr></table></figure>
 <p><strong>This method must be used if the node is already in the tree, which is already AddChild</strong>。</p>
 </li>
-<li><p>Operate through callback functions.</p>
+<li>
+<p>Operate through callback functions.</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">   aTree.treeNodeRender = RenderTreeNode;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">RenderTreeNode</span> (<span class="params">GTreeNode node, GComponent obj</span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>Clicking on the response tree node is the same as processing the list response item, and it is listening<code>onClickItem</code>Event, you can refer<a href="list.html#Event">Here</a>。 After getting the clicked item object, to get its corresponding GTreeNode object, you can use the API<code>GObject.treeNode</code>obtain.</p>
 <p>GTree also has a special callback:<code>treeNodeWillExpand</code>It fires when the TreeNode is about to expand or shrink. You can add child nodes dynamically in the callback.</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aTree.treeNodeWillExpand = onExpand;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">onExpand</span>(<span class="params">GTreeNode node, <span class="keyword">bool</span> expand</span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
     
     <div class="footer">
       found mistake? Want to participate in editing?

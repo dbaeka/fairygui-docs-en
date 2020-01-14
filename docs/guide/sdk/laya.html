@@ -358,34 +358,35 @@
 <li>Copy the FairyGUI library and the dependent rawinflate library to the bin / libs directory. (If you did n’t check it when the editor was published<code>Compressed description file</code>, Then this library is not needed).</li>
 </ol>
 <p><img src="../../images/20170809155135.png" alt=""></p>
-<ol>
+<ol start="2">
 <li>Copy fairygui.d.ts to the libs directory.</li>
 </ol>
 <p><img src="../../images/20170809155742.png" alt=""></p>
-<ol>
+<ol start="3">
 <li>Add references to the above two libraries in bin / index.js and pay attention to where they are placed.</li>
 </ol>
 <p><img src="../../images/20181117114842.png" alt=""></p>
 <p>Note: FairyGUI only depends on two modules, laya.core and laya.html. Laya.ui is not required.</p>
-<ol>
+<ol start="4">
 <li>Use FairyGUI editor to complete UI editing. Please select the bin / res directory of the Laya project (other directories are also possible, of course). Get two (or more) files after posting.</li>
 </ol>
 <p><img src="../../images/20170809160159.png" alt=""></p>
-<ol>
+<ol start="5">
 <li>Load these two files when the program starts (or wherever you need these UIs) and complete the initialization.</li>
 </ol>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">onLoaded(): <span class="keyword">void</span> &#123;</div><div class="line">      Laya.stage.addChild(fgui.GRoot.inst.displayObject);</div><div class="line">      </div><div class="line">      fgui.UIPackage.addPackage(<span class="string">"res/Basic"</span>);</div><div class="line">      fgui.UIConfig.defaultFont = <span class="string">"宋体"</span>;</div><div class="line">      fgui.UIConfig.verticalScrollBar = <span class="string">"ui://Basic/ScrollBar_VT"</span>;</div><div class="line">      fgui.UIConfig.horizontalScrollBar = <span class="string">"ui://Basic/ScrollBar_HZ"</span>;</div><div class="line">      fgui.UIConfig.popupMenu = <span class="string">"ui://Basic/PopupMenu"</span>;</div><div class="line">      fgui.UIConfig.buttonSound = <span class="string">"ui://Basic/click"</span>;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-<h2 id="Must-read-game-development"><a href="#Must-read-game-development" class="headerlink" title="Must-read game development"></a>Must-read game development</h2><ol>
-<li>Because rawinflate has a problem on the small game platform, it is not used directly. Please use the latest editor. Uncheck “Compress description file” in the global settings of the release dialog. The rawinflate library will no longer be referenced (and no packaging is required).</li>
-<li><p>Mini games do not support fui extensions, so in the publishing interface, you must change the extension to the extensions supported by the mini games (check the mini game documentation yourself). Then set it in the code:</p>
+<h2 id="Must-read game development"><a class="header-anchor" href="#Must-read game development">¶</a> Must-read game development</h2>
+<ol>
+<li>Because rawinflate has a problem on the small game platform, it is not used directly. Please use the latest editor. Uncheck &quot;Compress description file&quot; in the global settings of the release dialog. The rawinflate library will no longer be referenced (and no packaging is required).</li>
+<li>Mini games do not support fui extensions, so in the publishing interface, you must change the extension to the extensions supported by the mini games (check the mini game documentation yourself). Then set it in the code:</li>
+</ol>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">fairygui.UIConfig.packageFileExtension = &quot;The extension you defined&quot;;</div></pre></td></tr></table></figure>
-</li>
-<li><p>In the publish dialog, check “Use binary format” in the global settings.</p>
-</li>
+<ol start="3">
+<li>In the publish dialog, check &quot;Use binary format&quot; in the global settings.</li>
 <li>AddPackage has two methods, one is the traditional method of passing in the file name, and the other is to directly pass in the content of the entire file, that is, no matter where your content comes from. Two methods can be selected as required.</li>
 <li>If you encounter loading failures, please check Laya’s loading process. Because FairyGUI is not responsible for loading, you need to ensure that the resources have been successfully loaded before AddPackage.</li>
 </ol>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
     
     <div class="footer">
       found mistake? Want to participate in editing?

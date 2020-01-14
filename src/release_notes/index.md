@@ -1,8 +1,13 @@
 ---
-title: 发行日志
+title: Release Notes
 type: release_notes
 order: 0
 ---
+
+## 5.0.10
+1. After setting the margin of the cropped image is selected in the publishing settings, for the image whose zoom mode is set to be a grid or tile, modify it to not crop. This is because there is a problem in applying the Nine Palaces after trimming.
+2. Fixed the bug that only one custom extension can be added in the plugin.
+3. Added "Repeat edge pixels" option in batch setting picture properties dialog.
 
 ## 5.0.9
 1. Urgently fixed a bug affecting 5.0.8.

@@ -354,9 +354,11 @@
     
       <h1>Transform</h1>
     
-    <h2 id="Coordinate-origin"><a href="#Coordinate-origin" class="headerlink" title="Coordinate origin"></a>Coordinate origin</h2><p>FairyGUI uses the upper left corner of the screen as the origin, and Unity’s screen coordinates use the lower left corner as the origin. Generally, this conversion does not require developer intervention. If you really need to convert these two, you can use:</p>
+    <h2 id="Coordinate origin"><a class="header-anchor" href="#Coordinate origin">¶</a> Coordinate origin</h2>
+<p>FairyGUI uses the upper left corner of the screen as the origin, and Unity’s screen coordinates use the lower left corner as the origin. Generally, this conversion does not require developer intervention. If you really need to convert these two, you can use:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Unity's screen coordinate system, with the bottom left corner as the origin</span></div><div class="line">    Vector2 pos = Input.mousePosition;</div><div class="line"></div><div class="line">    <span class="comment">// Convert to screen coordinates of FairyGUI</span></div><div class="line">    pos.y = Screen.height-pos.y;</div></pre></td></tr></table></figure>
-<h2 id="Coordinate-transformation"><a href="#Coordinate-transformation" class="headerlink" title="Coordinate transformation"></a>Coordinate transformation</h2><p>The x / y / position values in GObject are all<strong>Local coordinates</strong>, Which is the offset from the parent component. GObject does not provide direct properties to obtain the global coordinates of the object, but provides methods to convert.</p>
+<h2 id="Coordinate transformation"><a class="header-anchor" href="#Coordinate transformation">¶</a> Coordinate transformation</h2>
+<p>The x / y / position values in GObject are all<strong>Local coordinates</strong>, Which is the offset from the parent component. GObject does not provide direct properties to obtain the global coordinates of the object, but provides methods to convert.</p>
 <p><strong>Please note: For an object, the origin of the local coordinates is (0,0), not (x, y), (x, y) is the coordinates of the parent component, not its own local coordinates.</strong></p>
 <p>If you want to get the coordinates of any UI element on the screen, you can use:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Vector2 screenPos = aObject.LocalToGlobal(Vector2.zero);</div></pre></td></tr></table></figure>
@@ -368,11 +370,12 @@
 <p><strong>Note that what we define in the editor and what is handled in the code generally refers to this logical screen coordinate.</strong></p>
 <p>If you want to transform the coordinates between any two UI objects, for example, you need to know the position of coordinate (10,10) in A in B, you can use:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Vector2 posInB = aObject.TransformPoint(<span class="keyword">new</span> Vector2(<span class="number">10</span>,<span class="number">10</span>), bObject);</div></pre></td></tr></table></figure>
-<h2 id="Conversion-with-world-space-coordinates"><a href="#Conversion-with-world-space-coordinates" class="headerlink" title="Conversion with world space coordinates"></a>Conversion with world space coordinates</h2><p>If you want to convert the coordinates of the world space to the coordinates in the UI, you need to convert the coordinates of the world space to the screen coordinates first, and then continue to convert, for example:</p>
+<h2 id="Conversion with world space coordinates"><a class="header-anchor" href="#Conversion with world space coordinates">¶</a> Conversion with world space coordinates</h2>
+<p>If you want to convert the coordinates of the world space to the coordinates in the UI, you need to convert the coordinates of the world space to the screen coordinates first, and then continue to convert, for example:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Vector3 screenPos = Camera.main.WorldToScreenPoint (worldPos);</div><div class="line">    <span class="comment">// origin position conversion</span></div><div class="line">    screenPos.y = Screen.height-screenPos.y;</div><div class="line">    Vector2 pt = GRoot.inst.GlobalToLocal (screenPos);</div></pre></td></tr></table></figure>
 <p>If you want to convert the coordinates in the UI to the coordinates in the world space, you need to convert the coordinates in the UI to the screen coordinates before continuing the conversion, for example:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Vector2 screenPos = GRoot.inst.LocalToGlobal (pos);</div><div class="line">    <span class="comment">// origin position conversion</span></div><div class="line">    screenPos.y = Screen.height-screenPos.y;</div><div class="line">    In general, you also need to provide the parameter of the distance length <span class="keyword">from</span> the front of the camera<span class="string">'s field of view as screenPos.z (if needed, change the screenPos to Vector3 type)</span></div><div class="line"><span class="string">    Vector3 worldPos = Camera.main.ScreenToWorldPoint (screenPos);</span></div></pre></td></tr></table></figure>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
     
     <div class="footer">
       found mistake? Want to participate in editing?

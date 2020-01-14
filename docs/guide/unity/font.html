@@ -354,39 +354,49 @@
     
       <h1>Fonts</h1>
     
-    <h2 id="Use-dynamic-fonts"><a href="#Use-dynamic-fonts" class="headerlink" title="Use dynamic fonts"></a>Use dynamic fonts</h2><p>Just use the font name. For example, setting a global font:</p>
+    <h2 id="Use dynamic fonts"><a class="header-anchor" href="#Use dynamic fonts">¶</a> Use dynamic fonts</h2>
+<p>Just use the font name. For example, setting a global font:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">UIConfig.defaultFont = <span class="string">"Droid Sans Fallback, LTHYSZK, Helvetica-Bold, Microsoft YaHei, SimHei"</span>;</div></pre></td></tr></table></figure>
-<p>Multiple font names are separated by commas. Unity will automatically use the first recognized font name. But one must be recognizable. Recognizable means,<strong>Must be a font that exists in the system environment, and the font name must be correct</strong>。 Suppose you set “Microsoft Yahei”, there must be no on the phone, the display effect will not meet expectations.</p>
+<p>Multiple font names are separated by commas. Unity will automatically use the first recognized font name. But one must be recognizable. Recognizable means,<strong>Must be a font that exists in the system environment, and the font name must be correct</strong>。 Suppose you set &quot;Microsoft Yahei&quot;, there must be no on the phone, the display effect will not meet expectations.</p>
 <p><strong>WebGL platform does not support dynamic fonts (not supported by Unity), you must use TTF fonts</strong>。</p>
-<h2 id="Use-TTF-font"><a href="#Use-TTF-font" class="headerlink" title="Use TTF font"></a>Use TTF font</h2><p>Unity supports the direct use of TTF font resources, just need to use the file name as the font name, assuming font1.ttf has been placed in the Resources directory:</p>
+<h2 id="Use TTF font"><a class="header-anchor" href="#Use TTF font">¶</a> Use TTF font</h2>
+<p>Unity supports the direct use of TTF font resources, just need to use the file name as the font name, assuming font1.ttf has been placed in the Resources directory:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">UIConfig.defaultFont = <span class="string">"font1"</span>;</div></pre></td></tr></table></figure>
 <p>If the TTF file is placed in the Resources directory or Resources / Fonts directory, then use the font file name directly. If it is another path, you also need to add the path, assuming it is placed in Resources / SomePath:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">UIConfig.defaultFont = <span class="string">"SomePath/font1"</span>;</div></pre></td></tr></table></figure>
 <p>Generally speaking, font files can be placed in the Resources directory. If you need to package fonts into AssetBundle, you need to load and register fonts yourself, for example:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Font myFont = myBundle.LoadAsset &lt;Font&gt; (name);</div><div class="line">  FontManager.RegisterFont (<span class="keyword">new</span> DynamicFont (<span class="string">"font name"</span>, myFont), <span class="string">"font name"</span>);</div></pre></td></tr></table></figure>
-<h2 id="Font-mapping"><a href="#Font-mapping" class="headerlink" title="Font mapping"></a>Font mapping</h2><p>If your interface uses multiple fonts, such as setting fonts for individual text:</p>
+<h2 id="Font mapping"><a class="header-anchor" href="#Font mapping">¶</a> Font mapping</h2>
+<p>If your interface uses multiple fonts, such as setting fonts for individual text:</p>
 <p><img src="../../images/2016-07-06_143622.png" alt=""></p>
-<p>The font “Heihei” is used here, but “Heihei” may not be recognized by Unity, and it will not work on mobile phones. We need to establish a mapping of this font to known fonts. Suppose we have prepared a TTF font HeiTi.ttf according to the above method, and then:</p>
+<p>The font &quot;Heihei&quot; is used here, but &quot;Heihei&quot; may not be recognized by Unity, and it will not work on mobile phones. We need to establish a mapping of this font to known fonts. Suppose we have prepared a TTF font HeiTi.ttf according to the above method, and then:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">FontManager.RegisterFont (FontManager.GetFont (<span class="string">"HeiTi"</span>), <span class="string">"Bold"</span>);</div></pre></td></tr></table></figure>
-<p>The second parameter of RegisterFont corresponds to the font name used in the editor; the first parameter is the name of the font that Unity can recognize. Refer to “Use Dynamic Font” and “Use TTF Font” above.</p>
-<h2 id="common-problem"><a href="#common-problem" class="headerlink" title="common problem"></a>common problem</h2><h3 id="Font-display-becomes-flat"><a href="#Font-display-becomes-flat" class="headerlink" title="Font display becomes flat"></a>Font display becomes flat</h3><p>When you use the bold effect of some fonts, you will find that the bold effect is displayed incorrectly in Unity. This is because some fonts do not have a bold effect. At this time, Unity will use widening to achieve, Like flattened. FairyGUI can solve bold display with extra mesh. the way is:</p>
+<p>The second parameter of RegisterFont corresponds to the font name used in the editor; the first parameter is the name of the font that Unity can recognize. Refer to &quot;Use Dynamic Font&quot; and &quot;Use TTF Font&quot; above.</p>
+<h2 id="common problem"><a class="header-anchor" href="#common problem">¶</a> common problem</h2>
+<h3 id="Font display becomes flat"><a class="header-anchor" href="#Font display becomes flat">¶</a> Font display becomes flat</h3>
+<p>When you use the bold effect of some fonts, you will find that the bold effect is displayed incorrectly in Unity. This is because some fonts do not have a bold effect. At this time, Unity will use widening to achieve, Like flattened. FairyGUI can solve bold display with extra mesh. the way is:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">FontManager.GetFont (<span class="string">"font name"</span>). CustomBold = <span class="literal">true</span>;</div></pre></td></tr></table></figure>
 <p>For some fonts, the Unity rendering has a bold effect, but when set to italic, the bold effect is lost again (such as Yahei). In this case, FairyGUI can cancel the effect of Unity’s default rendering bold, and add extra face rendering bold. The way to activate this feature is</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">FontManager.GetFont (<span class="string">"font name"</span>). CustomBoldAndItalic = <span class="literal">true</span>;</div></pre></td></tr></table></figure>
 <p>If customBold is already set, you do not need to set customBoldAndItalic.</p>
-<h3 id="All-text-is-displayed-in-black"><a href="#All-text-is-displayed-in-black" class="headerlink" title="All text is displayed in black"></a>All text is displayed in black</h3><p>The SDK installation is incomplete and there is no shader for FairyGUI.</p>
-<h3 id="Incorrect-font-display"><a href="#Incorrect-font-display" class="headerlink" title="Incorrect font display"></a>Incorrect font display</h3><ul>
-<li><p>If it is a dynamic font, then you need to double-check that it is installed in your operating system (such as Windows) and the font name is correct. <strong>For some fonts, the font names that Unity recognizes are not necessarily the Chinese names of the fonts</strong>。 Check the exact system font name, you can drag the ttf file into Unity, and you can see the correct font name in the “Font Names” of the Inspector. You can also download FontCreator software to view the Font Family properties of the font.</p>
+<h3 id="All text is displayed in black"><a class="header-anchor" href="#All text is displayed in black">¶</a> All text is displayed in black</h3>
+<p>The SDK installation is incomplete and there is no shader for FairyGUI.</p>
+<h3 id="Incorrect font display"><a class="header-anchor" href="#Incorrect font display">¶</a> Incorrect font display</h3>
+<ul>
+<li>
+<p>If it is a dynamic font, then you need to double-check that it is installed in your operating system (such as Windows) and the font name is correct. <strong>For some fonts, the font names that Unity recognizes are not necessarily the Chinese names of the fonts</strong>。 Check the exact system font name, you can drag the ttf file into Unity, and you can see the correct font name in the &quot;Font Names&quot; of the Inspector. You can also download FontCreator software to view the Font Family properties of the font.</p>
 </li>
-<li><p>If it is a TTF font, in the Project view at runtime, after clicking the arrow to the left of the TTF file, you can see the Font Texture and Font Material under the TTF file. The Font Texture should contain the text used in your game and you can see the rendering effect. If you can see it, it means that the rendering of this font in Unity looks like this.</p>
-<p> <img src="../../images/20170808230450.png" alt=""></p>
+<li>
+<p>If it is a TTF font, in the Project view at runtime, after clicking the arrow to the left of the TTF file, you can see the Font Texture and Font Material under the TTF file. The Font Texture should contain the text used in your game and you can see the rendering effect. If you can see it, it means that the rendering of this font in Unity looks like this.</p>
+<p><img src="../../images/20170808230450.png" alt=""></p>
 </li>
 </ul>
-<h3 id="Text-appears-broken-or-purple"><a href="#Text-appears-broken-or-purple" class="headerlink" title="Text appears broken or purple"></a>Text appears broken or purple</h3><p>Unity maintains a dynamic map for the font, which contains the text currently in use. When text assignment occurs, if the current map is not enough to accommodate the new text, Unity will automatically rebuild the map, and the UV corresponding to all text will change. At this time, the text already displayed will be abnormal, such as broken, purple and other effects.</p>
+<h3 id="Text appears broken or purple"><a class="header-anchor" href="#Text appears broken or purple">¶</a> Text appears broken or purple</h3>
+<p>Unity maintains a dynamic map for the font, which contains the text currently in use. When text assignment occurs, if the current map is not enough to accommodate the new text, Unity will automatically rebuild the map, and the UV corresponding to all text will change. At this time, the text already displayed will be abnormal, such as broken, purple and other effects.</p>
 <p>FairyGUI has a built-in response to this situation, which is to redraw all the text immediately when this happens. Therefore, some of the online support for large text stickers are not needed here at FairyGUI.</p>
 <p>But FairyGUI has time for this kind of operation, which is in StageEngine.LateUpdate. If your text assignment occurs in LateUpdate, and unfortunately the execution order is after StageEngine.LateUpdate, then FairyGUI has no chance to remedy it, and this frame will have abnormal text display.</p>
 <p>So to prevent this from happening, check your text assignment and try to put it in Update instead of LateUpdate. If it must be put into LateUpdate, adjust the execution order of your MB before StageEngine.</p>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
     
     <div class="footer">
       found mistake? Want to participate in editing?

@@ -366,7 +366,8 @@
 <p><img src="../../images/2015-09-23_165230.png" alt=""></p>
 <p>There are 4 buttons here, each button is a component, and each component contains an image and a text object. FairyGUI is a tree-like display object structure, so they should be sorted by depth:</p>
 <p><img src="../../images/2015-09-23_1702111.png" alt=""></p>
-<p>Because the text and image materials are not the same, a context switch is generated each time from text to image, so 6 DCs are generated.<br>FairyGUI’s deep adjustment technology can optimize this situation. Observe, in fact, the four buttons do not intersect, so FairyGUI intelligently adjusts the rendering order to:</p>
+<p>Because the text and image materials are not the same, a context switch is generated each time from text to image, so 6 DCs are generated.<br>
+FairyGUI’s deep adjustment technology can optimize this situation. Observe, in fact, the four buttons do not intersect, so FairyGUI intelligently adjusts the rendering order to:</p>
 <p><img src="../../images/2015-09-23_171345.png" alt=""></p>
 <p>Because FairyGUI uses atlases, and dynamic text also uses the same textures, in this way, the DC is reduced to two, which achieves the purpose of optimization. The actual situation will be much more complicated than this, but FairyGUI can adjust objects of the same material to continuous RenderingOrder values as much as possible without changing the final display effect, so that they can be optimized by Unity Dynamic Batching. For developers, these adjustments on the bottom layer are transparent, that is, they will not affect the original display object level. In terms of efficiency, this technique only compares whether the display rectangular area (a Rect) between the objects intersects, so the speed is very fast, and it will not cause excessive CPU load.</p>
 <p>FairyGUI provides a switch to control whether the depth adjustment is enabled, it is<code>fairyBatching</code>,E.g</p>
@@ -382,7 +383,7 @@
 <p>After setting FairBatching, it was reduced from 42 DCs to 6 DCs. In addition, you can see the words Saved by batching: 37.</p>
 <p><img src="../../images/2015-09-23_180207.png" alt=""></p>
 <p><img src="../../images/2015-09-23_180119.png" alt=""></p>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
     
     <div class="footer">
       found mistake? Want to participate in editing?

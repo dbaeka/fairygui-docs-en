@@ -354,59 +354,79 @@
     
       <h1>Slider</h1>
     
-    <p>The slider is similar to the progress bar, but the slider has a “button” button that allows the player to drag it to change the value of the progress bar.</p>
-<h2 id="Create-slider"><a href="#Create-slider" class="headerlink" title="Create slider"></a>Create slider</h2><p>There are two ways to create a slider component.</p>
+    <p>The slider is similar to the progress bar, but the slider has a &quot;button&quot; button that allows the player to drag it to change the value of the progress bar.</p>
+<h2 id="Create slider"><a class="header-anchor" href="#Create slider">¶</a> Create slider</h2>
+<p>There are two ways to create a slider component.</p>
 <ul>
-<li><p>Click the main menu “Resources”-&gt; “New Slider” and follow the wizard’s prompts step by step to complete.</p>
-<p> <img src="../../images/QQ20191211-205435.png" alt=""></p>
+<li>
+<p>Click the main menu &quot;Resources&quot;-&gt; &quot;New Slider&quot; and follow the wizard’s prompts step by step to complete.</p>
+<p><img src="../../images/QQ20191211-205435.png" alt=""></p>
 </li>
-<li><p>Create a new component and select Expand to “Slider” in the component properties.</p>
+<li>
+<p>Create a new component and select Expand to &quot;Slider&quot; in the component properties.</p>
 </li>
 </ul>
-<h2 id="Edit-mode-properties"><a href="#Edit-mode-properties" class="headerlink" title="Edit-mode properties"></a>Edit-mode properties</h2><p>In the component editing state, the properties panel of the slider component is:</p>
+<h2 id="Edit-mode properties"><a class="header-anchor" href="#Edit-mode properties">¶</a> Edit-mode properties</h2>
+<p>In the component editing state, the properties panel of the slider component is:</p>
 <p><img src="../../images/QQ20191211-205508.png" alt=""></p>
 <ul>
-<li><p><code>Title type</code>If there is a component named “title” in the component, the progress bar can display a text expressing the current progress.</p>
+<li>
+<p><code>Title type</code>If there is a component named &quot;title&quot; in the component, the progress bar can display a text expressing the current progress.</p>
 <ul>
-<li><code>percentage</code>Displays the current progress percentage, such as “88%”.</li>
-<li><code>Current value / maximum value</code>For example “50/100”.</li>
-<li><code>The current value</code>For example “50”.</li>
-<li><code>Max</code>For example “10000”.</li>
+<li><code>percentage</code>Displays the current progress percentage, such as &quot;88%&quot;.</li>
+<li><code>Current value / maximum value</code>For example &quot;50/100&quot;.</li>
+<li><code>The current value</code>For example &quot;50&quot;.</li>
+<li><code>Max</code>For example &quot;10000&quot;.</li>
 </ul>
 </li>
-<li><p><code>Reverse</code>For horizontal sliders, in general, the larger the progress, the more the telescopic bar extends to the right. If it is reversed, the right edge of the telescopic bar is fixed. The larger the progress, the more the telescopic bar extends to the left. For the vertical slider, In general, the larger the progress, the more the telescopic bar extends downward. If it is reversed, the bottom edge of the telescopic bar is fixed. The larger the progress, the more the telescopic bar extends upward.</p>
+<li>
+<p><code>Reverse</code>For horizontal sliders, in general, the larger the progress, the more the telescopic bar extends to the right. If it is reversed, the right edge of the telescopic bar is fixed. The larger the progress, the more the telescopic bar extends to the left. For the vertical slider, In general, the larger the progress, the more the telescopic bar extends downward. If it is reversed, the bottom edge of the telescopic bar is fixed. The larger the progress, the more the telescopic bar extends upward.</p>
 </li>
-<li><p><code>Integer input</code>When checked, when the slider is swiped by the user, it will only stop at the integer position, that is, the value of the slider is always an integer. This feature can be used to implement hierarchical sliders. The API is wholeNumbers.</p>
+<li>
+<p><code>Integer input</code>When checked, when the slider is swiped by the user, it will only stop at the integer position, that is, the value of the slider is always an integer. This feature can be used to implement hierarchical sliders. The API is wholeNumbers.</p>
 </li>
-<li><p><code>Allow changes with a click</code>After checking, you can directly change the value of the slider by clicking the slider; if you do not check, you can only drag the slider to change the value of the slider. The API is changeOnClick.</p>
-</li>
-</ul>
-<h2 id="Instructions"><a href="#Instructions" class="headerlink" title="Instructions"></a>Instructions</h2><ul>
-<li><p><code>bar</code>When the progress changes, change the width of the “bar” object. Generally used for horizontal progress bar. Note: Be sure to set the width of the bar object to the width when the progress bar is at its maximum.</p>
-<p> The “bar” element can be of any type and is not limited to images.</p>
-</li>
-<li><p><code>bar_v</code>When the progress changes, change the height of the “bar_v” object. Generally used for vertical progress bar. Note: Be sure to set the height of the bar_v object to the height when the progress bar is at its maximum.</p>
-<p> The “bar_v” element can be of any type and is not limited to images.</p>
-</li>
-<li><p><code>grip</code>Button for dragging. Note: The grip button should be associated with the bar object and placed where the progress bar is at its maximum. This relation is:<br>Forward: The left and right grips are associated with bar or the top is associated with bar_v;<br>Reverse: The top of the grip is associated with bar or the bottom is associated with bar_v.</p>
-</li>
-<li><p><code>title</code>It can be a loader, or a label or button. A title to display progress. What is displayed is determined by the “Title Type”.</p>
+<li>
+<p><code>Allow changes with a click</code>After checking, you can directly change the value of the slider by clicking the slider; if you do not check, you can only drag the slider to change the value of the slider. The API is changeOnClick.</p>
 </li>
 </ul>
-<h2 id="Instance-properties"><a href="#Instance-properties" class="headerlink" title="Instance properties"></a>Instance properties</h2><p>Select a slider component on the stage, and the property panel list on the right appears:</p>
+<h2 id="Instructions"><a class="header-anchor" href="#Instructions">¶</a> Instructions</h2>
+<ul>
+<li>
+<p><code>bar</code>When the progress changes, change the width of the &quot;bar&quot; object. Generally used for horizontal progress bar. Note: Be sure to set the width of the bar object to the width when the progress bar is at its maximum.</p>
+<p>The &quot;bar&quot; element can be of any type and is not limited to images.</p>
+</li>
+<li>
+<p><code>bar_v</code>When the progress changes, change the height of the &quot;bar_v&quot; object. Generally used for vertical progress bar. Note: Be sure to set the height of the bar_v object to the height when the progress bar is at its maximum.</p>
+<p>The &quot;bar_v&quot; element can be of any type and is not limited to images.</p>
+</li>
+<li>
+<p><code>grip</code>Button for dragging. Note: The grip button should be associated with the bar object and placed where the progress bar is at its maximum. This relation is:<br>
+Forward: The left and right grips are associated with bar or the top is associated with bar_v;<br>
+Reverse: The top of the grip is associated with bar or the bottom is associated with bar_v.</p>
+</li>
+<li>
+<p><code>title</code>It can be a loader, or a label or button. A title to display progress. What is displayed is determined by the &quot;Title Type&quot;.</p>
+</li>
+</ul>
+<h2 id="Instance properties"><a class="header-anchor" href="#Instance properties">¶</a> Instance properties</h2>
+<p>Select a slider component on the stage, and the property panel list on the right appears:</p>
 <p><img src="../../images/QQ20191211-212644.png" alt=""></p>
 <ul>
-<li><p><code>Minimum value</code>The minimum progress value.</p>
+<li>
+<p><code>Minimum value</code>The minimum progress value.</p>
 </li>
-<li><p><code>Max</code>The maximum progress value.</p>
+<li>
+<p><code>Max</code>The maximum progress value.</p>
 </li>
-<li><p><code>The current value</code>Current progress.</p>
+<li>
+<p><code>The current value</code>Current progress.</p>
 </li>
 </ul>
-<h2 id="GSlider"><a href="#GSlider" class="headerlink" title="GSlider"></a>GSlider</h2><figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GSlider slider = gcom.GetChild(<span class="string">"n1"</span>).asSlider;</div><div class="line">    slider.<span class="keyword">value</span> = <span class="number">50</span>;</div></pre></td></tr></table></figure>
+<h2 id="GSlider"><a class="header-anchor" href="#GSlider">¶</a> GSlider</h2>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GSlider slider = gcom.GetChild(<span class="string">"n1"</span>).asSlider;</div><div class="line">    slider.<span class="keyword">value</span> = <span class="number">50</span>;</div></pre></td></tr></table></figure>
 <p>There are notification events when the slider progress changes:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">//Unity/Cry</span></div><div class="line">    slider.onChanged.Add(onChanged);</div><div class="line"></div><div class="line">    <span class="comment">//AS3</span></div><div class="line">    slider.addEventListener(StateChangeEvent.CHANGED, onChanged);</div><div class="line"></div><div class="line">    <span class="comment">//Egret</span></div><div class="line">    slider.addEventListener(StateChangeEvent.CHANGED, <span class="keyword">this</span>.onChanged, <span class="keyword">this</span>);</div><div class="line"></div><div class="line">    <span class="comment">//Laya</span></div><div class="line">    slider.<span class="keyword">on</span>(fairygui.Events.STATE_CHANGED, <span class="keyword">this</span>, <span class="keyword">this</span>.onChanged);</div><div class="line"></div><div class="line">    <span class="comment">//Cocos2dx</span></div><div class="line">    slider-&gt;addEventListener(UIEventType::Changed, CC_CALLBACK_1(AClass::onChanged, this));</div><div class="line"></div><div class="line">    <span class="comment">//CocosCreator</span></div><div class="line">    slider.<span class="keyword">on</span>(fgui.Event.STATUS_CHANGED, <span class="keyword">this</span>.onChanged, <span class="keyword">this</span>);</div></pre></td></tr></table></figure>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
     
     <div class="footer">
       found mistake? Want to participate in editing?

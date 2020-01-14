@@ -355,62 +355,77 @@
       <h1>Relation</h1>
     
     <p>The correlation system is the core technology of FairyGUI to realize automatic layout. The layout systems provided by other UI frameworks generally only provide various fixed layouts or anchor points, which can only define the relationship between components and containers. The relation of FairyGUI can define the relationship between any two components, and the interaction methods are more diverse.</p>
-<h2 id="Set-up-relation"><a href="#Set-up-relation" class="headerlink" title="Set up relation"></a>Set up relation</h2><p>Select a component, you can see the relation panel appears on the right property bar:</p>
+<h2 id="Set up relation"><a class="header-anchor" href="#Set up relation">¶</a> Set up relation</h2>
+<p>Select a component, you can see the relation panel appears on the right property bar:</p>
 <p><img src="../../images/QQ20191211-171058.png" alt=""></p>
-<p>The target of the relation can be any component in the current container, or the container itself (called a container component) being edited.<br>If the target to be set is a container component, click the drop-down box under “Container” to quickly complete the setting; if it is another component, click “to other components” to enter the interface for selecting the target component. At this time we will You can select the target object from the editing area on the left. After the selection is completed, click “Finish” to complete the setting.</p>
+<p>The target of the relation can be any component in the current container, or the container itself (called a container component) being edited.<br>
+If the target to be set is a container component, click the drop-down box under &quot;Container&quot; to quickly complete the setting; if it is another component, click &quot;to other components&quot; to enter the interface for selecting the target component. At this time we will You can select the target object from the editing area on the left. After the selection is completed, click &quot;Finish&quot; to complete the setting.</p>
 <p><img src="../../images/QQ20191211-171302.png" alt=""></p>
 <p>After the target object is set, you can set the relationship between yourself and the target.</p>
 <p>The types of relations are: (For the convenience of discussion, it is assumed that they are A and the target element is T)</p>
 <ul>
-<li><p><code>Left-&gt; left</code>Assume that the left side distance of T and A is X, and when the left side position of T changes, keep the left side distance of T and A at X. Note: It is meaningless to associate left-&gt; left with the container component, because the component is in the container, and the position change of the container component is the movement of the entire container, and it will not affect the coordinates of all components inside the container.</p>
+<li>
+<p><code>Left-&gt; left</code>Assume that the left side distance of T and A is X, and when the left side position of T changes, keep the left side distance of T and A at X. Note: It is meaningless to associate left-&gt; left with the container component, because the component is in the container, and the position change of the container component is the movement of the entire container, and it will not affect the coordinates of all components inside the container.</p>
 </li>
-<li><p><code>Left-&gt; middle</code>It is assumed that the distance between the center point of T and the left side of A is X. When the center point of T is displaced, the distance between the center point of T and the left side of A is X. There are two cases where the center point of T is displaced, one is that T is displaced, and the other is that the width of T is increased.</p>
-<p> For example, the following text is automatically increased, and the icon and the text establish a left-&gt; center relation, so when the text changes, the icon stays in the center of the text:</p>
-<p> <img src="../../images/20170802000000.jpg" alt=""></p>
-<p> Note: relation works only if the position or size of the target changes. For example, in the above example, setting the left-&gt; center of the icon’s associated text does not mean that it is centered. The initial position of the icon must be set by yourself. This is a relatively easy mistake for beginners. Again, it just keeps the distance between the center point of T and the left side of A. Look at the following example:</p>
-<p> <img src="../../images/20170802000001.jpg" alt=""></p>
-<p> It is still the left-&gt; center relation established. This time we moved the icon a little to the left. It can be seen that the position of the icon and the position of the center line of the text remain unchanged after the text length changes.</p>
+<li>
+<p><code>Left-&gt; middle</code>It is assumed that the distance between the center point of T and the left side of A is X. When the center point of T is displaced, the distance between the center point of T and the left side of A is X. There are two cases where the center point of T is displaced, one is that T is displaced, and the other is that the width of T is increased.</p>
+<p>For example, the following text is automatically increased, and the icon and the text establish a left-&gt; center relation, so when the text changes, the icon stays in the center of the text:</p>
+<p><img src="../../images/20170802000000.jpg" alt=""></p>
+<p>Note: relation works only if the position or size of the target changes. For example, in the above example, setting the left-&gt; center of the icon’s associated text does not mean that it is centered. The initial position of the icon must be set by yourself. This is a relatively easy mistake for beginners. Again, it just keeps the distance between the center point of T and the left side of A. Look at the following example:</p>
+<p><img src="../../images/20170802000001.jpg" alt=""></p>
+<p>It is still the left-&gt; center relation established. This time we moved the icon a little to the left. It can be seen that the position of the icon and the position of the center line of the text remain unchanged after the text length changes.</p>
 </li>
-<li><p><code>Left-&gt; right</code>Suppose that the distance between the right side of T and the left side of A is X. When the right side of T is displaced, the distance between the right side of T and the left side of A is X. There are two cases where the right side of T is displaced. One is that T is displaced, and the other is that the width of T is increased. At first glance, it seems that there is no difference from left-&gt; right, but in complex application scenarios, left-&gt; right has room to play a role. for example:</p>
-<p> <img src="../../images/20170802000002.jpg" alt=""></p>
-<p> There is a left-right centered relationship, which will be explained below, but for the time being. It can be seen that when the text content changes, the centerline position of the text does not change, so the question mark icon is set unchanged; but the right side of the text changes, so the exclamation mark icon moves accordingly and remains The distance from the right side of the text.</p>
+<li>
+<p><code>Left-&gt; right</code>Suppose that the distance between the right side of T and the left side of A is X. When the right side of T is displaced, the distance between the right side of T and the left side of A is X. There are two cases where the right side of T is displaced. One is that T is displaced, and the other is that the width of T is increased. At first glance, it seems that there is no difference from left-&gt; right, but in complex application scenarios, left-&gt; right has room to play a role. for example:</p>
+<p><img src="../../images/20170802000002.jpg" alt=""></p>
+<p>There is a left-right centered relationship, which will be explained below, but for the time being. It can be seen that when the text content changes, the centerline position of the text does not change, so the question mark icon is set unchanged; but the right side of the text changes, so the exclamation mark icon moves accordingly and remains The distance from the right side of the text.</p>
 </li>
-<li><p><code>Center left and right</code>Assume that the distance between the center of T and A is X. When the center of T is displaced, keep the distance between the center of T and A as X. There are two cases where the center of T is displaced, one is that T is displaced, and the other is that the width of T is increased. for example:</p>
-<p> <img src="../../images/20170802000003.jpg" alt=""></p>
-<p> The text establishes a left-right centered relation with the container component. You can see that when the component is widened, the text still maintains the middle position. Here again, the left and right centering relationship is not the same as centering. The text can be placed in any position. The relation just guarantees that the distance between the centerlines is always the same.</p>
+<li>
+<p><code>Center left and right</code>Assume that the distance between the center of T and A is X. When the center of T is displaced, keep the distance between the center of T and A as X. There are two cases where the center of T is displaced, one is that T is displaced, and the other is that the width of T is increased. for example:</p>
+<p><img src="../../images/20170802000003.jpg" alt=""></p>
+<p>The text establishes a left-right centered relation with the container component. You can see that when the component is widened, the text still maintains the middle position. Here again, the left and right centering relationship is not the same as centering. The text can be placed in any position. The relation just guarantees that the distance between the centerlines is always the same.</p>
 </li>
-<li><p><code>Right-&gt; left</code>Assume that the distance between the left side of T and the right side of A is X. When the left side of T is displaced, the distance between the left side of T and the right side of A is X. Another feature of the “right” series is that if the width of A changes, A will automatically move to keep X unchanged. for example:</p>
-<p> <img src="../../images/20170802000004.jpg" alt=""></p>
-<p> Here the text establishes a right-&gt; left relation with the question mark icon. When the text content changes, the width of the text changes. Normally, the text should stretch to the right after the width changes, but in order to keep the text right The distance between the side and the left of the question mark does not change, and the text automatically extends to the left. Tip: In this example, a right-&gt; left relation between the text and the container component is also the same.</p>
+<li>
+<p><code>Right-&gt; left</code>Assume that the distance between the left side of T and the right side of A is X. When the left side of T is displaced, the distance between the left side of T and the right side of A is X. Another feature of the &quot;right&quot; series is that if the width of A changes, A will automatically move to keep X unchanged. for example:</p>
+<p><img src="../../images/20170802000004.jpg" alt=""></p>
+<p>Here the text establishes a right-&gt; left relation with the question mark icon. When the text content changes, the width of the text changes. Normally, the text should stretch to the right after the width changes, but in order to keep the text right The distance between the side and the left of the question mark does not change, and the text automatically extends to the left. Tip: In this example, a right-&gt; left relation between the text and the container component is also the same.</p>
 </li>
-<li><p><code>Right-&gt; center</code>It is assumed that the distance between the center of T and the right side of A is X. When the center of T is displaced, the distance between the center of T and the right side of A is X.</p>
+<li>
+<p><code>Right-&gt; center</code>It is assumed that the distance between the center of T and the right side of A is X. When the center of T is displaced, the distance between the center of T and the right side of A is X.</p>
 </li>
-<li><p><code>Right-&gt; right</code>It is assumed that the distance between the right side of T and the right side of A is X. When the right side of T is displaced, the distance between the right side of T and the right side of A is X.</p>
+<li>
+<p><code>Right-&gt; right</code>It is assumed that the distance between the right side of T and the right side of A is X. When the right side of T is displaced, the distance between the right side of T and the right side of A is X.</p>
 </li>
-<li><p><code>Left extension-&gt; left</code>Assume that the distance between the left side of T and the left side of A is X. When the left side of T is displaced, the left side of A will move, but the right side of A remains unchanged, that is, A produces an extension (width change )Effect. for example:</p>
-<p> <img src="../../images/20170802233918.png" alt=""></p>
-<p> The green square establishes an relation with the white square’s left extension-&gt; left.</p>
-<p> <img src="../../images/gaollg20.gif" alt=""></p>
-<p> When the white square moves to the left, the left side of the green square follows the white square, but the right side of the green square remains motionless. The effect is that the green square is stretched.</p>
+<li>
+<p><code>Left extension-&gt; left</code>Assume that the distance between the left side of T and the left side of A is X. When the left side of T is displaced, the left side of A will move, but the right side of A remains unchanged, that is, A produces an extension (width change )Effect. for example:</p>
+<p><img src="../../images/20170802233918.png" alt=""></p>
+<p>The green square establishes an relation with the white square’s left extension-&gt; left.</p>
+<p><img src="../../images/gaollg20.gif" alt=""></p>
+<p>When the white square moves to the left, the left side of the green square follows the white square, but the right side of the green square remains motionless. The effect is that the green square is stretched.</p>
 </li>
-<li><p><code>Extension left-&gt; right</code>Assume that the distance between the right side of T and the left side of A is X. When the right side of T is displaced, the left side of A will move, but the right side of A remains unchanged, that is, A produces an extension (width change )Effect.</p>
+<li>
+<p><code>Extension left-&gt; right</code>Assume that the distance between the right side of T and the left side of A is X. When the right side of T is displaced, the left side of A will move, but the right side of A remains unchanged, that is, A produces an extension (width change )Effect.</p>
 </li>
-<li><p><code>Extend right-&gt; left</code>Assume that the distance between the left side of T and the right side of A is X. When the left side of T is displaced, the right side of A will move, but the left side of A remains unchanged, that is, A produces an extension (width change )Effect.</p>
+<li>
+<p><code>Extend right-&gt; left</code>Assume that the distance between the left side of T and the right side of A is X. When the left side of T is displaced, the right side of A will move, but the left side of A remains unchanged, that is, A produces an extension (width change )Effect.</p>
 </li>
-<li><p><code>Extend right-&gt; right</code>Assume that the distance between the right side of T and the right side of A is X. When the right side of T is displaced, the right side of A will move, but the left side of A remains unchanged, that is, A produces an extension (width change )Effect. Extend right-&gt; right is also commonly used for automatic expansion of containers. for example:</p>
-<p> <img src="../../images/20170802234354.png" alt=""></p>
-<p> Here the container component is set to the right extension of the text-&gt; right relation (the method of setting the relation of the container component is to click the blank space in the editor area, that is, do not select any components, the relation setting of the container component will appear on the right) This means that when the text expands, the width of the container component increases.</p>
-<p> <img src="../../images/20170802234450.png" alt=""></p>
-<p> When the container component establishes the right extension of the text, the width of the container component is determined by the width of the text. So when this component is dragged to other places for use, its width cannot be changed manually. It does n’t work to enlarge or reduce the width.</p>
+<li>
+<p><code>Extend right-&gt; right</code>Assume that the distance between the right side of T and the right side of A is X. When the right side of T is displaced, the right side of A will move, but the left side of A remains unchanged, that is, A produces an extension (width change )Effect. Extend right-&gt; right is also commonly used for automatic expansion of containers. for example:</p>
+<p><img src="../../images/20170802234354.png" alt=""></p>
+<p>Here the container component is set to the right extension of the text-&gt; right relation (the method of setting the relation of the container component is to click the blank space in the editor area, that is, do not select any components, the relation setting of the container component will appear on the right) This means that when the text expands, the width of the container component increases.</p>
+<p><img src="../../images/20170802234450.png" alt=""></p>
+<p>When the container component establishes the right extension of the text, the width of the container component is determined by the width of the text. So when this component is dragged to other places for use, its width cannot be changed manually. It does n’t work to enlarge or reduce the width.</p>
 </li>
-<li><p><code>Width-&gt; width</code>Assume that the difference between the width of T and the width of A is X. When the width of T changes, the width of A changes the same. for example:</p>
-<p> <img src="../../images/20170802234604.png" alt=""></p>
-<p> The background image has a wide-&gt; wide relation with the container component.</p>
-<p> <img src="../../images/20170802234450.png" alt=""></p>
-<p> Now we take out the made component and use it. It can be seen that when the component is widened, the width of the icon is also widened. If we don’t set the relation, then the effect is this:</p>
-<p> <img src="../../images/20170802234710.png" alt=""></p>
+<li>
+<p><code>Width-&gt; width</code>Assume that the difference between the width of T and the width of A is X. When the width of T changes, the width of A changes the same. for example:</p>
+<p><img src="../../images/20170802234604.png" alt=""></p>
+<p>The background image has a wide-&gt; wide relation with the container component.</p>
+<p><img src="../../images/20170802234450.png" alt=""></p>
+<p>Now we take out the made component and use it. It can be seen that when the component is widened, the width of the icon is also widened. If we don’t set the relation, then the effect is this:</p>
+<p><img src="../../images/20170802234710.png" alt=""></p>
 </li>
-<li><p>Top-&gt; Top-Top-&gt; Mid-top-&gt; Bottom-up and down-bottom-&gt; Top-bottom-&gt; Mid-bottom-&gt; Bottom-top extension-&gt; Top-top extension-&gt; Bottom-end extension-&gt; Top-bottom extension-&gt; Bottom height-&gt; High The setting methods and characteristics of these relations are the same as the above-mentioned relations, except that they are changed from horizontal to vertical, and will not be repeated here.<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"></div><div class="line">As can be seen from the above discussion, the relation always maintains a set distance. This distance is the absolute distance and the distance of the pixels. Sometimes we need proportional distance. FairyGUI provides such a function, you can use proportional distance when setting the relation. Just check the &quot;%&quot; next to the relationship.</div><div class="line"></div><div class="line">An example of the function of the percentage relationship:</div><div class="line"></div><div class="line">![](../../images/QQ20191212-204945.png)</div><div class="line"></div><div class="line">The smiley icon adds a &quot;Left-&gt; Middle&quot; relation to the container component and ticks &quot;Use percentage&quot;. The container component is 200 pixels wide, and the x coordinate of the smiley icon is now 50 pixels. In other words, the smiley icon is 1/4 of the container component, and the distance from the center of the container component is also 1/4 of the width.</div><div class="line"></div><div class="line">Now drag the designed component out and use it, and stretch the width of the component to 400 pixels. It can be seen that the smiley icon has been shifted according to the relation rules in the left-&gt;. It is now located at 100 pixels and still maintains a width of 1/4 from the center of the container component.</div><div class="line"></div><div class="line">![](../../images/QQ20191212-205136.png)</div><div class="line"></div><div class="line">## Relation</div><div class="line"></div><div class="line">In addition to setting relations in the editor, sometimes we also need to add relations dynamically. For example, in a page game, a component that is dynamically added to the stage, and when the width of the stage is changed (such as the browser window being dragged by the player), the component still remains on the right side, so you can call:</div><div class="line"></div><div class="line">```csharp</div><div class="line">aObject.AddRelation(GRoot.inst, RelationType.Right_Right);</div></pre></td></tr></table></figure></p>
+<li>
+<p>Top-&gt; Top-Top-&gt; Mid-top-&gt; Bottom-up and down-bottom-&gt; Top-bottom-&gt; Mid-bottom-&gt; Bottom-top extension-&gt; Top-top extension-&gt; Bottom-end extension-&gt; Top-bottom extension-&gt; Bottom height-&gt; High The setting methods and characteristics of these relations are the same as the above-mentioned relations, except that they are changed from horizontal to vertical, and will not be repeated here.<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"></div><div class="line">As can be seen from the above discussion, the relation always maintains a set distance. This distance is the absolute distance and the distance of the pixels. Sometimes we need proportional distance. FairyGUI provides such a function, you can use proportional distance when setting the relation. Just check the &quot;%&quot; next to the relationship.</div><div class="line"></div><div class="line">An example of the function of the percentage relationship:</div><div class="line"></div><div class="line">![](../../images/QQ20191212-204945.png)</div><div class="line"></div><div class="line">The smiley icon adds a &quot;Left-&gt; Middle&quot; relation to the container component and ticks &quot;Use percentage&quot;. The container component is 200 pixels wide, and the x coordinate of the smiley icon is now 50 pixels. In other words, the smiley icon is 1/4 of the container component, and the distance from the center of the container component is also 1/4 of the width.</div><div class="line"></div><div class="line">Now drag the designed component out and use it, and stretch the width of the component to 400 pixels. It can be seen that the smiley icon has been shifted according to the relation rules in the left-&gt;. It is now located at 100 pixels and still maintains a width of 1/4 from the center of the container component.</div><div class="line"></div><div class="line">![](../../images/QQ20191212-205136.png)</div><div class="line"></div><div class="line">## Relation</div><div class="line"></div><div class="line">In addition to setting relations in the editor, sometimes we also need to add relations dynamically. For example, in a page game, a component that is dynamically added to the stage, and when the width of the stage is changed (such as the browser window being dragged by the player), the component still remains on the right side, so you can call:</div><div class="line"></div><div class="line">```csharp</div><div class="line">aObject.AddRelation(GRoot.inst, RelationType.Right_Right);</div></pre></td></tr></table></figure></p>
 </li>
 </ul>
 <p>As another example, a component dynamically added to the stage always keeps the full screen size, which can be called like this</p>
@@ -418,22 +433,30 @@
 <p>RelationType.Size is equivalent to the combination of RelationType.Width_Width and RelationType.Height_Height. It is emphasized here that the operation of making the component full screen size must be completed by you, that is, SetSize call in the above code. relation does not accomplish this task, because relation does not matter the current size of the component, it only keeps the difference in size when the target changes.</p>
 <p>To delete the relation:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Delete an relation</span></div><div class="line">    aObject.RemoveRelation (targetObject, RelationType.Size);</div><div class="line"></div><div class="line">    <span class="comment">// Delete all relations pointing to an object</span></div><div class="line">    aObject.relations.ClearFor (targetObject);</div></pre></td></tr></table></figure>
-<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><p><strong>Example one</strong></p>
+<h2 id="Examples"><a class="header-anchor" href="#Examples">¶</a> Examples</h2>
+<p><strong>Example one</strong></p>
 <p>This is the main interface of a game. The main interface usually needs to be resized to full screen when it is actually displayed. This requires that the interface size be considered when designing. The following figure is the requirements for the layout of individual components in the main interface:</p>
 <p><img src="../../images/2016-01-11_164517.jpg" alt=""></p>
-<p>A: Associated with container component “left and right center”<br>B: Associated with container component “Right-&gt; Right”<br>C: Associated with the container component “right-&gt; right”, “bottom-&gt; bottom”<br>D: Associated with the container component “bottom-&gt; bottom” and “center left and right%”<br>E: Associated with the container component “bottom-&gt; bottom”</p>
+<p>A: Associated with container component &quot;left and right center&quot;<br>
+B: Associated with container component &quot;Right-&gt; Right&quot;<br>
+C: Associated with the container component &quot;right-&gt; right&quot;, &quot;bottom-&gt; bottom&quot;<br>
+D: Associated with the container component &quot;bottom-&gt; bottom&quot; and &quot;center left and right%&quot;<br>
+E: Associated with the container component &quot;bottom-&gt; bottom&quot;</p>
 <p>Then set this interface to full screen at runtime.</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aComponent.SetSize (GRoot.inst.width, GRoot.inst.height);</div><div class="line">    <span class="comment">// Keep the full screen when the screen changes. This sentence can also be ignored if the screen size is always the same</span></div><div class="line">    aComoponet.AddRelation (GRoot.inst, RelationType.Size);</div></pre></td></tr></table></figure>
 <p><strong>Example two</strong></p>
-<p>This is a game’s NPC information interface. The intro text of the NPC is dynamic, and the text of auto height is used here. The link below is a list. Requires the list to move up or down automatically when the text content changes. We just need to associate the list “top-&gt; bottom” to the text.</p>
+<p>This is a game’s NPC information interface. The intro text of the NPC is dynamic, and the text of auto height is used here. The link below is a list. Requires the list to move up or down automatically when the text content changes. We just need to associate the list &quot;top-&gt; bottom&quot; to the text.</p>
 <p><img src="../../images/2016-01-10_105206.jpg" alt=""></p>
 <p><strong>Example three</strong></p>
 <p>This is a display of the amount of money in the game, requiring that currency icons and text remain centered when the amount changes.</p>
 <p><img src="../../images/2015-12-21_170726.png" alt=""></p>
 <p><img src="../../images/2015-12-21_172654.png" alt=""></p>
 <p><img src="../../images/2015-12-21_172639.png" alt=""></p>
-<p>First, the text needs to be set to auto width and height so that the text automatically grows when the amount changes.<br>The relations used are:<br>Text: Centered left and right to the container component<br>Icon: Left-&gt; Left to text</p>
-
+<p>First, the text needs to be set to auto width and height so that the text automatically grows when the amount changes.<br>
+The relations used are:<br>
+Text: Centered left and right to the container component<br>
+Icon: Left-&gt; Left to text</p>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
     
     <div class="footer">
       found mistake? Want to participate in editing?

@@ -355,20 +355,26 @@
       <h1>Transition</h1>
     
     <p>FairyGUI not only provides the editing function of static UI, but also provides powerful dynamic editing functions to make your UI easy to move.</p>
-<h2 id="Name-explanation"><a href="#Name-explanation" class="headerlink" title="Name explanation"></a>Name explanation</h2><ul>
-<li><p><code>Timeline</code>A change in an attribute of a component forms a timeline. For a component, the change in its position can become a timeline.</p>
+<h2 id="Name explanation"><a class="header-anchor" href="#Name explanation">¶</a> Name explanation</h2>
+<ul>
+<li>
+<p><code>Timeline</code>A change in an attribute of a component forms a timeline. For a component, the change in its position can become a timeline.</p>
 </li>
-<li><p><code>frame</code>The timeline is made up of one or more frames.</p>
+<li>
+<p><code>frame</code>The timeline is made up of one or more frames.</p>
 </li>
-<li><p><code>Keyframe</code>There are many frames on the timeline, but not all frames can adjust the properties of a symbol. Frames whose component properties can be adjusted are called “key frames”. Other normal frames are automatically generated transitions. The difference between the display of key frames and ordinary frames is that there is a white dot in the center:<img src="../../images/20170808103109.png" alt="">。</p>
+<li>
+<p><code>Keyframe</code>There are many frames on the timeline, but not all frames can adjust the properties of a symbol. Frames whose component properties can be adjusted are called &quot;key frames&quot;. Other normal frames are automatically generated transitions. The difference between the display of key frames and ordinary frames is that there is a white dot in the center:<img src="../../images/20170808103109.png" alt="">。</p>
 </li>
-<li><p><code>Tween</code>Generates an interpolation animation effect between two keyframes. Tween shows:<img src="../../images/20170808103354.png" alt="">That is, there is an arrow connecting two key frames.</p>
+<li>
+<p><code>Tween</code>Generates an interpolation animation effect between two keyframes. Tween shows:<img src="../../images/20170808103354.png" alt="">That is, there is an arrow connecting two key frames.</p>
 </li>
 </ul>
-<h2 id="Edit-transition"><a href="#Edit-transition" class="headerlink" title="Edit transition"></a>Edit transition</h2><p>In the transition list view, create a new transition or double-click on an transition to enter transition editing mode.</p>
+<h2 id="Edit transition"><a class="header-anchor" href="#Edit transition">¶</a> Edit transition</h2>
+<p>In the transition list view, create a new transition or double-click on an transition to enter transition editing mode.</p>
 <p>To exit transition editing mode, click the button at the top right of the stage:</p>
 <p><img src="../../images/QQ20191212-093756.png" alt="">。</p>
-<p>During dynamic editing, you cannot add and delete components, and you cannot modify the controller. If the attribute type of the current frame is not “Change Position”, then the component cannot be moved; if the attribute type of the current frame is “Change Size”, then the size of the component cannot be changed.</p>
+<p>During dynamic editing, you cannot add and delete components, and you cannot modify the controller. If the attribute type of the current frame is not &quot;Change Position&quot;, then the component cannot be moved; if the attribute type of the current frame is &quot;Change Size&quot;, then the size of the component cannot be changed.</p>
 <p>After selecting a symbol on the stage (or unselecting any symbol, Context in the blank space of the stage), create a timeline from the context menu:</p>
 <p><img src="../../images/QQ20191211-235703.png" alt=""></p>
 <p>Different types can be created with different components.</p>
@@ -391,39 +397,51 @@
 <li><code>Change icon</code>Change loader, label, button, drop-down box and other URL values with icon attributes.</li>
 </ul>
 <p><strong>Note: There are very few transition types supported by Groups. If you need complex actions, use components instead.</strong></p>
-<h2 id="Transition-properties"><a href="#Transition-properties" class="headerlink" title="Transition properties"></a>Transition properties</h2><p><img src="../../images/QQ20191212-001434.png" alt=""></p>
+<h2 id="Transition properties"><a class="header-anchor" href="#Transition properties">¶</a> Transition properties</h2>
+<p><img src="../../images/QQ20191212-001434.png" alt=""></p>
 <ul>
 <li><code>Frame rate</code>You can choose 24, 30 or 60 according to your needs. The frame rate set during the editing period is not related to the final running frame rate, but a higher frame density is helpful for making finer transitions.</li>
 <li><code>Ignore display controller effects</code>When checked, all components participating in the transition at the beginning of the transition are not controlled by the display controller, that is, they will not be hidden by the display controller. Control resumes after the effect is over.</li>
 <li><code>Stop automatically when container component is not visible</code>When the component moves out of the stage, it automatically stops playing transitions, saving CPU resources.</li>
-<li><code>Autoplay</code>When the component is added to the stage, the transition will start playing automatically.<ul>
+<li><code>Autoplay</code>When the component is added to the stage, the transition will start playing automatically.
+<ul>
 <li><code>repeat times</code>Number of repeats for autoplay.</li>
 <li><code>delay</code>Autoplay delay. Unit of second.</li>
 </ul>
 </li>
 </ul>
-<h2 id="Frame-properties"><a href="#Frame-properties" class="headerlink" title="Frame properties"></a>Frame properties</h2><p><img src="../../images/QQ20191212-001552.png" alt=""></p>
+<h2 id="Frame properties"><a class="header-anchor" href="#Frame properties">¶</a> Frame properties</h2>
+<p><img src="../../images/QQ20191212-001552.png" alt=""></p>
 <ul>
-<li><p><code>label</code>Set the label of the frame, an arbitrary string, identifying this frame, for access in the code.</p>
+<li>
+<p><code>label</code>Set the label of the frame, an arbitrary string, identifying this frame, for access in the code.</p>
 </li>
-<li><p><code>Tween</code>Check this box to create a Tween from this keyframe to the next keyframe. If there is no next key frame, then this Tween is invalid.</p>
+<li>
+<p><code>Tween</code>Check this box to create a Tween from this keyframe to the next keyframe. If there is no next key frame, then this Tween is invalid.</p>
 </li>
-<li><p><code>Easing function</code>Time / speed curve. Please refer to details<a href="../../images/20170802000005.jpg">Graphic</a> <a href="https://greensock.com/ease-visualizer" target="_blank" rel="external">Example</a>。</p>
+<li>
+<p><code>Easing function</code>Time / speed curve. Please refer to details<a href="../../images/20170802000005.jpg">Graphic</a> <a href="https://greensock.com/ease-visualizer" target="_blank" rel="external">Example</a>。</p>
 </li>
-<li><p><code>repeat</code>The number of repeated playbacks. -1 means loop.</p>
+<li>
+<p><code>repeat</code>The number of repeated playbacks. -1 means loop.</p>
 </li>
-<li><p><code>yoyo</code>The effect of playing back and forth. The effect of the default loop playback is from the start point to the end point, and then from the start point to the end point. After selecting yoyo, the effect of loop playback is from the start point to the end point, then from the end point to the start point, and so on.</p>
+<li>
+<p><code>yoyo</code>The effect of playing back and forth. The effect of the default loop playback is from the start point to the end point, and then from the start point to the end point. After selecting yoyo, the effect of loop playback is from the start point to the end point, then from the end point to the start point, and so on.</p>
 </li>
 </ul>
-<h2 id="Frame-data"><a href="#Frame-data" class="headerlink" title="Frame data"></a>Frame data</h2><p>Different frame types have different data. Only one type of changing position is introduced here.</p>
+<h2 id="Frame data"><a class="header-anchor" href="#Frame data">¶</a> Frame data</h2>
+<p>Different frame types have different data. Only one type of changing position is introduced here.</p>
 <p><img src="../../images/QQ20191212-001721.png" alt=""></p>
 <ul>
-<li><p><code>X</code> ``Y Modify the value of the keyframe. The check mark in front of the input box indicates that if it is not checked, the current attribute value of the component will not be modified.</p>
-<p> There is one key point to note here. Take an example. The X of the current component is 50. Uncheck it. Set X to 100 at the end of the transition, and check it. The first time the transition is played, the component moves from 50 to 100. When the transition is played for the second time, the X value of the first frame is unchecked, that is, the current value is used, that is, 100. Then the effect of the transition is from 100 to 100, which means that no performance is seen. This is a matter of dynamic design. This checked function is generally only used for attribute values that are not involved in transition. For example, if the component only moves horizontally, you can leave the box unchecked to make it easier to adjust the Y value without affecting the motion.</p>
+<li>
+<p><code>X</code> ``Y Modify the value of the keyframe. The check mark in front of the input box indicates that if it is not checked, the current attribute value of the component will not be modified.</p>
+<p>There is one key point to note here. Take an example. The X of the current component is 50. Uncheck it. Set X to 100 at the end of the transition, and check it. The first time the transition is played, the component moves from 50 to 100. When the transition is played for the second time, the X value of the first frame is unchecked, that is, the current value is used, that is, 100. Then the effect of the transition is from 100 to 100, which means that no performance is seen. This is a matter of dynamic design. This checked function is generally only used for attribute values that are not involved in transition. For example, if the component only moves horizontally, you can leave the box unchecked to make it easier to adjust the Y value without affecting the motion.</p>
 </li>
-<li><p><code>Recording coordinates using percentages</code>Coordinate values are recorded as a percentage. For example, when the component is placed in the horizontal center of the container, the x value is recorded as 50%. When entering this frame, no matter what the size of the container, the coordinates of the component are still at the center, which is 50% of the position.</p>
+<li>
+<p><code>Recording coordinates using percentages</code>Coordinate values are recorded as a percentage. For example, when the component is placed in the horizontal center of the container, the x value is recorded as 50%. When entering this frame, no matter what the size of the container, the coordinates of the component are still at the center, which is 50% of the position.</p>
 </li>
-<li><p><code>Use guides</code>If you want the component to do curve motion, you can check this option.</p>
+<li>
+<p><code>Use guides</code>If you want the component to do curve motion, you can check this option.</p>
 </li>
 </ul>
 <p>The guideline function must be used in conjunction with Tween. Check the guideline function at the start key frame of Tween.</p>
@@ -436,23 +454,26 @@
 <ul>
 <li>Select other symbols or other keyframes.</li>
 <li>Double-click on the stage blank.</li>
-<li>Context on the stage blank and select “Exit” from the context menu.</li>
+<li>Context on the stage blank and select &quot;Exit&quot; from the context menu.</li>
 </ul>
 <p>The guideline editing interface is as follows:</p>
 <p><img src="../../images/QQ20191212-094415.png" alt=""></p>
 <ol>
-<li><p>Waypoint. You can change the coordinates by holding down the path point and dragging it, or you can enter its coordinates directly in the properties panel:<img src="../../images/QQ20191212-100249.png" alt=""></p>
-<p>Add waypoints: Context on the stage blank and select “Add Points” from the menu;</p>
-<p>Delete a waypoint: Context the waypoint and choose “Delete Point” from the menu.</p>
+<li>
+<p>Waypoint. You can change the coordinates by holding down the path point and dragging it, or you can enter its coordinates directly in the properties panel:<img src="../../images/QQ20191212-100249.png" alt=""></p>
+<p>Add waypoints: Context on the stage blank and select &quot;Add Points&quot; from the menu;</p>
+<p>Delete a waypoint: Context the waypoint and choose &quot;Delete Point&quot; from the menu.</p>
 </li>
-<li><p>Control point. You can hold the control point and drag to change its coordinates, or you can enter its coordinates directly in the properties panel. Each path point has two control points. They are connected by a white line. When one of the control points is dragged, the other control point also moves at the same time. This mechanism can make the curve change smoothly at this point.</p>
+<li>
+<p>Control point. You can hold the control point and drag to change its coordinates, or you can enter its coordinates directly in the properties panel. Each path point has two control points. They are connected by a white line. When one of the control points is dragged, the other control point also moves at the same time. This mechanism can make the curve change smoothly at this point.</p>
 </li>
 </ol>
-<p>If you need to cancel this smoothing function, uncheck “Smooth” in the context menu:</p>
+<p>If you need to cancel this smoothing function, uncheck &quot;Smooth&quot; in the context menu:</p>
 <p><img src="../../images/QQ20191212-094429.png" alt=""></p>
 <p>At this time, if you move the control point again, you will find that the two consoles no longer move at the same time, so that the curve can make a larger turn:</p>
 <p><img src="../../images/QQ20191212-094654.png" alt=""></p>
-<h2 id="Transition"><a href="#Transition" class="headerlink" title="Transition"></a>Transition</h2><p>Transition playback is started in the code, for example:</p>
+<h2 id="Transition"><a class="header-anchor" href="#Transition">¶</a> Transition</h2>
+<p>Transition playback is started in the code, for example:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">Transition trans = aComponent.GetTransition(“peng”);</div><div class="line">    trans.Play();</div></pre></td></tr></table></figure>
 <p>Play has a variety of prototypes, for example, it can be played a certain number of times, and it can be called back when the playback ends. E.g:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// There is a callback at the end, but it should be noted that if there is a nested transition in the transition or there is a loop content, it will not be called back until all are finished.</span></div><div class="line">    trans.Play (callback);</div></pre></td></tr></table></figure>
@@ -481,7 +502,7 @@
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">trans.ignoreEngineTimeScale = <span class="literal">false</span>;</div></pre></td></tr></table></figure>
 <p>You can also set the dynamic timeScale separately, for example:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// The transition playback speed will be half of the original speed.</span></div><div class="line">    trans.timeScale = <span class="number">0.5</span>f;</div></pre></td></tr></table></figure>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
     
     <div class="footer">
       found mistake? Want to participate in editing?

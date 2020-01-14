@@ -361,115 +361,154 @@
 <li><code>Special element</code>List.</li>
 </ul>
 <p>Select any component on the stage, and common property setting panels appear in the property bar on the right:</p>
-<h2 id="Basic-properties"><a href="#Basic-properties" class="headerlink" title="Basic properties"></a>Basic properties</h2><p><img src="../../images/QQ20191211-163851.png" alt=""></p>
+<h2 id="Basic properties"><a class="header-anchor" href="#Basic properties">¶</a> Basic properties</h2>
+<p><img src="../../images/QQ20191211-163851.png" alt=""></p>
 <ul>
-<li><p><code>Name</code>Set the name of the component. This component can be obtained at runtime by GetChild (name). The component allows duplicate names, but the editor will prompt you with duplicate names in the display list view. You can ignore this prompt.</p>
-<p> <img src="../../images/QQ20191211-163950.png" alt=""></p>
+<li>
+<p><code>Name</code>Set the name of the component. This component can be obtained at runtime by GetChild (name). The component allows duplicate names, but the editor will prompt you with duplicate names in the display list view. You can ignore this prompt.</p>
+<p><img src="../../images/QQ20191211-163950.png" alt=""></p>
 </li>
-<li><p><code>Position</code>Set the XY coordinates of the component.</p>
+<li>
+<p><code>Position</code>Set the XY coordinates of the component.</p>
 </li>
-<li><p><code>Size</code>Set the width and height of the component.</p>
+<li>
+<p><code>Size</code>Set the width and height of the component.</p>
 </li>
-<li><p><code>Source size</code>Check the original size to restore the component size to the original size of the material. When the material is modified externally, for example, an image material, it is changed from 50x50 to 100x100 by the designer. If the original size is checked here, the width and height of the component will automatically become 100x100. The width and height will remain 50x50, and the image will be scaled.</p>
+<li>
+<p><code>Source size</code>Check the original size to restore the component size to the original size of the material. When the material is modified externally, for example, an image material, it is changed from 50x50 to 100x100 by the designer. If the original size is checked here, the width and height of the component will automatically become 100x100. The width and height will remain 50x50, and the image will be scaled.</p>
 </li>
-<li><p><code>Keep ratio</code>When designing, keep the length-width ratio of the component unchanged, that is, when changing the width or height, the height or width will change at the same time. This is a design aid and has no effect at runtime. If you want an image to maintain its proportions at runtime, you can put the image into the loader and set the fill processing of the loader to “fit to height” or “fit to width”.</p>
+<li>
+<p><code>Keep ratio</code>When designing, keep the length-width ratio of the component unchanged, that is, when changing the width or height, the height or width will change at the same time. This is a design aid and has no effect at runtime. If you want an image to maintain its proportions at runtime, you can put the image into the loader and set the fill processing of the loader to &quot;fit to height&quot; or &quot;fit to width&quot;.</p>
 </li>
-<li><p><code>Size</code>Check the arrow to the right of the size to display the size limit input interface. 0 means unlimited. Note: Modifying the size limit does not modify the current width and height, even if the current width and height value exceeds the limit value.</p>
+<li>
+<p><code>Size</code>Check the arrow to the right of the size to display the size limit input interface. 0 means unlimited. Note: Modifying the size limit does not modify the current width and height, even if the current width and height value exceeds the limit value.</p>
 </li>
-<li><p><code>Scale</code>Scale and width and height can also change the display size of the component. The difference is that:</p>
+<li>
+<p><code>Scale</code>Scale and width and height can also change the display size of the component. The difference is that:</p>
 <ul>
-<li><p>Scale is the overall direct scaling, while width and height change the enclosing size of the component. For example, for a image with a 9-grid grid set, if you change its Scale value, the 9-grid grid will not work. If you change the width and height of the image, the 9-grid grid will work. For another example, if a component changes its Scale value, the component as a whole will be enlarged or reduced, and its relationship will not take effect; if the width and height of the component are changed, only the rectangular area of the component is increased or reduced The content in it does not automatically increase or decrease, it depends on the correlation function to adjust. So remember one principle:<strong>Use width and height for layout and Scale for effects.</strong></p>
+<li>
+<p>Scale is the overall direct scaling, while width and height change the enclosing size of the component. For example, for a image with a 9-grid grid set, if you change its Scale value, the 9-grid grid will not work. If you change the width and height of the image, the 9-grid grid will work. For another example, if a component changes its Scale value, the component as a whole will be enlarged or reduced, and its relationship will not take effect; if the width and height of the component are changed, only the rectangular area of the component is increased or reduced The content in it does not automatically increase or decrease, it depends on the correlation function to adjust. So remember one principle:<strong>Use width and height for layout and Scale for effects.</strong></p>
 </li>
-<li><p>The correlation system is only valid for the width and height of the component, and does not count the effect of Scale.</p>
+<li>
+<p>The correlation system is only valid for the width and height of the component, and does not count the effect of Scale.</p>
 </li>
 </ul>
 </li>
-<li><p><code>Skew</code>Sets the tilt value of the component. For the Unity platform, you can safely use tilt for images, movieclips, and loaders, which will bring almost no extra cost, but for other types of components, such as components, please use it with caution. The tilt of the component needs to use the PaintMode technology provided by FairyGUI. The target component will be converted to RenderTexture, and then tilt will be applied, which will have a certain memory consumption. Be sure to read<a href="../unity/special.html#PaintMode">PaintMode</a></p>
+<li>
+<p><code>Skew</code>Sets the tilt value of the component. For the Unity platform, you can safely use tilt for images, movieclips, and loaders, which will bring almost no extra cost, but for other types of components, such as components, please use it with caution. The tilt of the component needs to use the PaintMode technology provided by FairyGUI. The target component will be converted to RenderTexture, and then tilt will be applied, which will have a certain memory consumption. Be sure to read<a href="../unity/special.html#PaintMode">PaintMode</a></p>
 </li>
-<li><p><code>Pivot</code>Rotate, scale, and tilt the pivot points of these transformations. The value ranges from 0 to 1. For example, X = 0.5 and Y = 0.5 represent the center position. Click the small triangle on the right to quickly set some commonly used values, such as center, lower left corner, lower right corner, etc.</p>
+<li>
+<p><code>Pivot</code>Rotate, scale, and tilt the pivot points of these transformations. The value ranges from 0 to 1. For example, X = 0.5 and Y = 0.5 represent the center position. Click the small triangle on the right to quickly set some commonly used values, such as center, lower left corner, lower right corner, etc.</p>
 </li>
-<li><p><code>As anchor</code>When this option is checked, the origin position of the component will be set to the position of the axis. By default, (0,0) of each component is in the upper left corner; when the axis is also selected as the anchor point, the (0,0) of the component is at the position of the axis.</p>
+<li>
+<p><code>As anchor</code>When this option is checked, the origin position of the component will be set to the position of the axis. By default, (0,0) of each component is in the upper left corner; when the axis is also selected as the anchor point, the (0,0) of the component is at the position of the axis.</p>
 </li>
-<li><p><code>Alpha</code>Sets the transparency of the symbol. 0 means fully transparent and 1 means fully opaque.</p>
+<li>
+<p><code>Alpha</code>Sets the transparency of the symbol. 0 means fully transparent and 1 means fully opaque.</p>
 </li>
-<li><p><code>Rotation</code>Sets the rotation angle of the component in degrees. Positive numbers indicate clockwise rotation, negative numbers indicate counterclockwise rotation.</p>
+<li>
+<p><code>Rotation</code>Sets the rotation angle of the component in degrees. Positive numbers indicate clockwise rotation, negative numbers indicate counterclockwise rotation.</p>
 </li>
-<li><p><code>Invisible</code>Make the component invisible. In the edit state, even if it is checked, the component is still visible. Only the preview state and running state are effective.</p>
+<li>
+<p><code>Invisible</code>Make the component invisible. In the edit state, even if it is checked, the component is still visible. Only the preview state and running state are effective.</p>
 </li>
-<li><p><code>Grayed</code>Gives the component a grayscale effect. By default, FairyGUI uses a color filter to generate a grayscale effect for it. But for components, in addition to using color filters to change the overall grayscale, you can also customize the effect. For example, a button component consists of a basemap and the text of the image above. The left side is the normal state, and the middle is the effect after “graying” is set. If we just want to be grayed out, as long as the image text is grayed out, and we don’t want the base image to be grayed out, then we can define a controller named “grayed” in the component like the image on the right, and this controller will control Concrete grayed out state. When a controller with this name is defined, the default overall graying effect disappears.</p>
-<p> <img src="../../images/20170727093435.png" alt=""></p>
+<li>
+<p><code>Grayed</code>Gives the component a grayscale effect. By default, FairyGUI uses a color filter to generate a grayscale effect for it. But for components, in addition to using color filters to change the overall grayscale, you can also customize the effect. For example, a button component consists of a basemap and the text of the image above. The left side is the normal state, and the middle is the effect after &quot;graying&quot; is set. If we just want to be grayed out, as long as the image text is grayed out, and we don’t want the base image to be grayed out, then we can define a controller named &quot;grayed&quot; in the component like the image on the right, and this controller will control Concrete grayed out state. When a controller with this name is defined, the default overall graying effect disappears.</p>
+<p><img src="../../images/20170727093435.png" alt=""></p>
 </li>
-<li><p><code>touchable</code>Make the component non-interactive. Neither mouse clicks nor touch screen touches will generate any events. Note: images, plain text (excluding input text and rich text), and movieclip are never touchable. If you want to listen to click events on them, convert to components, or use a rich text, GLoader.</p>
+<li>
+<p><code>touchable</code>Make the component non-interactive. Neither mouse clicks nor touch screen touches will generate any events. Note: images, plain text (excluding input text and rich text), and movieclip are never touchable. If you want to listen to click events on them, convert to components, or use a rich text, GLoader.</p>
 </li>
 </ul>
-<h2 id="Effect-properties"><a href="#Effect-properties" class="headerlink" title="Effect properties"></a>Effect properties</h2><p><img src="../../images/QQ20191211-164300.png" alt=""></p>
+<h2 id="Effect properties"><a class="header-anchor" href="#Effect properties">¶</a> Effect properties</h2>
+<p><img src="../../images/QQ20191211-164300.png" alt=""></p>
 <ul>
-<li><p><code>BlendMode</code>This provides part of the blending options setting. For the Unity platform, you can safely modify the BlendMode of images, movieclips, and text. But for components, use with caution. The BlendMode of the component needs to use the PaintMode technology provided by FairyGUI. The target component will be converted to RenderTexture, and then use the hybrid option, which will have a certain memory consumption. Be sure to read<a href="../unity/special.html#PaintMode">PaintMode</a></p>
-<p> The Blend effect in Unity may be different from the preview in the editor. Developers can redefine the blending effect by using the following code. Note: Display objects with a special BlendMode cannot be combined with other display objects.</p>
+<li>
+<p><code>BlendMode</code>This provides part of the blending options setting. For the Unity platform, you can safely modify the BlendMode of images, movieclips, and text. But for components, use with caution. The BlendMode of the component needs to use the PaintMode technology provided by FairyGUI. The target component will be converted to RenderTexture, and then use the hybrid option, which will have a certain memory consumption. Be sure to read<a href="../unity/special.html#PaintMode">PaintMode</a></p>
+<p>The Blend effect in Unity may be different from the preview in the editor. Developers can redefine the blending effect by using the following code. Note: Display objects with a special BlendMode cannot be combined with other display objects.</p>
  <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">BlendModeUtils.Override(BlendMode.Add,</div><div class="line">   UnityEngine.Rendering.BlendMode.XX, UnityEngine.Rendering.BlendMode.XX);</div></pre></td></tr></table></figure>
 </li>
-<li><p><code>Filter</code>Currently the editor supports the definition of two filters, the color filter and the blur filter. For H5 platforms, please use filters with caution, because it will bring some consumption; for Unity platform, you can safely use color filters for images, movieclips, and loaders, which will bring almost no additional consumption, but for Use other types of components, such as components, with caution. The filter of the component needs to use the PaintMode technology provided by FairyGUI. The target component will be converted to RenderTexture, and then the filter will be used, which will have a certain memory consumption. Be sure to read<a href="../unity/special.html#PaintMode">PaintMode</a></p>
-<p> Note: Display objects with filters cannot be combined with other display objects.</p>
+<li>
+<p><code>Filter</code>Currently the editor supports the definition of two filters, the color filter and the blur filter. For H5 platforms, please use filters with caution, because it will bring some consumption; for Unity platform, you can safely use color filters for images, movieclips, and loaders, which will bring almost no additional consumption, but for Use other types of components, such as components, with caution. The filter of the component needs to use the PaintMode technology provided by FairyGUI. The target component will be converted to RenderTexture, and then the filter will be used, which will have a certain memory consumption. Be sure to read<a href="../unity/special.html#PaintMode">PaintMode</a></p>
+<p>Note: Display objects with filters cannot be combined with other display objects.</p>
 </li>
 </ul>
-<h2 id="Other-properties"><a href="#Other-properties" class="headerlink" title="Other properties"></a>Other properties</h2><p><img src="../../images/QQ20191211-164316.png" alt=""></p>
+<h2 id="Other properties"><a class="header-anchor" href="#Other properties">¶</a> Other properties</h2>
+<p><img src="../../images/QQ20191211-164316.png" alt=""></p>
 <ul>
-<li><p><code>Tooltips</code></p>
-<p> The role of Tooltips: When the mouse moves over the component range, a text prompt pops up. After moving out of the component range, the text tip disappears automatically. To use Tooltips, follow these steps:</p>
+<li>
+<p><code>Tooltips</code></p>
+<p>The role of Tooltips: When the mouse moves over the component range, a text prompt pops up. After moving out of the component range, the text tip disappears automatically. To use Tooltips, follow these steps:</p>
 <ol>
-<li>Make a component. The “extended” attribute of this component needs to be defined as “label” so that the system sets the TIPS text to the “title” attribute of the label.</li>
-<li>Open the editor’s main menu “File-&gt; Project Settings”, and select “Default” in the pop-up dialog box. A “TIPS component” setting will appear on the right panel. Drag the label component you made into it.</li>
-<li>After completing the above two steps, the editor can use Tooltips preview normally. But the runtime needs to be set again using code:<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">UIConfig.tooltipsWin = <span class="string">"ui://package name/component name"</span>;</div></pre></td></tr></table></figure>
-</li>
+<li>Make a component. The &quot;extended&quot; attribute of this component needs to be defined as &quot;label&quot; so that the system sets the TIPS text to the &quot;title&quot; attribute of the label.</li>
+<li>Open the editor’s main menu &quot;File-&gt; Project Settings&quot;, and select &quot;Default&quot; in the pop-up dialog box. A &quot;TIPS component&quot; setting will appear on the right panel. Drag the label component you made into it.</li>
+<li>After completing the above two steps, the editor can use Tooltips preview normally. But the runtime needs to be set again using code:</li>
 </ol>
+ <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">UIConfig.tooltipsWin = <span class="string">"ui://package name/component name"</span>;</div></pre></td></tr></table></figure>
 </li>
-<li><p><code>Custom data</code></p>
-<p> You can set a custom data. This data is not parsed by FairyGUI, and is published to the final description file as it is. Developers can get it at runtime. The way to get it is:<code>GObject.data</code>or<code>GObject.userData</code>（Cocos2dx、Vision）。</p>
+<li>
+<p><code>Custom data</code></p>
+<p>You can set a custom data. This data is not parsed by FairyGUI, and is published to the final description file as it is. Developers can get it at runtime. The way to get it is:<code>GObject.data</code>or<code>GObject.userData</code>（Cocos2dx、Vision）。</p>
 </li>
 </ul>
-<h2 id="GObject"><a href="#GObject" class="headerlink" title="GObject"></a>GObject</h2><ul>
-<li><p><code>Set coordinates</code>SetXY, SetPosition or set x and y individually.</p>
+<h2 id="GObject"><a class="header-anchor" href="#GObject">¶</a> GObject</h2>
+<ul>
+<li>
+<p><code>Set coordinates</code>SetXY, SetPosition or set x and y individually.</p>
 </li>
-<li><p><code>Set size</code>SetSize or set width and height individually. SetSize can also take a third parameter:</p>
+<li>
+<p><code>Set size</code>SetSize or set width and height individually. SetSize can also take a third parameter:</p>
 </li>
 </ul>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Ignore the influence of the axis, that is, if the axis is set, changing the size will not change the coordinates at the same time.</span></div><div class="line">   aObject.SetSize (<span class="number">100</span>,<span class="number">100</span>, <span class="literal">true</span>);</div></pre></td></tr></table></figure>
 <ul>
-<li><p><code>Set size limit</code>minWidth、maxWidth、minHeight、maxHeight。</p>
+<li>
+<p><code>Set size limit</code>minWidth、maxWidth、minHeight、maxHeight。</p>
 </li>
-<li><p><code>Setting up Scale</code>SetScale or set scaleX and scaleY individually.</p>
+<li>
+<p><code>Setting up Scale</code>SetScale or set scaleX and scaleY individually.</p>
 </li>
-<li><p><code>Set axis</code>SetPivot or individually set pivotX, pivotY.</p>
+<li>
+<p><code>Set axis</code>SetPivot or individually set pivotX, pivotY.</p>
 </li>
 </ul>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">aObject.SetPivot (<span class="number">0.5</span>f, <span class="number">0.5</span>f); <span class="comment">// Set the axis</span></div><div class="line">    aObject.SetPivot (<span class="number">0.5</span>f, <span class="number">0.5</span>f, <span class="literal">true</span>); <span class="comment">// Set the axis and use it as the anchor point</span></div></pre></td></tr></table></figure>
 <ul>
-<li><p><code>Settings visible</code>visible = true/false。 Note: Even if the object is set to visible = false, it is still in the display list, so it still consumes some computing resources (but does not consume rendering resources), so if it is hidden for a long time, it is recommended to remove the display list, that is, RemoveFromParent. In addition, do not confuse with the display controller, the two are independent. Even if the object is visible = true, if it is not in the specified page of the display controller, the object is still invisible.</p>
+<li>
+<p><code>Settings visible</code>visible = true/false。 Note: Even if the object is set to visible = false, it is still in the display list, so it still consumes some computing resources (but does not consume rendering resources), so if it is hidden for a long time, it is recommended to remove the display list, that is, RemoveFromParent. In addition, do not confuse with the display controller, the two are independent. Even if the object is visible = true, if it is not in the specified page of the display controller, the object is still invisible.</p>
 </li>
-<li><p><code>Set up interaction</code>touchable = true/false。</p>
+<li>
+<p><code>Set up interaction</code>touchable = true/false。</p>
 </li>
-<li><p><code>Settings grayed out</code>grayed = true/false。</p>
+<li>
+<p><code>Settings grayed out</code>grayed = true/false。</p>
 </li>
-<li><p><code>Set activation</code>enabled = true/false。 The activation state of the element is actually composed of graying out + non-touchable.</p>
+<li>
+<p><code>Set activation</code>enabled = true/false。 The activation state of the element is actually composed of graying out + non-touchable.</p>
 </li>
 </ul>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// equivalent to calling GObject.grayed = true + GObject.touchable = false</span></div><div class="line">    aObject.enabled = <span class="literal">false</span>;</div></pre></td></tr></table></figure>
 <ul>
-<li><p><code>Set rotation</code>rotation。 Unity version also supports rotationX and rotationY. The 2D UI is rendered by an orthogonal camera. Setting rotationX or rotationY can have a rotation effect, but no perspective effect. FairyGUI provides the function of perspective simulation. E.g:</p>
+<li>
+<p><code>Set rotation</code>rotation。 Unity version also supports rotationX and rotationY. The 2D UI is rendered by an orthogonal camera. Setting rotationX or rotationY can have a rotation effect, but no perspective effect. FairyGUI provides the function of perspective simulation. E.g:</p>
  <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Set the practical perspective simulation of the object</span></div><div class="line">  aObject.displayObject.perspective = <span class="literal">true</span>;</div><div class="line">  <span class="comment">// Can set camera distance</span></div><div class="line">  aObject.displayObject.focalLength = <span class="number">2000</span>;</div><div class="line"></div><div class="line">  <span class="comment">// At this time, rotating the X or Y axis can have a perspective effect.</span></div><div class="line">  aObject.rotaionX = <span class="number">30</span>;</div></pre></td></tr></table></figure>
 </li>
-<li><p><code>Get native object</code>displayObject/node<em>(CocosCreator)</em>。 E.g:</p>
+<li>
+<p><code>Get native object</code>displayObject/node*(CocosCreator)*。 E.g:</p>
  <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Get the native object</span></div><div class="line">  DisplayObject displayObject = aObject.displayObject;</div><div class="line"></div><div class="line">  <span class="comment">// CococCreator gets the native object</span></div><div class="line">  <span class="keyword">let</span> node: cc.Node = aObject.node;</div><div class="line"></div><div class="line">  <span class="comment">// Unity version gets GameObject</span></div><div class="line">  GameObject go = displayObject.gameObject;</div></pre></td></tr></table></figure>
 </li>
-<li><p><code>destroy</code>Dispose. Destroy the object, and it must be called when the object is no longer used. Note: Textures, sounds and other public resources are managed by UIPackage. Destroying objects will not recycle these resources. If you want to recycle these resources, you should use UIPackage.RemovePackage.</p>
+<li>
+<p><code>destroy</code>Dispose. Destroy the object, and it must be called when the object is no longer used. Note: Textures, sounds and other public resources are managed by UIPackage. Destroying objects will not recycle these resources. If you want to recycle these resources, you should use UIPackage.RemovePackage.</p>
 </li>
-<li><p><code>resourceURL</code>The URL address of the object in the resource library. Only images, movieclips, components and other objects with linked resources can get this URL value. You can use this URL to compare whether two component objects are constructed from the same component resource. The URL is internally encoded and unreadable. If you want to get the resource name, you can use the following methods:</p>
+<li>
+<p><code>resourceURL</code>The URL address of the object in the resource library. Only images, movieclips, components and other objects with linked resources can get this URL value. You can use this URL to compare whether two component objects are constructed from the same component resource. The URL is internally encoded and unreadable. If you want to get the resource name, you can use the following methods:</p>
  <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="comment">// The name of the object in the resource library</span></div><div class="line">  Debug.Log (aObject.packageItem.name);</div><div class="line"></div><div class="line">  <span class="comment">// Get the resource name based on the URL</span></div><div class="line">  Debug.Log (UIPackage.GetItemByURL (resourceURL) .name);</div></pre></td></tr></table></figure>
 </li>
-<li><p><code>onStage</code>Gets whether the object is on the stage. Whether an object is on the stage is affected by many factors, such as whether the object is in the display list, whether it is hidden by the display controller, or whether it is hidden by the group’s display control.</p>
+<li>
+<p><code>onStage</code>Gets whether the object is on the stage. Whether an object is on the stage is affected by many factors, such as whether the object is in the display list, whether it is hidden by the display controller, or whether it is hidden by the group’s display control.</p>
 </li>
 </ul>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
     
     <div class="footer">
       found mistake? Want to participate in editing?

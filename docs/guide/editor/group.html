@@ -355,7 +355,8 @@
       <h1>Group</h1>
     
     <p>Select one or more symbols on the Stage and press Ctrl + G to create a group. There are two types of FairyGUI groups,<code>normal group and advanced group</code>。</p>
-<h2 id="Normal-group"><a href="#Normal-group" class="headerlink" title="Normal group"></a>Normal group</h2><p>The normal group is only valid during editing, and it assists you in UI design. The common group does not exist after it is published, that is, the common group cannot be accessed at runtime.</p>
+<h2 id="Normal group"><a class="header-anchor" href="#Normal group">¶</a> Normal group</h2>
+<p>The normal group is only valid during editing, and it assists you in UI design. The common group does not exist after it is published, that is, the common group cannot be accessed at runtime.</p>
 <p>The roles of the general group are:</p>
 <ol>
 <li>Can move together as a whole;</li>
@@ -369,7 +370,8 @@
 <ul>
 <li><code>name</code>You can name common groups and use them only as an aid to design.</li>
 </ul>
-<h2 id="Advanced-group"><a href="#Advanced-group" class="headerlink" title="Advanced group"></a>Advanced group</h2><p>The advanced group has all the functions of the normal group, but it is retained after the release, that is, the advanced group object can be accessed through code at runtime. So it can set relations and attribute control like a normal component.</p>
+<h2 id="Advanced group"><a class="header-anchor" href="#Advanced group">¶</a> Advanced group</h2>
+<p>The advanced group has all the functions of the normal group, but it is retained after the release, that is, the advanced group object can be accessed through code at runtime. So it can set relations and attribute control like a normal component.</p>
 <p>The role of the advanced group is:</p>
 <ol>
 <li>You can set visibility. If the group is not visible, all components within the group are not visible.</li>
@@ -380,26 +382,33 @@
 <p>Advanced group properties panel:</p>
 <p><img src="../../images/QQ20191211-151618.png" alt=""></p>
 <ul>
-<li><p><code>layout</code>The advanced group has simple layout features.</p>
+<li>
+<p><code>layout</code>The advanced group has simple layout features.</p>
 <ul>
-<li><p><code>no</code>No layout. Advanced groups without layouts will not automatically calculate enclosing, this is to improve running performance. Because the advanced group without layout is generally only used for explicit and implicit purposes.</p>
+<li>
+<p><code>no</code>No layout. Advanced groups without layouts will not automatically calculate enclosing, this is to improve running performance. Because the advanced group without layout is generally only used for explicit and implicit purposes.</p>
 </li>
-<li><p><code>Horizontal layout</code></p>
-<p> The elements in the group are arranged horizontally in the order they are displayed in the container, and the interval between them is specified by the column spacing. When the width of the group changes, each element is<strong>Increase proportionally</strong>, And then rearranged, the column spacing remains the same. When the width of the components in the group changes, the group automatically rearranges according to the rules.</p>
+<li>
+<p><code>Horizontal layout</code></p>
+<p>The elements in the group are arranged horizontally in the order they are displayed in the container, and the interval between them is specified by the column spacing. When the width of the group changes, each element is<strong>Increase proportionally</strong>, And then rearranged, the column spacing remains the same. When the width of the components in the group changes, the group automatically rearranges according to the rules.</p>
 </li>
-<li><p><code>Vertical layout</code></p>
-<p> The components of an assembly are arranged vertically in the order in which they appear in the container, and the spacing between them is specified by the line spacing. When the height of the group changes, each element<strong>Increase proportionally</strong>, Then rearrange them, leaving the line spacing unchanged. When the height of the components in the group changes, the group is automatically rearranged according to the rules.</p>
+<li>
+<p><code>Vertical layout</code></p>
+<p>The components of an assembly are arranged vertically in the order in which they appear in the container, and the spacing between them is specified by the line spacing. When the height of the group changes, each element<strong>Increase proportionally</strong>, Then rearrange them, leaving the line spacing unchanged. When the height of the components in the group changes, the group is automatically rearranged according to the rules.</p>
 </li>
 </ul>
 </li>
-<li><p><code>Exclude hidden objects</code></p>
-<p> Determines whether the advanced group reserves positions for hidden objects when applying layouts. If this option is checked, hidden objects will not participate in the arrangement.</p>
+<li>
+<p><code>Exclude hidden objects</code></p>
+<p>Determines whether the advanced group reserves positions for hidden objects when applying layouts. If this option is checked, hidden objects will not participate in the arrangement.</p>
 </li>
-<li><p><code>Disable automatic bracketing</code></p>
-<p> In general, advanced groups with layouts are automatically calculated by enclosing, that is, the size of the advanced group is determined by the elements within the group. When this option is checked, the size of the advanced group can be arbitrarily specified and is no longer affected by the elements in the group. This is used to achieve such a type of requirement: dynamically set up an advanced group. After a fixed size is set, no matter how many components are added to the group, these components automatically expand and contract, and are arranged strictly in layout.</p>
+<li>
+<p><code>Disable automatic bracketing</code></p>
+<p>In general, advanced groups with layouts are automatically calculated by enclosing, that is, the size of the advanced group is determined by the elements within the group. When this option is checked, the size of the advanced group can be arbitrarily specified and is no longer affected by the elements in the group. This is used to achieve such a type of requirement: dynamically set up an advanced group. After a fixed size is set, no matter how many components are added to the group, these components automatically expand and contract, and are arranged strictly in layout.</p>
 </li>
-<li><p><code>Scale only specified index elements</code></p>
-<p> In general, when an advanced group with a layout is stretched, the elements in the group are stretched uniformly. However, under certain requirements, only one component is required to be stretched, while other components remain the same size. Here you can specify the index implementation requirements for such a component.</p>
+<li>
+<p><code>Scale only specified index elements</code></p>
+<p>In general, when an advanced group with a layout is stretched, the elements in the group are stretched uniformly. However, under certain requirements, only one component is required to be stretched, while other components remain the same size. Here you can specify the index implementation requirements for such a component.</p>
 </li>
 </ul>
 <p><strong>Demo one</strong></p>
@@ -410,10 +419,11 @@
 <p><strong>Demo two</strong></p>
 <p>If there are components in the group that have a size limit set, then the size limit of these components will still take effect when the group size is changed. In the following example, because the left and right color blocks are limited in size, when the group becomes larger, only the middle The color blocks change size.</p>
 <p><img src="../../images/gaollg19.gif" alt=""></p>
-<h2 id="GGroup"><a href="#GGroup" class="headerlink" title="GGroup"></a>GGroup</h2><p>Advanced groups are accessible through code at runtime. Note, however, that groups are not containers; they do not maintain a list of components within a group. If you need to iterate through all the elements in a group, you need to iterate through all the children of the container component and test their group property. code show as below:</p>
+<h2 id="GGroup"><a class="header-anchor" href="#GGroup">¶</a> GGroup</h2>
+<p>Advanced groups are accessible through code at runtime. Note, however, that groups are not containers; they do not maintain a list of components within a group. If you need to iterate through all the elements in a group, you need to iterate through all the children of the container component and test their group property. code show as below:</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line">GGroup aGroup = gcom.GetChild(<span class="string">"groupName"</span>).asGroup;</div><div class="line">    <span class="keyword">int</span> cnt = gcom.numChildren;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;cnt;i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(gcom.GetChildAt(i).<span class="keyword">group</span>==aGroup)</div><div class="line">            Debug.Log(<span class="string">"get result"</span>);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p><strong>It must be noted that for advanced groups without layout, the runtime will not automatically change the size, that is, no matter how the elements in the group change, the size of this advanced group will not automatically change! </strong>If you really need to change, you can only call GGroup.EnsureBoundsCorrect yourself.</p>
-
+<p>**It must be noted that for advanced groups without layout, the runtime will not automatically change the size, that is, no matter how the elements in the group change, the size of this advanced group will not automatically change! **If you really need to change, you can only call GGroup.EnsureBoundsCorrect yourself.</p>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
     
     <div class="footer">
       found mistake? Want to participate in editing?
